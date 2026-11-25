@@ -652,15 +652,15 @@ window.cmCaseFlow.artReplay = (el) => { el.classList.remove("cfa-on"); void el.o
    step's live call. The Drafting Tools (LOR, HIPAA, Med Provider) stay out: they're standalone exercises on
    their own assigned cases, never linked to a case file. */
 const TOOLKIT = [
-  {id: "cms", icon: "🗂", short: "CMS", name: "the CMS", re: /\bCMS\b|Case File|Case Notes|Case Summary|Communications Log|Financial Ledger|Lien Tracker|Net Sheet|Recovery Ledger|Insurance tab|\bTasks\b|\bLiens\b|Parties|\bCalendar\b(?! Conflict)|Documents →|Doc Hub|Settlement \(BI\/UM\)/},
-  {id: "call", icon: "📞", short: "Call Simulator", name: "the Call Simulator", re: /Call Simulator|\bcall(s|ed)? (John|Margaret|Dana|the adjuster|the client)\b/i},
+  {id: "cms", icon: "🗂", short: "LSH CaseWorks", name: "LSH CaseWorks", re: /\bCMS\b|Case File|Case Notes|Case Summary|Communications Log|Financial Ledger|Lien Tracker|Net Sheet|Recovery Ledger|Insurance tab|\bTasks\b|\bLiens\b|Parties|\bCalendar\b(?! Conflict)|Documents →|Doc Hub|Settlement \(BI\/UM\)/},
+  {id: "call", icon: "📞", short: "Call Sim", name: "the Call Sim", re: /Call Sim(ulator)?\b|\bcall(s|ed)? (John|Margaret|Dana|the adjuster|the client)\b/i},
   {id: "netsheet", icon: "📊", short: "Net Sheet", name: "the LSH Net Sheet", re: /Net Sheet|Lien Tracker|Recovery Ledger|Specials ledger|Financial Ledger → Specials|Medical Liens \/ Payoffs|Gross Settlement|Total Medical Specials|Settlement \(BI\/UM\)(?! →)/},
   {id: "email", icon: "✉️", short: "Email", name: "the Email Workspace", re: /Email Workspace/},
   {id: "replies", icon: "📨", short: "Replies", name: "Email Replies", re: /Email Replies/},
   {id: "records", icon: "🩺", short: "ChartSwap", name: "ChartSwap (the Medical Records Requests platform)", re: /ChartSwap|Medical Records Requests?/},
   {id: "efiling", icon: "🏛", short: "E-Filing", name: "Court E-Filing", re: /E-Filing|Docket System/},
   {id: "calendar", icon: "◫", short: "Conflicts", name: "the Calendar Conflict Resolver", re: /Calendar Conflict Resolver/},
-  {id: "calendaring", icon: "🗓", short: "Calendaring", name: "the Calendaring Simulators", re: /Calendaring Simulators?/},
+  {id: "calendaring", icon: "🗓", short: "Calendaring", name: "the Calendaring Sims", re: /Calendaring Sim(ulator)?s?\b/},
   {id: "plan", icon: "📝", short: "Action Plan", name: "your Action Plan", re: /Action Plan Editor|action plan/i},
   {id: "docs", icon: "📁", short: "Documents", name: "the Case Documents", re: /Case Documents/},
   {id: "lor", icon: "📄", short: "LOR Drafting", name: "LOR Drafting (John Doe VS Robert Smith)", re: /\bLORs?\b|Letters? of Representation/},
@@ -692,20 +692,17 @@ const EMAIL_NEED = {
   // Negotiating
   "d3m1-a1": "cm_adjuster_statement",         // serving the BI time-limit demand: the adjuster's demands back
   "d3m2-a1": "cm_adjuster_statement",         // MRI findings against the 14-day gap
-  "d5m2-a1": "cm_adjuster_statement",         // Keystone PD presses for a yes: the PD position stays with counsel
   "d3m3-a1": "cm_hospital_lien",              // statutory lien reduction: the hospital's $45,000 notice
   "d3m3-a2": "cm_lop_provider",               // provider balance negotiation
   "d2m2-a1": "cm_lop_provider",               // transmitting LOPs: the provider's balance question
   "d5m1-a1": "cm_extension",                  // pleadings and discovery: opposing counsel's extension
   // Communicating
-  "d1m2-a1": "all_web_inquiry",               // multi-channel outreach: a prospective client's inquiry
   "d1m3-a1": "cm_spouse",                     // onboarding directions: what a spouse may be told
   "d2m2-a2": "cm_client_bills_collections",   // A-C-T crisis protocol: the client whose bills keep coming
   "d2m3-a1": "cm_client_bills_collections",   // probing the treatment gap with the client
-  "d2m3-a2": "cm_records_dob",                // the gap justification record: a records request refused
   "d2m4-a2": "cm_attorney_status",            // the pre-demand strategy session: "where are we?"
-  "d3m2-a2": "cm_client_net",                 // closing the gross recovery: "where is my money"
-  "d3m4-a2": "all_wire_phish"                 // release and disbursement: fraudulent wire instructions
+  "d3m4-a1": "all_wire_phish"                 // the Net Sheet's disbursement gate (d3m4-a2, merged into it, had it): fraudulent wire instructions
+  // (the activities the owner cut as extra tasks left with their scenarios: outreach, the gap record's refused request, the gross recovery's "where is my money", Keystone PD)
 };
 /* The Training Portal's Packet Builder (simulators/demand-packet.html) assembles the packet these steps put together, as
    one PDF (cover letter, index, demand, PIP log, bills, records; or the binders' numbered tabs), and files it into the
@@ -729,7 +726,7 @@ Object.assign(NET_STAGE, {"d3m2-bins": "bi", "d3m2-umns": "um"});   // the settl
    discovery; Court E-Filing for every court date the litigation track sets and for the complaint,
    the First Amended Complaint and alternative service. */
 const WORKED_IN = {
-  "d2m2-a1": ["records"], "d2m2-a2": ["records"], "d2m2-a3": ["records"], "d2m3-a2": ["records"], "d2m4-a1": ["records"], "d3m3-a2": ["records"],
+  "d2m2-a1": ["records"], "d2m2-a2": ["records"], "d2m2-a3": ["records"], "d2m3-a2": ["records"], "d2m4-a1": ["records"], "d3m1-a1": ["records"], "d3m3-a2": ["records"],
   "d4m1-a2": ["efiling"], "d4m2-a2": ["efiling"], "d5m1-a1": ["efiling", "records"], "d5m1-a2": ["efiling"],
   "d5m3-a1": ["efiling"], "d5m4-a2": ["efiling"],
   "d2m2-l1": ["records"], "d2m2-l2": ["records"], "d2m4-l1": ["records"], "d4m1-l2": ["efiling"], "d4m2-l1": ["efiling"], "d5m1-l1": ["efiling"], "d5m1-l2": ["efiling"]};
@@ -923,7 +920,7 @@ function slideBody(view, l, d){
         </div></div>`;
     }
     case "task": {   /* Your Task, the activity's one slide (js/cm-sb-task.js styles it and draws its Launch button): 📂 Your Case, the
-         assumption or what just landed, in a line or two; the steps; then one bar with three buttons: 🚀 Launch CMS & Google
+         assumption or what just landed, in a line or two; the steps; then one bar with three buttons: 🚀 Launch LSH CaseWorks & Google
          Drive, 🧰 Tools ▾ (everything else the task is done with: the Action Plan Editor, the live call, the service
          confirmation, the Amendment Requests, the Notes & Action Plan, the Source Files, a side exercise's document audit,
          a trainer's ⚡ Inject) and Submit →, which turns this slide into the 🤖 AI Grader (js/cm-ai-grader.js). What the
@@ -1072,7 +1069,7 @@ window.cmCaseFlow.inject = function(dayId, i){
 const RING_FOR = 10 * 60 * 1000, RING_SECS = 60;
 function ringBtn(dayId, b){
   if(!b || !SIM.calls[b.id] || !trainerOnly()) return "";
-  return `<div class="cfx-ringrow"><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.ring(${dayId},'${b.id}')">📞 Ring every trainee now: ${E(SIM.calls[b.id].who)}</button><small>Rings their LSH Ring Channel for ${RING_SECS} seconds; answered or missed, it's on their Scorecard.</small></div>`;
+  return `<div class="cfx-ringrow"><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.ring(${dayId},'${b.id}')">📞 Ring every trainee now: ${E(SIM.calls[b.id].who)}</button><small>Rings their LSH Voice for ${RING_SECS} seconds; answered or missed, it's on their Scorecard.</small></div>`;
 }
 window.cmCaseFlow.ring = async function(dayId, blockId){
   const c = SIM.calls[blockId]; if(!c || typeof sharedSet !== "function") return;
@@ -1086,31 +1083,44 @@ let ringing = null;
 window.cmCaseFlow.ringKeys = () => MODULES.map(d => "call-inject-day" + d.id);   // every day: a trainer rings the whole room, wherever each trainee has got to
 window.cmCaseFlow.onRing = async function(recs){
   if(ringing || !state.traineeId || state.isAdmin) return;
-  await load();   // the calls already answered or missed are on the trainee's file
-  const done = REC.injects || {};
+  await load();   // the calls already answered or missed are on the trainee's file (or logged by their other window)
+  const done = await keptInjects();
   const live = (recs || []).filter(r => r && r.active && r.id && !done[r.id] && SIM.calls[r.blockId] && Date.now() - new Date(r.at).getTime() < RING_FOR)
     .sort((a, b) => String(b.at).localeCompare(String(a.at)))[0];
   if(live) ring(live);
 };
-function logInject(r, outcome){
+/* The trainee may have the course open in two windows: both ring, and this one's record was read when it loaded. So the
+   calls the other window logged are read from what's stored first, and a call answered there is never logged as missed. */
+async function keptInjects(){
   REC.injects = REC.injects || {};
-  REC.injects[r.id] = {blockId: r.blockId, dayId: r.dayId, who: r.who, at: r.at, outcome, [outcome + "At"]: new Date().toISOString()};
+  try{
+    const v = typeof storeGet === "function" ? await storeGet(KEY) : null, kept = v && v.injects;
+    if(kept && typeof kept === "object") Object.entries(kept).forEach(([id, x]) => { const mine = REC.injects[id];
+      if(x && (!mine || (x.outcome === "answered" && mine.outcome !== "answered"))) REC.injects[id] = x; });
+  }catch(e){}
+  return REC.injects;
+}
+async function logInject(r, outcome){   // the outcome logged: "answered" when another window answered this call
+  const done = await keptInjects(), had = done[r.id];
+  if(had && had.outcome === "answered" && outcome !== "answered") return "answered";
+  done[r.id] = {blockId: r.blockId, dayId: r.dayId, who: r.who, at: r.at, outcome, [outcome + "At"]: new Date().toISOString()};
   persist();
+  return outcome;
 }
 function ring(r){
   if(document.getElementById("cfRing")) return;
   const o = document.createElement("div"); o.id = "cfRing"; o.className = "cf-ring"; o.setAttribute("role", "alertdialog"); o.setAttribute("aria-label", "Incoming call");
   let left = RING_SECS;
-  o.innerHTML = `<div class="cf-ring-box"><div class="cf-ring-ic" aria-hidden="true">📞</div><p class="cf-ring-k">Incoming call · LSH Ring Channel</p><h3>${E(r.who)}</h3>
+  o.innerHTML = `<div class="cf-ring-box"><div class="cf-ring-ic" aria-hidden="true">📞</div><p class="cf-ring-k">Incoming call · ☎ LSH Voice</p><h3>${E(r.who)}</h3>
     <p class="cf-ring-on">On John Doe's file · <span class="cf-ring-t">${left}s</span></p>
     <div class="cf-ring-btns"><button type="button" class="btn cf-ring-no">Decline</button><button type="button" class="btn cf-ring-yes">📞 Answer</button></div>
     <small>Answered or missed, this call is logged on your file and your Scorecard.</small></div>`;
   ringing = r;
   const t = setInterval(() => { left--; const el = o.querySelector(".cf-ring-t"); if(el) el.textContent = left + "s"; if(left <= 0) end("missed"); }, 1000);
   function end(outcome){
-    clearInterval(t); o.remove(); ringing = null; logInject(r, outcome);
-    if(outcome === "answered") cmCaseFlow.call(r.blockId);
-    else toast(`📞 Missed call from ${r.who}. It's logged on your file: call back from the day's Your Task slide.`);
+    clearInterval(t); o.remove(); ringing = null;
+    if(outcome === "answered"){ logInject(r, outcome); return cmCaseFlow.call(r.blockId); }
+    logInject(r, outcome).then(got => { if(got !== "answered") toast(`📞 Missed call from ${r.who}. It's logged on your file: call back from the day's Your Task slide.`); });
   }
   o.querySelector(".cf-ring-yes").onclick = () => end("answered");
   o.querySelector(".cf-ring-no").onclick = () => end("missed");
@@ -2229,7 +2239,7 @@ function npParts(blockId){
   const n = notesOf(blockId), r = npRec(blockId);
   return [{k: "tx", label: "Transcribe the voicemail", done: !!r.txAt}, {k: "plan", label: "Write your action plan", done: !!r.planAt}]
     .concat((n.emails || []).map(e => ({k: "mail-" + e.id, label: e.title.replace(/^Email Simulator — /, "Email "), done: !!npMail(r, e.id).sent})))
-    .concat(n.call ? [{k: "call", label: n.call.title.replace(/ \(Call Simulator\)$/, ""), done: !!(REC.calls || {})[blockId]}] : []);
+    .concat(n.call ? [{k: "call", label: n.call.title.replace(/ \(Call Sim(ulator)?\)$/, ""), done: !!(REC.calls || {})[blockId]}] : []);
 }
 function npCard(blockId){
   const n = notesOf(blockId), parts = npParts(blockId), r = npRec(blockId);
@@ -2746,11 +2756,11 @@ function introFrame(d, icon, title, ribbon, body){
 function caseMap(d){
   const c = CF.case, days = MODULES.filter(x => x.cf).sort((a, b) => a.cf.n - b.cf.n);
   const stages = ((SLIDES["d1m1-role"] || {}).theory || {}).framework ? SLIDES["d1m1-role"].theory.framework.steps.map(x => x.label) : [];
-  const marks = {1: [`Loss ${c.dol}`, `SOL ${c.sol} docketed`, "Matter opened in the CMS"],
-    2: [`Care starts ${c.treatmentStart}`, `${c.gapDays}-day gap to explain`, "LORs to every carrier"],
-    3: ["Specials audited", "Demand served", `${money(c.total)} stack negotiated`],
-    4: ["Liens reduced", "Net Sheet to the cent", "Mediation & Arbitration"],
-    5: ["Impasse → suit", "Discovery & deposition", "Award, then close-out"]};
+  const marks = {1: [`Loss ${c.dol} · SOL ${c.sol} docketed`, "LORs to every carrier", `Care starts ${c.treatmentStart}`],
+    2: [`${c.gapDays}-day gap explained`, "Specials audited, demand served", "BI settled at limits"],
+    3: [`UM paid: ${money(c.total)} recovered`, "Liens reduced, Net Sheet to the cent", "Disbursed and closed"],
+    4: ["Impasse: the Track B fork", "Mediation & the binders", "UM arbitration"],
+    5: ["Suit filed", "Discovery & deposition", "Award, then close-out"]};
   const track = days.map(x => `<li class="cfx-cm-node${x.cf.n === d.cf.n ? " on" : ""}"><span class="cfx-cm-n">${x.cf.n}</span><b>${E(String(x.title).replace(/^Case Flow Day \d+ · /, ""))}</b><ul>${(marks[x.cf.n] || []).map(m => `<li>${E(m)}</li>`).join("")}</ul></li>`).join("");
   const band = stages.length ? `<div class="cfx-cm-band"><span class="cfx-cm-k">Your Work on Every File: ${stages.length} Stages</span><ol>${stages.map((x, i) => `<li><i>${i + 1}</i>${E(x)}</li>`).join("")}</ol></div>` : "";
   return introFrame(d, "🗺", "The Life of John Doe's File", `${c.style} · from the loss to the close`, `${band}<p class="cfx-cm-k2">John Doe's File: ${days.length} Case Phases, One Each Day</p><ol class="cfx-cm-track">${track}</ol>
@@ -3310,14 +3320,19 @@ if(typeof submitQuiz === "function"){
   const wrapped = async function(dayId){
     const d = cfDay(dayId);
     if(!d) return __submit.apply(this, arguments);
-    const answers = Object.assign({}, state.quizAnswers || {}), before = ((state.progress || {})[dayId] || {}).date;
+    const answers = Object.assign({}, state.quizAnswers || {}), p0 = (state.progress || {})[dayId] || {}, before = p0.date;
+    const best = typeof p0.score === "number" ? p0.score : null;   // the day's score before this attempt (the best kept)
     const r = await __submit.apply(this, arguments);
     const after = ((state.progress || {})[dayId] || {}).date;
     if(after && after !== before){
       const at = new Date().toISOString(), by = {};
-      d.quiz.forEach((q, i) => { const m = d.cf.quizMod[i]; by[m] = by[m] || {correct: 0, total: 0}; by[m].total++; if(answers[i] === q.a) by[m].correct++; });
+      let right = 0;
+      d.quiz.forEach((q, i) => { const m = d.cf.quizMod[i]; by[m] = by[m] || {correct: 0, total: 0}; by[m].total++; if(answers[i] === q.a){ by[m].correct++; right++; } });
+      // the day keeps its best attempt (a retake after a trainer's reset), so the module shares are this attempt's only
+      // when it is at least that good; a module with no share yet takes this one
+      const better = best == null || Math.round(right / d.quiz.length * 100) >= best;
       await load();
-      Object.entries(by).forEach(([m, v]) => { rec(m).quiz = Object.assign(v, {pct: Math.round(v.correct / v.total * 100), at}); });
+      Object.entries(by).forEach(([m, v]) => { if(better || !rec(m).quiz) rec(m).quiz = Object.assign(v, {pct: Math.round(v.correct / v.total * 100), at}); });
       await persist();
       const g = state.cfGame; if(g && g.day === dayId){ REC.game = REC.game || {}; const b0 = REC.game[dayId]; if(!b0 || g.pts > (b0.pts || 0)) REC.game[dayId] = {pts: g.pts, best: g.best, at};
         if(!g.banked){ g.banked = true; REC.friendTokens = tokensBanked() + tokensEarned(Object.values(g.log).filter(x => x.ok).length); }   // 🤝 for the next round
@@ -3388,7 +3403,8 @@ function scoreSummary(){
   const out = {days: {}, at: REC.updatedAt || null};
   DAYS.filter(d => d.cf).forEach(d => {
     const mods = {};
-    [...new Set(d.lessons.filter(l => l.cf).map(l => l.cf.mod.id))].forEach(id => {
+    // a module counts on the day whose Knowledge Check scores it (some modules' lessons are taught the day before)
+    [...new Set(d.lessons.filter(l => l.cf && l.cf.block.kind === "check").map(l => l.cf.mod.id))].forEach(id => {
       const m = (REC.modules || {})[id]; if(!m) return;
       // (the Worker keeps only the AI score of this: it works out a, t and c itself, worker-identity.js moduleScores)
       const s = composite(m); if(s.a != null || s.t != null) mods[id] = Object.assign(s, m.ai && typeof m.ai.score === "number" ? {ai: m.ai.score} : {});
@@ -3862,7 +3878,7 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
       await persist();
       status(modId, "Reviewed");
     }catch(e){
-      status(modId, e && e.invalidInput ? (e.message || "Add more detail and try again.") : "Saved. The AI review didn't complete; your trainer will still see your answers.");
+      status(modId, e && e.invalidInput ? (e.message || "Add more detail and try again.") : `Saved. The AI review didn't complete${window.cmWhyNotGraded ? ": " + cmWhyNotGraded(e) : ""}. Your trainer still sees your answers, and the review is tried again the next time you open the course.`);
     }
     const res = document.getElementById(`cfss_res_${modId}`); if(res) res.innerHTML = scoreHtml(modId);
   }
@@ -4010,11 +4026,14 @@ function workLogged(mine, m){
   if(extra) return extra + (rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "");
   return rows.length ? `<div class="cf-tr-work"><b>🧾 Work logged in the tools:</b> ${rows.map(({x, w}) => `${E(x.title)}: <code>${E(w.ref)}</code> (${E((TOOL[w.tool] || TOOL.cms).short)})`).join(" · ")}</div>` : "";
 }
-const NET_LABEL = {recovery: "Track A · settlement", liens: "Track A · liens", final: "Track A · final", litigation: "Track B · case won"};
-function netLogged(snap, m){
-  const ns = snap["net-sheet"], stage = (m.blocks.map(x => NET_STAGE[x.id]).filter(Boolean))[0];
-  const sheet = ns && (ns.files ? ns.files[stage === "litigation" ? "B" : "A"] : ns), r = stage && sheet && sheet.checks && sheet.checks[stage];
-  return r ? `<div class="cf-tr-work"><b>📊 Net Sheet (${E(NET_LABEL[stage])}):</b> ${E(r.passed)}/${E(r.total)} tie out · checked ${E(new Date(r.at).toLocaleDateString())}${r.items.filter(x => !x.ok).map(x => ` · ✗ ${E(x.cell)} = ${E(x.got)}`).join("")}</div>` : "";
+const NET_LABEL = {recovery: "Track A · settlement", bi: "Track A · Stream 1 BI", um: "Track A · Stream 2 UM", liens: "Track A · liens", final: "Track A · final", litigation: "Track B · case won"};
+const NET_FILE = {bi: "BI", um: "UM", litigation: "B"};   // the sheet each stage is checked on (js/cm-net-sheet.js STAGES); the rest, Track A
+function netLogged(snap, m){   // every Net Sheet stage the module's blocks check (d3m2: the settlement, then the BI and UM streams)
+  const ns = snap["net-sheet"];
+  return [...new Set(m.blocks.map(x => NET_STAGE[x.id]).filter(Boolean))].map(stage => {
+    const sheet = ns && (ns.files ? ns.files[NET_FILE[stage] || "A"] : ns), r = sheet && sheet.checks && sheet.checks[stage];
+    return r ? `<div class="cf-tr-work"><b>📊 Net Sheet (${E(NET_LABEL[stage] || stage)}):</b> ${E(r.passed)}/${E(r.total)} tie out · checked ${E(new Date(r.at).toLocaleDateString())}${(r.items || []).filter(x => !x.ok).map(x => ` · ✗ ${E(x.cell)} = ${E(x.got)}`).join("")}</div>` : "";
+  }).join("");
 }
 function trainerPanel(rec){
   const work = (state.traineeWork || {})[rec.id];
@@ -4159,7 +4178,7 @@ function caseFlowProfile(){
         <div class="cf-file-who"><p class="eyebrow">Case Profile</p><h1>📇 ${E(c.style)}</h1>
           ${ext.head ? ext.head() : `<div class="cf-client"><span class="cf-client-k">📌 Your Client</span><b>${E(c.client.name)}</b><span>Matter ${E(c.no)} · Lead Counsel ${E(c.counsel)}</span></div>`}</div>
       </div>
-      <p class="cf-note">${isTrainer() ? `The whole file, as you know it: the key tabs are the answers, and trainees never see them.${DATES ? ` 📅 Case year ${E(DATES.year)} (collision ${E(DATES.dol())}); each trainee keeps the year they started on.${DATES.preview ? ` <b>Preview of ${E(DATES.year)}</b>: <a href="?caseYear=off">end it</a>.` : ""}` : ""}` : "Meet John Doe first, then follow your case in 📅 So Far. The file itself is in 📁 Case Documents, and the case you build is in the 🗂 CMS."}</p>${dolNote()}</section>
+      <p class="cf-note">${isTrainer() ? `The whole file, as you know it: the key tabs are the answers, and trainees never see them.${DATES ? ` 📅 Case year ${E(DATES.year)} (collision ${E(DATES.dol())}); each trainee keeps the year they started on.${DATES.preview ? ` <b>Preview of ${E(DATES.year)}</b>: <a href="?caseYear=off">end it</a>.` : ""}` : ""}` : "Meet John Doe first, then follow your case in 📅 So Far. The file itself is in 📁 Case Documents, and the case you build is in 🗂 LSH CaseWorks."}</p>${dolNote()}</section>
     ${fileTabs(shown, pos)}
 </div>`;
 }
@@ -4350,7 +4369,7 @@ async function backupDoc(btn, id){
       const st = window.CMDrive && CMDrive.status ? CMDrive.status() : null, ruled = !!(window.CMDrive && CMDrive.naming && CMDrive.naming());
       toast(!st || !st.configured || !st.connected || !st.built ? "Your Backup Drive isn't set up yet. Link it, then try again."
         : !ruled ? "The firm's naming convention hasn't loaded yet. Open 📂 My Backup Drive, then try again."
-        : "Open your case in the CMS first (🗂 Open CMS): the backup copy is named with its Case ID, the firm's way.");
+        : "Open your case in the CMS first (🗂 Open LSH CaseWorks): the backup copy is named with its Case ID, the firm's way.");
       return; }
     const out = await cmDocFiling.keepOnDrive(d.folder, name, await r.arrayBuffer(), d.id);
     if(out && out.ok){ btn.textContent = "✓ In GDrive"; toast(`Backed up to your Drive under ${String(out.folder).split("/").pop()} as ${name}.`); return; }
@@ -4439,7 +4458,7 @@ function caseFlowPractice(){
     `<button class="btn btn-ghost btn-sm" onclick="goto('casedocs')">📁 Case Documents</button>`,
     typeof rpLaunchQuickPractice === "function" ? `<button class="btn btn-ghost btn-sm" onclick="rpLaunchQuickPractice()">🎲 Quick roleplay call</button>` : "",
     typeof openTool === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openTool('cms',null,'library=1')">📚 CMS Training Library</button>` : "",
-    typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open the CMS</button>` : ""].join("");
+    typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open LSH CaseWorks</button>` : ""].join("");
   // one screen: a single header line, the day tabs, then the day's tiles; the any-day links ride in the header
   return `<div class="cf-px-page"><div class="cf-px-head"><h1>🧪 Practice <span>The Case Flow Skill Activities, on ${E(CF.case.style)}: each opens on its slide.</span></h1><div class="cf-px-any">${any}</div></div>
     ${tabs}
@@ -5316,7 +5335,7 @@ main:has(.cf-kc-result) #answerFeedback{max-width:none;}
 .cf-ans-pick{font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .cf-ans-right{margin-top:3px;color:#1E6B43;font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 @media (max-width:900px){.cf-ans-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
-/* Case Documents: the Case File / Documents switch sits under the page's intro (no Open CMS: the slides send trainees to
+/* Case Documents: the Case File / Documents switch sits under the page's intro (no Open LSH CaseWorks: the slides send trainees to
    the CMS), so the copy js/lsh-topbar.js puts at the top of the page is hidden there */
 main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is wrapped, so js/lsh-topbar.js leaves it alone) */
 /* the Admin screen: a solid, full-width panel over the photo (as Foundational's js/ft-admin-tidy.js) */

@@ -4,8 +4,8 @@
 //     dimension one of the Day 1–4 deliverables; the trainer's 40);
 //   · the Full Application Practice's second slide (companionBuild2) carries "Submit my companion case →" (never "AI Grader") on its ribbon, and the slide
 //     still fits one screen at 1366×768 and 1920×1080;
-//   · the bar opens the grader over the slide: no box to write in, the evidence the platform holds (the companion case
-//     first), checked by itself as it opens (Submit → again);
+//   · the bar opens the grader over the slide: a box for what the trainee built (the platform records none of the build),
+//     handed in with Submit → (never by itself as it opens: .github/scripts/aig-evidence.cjs);
 //   · submitted (the AI answered by the test, callAIJson: the test server has no AI key), the score shows in the panel and
 //     on the button, is saved under "cf-ai-grades" blocks["companion-build"], and the work log (the 🏅 Scorecard's 🧪 Skill
 //     Activities) has the attempt under "Build Your Companion Case", on Day 5.
@@ -51,8 +51,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
     if (fit.over > 2 || fit.below > 1 || fit.barBelow > 1 || fit.pages !== 1 || fit.zoom) fail(`${w}×${h}: the build's second slide should still fit one screen: ${JSON.stringify(fit)}`);
   }
 
-  // open the grader: no box to write in (as every activity's Submit, js/cm-ai-grader.js): what the platform holds for
-  // the build, checked against the rubric by itself as the panel opens (the AI answered by the test)
+  // open the grader: the trainee's account of the build in its box, handed in with Submit → (the AI answered by the test)
   await page.evaluate(() => { window.callAIJson = async () => ({ accuracyScore: 27, presenceScore: 23, riskScore: 16, efficiencyScore: 11,
     strengths: ['You ran the Conflict Check on every party first.'], blindspots: ['Name the gap\'s exact dates.'], growthSuggestions: ['Put the deadline in the note\'s first line.'] }); });
   await page.click('#lessonSlideWrap .cbg-go'); await sleep(400);
@@ -61,13 +60,12 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
   if (!box.panel) fail('Submit my companion case → should open the grader over the slide');
   const said = await page.evaluate(() => /AI Grader/.test((document.getElementById('cbgPanel') || {}).textContent || ''));
   if (said) fail('the companion case\'s Submit panel says "AI Grader": trainees only ever see Submit');
-  if (box.box) fail('the companion case\'s Submit should have no box to write in: it is checked from what the platform holds');
-  // (the evidence listed, or, once it has checked itself, what it sent)
-  if (!box.ev.some(x => /My companion case/.test(x)) && !/My companion case/.test(box.sent)) fail(`the panel should check what the platform holds, the companion case first: ${JSON.stringify(box.ev)} ${box.sent.slice(0, 120)}`);
-  if (!box.go) fail('the panel should offer Submit → (or show the grade it checked by itself)');
-  // checked by itself as it opened; Submit → once more if it has not finished
-  await sleep(1500);
-  if (await page.evaluate(() => !CMAIGrader.result('companion-build'))) { await page.click('#cbgPanel .aig-go').catch(() => {}); await sleep(1500); }
+  if (!box.box) fail('the companion case\'s Submit should have a box for what the trainee built');
+  if (!box.go) fail('the panel should offer Submit →');
+  await page.fill('#cbgPanel textarea', 'Conflict Check run on every party; the matter opened in the CMS; the folder built with its nine subfolders.').catch(() => {});
+  await page.click('#cbgPanel .aig-go').catch(() => {}); await sleep(1500);
+  const sent = await page.evaluate(() => ((CMAIGrader.all().blocks['companion-build'] || {}).draft) || '');
+  if (!/My companion case/.test(sent)) fail(`what is sent should name the companion case first: ${sent.slice(0, 120)}`);
   const res = await page.evaluate(async () => { const p = document.getElementById('cbgPanel'), st = await storeGet('cf-ai-grades');
     return { shown: p && (p.querySelector('.aig-score b') || {}).textContent, saved: CMAIGrader.result('companion-build'), stored: st && st.blocks && st.blocks['companion-build'] && st.blocks['companion-build'].score,
       status: p && (p.querySelector('.aig-st') || {}).textContent,

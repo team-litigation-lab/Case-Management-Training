@@ -8,9 +8,10 @@
 // 2. the trainee's 🏅 My Performance: their own card: the name, the Overall / Daily compliance pills, the
 //    🎯 Focus on box, the 100-point model (what feeds each dimension, the critical items), the Day scores, and the
 //    grading-systems table under a toggle; no other trainee's card;
-// 3. the trainer's 🏅 Scorecards: every approved trainee's card, the batch filter, the 🔎 one-trainee pick, a short 🏅 Scores
-//    sheet on screen (days, Knowledge Checks, activities, Overall, Result), and ⬇ Download a CSV of every column (the model's too); the same cards are Admin → 🏅 Scorecard →
-//    🏅 Scorecards (beside the 📋 Batch Sheet), with no admin action on them.
+// 3. the trainer's 🏅 Scorecards: every approved trainee's card, the batch filter, the 🔎 one-trainee pick, the one 🏅 Scores
+//    sheet on screen (days, a column per kind of work, Overall, Result: no column per grading system), and ⬇ Download a CSV
+//    that starts with it and keeps every column (the model's too); the same page is Admin → 🏅 Scorecard → 🏅 Scorecards
+//    (the old 📋 Batch Sheet folded into it), with no admin action on it.
 // Usage: node .github/scripts/scorecard-card.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -30,28 +31,39 @@ const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
     // 1. the model
     const unit = await page.evaluate(() => {
         const M = cmScorecard.model, S = cmScorecard.score;
-        const lab = (n, s) => ({ kind: 'lab', dayId: 10 + n, label: `Day ${10 + n} · Case Flow Day ${n} · Topic — CM Self-Summary`, score: 70, at: '2026-11-0' + n + 'T10:00:00Z', subs: s });
+        // (a Skill Activity's AI review, and the takeaway's: — CM Self-Summary, not scored, only its UPL flag read)
+        const lab = (n, s) => ({ kind: 'lab', dayId: 10 + n, label: `Day ${10 + n} · Case Flow Day ${n} · Topic — Skill Building`, score: 70, at: '2026-11-0' + n + 'T10:00:00Z', subs: s });
+        const tkLab = (n, s) => ({ kind: 'lab', dayId: 10 + n, label: `Day ${10 + n} · Case Flow Day ${n} · Topic — CM Self-Summary`, score: 70, at: '2026-11-0' + n + 'T11:00:00Z', subs: s });
         const rec = { dayProgress: { 11: { score: 100, done: true, takeaway: 80 } } };
-        const data = (finalPassed) => ({ 'drive-setup': { score: 100, ok: true, attempts: 1 }, 'work-log': [lab(1, { accuracy: 80, presence: 80, risk: 60, efficiency: 40 })],
+        const data = (finalPassed) => ({ 'drive-setup': { score: 100, ok: true, attempts: 1 }, 'work-log': [lab(1, { accuracy: 80, presence: 80, risk: 60, efficiency: 40 }), tkLab(1, { accuracy: 80, presence: 80, risk: 60, efficiency: 40 })],
             'net-sheet': { files: { A: { checks: { final: { passed: finalPassed, total: 5 } } } } } });
         const a = S(rec, data(4)), b = S(rec, data(5));
-        const c = S(rec, { 'drive-setup': { score: 100, ok: true, attempts: 1 }, 'work-log': [lab(1, { accuracy: 100, presence: 100, risk: 0, efficiency: 100 })] });
+        const c = S(rec, { 'drive-setup': { score: 100, ok: true, attempts: 1 }, 'work-log': [lab(1, { accuracy: 100, presence: 100, risk: 0, efficiency: 100 }), tkLab(1, { accuracy: 100, presence: 100, risk: 0, efficiency: 100 })] });
+        // 📝 the takeaway is not scored (the owner took the takeaway grades out): its review and its grade on the record count nowhere
+        const tk = S({ dayProgress: { 11: { score: 100, done: true, takeaway: 20 } } }, { 'drive-setup': { score: 100, ok: true, attempts: 1 }, 'work-log': [tkLab(1, { accuracy: 10, presence: 10, risk: 50, efficiency: 10 })] });
+        // 🎲 a random task (resolved late, graded 0) is in no score: the model is the same with it
+        const t = S(rec, Object.assign(data(5), { 'task-log': [{ dayId: 11, status: 'resolved', score: 0, submittedAt: '2026-11-02T10:00:00Z', expiresAt: '2026-11-01T10:00:00Z', task: { title: 'Late task' } }] }));
         return { weights: M.DIMS.map(k => k.w), mult: M.MULT, pass: M.PASS, tiers: M.TIERS.map(t => [t.min, t.label]), crit: M.CRIT.map(k => k.id),
             a: { days: a.days.map(d => d.S), final: a.final, status: a.status, tier: a.tier && a.tier.label, gate: [a.gate.met, a.gate.total], comp: a.comp, overall: a.overall },
             b: { final: b.final, status: b.status, tier: b.tier && b.tier.label, gate: [b.gate.met, b.gate.total], dims: b.dims.map(x => x.v) },
-            c: { final: c.final, status: c.status, tier: c.tier && c.tier.label, breach: c.gate.breaches.map(x => x.id) } };
+            c: { final: c.final, status: c.status, tier: c.tier && c.tier.label, breach: c.gate.breaches.map(x => x.id) },
+            tk: { final: tk.final, groups: tk.items.map(x => x.group + ':' + x.name).filter(g => /Takeaway|Self-Summary/.test(g)), comp: tk.days[0].comp && tk.days[0].comp.parts.map(p => p.label), sys: cmScorecard.sources.some(x => x.id === 'tk'), gate: tk.gate.total },
+            task: { final: t.final, days: t.days.map(d => d.S), groups: t.items.map(x => x.group).filter(g => /Random|Timeliness/.test(g)) }, rt: cmScorecard.sources.some(x => x.id === 'rt') };
     });
     if (JSON.stringify(unit.weights) !== '[0.25,0.25,0.3,0.2]') fail(`the dimension weights should be 25/25/30/20: ${unit.weights}`);
     if (JSON.stringify(unit.mult) !== '{"1":1,"2":1.15,"3":1.15,"4":1.3,"5":1.3}') fail(`the day multipliers should be 1.0 / 1.15 / 1.15 / 1.3 / 1.3: ${JSON.stringify(unit.mult)}`);
     if (unit.pass !== 80) fail(`the pass mark should be 80: ${unit.pass}`);
     if (JSON.stringify(unit.tiers) !== '[[90,"Exemplary"],[80,"Proficient"],[65,"Developing"],[0,"Needs Improvement"]]') fail(`the 4-tier rubric: ${JSON.stringify(unit.tiers)}`);
     if (JSON.stringify(unit.crit) !== '["upl","priv","date","trust"]') fail(`the critical items: ${unit.crit}`);
-    // Day 1: PC (KC 100, the Backup Drive's folders 100) 100 · NA (risk) 60 · CP (accuracy/presence) 80 · CD (efficiency) 40 → 72; Day 4: CP 80 → 80
-    if (JSON.stringify(unit.a.days) !== '[72,null,null,80,null]') fail(`day scores should be [72,-,-,80,-]: ${JSON.stringify(unit.a.days)}`);
-    if (unit.a.final !== 77) fail(`Final should be (72×1.0 + 80×1.3) ÷ 2.3 = 77: ${unit.a.final}`);
+    // Day 1: PC (KC 100, the Backup Drive's folders 100) 100 · NA (risk) 60 · CP (accuracy/presence) 80 · CD (efficiency) 40 → 72; Day 3 (the final disbursement Net Sheet, Track A): CP 80 → 80
+    if (unit.task.final !== unit.b.final || unit.task.groups.length || unit.rt) fail(`a random task should be in no score (the owner removed them): ${JSON.stringify(unit.task)} vs ${unit.b.final}, rt system ${unit.rt}`);
+    if (JSON.stringify(unit.a.days) !== '[72,null,80,null,null]') fail(`day scores should be [72,-,80,-,-]: ${JSON.stringify(unit.a.days)}`);
+    if (unit.a.final !== 76) fail(`Final should be (72×1.0 + 80×1.15) ÷ 2.15 = 76: ${unit.a.final}`);
     if (unit.a.status !== 'gate' || unit.a.tier !== 'Needs Improvement' || unit.a.gate.join() !== '1,2') fail(`a trust-money check failed should breach the gate (Needs Improvement): ${JSON.stringify(unit.a)}`);
-    if (unit.a.comp !== 100 || unit.a.overall !== 77) fail(`Daily compliance (KC passed, takeaways graded, the Backup Drive graded) 100 as a sub-score, and Overall = the Final, 77: ${JSON.stringify(unit.a)}`);
-    if (unit.b.final !== 88 || unit.b.status !== 'pass' || unit.b.tier !== 'Proficient' || unit.b.gate.join() !== '2,2') fail(`(72 + 100×1.3) ÷ 2.3 = 88 with the gate met should pass, Proficient: ${JSON.stringify(unit.b)}`);
+    if (unit.a.comp !== 100 || unit.a.overall !== 76) fail(`Daily compliance (KC passed, the Backup Drive graded) 100 as a sub-score, and Overall = the Final, 76: ${JSON.stringify(unit.a)}`);
+    if (unit.tk.final !== 100 || unit.tk.groups.length || unit.tk.sys || (unit.tk.comp || []).some(l => /Takeaway/.test(l)) || unit.tk.gate !== 1)
+        fail(`a takeaway should count nowhere (no grading system, no model item, no Daily compliance part), its review only giving the UPL item: ${JSON.stringify(unit.tk)}`);
+    if (unit.b.final !== 87 || unit.b.status !== 'pass' || unit.b.tier !== 'Proficient' || unit.b.gate.join() !== '2,2') fail(`(72 + 100×1.15) ÷ 2.15 = 87 with the gate met should pass, Proficient: ${JSON.stringify(unit.b)}`);
     if (unit.c.final !== 75 || unit.c.status !== 'gate' || unit.c.tier !== 'Needs Improvement' || unit.c.breach.join() !== 'upl') fail(`a takeaway with Risk 0 (UPL) should breach the gate whatever the score (75%, Developing on its own, is Needs Improvement): ${JSON.stringify(unit.c)}`);
 
     // 2. a trainee with graded work: their own card
@@ -106,10 +118,12 @@ const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
         who: [...document.querySelectorAll('select[onchange^="cmScorecard.only"] option')].map(o => o.value), head: [...document.querySelectorAll('#scx-scores .gs-head th')].map(t => t.textContent) }), id);
     if (!all.batch) fail('the trainer\'s Scorecards lost its batch filter');
     if (!all.who.includes(id)) fail('the 🔎 pick should list the trainee');
-    // 🏅 Scores on screen is the short sheet (the owner asked for the scorecards simplified): each day's score, the Knowledge
-    // Checks, the AI-graded activities, the Overall and the Result; ⬇ Download keeps every column (checked below)
-    ['Trainee', 'Batch', 'Days passed', 'Day 1 %', 'Day 5 %', '✍️ Knowledge Checks %', '🧪 Activities (AI-graded) %', 'Overall %', 'Result'].forEach(h => { if (!all.head.includes(h)) fail(`🏅 Scores should have a "${h}" column: ${JSON.stringify(all.head)}`); });
-    if (all.head.length > 15) fail(`🏅 Scores on screen should stay short (${all.head.length - 1} columns): ${JSON.stringify(all.head)}`);
+    // 🏅 Scores on screen is the one table (the owner: "all the scores consolidated in one table"): each day's score, a column
+    // per kind of work, the Overall and the Result; no column per grading system; ⬇ Download keeps every column (checked below)
+    ['Trainee', 'Batch', 'Registered', 'Days passed', 'Day 1 %', 'Day 2 %', 'Day 3 %', 'Day 4 %', 'Day 5 %', '✍️ Knowledge Checks %', 'Overall %', 'Result'].forEach(h => { if (!all.head.includes(h)) fail(`🏅 Scores should have a "${h}" column: ${JSON.stringify(all.head)}`); });
+    if (all.head.some(h => /Takeaway/.test(h))) fail(`🏅 Scores should have no Takeaways column (not scored): ${JSON.stringify(all.head)}`);
+    if (all.head.length > 17) fail(`🏅 Scores on screen should keep to its 16 columns at most (${all.head.length - 1}): ${JSON.stringify(all.head)}`);
+    if (all.head.some(h => /Graded Calls|Case Calls|Net Sheet|Portal Simulators|Grading systems average|Final %/.test(h))) fail(`🏅 Scores on screen should have no column per grading system or model part (those are in ⬇ Download): ${JSON.stringify(all.head)}`);
     const tidy = await page.evaluate(() => ({ how: [...document.querySelectorAll('.sc-how')].filter(p => !p.closest('details')).length, model: [...document.querySelectorAll('.bs-pt-s-model')].filter(t => !t.closest('details.bs-pt-how')).length }));
     if (tidy.how || tidy.model) fail(`the long "how it is scored" text and the model table should sit under the card's "How this is scored" toggle: ${JSON.stringify(tidy)}`);
     // a network blip on the background reload (sharedList answers [], get-many nulls): the cards and state.adminData stay;
@@ -152,9 +166,10 @@ const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
     else {
         const txt = require('fs').readFileSync(await dl.path(), 'utf8');
         if (txt.charCodeAt(0) !== 0xFEFF) fail('the CSV should start with a BOM (Excel reads it as UTF-8)');
-        const lines = txt.replace(/^﻿/, '').split('\r\n');
-        if (!/"Trainee","Batch","Days passed",.*"Final %","Tier","Safety gate","Result","Daily compliance %","Overall %"/.test(lines[0])) fail(`the CSV header: ${lines[0].slice(0, 300)}`);
-        if (!lines.some(l => l.includes('Cara Card'))) fail('the CSV should have the trainee\'s row');
+        const T = require('./csv-sections.cjs').parse(txt), full = T.find(x => x.title === '🏅 The 100-point model in full');
+        if (!T[0] || T[0].title !== '🏅 Scores' || T[0].head.slice(0, 4).join() !== 'Trainee,Batch,Registered,Days passed') fail(`the CSV should start with the 🏅 Scores table: ${JSON.stringify(T[0] && [T[0].title, T[0].head.slice(0, 5)])}`);
+        if (!full || !/"Trainee","Batch","Days passed",.*"Final %","Tier","Safety gate","Result","Daily compliance %","Overall %"/.test(full.head.map(h => `"${h}"`).join(','))) fail(`the CSV should keep the 100-point model in full: ${JSON.stringify(full && full.head.slice(0, 12))}`);
+        if (!T[0] || !T[0].rows.some(r => r[0].includes('Cara Card')) || !full || !full.rows.some(r => r[0].includes('Cara Card'))) fail('the CSV should have the trainee\'s row');
     }
     // the same cards in Admin → 🏅 Scorecard → 🏅 Scorecards, scores only
     await page.evaluate(() => { cmScorecard.only(''); state.adminTab = 'scorecards'; goto('admin'); });

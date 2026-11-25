@@ -110,9 +110,9 @@ Confirm: that the firm still relies on this citation for its matters.
 
 
 ### A-C-T
-**Plain words:** Our three-step response when a client's care goes off track: Assess (find out what's wrong), Coordinate (fix it with the clinic, the carrier, the family), Track (follow up until care is back on schedule).
+**Plain words:** Our three-step response when a client's care goes off track: Assess (is there a medical or legal danger?), Clarify (call the provider's office, then the client, and find out what's really going on), Track (document every step and follow up until care is back on schedule).
 
-**Say it like this:** "A-C-T is our fire drill. Assess: call the client and find the barrier. Coordinate: line up the fix. Track: check the next visits actually happen. Spotting smoke and not calling anyone isn't a fire drill; it's a campfire."
+**Say it like this:** "A-C-T is our fire drill. Assess: is this a medical or legal danger? Clarify: call the clinic, then the client, and find the barrier. Track: write it down and check the next visits actually happen. Spotting smoke and not calling anyone isn't a fire drill; it's a campfire."
 
 **Why it matters for the settlement:** Every documented A-C-T turns a gap the adjuster would use against us into a gap with a reason.
 
@@ -466,7 +466,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 
 
 ### Exhaustion (BI exhaustion)
-**Plain words:** The at-fault driver's BI coverage is "exhausted" when it's been paid, or offered, up to its limit. Only then does John Doe's own UM backup open.
+**Plain words:** The at-fault driver's BI coverage is "exhausted" when it's been paid, or offered, up to its limit. Only then does the UM coverage John Doe claims as an insured open: Host UM, then Relative UM.
 
 **Say it like this:** "Think of it as a line at the counter: BI goes first, then Host UM, then Relative UM. Nobody skips ahead. Send a UM demand before BI is used up and you've just mailed a letter to the back of the line."
 
@@ -778,7 +778,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | Recovery Stack | d2m1-cov | Only the coverage that pays the claim itself (BI, then UM/UIM) |
 | BI (bodily injury coverage) | d2m1-cov | Injury coverage on the at-fault driver |
 | UM / UIM | d2m1-cov | Coverage that steps in when the at-fault driver has too little or no insurance |
-| MedPay / PIP | d2m1-cov | No-fault medical coverage: pays accident medical bills no matter who caused the crash |
+| MedPay / PIP | d2m1-cov | Medical coverage that pays accident medical bills no matter who caused the crash; Riverton's PIP is add-on: it does not reduce BI or UM |
 | Set-off / non-duplication | d2m1-cov | Some policies subtract what PIP or MedPay already paid |
 | Subrogation | d2m1-cov, d1m1-l2 | A payer's right to get its money back out of the settlement |
 | Contract rate / write-off | d2m1-cov | An in-network doctor accepts the plan's price and writes off the rest |
@@ -839,7 +839,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | MMI (Maximum Medical Improvement) | d2m2-cost, d2m2-l2 | The doctor says he's as good as he's going to get |
 | Barrier | d2m2-l2 | Anything stopping him getting to care |
 | Variance (clinical / psychosocial / systemic) | d2m2-l2 | The type of problem: medical, life or mood, or the system being stuck |
-| A-C-T | d2m2-l2 | Assess the danger, Coordinate the fix, Track it |
+| A-C-T | d2m2-l2 | Assess the danger, Clarify what's wrong, Track it |
 | GIRP note | d2m2-l2 | A short note of the Goal, Intervention, Response and Plan, facts only |
 | IME | d2m2-l2 | An exam the insurance company orders from its own doctor |
 | Causation | d2m2-l2 | The crash caused the injury |
@@ -903,7 +903,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | Term | Block | The plain explanation in the script |
 |---|---|---|
 | Coordinate, don't commingle | d2m3-l1 | The medical side and the legal side don't get mixed up in your notes |
-| A-C-T (Assess, Coordinate, Track) | d2m3-l1 | Our three-step plan the minute something goes wrong in care |
+| A-C-T (Assess, Clarify, Track) | d2m3-l1 | Our three-step plan the minute something goes wrong in care |
 | Medical danger vs. legal danger | d2m3-l1 | A fever or failing hardware goes to the doctor; a gap or vague note goes to Atty. Thorne |
 | Funnel (questioning) | d2m3-l1 | Broad open questions first, follow-ups on his words, yes-or-no questions last to pin a date or document |
 | Recorded Statement | d2m3-l1 | The insurance company taping his version of events |
@@ -984,7 +984,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | Professional pause | d3m2-l1 | After a low number, stay quiet so the adjuster has to justify it |
 | Net Sheet / net floor | d3m2-l1 | Liens plus costs plus fee: below that line the client receives $0 |
 | Bracketing | d3m2-l2 | Paired ranges that meet in the middle; haggling, and Atty. Thorne's tool |
-| PIP / no-fault | d3m2-l2 | The client's own coverage for medical bills; in a no-fault state it pays first whoever caused the crash |
+| PIP / no-fault | d3m2-l2 | Medical coverage that pays regardless of fault; in a no-fault state it pays first and limits suits; Riverton's is add-on |
 | Non-economic damages | d3m2-l2 | The pain and how life changed |
 | PIP non-duplication | d3m2-l2 | Not paying twice for the same bill |
 | MMI residuals | d3m2-l2 | What's still wrong after healing |
@@ -1070,7 +1070,7 @@ Confirm: what the forum's rules require to authenticate video; Atty. Thorne deci
 | Degenerative | d4m3-prior | Wear and tear from age |
 | Pre-morbid baseline | d4m3-prior | John's condition before 02/06/2026, from records |
 | Eggshell idea | d4m3-prior | The at-fault driver takes the injured person as he finds him; making an old problem worse still counts (rule to confirm) |
-| PIP | d4m3-a1 | John's own no-fault medical coverage |
+| PIP | d4m3-a1 | Add-on medical coverage paying his accident bills regardless of fault: Harbor Point's $10,000 PIP on Kevin Alvarez's Escape, the car John rode in, not a policy of his own |
 | Unbelted defense | d4m3-kc | The argument that John wasn't wearing his seatbelt |
 | Pleading | d4m2-l1 | A formal court paper. |
 | Prayer for relief | d4m2-l1 | The part of the Complaint that asks the court for what we want. |

@@ -408,7 +408,7 @@ window.CM_CF_EXHIBITS = {
    "source": "RS66",
    "reveal": "RS67",
    "due": "07/20/2026",
-   "intro": "The demand specialist built the enclosure set and typed the Specials from it. Nothing has been re-verified since the pre-demand audit and no corrected record has been chased. Work the set item by item: every loophole here is one Dana Whitfield can use, and every gap is one she will find.",
+   "intro": "The demand specialist built the enclosure set and typed the Specials from it. The corrected records from the Amendment Requests (07/10, 07/15) are on file, but the set was built without them. Work the set item by item: every loophole here is one Dana Whitfield can use, and every gap is one she will find.",
    "columns": {
     "ref": "Exhibit",
     "as": "As drafted"
@@ -433,7 +433,7 @@ window.CM_CF_EXHIBITS = {
      "as": "Scene original, scanned; signed and dated 02/06/2026.",
      "verdict": "keep",
      "kind": "qc",
-     "issue": "An independent witness who signed at the scene is the answer to the comparative-negligence line defense counsel pressed later. The copy is the signed original.",
+     "issue": "An independent witness who signed at the scene is the liability proof that does not depend on John Doe or Robert Smith: she saw the Escape stop and the pickup run the sign. The copy is the signed original.",
      "fix": "Confirm the signature and date are legible on the scan, and that a signed follow-up statement has been requested before memories fade.",
      "proof": [
       "RS08"
@@ -457,7 +457,7 @@ window.CM_CF_EXHIBITS = {
      "as": "Certified copy, run RF-26-0206-114, from Riverton Fire records.",
      "verdict": "keep",
      "kind": "gap",
-     "issue": "This is the document that answers the fourteen days: a neck complaint recorded at the scene on the date of loss, and \"restrained front-seat passenger\" against the later unbelted defense.",
+     "issue": "This is the document that answers the fourteen days: a neck complaint recorded at the scene on the date of loss, with \"restrained front-seat passenger\" recorded.",
      "fix": "Confirm it is the certified copy and that the demand's section 3 quotes it, not paraphrases it.",
      "proof": [
       "RS11"
@@ -470,7 +470,7 @@ window.CM_CF_EXHIBITS = {
      "verdict": "replace",
      "kind": "arithmetic",
      "issue": "05/04/2026 is billed twice. The attendance log shows 33 attended visits, so the audited figure is 33 × $185.00 = $6,105.00. A demand built on a duplicate is a demand the carrier can discredit line by line.",
-     "fix": "Request the Final Itemized Ledger with the duplicate removed, re-verify the balance with the provider in the week of service, and update the Specials.",
+     "fix": "Present the audited $6,105.00 with the attendance log, the duplicate 05/04/2026 line struck and annotated: the provider reissues the ledger only when the LOP closes (07/09/2026). Update the Specials.",
      "proof": [
       "RS23",
       "RS14"
@@ -483,9 +483,10 @@ window.CM_CF_EXHIBITS = {
      "verdict": "replace",
      "kind": "loophole",
      "issue": "The $1,540.00 is the contractual adjustment. Crescent is in network, was paid $1,860.00 at the contract rate, and cannot balance-bill the member. Enclosing it asserts a balance that does not exist and invites a lien that does not exist.",
-     "fix": "Ask Crescent for a corrected $0.00 patient statement, enclose it with Peach State's EOB, and never list Crescent as an open balance.",
+     "fix": "Replace it with Crescent's corrected $0.00 statement of 07/10/2026, already on file from the Amendment Request, enclosed with Peach State's EOB; never list Crescent as an open balance.",
      "proof": [
-      "RS26"
+      "RS26",
+      "RS73"
      ]
     },
     {
@@ -495,9 +496,10 @@ window.CM_CF_EXHIBITS = {
      "verdict": "replace",
      "kind": "loophole",
      "issue": "The date of loss is 02/06/2026. A ten-day error inside our own causation exhibit is exactly what an adjuster uses to argue the herniation came from something else, and it sits on the one document that answers \"degenerative\".",
-     "fix": "Request a corrected history addendum from Summit Imaging and enclose the report with it; keep Dr. Park's impression quoted word for word in the letter.",
+     "fix": "Enclose the report with Summit's corrected history addendum of 07/15/2026, already on file from the Amendment Request; keep Dr. Park's impression quoted word for word in the letter.",
      "proof": [
-      "RS16"
+      "RS16",
+      "RS72"
      ]
     },
     {
@@ -578,13 +580,13 @@ window.CM_CF_EXHIBITS = {
      "as": "Not in the set. The nineteen-day April disruption has no exhibit at all.",
      "verdict": "add",
      "kind": "gap",
-     "issue": "The letter explains the fourteen days, then leaves the April break to be discovered. Keystone will call it failure to mitigate, and the answer — the rental ending 03/19, the carpool ending 04/01, evening visits from 04/21 — is nowhere in the enclosures.",
+     "issue": "The letter explains the fourteen days but not the April break. Keystone will call it failure to mitigate, and the answer — crash-related anxiety after the 04/02/2026 panic episode, in Dr. Reyes's 04/20 note and the counseling summary — is not in the enclosures.",
      "fix": "Add the Gap Explanation Record: every entry with its underlying record, both intervals, and the A-C-T account of the April break with the attendance log behind it.",
      "proof": [
-      "RS14",
       "RS21",
       "RS43",
-      "RS11"
+      "RS77",
+      "RS78"
      ]
     },
     {
@@ -604,7 +606,7 @@ window.CM_CF_EXHIBITS = {
      "what": "Each deficiency as a dated, assigned CMS task",
      "as": "The draft asks the Case Manager to tell the specialist what to change.",
      "verdict": "flag",
-     "kind": "privilege",
+     "kind": "gap",
      "issue": "Fixing a draft quietly leaves no record of who found what, and no way to prove the set was audited before it went out. The terms, the amount and the deadline are Atty. Thorne's and are not the Case Manager's to change at all.",
      "fix": "Log every finding above as a dated, assigned task; route the corrected set and the audit note to Atty. Thorne for signature. Change no term.",
      "proof": [
@@ -844,7 +846,7 @@ window.CM_CF_EXHIBITS = {
    "source": "RS84",
    "reveal": "RS85",
    "due": "10/15/2026",
-   "intro": "Six days before disbursement an outside firm claims a charging lien and $6,666.67 of the fee, on an agreement dated 07/27/2026. Work its notice, agreement and time record item by item against the file, decide what goes into the evidentiary packet for Atty. Thorne, and what is his alone to decide.",
+   "intro": "Eight days before disbursement an outside firm claims a charging lien and $6,666.67 of the fee, on an agreement dated 07/27/2026. Work its notice, agreement and time record item by item against the file, decide what goes into the evidentiary packet for Atty. Thorne, and what is his alone to decide.",
    "columns": {
     "ref": "Claim",
     "as": "As Vance & Kettering puts it"
@@ -1053,7 +1055,7 @@ window.CM_CF_EXHIBITS = {
      "as": "Parties, counsel and the session date; start time and location \"to be confirmed\"; mediator's fee \"split 50/50 (assumed)\".",
      "verdict": "replace",
      "kind": "gap",
-     "issue": "On the morning of 03/18/2027 nobody can tell from the binder where to be or when. And a fee split the firm never agreed to is a bill it did not expect: the order says how the mediator is paid.",
+     "issue": "On the morning of 03/18/2027 nobody can tell from the binder where to be or when. And a fee split marked \"assumed\" is one nobody can stand behind: 50/50 is right, but only the order says so.",
      "fix": "Take the start time, location and the carrier's video link from the mediator's confirmation and the fee split from the mediation order; verify every contact and date it.",
      "proof": [
       "RS57"
@@ -1093,7 +1095,7 @@ window.CM_CF_EXHIBITS = {
      "issue": "The operative answer is what the mediator needs: it is the list of everything the other side intends to argue, and this file can answer all of it.",
      "fix": "Confirm it is the served copy, and that every allegation in it appears in the defense map below.",
      "proof": [
-      "RS51"
+      "RS53"
      ]
     },
     {
@@ -1105,7 +1107,7 @@ window.CM_CF_EXHIBITS = {
      "issue": "Every allegation in the answer is already answerable from documents on this file. Without the map the mediator hears each one answered by a sentence instead of a page, and Atty. Thorne has to find the exhibit himself.",
      "fix": "Add the map: each pleaded allegation against the exhibit that answers it, by exhibit number. Flag the two legal questions for Atty. Thorne rather than answering them.",
      "proof": [
-      "RS51",
+      "RS53",
       "RS09",
       "RS11"
      ]
@@ -1141,8 +1143,8 @@ window.CM_CF_EXHIBITS = {
      "as": "The carrier's letters, February to April 2026, as exhibits M-7 to M-9.",
      "verdict": "keep",
      "kind": "gap",
-     "issue": "Among them is Keystone's acceptance of Property Damage liability on 02/17/2026, and the rental cutoff that begins the April disruption. Both are the carrier's own writing.",
-     "fix": "Confirm the 02/17/2026 letter and the rental cutoff are in the set; what weight the liability acceptance carries is Atty. Thorne's call, not the binder's.",
+     "issue": "Among them is Keystone's acceptance of Property Damage liability on 02/17/2026, the carrier's own writing, and its 03/16/2026 letter ending Margaret's rental: background to the April break, not its cause, which is crash-related anxiety documented by Dr. Reyes and the counselor.",
+     "fix": "Confirm the 02/17/2026 letter and the 03/16/2026 rental letter are in the set; what weight the liability acceptance carries is Atty. Thorne's call, not the binder's.",
      "proof": [
       "RS32"
      ]
@@ -1183,7 +1185,7 @@ window.CM_CF_EXHIBITS = {
      "fix": "Show the charge satisfied by the plan's contract payment, proved by Peach State's EOB and the corrected $0.00 statement; the open claims are Peach State $1,860.00 and Riverton Spine & Rehab $6,105.00 = $7,965.00.",
      "proof": [
       "RS26",
-      "RS41"
+      "RS91"
      ]
     },
     {
@@ -1318,10 +1320,11 @@ window.CM_CF_EXHIBITS = {
      "verdict": "pull",
      "kind": "loophole",
      "issue": "The draft is unsigned, carries no case number and omits pleaded counts. And the tort pleadings belong to a case that has been dismissed as to Robert Smith: whether they are exchanged here at all is not the Case Manager's call.",
-     "fix": "Take the draft out of the file set, move the filed pleadings to the attorney's set, and put the exchange question to Atty. Thorne.",
+     "fix": "Remove the draft. The filed Complaint and Answer stay at Tab 2, as the deck's Section 2 places them; whether they are exchanged goes to Atty. Thorne.",
      "proof": [
       "RS50",
-      "RS51"
+      "RS51",
+      "RS53"
      ]
     },
     {
@@ -1378,11 +1381,11 @@ window.CM_CF_EXHIBITS = {
     {
      "ref": "C-6",
      "what": "Provider certifications",
-     "as": "None requested from any provider or record-holder.",
+     "as": "Requested from Crescent Pain & Spine only (05/05/2027, not received); none from any other provider or record-holder.",
      "verdict": "add",
      "kind": "gap",
-     "issue": "An uncertified record is a record a carrier can object to, and the whole ledger rests on them. Nineteen days before the exchange, nothing has been asked for.",
-     "fix": "Request a certification from every provider and from Riverton Fire, Riverton PD and Northgate HR, and log each receipt. Nothing back in 14 days means a second request and a subpoena flag for Atty. Thorne.",
+     "issue": "An uncertified record is a record a carrier can object to, and the whole ledger rests on them. Sixteen days before the exchange, only Crescent's has been asked for.",
+     "fix": "Request a certification from every other provider and from Riverton Fire, Riverton PD and Northgate HR, and log each receipt. Nothing back in 14 days means a second request and a subpoena flag.",
      "proof": [
       "RS63"
      ]
@@ -1420,7 +1423,7 @@ window.CM_CF_EXHIBITS = {
      "verdict": "pull",
      "kind": "privilege",
      "issue": "The memo is work product and a record of settlement communications. Filed because it explains the history, it puts our strategy and every number we discussed in front of the carriers.",
-     "fix": "Pull the memo to the attorney's set for Atty. Thorne's privilege decision and leave Tab 6 to wage proof alone. Nothing is exchanged, and nothing withheld, on the Case Manager's own decision.",
+     "fix": "Pull the memo to the attorney's set for Atty. Thorne's privilege decision. Tab 6 keeps the wage proof, negotiation ledger and audited lien sheet, the last two flagged for his exchange decision.",
      "proof": [
       "RS63"
      ]
@@ -1459,7 +1462,7 @@ window.CM_CF_EXHIBITS = {
      "issue": "Both are right: the plan's itemized reimbursement claim, and the LOP account at the audited 33 visits. Together they are the $7,965.00 the net is actually worked from.",
      "fix": "Confirm Crescent and Summit Imaging are shown at $0.00 as well, and reconcile the sheet to $7,965.00 before it goes to Atty. Thorne.",
      "proof": [
-      "RS41",
+      "RS91",
       "RS25"
      ]
     },
@@ -2250,10 +2253,389 @@ window.CM_CF_EXHIBITS = {
   }
  },
  "amendments": {
+  "d3m1-a1": {
+   "was": "d2m4-a1",
+   "title": "Amendment Requests of 07/06/2026: records wrong at their source",
+   "kicker": "The 07/06/2026 requests: screen, ask each provider in writing, then see what came back.",
+   "intro": "Worked as of 07/06/2026, the step behind the corrected copies the 07/20 audit relies on: every bill is in, MMI is declared, no demand drafted. Screen the records and bills for anything wrong at source. You never fix a provider's record: Atty. Thorne approves the request, the provider corrects its own, and the original stays.",
+   "screen": [
+    {
+     "doc": "RS14",
+     "why": "33 attended visits, 05/04/2026 once, and the 19-day April break recorded with its cause. It is the proof against the ledger, not the problem."
+    },
+    {
+     "doc": "RS16"
+    },
+    {
+     "doc": "RS18",
+     "why": "MMI declared 06/12/2026 with possible repeat injections as future care. Fit to use as written."
+    },
+    {
+     "doc": "RS21",
+     "why": "Receipts from 02/07/2026 totalling $312.40 that corroborate symptoms the day after the collision."
+    },
+    {
+     "doc": "RS22",
+     "why": "$685.00, paid in full by Harbor Point MedPay. Nothing owed and nothing wrong."
+    },
+    {
+     "doc": "RS98",
+     "why": "The ER and EMS bills of 02/20–02/21/2026, $26,582.60, paid by PIP at the fee schedule, $10,000.00, the rest written off. Nothing owed and nothing wrong."
+    },
+    {
+     "doc": "RS97",
+     "why": "Dr. Sarah Spine's emergency department record with her EMC determination: the reason PIP paid its full $10,000.00. Fit to use as written."
+    },
+    {
+     "doc": "RS23"
+    },
+    {
+     "doc": "RS24",
+     "why": "Three visits at $640.00, all paid by MedPay. It ties to the MedPay rows of the PIP Log."
+    },
+    {
+     "doc": "RS25",
+     "why": "$2,395.00 paid by MedPay. The invoice is right; it is the MRI report's history line that is wrong."
+    },
+    {
+     "doc": "RS26"
+    },
+    {
+     "doc": "RS31",
+     "why": "PIP's two payments matched to the ER and EMS bills, $10,000.00, and MedPay's five to five bills, $5,000.00, both limits exhausted. It reconciles."
+    },
+    {
+     "doc": "RS43",
+     "why": "Nine missed shifts at 8 hours and $22.00, $1,584.00, with the call-outs before first treatment."
+    }
+   ],
+   "requests": [
+    {
+     "doc": "RS16",
+     "corrected": "RS72",
+     "proof": [
+      "RS12",
+      "RS11"
+     ],
+     "wrong": "The clinical history gives 02/16/2026 as the injury date. The date of loss is 02/06/2026, as the urgent-care note and the EMS Run Report record.",
+     "to": "Marisol Ortega, HIM Supervisor <him@summitimaging.example>",
+     "cc": "Elijah Thorne <ethorne@lshlawgroup.example>",
+     "subject": "Amendment request: John Doe, cervical MRI of 03/13/2026, clinical history date",
+     "attachment": "Claim-specific HIPAA authorization (signed 02/09/2026)",
+     "brief": "Ask Summit to review the history line of its own report and, if it is wrong, correct it by a dated addendum with the original kept. Identify the study, quote the date, give the correct one and its source. Ask for nothing else, and never for a change to the findings.",
+     "required": [
+      {
+       "id": "patient",
+       "label": "Identifies the patient and the study",
+       "hint": "Give John Doe's name with his DOB, MRN or the accession number.",
+       "match": [
+        "john doe|doe, john|mr\\.? doe",
+        "08/14/1991|SIC-0093317|SIC-MR-26-031307|accession|MRN|date of birth|DOB"
+       ]
+      },
+      {
+       "id": "report",
+       "label": "Names the report: the cervical MRI of 03/13/2026",
+       "hint": "Name the exam and its date so the right report is reviewed.",
+       "match": [
+        "MRI",
+        "03/13/2026|march 13"
+       ]
+      },
+      {
+       "id": "error",
+       "label": "Quotes the error: 02/16/2026 in the clinical history",
+       "hint": "Quote the date as the report has it, and say where it is.",
+       "match": [
+        "02/16/2026|02/16|february 16",
+        "history"
+       ]
+      },
+      {
+       "id": "correct",
+       "label": "Gives the date of loss, 02/06/2026, and where it is recorded",
+       "hint": "Give the correct date and the record that shows it, such as the referral or the urgent-care note.",
+       "match": [
+        "02/06/2026|02/06|february 6"
+       ]
+      },
+      {
+       "id": "addendum",
+       "label": "Asks for a dated addendum, the original report kept",
+       "hint": "Ask Summit to review and, if it agrees, issue its own dated addendum. The original stays.",
+       "match": [
+        "addend"
+       ]
+      },
+      {
+       "id": "thorne",
+       "label": "Goes out with Atty. Thorne's approval, copied to him",
+       "hint": "A record that looks wrong goes to Atty. Thorne first. Copy him and say he approved the request.",
+       "match": [
+        "thorne",
+        "approv|cc|copied|copy"
+       ]
+      }
+     ],
+     "forbidden": [
+      {
+       "id": "findings",
+       "label": "Asks for the findings or impression to be changed",
+       "why": "An amendment corrects a fact in the history. Asking a radiologist to change a reading is tampering with a medical record, and Keystone would use it to discredit the whole report.",
+       "match": [
+        "(change|revise|remove|delete|edit|rewrite|reword|update|soften)\\s+(the\\s+|your\\s+|any\\s+)?(reference to\\s+|word\\s+)?(impression|findings?|reading|degenerat|conclusion)"
+       ]
+      },
+      {
+       "id": "rewrite",
+       "label": "Asks Summit to change or replace the report to match our file",
+       "why": "A provider corrects its own record by a dated addendum after its own review, and the original stays. Asking it to match our file, replace or back-date the report is asking for an altered record.",
+       "match": [
+        "(match|conform to)\\s+(our|the firm'?s|my)\\s+(file|records?)|back.?dat|replace (the|your) (original )?report|new (version of the )?report dated"
+       ]
+      },
+      {
+       "id": "strategy",
+       "label": "Shares the case's value or strategy with a provider",
+       "why": "A provider has no business with the demand, its figure or the settlement. A records request asks for the record and nothing else.",
+       "match": [
+        "(case|claim) is worth|settlement (value|amount|figure)|we (will|plan to|intend to) demand|policy limits? demand"
+       ]
+      }
+     ],
+     "reply": {
+      "from": "Marisol Ortega, HIM Supervisor <him@summitimaging.example>",
+      "date": "07/15/2026",
+      "time": "10:40 a.m.",
+      "subject": "RE: Amendment request: John Doe, cervical MRI of 03/13/2026, clinical history date",
+      "body": "Thank you for your request of July 6. Dr. Park reviewed the history line against the referral from Lakeside Orthopedics and our intake record. It was a transcription error, and she signed an addendum this morning correcting the date of injury to 02/06/2026.\n\nThe addendum corrects the clinical history only. The findings and impression are unchanged and were not re-read. The original report stays in the permanent record with the addendum attached. The addendum is attached, and a copy has gone to Lakeside Orthopedics by fax."
+     },
+     "protects": "Exhibit F now carries a history that matches the date of loss, so Keystone cannot read the record as an injury ten days after the collision, and Dr. Park's impression stands exactly as she read it.",
+     "model": "Dear Ms. Ortega,\n\nThis firm represents John Doe (DOB 08/14/1991, MRN SIC-0093317). With Atty. Elijah Thorne's approval, copied here, I am asking Summit Imaging Center to review the clinical history of Mr. Doe's cervical MRI of 03/13/2026, accession SIC-MR-26-031307.\n\nThe history line reads \"date of injury 02/16/2026\". The collision was on 02/06/2026, as the referral from Lakeside Orthopedics and the Riverton Urgent Care note of 02/20/2026 record.\n\nIf Dr. Park's review confirms the error, please correct it by a dated addendum, keeping the original report in the record. We ask about the date in the history only. Mr. Doe's claim-specific HIPAA authorization is attached.\n\nThank you,\nCase Manager, LSH Law Group"
+    },
+    {
+     "doc": "RS26",
+     "corrected": "RS73",
+     "proof": [
+      "RS26",
+      "RS17"
+     ],
+     "wrong": "The patient statement of 07/01/2026 bills John Doe $1,540.00, the contractual adjustment on the EOB. Crescent is in network and was paid $1,860.00 at the contract rate; it cannot bill the member.",
+     "to": "Renee Halvorsen, Billing Lead <billing@crescentpainspine.example>",
+     "cc": "Elijah Thorne <ethorne@lshlawgroup.example>",
+     "subject": "Corrected statement requested: John Doe, account CPS-30442",
+     "attachment": "Peach State EOB, claim PS-2605-449021 (06/03/2026); claim-specific HIPAA authorization",
+     "brief": "Ask Crescent to correct its statement. Identify the account, name the statement and the $1,540.00, explain from the EOB why the member owes nothing, and ask for a corrected statement showing $0.00. Offer nothing and concede nothing.",
+     "required": [
+      {
+       "id": "account",
+       "label": "Identifies the patient and the account",
+       "hint": "Give John Doe's name and the account number, CPS-30442, or his DOB.",
+       "match": [
+        "john doe|doe, john|mr\\.? doe",
+        "CPS-30442|account|08/14/1991"
+       ]
+      },
+      {
+       "id": "statement",
+       "label": "Names the statement of 07/01/2026 and the $1,540.00 it bills",
+       "hint": "Quote the statement's date and the balance it shows.",
+       "match": [
+        "07/01/2026|july 1",
+        "1,540"
+       ]
+      },
+      {
+       "id": "network",
+       "label": "Explains: in network, paid at the contract rate by Peach State",
+       "hint": "Say Crescent is in network with Peach State, which paid the allowed amount.",
+       "match": [
+        "in.?network|participat|contract",
+        "peach state"
+       ]
+      },
+      {
+       "id": "eob",
+       "label": "Cites the EOB: $1,860.00 paid, member responsibility $0.00",
+       "hint": "Point to Peach State's EOB: $1,860.00 paid and nothing owed by the member.",
+       "match": [
+        "EOB|explanation of benefits",
+        "1,860"
+       ]
+      },
+      {
+       "id": "ask",
+       "label": "Asks for a corrected statement showing $0.00",
+       "hint": "Ask for a corrected statement with the adjustment posted and a $0.00 balance.",
+       "match": [
+        "correct",
+        "\\$0\\.00|\\$0\\b|zero"
+       ]
+      },
+      {
+       "id": "thorne",
+       "label": "Goes out with Atty. Thorne's approval, copied to him",
+       "hint": "A record that looks wrong goes to Atty. Thorne first. Copy him and say he approved the request.",
+       "match": [
+        "thorne",
+        "approv|cc|copied|copy"
+       ]
+      }
+     ],
+     "forbidden": [
+      {
+       "id": "concede",
+       "label": "Offers to pay, or asks for a reduction or a payment plan",
+       "why": "Nothing is owed: an in-network write-off is not a balance to negotiate. Offering payment or asking for a reduction concedes a debt that does not exist.",
+       "match": [
+        "payment plan|(will|can|agrees? to|happy to) pay|(ask|request)(ing)? (for )?a reduction|reduce (the|this|your) (balance|bill)|discount"
+       ]
+      },
+      {
+       "id": "strategy",
+       "label": "Shares the case's value or strategy with a provider",
+       "why": "A provider has no business with the demand, its figure or the settlement. A records request asks for the record and nothing else.",
+       "match": [
+        "(case|claim) is worth|settlement (value|amount|figure)|we (will|plan to|intend to) demand|policy limits? demand"
+       ]
+      }
+     ],
+     "reply": {
+      "from": "Renee Halvorsen, Billing Lead <billing@crescentpainspine.example>",
+      "date": "07/10/2026",
+      "time": "2:15 p.m.",
+      "subject": "RE: Corrected statement requested: John Doe, account CPS-30442",
+      "body": "You are right, and I apologize for the statement. Account CPS-30442 should have shown the contractual adjustment when Peach State's payment posted on 06/03/2026. We are a participating provider and accepted the plan allowed amount of $1,860.00 as payment in full.\n\nI have posted the $1,540.00 adjustment and closed the account. The corrected statement, balance $0.00, is attached, and a copy has been mailed to Mr. Doe. Please ask him to disregard the statement of 07/01/2026. No further statements will go out on this account."
+     },
+     "protects": "Crescent comes off the open balances. The only claim on that bill is Peach State's $1,860.00, so the $1,540.00 never reaches the demand, the Lien Tracker or John Doe.",
+     "model": "Dear Ms. Halvorsen,\n\nThis firm represents John Doe, account CPS-30442. With Atty. Elijah Thorne's approval, copied here, I am writing about your statement of 07/01/2026, which shows a balance of $1,540.00 due from Mr. Doe.\n\nCrescent Pain & Spine is in network with Peach State Health Plan. Peach State's EOB for claim PS-2605-449021 shows $1,860.00 paid at the contract rate, a $1,540.00 contractual adjustment, and member responsibility of $0.00. The EOB is attached.\n\nPlease post the adjustment and send a corrected statement showing a $0.00 balance, with a copy to this office.\n\nThank you,\nCase Manager, LSH Law Group"
+    },
+    {
+     "doc": "RS23",
+     "corrected": null,
+     "proof": [
+      "RS14"
+     ],
+     "wrong": "05/04/2026 is billed twice: 34 lines at $185.00, $6,290.00, against 33 visits in the attendance log. The audited figure is $6,105.00.",
+     "to": "Tammy Greer, Office Manager <tgreer@rivertonspinerehab.example>",
+     "cc": "Elijah Thorne <ethorne@lshlawgroup.example>",
+     "subject": "Billing correction requested: John Doe, LOP account, duplicate line 05/04/2026",
+     "attachment": "Attendance log (visit notes, 33 visits); Letter of Protection of 02/23/2026",
+     "brief": "Ask Riverton Spine & Rehab to correct its ledger. Identify the LOP account, name the duplicate line, give the visit count and the corrected total, and say it is a billing correction, not a reduction. Any reduction is Atty. Thorne's to negotiate later.",
+     "required": [
+      {
+       "id": "account",
+       "label": "Identifies the patient and the LOP account",
+       "hint": "Give John Doe's name and the Letter of Protection of 02/23/2026.",
+       "match": [
+        "john doe|doe, john|mr\\.? doe",
+        "LOP|letter of protection|02/23/2026"
+       ]
+      },
+      {
+       "id": "line",
+       "label": "Names the duplicate: 05/04/2026 billed twice",
+       "hint": "Say which date of service appears twice on the ledger.",
+       "match": [
+        "05/04/2026|05/04|may 4",
+        "twice|duplicat|double|two lines"
+       ]
+      },
+      {
+       "id": "count",
+       "label": "States the attendance log shows 33 visits",
+       "hint": "Give the number of visits in the provider's own attendance log.",
+       "match": [
+        "33",
+        "visit"
+       ]
+      },
+      {
+       "id": "total",
+       "label": "Gives the corrected total, $6,105.00",
+       "hint": "33 visits at $185.00 is $6,105.00. State it.",
+       "match": [
+        "6,105"
+       ]
+      },
+      {
+       "id": "correction",
+       "label": "Calls it a billing correction, not a reduction",
+       "hint": "Say plainly this is a correction of an error, not a request to reduce the bill.",
+       "match": [
+        "not a reduction|billing correction|correction,? not|not (asking|requesting) (for )?a reduction"
+       ]
+      },
+      {
+       "id": "thorne",
+       "label": "Goes out with Atty. Thorne's approval, copied to him",
+       "hint": "A record that looks wrong goes to Atty. Thorne first. Copy him and say he approved the request.",
+       "match": [
+        "thorne",
+        "approv|cc|copied|copy"
+       ]
+      }
+     ],
+     "forbidden": [
+      {
+       "id": "reduce",
+       "label": "Mixes a reduction or discount into the correction",
+       "why": "A reduction is negotiated later, on Atty. Thorne's authority. Mixed into a correction request it turns an error the provider must fix into a favour it can refuse.",
+       "match": [
+        "(accept|take) less|discount|reduce (the|your|this) (balance|bill|charges|lien)|(ask|request)(ing)? (for )?a reduction(?! )"
+       ]
+      },
+      {
+       "id": "strategy",
+       "label": "Shares the case's value or strategy with a provider",
+       "why": "A provider has no business with the demand, its figure or the settlement. A records request asks for the record and nothing else.",
+       "match": [
+        "(case|claim) is worth|settlement (value|amount|figure)|we (will|plan to|intend to) demand|policy limits? demand"
+       ]
+      }
+     ],
+     "reply": {
+      "from": "Tammy Greer, Office Manager <tgreer@rivertonspinerehab.example>",
+      "date": "07/09/2026",
+      "time": "11:05 a.m.",
+      "subject": "RE: Billing correction requested: John Doe, LOP account, duplicate line 05/04/2026",
+      "body": "I received your request about John Doe's LOP account. Our billing system only reissues an itemized ledger when an LOP account is closed for payment, so I cannot send a corrected one now. I have put a note on the account about the 05/04/2026 entry for the billing office to review at that time.\n\nWhen the case resolves and you request the payoff, the Final Ledger will come from billing. Until then the balance on our system shows $6,290.00."
+     },
+     "next": {
+      "q": "The ledger will not be reissued before the demand, which is to be served 07/20/2026. What do you do?",
+      "choices": [
+       {
+        "label": "Hold the demand until the corrected ledger arrives.",
+        "ok": false,
+        "why": "The service date is Atty. Thorne's decision, and the provider has said it will not reissue before the account closes. The audited figure, with the attendance log behind it, is proof enough."
+       },
+       {
+        "label": "Use $6,290.00 in the demand: it is what the provider bills.",
+        "ok": false,
+        "why": "That puts a duplicate in the demand. Keystone would test the ledger against the visit notes, find the second 05/04/2026 line and discredit the Specials."
+       },
+       {
+        "label": "Present $6,105.00 with the attendance log, show $6,290.00 claimed and $6,105.00 audited on the Lien Tracker, and docket a follow-up.",
+        "ok": true,
+        "why": "Right. The demand carries the audited figure and its proof, the difference stays visible, and the correction is chased until the provider fixes its own ledger."
+       },
+       {
+        "label": "Ask Tammy Greer to accept $6,105.00 as payment in full now.",
+        "ok": false,
+        "why": "That is a reduction, and a reduction is negotiated on Atty. Thorne's authority when the case resolves. It is not the Case Manager's to offer."
+       }
+      ]
+     },
+     "protects": "The demand goes out on the audited $6,105.00 with the attendance log behind it, and the Lien Tracker keeps both figures until the provider corrects its own ledger.",
+     "model": "Dear Ms. Greer,\n\nThis firm represents John Doe under the Letter of Protection of 02/23/2026. With Atty. Elijah Thorne's approval, copied here, I am asking for a correction to Mr. Doe's itemized ledger.\n\nThe ledger bills 05/04/2026 twice: 34 lines at $185.00, $6,290.00. Your own attendance log shows 33 visits, one on 05/04/2026, so the correct total is 33 x $185.00 = $6,105.00.\n\nThis is a billing correction, not a reduction request. Please send a corrected itemized ledger, or confirm in writing when one will issue. The attendance log is attached.\n\nThank you,\nCase Manager, LSH Law Group"
+    }
+   ]
+  },
   "d2m4-a1": {
-   "title": "Amendment Requests: records wrong at their source",
-   "kicker": "Screen the records and bills; ask each provider, in writing, to correct its own.",
-   "intro": "Every bill is in and MMI is declared. Before the demand is drafted, screen the file's records and bills for anything wrong at its source. You never fix a provider's record: Atty. Thorne approves the request, the provider corrects its own record or statement, and the original stays.",
+   "was": "d2m4-a1",
+   "title": "Amendment Requests of 07/06/2026: records wrong at their source",
+   "kicker": "The 07/06/2026 requests: screen, ask each provider in writing, then see what came back.",
+   "intro": "Worked as of 07/06/2026, the step behind the corrected copies the 07/20 audit relies on: every bill is in, MMI is declared, no demand drafted. Screen the records and bills for anything wrong at source. You never fix a provider's record: Atty. Thorne approves the request, the provider corrects its own, and the original stays.",
    "screen": [
     {
      "doc": "RS14",
@@ -2639,7 +3021,7 @@ window.CM_CF_EXHIBITS = {
       "label": "John Doe called; call him back on his cell, (555) 010-2288",
       "match": [
        "john",
-       "2288"
+       "2\\W*2\\W*8\\W*8|two\\W+two\\W+eight\\W+eight|double\\W+two\\W+double\\W+eight"
       ]
      },
      {

@@ -1,0 +1,8 @@
+{
+  "name": "case-management-training",
+  "private": true,
+  "description": "The Worker's dependencies (worker.js, bundled by Wrangler). The pages load none of them.",
+  "dependencies": {
+    "@anthropic-ai/sdk": "1.6.0"
+  }
+}

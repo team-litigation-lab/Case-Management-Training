@@ -34,7 +34,7 @@
       "from": "On the Records Intake (intake@ontherecords.example)",
       "to": "Case Manager",
       "subject": "New matter: John Doe — MVA 02/06/2026 (passenger)",
-      "body": "New file for LSH Law Group: John Doe, front-seat passenger, collision 02/06/2026 at Maple Hollow Rd and Birch Ave. Attached: the New Client Intake Sheet, intake supplement, the retainer and HIPAA authorization he signed here this morning, and the Riverton PD crash report. A colleague keyed a draft intake record into the CMS. Atty. Thorne wants the matter active today.",
+      "body": "New file: John Doe, front-seat passenger, collision 02/06/2026 at Maple Hollow Rd and Birch Ave. Attached: the Intake Sheet, supplement, the retainer and HIPAA authorization he signed today, and the PD crash report. His signed PIP application waits for the Harbor Point letter. A colleague keyed a draft intake record into the CMS. Atty. Thorne wants the matter active today.",
       "attachments": [
         "RS01",
         "RS02",
@@ -50,10 +50,10 @@
       "from": "Northgate Distribution (555) 010-3950",
       "to": "Case Manager, ext. 214",
       "subject": "Voicemail: John Doe — call from the other driver's insurance",
-      "body": "Hey, it's John Doe. I'm signing with Mr. Thorne later today. Last night Dana from Keystone Mutual, the other guy's insurance, asked what happened and if she could record it. I said I'd think about it; she's calling back today. Nothing from you guys yet. I'm off with my neck; I'm at Northgate telling my supervisor. Call my cell: 555-010-2288.",
-      "spoken": "Hey, uh... this is John Doe. I'm signing with Mr. Thorne later today, for the car accident. So, last night, somebody from Keystone Mutual called me. That's the other guy's insurance. A lady... Dana, I think. She was asking what happened, and if she could record it. I didn't know what to tell her, so I said I'd think about it, and she said she'd call me back today. And, um, I haven't gotten anything from you guys yet. No paperwork, nothing. My neck's still stiff. It's worse in the morning. Can you call me back? I'm calling from work, but call my cell. It's five five five, oh one oh, two two eight eight. Okay. Thanks. Bye.",
+      "body": "Hey, it's John Doe. I'm signing with Mr. Thorne later today. On Saturday Dana from Keystone Mutual, the other guy's insurance, asked what happened and if she could record it. I said I'd think about it; she's calling back today. Nothing from you guys yet. I'm off with my neck; I'm at Northgate telling my supervisor. Call my cell: 555-010-2288.",
+      "spoken": "Hey, uh... this is John Doe. I'm signing with Mr. Thorne later today, for the car accident. So, on Saturday, somebody from Keystone Mutual called me. That's the other guy's insurance. A lady... Dana, I think. She was asking what happened, and if she could record it. I didn't know what to tell her, so I said I'd think about it, and she said she'd call me back today. And, um, I haven't gotten anything from you guys yet. No paperwork, nothing. My neck's still stiff. It's worse in the morning. I'm off work with my neck, I'm just at Northgate telling my supervisor. Can you call me back? This is the work phone, so call my cell. It's five five five, oh one oh, two two eight eight. Okay. Thanks. Bye.",
       "listen": [
-        {"q": "Who left the message, and which number does he want you to call back?", "a": "John Doe, on his cell: (555) 010-2288. The caller ID is his work line at Northgate, not the number to call.", "match": ["john", "2288"]},
+        {"q": "Who left the message, and which number does he want you to call back?", "a": "John Doe, on his cell: (555) 010-2288. The caller ID is his work line at Northgate, not the number to call.", "match": ["john", "2\\W*2\\W*8\\W*8|two\\W+two\\W+eight\\W+eight|double\\W+two\\W+double\\W+eight"]},
         {"q": "Who contacted him, and what did they ask for?", "a": "Dana, from Keystone Mutual (the other driver's insurance): what happened, and to record it.", "match": ["keystone", "record"]},
         {"q": "What did he tell her, and when will she try again?", "a": "He said he'd think about it, and she said she'd call him back today.", "match": ["think|today|call(s|ing|ed)? (him )?back|again"]},
         {"q": "How is he feeling?", "a": "His neck is still stiff, and it's worse in the morning.", "match": ["neck", "stiff|sore|pain|hurt"]},
@@ -79,13 +79,13 @@
       "body": "LSH-2026-MVA-770412. John Doe's Direction Packet was delivered and logged 02/10/2026. Its directions are staged as draft task cards; a card cannot activate without an owner, a due date and a verification method. No treatment start is recorded, and no follow-up is on the calendar."
     },
     "d1m3-a3": {
-      "date": "02/11/2026",
+      "date": "02/23/2026",
       "time": "9:40 a.m.",
       "channel": "email",
       "from": "Leah Moran, Keystone Mutual PD (leah.moran@keystonemutual.example)",
       "to": "LSH Law Group",
-      "subject": "KM-26-440871-PD: claimant and rental contact, 2019 Honda Civic LX",
-      "body": "We are opening the property-damage claim for the 2019 Honda Civic LX struck on 02/06/2026. Please confirm the vehicle owner and claimant, and a contact number for the rental, so that a rental can be set up with Rivergate Rentals once our liability decision is made."
+      "subject": "KM-26-440871-PD: rental contact, 2019 Honda Civic LX",
+      "body": "Following our acceptance of property-damage liability on 02/17/2026, a rental for the 2019 Honda Civic LX was authorized with Rivergate Rentals on 02/18/2026 for the vehicle's owner and claimant, Margaret Doe. Please confirm the best contact number for the rental pick-up."
     },
     "d2m1-a1": {
       "date": "02/17/2026",
@@ -140,7 +140,7 @@
       ]
     },
     "d1m4-a1": {
-      "date": "03/13/2026",
+      "date": "03/03/2026",
       "time": "2:15 p.m.",
       "channel": "alert",
       "from": "CMS",
@@ -328,7 +328,7 @@
           "a": "John Doe, on his cell: (555) 010-2288.",
           "match": [
             "john",
-            "2288"
+            "2\\W*2\\W*8\\W*8|two\\W+two\\W+eight\\W+eight|double\\W+two\\W+double\\W+eight"
           ]
         },
         {
@@ -351,7 +351,7 @@
           "q": "Does he still want the injection?",
           "a": "Yes: he still wants it, just not at that facility.",
           "match": [
-            "yes|still|wants?"
+            "^(?!\\s*(no|nope|nah)\\b)(?:\\s*(yes|yeah|yep|yup|sure)\\b|.*(?<!\\b(?:no|not|never|longer|don['’]?t|doesn['’]?t|didn['’]?t|won['’]?t)\\W+(?:\\w+\\W+)?)\\b(?:still\\W+)?wants?\\b)"
           ]
         },
         {
@@ -431,8 +431,8 @@
       "who": "John Doe",
       "role": "client",
       "persona": "Polite, tired and sore; rattled by the Keystone call. Wants plain answers. Will ask whether to talk to Keystone, whose fault it was, and what his case is worth.",
-      "context": "02/09/2026, the morning John signs the retainer; the matter is not opened yet and no onboarding packet has reached him. John, 34, a Northgate warehouse shift lead, was the front-seat passenger in coworker Kevin Alvarez's Escape on 02/06. Last night a Keystone Mutual caller asked to record his account; he said he'd think about it, and she said she'd call back. His neck is stiff; he hasn't seen anyone. Margaret's Civic was towed from the scene and he has no car. Calms with clear steps; repeats instructions back if asked.",
-      "opening": "Hey, it's John Doe, returning your call. So the other guy's insurance called me last night, a lady from Keystone, wanting to record what happened. She said she'd call back. What do I tell her?",
+      "context": "02/09/2026, afternoon: retainer signed this morning, matter opened at 1:12 p.m., no onboarding packet yet. John, 34, a Northgate warehouse shift lead, was the front-seat passenger in coworker Kevin Alvarez's Escape on 02/06. On Saturday (02/07) a Keystone Mutual caller asked to record his account; he said he'd think about it, and she said she'd call back. His neck is stiff; he hasn't seen anyone. Margaret's Civic was towed from the scene and he has no car. Calms with clear steps; repeats instructions back if asked.",
+      "opening": "Hey, it's John Doe, returning your call. So the other guy's insurance called me on Saturday, a lady from Keystone, wanting to record what happened. She said she'd call back. What do I tell her?",
       "goals": [
         "Ask about the stiff neck and whether he has seen anyone yet",
         "Outline next steps: get evaluated this week; the packet is on its way",
@@ -487,7 +487,7 @@
       "who": "John Doe",
       "role": "client",
       "persona": "Guarded and expecting blame for the delay. Clipped answers to yes-or-no questions; talks freely to open ones. Agrees with any reason suggested to him. Asks if the gap hurts.",
-      "context": "03/04/2026, recorded call. John first treated 02/20/2026, 14 days after the collision. Asked openly, he gives four reasons in his own words: no car (Civic towed, Kevin's Escape in the shop, no rental until 02/18); thought it was soreness, took ibuprofen and lidocaine patches; unsure his new Peach State plan was active, never heard of PIP; right-hand numbness from 02/18, worked 02/18–02/19, went in on his first day off. He texted his mother about it 02/07–02/15, called out of work 02/09–02/13, kept the 02/07 pharmacy receipt.",
+      "context": "03/04/2026, recorded call. John first treated 02/20/2026, 14 days after the collision. Asked openly, he gives four reasons in his own words: no car (Civic towed, Kevin's Escape in the shop, no rental until 02/18); thought it was soreness, took ibuprofen and patches; signed the PIP form unaware it paid his bills, unsure his Peach State plan was active; right-hand numbness from 02/18, worked 02/18–02/19, went in on his first day off. He texted his mother about it 02/07–02/15, called out of work 02/09–02/13, kept the 02/07 pharmacy receipt.",
       "opening": "Hey, it's John. I'm on my break, sitting in the rental, so I've got about twenty minutes. What did you need to go over?",
       "goals": [
         "Open on record: date, parties, role, his consent, privacy confirmed",

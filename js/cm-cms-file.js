@@ -18,9 +18,9 @@
                                      convention (doc-filing: 100% first time right, then 100% ÷ the attempts it took)
 
    An activity's area is the CMS screen it is worked in first (its act.tool, "CMS → Insurance · …"). Its items
-   are its Check Your Work list (the slide's checks, the ones the trainee ticks): ticked 100%, not ticked 0% once the
-   activity is worked (answers revealed, a tick, or its work logged). An activity not worked, or a document not filed,
-   is still to do while the day is open and counts 0 once the day's Knowledge Check is passed (the day is closed with
+   are its Check Your Work list (the slide's checks), each at the activity's AI Grader score once it is graded (a record
+   from the old self-check: ticked 100%, not ticked 0%). An activity not graded, or a document not filed (each due the
+   first day a taught activity's 📤 panel offers it), is still to do while the day is open and counts 0 once the day's Knowledge Check is passed (the day is closed with
    that entry missing from the file). The Backup Drive activities are graded from the Drive itself (📂 Backup Drive).
    A day's grade is the average of its areas; the file's grade is the average of the days graded.
 
@@ -61,10 +61,17 @@ function plan(){
     const screens = String(b.act.tool || "").match(/CMS → [^·;]*/g); if(!screens) return;
     const first = screens[0], area = AREAS.find(a => a.re && a.re.test(first)) || AREA.notes;
     const checks = (SL[b.id] && SL[b.id].checks) || (b.act.checkpoints || []).slice(0, 5);
-    day(taught[b.id] || d.n).acts.push({id: b.id, title: b.title, area: area.id, screen: first.replace(/^CMS → /, "").trim(), checks});
+    // an activity cut or merged out of the sequence is never taught: it stays in the plan only for work done on it before (old)
+    day(taught[b.id] || d.n).acts.push({id: b.id, title: b.title, area: area.id, screen: first.replace(/^CMS → /, "").trim(), checks, old: !taught[b.id] && !!(b.retired || b.mergedInto)});
   })));
+  // a document is filed only from a taught activity's 📤 panel (its packet), so it is due on the first day one offers it,
+  // never earlier than its own day; one only in packets of cut or merged activities can't be filed: it stays in the plan
+  // only for a filing made before (old)
+  const offered = {}; Object.entries(PK).forEach(([k, ids]) => { if(taught[k]) (ids || []).forEach(id => { offered[id] = Math.min(offered[id] || Infinity, taught[k]); }); });
   const inPacket = new Set(); Object.values(PK).forEach(ids => (ids || []).forEach(id => inPacket.add(id)));
-  DOCS.forEach(x => { if(x.day && inPacket.has(x.id) && !x.amends && !x.unlock) day(x.day).docs.push({id: x.id, title: x.title, cms: x.cms}); });
+  DOCS.forEach(x => { if(!inPacket.has(x.id) || x.amends || x.unlock) return;
+    if(offered[x.id]) day(Math.max(x.day || 0, offered[x.id])).docs.push({id: x.id, title: x.title, cms: x.cms});
+    else if(x.day) day(x.day).docs.push({id: x.id, title: x.title, cms: x.cms, old: true}); });
   return (PLAN = {days});
 }
 
@@ -88,7 +95,7 @@ function compute(c){
       const item = (name, ok, yes, no, pend) => put("open", ok == null ? {name, pct: null, pending: true, note: pend} : {name, pct: ok ? 100 : 0, note: ok ? yes : no});
       const due = shut || worked("d1m1-open");
       item("CMS Case ID logged on the Submit slide", ref ? true : due ? false : null, `Logged: ${ref}`, "No CMS Case ID logged", "Log it on the first CMS activity's Submit slide");
-      item("The CMS reported your case open", id ? true : due ? false : null, `${id}${cms.at ? " · last heard " + new Date(cms.at).toLocaleDateString() : ""}`, "The CMS never reported a case: open your own case in 🗂 Open CMS", "Open your own case in the CMS beside the lesson");
+      item("The CMS reported your case open", id ? true : due ? false : null, `${id}${cms.at ? " · last heard " + new Date(cms.at).toLocaleDateString() : ""}`, "The CMS never reported a case: open your own case in 🗂 Open LSH CaseWorks", "Open your own case in the CMS beside the lesson");
       if(id){
         item("Client recorded as John Doe", /\bjohn\b/i.test(client) && /\bdoe\b/i.test(client), `Client: ${client}`, `The CMS has the client as "${client || "blank"}"`);
         item("Date of Loss entered", !!cms.dol, `Date of Loss ${cms.dol}`, "No Date of Loss in the CMS case");
@@ -96,14 +103,19 @@ function compute(c){
       }
     }
     pl.acts.forEach(a => { const w = worked(a.id), t = ticks[a.id] || [];
+      if(a.old && !w) return;   // a cut or merged activity nobody worked is not missing work
       a.checks.forEach((ck, j) => {
+        if(a.old && !t[j] && aiScore(a.id) == null) return;   // nor is an unticked item on one that was
         const base = {block: a.id, act: a.title, screen: a.screen, text: ck, revealed: !!rev[a.id]};
-        if(w && !t.some(Boolean) && aiScore(a.id) != null) put(a.area, Object.assign(base, {pct: aiScore(a.id), note: `Graded: ${aiScore(a.id)}/100`}));
-        else if(w) put(a.area, Object.assign(base, {pct: t[j] ? 100 : 0, note: t[j] ? "Checked off on Check Your Work" : "Not checked off: the file doesn't hold it yet"}));
-        else if(shut) put(a.area, Object.assign(base, {pct: 0, unworked: true, note: "Activity not worked: the day closed without this entry"}));
+        // the AI Grader's score is the latest word on the activity: ticks left from the old self-check only count without one,
+        // and nothing writes ticks now, so an activity worked but not graded yet (or whose grading failed) is still to do
+        if(aiScore(a.id) != null) put(a.area, Object.assign(base, {pct: aiScore(a.id), fromAI: true, note: `Graded: ${aiScore(a.id)}/100`}));
+        else if(w && t.some(Boolean)) put(a.area, Object.assign(base, {pct: t[j] ? 100 : 0, note: t[j] ? "Checked off on Check Your Work" : "Not checked off: the file doesn't hold it yet"}));
+        else if(shut) put(a.area, Object.assign(base, {pct: 0, unworked: true, note: w ? "Activity not graded: the day closed without its AI Grader score" : "Activity not worked: the day closed without this entry"}));
         else put(a.area, Object.assign(base, {pct: null, pending: true, note: "Still to do"}));
       }); });
     pl.docs.forEach(x => { const r = filing[x.id];
+      if(x.old && !(r && (r.filed || r.attempts > 0))) return;   // a document no taught activity offers is not missing
       if(r && r.filed) put("docs", {name: x.title, doc: x.id, pct: Math.round(100 / Math.max(1, r.attempts || 1)), note: `Filed as ${r.name || "named"} under ${r.category || x.cms} · ${(r.attempts || 1) === 1 ? "first time right" : r.attempts + " attempts"}`});
       else if(r && r.attempts > 0) put("docs", {name: x.title, doc: x.id, pct: 0, note: `Not filed: ${r.attempts} attempt${r.attempts === 1 ? "" : "s"} refused`});
       else if(shut) put("docs", {name: x.title, doc: x.id, pct: 0, note: `Not filed: the firm files it under ${x.cms}`});

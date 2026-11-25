@@ -22,7 +22,8 @@ const STEPS = [
   ["Exhibits (audits, Amendment Requests, Service Confirmations)", "build/case-flow/exhibits/assemble.cjs"],   // CI checks it in step too
   ["Companion cases", "build/case-flow/cases/assemble.cjs"],
   ["Curriculum documents", "build/case-flow/curriculum.cjs"],
-  ["Document inventory", "build/case-flow/documents/inventory.cjs"]   // reads the exhibits, so after them
+  ["Document inventory", "build/case-flow/documents/inventory.cjs"],   // reads the exhibits, so after them
+  ["Document versions (every version served, by its bytes: worker-drive-versions.js)", "build/case-flow/documents/versions.cjs"]   // reads the documents only
 ];
 
 const quiet = process.argv.includes("--quiet");

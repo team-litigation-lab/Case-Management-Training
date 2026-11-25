@@ -11,7 +11,8 @@
      (d1m1-l2), the EMC Rule (d1m4-emc), the Treatment Phase Summary (d2m2-sum), A-C-T & Treatment Monitoring (d2m2-l2),
      Medical Excuse Notes (d2m3-l2), Strategy Briefing (d2m4-l2), Lien Negotiation Calls (d3m3-l3), Treatment to Demand
      (d4m3-tx), Non-Responsive Adjusters (d4m4-l1) and Escalation Workflows (d4m4-l2)
-   Their rules are not lost: each one is a 💡 Tip pop-up on the Skill Activity that practised it, on the activity's
+   Their rules are not lost: each one is a 💡 Tip pop-up on the Skill Activity that practised it (or, where the owner cut
+   that activity as an extra task, on the kept activity that now does its work), on the activity's
    first slide, beside its "Practises:" line.
    The same goes for a lesson whose slides ARE the trainers' deck pages (js/cm-deck-slides.js, every day now): its own
    drawn slides are not shown, so its rules are a 💡 Tip on each activity that practises it (DECK_TIPS, read from the
@@ -20,12 +21,14 @@
 (function(){
 "use strict";
 const TIPS = {
-  "d1m2-a1": ["d1m1-upl"], "d1m3-a1": ["d1m3-l1"], "d1m3-a2": ["d1m3-l1"], "d1m2-a2": ["d1m2-l2"],
-  "d3-drive": ["d3m1-pkg"], "d3m2-a1": ["d3m2-l1"], "d3m2-rel": ["d3m2-umw"], "d3m2-exec": ["d3m2-umw"],
+  "d1m3-a1": ["d1m3-l1"], "d3-drive": ["d3m1-pkg"], "d3m2-a1": ["d3m2-l1"], "d3m2-rel": ["d3m2-umw"],
   // the drawn lessons whose topic is on the Canva decks' pages (the owner: no lesson repeats a deck), retired:
-  "d1m1-a1": ["d2m1-l2", "d2m1-cov"], "d2m1-a2": ["d2m1-l2", "d2m1-liab"], "d1m1-a2": ["d1m1-l2", "d2m2-sum"], "d2m2-a1": ["d2m2-pip", "d1m4-emc"],
-  "d2m2-a2": ["d2m2-l2"], "d2m3-a2": ["d2m3-l2"], "d2m4-a2": ["d2m4-l2"], "d3m3-a2": ["d3m3-l3"],
-  "d4m3-a1": ["d4m3-tx"], "d4m4-a1": ["d4m4-l1"], "d4m4-a2": ["d4m4-l2"]
+  "d2m2-a1": ["d2m2-pip", "d1m4-emc", "d1m1-l2", "d2m2-sum"],
+  "d2m2-a2": ["d2m2-l2", "d1m1-upl", "d1m2-l2", "d1m4-tcare"], "d2m4-a2": ["d2m4-l2"], "d3m3-a2": ["d3m3-l3"],
+  "d4m3-a1": ["d4m3-tx"], "d4m4-a2": ["d4m4-l2", "d4m4-l1"],
+  // the side exercises the owner cut (fewer extra tasks): each Tip moved to the kept activity that now does that work
+  "d1m1-open": ["d2m1-l2", "d2m1-cov", "d1m4-l1"], "d2m1-a1": ["d2m1-liab"], "d3m1-a1": ["d2m3-l2"],
+  "d3m4-a1": ["d3m4-l2"]
 };
 const CF = window.CM_CASE_FLOW, DECK = window.CM_DECK_SLIDES || {};
 const DECK_TIPS = {};

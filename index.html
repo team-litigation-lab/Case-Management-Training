@@ -2611,7 +2611,7 @@ const CAL_EVENTS = [
   {t:"Lien Reduction Call — Coastal Chiropractic", day:"Mon", s:16, e:16.5, p:"Low", loc:"Phone", type:"Provider / Lien"},
   {t:"Deposition Prep — Client Martinez", day:"Tue", s:9, e:10.5, p:"High", loc:"Zoom", type:"Deposition"},
   {t:"IME Transport Confirmation — John Doe", day:"Tue", s:9.5, e:10, p:"Medium", loc:"Phone", type:"Client"},
-  {t:"Adjuster First Call — John Doe Demand (Aggressive Casualty)", day:"Tue", s:11, e:11.75, p:"High", loc:"Phone", type:"Negotiation"},
+  {t:"Adjuster First Call — John Doe Demand (Keystone Mutual, Dana Whitfield)", day:"Tue", s:11, e:11.75, p:"High", loc:"Phone", type:"Negotiation"},
   {t:"Mediator Scheduling — collect 3–4 windows", day:"Tue", s:11.5, e:12, p:"Medium", loc:"Email", type:"Mediation"},
   {t:"BlueCross Subrogation Call", day:"Tue", s:13.5, e:14, p:"Medium", loc:"Phone", type:"Provider / Lien"},
   {t:"Discovery Intake Meeting — Martinez (Interrogatories)", day:"Tue", s:14, e:15, p:"High", loc:"Zoom", type:"Litigation"},
@@ -2624,8 +2624,8 @@ const CAL_EVENTS = [
   {t:"Arbitrator Strike List Due — Okafor (AAA panel)", day:"Wed", s:13.5, e:14, p:"High", loc:"Email", type:"Arbitration"},
   {t:"Weekly Docket Check — all litigated files", day:"Wed", s:15, e:16, p:"Medium", loc:"Court portal", type:"Litigation"},
   {t:"Process Server Follow-up — Smith (5-day check)", day:"Wed", s:15.5, e:16, p:"Medium", loc:"Phone", type:"Litigation"},
-  {t:"Mediation — John Doe VS Robert Smith (Zoom + breakout rooms)", day:"Thu", s:9, e:13, p:"High", loc:"Zoom", type:"Mediation"},
-  {t:"Client Pre-Brief — John Doe (15 min before mediation)", day:"Thu", s:8.75, e:9, p:"High", loc:"Zoom", type:"Client"},
+  {t:"Mediation — John Doe VS Robert Smith (in person, Hon. Carla Benton's office, caucus rooms)", day:"Thu", s:9.5, e:13.5, p:"High", loc:"250 Commerce St, Ste 410", type:"Mediation"},
+  {t:"Client Pre-Brief — John Doe (15 min before mediation)", day:"Thu", s:9.25, e:9.5, p:"High", loc:"Mediator's office", type:"Client"},
   {t:"Subpoena Compliance Call — Metro General Records", day:"Thu", s:10, e:10.5, p:"Medium", loc:"Phone", type:"Litigation"},
   {t:"New Referral Intake — Walk-in", day:"Thu", s:11, e:11.5, p:"Low", loc:"Office", type:"Intake"},
   {t:"UM Consent to Settle Letter — Okafor", day:"Thu", s:14, e:14.5, p:"High", loc:"CMS", type:"Negotiation"},
@@ -3083,7 +3083,7 @@ const CLIENT_PROFILE_DOC = [
     "All-way stop at Maple Hollow Rd & Birch Ave. Kevin stopped eastbound and proceeded; Robert Smith, northbound on Birch Ave, didn't stop and struck the Escape's front passenger door at about 28 mph, pushing it into Margaret's parked Civic.",
     "Riverton PD report RPD-26-018842: Smith cited for failure to stop at a stop sign",
     "Independent witness: Ruth Calloway, 2209 Maple Hollow Rd",
-    "Doorbell-camera video (Margaret's camera at 2214 Maple Hollow Rd) shows the Escape stopped and Smith rolling through · preservation told to John 02/17, copy secured 02/19/2026",
+    "Doorbell-camera video (Margaret's camera at 2214 Maple Hollow Rd) shows the Escape stopped and Smith rolling through · preservation raised with John at intake 02/09, written request to Margaret 02/17, copy secured 02/19/2026",
     "Riverton Fire EMS run report: \"restrained front-seat passenger, complains of neck stiffness, declined transport\""
   ]},
   {section:"Injury and Treatment", items:[
@@ -3130,21 +3130,21 @@ const CLIENT_PROFILE_DOC = [
     "Riverton Spine & Rehab billed 34 lines × $185.00 = $6,290.00, but 05/04/2026 is a duplicate: 33 visits = $6,105.00 after audit",
     "PIP paid the emergency care of 02/20–02/21 at the fee schedule: $8,850.00 + $1,150.00 = $10,000.00 (exhausted 03/04/2026); MedPay then paid in date order $685.00 + $640.00 + $2,395.00 + $640.00 + $640.00 = $5,000.00 (exhausted 06/26/2026)",
     "Medical specials: $41,585.00 billed → $41,400.00 after the audit · lost wages: 9 shifts × 8 h × $22.00 = $1,584.00 (Northgate HR letter) · total Specials $42,984.00",
-    "A-C-T: Assess, the No Contact Protocol from 04/08 until John called 04/17 (trauma-informed interview) · Coordinate, Dr. Reyes by phone 04/20 (no charge; referral to Northgate's EAP), evening slots under the LOP with Margaret driving (from 04/21) · Track, file restored 04/20 (Drop Warning cleared, 14-day trigger reset, Action Plan updated), attendance confirmed 04/21 and 04/23",
+    "A-C-T: Assess, missed visits are a legal danger (care stopped after 04/02), the Step 1 review 04/08 · Clarify, the clinic, then the No Contact Protocol's outreach 04/08 until John called 04/17 (trauma-informed interview) · Track, every fix logged: Dr. Reyes 04/20 (EAP referral), evening LOP slots with Margaret driving (from 04/21), file restored 04/20 (Drop Warning cleared, Action Plan updated), attendance confirmed 04/21 and 04/23",
     "Mental anguish, documented for the non-economic damages: Dr. Reyes's 04/20/2026 note; six EAP counseling sessions 04/24–06/05/2026 at no charge, summary 06/10/2026; John's Personal Impact Statement 06/15/2026. No new bills: Specials stay $42,984.00"
   ]},
   {section:"Why the 14-Day Gap Happened", items:[
     "No transportation: the Civic was towed from the scene, Kevin's Escape was in the shop, and no rental was authorized until 02/18/2026",
     "He thought it was soreness that would pass; took OTC ibuprofen and lidocaine patches (receipt 02/07/2026)",
-    "Cost worry: unsure his new Peach State coverage (effective 02/01/2026) was active; didn't know PIP existed",
+    "Cost worry: signed the PIP form at intake but didn't understand it paid his bills; unsure his new Peach State coverage (effective 02/01/2026) was active",
     "Symptoms escalated: numbness into his right hand from 02/18; he worked 02/18–02/19 and went to urgent care on his first day off, 02/20/2026",
     "Corroboration: EMS report (neck complaint on the DOL) · Northgate attendance (called out 02/09–02/13 citing neck pain) · texts to his mother 02/07–02/15 · the pharmacy receipt · the urgent-care history · Dr. Reyes's Causation Letter (06/19/2026)"
   ]},
   {section:"The BI Demand and the Fork", items:[
-    "07/20/2026 time-limited BI demand to Keystone for the $10,000 limits, by certified mail and email · received 07/22 · 30-day window → 08/21/2026",
+    "07/20/2026 time-limited BI demand to Keystone for the $10,000 limits, emailed to Dana Whitfield with the 81-page Demand Package · receipt acknowledged in writing 07/22 · 30-day window → 08/21/2026",
     "Conditions: payment of limits, a Limited Release of Robert Smith and Keystone only, and Smith's affidavit of no other insurance",
     "08/05/2026 Keystone offers $3,500, citing the gap and calling the MRI degenerative · 08/06 rebuttal (Atty. Thorne approved): the radiologist's finding, the Causation Letter, the EMS report, the Gap Explanation Record",
-    "This is the fork. Track A (Case Flow Day 4): the file settles. Track B (Day 4's ADR, then Day 5's litigation): Keystone stonewalls and the case goes to suit."
+    "This is the fork. Track A (Case Flow Days 2–3: the BI settlement on Day 2, liens and disbursement on Day 3): the file settles. Track B (Day 4's ADR, then Day 5's litigation): Keystone stonewalls and the case goes to suit."
   ]},
   {section:"Track A: The File Settles", items:[
     "08/12/2026 Keystone tenders $10,000 · UM consents 08/24 (Harbor Point) and 08/26 (Cardinal State) · Keystone's General Release (08/14) revised to a Limited Release, signed 08/28 · check into IOLTA 09/04",
@@ -3820,21 +3820,20 @@ function aiTroubleLine(e, what){
   return `[${what || "No reply"} — ${why}.]`;
 }
 async function callAIJson(prompt, maxTokens, timeoutMs, feature){
-  function extractAndParse(text){
-    let cleaned = text.replace(/^```json\s*/i,"").replace(/^```\s*/,"").replace(/```\s*$/,"").trim();
-    // Robustness: if the model added any preamble/postamble text around the JSON
-    // (common on longer, more complex generations), extract just the array or
-    // object itself rather than failing outright on the surrounding text.
-    if(cleaned[0] !== "[" && cleaned[0] !== "{"){
-      const arrStart = cleaned.indexOf("[");
-      const objStart = cleaned.indexOf("{");
-      const start = (arrStart===-1) ? objStart : (objStart===-1 ? arrStart : Math.min(arrStart, objStart));
-      if(start !== -1){
-        const isArray = cleaned[start] === "[";
-        const end = isArray ? cleaned.lastIndexOf("]") : cleaned.lastIndexOf("}");
-        if(end > start) cleaned = cleaned.slice(start, end+1);
-      }
+  // the JSON value that starts at i, cut at its own closing bracket (brackets inside strings don't count):
+  // a note after the object ("Note: docked for the SOL date") is left off. null when it never closes (a cut-off reply).
+  function balancedFrom(t, i){
+    let depth = 0, inStr = false, esc = false;
+    for(let k=i; k<t.length; k++){
+      const ch = t[k];
+      if(inStr){ if(esc) esc = false; else if(ch==="\\") esc = true; else if(ch==="\"") inStr = false; continue; }
+      if(ch==="\"") inStr = true;
+      else if(ch==="{" || ch==="[") depth++;
+      else if(ch==="}" || ch==="]"){ depth--; if(depth===0) return t.slice(i, k+1); }
     }
+    return null;
+  }
+  function parseLoose(cleaned){
     try{ return JSON.parse(cleaned); }
     catch(parseErr){
       let out = "", inStr = false, esc = false;
@@ -3852,6 +3851,29 @@ async function callAIJson(prompt, maxTokens, timeoutMs, feature){
       out = out.replace(/,\s*([}\]])/g, "$1"); // trailing commas
       return JSON.parse(out);
     }
+  }
+  function extractAndParse(text){
+    let cleaned = text.replace(/^```json\s*/i,"").replace(/^```\s*/,"").replace(/```\s*$/,"").trim();
+    // Robustness: if the model added any preamble/postamble text around the JSON
+    // (common on longer, more complex generations), extract just the array or
+    // object itself rather than failing outright on the surrounding text.
+    const arrStart = cleaned.indexOf("[");
+    const objStart = cleaned.indexOf("{");
+    const start = (arrStart===-1) ? objStart : (objStart===-1 ? arrStart : Math.min(arrStart, objStart));
+    // tried in turn: the value cut at its own closing bracket, then (as before) up to the last closing bracket
+    const tries = [];
+    if(start !== -1){
+      const own = balancedFrom(cleaned, start);
+      if(own) tries.push(own);
+      if(cleaned[0] !== "[" && cleaned[0] !== "{"){
+        const end = cleaned[start] === "[" ? cleaned.lastIndexOf("]") : cleaned.lastIndexOf("}");
+        if(end > start) tries.push(cleaned.slice(start, end+1));
+      }
+    }
+    tries.push(cleaned);
+    let firstErr = null;
+    for(const t of tries){ try{ return parseLoose(t); }catch(e){ if(!firstErr) firstErr = e; } }
+    throw firstErr;
   }
   try{
     const text = await callAIText(prompt, maxTokens, timeoutMs, feature);
@@ -4280,7 +4302,7 @@ function renderClientProfile(){
 
 
 function renderTopbar(){
-  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case Profile"],["casedocs","📁 Documents"],["practice","Skill Builders"],["calls","🛠 Simulators"],["tools","🧰 Tools"],["crisisroleplay","🔥 Roleplay"],["notes","Notes"],["handouts","Handouts"]];
+  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case Profile"],["casedocs","📁 Documents"],["practice","Skill Builders"],["calls","🛠 LSH Sims"],["tools","🧰 Tools"],["crisisroleplay","🔥 Roleplay"],["notes","Notes"],["handouts","Handouts"]];
   if(state.isAdmin){
     // Admin is a trainer monitoring dashboard, not a trainee workspace — hide
     // the trainee-facing-only views that have no role here.
@@ -4356,15 +4378,15 @@ window.toggleMobileNav = toggleMobileNav;
    js/cm-case-flow-sim.js and js/cm-case-flow-data.js). */
 const ROLEPLAY_CATEGORIES = [
   {id:"cfday1", icon:"📂", label:"Case Flow Day 1 · Fundamentals, Intake, Claim Set Up & Treatment", topics:[
-    {id:"cf-d1m3-a1", label:"John Doe: Client Onboarding Direction Packet", fixedOpening:"Hey, it's John Doe, returning your call. So the other guy's insurance called me last night, a lady from Keystone, wanting to record what happened. She said she'd call back. What do I tell her?", context:"John Doe (client). 02/09/2026, the morning John signs the retainer; the matter is not opened yet and no onboarding packet has reached him. John, 34, a Northgate warehouse shift lead, was the front-seat passenger in coworker Kevin Alvarez's Escape on 02/06. Last night a Keystone Mutual caller asked to record his account; he said he'd think about it, and she said she'd call back. His neck is stiff; he hasn't seen anyone. Margaret's Civic was towed from the scene and he has no car. Calms with clear steps; repeats instructions back if asked. How they come across: Polite, tired and sore; rattled by the Keystone call. Wants plain answers. Will ask whether to talk to Keystone, whose fault it was, and what his case is worth. The Case Manager must: Route all Keystone contact to the firm; no recorded statement; Confirm he understood by having him repeat the instruction; State the packet's treatment direction, since treatment hasn't begun; Confirm Property Damage details and the packet's delivery method. UPL line: Give the firm's instructions only; fault, claim value and legal effect go to Atty. Thorne."},
+    {id:"cf-d1m3-a1", label:"John Doe: Client Onboarding Direction Packet", fixedOpening:"Hey, it's John Doe, returning your call. So the other guy's insurance called me on Saturday, a lady from Keystone, wanting to record what happened. She said she'd call back. What do I tell her?", context:"John Doe (client). 02/09/2026, the morning John signs the retainer; the matter is not opened yet and no onboarding packet has reached him. John, 34, a Northgate warehouse shift lead, was the front-seat passenger in coworker Kevin Alvarez's Escape on 02/06. Last night a Keystone Mutual caller asked to record his account; he said he'd think about it, and she said she'd call back. His neck is stiff; he hasn't seen anyone. Margaret's Civic was towed from the scene and he has no car. Calms with clear steps; repeats instructions back if asked. How they come across: Polite, tired and sore; rattled by the Keystone call. Wants plain answers. Will ask whether to talk to Keystone, whose fault it was, and what his case is worth. The Case Manager must: Route all Keystone contact to the firm; no recorded statement; Confirm he understood by having him repeat the instruction; State the packet's treatment direction, since treatment hasn't begun; Confirm Property Damage details and the packet's delivery method. UPL line: Give the firm's instructions only; fault, claim value and legal effect go to Atty. Thorne."},
     {id:"cf-d1m2-a1", label:"Margaret Doe: Multi-Channel Outreach Logging", fixedOpening:"Hello? This is Margaret. You said you're with a law office, calling about John? Is he all right? He's not in some kind of trouble, is he?", context:"Margaret Doe (family). 02/16/2026. Margaret Doe, John's mother, is the emergency contact collected at intake; John lives with her at 2214 Maple Hollow Rd. The firm has not reached John since 02/10: a missed check-in call and two voicemails. He called out of work last week with his neck and has been texting her about the pain; as far as she knows he hasn't seen a doctor. She doesn't know why he hasn't called back. Her Cardinal State policy is on the file. She'll pass a message. How they come across: Warm, protective mother, wary of a law office calling. Worried about John. Will ask what is going on with his case and whether her own insurance is involved. The Case Manager must: Identify yourself and confirm she is the emergency contact on file; Ask her to have John call the firm by a set date; Confirm John's best phone number and current address; Disclose no case details; log date, time, channel and outcome. UPL line: Share nothing about John's case and no advice on her policy; refer her questions to Atty. Thorne."},
     {id:"cf-d2m1-a2", label:"Dana Whitfield: CMS Coverage Stack Audit", fixedOpening:"Dana Whitfield. I've got about five minutes. If this is the dec page again, I gave your office the limit on the first call. Ten thousand per person. What else do you need?", context:"Dana Whitfield (adjuster). 03/11/2026. Keystone BI claim KM-26-440871, insured Robert Smith, policy KMI-PA-7731045, DOL 02/06/2026. She gave the $10,000 per-person limit by phone at set-up, and her 02/24/2026 letter promised the declarations page once the firm's written request and signed authorizations arrived. They have been sent; nothing has come back. She says it is with underwriting. Asked for a specific date, she commits to sending it by 03/20/2026. She asks how John is treating and what the firm will demand. How they come across: Seasoned BI adjuster, brisk and guarded. Considers the limit question answered. Fishes for treatment details and a demand number; commits to nothing in writing without being pinned. The Case Manager must: Confirm Keystone received the written request and signed authorizations; Get a firm date for the Declaration Page in writing; Share no treatment detail or demand figure; Log the call and set the next follow-up by 03/13/2026. UPL line: Verify coverage only: no demand figure, liability argument or treatment detail without Atty. Thorne's approval."},
     {id:"cf-d2m2-a2", label:"John Doe: The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol", fixedOpening:"Hey... it's John Doe. I got your letter. My mom signed for it. I'm sorry I didn't call back. I just... I didn't know how to say it. Am I getting dropped?", context:"John Doe (client). 04/17/2026, 4:48 p.m.; he calls in, three days before the Final Warning Letter's 04/20 date. Last PT 04/02. That day, driven home by his mother, the car stopped at their own corner, Maple Hollow Rd & Birch Ave, where the crash happened, as a pickup came up Birch: he panicked and got out. Since then he avoids cars, sleeps 4–5 hours, feels low, quit basketball, still works (bus). Neck and right hand still bad. Safe. Declines recording. Asks if this ruins his case. How they come across: Ashamed and on edge after two weeks of silence; speaks in short bursts, goes quiet when pushed. Opens up to warmth and choices; shuts down at blame or a deadline. The Case Manager must: Lead with relief and safety; offer choices, including recording; Draw out what happened in his words, without labels or blame; With consent: Dr. Reyes appointment and evening slots under the LOP; Read back; route claim questions to Atty. Thorne. UPL line: No diagnosis, no counseling advice, no value talk, no promise about withdrawal; claim questions go to Atty. Thorne."}
   ]},
   {id:"cfday2", icon:"📨", label:"Case Flow Day 2 · Pre-Demand, the BI Demand & BI Settlement", topics:[
-    {id:"cf-d2m3-a1", label:"John Doe: Probe the 14-Day Treatment Gap with AI John Doe", fixedOpening:"Hey, it's John. I'm on my break, sitting in the rental, so I've got about twenty minutes. What did you need to go over?", context:"John Doe (client). 03/04/2026, recorded call. John first treated 02/20/2026, 14 days after the collision. Asked openly, he gives four reasons in his own words: no car (Civic towed, Kevin's Escape in the shop, no rental until 02/18); thought it was soreness, took ibuprofen and lidocaine patches; unsure his new Peach State plan was active, never heard of PIP; right-hand numbness from 02/18, worked 02/18–02/19, went in on his first day off. He texted his mother about it 02/07–02/15, called out of work 02/09–02/13, kept the 02/07 pharmacy receipt. How they come across: Guarded and expecting blame for the delay. Clipped answers to yes-or-no questions; talks freely to open ones. Agrees with any reason suggested to him. Asks if the gap hurts. The Case Manager must: Open on record: date, parties, role, his consent, privacy confirmed; Draw out all four reasons with open, non-leading questions; Surface the texts, the call-outs and the 02/07 receipt; Read back his account; confirm 03/05 consult and post-03/19 transport. UPL line: Never suggest a reason or say what the gap does to his case; route that to Atty. Thorne."},
+    {id:"cf-d2m3-a1", label:"John Doe: Probe the 14-Day Treatment Gap with AI John Doe", fixedOpening:"Hey, it's John. I'm on my break, sitting in the rental, so I've got about twenty minutes. What did you need to go over?", context:"John Doe (client). 03/04/2026, recorded call. John first treated 02/20/2026, 14 days after the collision. Asked openly, he gives four reasons in his own words: no car (Civic towed, Kevin's Escape in the shop, no rental until 02/18); thought it was soreness, took ibuprofen and lidocaine patches; signed the PIP form at intake but didn't understand it paid his bills, and was unsure his new Peach State plan was active; right-hand numbness from 02/18, worked 02/18–02/19, went in on his first day off. He texted his mother about it 02/07–02/15, called out of work 02/09–02/13, kept the 02/07 pharmacy receipt. How they come across: Guarded and expecting blame for the delay. Clipped answers to yes-or-no questions; talks freely to open ones. Agrees with any reason suggested to him. Asks if the gap hurts. The Case Manager must: Open on record: date, parties, role, his consent, privacy confirmed; Draw out all four reasons with open, non-leading questions; Surface the texts, the call-outs and the 02/07 receipt; Read back his account; confirm 03/05 consult and post-03/19 transport. UPL line: Never suggest a reason or say what the gap does to his case; route that to Atty. Thorne."},
     {id:"cf-d2m4-a2", label:"Atty. Elijah Thorne: Pre-Demand Strategy Session with AI Atty. Elijah Thorne", fixedOpening:"I've got twenty minutes. Bottom line first. Then tell me why Keystone shouldn't call this a low-speed bump with a guy who waited two weeks to see a doctor.", context:"Atty. Elijah Thorne (attorney). 07/08/2026, before any demand. MMI 06/12; Specials $42,984.00 ($41,400.00 medical after the 05/04 duplicate came out, plus $1,584.00 wages); liens $1,860.00 Peach State and $6,105.00 LOP; targets $10,000 BI, $20,000 Host UM, $10,000 Relative UM. He pushes: low-speed impact, the 14-day gap, the “degenerative” MRI, and asks what the case is worth. Briefed well, he decides: a time-limited BI demand served 07/20/2026, the gap addressed up front, no UM demand before a documented BI tender, billed-vs-paid his call. How they come across: Exacting senior trial lawyer, short on time. Plays the adjuster to test you. Wants facts, not adjectives; bristles at any valuation from staff. The Case Manager must: Lead with the bottom line: MMI, $42,984.00 Specials, $10,000 BI limit; Meet each challenge with dated documents, not adjectives; Get his decisions: demand, the gap, UM consents, billed-vs-paid; Read back each decision; task it with an owner and date. UPL line: Recommend operations only; propose no demand figure and leave every legal decision to Atty. Thorne."},
-    {id:"cf-d3m1-a1", label:"Dana Whitfield: Serving the $10,000 BI Time-Limit Demand Package", fixedOpening:"Hi, Dana Whitfield at Keystone, on the Doe claim. I've got your demand here. Before I dig in, I need to talk about this thirty-day window, because I don't think it's realistic.", context:"Dana Whitfield (adjuster). 07/23/2026. Keystone received the $10,000 time-limited BI demand (KM-26-440871) by certified mail on 07/22/2026; the email copy came 07/20. Acceptance window: 30 days from receipt, 08/21/2026. Dana says the 14-day gap needs a closer look, asks whether the 30 days run from the email, asks for 30 more days and the full Riverton Spine & Rehab chart. She stays polite but presses for a yes. She offers no number. How they come across: Courteous BI adjuster with a heavy desk; wants more time and more records; tests whether the Case Manager will agree to anything on the phone. The Case Manager must: Confirm receipt 07/22/2026 and the 08/21/2026 deadline as written; Agree to no extension; route her request to Atty. Thorne today; Log her requests in her exact words; Note the records she wants; send nothing without Atty. Thorne's approval. UPL line: The CM never extends the deadline, changes a term or discusses value; Atty. Thorne decides."},
+    {id:"cf-d3m1-a1", label:"Dana Whitfield: Serving the $10,000 BI Time-Limit Demand Package", fixedOpening:"Hi, Dana Whitfield at Keystone, on the Doe claim. I've got your demand here. Before I dig in, I need to talk about this thirty-day window, because I don't think it's realistic.", context:"Dana Whitfield (adjuster). 07/23/2026. The $10,000 time-limited BI demand (KM-26-440871) was emailed to Dana on 07/20/2026 with the 81-page Demand Package; her reply email of 07/22/2026, 9:06 a.m., confirmed receipt in writing (no certified mail). Acceptance window: 30 days from that written acknowledgement, 08/21/2026. Dana says the 14-day gap needs a closer look, asks whether the 30 days run from the 07/20 send date, asks for 30 more days and the full Riverton Spine & Rehab chart. She stays polite but presses for a yes. She offers no number. How they come across: Courteous BI adjuster with a heavy desk; wants more time and more records; tests whether the Case Manager will agree to anything on the phone. The Case Manager must: Confirm receipt 07/22/2026 and the 08/21/2026 deadline as written; Agree to no extension; route her request to Atty. Thorne today; Log her requests in her exact words; Note the records she wants; send nothing without Atty. Thorne's approval. UPL line: The CM never extends the deadline, changes a term or discusses value; Atty. Thorne decides."},
     {id:"cf-d3m2-a1", label:"Dana Whitfield: Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap", fixedOpening:"Dana Whitfield, Keystone. I've finished my evaluation on Doe. I can offer thirty-five hundred. Honestly, he waited two weeks to see anybody, and that MRI reads degenerative to me.", context:"Dana Whitfield (adjuster). 08/05/2026. Demand received 07/22; acceptance runs to 08/21/2026. Dana offers $3,500, citing the 14-day gap (DOL 02/06, first treatment 02/20/2026) and a “degenerative” MRI. She has the EMS report and the Causation Letter but has not weighed them. Asked what supports $3,500, she says “our evaluation.” She may call the April break non-compliance. She will not move today and wants a counter. Atty. Thorne's authority: restate the Limits Demand, no counter. How they come across: Firm, friendly, practiced; opens at $3,500, leans on “waited two weeks” and “degenerative”; stalls with “my hands are tied” and “I'll call you back.” The Case Manager must: Pause, then ask what data supports $3,500; Answer the gap and “degenerative” with dated records and Dr. Park's words; Restate the $10,000 Limits Demand and 08/21/2026 deadline; no counter; Log her exact words; report the offer to Atty. Thorne today. UPL line: The CM never accepts, rejects, counters or values; the offer goes to Atty. Thorne to convey."}
   ]},
   {id:"cfday3", icon:"📑", label:"Case Flow Day 3 · Lien Negotiation & Disbursement", topics:[
@@ -4566,7 +4588,7 @@ window.rpLaunchRoleplay = rpLaunchRoleplay;
 // situations only — excludes the Legal category and any fixed-opening,
 // deliberately high-intensity crisis topics, since those are meant to be
 // chosen deliberately, not landed on randomly for quick practice.
-const QUICK_PRACTICE_TOPIC_IDS = ["cf-d1m3-a1","cf-d2m3-a1","cf-d2m2-a2","cf-d3m1-a1","cf-d3m2-a1","cf-d4m1-a1","cf-d4m3-a2","cf-d5m3-a1","cf-d5m4-a2"];
+const QUICK_PRACTICE_TOPIC_IDS = ["cf-d1m3-a1","cf-d2m3-a1","cf-d2m2-a2","cf-d3m1-a1","cf-d3m2-a1","cf-d4m2-a1","cf-d4m4-a2","cf-d5m3-a1","cf-d5m4-a2"];
 function rpLaunchQuickPractice(){
   const pool = [];
   ROLEPLAY_CATEGORIES.forEach(c=>{
@@ -5050,8 +5072,8 @@ Return ONLY a JSON array of 4 strings, each a short, realistic incoming request 
     s.rapidTasks = JSON.parse(cleaned).slice(0,4);
   }catch(e){
     s.rapidTasks = [
-      "Metro Radiology's records department calls: John Doe's authorization has the wrong DOB and they won't release the MRI.",
-      "John Doe's wife Jane calls asking whether she needs her own claim for her neck pain.",
+      "Summit Imaging Center's records department calls: John Doe's authorization has the wrong DOB and they won't release the MRI.",
+      "John Doe's mother, Margaret Doe, calls asking how his case is going and whether her Civic claim affects it.",
       "The attorney needs the updated lien totals for the Doe file in the next 10 minutes.",
       "A court clerk leaves a voicemail: the Answer in another matter was rejected for a missing signature page."
     ];
@@ -5514,9 +5536,12 @@ function syncTaskFromBroadcast(t){
   }
   e.expiresAt = t.expiresAt || e.expiresAt;
 }
+// tasks whose resolution is with the grader right now: the window can end while the grade is on its way, and a task
+// submitted in time is not missed (this page only, so a reload mid-grade leaves the task to the timer as before)
+const __tkGrading = new Set();
 function refreshTaskStatuses(){
   let changed = false;
-  taskLog().forEach(e=>{ if((e.status==="new"||e.status==="progress") && e.expiresAt && Date.now() > new Date(e.expiresAt).getTime()){
+  taskLog().forEach(e=>{ if((e.status==="new"||e.status==="progress") && !__tkGrading.has(e.id) && e.expiresAt && Date.now() > new Date(e.expiresAt).getTime()){
     e.status = "missed"; e.missedAt = new Date().toISOString(); changed = true;
     // a missed task counts as 0 in the day's random-task score (and therefore in rankings and the audit)
     if(state.progress){ const p = state.progress[e.dayId] = state.progress[e.dayId] || {};
@@ -5539,14 +5564,14 @@ function renderTasksPage(){
     const left = e.expiresAt ? new Date(e.expiresAt).getTime()-Date.now() : 0;
     return `<div class="card tk-card ${e.status}" id="tk_${cssId(e.id)}">
       <div class="tk-head"><div><span class="tk-day">Day ${dayNo(e.dayId)}</span> ${taskStatusChip(e)}${!live ? ` <button class="tk-arch-btn" onclick="taskArchive('${esc(e.id)}', ${e.archived?"false":"true"})" title="${e.archived?"Move back to the list":"Hide from the list — it still counts in your scores"}">${e.archived?"↩ Unarchive":"🗄 Archive"}</button>` : ""}</div>
-        <div class="tk-times">Received ${fmtDate(e.receivedAt)}${live && e.expiresAt ? ` · <b class="tk-left" data-exp="${esc(e.expiresAt)}">${fmtLeft(left)}</b>` : ""}${e.submittedAt ? ` · Resolved in ${Math.max(1,Math.round((new Date(e.submittedAt)-new Date(e.receivedAt))/60000))} min` : ""}</div></div>
+        <div class="tk-times">Received ${fmtDate(e.receivedAt)}${live && e.expiresAt && !__tkGrading.has(e.id) ? ` · <b class="tk-left" data-exp="${esc(e.expiresAt)}">${fmtLeft(left)}</b>` : ""}${e.submittedAt ? ` · Resolved in ${Math.max(1,Math.round((new Date(e.submittedAt)-new Date(e.receivedAt))/60000))} min` : ""}</div></div>
       <p class="tk-task">${esc(e.task)}</p>
       ${live ? `
         <ol class="tk-steps"><li class="${e.status!=="new"?"ok":""}">Acknowledge</li><li class="${(e.notes||"").trim()?"ok":""}">Plan &amp; prioritise</li><li>Resolve &amp; submit</li></ol>
         ${e.status==="new" ? `<button class="btn btn-navy btn-sm" onclick="taskAck('${esc(e.id)}')">✋ Acknowledge — I'm on it</button>` : `
         <label class="tk-lbl">Working notes <span>(private, auto-saved — who to contact, what first, deadlines)</span><textarea rows="3" oninput="taskNotes('${esc(e.id)}', this.value)" placeholder="1) … 2) … 3) …">${esc(e.notes||"")}</textarea></label>
         <label class="tk-lbl">Your resolution <span>(what you'd actually send or do — this is graded)</span><textarea id="tkResp_${cssId(e.id)}" rows="5" oninput="taskResp('${esc(e.id)}', this.value)" placeholder="Write the message / actions exactly as you'd handle it…">${esc(e.response||"")}</textarea></label>
-        <div class="tk-actions"><button class="btn btn-primary btn-sm" id="tkBtn_${cssId(e.id)}" onclick="submitTask('${esc(e.id)}')">Submit resolution for grading</button></div>
+        <div class="tk-actions"><button class="btn btn-primary btn-sm" id="tkBtn_${cssId(e.id)}" onclick="submitTask('${esc(e.id)}')"${__tkGrading.has(e.id) ? " disabled>Grading…" : ">Submit resolution for grading"}</button></div>
         <div id="tkRes_${cssId(e.id)}"></div>`}` : ""}
       ${e.status==="resolved" ? `<div class="tk-score"><b>${e.score}%</b> <span>${esc(displayTier(e.tier||""))}</span></div>
         <details class="tk-more"><summary>Your resolution &amp; feedback</summary><p class="tk-resp">${esc(e.response||"")}</p>${e.reportHtml||""}</details>` : ""}
@@ -5578,9 +5603,11 @@ function taskNotes(id, v){ const e = taskLog().find(x=>x.id===id); if(!e) return
 function taskResp(id, v){ const e = taskLog().find(x=>x.id===id); if(!e) return; e.response = v; clearTimeout(__tkTimers["r"+id]); __tkTimers["r"+id] = setTimeout(saveTaskLog, 700); }
 async function submitTask(id){
   const e = taskLog().find(x=>x.id===id); if(!e) return;
+  if(__tkGrading.has(id)) return;   // already with the grader (a re-render can bring the button back while it grades)
   refreshTaskStatuses(); if(e.status==="missed"){ toast("This task's live window has ended."); render(); return; }
   const val = (e.response||"").trim();
   if(val.length < 25){ toast("Write out how you'd actually resolve it first."); return; }
+  __tkGrading.add(id);
   const btn = document.getElementById("tkBtn_"+cssId(id)); const out = document.getElementById("tkRes_"+cssId(id));
   if(btn){ btn.disabled = true; btn.textContent = "Grading…"; }
   if(out) out.innerHTML = `<div class="ai-loading">Reviewing your resolution…</div>`;
@@ -5611,9 +5638,10 @@ async function submitTask(id){
     render();
     setTimeout(()=>{ const c = document.querySelector(`#tk_${cssId(id)} details`); if(c){ c.open = true; c.scrollIntoView({behavior:"smooth", block:"center"}); } }, 80);
   }catch(err){
-    if(btn){ btn.disabled = false; btn.textContent = "Submit resolution for grading"; }
-    if(out) out.innerHTML = renderAiErrorBlock(err, "Couldn't grade your resolution");
-  }
+    const b = document.getElementById("tkBtn_"+cssId(id)) || btn, o = document.getElementById("tkRes_"+cssId(id)) || out;   // the page may have been redrawn meanwhile
+    if(b){ b.disabled = false; b.textContent = "Submit resolution for grading"; }
+    if(o) o.innerHTML = renderAiErrorBlock(err, "Couldn't grade your resolution");
+  }finally{ __tkGrading.delete(id); }
 }
 Object.assign(window, {taskAck, taskNotes, taskResp, submitTask});
 setInterval(()=>{ document.querySelectorAll(".tk-left[data-exp]").forEach(el=>{ const ms = new Date(el.dataset.exp).getTime()-Date.now(); el.textContent = fmtLeft(ms); if(ms<=0 && state.view==="tasks" && !isTyping()) render(); }); }, 1000);
@@ -6054,7 +6082,7 @@ function render(){
   afterRender();
 }
 function renderFooter(){
-  return `<div class="footer-note">LSH Case Management Training &middot; Internal Training Portal &middot; <span id="saveStatus">${saveStatusText()}</span> &middot; <span class="build-tag">build ${typeof APP_BUILD!=="undefined"?APP_BUILD:""}</span></div>`;
+  return `<div class="footer-note">LSH Case Management Training &middot; LSH Nexus &middot; <span id="saveStatus">${saveStatusText()}</span> &middot; <span class="build-tag">build ${typeof APP_BUILD!=="undefined"?APP_BUILD:""}</span></div>`;
 }
 
 /* ============================================================
@@ -6276,7 +6304,7 @@ window.addEventListener("resize", ()=>{ clearTimeout(window.__heroFitT); window.
 if(document.fonts && document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", ()=>fitHeroText());
 
 /* ---------- Uniform page heroes: every page title gets the dashboard hero look ---------- */
-const PAGE_EYEBROWS = {clientprofile:"Case Profile", casedocs:"Case Documents", tools:"Training Tools", cms:"Training Tools", calls:"Simulators", practice:"Skill Builders", notes:"My Notes", handouts:"Reference Library", crisisroleplay:"Live Roleplay", facilitatorguide:"For Trainers", admin:"Admin Dashboard"};
+const PAGE_EYEBROWS = {clientprofile:"Case Profile", casedocs:"Case Documents", tools:"Training Tools", cms:"Training Tools", calls:"LSH Sims", practice:"Skill Builders", notes:"My Notes", handouts:"Reference Library", crisisroleplay:"Live Roleplay", facilitatorguide:"For Trainers", admin:"Admin Dashboard"};
 function applyPageHero(){
   if(["dashboard","day","login","pendingApproval","registrationDenied","orientation","tool"].includes(state.view)) return;
   const main = document.querySelector("#app > main"); if(!main) return;
@@ -7684,7 +7712,8 @@ async function submitQuiz(dayId){
       // (the picks go with the attempt: the Worker scores it from them, worker-identity.js kcScore)
       history: [...prevHistory, {score, passed, date: new Date().toISOString(), answers: d.quiz.map((q,i)=> typeof state.quizAnswers[i]==="number" ? state.quizAnswers[i] : null)}]
     };
-    state.progress[dayId]=newRecord;
+    // merged onto the day, not in its place: the day also holds its random-task scores (surpriseTaskScores) and the like
+    state.progress[dayId]=Object.assign({}, state.progress[dayId]||{}, newRecord);
     logWork({kind:"quiz", dayId, label:`Day ${dayId} Knowledge Check`, score, correct, total, missed: d.quiz.map((q,i)=>state.quizAnswers[i]!==q.a ? q.q : null).filter(Boolean).slice(0,6)});
     setTimeout(()=>autoReviewDay(dayId), 3000);
     await storeSet("day-progress", state.progress);
@@ -8277,7 +8306,7 @@ Score this performance on a 100-point rubric across these four EQUALLY weighted 
 - BLUF Adherence (0-25): did the trainee lead with the bottom line early, rather than burying it in context or hedging? A response that opens with background before the actual point should score low here.
 - Risk & Privilege Identification (0-25): did the trainee protect confidential or privileged information, avoid anything resembling unauthorized legal advice (UPL), and correctly flag any financial/trust-account (IOLTA) risk where relevant to this specific situation? Not every scenario involves all three — judge only what's actually relevant here.
 - Composure & Tone (0-25): did the trainee stay professionally diplomatic under pressure, even if the caller was rude, aggressive, or emotional? Visible defensiveness, over-apologizing, or matching hostile tone should score low.
-- ACT Protocol Execution (0-25): did the trainee Acknowledge the concern, Clarify what's actually needed, and establish a Timeline — before committing to anything? Committing to a task or promise without first doing this should score low here specifically.
+- A-C-T Protocol Execution (0-25): the course's A-C-T is Assess, Clarify, Track. Did the trainee Assess what the caller raised (is there a medical, legal or deadline danger, and whose call is it?), Clarify what is actually needed by asking rather than assuming, and Track it (say what will be logged, routed and followed up, and when) — before committing to anything? Committing to a task or promise without first doing this should score low here specifically.
 
 A generic or minimal-effort performance should score well below 70 overall. Reserve 85+ for genuinely strong performance across all four categories, not just adequate.
 
@@ -8985,15 +9014,31 @@ Return ONLY a JSON array of objects like: [{"task":"...", "why":"..."}]`;
 }
 window.generateProactiveTasks = generateProactiveTasks;
 
+// The plan's score. A starting conflict is resolved when both commitments are still on the week and no longer
+// overlap: deleting one of them drops the commitment, it doesn't resolve the clash (otherwise deleting every block
+// scored 100%). Each new overlap the trainee creates takes one back off, as before. With nothing deleted this is the
+// old count (starting conflicts less the ones left).
+function calPlanScore(events){
+  const baseline = toolState.calBaseline || 1;
+  const key = (a,b)=>Math.min(a,b)+"-"+Math.max(a,b);
+  const start = calFindConflicts(CAL_EVENTS.map((e,i)=>Object.assign({}, e, {idx:i})));
+  const startKeys = new Set(start.map(([a,b])=>key(a,b)));
+  const now = calFindConflicts(events);
+  const nowKeys = new Set(now.map(([a,b])=>key(a,b)));
+  const gone = i=>!!(toolState.calEdits && toolState.calEdits[i] && toolState.calEdits[i].deleted);
+  const fixed = start.filter(([a,b])=>!gone(a) && !gone(b) && !nowKeys.has(key(a,b))).length;
+  const dropped = start.filter(([a,b])=>gone(a) || gone(b)).length;
+  const added = now.filter(([a,b])=>!startKeys.has(key(a,b))).length;
+  const resolved = Math.max(0, Math.min(baseline, fixed - added));
+  return {baseline, resolved, dropped, score: Math.round((resolved/baseline)*100)};
+}
 async function submitCalendar(){
   const events = calMergedEvents();
-  const remaining = calFindConflicts(events).length;
-  const baseline = toolState.calBaseline || 1;
-  const resolved = Math.max(0, baseline - remaining);
-  const score = baseline===0 ? 100 : Math.round((resolved/baseline)*100);
+  const {baseline, resolved, dropped, score} = calPlanScore(events);
   document.getElementById("calResult").innerHTML=`
     <div class="card" style="padding:18px 20px;margin-top:16px;">
       <b style="color:var(--navy);">${resolved} / ${baseline} conflicts resolved (${score}%)</b>
+      ${dropped ? `<p style="font-size:12.8px;color:var(--ink-soft);margin:8px 0 0;">${dropped} conflict${dropped===1?" was":"s were"} cleared by deleting a commitment: that drops the work rather than resolving the clash, so ${dropped===1?"it doesn't":"they don't"} count. Move the lower-priority item instead.</p>` : ""}
       <p style="font-size:12.8px;color:var(--ink-soft);margin:8px 0 0;">Best practice when reshuffling: move the lower-priority commitment, and keep High-priority items — depositions, hearings, client emergencies — right where they are.</p>
     </div>`;
   await bumpPracticeProgress("calendar", score);
@@ -9016,10 +9061,7 @@ window.submitCalendar = submitCalendar;
 async function downloadCalendarPdf(){
   await ensureTraineeName();
   const events = calMergedEvents();
-  const remaining = calFindConflicts(events).length;
-  const baseline = toolState.calBaseline || 1;
-  const resolved = Math.max(0, baseline - remaining);
-  const score = baseline===0 ? 100 : Math.round((resolved/baseline)*100);
+  const {baseline, resolved, score} = calPlanScore(events);
   const lines = [`## Legal Calendar Conflict Resolver`, `Conflicts resolved: ${resolved} / ${baseline} (${score}%)`, "---", "## Final Weekly Schedule"];
   DAY_ORDER.forEach(day=>{
     const dayEvents = events.filter(e=>e.day===day).sort((a,b)=>a.s-b.s);
@@ -11915,7 +11957,8 @@ function logWork(entry){
     const origRp = runRoleplayRubricEvaluation;
     runRoleplayRubricEvaluation = async function(scenario, transcript){
       const rep = await origRp(scenario, transcript);
-      try{ logWork({kind:"roleplay", dayId:nextDayId(), label:`Roleplay — ${scenario.topic&&scenario.topic.label||""}`, score:rep.totalScore, tier:rep.gradeTier,
+      // a Case Flow call is filed on its own day (cf.dayId), not on the furthest day the trainee has opened
+      try{ logWork({kind:"roleplay", dayId:(scenario && scenario.cf && Number(scenario.cf.dayId)) || nextDayId(), label:`Roleplay — ${scenario.topic&&scenario.topic.label||""}`, score:rep.totalScore, tier:rep.gradeTier,
         strengths:(rep.strengths||[]).slice(0,3), gaps:(rep.blindspots||[]).slice(0,3), excerpt:String(transcript||"").slice(0,700),
         subs:{bluf:Math.round((rep.blufScore||0)/25*100), risk:Math.round((rep.riskPrivilegeScore||0)/25*100), composure:Math.round((rep.composureScore||0)/25*100), act:Math.round((rep.actProtocolScore||0)/25*100)}}); }catch(e){}
       return rep;
@@ -15815,6 +15858,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-ledger-retry.js"></script>
 <!-- ⚖️ the Litigation note: verify the assigned Case Manager before a handoff (the Litigation section's start and its handoff steps) -->
 <script src="/js/cm-litigation-note.js"></script>
+<!-- 👥 merged-away accounts: one rule for who is on a score table (a merge waiting to finish is not a second trainee) -->
+<script src="/js/cm-merged-away.js"></script>
 <!-- 📁 companion cases: a second file per trainee, assigned in Trainee Audit, with an Attorney–CM brainstorm each day -->
 <script src="/js/cm-companion-cases.js"></script>
 <!-- 🤖 Day 5's companion-case build, AI graded on a rubric of the Day 1–4 deliverables (registers with cm-ai-grader.js) -->
@@ -15849,25 +15894,43 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-account-repair.js"></script>
 <!-- 🛡 the Admin screen in sections, as Foundational Training: the section pills, their tabs, a navy banner (wraps renderAdmin last) -->
 <script src="/js/cm-admin-shell.js"></script>
+<!-- 🤖 the AI check (Admin → ⚙ Settings): one small grading sent as a trainee's is, and plainly whether AI grading works here -->
+<script src="/js/cm-ai-check.js"></script>
 <!-- 🤖 the AI Grader on every Skill Building activity (its last slide), in place of the self-tick Check Your Work -->
 <script src="/js/cm-ai-grader.js"></script>
 <script src="/js/cm-audit-table.js"></script>
+<!-- 💡 Case Manager's guides: what to check or where to look at a Skill Activity's step, never the answer, fading day by day (beside the 💡 Tip in 🧰 Tools; Day 5's build, step 1) -->
+<script src="/js/cm-case-guides.js"></script>
+<!-- ⚡ every score fills in by itself: an AI grading that didn't come back is sent again with backoff, and the trainer's Scorecard keeps itself current -->
+<script src="/js/cm-auto-grade.js"></script>
 <script src="/js/cm-progress-log.js"></script>
+<!-- 🎬 the Case Debrief: the Case Profile's third tab, a narrated debrief of the whole file, 🔒 for a trainee until Case Flow Day 5 is complete (after cm-case-profile.js and cm-deck-slides.js) -->
+<script src="/js/cm-case-debrief.js"></script>
 <!-- 🔁 the daily loop: lessons → Case Profile → the one Skill Building → Action Plan → optional side exercises → Knowledge Check (saved places follow their slides by key, cm-slide-keys.js) -->
 <script src="/js/cm-day-loop.js"></script>
 <!-- 🪪 the certificate shows the full name registered on the Portal (trainee:<id>.fullName, from the sign-in ticket's "full") -->
 <script src="/js/cm-full-name.js"></script>
 <!-- 💡 the rules of the lesson cards the decks replaced, as a Tip pop-up on the Skill Activity that practised each one -->
 <script src="/js/cm-lesson-tips.js"></script>
+<!-- 📍 a saved place on a merged activity lands on the Skill Building that now holds its work (a CM_SLIDE_KEY_RULES rule) -->
+<script src="/js/cm-merged-places.js"></script>
 <script src="/js/cm-one-slide.js"></script>
 <!-- ⭐ one Overall score on every page that shows one: the dashboard's My Score Card too (cmScorecard.overall) -->
 <script src="/js/cm-overall.js"></script>
 <!-- ☁ a saved copy that couldn't be read is never saved over: a notice with Try again, and the read retried until it loads -->
 <script src="/js/cm-restore-guard.js"></script>
+<!-- 🔥 the Roleplay hub and 🎲 Quick Practice serve only calls whose activity is still on a day (cut ones are taken out) -->
+<script src="/js/cm-roleplay-taught.js"></script>
+<!-- 🏆 Admin → 🏅 Scorecard → Rankings & Progress Report: the batch's ranking table to screenshot, edit and share (report.html) -->
+<script src="/js/cm-rankings.js"></script>
+<!-- ⚡ Run now: every manual trigger a trainer has, on the Admin header and the 🏅 Scorecard banner -->
+<script src="/js/cm-run-now.js"></script>
 <!-- 🧳 logging out wipes the device only after a confirmed save; otherwise its work is backed up (orphan:<id>:<ms>) -->
 <script src="/js/cm-safe-logout.js"></script>
-<!-- 🎯 Your Task: the one Launch CMS & Google Drive button, and the Rules & Naming Guide in 📖 Reference -->
+<!-- 🎯 Your Task: the one Launch LSH CaseWorks & Google Drive button, and the Rules & Naming Guide in 📖 Reference -->
 <script src="/js/cm-sb-task.js"></script>
+<!-- 📤 Send progress: a trainer sends a trainee their progress with their feedback; the trainee reads it in 📒 My Progress Log -->
+<script src="/js/cm-send-progress.js"></script>
 <!-- 🔎 a slide uses its card: content that does not fill it is enlarged, and what is left sits in the middle (called by fitSlideZoom) -->
 <script src="/js/cm-slide-layout.js"></script>
 <!-- 🧊 layout 7's deck as slide keys, frozen (read by cm-slide-places.js and cm-slide-keys.js) -->
@@ -15876,6 +15939,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-slide-places.js"></script>
 <!-- 🔑 a saved place is saved by slide key too: a deck change moves no one (right after cm-slide-places.js, which it builds on) -->
 <script src="/js/cm-slide-keys.js"></script>
+<!-- 📝 a takeaway review that didn't complete is run again, once a session, for the days whose Knowledge Check is taken -->
+<script src="/js/cm-takeaway-catchup.js"></script>
 <!-- 🧠 Think it through: a Canva page's example worked on John Doe's own file, AI graded (beside the 💡 Tip; after cm-lesson-tips.js) -->
 <script src="/js/cm-think-through.js"></script>
 <script src="/js/lsh-topbar.js"></script>

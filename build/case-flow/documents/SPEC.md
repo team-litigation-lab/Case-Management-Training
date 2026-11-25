@@ -153,7 +153,7 @@ proceeding 07:10:05; Silverado entering without stopping 07:10:06; impact 07:10:
 *Key:* Chain of custody is what makes the video admissible. The grayscale stills fail binder QC — re-export in color
 from the original file (hash unchanged) before any binder or exhibit set.
 
-**RS10 · Event Data Recorder Download — 2020 Ford Escape** · Day 5 · Police · `RS_10_EDR_Download_Report.pdf`
+**RS10 · Event Data Recorder Download — 2020 Ford Escape** · Day 4 · Police · `RS_10_EDR_Download_Report.pdf`
 Crash data retrieval report (download 10/2026, by an accident reconstruction tech for LSH under a preservation
 agreement with Harbor Point/Kevin Alvarez): event 02/06/2026, pre-crash 5 s table (speed, brake, throttle),
 speed at impact **11 mph**, front-passenger belt **BUCKLED**, driver belt buckled, airbag deployment status.
@@ -251,7 +251,7 @@ Hospital $24,400.00 (ED level 5, CT, labs, IV, 22 h observation) and ambulance $
 RF-26-0220-031); PIP paid $8,850.00 and $1,150.00 at the fee schedule on 03/04/2026; $15,550.00 and $1,032.60 adjusted off; $0.00 due.
 *Plant:* none. *Key:* PIP's $10,000 gone in 48 hours of care (Day 2 deck p23); billed totals stay in the Specials.
 
-**RS23 · Riverton Spine & Rehab — Itemized LOP Ledger** · Day 3 · Bills · `RS_23_Spine_Rehab_Itemized_LOP_Ledger.pdf`
+**RS23 · Riverton Spine & Rehab — Itemized LOP Ledger** · Day 1 · Bills · `RS_23_Spine_Rehab_Itemized_LOP_Ledger.pdf`
 Tammy Greer, office manager, statement date 06/30/2026: one line per visit date at $185.00, **34 lines**, total
 **$6,290.00**, payments $0.00, balance $6,290.00, "Account under Letter of Protection — LSH Law Group".
 *Plant:* **05/04/2026 appears twice** (one visit billed on two lines).
@@ -264,7 +264,7 @@ Three visits 03/05, 03/27, 06/12/2026 at $640.00 = $1,920.00; MedPay payments 03
 Cervical MRI without contrast 03/13/2026, $2,395.00 (technical + professional), paid by MedPay 03/25/2026, $0.00.
 Note: "LOP requested 03/11/2026 — not required (MedPay coverage confirmed; PIP exhausted 03/04/2026)".
 
-**RS26 · Crescent Pain & Spine — Bill, Peach State EOB & Patient Statement** · Day 3 · Bills · `RS_26_Crescent_Bill_EOB_and_Statement.pdf`
+**RS26 · Crescent Pain & Spine — Bill, Peach State EOB & Patient Statement** · Day 1 · Bills · `RS_26_Crescent_Bill_EOB_and_Statement.pdf`
 Page 1: claim to Peach State, DOS 05/15/2026, $3,400.00. Page 2: Peach State EOB (spec figures). Page 3: a Crescent
 patient statement mailed to John 07/01/2026 showing **"Balance due: $1,540.00"**.
 *Plant:* the patient statement bills John the $1,540.00 contractual adjustment.
@@ -302,7 +302,7 @@ signed UM/UIM selection/rejection form 03/14/2024.
 PIP's two payments at the fee schedule, "PIP limit exhausted 03/04/2026"; MedPay's five payments (spec list) at 100% of the billed medical, running balance to $0.00, "MedPay limit exhausted 06/26/2026"; a lost-income section: the 80% wage benefit ($1,267.20 on $1,584.00) not payable, limit exhausted before Northgate's 06/30/2026 letter.
 *Key:* Payer order in action; the Crescent bill went to Peach State, not PIP or MedPay.
 
-**RS71 · PIP Log — John Doe (Harbor Point PIP & MedPay)** · Day 2 · Case Files · `RS_71_PIP_Log.pdf`
+**RS71 · PIP Log — John Doe (Harbor Point PIP & MedPay)** · Day 1 · Case Files · `RS_71_PIP_Log.pdf`
 The firm's own record (LSH Law Group letterhead, Form PIP-100), kept by the Case Manager in CMS → Insurance tab → PIP Log: the PIP claim
 (HP-26-7741, HPA-4402917, Marcus Bell; PIP $10,000.00 with the EMC record, MedPay $5,000.00; 100% medical / 80% lost income; application 02/17/2026, opened 02/24/2026;
 no reimbursement right per the 03/02/2026 letter); PIP's two payments and MedPay's five (spec list) with the check numbers from RS31 and the limit
@@ -470,7 +470,7 @@ Angela Ruiz, 06/30/2026, with RS43: employee ID NGD-20417; $22.00/h; 8-hour day 
 physical demands (lifting to 50 lb, forklift, on his feet the full shift); no Northgate W-2 for 2025 (hired 01/12/2026);
 payroll for 02/02–02/15 (40 unpaid hours), 03/02–03/15 (16) and 05/11–05/24/2026 (16). *Plant:* none.
 
-**RS94 · Lost Wage Worksheet — DRAFT for audit (06/23/2026)** · Day 3 · Case Files · `RS_94_Lost_Wage_Worksheet_DRAFT.pdf`
+**RS94 · Lost Wage Worksheet — DRAFT for audit (06/22/2026)** · Day 3 · Case Files · `RS_94_Lost_Wage_Worksheet_DRAFT.pdf`
 A working paper from John Doe's own account by telephone, before Northgate's records came. *Plants:* 02/18 and 02/19/2026
 claimed (he worked them); 02/09–02/13 excluded; the MRI on 03/12; 05/18 with no note; light duty $440.00 and overtime $264.00;
 total $1,760.00; a PIP wage claim of $1,408.00; the 2025 W-2 asked of Northgate; "loss of earning capacity: permanent".
@@ -537,7 +537,7 @@ moved in August). TraceLine Investigations skip-trace report 10/09/2026: 118 Lar
 of personal service 10/14/2026, filed 10/16/2026.
 *Key:* Answer due 11/13/2026 (30 days from service — as configured for this training file; confirm the court's rules).
 
-**RS53 · Answer & Affirmative Defenses (11/12/2026)** · Day 5 · Litigation · `RS_53_Answer_and_Affirmative_Defenses.pdf`
+**RS53 · Answer & Affirmative Defenses (11/12/2026)** · Day 4 · Litigation · `RS_53_Answer_and_Affirmative_Defenses.pdf`
 Atty. Grant Mercer, Mercer & Hale LLP: denials; affirmative defenses: comparative negligence (the Escape entered the
 all-way stop out of turn; plaintiff was not wearing a seatbelt), causation (delayed treatment; degenerative findings),
 failure to mitigate (missed treatment), plus standard reservations.
@@ -602,7 +602,7 @@ The CMS task log Atty. Thorne opened when the pre-demand audit closed: the BI an
 *Key:* Shows the workflow: the desks draft, the CM QCs against the records, Atty. Thorne approves. Note the dependencies: UM opens only once BI is exhausted; the binders are contingent on suit and on a UM dispute.
 
 **RS65 · Harbor Point — PIP Application & Claim Acknowledgement** · Day 2 · Others · `RS_65_Harbor_Point_PIP_Application.pdf`
-John Doe's PIP application, signed 02/17/2026 and sent with the Harbor Point LOR (passenger in Kevin Alvarez's 2020 Ford Escape), and Harbor Point's 02/24/2026 acknowledgement: PIP opened under HPA-4402917, $10,000 each person ($2,500 without an EMC finding), with Part E MedPay $5,000 behind it, 100% medical / 80% lost income, bills to be sent with the claim number; wage loss needs an employer verification.
+John Doe's PIP application, signed at intake 02/09/2026 and sent 02/17/2026 with the Harbor Point LOR (passenger in Kevin Alvarez's 2020 Ford Escape), and Harbor Point's 02/24/2026 acknowledgement: PIP opened under HPA-4402917, $10,000 each person ($2,500 without an EMC finding), with Part E MedPay $5,000 behind it, 100% medical / 80% lost income, bills to be sent with the claim number; wage loss needs an employer verification.
 *Key:* Whose PIP: the vehicle he rode in, because no household policy carries PIP. Riverton's add-on rule: no BI or UM set-off, no reimbursement from the recovery.
 
 ### The near-drop: the 19-day disruption (RS75–RS79)

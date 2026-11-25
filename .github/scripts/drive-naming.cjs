@@ -234,11 +234,12 @@ global.fetch = async (url, init = {}) => {
   await put('RS05', 'intake', nameOf('Case-Files'));   // the same document, filed again under the same name: its record is replaced, not doubled
   if (rec().saved.filter((s) => s.docId === 'RS05').length !== 1) fail('a document filed again under the same name should replace its own record');
   byName(nameOf('Case-Files'))[1].trashed = true;       // (the first RS05 copy, replaced by the second)
-  // the names are read before any later day starts, in the grade's own list calls: one per folder of the linked folder
+  // the names are read before any later day starts, in the grade's own list calls: the whole linked folder, several
+  // folders to a call (worker-drive-walk.js), so a drive of the firm's 17 folders and nothing deeper is one call
   asked.length = 0;
   let rep = await naming();
   const tree = 1 + Object.keys(rec().folders).length;
-  if (asked.length !== tree || !asked.every((a) => a === 'GET /drive/v3/files?q')) fail(`reading the names should cost the grade's list calls (one per folder, ${tree}) and nothing more: ${JSON.stringify(asked)}`);
+  if (tree !== 17 || asked.length !== 1 || !asked.every((a) => a === 'GET /drive/v3/files?q')) fail(`reading the names should cost the grade's list call (the ${tree} folders in one) and nothing more: ${JSON.stringify(asked)}`);
   if (!rep || rep.checked !== 3 || rep.named !== 3 || rep.wrong !== 0 || (rep.list || []).length) fail(`three documents the CMS named should all pass, read on Day 1: ${JSON.stringify(rep)}`);
   if ((await grade()).drive.naming.caseId !== CASE) fail('the trainee\'s Case ID should be read from their filed copies');
   asked.length = 0; await call({ action: 'check' }, t);

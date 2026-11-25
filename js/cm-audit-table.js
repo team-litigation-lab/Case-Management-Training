@@ -49,8 +49,19 @@ function driveState(r){
   if(wrong) return {k: "bad", label: `🏷 ${wrong} name${wrong === 1 ? "" : "s"} wrong`, issue: true};
   return {k: "ok", label: rep.naming && rep.naming.checked && !all ? "Structure ✓ · names ✓" : "Structure ✓", issue: false};
 }
+// 🛡 the Knowledge Checks as the 🏅 Scorecard counts them: the record's (trainee:<id> and its Case Flow summary, js/cm-scorecard.js
+// kcBest / kcPassed), never the device's own day progress, which auditSummary reads first and the trainee can write. A score
+// only the device holds is kept beside the day (dev) for its tip, unconfirmed, and counts for nothing here.
+function recordKc(r, a){
+  const S = window.cmScorecard, dp = (r && r.dayProgress) || {}, c = {rec: r, cf: (r && r.caseFlow) || {days: {}}, data: ((state.auditExtra || {})[r.id] || {}).data || {}};
+  const days = (a.days || []).map(y => { const d = DAYS.find(z => String(z.id) === String(y.id)), p = dp[y.id] || {};
+    let score = typeof p.score === "number" ? p.score : null, passed = !!p.done, dev = null;
+    try{ if(S && d && d.cf){ const b = S.kcBest(p, S.cfDay(c, d)); score = typeof b === "number" ? b : null; passed = !!S.kcPassed(c, d); dev = S.kcDevice(c, d); } }catch(e){}
+    return Object.assign({}, y, {score, passed, dev: typeof dev === "number" ? dev : null}); });
+  return Object.assign({}, a, {days, kcPassed: days.filter(d => d.passed).length, kcBelow: days.filter(d => d.score !== null && !d.passed).map(d => d.id)});
+}
 function rowOf(r){
-  const a = auditSummary(r), day = adminDayStats(r), pp = adminPracticeStats(r);
+  const a = recordKc(r, auditSummary(r)), day = adminDayStats(r), pp = adminPracticeStats(r);
   const firstOpen = a.days.find(d => !d.passed);
   const curDay = !a.loaded ? null : firstOpen ? cfN(firstOpen.id) : "done";
   const kcScores = a.days.filter(d => d.score !== null).map(d => d.score);
@@ -144,7 +155,7 @@ function ago(iso){
 }
 function dayCell(d){
   const cls = d.passed ? "ok" : (d.score !== null ? "low" : (d.reached > 0 ? "wip" : "none"));
-  const tip = `Case Flow Day ${cfN(d.id)}: ${d.reached}/${d.n} slides · ${d.score !== null ? `Knowledge Check ${d.score}%${d.passed ? " ✓" : " (below 70%)"}` : "Knowledge Check not taken"} · Skill Builder ${d.labDone ? "done" : "not done"}`;
+  const tip = `Case Flow Day ${cfN(d.id)}: ${d.reached}/${d.n} slides · ${d.score !== null ? `Knowledge Check ${d.score}%${d.passed ? " ✓" : " (below 70%)"}` : d.dev != null ? `Knowledge Check ${d.dev}% on the device only, unconfirmed (not counted)` : "Knowledge Check not taken"} · Skill Builder ${d.labDone ? "done" : "not done"}`;
   return `<span class="ad-cell ${cls}" title="${E(tip)}">${cfN(d.id)}${d.labDone ? "<i></i>" : ""}</span>`;
 }
 function rowHtml(x, ncol){
@@ -226,7 +237,7 @@ function toolbarHtml(){
     const live = inBatch(cur).filter(r => !r.archived).length, arch = inBatch(cur).filter(r => r.archived).length;
     const fbN = typeof batchFeedback === "function" && state.tfbAdmin && !state.tfbAdmin.loading ? batchFeedback(cur).length : null;
     return `${live ? `<button class="btn btn-sm btn-ghost at-danger" onclick="confirmArchiveBatch('${J(cur)}')">📦 Archive batch</button>` : ""}${arch ? `<button class="btn btn-sm btn-ghost" onclick="confirmUnarchiveBatch('${J(cur)}')">↩ Restore batch (${arch})</button>` : ""}
-      <button class="btn btn-sm btn-ghost" onclick="setAdminTab('audit')">📋 Batch Sheet scores</button>
+      <button class="btn btn-sm btn-ghost" onclick="setAdminTab('scorecards')">🏅 Scorecard</button>
       <button class="btn btn-sm ${state.auditBatchFb ? "btn-navy" : "btn-ghost"}" aria-pressed="${!!state.auditBatchFb}" onclick="cmAudit.batchFb()">💬 Batch feedback${fbN !== null ? ` (${fbN})` : ""}</button>`;
   })() : "";
   return `<div class="at-bar-top">

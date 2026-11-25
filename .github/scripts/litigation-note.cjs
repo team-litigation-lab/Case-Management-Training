@@ -16,8 +16,8 @@
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
 const BASE = process.argv[2] || 'http://localhost:8787/';
-const NOTE = 'Note: Case Managers handling Litigation and Pre-Litigation are sometimes different individuals. Always verify the assigned Case Manager in the CMS/Case Profile before transferring files, logging updates, or routing communications.';
-const BLOCKS = ['d4m1-l1', 'd4m1-l2', 'd4m1-a1', 'd4m1-a2', 'd4m1-efile', 'd4m2-l1', 'd4m2-a1', 'd4m2-medcal', 'd5m5-l1', 'd5m5-a1'];
+const NOTE = 'Note: Case Managers handling Litigation and Pre-Litigation are sometimes different individuals; in Litigation, the Case Manager is usually the paralegal. Always verify the assigned Case Manager in the CMS/Case Profile before transferring files, logging updates, or routing communications.';
+const BLOCKS = ['d4m1-l1', 'd4m1-l2', 'd4m2-l1', 'd4m2-a1', 'd5m5-l1'];   // (d4m1-a1, d4m1-a2, d4m1-efile, d4m2-medcal and d5m5-a1 were cut as extra tasks)
 const SIZES = [[1366, 768], [1920, 1080]];
 const failures = [];
 const check = (ok, m) => { console.log((ok ? 'PASS ' : 'FAIL ') + m); if (!ok) failures.push(m); };
@@ -65,21 +65,21 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
             check(t.over <= 2 && t.below <= 1 && t.pages === 1, `${L} ${id}: the slide still fits one screen (inside +${t.over}, below +${Math.round(t.below)}, ${t.pages} page)`);
             if (id === 'd4m1-l1') { check(!t.pop, `${L} ${id}: the start of the section has the callout, no pop-up`); continue; }
             check(t.pop.includes(NOTE), `${L} ${id}: a trainee gets it as a pop-up too`);
-            if (id === 'd4m1-a2') {
+            if (id === 'd4m2-l1') {   // (d4m1-a2 and d4m1-efile, which these steps used, were cut as extra tasks)
                 await page.click('#lgnPop [data-lgn-ok]'); await sleep(300);
                 const after = await page.evaluate(async () => ({ pop: !!document.getElementById('lgnPop'), saved: JSON.parse(localStorage.getItem('lsh_litigation-note-seen') || '{}'), key: PERSONAL_KEYS.includes('litigation-note-seen') }));
-                check(!after.pop && after.saved['d4m1-a2'] > 0 && after.key, `${L} ${id}: "Got it" puts it away and saves it to the trainee's progress (${JSON.stringify(after)})`);
+                check(!after.pop && after.saved['d4m2-l1'] > 0 && after.key, `${L} ${id}: "Got it" puts it away and saves it to the trainee's progress (${JSON.stringify(after)})`);
                 const again = await go(id, false);
                 check(!again.pop && again.text === NOTE, `${L} ${id}: back on the step, no pop-up again, and the callout is still on the slide`);
             }
-            if (id === 'd4m1-efile') {
+            if (id === 'd4m2-a1') {
                 // the keyboard: Got it has the focus, Esc puts it away; the save adds to marks another device stored meanwhile
                 const f = await page.evaluate(async () => { const s = (await storeGet('litigation-note-seen')) || {}; s['from-other-device'] = 1; await storeSet('litigation-note-seen', s);
                     const a = document.activeElement; return !!a && a.hasAttribute('data-lgn-ok'); });
                 check(f, `${L} ${id}: the pop-up's Got it takes the keyboard's focus`);
                 await page.keyboard.press('Escape'); await sleep(300);
                 const esc = await page.evaluate(async () => ({ pop: !!document.getElementById('lgnPop'), saved: (await storeGet('litigation-note-seen')) || {} }));
-                check(!esc.pop && esc.saved['d4m1-efile'] > 0 && esc.saved['from-other-device'] === 1, `${L} ${id}: Esc puts the pop-up away, saved with the marks already stored (${JSON.stringify(esc)})`);
+                check(!esc.pop && esc.saved['d4m2-a1'] > 0 && esc.saved['from-other-device'] === 1, `${L} ${id}: Esc puts the pop-up away, saved with the marks already stored (${JSON.stringify(esc)})`);
             }
             await page.evaluate(() => { const p = document.getElementById('lgnPop'); if (p) p.remove(); });
         }
@@ -94,7 +94,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
         check(full['d4m3-a1'] === '', `${L} a block that is no handoff (d4m3-a1) has no note in its full text`);
         // a trainer: no pop-up; Presenter view says to read it aloud
         await page.evaluate(async () => { await storeSet('litigation-note-seen', {}); await cmLitigationNote.reload(); });
-        const tr = await go('d4m1-a1', true);
+        const tr = await go('d4m2-a1', true);
         check(!tr.pop && tr.text === NOTE, `${L} a trainer gets the callout on the slide and no pop-up`);
         const cue = await page.evaluate(() => { const d = DAYS.find(x => x.cf && x.cf.n === 5), s = buildDaySlides(d); const sl = s.find(x => x.type === 'topic' && x.part === 1 && d.lessons[x.lessonIndex].cf.block.id === 'd4m1-l1');
             return typeof presenterCues === 'function' ? String(presenterCues(d, sl) || '') : ''; });

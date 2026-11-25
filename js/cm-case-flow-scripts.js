@@ -63,7 +63,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m1-open": {
   "task": {
-   "say": "• Start the matter in New Case; run and record the Conflict Check on every party's full legal name first\n• Check the draft field by field against the documents: date of loss, names, roles, position, date of birth, report number\n• Fix each error and note its source; never fix silently\n• Calendar the 02/06/2028 deadline with reminders; map six roles; log retainer and HIPAA; file documents named the firm's way\n• Send Atty. Thorne a correction note in Case Notes"
+   "say": "• Start the matter in New Case; run and record the Conflict Check on every party's full legal name first\n• Check the draft field by field against the documents: date of loss, names, roles, position, date of birth, report number\n• Fix each error and note its source; never fix silently\n• Calendar the 02/06/2028 deadline with reminders; map six roles; log retainer and HIPAA; file documents named the firm's way\n• Insurance: each layer in order, first- or third-party, every gap recorded with a follow-up, no limit guessed, PIP outside the stack\n• Send Atty. Thorne a correction note in Case Notes"
   },
   "case": {
    "say": "• 02/09/2026: email from On the Records; new client John Doe, front-seat passenger, collision 02/06/2026 at Maple Hollow Rd and Birch Ave\n• Attached: New Client Intake Sheet, intake supplement, retainer, signed HIPAA authorization, Riverton PD crash report\n• A colleague's draft intake record is already in the CMS, and it has mistakes\n• Atty. Thorne wants the matter active today"
@@ -75,7 +75,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m1-drive": {
   "task": {
-   "say": "• Required every day, straight after the Skill Building: today it builds John Doe's backup drive\n• Press Launch CMS & Google Drive; not linked yet, paste your shared folder's link in the Backup Drive panel\n• Build 01 Clients with Doe-John inside and its nine numbered folders, intake and retainer through litigation\n• Add the firm folders: administration, templates, closed files\n• Submit in My Backup Drive, fix what it returns, then run Check my drive until clean\n• In Case Notes, place the signed retainer, Police Report and HIPAA authorization, with reasons"
+   "say": "• Required every day, straight after the Skill Building: today it builds John Doe's backup drive\n• Press Launch LSH CaseWorks & Google Drive; not linked yet, paste your shared folder's link in the Backup Drive panel\n• Build 01 Clients with Doe-John inside and its nine numbered folders, intake and retainer through litigation\n• Add the firm folders: administration, templates, closed files\n• Submit in My Backup Drive, fix what it returns, then run Check my drive until clean\n• In Case Notes, place the signed retainer, Police Report and HIPAA authorization, with reasons"
   },
   "case": {
    "say": "• 02/09/2026, 4:30 p.m.: John Doe's matter is active in the CMS, nothing on the backup drive yet\n• Every file is built to one standard so a covering colleague finds any document in seconds\n• Standard: 01 Clients, client folder last name first, nine numbered folders intake to litigation, then firm folders\n• It is graded twice: Submit grades their Case Notes, and the drive itself is checked folder by folder"
@@ -87,7 +87,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m1-kc": {
   "questions": {
-   "say": "• Answer from John Doe's file, in your own words, typed under each question\n• Q1: the six stages in order, and what the Case Manager owns at Intake and Case Opening\n• Q2: John asks his case's worth and if waiting hurt it: exact words, who answers, what to record and route\n• Q3: what must happen before the matter is created in the CMS, on whose names, and why order matters"
+   "say": "• Answer from John Doe's file, in your own words, typed under each question\n• Q1: the seven stages in order, and what the Case Manager owns at Intake and Case Opening\n• Q2: John asks his case's worth and if waiting hurt it: exact words, who answers, what to record and route\n• Q3: what must happen before the matter is created in the CMS, on whose names, and why order matters"
   },
   "summary": {
    "say": "• Write the principles in your own words, not the clicks\n• Scenario: Robert Smith's insurer called John Doe, and he needs a car for work\n• Cover what to tell him today, in what order, and what must be on file before claim set-up\n• Recorded Statement: a taped interview the adjuster can quote forever\n• Strong answers put things on the record and send value or fault questions to Atty. Thorne"
@@ -178,7 +178,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Board layout: green Do column on the left, red Don't column on the right\n• Each Don't lines up with the Do that replaces it\n• Examples: no Recorded Statement, no posts, bring any insurer release to the firm instead of signing it\n• Ask family not to tag the client in posts either\n• Three orange tags most broken in week one: no Recorded Statement, keep every receipt, car only"
   },
   "dodont": {
-   "say": "• Do: ask about barriers to care at every check-in; John Doe owns no car, so rides matter\n• Do: listen actively, for example when he worries about missed shifts at Northgate Distribution\n• Don't: explain why a Keystone Mutual Recorded Statement could hurt him; that is legal advice for Atty. Thorne\n• Don't: let a Property Damage call drift into questions about his injuries\n• Social media rule covers vacations and activities too\n• Red flag: Keystone's Dana Whitfield asked John to record his account (voicemail, 02/10/2026, 8:47 a.m.); written notice today, statements through the firm; Atty. Thorne's call",
+   "say": "• Do: ask about barriers to care at every check-in; John Doe owns no car, so rides matter\n• Do: listen actively, for example when he worries about missed shifts at Northgate Distribution\n• Don't: explain why a Keystone Mutual Recorded Statement could hurt him; that is legal advice for Atty. Thorne\n• Don't: let a Property Damage call drift into questions about his injuries\n• Social media rule covers vacations and activities too\n• Red flag: Keystone's Dana Whitfield asked John to record his account (voicemail, 02/09/2026, 8:47 a.m.); written notice today, statements through the firm; Atty. Thorne's call",
    "ask": "Which of these rules is John Doe closest to breaking right now?"
   }
  },
@@ -225,13 +225,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m3-a3": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Doc Hub, index the photos, the tow record and the Police Report as evidence for John Doe's injury claim\n• Step 2: Log one Case Note in CMS › Notes › Case Notes: the rental and Loss of Use stay on Margaret's claim\n• Referred to Atty. Thorne. Does PD touch our case?"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Doc Hub, index the Police Report as evidence for John Doe's injury claim, and request the photos and the tow record\n• Step 2: Log one Case Note in CMS › Notes › Case Notes: the rental and Loss of Use stay on Margaret's claim\n• Referred to Atty. Thorne. Does PD touch our case?"
   },
   "case": {
    "say": "• Assuming the Police Report shows Margaret Doe owns the Civic and John Doe rode as a passenger\n• Keystone PD's six items need sorting on the file\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: BI evidence indexed and the one-line PD answer logged"
   },
   "check": {
-   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Photos, tow record, Police Report indexed as BI evidence\n• Rental, Loss of Use left on Margaret's claim; Note ends with the one-line answer\n• The one thing to watch for: Handling Margaret's Loss of Use on John Doe's file"
+   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Police Report indexed as BI evidence; photos and tow record requested\n• Rental, Loss of Use left on Margaret's claim; Note ends with the one-line answer\n• The one thing to watch for: Handling Margaret's Loss of Use on John Doe's file"
   }
  },
  "d1m3-kc": {
@@ -282,7 +282,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m4-tcare": {
   "map": {
-   "say": "• Read records for red flags, warning signs, by specialty: physical therapy, surgery, medication, mental health\n• Listen on calls for yellow flags: life and mood problems blocking recovery, written in his words\n• Talk using OARS: open questions, affirmations, reflections, summaries\n• At the plateau, when progress and interest drop, bring him back to his own goal\n• Route it: medical danger to the doctor, legal to Atty. Thorne; then A-C-T: Assess, Coordinate, Track"
+   "say": "• Read records for red flags, warning signs, by specialty: physical therapy, surgery, medication, mental health\n• Listen on calls for yellow flags: life and mood problems blocking recovery, written in his words\n• Talk using OARS: open questions, affirmations, reflections, summaries\n• At the plateau, when progress and interest drop, bring him back to his own goal\n• Route it: medical danger to the doctor, legal to Atty. Thorne; then A-C-T: Assess, Clarify, Track"
   },
   "theory": {
    "say": "• A silent client is a risk; at intake John Doe had no treatment, only the 02/06/2026 EMS report: neck stiffness, declined transport\n• Once care begins, you read every record and hear from him between visits; missed flags or stalls pull him off plan, leaving Atty. Thorne factless\n• Know standard treatment patterns; a red flag is a departure signaling medical danger, a stuck case, or billing-driven over-treatment\n• Physical therapy flags show stalling or over-treatment; surgery flags concern safety and standard of care\n• Pain management and medication get the most scrutiny, due to opioid rules and necessity audits\n• Medical danger goes to the doctor same day; legal danger to Atty. Thorne"
@@ -322,13 +322,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m4-a2": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor, record the stack in order with a preliminary projection\n• And put the 14-Day Gap at the top of the risks band\n• Step 2: Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne"
+   "say": "• Skill activity, a few minutes: three steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor, record the stack in order with a preliminary projection\n• And put the Treatment Gap, counted from the records, at the top of the risks band\n• Step 2: Under the gap, record John Doe's account from the 03/04 recorded call as his, the documents behind it marked requested\n• Step 3: Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne"
   },
   "case": {
-   "say": "• Assuming the set-up is in, the $40,000 stack verified and the 14-Day Treatment Gap flagged, Atty. Thorne now needs the Case Plan\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Case Plan routed to Atty. Thorne, the filing window docketed"
+   "say": "• Assuming the set-up is in, the $40,000 stack verified and the first treatment records on file, Atty. Thorne now needs the Case Plan\n• John's account of the gap from the 03/04 recorded call is on file too\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Case Plan routed to Atty. Thorne, the filing window docketed"
   },
   "check": {
-   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Order BI › Host UM › Relative UM; projection preliminary; Risks band: the 14-Day Gap first; Plan routed to Atty. Elijah Thorne\n• The one thing to watch for: a projection stated as a number before coverage is confirmed"
+   "say": "• Submit: they submit the entry they logged; graded on the three steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Order BI › Host UM › Relative UM; projection preliminary; Risks band: the gap, counted from the records, first\n• And: John's 03/04 account recorded as his, documents requested; Plan routed to Atty. Elijah Thorne\n• The one thing to watch for: a projection stated as a number before coverage is confirmed"
   }
  },
  "d1m4-kc": {
@@ -368,13 +368,13 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m1-a1": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Doc Hub › Others, draft three letters of representation and two notices\n• Each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages\n• Step 2: Route the set to Atty. Thorne for signature, send each by the carrier's preferred method, and calendar a check for each acknowledgement"
+   "say": "• Skill activity, a few minutes: three steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance, complete each layer from the claim calls, each limit with its source, still preliminary\n• Step 2: In CMS › Doc Hub › Others, draft three letters of representation and two notices\n• Each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages\n• Step 3: Route the set to Atty. Thorne for signature, send each by preferred method, calendar each acknowledgement check\n• As each written answer arrives, record that layer's verification status with its document and date"
   },
   "case": {
    "say": "• Assuming claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, no adjuster assigned\n• Five letters must go out on 02/17/2026\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: five letters signed, sent and logged, follow-ups calendared"
   },
   "check": {
-   "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Cardinal State: “Attn: Claims Department”; Correct insured on each; Keystone: John Doe's name only\n• And: No UM letter asks for payment; All signed and sent 02/17/2026\n• The one thing to watch for: One letter copied five times, insured left as Robert Smith"
+   "say": "• Submit: they submit the entry they logged; graded on the three steps under the assumption, not on work the exercise didn't ask for\n• It looks for: Cardinal State: “Attn: Claims Department”; Correct insured on each; Keystone: John Doe's name only\n• And: No UM letter asks for payment; All signed and sent 02/17/2026\n• The one thing to watch for: One letter copied five times, insured left as Robert Smith"
   }
  },
  "d2m1-l2": {
@@ -436,7 +436,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m1-cov": {
   "theory": {
-   "say": "• No such thing as full coverage: every policy pays a different thing; ask whose it is and what it pays\n• Two separate questions: who pays the bills now, who pays the claim later\n• Payer-First Principle: each bill goes to the payer that must pay it first, or it returns as a lien on John Doe's settlement\n• Third-party coverage is the at-fault driver's, Robert Smith's; first-party is the client's side, and UM follows the person: John Doe has no car policy\n• Recovery Stack: only coverage that pays the claim: BI (bodily injury on the at-fault driver), then UM/UIM\n• MedPay and PIP: no-fault medical coverage paying accident bills fast, regardless of fault"
+   "say": "• No such thing as full coverage: every policy pays a different thing; ask whose it is and what it pays\n• Two separate questions: who pays the bills now, who pays the claim later\n• Payer-First Principle: each bill goes to the payer that must pay it first, or it returns as a lien on John Doe's settlement\n• Third-party coverage is the at-fault driver's, Robert Smith's; first-party is the client's side, and UM follows the person: John Doe has no car policy\n• Recovery Stack: only coverage that pays the claim: BI (bodily injury on the at-fault driver), then UM/UIM\n• MedPay and PIP pay Medical Bills regardless of fault; Riverton's PIP is add-on"
   },
   "theory2": {
    "say": "• Set-off and non-duplication: some policies subtract what PIP or MedPay paid; verify in writing\n• Subrogation: a payer's right to be repaid from the settlement\n• Contract rate and write-off: in-network providers accept the Health Plan's price, so the lien is smaller\n• Medicare Secondary Payer: Medicare pays last, is repaid by law, case reported to the BCRC\n• Bill first the payer with no right to be repaid\n• Claim numbers: Keystone KM-26-440871, Harbor Point HP-26-7741, Cardinal State CS-26-20355"
@@ -451,7 +451,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Navy, third-party: Keystone BI $10,000, Keystone PD $25,000\n• Orange, first-party: Harbor Point Host UM $20,000, Cardinal State Relative UM $10,000, Harbor Point PIP $10,000 and MedPay $5,000, Bluewater collision\n• Green: Peach State Health Plan; grey, crossed out: Bluewater UM, rejected 03/14/2024\n• Only the three claim cards form the $40,000 stack; PD's $25,000 is not in it\n• Bill order staircase: MedPay or PIP, Health Plan, Letter of Protection"
   },
   "dodont": {
-   "say": "• Do: verify every coverage with a dated Declaration Page; confirm Peach State was active (began 02/01/2026)\n• Do: keep the Payer Order and the Recovery Stack separate\n• Don't: send an LOP where PIP or MedPay pays; MedPay paid Summit Imaging's $2,395.00 with nothing to repay\n• Don't: assume PIP or UM on the client's own policy; Margaret rejected Bluewater UM 03/14/2024\n• Red flag: a stack that adds up to $50,000 means PIP slipped in; never add PIP, PD or collision: PIP pays bills, not the claim\n• The stack is BI $10,000, Host UM $20,000 and Relative UM $10,000: $40,000, every time",
+   "say": "• Do: verify every coverage with a dated Declaration Page; confirm Peach State was active (began 02/01/2026)\n• Do: keep the Payer Order and the Recovery Stack separate\n• Don't: send an LOP where PIP or MedPay pays; MedPay paid Summit Imaging's $2,395.00 with nothing to repay\n• Don't: assume PIP or UM on any policy without its Declaration Page; John has no auto policy, and Margaret rejected Bluewater UM 03/14/2024\n• Red flag: a stack that adds up to $50,000 means PIP slipped in; never add PIP, PD or collision: PIP pays bills, not the claim\n• The stack is BI $10,000, Host UM $20,000 and Relative UM $10,000: $40,000, every time",
    "ask": "How does John Doe reach $30,000 of UM without an auto policy of his own?"
   }
  },
@@ -688,7 +688,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m4-l1": {
   "theory": {
-   "say": "• $7,965.00 in liens sits behind a $10,000 BI limit, leaving $2,035.00 of that layer for John Doe\n• Lien: a bill paid from the settlement before his share; BI: the at-fault driver's bodily injury coverage\n• What the demand can claim is decided in this pre-demand audit, the final stress test; one duplicate line gives Keystone an easy out\n• Trinity of case alignment: story, physical evidence and medical records agree; MMI: as good as he'll get, bills complete, the audit begins\n• Specials: provable dollar loss, Medical Bills plus lost wages plus Property Damage; every line needs a document\n• Three audit passes: dates for gaps, codes for duplicates, prior history for old injuries"
+   "say": "• $10,000 BI less fee and costs is $6,179.92, against $7,965.00 of liens: on BI alone he nets $0.00\n• Lien: a bill paid from the settlement before his share; BI: the at-fault driver's bodily injury coverage\n• What the demand can claim is decided in this pre-demand audit, the final stress test; one duplicate gives Keystone an out\n• Trinity of case alignment: story, physical evidence and medical records agree; MMI: as good as he'll get, bills complete, the audit begins\n• Specials: provable dollar loss, Medical Bills plus lost wages plus Property Damage; every line needs a document\n• Three audit passes: dates for gaps, codes for duplicates, prior history for old injuries"
   },
   "theory2": {
    "say": "• Subrogation: a payer's right to repayment from the recovery; Health Plans, government payers, LOP providers; each lien shrinks his net\n• Property Damage deep dive: impact photos, estimate versus final bill, supplements; the car proves the force\n• Defense-eye audit: read the file as the adjuster will, social media, minor-impact label, venue (where it'd be tried)\n• Policy-limits targets: verified limits in opening order; what a policy can pay isn't what the claim is worth\n• This file: chronology, both gaps reasoned, 14 and 19 days; coding, one line per date; prior history, three resolved 2021 low-back visits, no neck complaint"
@@ -783,7 +783,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m1-a1": {
   "task": {
-   "say": "• Audit the draft against the Big Four and Final Scrub in the Action Plan Editor\n• Log each deficiency as an assigned CMS task; don't fix it quietly\n• Assemble with the gap on page one; once signed, email Dana Whitfield from the Email Workspace and log it\n• Docket the deadline from her written acknowledgement dated 07/22/2026, with reminders\n• Live call: confirm receipt and 08/21/2026, no extension, log her requests in her exact words"
+   "say": "• First re-check the pre-demand audit: PIP and MedPay bill by bill, billed beside paid, wages as verified, the 07/01 Gap Record against the notes\n• Audit the draft against the Big Four and Final Scrub in the Action Plan Editor\n• Log each deficiency as an assigned CMS task; don't fix it quietly\n• Assemble with the gap on page one; once signed, email Dana Whitfield from the Email Workspace and log it\n• Docket the deadline from her written acknowledgement dated 07/22/2026, with reminders\n• Live call: confirm receipt and 08/21/2026, no extension, log her requests in her exact words"
   },
   "case": {
    "say": "• Monday 07/20/2026: Atty. Thorne wants the Keystone BI demand audited and sent today\n• Dana Whitfield, Keystone Mutual, claim KM-26-440871\n• Approved terms: $10,000 limits, Limited Release of Smith and Keystone only, Smith's affidavit, 30 days from receipt\n• On file: MMI 06/12/2026, Dr. Reyes's Causation Letter, the Gap Explanation Record; Specials $42,984.00\n• The demand specialist's draft has problems; audit it and log every deficiency as a task"
@@ -1063,7 +1063,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m4-a1": {
   "task": {
-   "say": "• Post each check by stream on the Recovery Ledger with the 33⅓% fee\n• Split the costs and liens 25% and 75% between the streams, the UM share as the remainder\n• Log each lien's figures and payoff status in the Lien Tracker\n• Tie both tabs to the BI/UM Master Financial Ledger and the Trust Ledger\n• Route it to Atty. Thorne before John Doe signs"
+   "say": "• Post each check by stream on the Recovery Ledger with the 33⅓% fee\n• Split the costs and liens 25% and 75% between the streams, the UM share as the remainder\n• Log each lien's figures and payoff status in the Lien Tracker\n• Tie both tabs to the BI/UM Master Financial Ledger and the Trust Ledger; route it to Atty. Thorne before John Doe signs\n• Stage 3, the disbursement gate: each condition proved by its document, then one approval-ready line per Net Sheet line"
   },
   "case": {
    "say": "• 10/13/2026: $40,000.00 is received in two streams, the $10,000 BI and the $30,000 UM stack\n• Peach State accepted $1,240.00; Riverton Spine & Rehab accepted $4,580.00; case costs are $486.75\n• The final Net Sheet must tie to the Trust Ledger before John Doe signs it\n• Atty. Thorne approves it; future ESIs are flagged to him"
@@ -1239,7 +1239,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m2-um": {
   "theory": {
-   "say": "• Three carriers. Third-party claim: against the at-fault driver's insurer, Keystone for Robert Smith, who ran the stop sign\n• First-party claim: against coverage protecting the client, John's own: Harbor Point Host UM and Cardinal State Relative UM\n• UM: uninsured or underinsured motorist coverage, paying when the other driver's insurance isn't enough; Harbor Point offered $8,000 against a $20,000 limit\n• One paragraph in Harbor Point's policy decides where this fight happens; read it before calendaring anything\n• Mandatory arbitration clause sends the dispute to a private decision-maker; the firm files a Demand for Arbitration\n• Bad faith: a separate suit over unfair handling, can exceed the limit; Atty. Thorne's alone"
+   "say": "• Three carriers. Third-party claim: against the at-fault driver's insurer, Keystone for Robert Smith, who ran the stop sign\n• First-party claim: coverage John claims as an insured: Harbor Point Host UM (Kevin's Escape) and Cardinal State Relative UM (Margaret's policy)\n• UM: uninsured or underinsured motorist coverage, paying when the other driver's insurance isn't enough; Harbor Point offered $8,000 against a $20,000 limit\n• One paragraph in Harbor Point's policy decides where this fight happens; read it before calendaring anything\n• Mandatory arbitration clause sends the dispute to a private decision-maker; the firm files a Demand for Arbitration\n• Bad faith: a separate suit over unfair handling, can exceed the limit; Atty. Thorne's alone"
   },
   "frame": {
    "say": "• Step one, claim submission: UM Demand Package with proof the at-fault limits were used up, sent 03/22/2027\n• Step two, dispute: Harbor Point offered $8,000, Cardinal State $6,000; $14,000 against $30,000 in limits\n• Step three, resolution route: Demand for Arbitration where the clause binds\n• Or a lawsuit against the carrier where state law bars the clause or lets the client opt out\n• Bad faith is not on this flow; separate action, Atty. Thorne's call"
@@ -1344,7 +1344,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m3-a1": {
   "task": {
-   "say": "• Assemble the six-section Mediation Binder in the CMS from the master index, starting with the 07/20/2026 Demand Package\n• Seat each document once with exhibit number and Bates range; map each defense in the 11/12/2026 answer to its exhibit\n• Rebuild the ledger from certified bills to $42,984.00; cross-check balances against what PIP and Peach State paid\n• PIP: John's no-fault medical coverage; add the Negotiation Log, draft Limited Release, UM consent requests\n• Limited Release: ends only the claim against Robert Smith and Keystone"
+   "say": "• Assemble the six-section Mediation Binder in the CMS from the master index, starting with the 07/20/2026 Demand Package\n• Seat each document once with exhibit number and Bates range; map each defense in the 11/12/2026 answer to its exhibit\n• Rebuild the ledger from certified bills to $42,984.00; cross-check balances against what PIP and Peach State paid\n• PIP: add-on medical coverage paying regardless of fault, Harbor Point's $10,000 on Kevin's Escape; add the Negotiation Log, draft Limited Release, UM consent requests\n• Limited Release: ends only the claim against Robert Smith and Keystone\n• Dates and delivery: calendar the mediation from the verified notice, every date counted and conflict-checked, the fee as a cost"
   },
   "case": {
    "say": "• 03/04/2027, from Atty. Thorne: Mercer says Keystone won't put a real number up while the medical ledger is unverified\n• Draft binder carries Riverton at $6,290.00 and Crescent as an open balance; rebuild from the master index and audit\n• Statement and binder to Hon. Carla Benton (Ret.) by 03/11/2027, through Atty. Thorne first, for the 03/18/2027 mediation\n• John Doe deposed 02/18/2027; certified transcript on file\n• Riverton Spine & Rehab's Final Itemized Ledger: requested 02/08/2027, followed up 02/22, red-flagged 03/01, not arrived"
@@ -1362,7 +1362,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m3-l2": {
   "theory": {
-   "say": "• The Mediation Binder persuaded; the Arbitration Binder is evidence: a trial-ready record for a private judge who decides\n• On 04/05/2027 Harbor Point and Cardinal State took up Keystone's gap argument; Laura Whitcomb, Esq. decides damages, bindingly\n• Everything counts back from the 06/02/2027 exchange: a page missing, unreadable, grayscale or not exchanged by then can be excluded, with no second chance\n• The Case Manager's role is operational: timelines, scheduling, documents, with precision\n• The brief deadline is the cutoff for claims, exhibit indexes and witness lists, to the arbitrator and opposing counsel\n• Arbitration submissions set the ground rules, so they lead the binder"
+   "say": "• The Mediation Binder persuaded; the Arbitration Binder is evidence: a trial-ready record for a private judge who decides\n• On 04/05/2027 Harbor Point, and on 04/12/2027 Cardinal State, took up Keystone's gap argument; Laura Whitcomb, Esq. decides damages, bindingly\n• Everything counts back from the 06/02/2027 exchange: a page missing, unreadable, grayscale or not exchanged by then can be excluded, with no second chance\n• The Case Manager's role is operational: timelines, scheduling, documents, with precision\n• The brief deadline is the cutoff for claims, exhibit indexes and witness lists, to the arbitrator and opposing counsel\n• Arbitration submissions set the ground rules, so they lead the binder"
   },
   "frame": {
    "say": "• Tab one, submissions: snapshot sheet, final brief, governing order or agreement, fee disclosures; tab two: current demand and written positions only\n• Tab three, liability and biomechanics (the physics of the crash): certified Police Report, diagrams, color photos and stills\n• Tab four, medical damages: consolidated ledger, provider records and bills, imaging, the causation opinion\n• Tab five, prior medical shield: prior injury records and work history with a medical opinion\n• Tab six, economic losses: wage-loss proof only; no miscellaneous tab"
@@ -1463,7 +1463,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m4-kc": {
   "questions": {
-   "say": "• Learning Check: answer from this file, in own words, under each question\n• Q1: the three bottleneck families, this file's example of each and the hard date threatened\n• Q2: Rule 1 on Keystone: follow-ups, the 48-Hour Mandate escalation, the hand-off to Atty. Thorne, every date\n• Q3: Keystone's representative arrives 03/18/2027 without authority to pay $10,000: what failed earlier, and the countermeasure\n• A full answer names the rule, the date and what gets sent"
+   "say": "• Learning Check: answer from this file, in own words, under each question\n• Q1: the three bottleneck families, this file's example of each and the hard date threatened\n• Q2: the 48-Hour Mandate on Keystone: follow-ups, the escalation, the hand-off to Atty. Thorne, every date\n• Q3: Keystone's representative arrives 03/18/2027 without authority to pay $10,000: what failed earlier, and the countermeasure that should have been set, with its date\n• A full answer names the countermeasure, the date and what gets sent"
   },
   "summary": {
    "say": "• Self-Summary: seeing a bottleneck before it bites, the principles, not the clicks\n• Strategy: 05/24/2027, five problems open; name the first action and why it beats the easiest\n• Then the one thing least sure of, and what would build confidence\n• A carrier call about the gap: take the message, say Atty. Thorne will respond, log it"
@@ -1536,7 +1536,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Day 1's question returns: does Property Damage touch John Doe's case, now with money on the table\n• Keystone's $792.00 offer on Margaret's Civic does not lower John's settlement\n• Her Loss of Use and Diminished Value come from Keystone's $25,000 Property Damage limit, outside John's $40,000 stack\n• Three things can reach John: a too-wide release, the photos and estimates in his severity set, the rental dates behind his gap\n• Red flag: Keystone's release, \"all claims arising from\" the 02/06/2026 accident, can reach John's BI suit. Accept, reject, counter nothing; Atty. Thorne gets it"
   },
   "rules": {
-   "say": "• Read the release before the numbers: Keystone's 12/10/2026 release covers all claims from the 02/06/2026 accident, for Mr. Doe to sign\n• A Property Damage release must never release the injury claim\n• Check the claim number: KM-26-440871-PD for the car, KM-26-440871 for John; hold it, route to Atty. Thorne same day\n• John signs nothing; photos, estimate, $2,315.00 supplement and rental dates stay identical on both files\n• Never accept, reject, counter or value a car figure"
+   "say": "• Read the release before the numbers: Keystone's 12/10/2026 release covers all claims from the 02/06/2026 accident, for Margaret Doe to sign\n• A Property Damage release must be limited to Property Damage\n• Check the claim number: KM-26-440871-PD for the car, KM-26-440871 for John; hold it, route to Atty. Thorne same day\n• John signs nothing; photos, estimate, $2,315.00 supplement and rental dates stay identical on both files\n• Never accept, reject, counter or value a car figure"
   }
  },
  "d5m2-a1": {
@@ -1544,7 +1544,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the release in CMS › Doc Hub as held, and route it to Atty. Thorne in CMS › Tasks › + Add Task the same day\n• Step 2: Log one Case Note: Diminished Value and Loss of Use stay on Margaret's file. Does this touch John Doe's case?"
   },
   "case": {
-   "say": "• Assuming Keystone PD's final position is $792.00 and $0 with an all-claims release for Mr. Doe, the release needs holding\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: the release routed, each PD outcome sorted"
+   "say": "• Assuming Keystone PD's final position is $792.00 and $0 with an all-claims release for Margaret Doe, the release needs holding\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: the release routed, each PD outcome sorted"
   },
   "check": {
    "say": "• Submit: they submit the entry they logged; graded on the two steps under the assumption, not on work the exercise didn't ask for\n• It looks for: “All claims” release routed the same day\n• Nobody asked to sign before Atty. Thorne's review; Diminished Value and Loss of Use on Margaret's file\n• The one thing to watch for: Telling Leah Moran “we'd probably take” any figure"
@@ -1608,7 +1608,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Self-Summary: what was learned preparing a client to testify; principles, not clicks\n• Warm-up: John resurfaces 02/03/2027, fifteen days out; his new number into the CMS, the audit to Atty. Thorne\n• Strategy: John testifies 02/18/2027; the next action on the file, and why that one\n• Then the one thing least sure of"
   },
   "scale": {
-   "say": "• Skill Scale: rate each competency 1 to 5, then submit; wide gaps with scores get discussed\n• Question 5 is the UPL gate: the unauthorized practice of law, a non-lawyer giving legal advice\n• Any reply giving John content about the gap fails the module; the right reply routes and logs his question in his words",
+   "say": "• Skill Scale: rate each competency 1 to 5, then submit; wide gaps with scores get discussed\n• UPL is the gate: the unauthorized practice of law, a non-lawyer giving legal advice\n• Any answer that has the Case Manager prepare John's testimony fails the module; Question 3's risk is surfaced for Atty. Thorne, never rehearsed with John",
    "ask": "Where would you honestly rate your routing under pressure right now?"
   }
  },
@@ -1655,10 +1655,10 @@ window.CM_CF_SCRIPTS = {
    "say": "• Final Comprehensive Knowledge Check, spanning all five days; answers from John Doe's file: names, dates, figures\n• The Recovery Stack, the order insurance money is tapped, with limits and total; three coverages outside it; the Payer Order\n• When the 07/20/2026 BI demand's window closed, and why; on Track A, what UM carriers must give before BI release\n• Track A: reconcile $40,000.00 to $20,359.92, deduction by deduction, with costs and liens split by stream"
   },
   "summary": {
-   "say": "• Question 7: John asks how to explain the gap; listen, say Atty. Thorne will go through it, escalate, log\n• Question 4: $40,000.00 less $13,333.33 fee, $486.75 costs, $1,240.00 and $4,580.00 liens: $20,359.92\n• Self-Summary: the principles across all five days; strategy: counter-package with Atty. Thorne, mediation set 03/18/2027, next action\n• Then the one thing least sure of across the Case Flow"
+   "say": "• Question 2: the window ran from the 07/22/2026 written acknowledgement; both UM consents in writing before the BI release\n• Question 3: $40,000.00 less $13,333.33 fee, $486.75 costs, $1,240.00 and $4,580.00 liens: $20,359.92\n• Self-Summary: the principles across all five days; strategy: counter-package with Atty. Thorne, mediation set 03/18/2027, next action\n• Then the one thing least sure of across the Case Flow"
   },
   "scale": {
-   "say": "• Skill Scale: rate each competency across all five days 1 to 5, then submit for review\n• Ratings are compared with scores; honest ratings are where coaching starts\n• UPL is a gate, not a weight: a 5 on UPL from someone who coached John in Question 7 doesn't pass",
+   "say": "• Skill Scale: rate each competency across all five days 1 to 5, then submit for review\n• Ratings are compared with scores; honest ratings are where coaching starts\n• UPL is a gate, not a weight: a 5 on UPL from someone whose answers give John legal advice doesn't pass",
    "ask": "Across all five days, which competency rating surprised you most?"
   }
  },
@@ -1698,7 +1698,7 @@ window.CM_CF_SCRIPTS = {
    "say": "• Track B Close-Out Check: John Doe's file is closed, intake to award; answers from the file, in own words\n• Question 1: take the $40,000.00 award to $14,713.75, every deduction with figure and source\n• Question 2: why the fee is 40%, which document says so, who confirms it\n• Question 3: Peach State $1,240.00 on Track A, $1,116.00 on Track B; show both reductions and why they differ"
   },
   "summary": {
-   "say": "• Self-Summary: the principles behind a litigated Net Sheet, not the clicks\n• Strategy: the award is in and both UM checks are in trust; next action before the 07/30/2027 disbursement, and why\n• Then the one thing least sure of\n• Question 5 is the UPL gate: arithmetic yes, opinion no; saying the suit was or wasn't worth it crosses the line"
+   "say": "• Self-Summary: the principles behind a litigated Net Sheet, not the clicks\n• Strategy: the award is in and both UM checks are in trust; next action before the 07/30/2027 disbursement, and why\n• Then the one thing least sure of\n• UPL is the gate: arithmetic yes, opinion no; saying the suit was or wasn't worth it crosses the line"
   },
   "scale": {
    "say": "• Skill Scale: rate each competency 1 to 5, then submit for review; wide gaps with scores get discussed\n• Skills: the retainer's fee tier, costs with receipts, reducing liens, explaining a Net Sheet without advice\n• The award doesn't grade the work; the Net Sheet does\n• One more file to close next: Denise Harlow's Dropped Case",
@@ -1707,7 +1707,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m6-l1": {
   "why": {
-   "say": "• Dropped Case: a claim the firm stops pursuing before it resolves; John Doe's file never gets here\n• Atty. Thorne talks to the client first; the letter only confirms it\n• Withdrawal Letter: formal notice the lawyer-client relationship has ended\n• Done carelessly, a drop confuses the client and exposes the firm; done right, the file proves everyone was told\n• Red flag: a carrier letter saying Denise stopped treating. Only the client's letter carries the reason, in Atty. Thorne's words; elsewhere it's a defect"
+   "say": "• Dropped Case: a claim the firm stops pursuing before it resolves; John Doe's file never gets here\n• Atty. Thorne talks to the client first; the letter only confirms it\n• Withdrawal Letter: formal notice the lawyer-client relationship has ended\n• Done carelessly, a drop confuses the client and exposes the firm; done right, the file proves everyone was told\n• Red flag: a carrier letter saying the client stopped treating. Only the client's letter carries the reason, in Atty. Thorne's words; elsewhere it's a defect"
   },
   "rules": {
    "say": "• Six steps in order; 1, the gate: status Pending Drop and a note the client was told; either missing, nothing goes out\n• 2: a Withdrawal Letter for every party over Atty. Thorne's signature, saved in Word and PDF; 3: send each by its method\n• 4: annotate party, method, date, save the sent letter; 5: follow up on receipt\n• 6: switch the status to Dropped and keep the proof\n• An unresponsive client reaches this only through the No Contact Protocol"
@@ -1726,10 +1726,10 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m6-kc": {
   "questions": {
-   "say": "• Knowledge Check from the practice matter, in own words; each answer needs a name, date or method from the file\n• Question 1: the two things confirmed before any Withdrawal Letter goes out, and why both matter\n• Question 2: what goes in Denise Harlow's letter but not Granite Shield's or Brookside's, and why\n• Question 3: letters out 12/09/2026; what must be true before Dropped, and what proof stays"
+   "say": "• Knowledge Check on the six-step close-out, in own words; each answer names the step, the party or the method\n• Question 1: the two things confirmed before any Withdrawal Letter goes out, and why both matter\n• Question 2: what goes in the client's letter but not the carrier's or the provider's, and why\n• Question 3: letters out; what must be true before Dropped, and what proof stays"
   },
   "summary": {
-   "say": "• Self-Summary: the principles behind closing a Dropped Case, not the clicks\n• Strategy: Denise's return receipt isn't back by 12/16/2026; the next action, and why that one\n• Then the one thing least sure of\n• Explaining the drop, or advising Denise beyond what Atty. Thorne approved, crosses into his territory"
+   "say": "• Self-Summary: the principles behind closing a Dropped Case, not the clicks\n• Strategy: the client's return receipt isn't back a week later; the next action, and why that one\n• Then the one thing least sure of\n• Explaining the drop, or advising the client beyond what Atty. Thorne approved, crosses into his territory"
   },
   "scale": {
    "say": "• Last Skill Scale of the course: rate each skill 1 to 5, then submit for review\n• Skills: the Pending Drop gate, a letter for each party, choosing and logging send methods, closing with proof and no advice\n• Ratings are compared with answers; a wide gap is a conversation, not a grade\n• First real file: find the detail that could cost the client money, document it, take it to the attorney same day",
@@ -1739,10 +1739,10 @@ window.CM_CF_SCRIPTS = {
  "_days": {
   "1": {
    "agenda": {
-    "say": "• Welcome; today starts John Doe's case from the beginning, on the Day 1 deck\n• Part 1, the lessons: fundamentals, intake, claim set-up and the Case Plan, the car, client communications, who pays the bills, treatment\n• Part 2, the daily loop: meet John Doe on his Case Profile and do his Intake, our Skill Building\n• Then 📁 Backup File Maintenance, required: the firm's folders on his Backup Drive; then write the Action Plan\n• Then 14 short skill activities in a 20-minute Practice Lab: time for about 4\n• Knowledge Check: 70% opens Day 2"
+    "say": "• Welcome; today starts John Doe's case from the beginning, on the Day 1 deck\n• Part 1, the lessons: fundamentals, intake, claim set-up and the Case Plan, the car, client communications, who pays the bills, treatment\n• Part 2, the daily loop: meet John Doe on his Case Profile and do his Intake, our Skill Building\n• Then 📁 Backup File Maintenance, required: the firm's folders on his Backup Drive; then write the Action Plan\n• Then 5 short skill activities in a 25-minute Practice Lab: every trainee works all 5\n• Knowledge Check: 70% opens Day 2"
    },
    "lab": {
-    "say": "• Practice Lab: 14 short skill activities, each one an assumption and one entry to log in the CMS\n• Intake and claim set-up: the Recorded Statement, the tasks, the stack, the LORs, the matrix, the PD file\n• Client and treatment: outreach, the warning letter, the LOPs, the referral, the lien, the gap flag, the Case Plan, the near-drop\n• About 20 minutes: time for about 4 of them, so each trainee chooses 4; then the Ready check"
+    "say": "• Practice Lab: 5 short skill activities, each one an assumption and one entry to log in the CMS\n• Intake and claim set-up: John Doe's voicemail and his Direction Packet, the LORs to every carrier\n• Care and the client: the Payer Order and the LOPs, the Case Plan with the gap in its risks, the near-drop\n• About 25 minutes: time for all 5, about five minutes each; then the Ready check"
    },
    "plan": {
     "say": "• Step 4 of the loop, guided: the Action Plan template, section by section, on the shared screen\n• Every fact from the Intake with the document it comes from; every action item with an owner, a date and a tool\n• Anything only Atty. Thorne decides is routed to him, with the date"
@@ -1752,7 +1752,7 @@ window.CM_CF_SCRIPTS = {
     "ask": "What would you tell John Doe first, and why first?"
    },
    "lifemap": {
-    "say": "• The whole of John Doe's file on one slide, in the order we work it this week\n• Across the top: the six stages you carry on every file\n• Day 1 it's raw: the loss, the SOL docketed, the matter opened in the CMS\n• Then claims and care, the demand, liens and ADR, and litigation to the close\n• Each day picks the file up where the last one left it",
+    "say": "• The whole of John Doe's file on one slide, in the order we work it this week\n• Across the top: the seven stages you carry on every file\n• Day 1 it's raw: the loss, the SOL docketed, the matter opened in the CMS\n• Then claims and care, the demand, liens and ADR, and litigation to the close\n• Each day picks the file up where the last one left it",
     "ask": "Which one date on this track would you protect first, and why?"
    },
    "coverage": {
@@ -1762,13 +1762,13 @@ window.CM_CF_SCRIPTS = {
   },
   "2": {
    "agenda": {
-    "say": "• Welcome back; today is the Day 2 deck: pre-demand, the BI demand and the BI settlement\n• Lessons: the pre-demand audit, the gap record and causation, the demand, negotiations, the UM/UIM safety check, the settlement documents\n• Part 2, the daily loop: the Case Profile, then one Skill Building, serving the BI demand\n• Then 📁 Backup File Maintenance, required: today's documents filed the firm's way; then update the Action Plan\n• Then 10 short skill activities in a 20-minute Practice Lab: time for about 4\n• Knowledge Check: 70% opens Day 3"
+    "say": "• Welcome back; today is the Day 2 deck: pre-demand, the BI demand and the BI settlement\n• Lessons: the pre-demand audit, the gap record and causation, the demand, negotiations, the UM/UIM safety check, the settlement documents\n• Part 2, the daily loop: the Case Profile, then one Skill Building: the Specials, wages and gap record, then the BI demand served\n• Then 📁 Backup File Maintenance, required: today's documents filed the firm's way; then update the Action Plan\n• Then 4 short skill activities in a 20-minute Practice Lab: every trainee works all 4\n• Knowledge Check: 70% opens Day 3"
    },
    "profile": {
     "say": "• Step 2 of the loop: John Doe's Case Profile, The Case So Far\n• Treatment is complete: MMI 06/12/2026, Specials $42,984.00, the gap still to be explained from his documents\n• Then straight into the Skill Building: the BI demand"
    },
    "lab": {
-    "say": "• Practice Lab: 10 short skill activities, each one an assumption and one entry to log in the CMS\n• Wages and Specials, the gap call and record, the strategy session, the offer, the gross recovery\n• The UM demands, the release, the execution\n• About 23 minutes: time for about 4 of them, so each trainee chooses 4; then the Ready check"
+    "say": "• Practice Lab: 4 short skill activities, each one an assumption and one entry to log in the CMS\n• The gap call with John Doe, the strategy session with Atty. Thorne\n• The offer, the release\n• About 20 minutes: time for all 4, about five minutes each; then the Ready check"
    },
    "plan": {
     "say": "• Step 4: update the Action Plan: where the demand stands and the next deadline\n• A lighter touch today: the trainees write it, you spot-check two plans"
@@ -1780,13 +1780,13 @@ window.CM_CF_SCRIPTS = {
   },
   "3": {
    "agenda": {
-    "say": "• Welcome back; today is the Day 3 deck: lien negotiation and disbursement\n• Lessons: the lien doctrines and prior-attorney liens, increasing the client's net, the Net Sheet, disbursement, final reconciliation\n• Part 2, the daily loop: the Case Profile, then one Skill Building, the final Net Sheet\n• Then 📁 Backup File Maintenance, required; then update the Action Plan\n• Then 6 short skill activities in a 56-minute Practice Lab: time for all 6\n• Knowledge Check: 70% opens Day 4"
+    "say": "• Welcome back; today is the Day 3 deck: lien negotiation and disbursement\n• Lessons: the lien doctrines and prior-attorney liens, increasing the client's net, the Net Sheet, disbursement, final reconciliation\n• Part 2, the daily loop: the Case Profile, then one Skill Building, the final Net Sheet: liens, ledger, then the disbursement\n• Then 📁 Backup File Maintenance, required; then update the Action Plan\n• Then 4 short skill activities in a 26-minute Practice Lab: time for all 4\n• Knowledge Check: 70% opens Day 4"
    },
    "profile": {
     "say": "• Step 2 of the loop: John Doe's Case Profile, The Case So Far\n• Track A settled at $40,000 gross; the liens and the provider balance still to resolve\n• Then straight into the Skill Building: the final Net Sheet"
    },
    "lab": {
-    "say": "• Practice Lab: 6 short skill activities, each one an assumption and one entry to log in the CMS\n• The two lien reductions, the prior-attorney lien, both stream Net Sheets, the disbursement\n• About 56 minutes: time for all 6, about nine minutes each; then the Ready check"
+    "say": "• Practice Lab: 4 short skill activities, each one an assumption and one entry to log in the CMS\n• The two lien reductions, the prior-attorney lien, the BI-alone Net Sheet\n• About 26 minutes: time for all 4, about six minutes each; then the Ready check"
    },
    "plan": {
     "say": "• Step 4: update the Action Plan: each lien's status, the Net Sheet and the disbursement date\n• A lighter touch today: the trainees write it, you spot-check two plans"
@@ -1798,13 +1798,13 @@ window.CM_CF_SCRIPTS = {
   },
   "4": {
    "agenda": {
-    "say": "• Welcome back; today is the Day 4 deck: mediation and arbitration, on Track B, where the file doesn't settle\n• Lessons: the neutral, mediation logistics, the hearing and its UPL line, court rules and UM disputes, both binders\n• Part 2, the daily loop: the Case Profile, then one Skill Building, the Mediation Binder\n• Then 📁 Backup File Maintenance, required; then update the Action Plan\n• Then 8 short skill activities in a 20-minute Practice Lab: time for about 4\n• Knowledge Check: 70% opens Day 5"
+    "say": "• Welcome back; today is the Day 4 deck: mediation and arbitration, on Track B, where the file doesn't settle\n• Lessons: the neutral, mediation logistics, the hearing and its UPL line, court rules and UM disputes, both binders\n• Part 2, the daily loop: the Case Profile, then one Skill Building, the Mediation Binder, its calendaring included\n• Then 📁 Backup File Maintenance, required; then update the Action Plan\n• Then 4 short skill activities in a 20-minute Practice Lab: every trainee works all 4\n• Knowledge Check: 70% opens Day 5"
    },
    "profile": {
     "say": "• Step 2 of the loop: John Doe's Case Profile, The Case So Far\n• Track B: the same file, where Keystone let the demand lapse; mediation and UM arbitration ahead\n• Then straight into the Skill Building: the Mediation Binder"
    },
    "lab": {
-    "say": "• Practice Lab: 8 short skill activities, each one an assumption and one entry to log in the CMS\n• The impasse, the court cutoffs, both calendars, the ADR matrix, the Arbitration Binder, the countermeasures, a bottleneck\n• About 20 minutes: time for about 4 of them, so each trainee chooses 4; then the Ready check"
+    "say": "• Practice Lab: 4 short skill activities, each one an assumption and one entry to log in the CMS\n• The impasse routes, the court cutoffs, the arbitration calendar, a bottleneck\n• About 20 minutes: time for all 4, about five minutes each; then the Ready check"
    },
    "plan": {
     "say": "• Step 4: update the Action Plan: the binder's exchange date and what Atty. Thorne still decides\n• The trainees work alone; spot-check that every item has an owner and a date"
@@ -1816,13 +1816,13 @@ window.CM_CF_SCRIPTS = {
   },
   "5": {
    "agenda": {
-    "say": "• Welcome back to the last day: Litigation and Dropped Cases on John Doe's file\n• Lessons, about 30 minutes: the litigation fork and filing, litigation tracking, trial prep, depositions, the award, Dropped Cases\n• Part 2, the daily loop: the Case Profile, then the Full Application Practice, about 150 minutes on the assigned companion case\n• The build is submitted and graded on what Days 1–4 taught\n• Then 📁 Backup File Maintenance, required: the final backup audit; then close out the Action Plan; John's 12 other Skill Activities are extra practice\n• Knowledge Check: 70% finishes the Case Flow"
+    "say": "• Welcome back to the last day: Litigation and Dropped Cases on John Doe's file\n• Lessons, about 30 minutes: the litigation fork and filing, litigation tracking, trial prep, depositions, the award, Dropped Cases\n• Part 2, the daily loop: the Case Profile, then the Full Application Practice: about 150 minutes on the assigned companion case, graded on Days 1–4\n• Then 📁 Backup File Maintenance, required: the final backup audit; then close out the Action Plan\n• John's 3 other Skill Activities are extra practice, each a rehearsal of a companion case's own problem\n• Knowledge Check: 70% finishes the Case Flow"
    },
    "profile": {
     "say": "• Step 2 of the loop: John Doe's Case Profile, The Case So Far\n• Track B: the demand lapsed, suit filed 09/24/2026, discovery and the deposition ahead\n• Then straight into the Full Application Practice"
    },
    "lab": {
-    "say": "• Practice Lab: 12 Skill Activities on John Doe's file in the CMS, extra practice today\n• Litigation fork and litigation status, e-filing the Complaint and calendaring service\n• Pleadings and discovery logs, trial-prep checklist audit, Keystone's final Property Damage position, deposition prep, mock cross-examination\n• Liability counter-package, skip-tracing, Litigation Net Sheet, Denise Harlow's Dropped Case (the final backup audit is the required Backup File Maintenance)\n• Calendar everything each task starts; in litigation a missed date can end the claim"
+    "say": "• Practice Lab: 3 Skill Activities on John Doe's file in the CMS, extra practice today\n• Each rehearses a problem the companion cases raise: pleadings and discovery calendaring, deposition prep, skip-tracing and the certified notice\n• Point each trainee to the one that matches their own case's problem (the final backup audit is the required Backup File Maintenance)\n• Calendar everything each task starts; in litigation a missed date can end the claim"
    },
    "plan": {
     "say": "• Step 4: close out the Action Plan: the litigation handoff, what is still open, the sign-off\n• A few minutes, on their own"
@@ -1840,7 +1840,7 @@ window.CM_CF_SCRIPTS = {
     "ask": "What decision does the note to Atty. Thorne lead with?"
    },
    "extra": {
-    "say": "• Extra practice: John Doe's 12 other Day 5 Skill Activities, untimed (the final backup audit was the required Backup File Maintenance)\n• Today's practical was the companion case\n• Worth coming back to soon: the deposition prep and the Dropped Case close-out\n• Most rooms skip these: the skip button goes to the Ready check, then the Knowledge Check"
+    "say": "• Extra practice: John Doe's 3 other Day 5 Skill Activities, untimed (the final backup audit was the required Backup File Maintenance)\n• Today's practical was the companion case\n• Worth coming back to soon: the one that matches your own case's problem, calendaring, deposition prep or the skip-trace\n• Most rooms skip these: the skip button goes to the Ready check, then the Knowledge Check"
    }
   }
  }

@@ -5,7 +5,8 @@
      1. Settlement Recovery Summary     L7 gross
      2. Attorney Fees & Case Expenses   L11 = L7 × C11 (33⅓% pre-suit), L20 = SUM(L12:L19), L21 = L11 + L20
      3. Medical Provider Ledger & Liens I = D – E – F – G – H per row; J, K, L totals in row 44
-     4. Final Client Disbursement       L52 = L7 – L11 – L20 – L44
+     4. Final Client Disbursement       L51 = –(L44 + L66), the reduced liens and the non-medical still owed;
+                                        L52 = L7 – L11 – L20 – L44 – L66
    The trainee's sheet is kept on their record ("net-sheet", one of the personal keys, so it syncs with their
    progress and their trainer sees it), and "Check my sheet" tests it against the file at the stage the step is at.
    It is used where the money is worked, and nowhere else: Track A (settled before suit, Day 3) at Settlement
@@ -117,8 +118,15 @@ let RECORD = null, SHEET = null, saveT = null, FRESH = false;   // FRESH: starte
 const KEEP = window.cmCreditKept && window.cmCreditKept.keepStage;
 function write(){
   saveT = null;
-  try{ localStorage.setItem("lsh_" + KEY, JSON.stringify(RECORD)); }catch(e){}
+  // the course page's storeSet writes this device's copy itself, after merging it with the copy already there (🛡 an
+  // older sheet in another tab never writes a lower result over a newer one): writing that copy here first would hand the
+  // merge this sheet as the "old" one, and the newer results would be lost
   try{ if(host){ host.storeSet(KEY, RECORD); setStatus("Saved"); return; } }catch(e){}   // writes this device's copy at once, then syncs
+  try{
+    let rec = RECORD;
+    try{ const old = JSON.parse(localStorage.getItem("lsh_" + KEY) || "null"); if(old && window.cmCreditKept) rec = window.cmCreditKept.keepSheet(old, RECORD); }catch(e){}
+    localStorage.setItem("lsh_" + KEY, JSON.stringify(rec));
+  }catch(e){}
   setStatus("Saved on this device");
 }
 function save(){
@@ -199,7 +207,16 @@ function paint(){
 /* ---------- Check my sheet ---------- */
 // a provider's line is found by its name, in whichever row the trainee put it (the ledger starts blank)
 const PROV = {26: [/riverton\s*spine/i, LEDGER, "Riverton Spine & Rehab"], 30: [/peach\s*state/i, LEDGER, "Peach State Health Plan"], 61: [/riverton\s*drug/i, NONMED, "Riverton Drug"]};
-const rowOf = (want) => { const p = PROV[want]; if(!p) return want; const c = SHEET.cells, hit = p[1].find(r => p[0].test(String(c["C" + r] || "") + " " + String(c["B" + r] || ""))); return hit || null; };
+// when several lines mention it ("Crescent Pain & Spine — Bill, Peach State EOB" above the Peach State lien), the line whose
+// Provider Name names it soonest is the one: a name that starts with it beats one that mentions it, and both beat a mention
+// in Provider Type only; a tie goes to the line higher up
+const rowOf = (want) => {
+  const p = PROV[want]; if(!p) return want;
+  const c = SHEET.cells, at = r => { const n = String(c["C" + r] || "").search(p[0]); return n >= 0 ? n : p[0].test(String(c["B" + r] || "")) ? 1e6 : -1; };
+  let hit = null, best = Infinity;
+  p[1].forEach(r => { const n = at(r); if(n >= 0 && n < best){ best = n; hit = r; } });
+  return hit;
+};
 const COL = {D: "Total Charges", E: "PIP Payments", F: "Health Payments", G: "Med Pay", H: "Adjustments", I: "Balance Owed", L: "Reduced Bill"};
 const NONCOL = {D: "Total Charges", E: "Paid by Insurance", F: "Paid by Client", H: "Adjustments", I: "Balance Owed", L: "Amount Owed"};
 const NAME = {L7: "Gross Settlement", L11: "Attorney Fees", L20: "Total Attorney Costs", I44: "Total Liens · Balance Owed", L44: "Total Liens · Reduced Bill", L52: "Net Client Disbursement"};
@@ -219,10 +236,11 @@ function fixOf(cell){
   if(!rowOf(+m[2])) return `Add a line for ${p[2]} in ${sec} (its name in Provider Name)${p[1] === NONMED ? "; if it is in the Medical Provider Ledger, clear that line and enter it here" : ""}.`;
   return `On ${p[2]}'s line in ${sec}: ${m[1] === "I" ? "Balance Owed is Total Charges less the payments and Adjustments; enter the missing payment or adjustment" : m[1] === "L" ? "type the accepted amount in " + (p[1] === NONMED ? "Amount Owed" : "Reduced Bill") : "type the amount from the bill in " + ((p[1] === NONMED ? NONCOL : COL)[m[1]] || m[1])}.`;
 }
-function valueOf(expr, o){ return r2(expr.split("+").reduce((s, k) => { const m = /^([A-Z])(\d+)$/.exec(k); if(m && PROV[m[2]]){ const r = rowOf(+m[2]); if(!r) return s; k = m[1] + r; } return s + (o[k] != null ? o[k] : num(SHEET.cells[k])); }, 0)); }
+// null when a provider it reads has no line: a missing line never ties out, not even where the file wants 0 (Riverton Drug owes nothing)
+function valueOf(expr, o){ let none = false; const v = r2(expr.split("+").reduce((s, k) => { const m = /^([A-Z])(\d+)$/.exec(k); if(m && PROV[m[2]]){ const r = rowOf(+m[2]); if(!r){ none = true; return s; } k = m[1] + r; } return s + (o[k] != null ? o[k] : num(SHEET.cells[k])); }, 0)); return none ? null : v; }
 function check(){
   const stage = $("#ns-stage").value, st = STAGES[stage], o = calc();
-  const items = st.checks.map(c => { const got = valueOf(c.cell, o); return {cell: c.cell, ok: Math.abs(got - c.want) < 0.005, got, want: c.want}; });
+  const items = st.checks.map(c => { const v = valueOf(c.cell, o), got = v == null ? 0 : v; return {cell: c.cell, ok: v != null && Math.abs(got - c.want) < 0.005, got, want: c.want}; });
   SHEET.checks = SHEET.checks || {};
   const now = {passed: items.filter(x => x.ok).length, total: items.length, at: new Date().toISOString(), items: items.map(x => ({cell: x.cell, ok: x.ok, got: x.got}))};
   // 🛡 a stage that tied out stays tied out: a lower check is kept beside it as .last (js/cm-credit-kept.js keepStage)

@@ -3,21 +3,23 @@
    Foundational's task trackers and monitoring sheets have no place here; these are this course's own grading systems:
      ✍️ Knowledge Checks      each Case Flow day's quiz (70% passes)
      🧩 Learning Checks       each module's composite (AI × 0.60 + trainer × 0.40), the automated half until the trainer scores it
-     📝 Takeaways             each day's Knowledge Check answers, AI-graded
-     🧪 Skill Activities      each graded Skill Activity on John Doe's file (the work log)
+     🧪 Skill Activities      each graded Skill Activity on John Doe's file, its latest attempt: the AI Grader's
+                              (cf-ai-grades, js/cm-ai-grader.js) and the older labs' (the work log), counted once
      🗂 CMS Case File         John Doe's file in the CMS, graded day by day (js/cm-cms-file.js): the case as the CMS reports it,
                               each CMS activity's Check Your Work items by area, every document filed (doc-filing)
-     📂 Backup Drive          Day 1's folder structure (drive-setup) and each later day's Backup File Maintenance, auto-graded from the drive (drive-grades)
+     📂 Backup Drive          Day 1's folder structure and each later day's Backup File Maintenance, auto-graded from the drive:
+                              the latest of the grade saved on the trainee's progress (drive-setup / drive-grades) and the
+                              Worker's nightly grade of the drive (js/cm-drive-work.js scoreItems), a trainer's override winning
+     📝 Action Plan           each Notes & Action Plan's action plan, checked against its required steps
      📊 Net Sheet Checks      each stage's Check my sheet on the LSH Net Sheet (net-sheet)
      🎙 Transcription         each voicemail transcript: every attempt graded (facts 60% + word accuracy 40%), the one handed in counts
      ✉️ Email Simulators      the Case Flow's Email Simulator sends (100% ÷ (refused drafts + 1)) and the Portal's email simulators
      🗓 Calendaring           the Portal's Calendaring Simulators
-     🔎 Case Exercises        the exhibit audits, Listening Checks, records screening, judgement calls and action plans
+     🔎 Case Exercises        the exhibit audits, Listening Checks, records screening and judgement calls
      🛠 Skill Builders        each practice tool's best score
      🎯 Graded Calls          the best graded call on each Call Simulator line (callsim:<id>, written by the Portal)
      📞 Case Calls            each graded call on John Doe's file, its best; a missed injected call counts 0
      🧰 Portal Simulators     the best result on each other Training Portal simulator (simresults:<id>, written by the Portal)
-     🎲 Random Tasks          each resolved random task's grade
      📐 Trainer Rubric        the trainer's rubric score on each day's sent review (feedback:<id>, the 📐 Feedback Rubric, js/cm-rubric.js)
    Each system names the rubric dimensions it feeds (dims) and how it is scored (how): the 📐 Feedback Rubric page maps them,
    and the card's 📐 Rubric profile averages them by dimension.
@@ -25,10 +27,13 @@
    multipliers, a 4-tier rubric, pass at 80% and a safety gate on the critical items.
    Both pages show it as Foundational's batch-sheet TRAINEE CARD (cardHtml), the standard format for all scorecards.
    • Trainee: 🏅 My Performance (#/scorecard), their own card; their grading systems under a toggle.
-   • Trainer: 🏅 Scorecards (the same address), 🏅 Scores (a row per approved trainee, by batch; ⬇ Download is its CSV),
-     then every trainee's card (🔎 picks one); a row of 🏅 Scores scrolls to its card.
+   • Trainer: 🏅 Scorecards (the same address, and Admin → 🏅 Scorecard, the one scores page, with the old 📋 Batch Sheet folded
+     in by js/cm-batch-sheet.js): 🏅 Scores (a row per approved trainee, by batch: the days with their slides and work, a column
+     per kind of work, the Overall and the Result), then every trainee's card (🔎 picks one) with its 💬 Feedback on practical
+     activities; a row of 🏅 Scores scrolls to its card. ⬇ Download starts with 🏅 Scores and carries every table the page
+     folds in; ⬇ Scores only is 🏅 Scores alone; ⚡ Run now (js/cm-run-now.js) holds the manual triggers.
    It only reads: trainee:<id> (its caseFlow summary, dayProgress and practiceProgress), progress:<id> (case-flow,
-   work-log, task-log, doc-filing, net-sheet, case-folder, drive-setup), callsim:<id>, simresults:<id> and feedback:<id>
+   work-log, cf-ai-grades, doc-filing, net-sheet, case-folder, drive-setup), callsim:<id>, simresults:<id> and feedback:<id>
    (the trainer's Learning Check scores and each day's review with its rubric score), in one get-many. */
 (function(){
 "use strict";
@@ -47,6 +52,13 @@ const kcScores = p => [p && p.score].concat(((p && p.history) || []).map(h => h 
 // 🛡 a Case Flow day's summary (caseFlow.days[n]) counts only when it is this day's: its id is the day's own (or it has none,
 // a summary from before ids were kept). One that names another day's id is not this day's score or pass.
 const cfDay = (c, d) => { const s = (((c.cf || {}).days) || {})[d.cf.n]; return s && typeof s === "object" && (s.id == null || String(s.id) === String(d.id)) ? s : {}; };
+// 🧩 a day's Learning Checks with the trainer's score as feedback:<id> holds it (trainer-owned, read with the record): the
+// summary's copy is the trainee's page's, put there only when that page last read it, so a trainer's 40% saved since
+// would not show until the trainee's page saved again
+const lcMods = (mods, fb) => { const T = (fb && fb.caseFlow) || {}, out = {};
+  Object.entries(mods || {}).forEach(([id, s]) => { const x = T[id]; if(!s || typeof s !== "object" || !x || !fin(x.score)){ out[id] = s; return; }
+    const a = fin(s.a) ? s.a : null; out[id] = Object.assign({}, s, {t: x.score, c: a != null ? Math.round(a * 0.6 + x.score * 0.4) : null}); });
+  return out; };
 const kcBest = (p, s) => { let v = kcScores(p).filter(fin); if(!v.length) v = [s && s.kc].filter(fin); return v.length ? Math.max.apply(null, v) : null; };
 // the device's score for a day the record has none: the device's day progress, else the work log's quiz entries (unconfirmed)
 const kcDevice = (c, d) => { const p = ((c.rec || {}).dayProgress || {})[d.id], s = cfDay(c, d);
@@ -74,7 +86,67 @@ function moduleNames(){
 
 const NS_STAGES = {recovery: "Track A · Settlement: the gross and the fee", bi: "Track A · BI settlement Net Sheet", um: "Track A · UM settlement Net Sheet",
   liens: "Track A · Lien negotiations", final: "Track A · Disbursement: the final Net Sheet", litigation: "Track B · Case won: the litigated Net Sheet"};
-/* ---------- the grading systems: each returns its items, {name, pct, note, auto} ---------- */
+/* ---------- what a day's 🧪 Skill Activities and 📝 Action Plan are, read from where they are written ----------
+   (one reading for every surface: the grading systems below, the model's day score, the trainee card, the Batch Sheet) */
+// the Case Flow day a block is taught on (the sequence), else the day its id names (d3m2-… is Day 3)
+let TAUGHT = null;
+const taughtOf = id => {
+  if(!TAUGHT){ TAUGHT = {}; (((window.CM_CASE_FLOW || {}).sequence) || []).forEach(sd => (sd.phases || []).forEach(ph => (ph.blocks || []).forEach(b => { TAUGHT[b] = sd.n; }))); }
+  if(TAUGHT[id]) return TAUGHT[id];
+  const m = /^d(\d)/.exec(String(id || "")); return m ? +m[1] : null;
+};
+// 🧾 an activity merged into another keeps its id on old records (d2m4-a1, merged into d3m1-a1, carries the same amendment
+// set): a trainee who worked the set there and again where it now is holds two records of one exercise, counted once
+let MERGED = null;
+const mergedTo = id => { if(!MERGED && window.CM_CASE_FLOW){ MERGED = {}; (((window.CM_CASE_FLOW || {}).days) || []).forEach(d => (d.modules || []).forEach(m => (m.blocks || []).forEach(b => { if(b && b.mergedInto) MERGED[b.id] = b.mergedInto; }))); }
+  return (MERGED && MERGED[id]) || id; };
+const amendSets = R => { const g = {}; Object.entries((R && R.amend) || {}).forEach(([b, r]) => { if(!r || typeof r !== "object") return; const k = mergedTo(b); (g[k] = g[k] || []).push([b, r]); }); return Object.values(g); };
+const blockOf = id => { const X = (window.CM_AIG_EXTRA || {})[id]; if(X && X.b) return {b: X.b, n: X.n || taughtOf(id)};
+  let out = null; (((window.CM_CASE_FLOW || {}).days) || []).forEach(d => (d.modules || []).forEach(m => (m.blocks || []).forEach(b => { if(b.id === id) out = {b, n: taughtOf(id) || d.n}; })));
+  return out; };
+// 📝 the day's takeaway is the trainee's own writing and is not scored (the owner took the takeaway grades out of the
+// scorecards): no grading system, no item in the 100-point model, no part of the Daily compliance. Its AI review (the
+// work log's "… — CM Self-Summary" line) only says whether it gives the client legal advice: the UPL critical item.
+// the Case Flow day of a work-log entry: its label's "Case Flow Day n", else its day id (11–15)
+// one Skill Activity's key in the work log: "<day>|<title>" from "… Case Flow Day <n> · <title> — Skill Building"
+const labKey = e => { const m = /Case Flow Day (\d) · (.+?) — Skill Building\s*$/.exec(e.label || ""); return m ? `${m[1]}|${m[2].trim()}` : String(e.label || e.toolId || "Skill Activity"); };
+const labDayOf = e => { const m = /Case Flow Day (\d)/.exec(e.label || ""); if(m) return +m[1]; const v = parseInt(e.dayId, 10); return v >= 11 && v <= 15 ? v - 10 : v >= 1 && v <= 5 ? v : null; };
+// 🧪 each Skill Activity's latest attempt: the AI Grader's (cf-ai-grades, js/cm-ai-grader.js: {blocks: {<id>: {score, at, …}}})
+// and the work log's "lab" entries (index.html wrapEvaluators: every runRubricEvaluation, the older labs' and the AI Grader's
+// own attempts, "Day <id> · Case Flow Day <n> · <title> — Skill Building"). One activity is one key (its day and title),
+// so an AI Grader attempt and its work-log line are counted once; the takeaway's review (— CM Self-Summary) is not scored.
+function skillActs(c){
+  const seen = {}, lines = {}, keep = (k, x) => { if(!seen[k] || String(x.at || "") >= String(seen[k].at || "")) seen[k] = Object.assign(x, {key: k}); };
+  ((c.data || {})["work-log"] || []).forEach(e => { if(!e || e.kind !== "lab" || !fin(e.score) || /Self-Summary/.test(e.label || "")) return;
+    const m = /Case Flow Day (\d) · (.+?) — Skill Building\s*$/.exec(e.label || ""), day = labDayOf(e), k = labKey(e);
+    if(!lines[k] || String(e.at || "") >= String(lines[k].at || "")) lines[k] = e;
+    keep(k, {name: m ? m[2].trim() : (typeof dayText === "function" ? dayText(e.label || e.toolId || "Skill Activity") : (e.label || e.toolId || "Skill Activity")),
+      day, pct: num(e.score), at: e.at || "", tier: e.tier || "", subs: e.subs || null, best: e.strengths || [], improve: (e.gaps || []).concat(e.growth || []), from: "work log"}); });
+  Object.entries((((c.data || {})["cf-ai-grades"]) || {}).blocks || {}).forEach(([id, r]) => { if(!r || !fin(r.score)) return;
+    const f = blockOf(id), t = f && f.b && f.b.title ? String(f.b.title).trim() : id, day = (f && f.n) || taughtOf(id);
+    const k = day ? `${day}|${t}` : "aig|" + id;
+    // logged: this attempt is the work log's latest line of the activity (the grader writes that line as it grades, so the
+    // two share the score, a few minutes apart at most). An older line is another attempt: this one counts by its total.
+    const w = lines[k], ta = Date.parse(r.at || ""), wa = Date.parse((w && w.at) || "");
+    const logged = !!w && (!(ta > 0) || !(wa > 0) || (Math.round(w.score) === Math.round(r.score) && Math.abs(ta - wa) < 15 * 60e3));
+    // (its rubric parts, js/cm-ai-grader.js subs: Accuracy, Presence, Risk, Efficiency as shares of their maximums)
+    const subs = r.subs && ["accuracy", "presence", "risk", "efficiency"].every(x => fin(r.subs[x])) ? {accuracy: num(r.subs.accuracy), presence: num(r.subs.presence), risk: num(r.subs.risk), efficiency: num(r.subs.efficiency)} : null;
+    keep(k, {name: t, id, day, logged, pct: num(r.score), at: r.at || "", tier: r.tier || "", subs, best: r.strengths || [], improve: (r.gaps || []).concat(r.growth || []),
+      tries: r.tries || 0, from: "the AI Grader"}); });
+  return Object.values(seen);
+}
+// 📝 each Notes & Action Plan's action plan, handed in (js/cm-case-flow.js npPlan: planGot = the required steps the plan holds,
+// kept in case-flow notes[<block>]): the share of the required steps. (📝 Update Your Action Plan, the Action Plan Editor's
+// note, is not graded by anything: it has no score to show.)
+function actionPlans(c){
+  const N = ((window.CM_CF_EXHIBITS || {}).notes) || {}, out = [];
+  Object.entries((((c.data || {})["case-flow"]) || {}).notes || {}).forEach(([b, r]) => { const n = N[b], req = ((n && n.plan) || {}).required || [];
+    if(!n || !r || !r.planAt || !req.length) return; const got = (r.planGot || []).filter(Boolean).length;
+    out.push({name: String(n.title || "Action Plan").replace(/^Notes & Action Plan — /, ""), block: b, day: taughtOf(b), pct: num(100 * got / req.length), at: r.planAt,
+      note: `${got} of ${req.length} required steps`, best: req.filter((q, i) => (r.planGot || [])[i]).map(q => q.label).slice(0, 4), improve: req.filter((q, i) => !(r.planGot || [])[i]).map(q => "Missing: " + q.label).slice(0, 4)}); });
+  return out;
+}
+/* ---------- the grading systems: each returns its items, {name, pct, note, auto} (and their day where they have one) ---------- */
 const SOURCES = [
   {id: "kc", icon: "✍️", label: "Knowledge Checks", about: "Each Case Flow day's Knowledge Check. 70% passes the day.", dims: ["pc"], how: "Auto-scored quiz: one attempt, and its score is the one recorded.",
     items: c => cfDays().map(d => { const s = cfDay(c, d), p = (c.rec.dayProgress || {})[d.id] || {};
@@ -84,18 +156,13 @@ const SOURCES = [
       return {name: dayName(d), pct, note: (pct >= 70 ? "Passed (best score kept)" : "Below 70%: not passed yet") + (p.kcUnverified ? " · restored from the trainee's device" : "")}; })},
   {id: "lc", icon: "🧩", label: "Learning Checks", about: "Each module's Learning Check: AI × 0.60 + trainer × 0.40. Until the trainer scores it, the automated half counts.", dims: ["na", "cp"], how: "The AI review × 0.60 + the trainer's score × 0.40.",
     items: c => { const names = moduleNames(), out = [];
-      Object.values(c.cf.days || {}).forEach(day => Object.entries(day.modules || {}).forEach(([id, s]) => {
+      Object.values(c.cf.days || {}).forEach(day => Object.entries(lcMods(day && day.modules, c.fb)).forEach(([id, s]) => {
         const pct = num(s.c != null ? s.c : s.a); if(pct == null) return;
         out.push({name: (names[id] ? `Day ${names[id].n}: ${names[id].title}` : id), pct, auto: s.c == null,
           note: s.c != null ? `Automated ${pctTxt(num(s.a))} · Trainer ${pctTxt(num(s.t))}` : "Automated only: awaiting the trainer's 40%"}); }));
       return out; }},
-  {id: "tk", icon: "📝", label: "Takeaways", about: "Each day's Knowledge Check answers, in your own words, AI-graded.", dims: ["na", "cd"], how: "The AI review's total (Accuracy, Presence, Risk, Efficiency); Risk 0 is the UPL breach.",
-    items: c => cfDays().map(d => { const s = cfDay(c, d), p = (c.rec.dayProgress || {})[d.id] || {};
-      const pct = num(s.takeaway != null ? s.takeaway : p.takeaway); return pct == null ? null : {name: dayName(d), pct}; })},
-  {id: "sa", icon: "🧪", label: "Skill Activities", about: "Each graded Skill Activity on John Doe's file: the latest attempt of each.", dims: ["na", "cp", "cd"], how: "The AI rubric: Accuracy 35 + Presence 30 (plan quality), Risk 20, Efficiency 15.",
-    items: c => { const seen = {}; (c.data["work-log"] || []).filter(e => e && e.kind === "lab" && typeof e.score === "number")
-      .forEach(e => { const k = e.label || e.toolId || "Skill Activity"; if(!seen[k] || String(e.at || "") > String(seen[k].at || "")) seen[k] = e; });
-      return Object.entries(seen).map(([k, e]) => ({name: typeof dayText === "function" ? dayText(k) : k, pct: num(e.score), note: [e.tier, fmt(e.at)].filter(Boolean).join(" · ")})); }},
+  {id: "sa", icon: "🧪", label: "Skill Activities", about: "Each graded Skill Activity on John Doe's file (the AI Grader), the latest attempt of each.", dims: ["na", "cp", "cd"], how: "The AI rubric: Accuracy 35 + Presence 30 (plan quality), Risk 20, Efficiency 15.",
+    items: c => skillActs(c).map(x => Object.assign({}, x, {name: x.day ? `Day ${x.day}: ${x.name}` : x.name, note: [x.tier, x.from === "the AI Grader" && x.tries ? `AI Grader · attempt ${x.tries}` : x.from, fmt(x.at)].filter(Boolean).join(" · ")}))},
   {id: "cms", icon: "🗂", label: "CMS Case File", about: "John Doe's case file in the CMS, graded day by day against what a correct file holds by then: the case opened and verified, parties & Conflict Check, the insurance stack and claim numbers, the SOL and deadlines calendared, case notes and logs, liens, the litigation record, and every document filed under its category and named to convention.",
     dims: ["pc", "na", "cd"], how: "Per day, the average of its areas: Check Your Work items ticked 100% / not 0%; a document 100% first time right, then 100% ÷ attempts; the case as the CMS reports it; an entry missing when the day is passed 0.",
     items: c => { const f = window.cmCmsFile ? cmCmsFile.compute(c) : null; if(!f) return [];
@@ -103,12 +170,17 @@ const SOURCES = [
         note: x.areas.filter(a => a.pct != null).map(a => `${a.a.label} ${a.pct}%`).join(" · ") + (x.missing ? ` · ${x.missing} entr${x.missing === 1 ? "y" : "ies"} missing` : " · complete")})); }},
   {id: "bd", icon: "📂", label: "Backup Drive", about: "Your Backup Drive, graded automatically: Day 1's folder structure, then each day's Backup File Maintenance, read from your Drive itself (where each document is, whether every file is named by the firm's naming convention, what was moved and put back). File names are 12 of the 60 points graded each day. 70% passes.", dims: ["pc"], how: "Read from the Drive by the Worker: the share of the day's checks that pass.",
     items: c => { const out = [], s = c.data["drive-setup"], g = c.data["drive-grades"] || {};
-      if(s && typeof s.score === "number") out.push({name: "Day 1: the firm's folders", pct: num(s.score), note: s.ok ? `Built on attempt ${s.attempts || 1}` : "Not built yet"});
+      if(s && typeof s.score === "number") out.push({name: "Day 1: the firm's folders", day: 1, pct: num(s.score), at: s.at || null, src: "saved", g: s, note: s.ok ? `Built on attempt ${s.attempts || 1}` : "Not built yet"});
+      // (📂 built on the Training Portal's Backup Drive instead — /simulators/drive.html?program=CM, saved there as the "Backup Drive
+      // Setup" simulator result, simresults:<id>: Day 1 from it, and not counted again under 🧰 Portal Simulators)
+      else { const p = portalSetup(c); if(p) out.push({name: "Day 1: the firm's folders", day: 1, pct: num(p.score), at: p.at || null, src: "portal", note: `Built on the Training Portal's 📂 Backup Drive · best of ${p.count || 1} attempt${(p.count || 1) === 1 ? "" : "s"}${p.at ? " · " + fmt(p.at) : ""}`}); }
       // 🏷 the day's File names row is named in the note (js/cm-drive.js keeps it with the grade), so a lower score says why
       const names = x => { const m = x && x.names; if(!m || typeof m.got !== "number" || typeof m.max !== "number") return "";
         return `🏷 File names ${m.got}/${m.max}${m.wrong > 0 ? ` · ${m.wrong} name${m.wrong === 1 ? "" : "s"} wrong` : ""}`; };
-      Object.keys(g).sort().forEach(n => { const x = g[n]; if(x && typeof x.score === "number") out.push({name: `Day ${n}: Backup File Maintenance`, pct: num(x.score), note: [x.passed ? "Passed" : "Below 70%: not passed yet", names(x), fmt(x.at)].filter(Boolean).join(" · ")}); });
+      Object.keys(g).sort().forEach(n => { const x = g[n]; if(x && typeof x.score === "number") out.push({name: `Day ${n}: Backup File Maintenance`, day: +n, pct: num(x.score), at: x.at || null, src: "saved", g: x, note: [x.passed ? "Passed" : "Below 70%: not passed yet", names(x), fmt(x.at)].filter(Boolean).join(" · ")}); });
       return out; }},
+  {id: "ap", icon: "📝", label: "Action Plan", about: "Each action plan written in the Notes & Action Plan (the voicemail's plan), checked against the steps it must hold.", dims: ["cp"], how: "Auto-checked against the answer key: the share of the required steps the plan holds.",
+    items: c => actionPlans(c).map(x => Object.assign({}, x, {name: `Day ${x.day}: ${x.name}`, note: `${x.note} · ${fmt(x.at)}`}))},
   {id: "ns", icon: "📊", label: "Net Sheet Checks", about: "Each stage of the LSH Net Sheet, checked automatically with Check my sheet: the share of its checks that passed.", dims: ["cp"], how: "Check my sheet: checks passed ÷ checks; the trust-money stages are critical.",
     items: c => { const out = [], files = (c.data["net-sheet"] && c.data["net-sheet"].files) || {};
       Object.values(files).forEach(f => Object.entries((f && f.checks) || {}).forEach(([stage, k]) => {
@@ -132,28 +204,31 @@ const SOURCES = [
       const t = v => String(v || "").replace(/^Email Simulator — /, "");
       Object.entries(R.notes || {}).forEach(([b, r]) => { const n = (EX.notes || {})[b]; if(n && r) (n.emails || []).forEach(e => sent(t(e.title), (r.mails || {})[e.id])); });
       Object.entries(R.service || {}).forEach(([b, r]) => { const e = (EX.emails || {})[b]; if(e) sent(t(e.title) || b, r); });
-      Object.entries(R.amend || {}).forEach(([b, r]) => Object.entries((r && r.req) || {}).forEach(([doc, x]) => sent(`Amendment request: ${doc}`, x)));
+      amendSets(R).forEach(set => { const req = {};   // (one amendment set worked on two activities: each request's better email)
+        set.forEach(([b, r]) => Object.entries(r.req || {}).forEach(([doc, x]) => { if(x && x.sent && (!req[doc] || (x.tries || 0) < (req[doc].tries || 0))) req[doc] = x; }));
+        Object.entries(req).forEach(([doc, x]) => sent(`Amendment request: ${doc}`, x)); });
       Object.entries((c.sim && c.sim.best) || {}).filter(([k, b]) => simKind(k) === "email" && b && typeof b.score === "number").forEach(([k, b]) => out.push({name: k, pct: num(b.score), note: `Portal · ${b.count || 1} run${(b.count || 1) === 1 ? "" : "s"}`}));
       return out; }},
-  {id: "cal", icon: "🗓", label: "Calendaring", about: "The Training Portal's Calendaring Simulators (the Litigation Week: the prep, debrief, client and expert calls placed around a deposition, a hearing and a mediation).",
+  {id: "cal", icon: "🗓", label: "Calendaring", about: "The Training Portal's Calendaring Sims (the Litigation Week: the prep, debrief, client and expert calls placed around a deposition, a hearing and a mediation).",
     dims: ["pc", "cp"], how: "The simulator's automated review under the attorney's rules (the trainer's score where given): the best run.",
     items: c => { const out = [];
       Object.entries((c.sim && c.sim.best) || {}).filter(([k, b]) => simKind(k) === "calendar" && b && typeof b.score === "number").forEach(([k, b]) => out.push({name: k, pct: num(b.score), note: `Portal · ${b.count || 1} run${(b.count || 1) === 1 ? "" : "s"}`}));
       return out; }},
-  {id: "cx", icon: "🔎", label: "Case Exercises", about: "The Case Flow's graded exercises on John Doe's file: the exhibit audits, the Listening Checks, the records screening, the judgement calls on served emails and the Notes & Action Plan's action plans.",
-    dims: ["na", "cp"], how: "Each auto-checked against its answer key: the share called right (an audit's items, a Listening Check's facts, the records screened, the plan's required steps); a judgement call 100% or 0%.",
-    items: c => (MODEL.evidence(c).items || []).filter(x => CX_GROUPS.has(x.group)).map(x => ({name: x.name, pct: num(x.pct), note: `Day ${x.day} · ${x.group.replace(/^\S+\s/, "")} · ${x.note}`}))},
+  {id: "cx", icon: "🔎", label: "Case Exercises", about: "The Case Flow's graded exercises on John Doe's file: the exhibit audits, the Listening Checks, the records screening and the judgement calls on served emails (the action plans are 📝 Action Plan's).",
+    dims: ["na"], how: "Each auto-checked against its answer key: the share called right (an audit's items, a Listening Check's facts, the records screened); a judgement call 100% or 0%.",
+    items: c => (MODEL.evidence(c).items || []).filter(x => CX_GROUPS.has(x.group)).map(x => ({name: x.name, day: x.day, pct: num(x.pct), note: `Day ${x.day} · ${x.group.replace(/^\S+\s/, "")} · ${x.note}`}))},
   {id: "sb", icon: "🛠", label: "Skill Builders", about: "Each practice tool's best score (the Calendar Conflict Resolver).", dims: ["na", "cp"], how: "The practice tool's own grader: the best score of its runs.",
     items: c => Object.entries(c.rec.practiceProgress || {}).filter(([, v]) => v && typeof v.bestScore === "number" && v.bestScore > 0).map(([id, v]) => {
       const t = (typeof PRACTICE_TOOLS !== "undefined" ? PRACTICE_TOOLS : []).find(x => x.id === id);
       return {name: t ? t.title : id, pct: num(v.bestScore), note: `${v.runs || 1} attempt${(v.runs || 1) === 1 ? "" : "s"}`}; })},
-  {id: "gc", icon: "🎯", label: "Graded Calls", about: "The best graded call on each Call Simulator line (☎ LSH Ring Channel).", dims: ["pc", "cd"], how: "The line's Mock Calls Metrics (the call and its required note), reported by the Portal: the best call.",
+  {id: "gc", icon: "🎯", label: "Graded Calls", about: "The best graded call on each Call Sim line (☎ LSH Voice).", dims: ["pc", "cd"], how: "The line's Mock Calls Metrics (the call and its required note), reported by the Portal: the best call.",
     items: c => Object.entries((c.callsim && c.callsim.best) || {}).filter(([, b]) => b && typeof b.score === "number").map(([k, b]) => ({
       name: b.line || k.replace(/^line:/, ""), pct: num(b.score), note: `${b.calls || 1} call${(b.calls || 1) === 1 ? "" : "s"}`}))},
   {id: "cc", icon: "📞", label: "Case Calls", about: "Each graded call on John Doe's file (Live Calls and the calls the trainer rings in), its best score; an injected call that was missed counts 0.", dims: ["pc", "na", "cd"], how: "The AI call rubric: BLUF, Risk & Privilege, Composure, A-C-T (25 each); a missed injected call 0.",
     items: c => { const best = {}, cf = c.data["case-flow"] || {};
       (c.data.roleplayHistory || []).filter(h => h && h.categoryId === "caseflow" && typeof h.score === "number").forEach(h => {
-        const k = h.topicId || h.topicLabel; if(!best[k] || h.score > best[k].score) best[k] = {name: h.topicLabel || k, score: h.score, n: 0}; best[k].n++; });
+        // (a better call replaces the best, and the calls counted before it still count)
+        const k = h.topicId || h.topicLabel, n = best[k] ? best[k].n : 0; if(!best[k] || h.score > best[k].score) best[k] = {name: h.topicLabel || k, score: h.score, n}; best[k].n++; });
       const out = Object.values(best).map(b => ({name: b.name, pct: num(b.score), note: `${b.n} call${b.n === 1 ? "" : "s"}`}));
       Object.values(cf.injects || {}).filter(x => x && x.outcome === "missed" && !best["cf-" + x.blockId])
         .forEach(x => out.push({name: `${x.who}: injected call`, pct: 0, note: `Missed · ${fmt(x.at)}`}));
@@ -161,21 +236,34 @@ const SOURCES = [
   {id: "ps", icon: "🧰", label: "Portal Simulators", about: "The best result on each other Training Portal simulator: Medical Records Requests, Court E-Filing, Demand Packets & Binders (the email and calendaring simulators have their own).", dims: ["pc", "na"], how: "The simulator's own grader, reported by the Portal: the best run.",
     items: c => Object.entries((c.sim && c.sim.best) || {}).filter(([k, b]) => simKind(k) === "other" && b && typeof b.score === "number").map(([k, b]) => ({
       name: k, pct: num(b.score), note: `${b.count || 1} run${(b.count || 1) === 1 ? "" : "s"}${b.at ? " · " + fmt(b.at) : ""}`}))},
-  {id: "rt", icon: "🎲", label: "Random Tasks", about: "Each random task's grade: timeliness, priorities, the day's lesson, communication and risk. A task not resolved before its timer ended counts 0.", dims: ["pc", "cp"], how: "The AI grade of the resolution; resolved after its window or missed costs timeliness (missed = 0).",
-    // (a missed task counts 0, as everywhere else in the course: the day's score, rankings and the Batch Sheet's Score Card)
-    items: c => (c.data["task-log"] || []).filter(Boolean).map(e => {
-      const missed = e.status === "missed" || ((e.status === "new" || e.status === "progress") && e.expiresAt && Date.now() > Date.parse(e.expiresAt));
-      const name = (e.task && (e.task.title || e.task.name)) || (typeof e.task === "string" ? e.task.slice(0, 80) : "Random task");
-      if(e.status === "resolved" && typeof e.score === "number") return {name, pct: num(e.score), note: fmt(e.submittedAt || e.resolvedAt || e.id)};
-      return missed ? {name, pct: 0, note: "Missed: not resolved before the timer ended"} : null; }).filter(Boolean)},
   {id: "tr", icon: "📐", label: "Trainer Rubric", about: "The trainer's rubric score on each day's sent review: a tier and points in each of the four dimensions (📐 Feedback Rubric).",
     dims: ["pc", "na", "cp", "cd"], how: "The trainer's points out of 100 (25 / 25 / 30 / 20) on the Feedback Rubric's tiers; a critical item marked breached fails the safety gate.",
     items: c => Object.entries(((c.fb || {}).days) || {}).filter(([, v]) => window.cmRubric && cmRubric.counts(v)).map(([d, v]) => { const t = cmRubric.total(v.rubric), x = cmRubric.tierOf(t);
       return t == null ? null : {name: `Day ${dn(d) || d}: the trainer's rubric`, pct: num(t), note: [x && x.label, v.sentBy, fmt(v.sentAt)].filter(Boolean).join(" · ")}; }).filter(Boolean)}
 ];
+/* ---------- a Case Flow day's columns, the one reading the trainee card, 🏅 Scores and the Batch Sheet's Score Card share ----------
+   {sa, call, ap, bd}: the day's items of 🧪 Skill Activities, its graded calls (the work log's latest of
+   each), 📝 Action Plan and 📂 Backup Drive (a passed day with no Backup Drive grade is one item at 0, as the model counts it) */
+const srcItems = (c, id) => { const s = SOURCES.find(x => x.id === id); try{ return ((s && s.items(c)) || []).filter(x => x && x.pct != null); }catch(e){ return []; } };
+const dayOfItem = x => x.day != null ? +x.day : (m => m ? +m[1] : null)(/^Day (\d)/.exec(x.name || ""));
+function dayItems(c, d){
+  const n = d.cf.n, of = id => srcItems(c, id).filter(x => dayOfItem(x) === n);
+  const bd = of("bd").filter(x => !x.unconfirmed);
+  if(!bd.length && kcPassed(c, d)) bd.push({name: `Day ${n}: ${n === 1 ? "the firm's folders" : "Backup File Maintenance"}`, day: n, pct: 0, missing: true, note: "Not done: the Backup Drive is required every day"});
+  const latest = {}; ((c.data || {})["work-log"] || []).forEach(w => { if(!w || w.kind !== "roleplay" || !fin(w.score) || Number(w.dayId) !== Number(d.id)) return;
+    const k = w.label || w.toolId || "Call"; if(!latest[k] || String(w.at || "") > String(latest[k].at || "")) latest[k] = w; });
+  const call = Object.values(latest).map(w => ({name: String(w.label || "Call").replace(/^Roleplay — /, ""), day: n, pct: num(w.score), at: w.at || "", tier: w.tier || "", subs: w.subs || null,
+    best: w.strengths || [], improve: (w.gaps || []).concat(w.growth || [])}));
+  return {sa: of("sa"), call, ap: of("ap"), bd};
+}
+const avgPct = xs => { const v = xs.map(x => x.pct).filter(fin); return v.length ? Math.round(v.reduce((a, b) => a + b, 0) / v.length) : null; };
 // what a Portal simulator's result is: an email simulator, a calendaring simulator, or another
-const simKind = k => /e-?mail|repl/i.test(k) ? "email" : /calend|calsim|litigation week/i.test(k) ? "calendar" : "other";
-const CX_GROUPS = new Set(["🔎 Exhibit audits", "🎧 Listening Checks", "🧾 Records screening", "⚖️ Judgement calls", "📝 Action Plan"]);
+// 📂 the Portal's Backup Drive (the firm's folders, Day 1): its best result, for 📂 Backup Drive when the course has no setup of its own
+const PORTAL_SETUP = /^Backup Drive Setup$/i;
+const portalSetup = c => { const b = Object.entries((c.sim && c.sim.best) || {}).find(([k, v]) => PORTAL_SETUP.test(k) && v && typeof v.score === "number"); return b ? b[1] : null; };
+const simKind = k => /e-?mail|repl/i.test(k) ? "email" : /calend|calsim|litigation week/i.test(k) ? "calendar" : PORTAL_SETUP.test(k) ? "drive" : "other";
+// (📝 Action Plan is its own grading system, ap: counted once, not also here)
+const CX_GROUPS = new Set(["🔎 Exhibit audits", "🎧 Listening Checks", "🧾 Records screening", "⚖️ Judgement calls"]);
 const dn = v => { v = parseInt(v, 10); return v >= 11 && v <= 15 ? v - 10 : v >= 1 && v <= 5 ? v : null; };
 function compute(c){
   const rows = SOURCES.map(s => {
@@ -208,8 +296,10 @@ const ctxOf = (rec, prog, callsim, sim, fb) => ({rec: rec || {}, cf: (rec && rec
    The critical items are the ones CM's records can actually tell: UPL in the AI-reviewed takeaway (its Risk score 0 is
    the reviewer's UPL flag), the privilege items and the hard-date items of the exhibit audits, and the trust-money
    Net Sheet stages (the final disbursement and the litigated Net Sheet) balancing on every check.
-   Not in the model (shown in the grading-systems table only): the Learning Check composite and the takeaway totals (their
-   parts are counted), Skill Builders, the Call Simulator's and the Portal simulators' bests (not tied to a day or a
+   Not in the model (shown in the grading-systems table only): the Learning Check composite (its parts are counted; an AI
+   Grader activity whose parts aren't kept counts its total, once); not scored at all: the takeaways (the owner took their
+   grades out: only their UPL review stays, as a critical item), 🎲 the random
+   tasks (the owner took them out of the scores), Skill Builders, the Call Simulator's and the Portal simulators' bests (not tied to a day or a
    dimension yet), and the Skill Scale self-ratings. */
 // 📂 the Backup Drive grading system's items with their day (Day 1's folders, each Backup File Maintenance, the written work)
 const backupItems = c => { let xs = []; try{ const s = SOURCES.find(x => x.id === "bd"); xs = (s && s.items(c)) || []; }catch(e){ xs = []; }
@@ -217,13 +307,13 @@ const backupItems = c => { let xs = []; try{ const s = SOURCES.find(x => x.id ==
 const MODEL = (function(){
   const DIMS = [
     {id: "pc", icon: "⏱", label: "Procedural Compliance & Timeliness", w: 0.25,
-      feeds: "each day's Knowledge Check (best score) · CMS filing (100% first time right, then 100% ÷ attempts) · the day's case-folder upload and the Day 1 Backup Drive set-up · timeliness (random tasks resolved inside their window, injected calls answered) · the call protocol (the AI's A-C-T score on graded calls)"},
+      feeds: "each day's Knowledge Check (best score) · CMS filing (100% first time right, then 100% ÷ attempts) · the day's Backup Drive (the latest of the saved and the Worker's nightly grade, a trainer's override winning) · timeliness (injected calls answered) · the call protocol (the AI's A-C-T score on graded calls)"},
     {id: "na", icon: "🔍", label: "Needs Assessment & Risk Identification", w: 0.25,
-      feeds: "the exhibit audits (each item called right) · Listening Checks · the records screening for the amendment requests · the judgement call on each served email · the AI's Risk score on Skill Activities, takeaways and calls"},
+      feeds: "the exhibit audits (each item called right) · Listening Checks · the records screening for the amendment requests · the judgement call on each served email · the AI's Risk score on Skill Activities and calls"},
     {id: "cp", icon: "🗺", label: "Care/Action Plan Quality", w: 0.30,
-      feeds: "work quality on Skill Activities and takeaways (the AI's Accuracy and Presence) · the trainer's Learning Check score · the Action Plan's required steps · each Net Sheet stage's checks · each resolved random task's grade"},
+      feeds: "work quality on Skill Activities (the AI's Accuracy and Presence, or the AI Grader's total where only that is kept) · the trainer's Learning Check score · the Action Plan's required steps · each Net Sheet stage's checks"},
     {id: "cd", icon: "✉️", label: "Communication & Documentation", w: 0.20,
-      feeds: "calls (the AI's BLUF and Composure scores) · emails and requests sent (100% when the first draft is accepted, then 100% ÷ (refused drafts + 1)) · voicemail transcripts (facts caught) · the AI's Efficiency score on Skill Activities and takeaways"}];
+      feeds: "calls (the AI's BLUF and Composure scores) · emails and requests sent (100% when the first draft is accepted, then 100% ÷ (refused drafts + 1)) · voicemail transcripts (facts caught) · the AI's Efficiency score on Skill Activities"}];
   const MULT = {1: 1.0, 2: 1.15, 3: 1.15, 4: 1.3, 5: 1.3};
   // the tiers are the Feedback Rubric's (js/cm-rubric.js), the one rubric every graded piece of work is read in
   const TIERS = ((window.cmRubric && cmRubric.TIERS) || [{min: 90, n: 4, label: "Exemplary", band: "90–100%"}, {min: 80, n: 3, label: "Proficient", band: "80–89%"},
@@ -237,12 +327,7 @@ const MODEL = (function(){
   const tierOf = v => v == null ? null : TIERS.find(t => v >= t.min);
   const mtone = v => v == null ? "" : v >= PASS ? "gs-hi" : v >= 65 ? "gs-mid" : "gs-lo";
   const mean = a => a.length ? a.reduce((n, x) => n + x, 0) / a.length : null;
-  let TAUGHT = null;
-  const taught = id => {
-    if(!TAUGHT){ TAUGHT = {}; (((window.CM_CASE_FLOW || {}).sequence) || []).forEach(sd => (sd.phases || []).forEach(ph => (ph.blocks || []).forEach(b => { TAUGHT[b] = sd.n; }))); }
-    if(TAUGHT[id]) return TAUGHT[id];
-    const m = /^d(\d)/.exec(String(id || "")); return m ? +m[1] : null;
-  };
+  const taught = taughtOf;
   const modDay = m => taught(m + "-kc");
   // a day id on a record: the DAYS id (11–15) or the Case Flow day (1–5)
   const dn = v => { v = parseInt(v, 10); return v >= 11 && v <= 15 ? v - 10 : v >= 1 && v <= 5 ? v : null; };
@@ -269,30 +354,37 @@ const MODEL = (function(){
       if(kcPassed(c, d) && !bdItems.some(x => x.day === n)) add("pc", "📂 Backup Drive", n, n === 1 ? "The firm's folders" : "Backup File Maintenance", 0, "Not done: the Backup Drive is required every day"); });
     Object.entries(data["doc-filing"] || {}).forEach(([id, r]) => { if(!r || !(r.attempts > 0)) return; const doc = DOCS.find(x => x.id === id) || {};
       add("pc", "🗂 CMS filing", doc.day, doc.title || r.name || id, r.filed ? 100 / r.attempts : 0, r.filed ? (r.attempts === 1 ? "Filed first time right" : `Filed in ${r.attempts} attempts`) : "Not filed yet"); });
-    (data["task-log"] || []).forEach(e => { if(!e) return; const day = dn(e.dayId), name = (e.task && (e.task.title || e.task.name)) || (typeof e.task === "string" ? e.task.slice(0, 70) : "Random task");
-      const late = e.expiresAt && Date.now() > new Date(e.expiresAt).getTime();
-      if(e.status === "resolved"){ const onTime = !e.expiresAt || !e.submittedAt || e.submittedAt <= e.expiresAt;
-        add("pc", "⏰ Timeliness", day, name, onTime ? 100 : 50, onTime ? "Resolved inside its window" : "Resolved after its window closed");
-        if(typeof e.score === "number") add("cp", "🎲 Random task plan", day, name, e.score, e.tier || "Graded"); }
-      else if(e.status === "missed" || ((e.status === "new" || e.status === "progress") && late)) add("pc", "⏰ Timeliness", day, name, 0, "Missed: the window closed"); });
+    // (🎲 random tasks are not in the model: their log and the Recent progress rows stay, unscored here)
     Object.values(R.injects || {}).forEach(x => { if(!x || !x.outcome) return;
       add("pc", "⏰ Timeliness", dn(x.dayId) || taught(x.blockId), `${x.who || "Injected"} call`, x.outcome === "answered" ? 100 : 0, x.outcome === "answered" ? "Injected call answered" : "Injected call missed"); });
     // the work log: the AI's sub-scores, split by what they measure (the latest of each activity)
     const latest = {}; (data["work-log"] || []).forEach(e => { if(!e || (e.kind !== "lab" && e.kind !== "roleplay")) return; const k = e.kind + "|" + (e.label || e.toolId || "");
       if(!latest[k] || String(e.at || "") >= String(latest[k].at || "")) latest[k] = e; });
+    // (a Skill Activity whose latest attempt is a newer AI Grader grade than this line counts by that grade, below: skillActs)
+    const sa = skillActs(c), newer = new Set(sa.filter(x => x.from === "the AI Grader" && !x.logged).map(x => x.key));
     Object.values(latest).forEach(e => { const day = labDay(e), s = e.subs || {}, name = String(e.label || "Activity").replace(/^Day \d+ · /, "");
-      if(e.kind === "lab"){
+      if(e.kind === "lab" && !/Self-Summary/.test(e.label || "") && newer.has(labKey(e))) return;
+      // (📝 the takeaway's review, — CM Self-Summary: not scored, only its UPL flag is read, as a critical item)
+      if(e.kind === "lab" && /Self-Summary/.test(e.label || "")){
+        if(typeof s.risk === "number") gate("upl", day, name, s.risk > 0, s.risk > 0 ? "No legal advice found" : "Breach: the AI review scored Risk 0 (legal advice to the client)");
+      } else if(e.kind === "lab"){
         if(typeof s.accuracy === "number" && typeof s.presence === "number") add("cp", "🧪 Work quality", day, name, (s.accuracy * 35 + s.presence * 30) / 65, "The AI's Accuracy and Presence");
         else if(typeof e.score === "number") add("cp", "🧪 Work quality", day, name, e.score, "The AI review's total");
         if(typeof s.risk === "number") add("na", "⚠️ Risk identification", day, name, s.risk, "The AI's Risk score");
         if(typeof s.efficiency === "number") add("cd", "🗒 Documentation", day, name, s.efficiency, "The AI's Efficiency score");
-        if(/Self-Summary/.test(e.label || "") && typeof s.risk === "number")
-          gate("upl", day, name, s.risk > 0, s.risk > 0 ? "No legal advice found" : "Breach: the AI review scored Risk 0 (legal advice to the client)");
       } else {
         if(typeof s.act === "number") add("pc", "📞 Call protocol", day, name, s.act, "The AI's A-C-T score");
         if(typeof s.risk === "number") add("na", "⚠️ Risk identification", day, name, s.risk, "The AI's Risk & Privilege score");
         if(typeof s.bluf === "number" && typeof s.composure === "number") add("cd", "📞 Calls", day, name, (s.bluf + s.composure) / 2, "The AI's BLUF and Composure");
       } });
+    // 🧪 a Skill Activity whose latest attempt is an AI Grader grade (cf-ai-grades) with no work-log line of its own (its
+    // sub-scores aren't kept): its total, once (skillActs: one activity is one key, its latest attempt)
+    // (with its rubric parts kept, js/cm-ai-grader.js subs, it is split by what they measure, as a work-log line is)
+    sa.forEach(x => { if(x.from !== "the AI Grader" || x.logged) return; const s = x.subs;
+      if(!s){ add("cp", "🧪 Work quality", x.day, x.name, x.pct, "The AI Grader's total"); return; }
+      add("cp", "🧪 Work quality", x.day, x.name, (s.accuracy * 35 + s.presence * 30) / 65, "The AI Grader's Accuracy and Presence");
+      add("na", "⚠️ Risk identification", x.day, x.name, s.risk, "The AI Grader's Risk score");
+      add("cd", "🗒 Documentation", x.day, x.name, s.efficiency, "The AI Grader's Efficiency score"); });
     // 🔍 Needs Assessment: the exhibit audits handed in (their privilege and calendar items are critical)
     Object.entries(R.audits || {}).forEach(([b, r]) => { const a = (EX.audits || {})[b]; if(!a || !r || !r.at || !Array.isArray(a.items)) return;
       // 🛡 the score it was handed in with (js/cm-credit-kept.js), not one worked out again on a key changed since
@@ -302,11 +394,15 @@ const MODEL = (function(){
         gate(it.kind === "privilege" ? "priv" : "date", day, `${a.title || b} · ${it.ref ? it.ref + ": " : ""}${it.what || "item " + (i + 1)}`, ok, ok ? `Called right (${it.verdict})` : `Breach: called "${marks[i] || "nothing"}", should be "${it.verdict}"`); }); });
     Object.entries(R.listen || {}).forEach(([b, r]) => { const e = (SIM.events || {})[b]; if(!r || !r.at || !e || !e.listen || !e.listen.length) return;
       add("na", "🎧 Listening Checks", taught(b), `Listening Check (${b})`, 100 * (r.score || 0) / e.listen.length, `${r.score || 0} of ${e.listen.length} caught`); });
-    Object.entries(R.amend || {}).forEach(([b, r]) => { const a = (EX.amendments || {})[b]; if(!a || !r) return; const day = taught(b);
-      if(r.screened && Array.isArray(a.screen) && a.screen.length){ const asked = new Set((a.requests || []).map(q => q.doc)), ks = window.cmCreditKept && cmCreditKept.screen(b, r, a);
-        const ok = ks ? ks.right : a.screen.filter(s => ((r.marks || {})[s.doc] === "fix") === asked.has(s.doc)).length, of = ks ? ks.of : a.screen.length;
-        add("na", "🧾 Records screening", day, a.title || b, 100 * ok / of, `${ok} of ${of} records called right`); }
-      Object.entries(r.req || {}).forEach(([doc, x]) => { const v = sentScore(x); if(v != null) add("cd", "✉️ Written communication", day, `Amendment request: ${doc}`, v, sentNote(x)); }); });
+    // (one amendment set worked on two activities, amendSets: its better screening and each request's better email)
+    amendSets(R).forEach(set => { let scr = null; const req = {};
+      set.forEach(([b, r]) => { const a = (EX.amendments || {})[b]; if(!a) return; const day = taught(b);
+        if(r.screened && Array.isArray(a.screen) && a.screen.length){ const asked = new Set((a.requests || []).map(q => q.doc)), ks = window.cmCreditKept && cmCreditKept.screen(b, r, a);
+          const ok = ks ? ks.right : a.screen.filter(s => ((r.marks || {})[s.doc] === "fix") === asked.has(s.doc)).length, of = ks ? ks.of : a.screen.length;
+          if(!scr || 100 * ok / of > scr.v) scr = {v: 100 * ok / of, day, title: a.title || b, note: `${ok} of ${of} records called right`}; }
+        Object.entries(r.req || {}).forEach(([doc, x]) => { const v = sentScore(x); if(v != null && (!req[doc] || v > req[doc].v)) req[doc] = {v, day, x}; }); });
+      if(scr) add("na", "🧾 Records screening", scr.day, scr.title, scr.v, scr.note);
+      Object.entries(req).forEach(([doc, q]) => add("cd", "✉️ Written communication", q.day, `Amendment request: ${doc}`, q.v, sentNote(q.x))); });
     Object.entries(R.service || {}).forEach(([b, r]) => { const e = (EX.emails || {})[b]; if(!e || !r) return; const day = taught(b), title = clean(e.title) || b;
       const jc = window.cmCreditKept ? cmCreditKept.choice(b, r, e) : (r.choice != null && e.press && e.press.choices && e.press.choices[r.choice] ? {ok: !!e.press.choices[r.choice].ok} : null);
       if(jc) add("na", "⚖️ Judgement calls", day, title, jc.ok ? 100 : 0, jc.ok ? "The right call" : "A call that costs the file");
@@ -315,34 +411,36 @@ const MODEL = (function(){
       const facts = ((n.transcribe || {}).facts || []).length, req = ((n.plan || {}).required || []).length;
       if(r.txAt && facts) add("cd", "🗒 Documentation", day, "Voicemail transcript", typeof r.txScore === "number" ? r.txScore : 100 * (r.txGot || []).filter(Boolean).length / facts,
         `${(r.txGot || []).filter(Boolean).length} of ${facts} facts caught${(r.txTries || []).length ? ` · ${r.txTries[r.txTries.length - 1].acc}% word accuracy · ${r.txTries.length} graded attempt${r.txTries.length === 1 ? "" : "s"}` : ""}`);
-      if(r.planAt && req) add("cp", "📝 Action Plan", day, n.title || "Action Plan", 100 * (r.planGot || []).filter(Boolean).length / req, `${(r.planGot || []).filter(Boolean).length} of ${req} required steps`);
       (n.emails || []).forEach(e => { const v = sentScore((r.mails || {})[e.id]); if(v != null) add("cd", "✉️ Written communication", day, clean(e.title), v, sentNote(r.mails[e.id])); }); });
+    // 📝 the action plans (the 📝 Action Plan grading system's own items: counted here once)
+    actionPlans(c).forEach(x => add("cp", "📝 Action Plan", x.day, x.name, x.pct, x.note));
     // 🗺 the trainer's Learning Check score (feedback:<id>, trainer-owned: the trainee cannot change it)
     Object.entries((c.fb && c.fb.caseFlow) || {}).forEach(([m, x]) => { if(!x || typeof x.score !== "number") return;
       add("cp", "🧑‍🏫 Trainer's Learning Check", modDay(m), (names[m] && names[m].title) || m, x.score, x.comment ? String(x.comment).slice(0, 160) : "Scored by the trainer"); });
     // 🗂 the CMS case file (js/cm-cms-file.js): the Check Your Work items of each CMS activity worked, by area, in the
     // dimension the area belongs to. Its documents are the 🗂 CMS filing above already, and an activity never worked is
-    // the file grade's own (🗂 CMS Case File), so neither is counted twice here.
+    // the file grade's own (🗂 CMS Case File), so neither is counted twice here; nor is an item whose score is the activity's
+    // AI Grader grade (fromAI), which counts once, under 🧪 Work quality.
     try{ if(window.cmCmsFile) cmCmsFile.compute(c).days.forEach(x => x.areas.forEach(a => { if(a.a.id === "docs" || a.a.id === "open") return;
-      const its = a.items.filter(i => i.pct != null && !i.unworked); if(!its.length) return;
+      const its = a.items.filter(i => i.pct != null && !i.unworked && !i.fromAI); if(!its.length) return;
       add(a.a.dim, "🗂 CMS case file", x.n, `CMS file: ${a.a.label}`, mean(its.map(i => i.pct)), `${its.filter(i => i.pct === 100).length} of ${its.length} Check Your Work items in the file`); })); }catch(e){}
     // 📐 the trainer's rubric on a sent day review (feedback:<id>, trainer-owned): its points per dimension, its critical items
     Object.entries((c.fb && c.fb.days) || {}).forEach(([d, v]) => { if(!(window.cmRubric && cmRubric.counts(v))) return; const day = dn(d), rb = v.rubric;
       cmRubric.DIMS.forEach(k => { const x = rb.dims[k.id]; if(x && typeof x.pts === "number") add(k.id, "📐 Trainer rubric", day, `Trainer's rubric: ${k.label}`, 100 * Math.min(k.pts, x.pts) / k.pts, `${x.pts} of ${k.pts} points · ${cmRubric.tierOf(100 * x.pts / k.pts).label}`); });
       Object.entries(rb.crit || {}).forEach(([id, m]) => { if(m === "met" || m === "breach") gate(id, day, `Trainer's review, Day ${day}`, m === "met", m === "met" ? "Marked met by the trainer" : "Breach: marked by the trainer on the day's review"); }); });
-    const NSD = {recovery: 3, bi: 3, um: 3, liens: 4, final: 4, litigation: 5};
+    // (the day each stage is worked: lien negotiations (d3m3) and the final disbursement (d3m4) are Track A, Day 3)
+    const NSD = {recovery: 3, bi: 3, um: 3, liens: 3, final: 3, litigation: 5};
     Object.values(((data["net-sheet"] || {}).files) || {}).forEach(f => Object.entries((f && f.checks) || {}).forEach(([st, k]) => { k = nsBest(k); if(!k || !k.total) return;
       add("cp", "📊 Net Sheet", NSD[st] || null, NS_STAGES[st] || st, 100 * k.passed / k.total, `${k.passed} of ${k.total} checks`);
       if(st === "final" || st === "litigation") gate("trust", NSD[st], NS_STAGES[st] || st, k.passed === k.total, k.passed === k.total ? "Every check passed" : `Breach: ${k.total - k.passed} check${k.total - k.passed === 1 ? "" : "s"} failed`); }));
     return {items, crit};
   }
-  // Daily compliance (a sub-score, shown beside the Overall, not part of it): each day reached, its three deliverables
-  // (Knowledge Check passed, takeaways graded, the day's Backup Drive graded)
+  // Daily compliance (a sub-score, shown beside the Overall, not part of it): each day reached, its two scored deliverables
+  // (Knowledge Check passed, the day's Backup Drive graded; the takeaway is not scored)
   function dayComp(c, d){
     const p = (c.rec.dayProgress || {})[d.id] || {}, s = cfDay(c, d), bd = backupItems(c).some(x => x.day === d.cf.n), kc = kcBest(p, s);
     if(!(fin(kc) || kcPassed(c, d) || bd)) return null;
-    const tk = typeof p.takeaway === "number" || typeof s.takeaway === "number";
-    const parts = [{label: "✍️ Knowledge Check passed", v: kcPassed(c, d) ? 100 : 0}, {label: "📝 Takeaways AI-graded", v: tk ? 100 : 0}, {label: "📂 Backup Drive graded", v: bd ? 100 : 0}];
+    const parts = [{label: "✍️ Knowledge Check passed", v: kcPassed(c, d) ? 100 : 0}, {label: "📂 Backup Drive graded", v: bd ? 100 : 0}];
     return {pct: Math.round(mean(parts.map(x => x.v))), parts};
   }
   function compute(c){
@@ -381,18 +479,22 @@ const tone = p => p == null ? "" : p >= 85 ? "gs-hi" : p >= 70 ? "gs-mid" : "gs-
 const pcell = (p, f, extra) => ({v: pctTxt(p) === "—" ? "" : pctTxt(p), f, cls: "gs-num " + tone(p) + (extra ? " " + extra : "")});
 function sheetHtml(T){
   const n = T.head.length;
-  return `<section class="bs-sec" id="scx-${T.id}"><h3 class="bs-h">${E(T.title)} <span>${T.rows.length} row${T.rows.length === 1 ? "" : "s"}</span></h3>${T.note ? `<p class="bs-note">${E(T.note)}</p>` : ""}
+  return `<section class="bs-sec" id="scx-${T.id}"><h3 class="bs-h">${E(T.title)} <span>${T.rows.length} row${T.rows.length === 1 ? "" : "s"}</span></h3>${T.note ? `<p class="bs-note">${E(T.note)}</p>` : ""}${T.warn ? `<p class="bs-warn" role="alert">⚠ ${E(T.warn)}${window.cmRunNow ? `<button type="button" onclick="cmRunNow.run('ai')">🤖 Run the AI check</button>` : ""}</p>` : ""}${T.info ? `<p class="bs-info" role="status">${E(T.info)}</p>` : ""}
     <div class="gs-wrap"><table class="gs" role="grid"><thead>
       <tr class="gs-letters"><th class="gs-corner"></th>${T.head.map((h, i) => `<th class="${i === 0 ? "gs-frz" : ""}">${letter(i)}</th>`).join("")}</tr>
       <tr class="gs-head"><th class="gs-rn">1</th>${T.head.map((h, i) => `<th class="${i === 0 ? "gs-frz" : ""}">${E(h)}</th>`).join("")}</tr></thead>
-      <tbody>${T.rows.map((r, ri) => `<tr${T.rowCls && T.rowCls[ri] ? ` class="${T.rowCls[ri]}"` : ""}${T.onRow && T.onRow[ri] ? ` onclick="${T.onRow[ri]}"` : ""}><th class="gs-rn">${ri + 2}</th>${r.map((c, ci) => `<td tabindex="0" class="${c.cls || ""}${ci === 0 ? " gs-frz" : ""}"${c.f ? ` title="${E(c.f)}"` : ""}>${E(c.v)}</td>`).join("")}</tr>`).join("")}
-      ${T.rows.length ? "" : `<tr class="gs-empty"><th class="gs-rn">2</th><td colspan="${n}" class="bs-none">${E(T.empty || "Nothing yet.")}</td></tr>`}</tbody></table></div></section>`;
+      <tbody>${T.rows.map((r, ri) => `<tr${T.rowCls && T.rowCls[ri] ? ` class="${T.rowCls[ri]}"` : ""}${T.onRow && T.onRow[ri] ? ` onclick="${T.onRow[ri]}"` : ""}><th class="gs-rn">${ri + 2}</th>${r.map((c, ci) => `<td tabindex="0" class="${c.cls || ""}${ci === 0 ? " gs-frz" : ""}"${c.f ? ` title="${E(c.f)}"` : ""}>${c.html != null ? c.html : E(c.v)}</td>`).join("")}</tr>`).join("")}
+      ${T.rows.length ? "" : `<tr class="gs-empty"><th class="gs-rn">2</th><td colspan="${n}" class="bs-none">${E(T.empty || "Nothing yet.")}</td></tr>`}</tbody></table></div>${T.foot ? `<p class="bs-note bs-foot">${E(T.foot)}</p>` : ""}${T.none ? `<p class="bs-none-line">${E(T.none)}</p>` : ""}</section>`;
 }
 // 🏅 Scores, as shown: a short row per trainee, easy to read: the days passed, each Case Flow day's score, the Knowledge
 // Checks, the AI-graded activities, the Total (the 100-point model's Final) and the Result. Hover a cell for how it's made.
 // The CSV (⬇ Download) keeps every column: scoresSheet(rows, me, true).
 function dayKc(c, d){ const p = (c.rec.dayProgress || {})[d.id] || {}, s = cfDay(c, d); return num(kcBest(p, s)); }
 function shortSheet(rows, me){
+  // the trainer's: the one 🏅 Scores table, with the day cells, the kinds of work and the Lessons and Recent progress folded in
+  // (js/cm-batch-sheet.js scoresSheet, the same rows, cmScorecard.overall's numbers)
+  if(!me && window.cmBatchSheet && cmBatchSheet.scoresSheet){ const T = cmBatchSheet.scoresSheet(rows);
+    return Object.assign(T, {rowCls: T.order.map(r => ALL.pick === r.id ? "gs-picked" : ""), onRow: T.order.map(r => `cmScorecard.pick('${E(r.id)}')`)}); }
   const mc = (v, f, extra) => ({v: v == null ? "" : v + "%", f, cls: "gs-num " + MODEL.mtone(v) + (extra ? " " + extra : "")});
   const avgOf = (r, id) => (r.sc.rows.find(x => x.s.id === id) || {}).avg;
   return {id: "scores", title: "🏅 Scores",
@@ -499,17 +601,11 @@ function modelTable(m){
       `<b>${E(MODEL.STATUS[m.status])}.</b> Pass = Final ≥ ${MODEL.PASS}% and the safety gate at 100%. The rubric: ${T.map(t => `<b>${t.n} ${E(t.label)}</b> ${E(t.band)}`).join(" · ")}; a safety-gate breach is Needs Improvement whatever the score.`)}
   </tbody></table>`;
 }
-// a day's graded activities: the AI grader's score, the latest attempt of each (as 🧪 Skill Activities counts them)
-function dayActs(c, n){
-  const seen = {}, dayOf = e => { const m = /Case Flow Day (\d)/.exec(e.label || ""); if(m) return +m[1]; const v = parseInt(e.dayId, 10); return v >= 11 && v <= 15 ? v - 10 : v; };
-  ((c.data || {})["work-log"] || []).filter(e => e && e.kind === "lab" && typeof e.score === "number" && dayOf(e) === n)
-    .forEach(e => { const key = e.label || e.toolId || "Skill Activity"; if(!seen[key] || String(e.at || "") > String(seen[key].at || "")) seen[key] = e; });
-  const v = Object.values(seen).map(e => num(e.score)).filter(x => x != null);
-  return v.length ? Math.round(v.reduce((t, x) => t + x, 0) / v.length) : null;
-}
+// a day's columns as the Batch Sheet's Score Card shows them (dayItems: the same items, the same averages)
 function dayLine(x, c){
-  const k = c ? dayKc(c, x.d) : null, a = c ? dayActs(c, x.n) : null;
-  const bits = [k == null ? "✍️ Knowledge Check: not taken" : `✍️ Knowledge Check <b>${k}%</b>`, a == null ? "" : `🧪 Activities <b>${a}%</b>`, x.comp ? `✅ Daily compliance <b>${x.comp.pct}%</b>` : ""].filter(Boolean);
+  const k = c ? dayKc(c, x.d) : null, I = c ? dayItems(c, x.d) : null, v = (l, xs) => { const a = xs ? avgPct(xs) : null; return a == null ? "" : `${l} <b>${a}%</b>`; };
+  const bits = [k == null ? "✍️ Knowledge Check: not taken" : `✍️ Knowledge Check <b>${k}%</b>`, I ? v("🧪 Activities & calls", I.sa.concat(I.call)) : "",
+    I ? v("📝 Action Plan", I.ap) : "", I ? v("📂 Backup Drive", I.bd) : "", x.comp ? `✅ Daily compliance <b>${x.comp.pct}%</b>` : ""].filter(Boolean);
   return `<div class="bs-pt-line">${bits.join(" · ")}</div>`;
 }
 function daysTable(m, c){
@@ -553,7 +649,7 @@ function whoPick(r){
 function cardHtml(r, me){
   const m = r.m, why = {
     overall: overallTip(m),
-    comp: m.comp == null ? "No day reached yet" : `Daily compliance (a sub-score, not the Overall): the average of ${m.compDays} day${m.compDays === 1 ? "" : "s"}' deliverables done (Knowledge Check passed, takeaways graded, the Backup Drive graded) = ${m.comp}%`};
+    comp: m.comp == null ? "No day reached yet" : `Daily compliance (a sub-score, not the Overall): the average of ${m.compDays} day${m.compDays === 1 ? "" : "s"}' deliverables done (Knowledge Check passed, the Backup Drive graded) = ${m.comp}%`};
   const pills = [["Overall", m.overall, why.overall], ["Daily compliance", m.comp, why.comp]];
   const rtone = m.status === "pass" ? "gs-hi" : m.status === "pending" ? "gs-mid" : m.status === "none" ? "" : "gs-lo";
   return `<div class="bs-pt${!me && ALL.pick === r.id ? " bs-pt-on" : ""}" id="bs-pt-${domId(r.id)}" data-id="${E(r.id)}">
@@ -561,36 +657,54 @@ function cardHtml(r, me){
       ${pills.map(([l, v, f]) => `<span class="bs-pt-k ${MODEL.mtone(v)}" title="${E(f)}">${E(l)} <b>${mpct(v)}</b></span>`).join("")}
       <span class="bs-pt-k bs-pt-r ${rtone}" title="Pass = Final ≥ ${MODEL.PASS}% and the safety gate at 100%">${m.tier ? E(m.tier.label) + " · " : ""}<b>${E(MODEL.STATUS[m.status])}</b></span></div>
     ${focusHtml(m)}
-    <div class="bs-pt-wrap">${daysTable(m, r.c)}
+    <div class="bs-pt-wrap">${daysTable(m, r.c)}${!me && window.cmSendProgress ? cmSendProgress.cardHtml(r) : ""}${!me && window.cmBatchSheet && cmBatchSheet.feedbackHtml ? cmBatchSheet.feedbackHtml(r) : ""}
       <details class="bs-pt-src bs-pt-how"><summary>▸ How this is scored (the 100-point model, the CMS case file, every graded item)</summary>
         ${modelTable(m)}${window.cmCmsFile ? cmCmsFile.html(cmCmsFile.compute(r.c), me) : ""}${window.cmRubric ? profileTable(r.sc) : ""}
         ${sheetHtml(Object.assign(detailSheet(r.sc, me ? "" : r.name), {id: "detail-" + domId(r.id)}))}
         <p class="sc-how">${E(HOW_MODEL)}</p></details>
     </div></div>`;
 }
-const HOW_MODEL = `How the score is worked out: the client's 100-point model. Four dimensions — Procedural Compliance & Timeliness 25%, Needs Assessment & Risk Identification 25%, Care/Action Plan Quality 30%, Communication & Documentation 20% — scored per Case Flow day from the work CM records (each number feeds one dimension), then weighted by the day's complexity (Day 1 × 1.0, Days 2–3 × 1.15, Days 4–5 × 1.3): Final = Σ(day score × multiplier) ÷ Σ multipliers. Tiers: Exemplary 90–100 · Proficient 80–89 · Developing 65–79 · Needs Improvement below 65 (the 📐 Feedback Rubric's tiers). Pass = Final ≥ 80% and 100% on the safety gate's critical items (UPL in the takeaway, the audits' privilege and hard-date items, the trust-money Net Sheet stages). Overall = the Final, the one score every page shows; the Daily compliance (each day's Knowledge Check passed, takeaways graded, Backup Drive graded) is shown beside it as a sub-score. Not in the model: Skill Builders, the Call Simulator and Portal simulator bests, the Learning Check composites and takeaway totals (their parts are counted), and the self-ratings.`;
+const HOW_MODEL = `How the score is worked out: the client's 100-point model. Four dimensions — Procedural Compliance & Timeliness 25%, Needs Assessment & Risk Identification 25%, Care/Action Plan Quality 30%, Communication & Documentation 20% — scored per Case Flow day from the work CM records (each number feeds one dimension), then weighted by the day's complexity (Day 1 × 1.0, Days 2–3 × 1.15, Days 4–5 × 1.3): Final = Σ(day score × multiplier) ÷ Σ multipliers. Tiers: Exemplary 90–100 · Proficient 80–89 · Developing 65–79 · Needs Improvement below 65 (the 📐 Feedback Rubric's tiers). Pass = Final ≥ 80% and 100% on the safety gate's critical items (UPL in the takeaway, the audits' privilege and hard-date items, the trust-money Net Sheet stages). Overall = the Final, the one score every page shows; the Daily compliance (each day's Knowledge Check passed, Backup Drive graded) is shown beside it as a sub-score. Not in the model: Skill Builders, the Call Simulator and Portal simulator bests, the Learning Check composites and the takeaways (not scored: only their UPL review is read, as a critical item), the random tasks, and the self-ratings.`;
 
 /* ---------- 🏅 My Performance: the trainee's own card ---------- */
-const MINE = {id: null, at: 0, loading: null, recs: null};
+const MINE = {id: null, at: 0, loading: null, recs: null, dev: {}};
+// the records this device keeps (storeGet): after a reload index.html's mem holds only what is saved since, so these are read too
+const DEVICE_KEYS = ["case-flow", "net-sheet", "case-folder", "drive-setup", "drive-grades", "doc-filing", "cms-file", "cms-upload", "cf-ai-grades", "day-progress"];
 function loadMine(force){
   if(!isTrainee() || MINE.loading) return;
   const id = state.traineeId;
   if(!force && MINE.id === id && Date.now() - MINE.at < 60000) return;
   MINE.at = Date.now();
-  MINE.loading = sharedGetMany(["trainee:" + id, "progress:" + id, "callsim:" + id, "simresults:" + id, "feedback:" + id]).then(v => { if(state.traineeId === id){ MINE.id = id; MINE.recs = v || []; } })
-    .catch(() => {}).then(() => { MINE.loading = null; if(state.view === "scorecard" && typeof render === "function") render(); });
+  const dev = typeof storeGet === "function" ? Promise.all(DEVICE_KEYS.map(k => Promise.resolve(storeGet(k)).catch(() => null))) : Promise.resolve([]);
+  MINE.loading = Promise.all([sharedGetMany(["trainee:" + id, "progress:" + id, "callsim:" + id, "simresults:" + id, "feedback:" + id]), dev])
+    .then(([v, d]) => { if(state.traineeId === id){ MINE.id = id; MINE.recs = v || []; MINE.dev = {}; DEVICE_KEYS.forEach((k, i) => { if(d[i] && typeof d[i] === "object") MINE.dev[k] = d[i]; }); } })
+    .catch(() => {}).then(() => { MINE.loading = null; if((state.view === "scorecard" || state.view === "dashboard") && typeof render === "function") render(); });
 }
 function myCtx(){
   const [rec, prog, callsim, sim, fb] = MINE.recs || [];
   const c = ctxOf(rec, prog, callsim, sim, fb);
-  // what's on this device is the freshest: the live summary, the day progress, the practice bests and the logs
+  // what's on this device is the freshest: the live summary, the practice bests and the logs
   try{ if(window.cmCaseFlow && cmCaseFlow.scoreSummary) c.cf = cmCaseFlow.scoreSummary(); }catch(e){}
-  c.rec = Object.assign({}, c.rec, {dayProgress: state.progress || c.rec.dayProgress || {}, practiceProgress: state.practiceProgress || c.rec.practiceProgress || {}});
+  // ✍️ the Knowledge Checks count from the record, as the trainer's view counts them; a score only this device holds is
+  // shown unconfirmed (kcDevice reads it from the device's day-progress, below). Until the record is read, the device's.
+  const mine = MINE.id === state.traineeId && rec;
+  // (so once the record is read, the live summary's kc and pass are replaced by the record's summary's, as the trainer's
+  // view reads them: a check only this device holds then has no score here, and kcDevice shows it unconfirmed)
+  if(mine && c.cf && c.cf.days && c.cf !== rec.caseFlow){ const rd = ((rec.caseFlow || {}).days) || {};
+    c.cf = Object.assign({}, c.cf, {days: Object.assign({}, c.cf.days)});
+    Object.keys(c.cf.days).forEach(n => { const s = c.cf.days[n]; if(!s || typeof s !== "object") return;
+      const r = rd[n] && typeof rd[n] === "object" && (rd[n].id == null || s.id == null || String(rd[n].id) === String(s.id)) ? rd[n] : {};
+      c.cf.days[n] = Object.assign({}, s, {kc: fin(r.kc) ? r.kc : null, passed: !!r.passed}); }); }
+  c.rec =Object.assign({}, c.rec, {dayProgress: (mine ? rec.dayProgress : state.progress) || c.rec.dayProgress || {}, practiceProgress: state.practiceProgress || c.rec.practiceProgress || {}});
   if(Array.isArray(state.taskLog)) c.data = Object.assign({}, c.data, {"task-log": state.taskLog});
   if(Array.isArray(state.workLog)) c.data = Object.assign({}, c.data, {"work-log": state.workLog});
+  c.data = Object.assign({}, c.data, MINE.dev || {});
   if(state.docFiling && typeof state.docFiling === "object") c.data = Object.assign({}, c.data, {"doc-filing": state.docFiling});
+  if(state.progress && typeof state.progress === "object") c.data = Object.assign({}, c.data, {"day-progress": state.progress});
   // and what this device saved since (storeSet keeps it in index.html's mem): the Case Flow record, the Net Sheet, the folder
-  try{ ["case-flow", "net-sheet", "case-folder", "drive-setup", "drive-grades", "cms-file", "cms-upload"].forEach(k => { if(typeof mem !== "undefined" && mem[k] && typeof mem[k] === "object") c.data = Object.assign({}, c.data, {[k]: mem[k]}); }); }catch(e){}
+  try{ DEVICE_KEYS.forEach(k => { if(typeof mem !== "undefined" && mem[k] && typeof mem[k] === "object") c.data = Object.assign({}, c.data, {[k]: mem[k]}); }); }catch(e){}
+  // a Knowledge Check on this device that the record doesn't hold yet: read the record again soon (its save may be on its way)
+  try{ if(mine && Date.now() - MINE.at > 8000 && cfDays().some(d => kcDevice(c, d) != null)) loadMine(true); }catch(e){}
   return c;
 }
 const rowOf = (id, name, batch, c) => ({id, name, batch: batch || "", c, sc: compute(c), m: MODEL.compute(c)});
@@ -606,7 +720,7 @@ function renderMine(){
 }
 
 /* ---------- 🏅 Scorecards: every approved trainee's card, for the trainer ---------- */
-const ALL = {rows: null, loading: false, batch: "", pick: "", only: "", at: 0};
+const ALL = {rows: null, loading: false, batch: "", pick: "", only: "", at: 0, seen: new Set()};   // (seen: the keys the last read found)
 // The trainee records are read fresh every time (not the Admin screen's copy, which can be minutes old), so a change made
 // to a trainee's record, such as a corrected Batch ID, shows here on the next load; an open page reloads them once a minute.
 const FRESH_MS = 60000;
@@ -628,9 +742,17 @@ async function loadAll(){
       else people = bg ? null : (recs.length ? recs : state.adminData);
     }catch(e){ people = bg ? null : state.adminData; }
     if(!people) throw new Error("no records");
-    people = people.filter(r => r && r.approved === true && !r.archived);
+    // (the one rule of every score table, js/cm-merged-away.js: approved, not rejected, not archived, not merged into another
+    // live account, so a merge waiting to finish isn't a second card)
+    const MA = window.cmMergedAway; if(MA){ try{ await MA.ready(); }catch(e){} }
+    people = MA ? MA.scored(people) : people.filter(r => r && r.approved === true && !r.rejected && !r.archived);
     const want = []; people.forEach(r => want.push("progress:" + r.id, "callsim:" + r.id, "simresults:" + r.id, "feedback:" + r.id));
     const vals = await sharedGetMany(want);
+    // a failed get-many answers null for every key of its 100-key request, as if none were there: in a background reload, a
+    // request that read nothing where the last read found something failed, so the rows shown stay
+    if(bg && (!Array.isArray(vals) || vals.length !== want.length)) throw new Error("short read");
+    if(bg) for(let i = 0; i < want.length; i += 100) if(vals.slice(i, i + 100).every(v => v == null) && want.slice(i, i + 100).some(k => ALL.seen.has(k))) throw new Error("failed read");
+    ALL.seen = new Set(want.filter((k, i) => vals[i] != null));
     rows = people.map((r, i) => rowOf(r.id, r.name || r.id, r.batch, ctxOf(r, vals[i * 4], vals[i * 4 + 1], vals[i * 4 + 2], vals[i * 4 + 3])))
       .sort((a, b) => a.batch.localeCompare(b.batch) || a.name.localeCompare(b.name));
   }catch(e){ rows = null; }
@@ -640,7 +762,7 @@ async function loadAll(){
   if(!rows){ if(!had) ALL.rows = []; else return; }   // a failed background read: what is shown stays
   else if(had && sig(rows) === sig(had)){ ALL.rows = rows; return; }   // nothing changed: no redraw
   else ALL.rows = rows;
-  if(state.view === "scorecard" && typeof render === "function"){
+  if((state.view === "scorecard" || (state.view === "admin" && state.adminTab === "scorecards")) && typeof render === "function" && !(typeof isTyping === "function" && isTyping())){
     const open = [...document.querySelectorAll(".scx-page details[open] > summary")].map(s => s.textContent);
     render();
     if(open.length) document.querySelectorAll(".scx-page details > summary").forEach(s => { if(open.includes(s.textContent)) s.parentElement.open = true; });
@@ -654,12 +776,16 @@ function renderAll(){
   const batches = [...new Set(ALL.rows.map(r => batchOf(r.batch)).filter(Boolean))].sort();
   const rows = shownRows(), cards = ALL.only ? rows.filter(r => r.id === ALL.only) : rows, passed = rows.filter(r => r.m.pass).length;
   const who = `<label class="scx-bpick">🔎 <select onchange="cmScorecard.only(this.value)" aria-label="Show one trainee's card"><option value="">Every trainee's card</option>${rows.map(r => `<option value="${E(r.id)}" ${r.id === ALL.only ? "selected" : ""}>${E(r.name)}</option>`).join("")}</select></label>`;
-  return `<div class="scx-page scx-wide">${sheetTop("Scorecards", ALL.batch ? `Batch <b>${E(ALL.batch)}</b>` : "All batches", `<label class="scx-bpick">Batch <select onchange="cmScorecard.batch(this.value)"><option value="">All batches</option>${batches.map(b => `<option ${b === ALL.batch ? "selected" : ""}>${E(b)}</option>`).join("")}</select></label>${who}<button onclick="cmScorecard.csv()">⬇ Download</button><button onclick="window.print()">🖨 Print</button><button onclick="cmScorecard.refresh()">↻ Refresh</button>`, `<span>${rows.length} trainee${rows.length === 1 ? "" : "s"}</span><span>${passed} passing</span>`)}
+  return `<div class="scx-page scx-wide">${sheetTop("Scorecards", ALL.batch ? `Batch <b>${E(ALL.batch)}</b>` : "All batches", `<label class="scx-bpick">Batch <select onchange="cmScorecard.batch(this.value)"><option value="">All batches</option>${batches.map(b => `<option ${b === ALL.batch ? "selected" : ""}>${E(b)}</option>`).join("")}</select></label>${who}<button onclick="cmScorecard.csv()">⬇ Download</button><button onclick="cmScorecard.csv(true)" title="Only the 🏅 Scores table">⬇ Scores only</button><button onclick="cmScorecard.refresh()">↻ Refresh</button>${window.cmRunNow ? cmRunNow.html("banner") : ""}`, `<span>${rows.length} trainee${rows.length === 1 ? "" : "s"}</span><span>${passed} passing</span>`)}
     <div class="card gs-card scx-card">
     ${sheetHtml(scoresSheet(rows, false))}
     ${cards.length ? `<div class="bs-pts scx-pad">${cards.map(r => cardHtml(r, false)).join("")}</div>` : ""}</div></div>`;
 }
-function csv(){
+function csv(only){
+  // ⬇ Download: the 🏅 Scores table first, then everything the page folds in (js/cm-batch-sheet.js csvTables) and the
+  // 100-point model in full; ⬇ Scores only: the 🏅 Scores table alone
+  if(window.cmBatchSheet && cmBatchSheet.csvTables){ const rows = shownRows(), all = cmBatchSheet.csvTables(rows, [Object.assign(scoresSheet(rows, false, true), {title: "🏅 The 100-point model in full"})], r => !ALL.batch || batchOf(r.batch) === ALL.batch);
+    return cmBatchSheet.download(only ? all.slice(0, 1) : all, `Scorecard${only ? " scores" : ""}${ALL.batch ? " - " + ALL.batch : ""}.csv`); }
   const rows = shownRows(), T = scoresSheet(rows, false, true);
   const q = v => { const t = String(v == null ? "" : v); return `"${(/^[=+\-@\t\r]/.test(t) ? "'" + t : t).replace(/"/g, '""')}"`; };
   const lines = [T.head.map(q).join(",")].concat(T.rows.map(r => r.map(c => q(c.csv != null ? c.csv : c.v)).join(",")));
@@ -678,16 +804,18 @@ window.cmScorecard = {
   // on screen until the fresh ones come (clearing them blanked the trainer's page mid-read)
   invalidate(){ if(ALL.rows) ALL.at = 0; else ALL.rows = null; },
   reload: () => loadAll(),   // the background reload, now (the once-a-minute one)
+  rows: () => ALL.rows || [], shown: () => shownRows(),   // the trainees read, and the ones the batch picked shows (js/cm-send-progress.js)
   // a row of 🏅 Scores: that trainee's card (shown if only another one was), scrolled to
   pick(id){ ALL.pick = id; if(ALL.only && ALL.only !== id) ALL.only = id; render();
     setTimeout(() => { const d = document.getElementById("bs-pt-" + domId(id)); if(d) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
-  csv, compute, sources: SOURCES, model: MODEL, kcBest, kcPassed, kcDevice, cfDay,
+  csv, compute, sources: SOURCES, model: MODEL, kcBest, kcPassed, kcDevice, cfDay, lcMods, dayItems, skillActs, actionPlans,
   // ⭐ THE overall score, the one shared function: every surface that shows a trainee's Overall or a day's score calls it
   // (the trainee card, 🏅 Scores, the Batch Sheet's Scores, Score Card, Day by Day and cards, the trainee's My Scores)
   overall: c => { const m = MODEL.compute(c); return {pct: m.overall, comp: m.comp, status: m.status, why: overallTip(m),
     days: m.days.map(x => ({n: x.n, id: x.d.id, S: x.S, items: x.dims.reduce((t, k) => t + k.groups.reduce((u, g) => u + g.items.length, 0), 0)})), m}; },
   overallTip,
   // the signed-in trainee's Overall, from the same records as their 🏅 My Performance card (the dashboard's 🏅 My Scores shows it)
+  myCtx,   // the trainee's own records, as 🏅 My Performance and the dashboard's 🏅 My Scores read them
   myOverall(){ try{ loadMine(MINE.id !== state.traineeId); }catch(e){} return window.cmScorecard.overall(myCtx()); },
   // the 100-point model for one trainee's records: trainee:<id>, progress:<id>.data, feedback:<id>
   score: (rec, data, fb) => MODEL.compute(ctxOf(rec, {data: data || {}}, null, null, fb))
@@ -725,7 +853,7 @@ css.textContent = `
 .scx-card .gs .gs-frz{position:sticky;left:41px;z-index:2;background:#fff;box-shadow:2px 0 0 #9AA3B5;}
 .scx-card .gs-letters .gs-frz,.scx-card .gs-head .gs-frz{z-index:4;background:#F8F9FA;}
 .scx-card .gs td{font-weight:700;color:#141A2E;} .scx-card .gs td.gs-name{font-weight:800;min-width:200px;}
-.scx-card td.gs-batch{font:700 13px 'IBM Plex Mono',monospace;color:#2E3450;}
+.scx-card td.gs-batch{font:700 14px 'IBM Plex Mono',monospace;color:#2E3450;}
 .scx-card .gs-num{text-align:right;} .scx-card .gs-rank{text-align:center;font-weight:800;color:#B5651F;}
 .scx-card .gs-calc{background:#F1F3F4;} .scx-card .gs-bold{font-weight:800;}
 .scx-card td.gs-hi{color:#0B5D1E;background:#E6F4EA;} .scx-card td.gs-mid{color:#7A4B00;background:#FFF4E0;} .scx-card td.gs-lo{color:#A50E0E;background:#FDE8E8;}

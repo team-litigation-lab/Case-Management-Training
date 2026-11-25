@@ -36,11 +36,11 @@
     "image": "data-entry",
     "situation": "02/09/2026. The raw file is in and a colleague keyed **a draft intake record** into the CMS. Atty. Thorne wants the matter **active today**.",
     "steps": [
-      "Press 🚀 Launch CMS & Google Drive, then open John Doe's matter in the CMS under New Case.",
+      "Press 🚀 Launch LSH CaseWorks & Google Drive, then open John Doe's matter in the CMS under New Case.",
       "Before anything else, run the **Conflict Check** on every party's full legal name and log the result in the CMS.",
       "Check each field of the draft intake record against its source document: date of loss, names and roles, John Doe's position, date of birth and report number.",
       "Correct every error you find and write in Case Notes which document proves it. Never change a field silently.",
-      "On the CMS Calendar, docket the SOL of **02/06/2028** with reminders, then map all six roles under Parties.",
+      "On the CMS Calendar, docket the SOL of **02/06/2028** with reminders, map all six roles under Parties, then enter each recovery layer in CMS → Insurance.",
       "Log the retainer and the HIPAA authorization, file each intake document under its CMS category, and send Atty. Thorne a short note of your corrections in Case Notes."
     ],
     "deliver": "An active matter, **every field verified**, corrections noted to Atty. Thorne",
@@ -48,9 +48,9 @@
     "principle": "The signed source document wins; **the draft is only a lead**",
     "checks": [
       "Conflict Check logged **before the matter existed**",
-      "Position corrected **from the Police Report**",
-      "Date of birth and **report number** corrected, with sources",
+      "Position, date of birth and **report number** corrected, with sources",
       "SOL docketed; **six roles** mapped; documents filed",
+      "Insurance: each layer **in order, every gap recorded**, nothing guessed",
       "Correction note **routed to Atty. Thorne**"
     ],
     "dos": [
@@ -64,7 +64,7 @@
     "image": "documents-audit",
     "situation": "02/09/2026, 4:30 p.m. John Doe's matter is **active in the CMS**, and nothing is on **the firm's backup drive** yet.",
     "steps": [
-      "Press 🚀 Launch CMS & Google Drive. Not linked yet? Paste your folder's link in the **Backup Drive panel**.",
+      "Press 🚀 Launch LSH CaseWorks & Google Drive. Not linked yet? Paste your folder's link in the **Backup Drive panel**.",
       "In Google Drive, build 01 Clients by hand, holding Doe-John with its nine numbered folders.",
       "Add 02 Firm Administration with its two folders, then 03 Templates and 04 Closed Files, named as the standard shows.",
       "In 📂 My Backup Drive, submit the folders, fix what it returns, and run **✓ Check my drive** until clean.",
@@ -218,7 +218,7 @@
   "d1m1-kc": {
     "image": "knowledge-check",
     "questions": [
-      "Name the **six stages** in order. What does the CM own at Intake & Case Opening?",
+      "Name the **seven stages** in order. What does the CM own at Intake & Case Opening?",
       "John Doe asks his case's **worth**, and if waiting hurt it. Your exact words, and what you log?",
       "What must happen **before the matter is created** in the CMS, and on whose names?"
     ]
@@ -479,14 +479,14 @@
     "situation": "Assuming the Police Report shows **Margaret Doe owns the Civic** and John Doe rode as a passenger, Keystone PD's six items need sorting on the file.",
     "side": true,
     "steps": [
-      "In CMS → Doc Hub, index the photos, the tow record and the Police Report as evidence for **John Doe's injury claim**.",
+      "In CMS → Doc Hub, index the Police Report as evidence for **John Doe's injury claim**, and set a request task for the photos and the tow record.",
       "Log one Case Note in CMS → Notes → Case Notes: the rental and Loss of Use stay on Margaret's claim, referred to Atty. Thorne. Does PD touch our case?"
     ],
     "deliver": "BI evidence indexed and **the one-line PD answer** logged",
     "purpose": "Sorting first keeps **Margaret's PD claim** off John Doe's file",
     "principle": "PD touches our case **as evidence, never as his claim**",
     "checks": [
-      "Photos, tow record, Police Report **indexed as BI evidence**",
+      "Police Report **indexed as BI evidence**; photos, tow record requested",
       "Rental, Loss of Use **left on Margaret's claim**",
       "Note ends with **the one-line answer**"
     ],
@@ -595,10 +595,11 @@
   },
   "d1m4-a2": {
     "image": "cms-screen",
-    "situation": "Assuming the set-up is in, the **$40,000 stack verified** and the 14-Day Treatment Gap flagged, Atty. Thorne now needs the Case Plan.",
+    "situation": "Assuming the set-up is in, the **$40,000 stack verified** and the first treatment records on file, Atty. Thorne now needs the Case Plan.",
     "side": true,
     "steps": [
-      "In the Action Plan Editor, record the stack in order with a preliminary projection, and put the **14-Day Gap** at the top of the risks band.",
+      "In the Action Plan Editor, record the stack in order with a preliminary projection, and put the **Treatment Gap**, counted from the records, at the top of the risks band.",
+      "Under the gap, record **John Doe's 03/04 account** as his, with the documents behind it marked requested.",
       "Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne."
     ],
     "deliver": "A Case Plan **routed to Atty. Thorne**, the filing window docketed",
@@ -606,7 +607,8 @@
     "principle": "Report facts and preliminary numbers; **strategy is Atty. Thorne's** to set",
     "checks": [
       "Order **BI → Host UM → Relative UM**; projection preliminary",
-      "Risks band: **the 14-Day Gap** first",
+      "Risks band: **the gap, counted from the records**, first",
+      "John's **03/04 account** recorded as his, documents requested",
       "Plan **routed to Atty. Elijah Thorne**"
     ],
     "dos": ["If counsel must ask a question, **it isn't finished**"],

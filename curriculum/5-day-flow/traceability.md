@@ -295,7 +295,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - Newly authored: the settlement-stage Stream 2 Net Sheet on 10/06/2026, liens unreduced, every moving figure marked as a projection, and the written questions for Atty. Thorne
 - Newly authored: plan funding status (self-funded vs. fully insured) decides the law that governs a health-plan reduction; the verified-none inventory of absent lienholders
 - Newly authored: the pro-rata distribution rule worked on the BI-only illustration; the pro-rata argument restated on true facts for a fund that covers every lien
-- Newly authored: lien negotiation calls, from the Pre-Demand & Reduction File Review Protocols handout (LSH Knowledge Base, CM Training · Day 4)
+- Newly authored: lien negotiation calls, from the Pre-Demand & Reduction File Review Protocols handout (📚 LSH Atlas, CM Training · Day 4)
 - Newly authored: trust-account handling (same-day IOLTA deposit once the release is signed, client endorsement, no disbursement against uncleared funds, disputed shares held in trust); the contingent-fee Settlement Statement (ABA Model Rule 1.5(c) as an example); the UM release's Medicare and confidentiality terms
 - Newly authored: the closing letter's contents; the three-way zero-balance proof (bank statement, trust journal, client ledger); the post-closing late-bill drill on Crescent Pain & Spine's contractual write-off
 - Newly authored: the prior-attorney charging lien worked as a factual investigation (signature comparison, engagement timeline, work-product audit, client statement), a temporary administrative hold on the disputed amount, and escalation to the attorney
@@ -355,7 +355,7 @@ Theory the course does not carry, taken from the LSH firm curriculum and cited o
 - LSH Claims Specialist: Dropped Cases — sending Withdrawal Letters to clients, carriers and medical providers; the sample letters by email, by text, to a carrier and to a provider
 - Newly authored: the Denise Harlow practice matter (no health insurance, treatment ended, Pending Drop)
 - LSH Claims Specialist: Dropped Cases — Withdrawal Letters and closing the file
-- Newly authored: the Denise Harlow practice matter
+- Newly authored: the close-out questions, answered from the six steps
 
 ## Newly authored
 

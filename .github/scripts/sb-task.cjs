@@ -1,6 +1,6 @@
-// @check browser — 🎯 Your Task on a Skill Building activity: one column, steps in full sentences, one foot bar (🚀 Launch CMS & Google Drive · 🧰 Tools ▾ with 📁 Source Files · Submit →; no per-step tool pills, no floating CMS · Drive card), the rules in 📖 Reference
+// @check browser — 🎯 Your Task on a Skill Building activity: one column, steps in full sentences, one foot bar (🚀 Launch LSH CaseWorks & Google Drive · 🧰 Tools ▾ with 📁 Source Files · Submit →; no per-step tool pills, no floating CMS · Drive card), the rules in 📖 Reference
 // js/cm-sb-task.js and the Your Task slide in js/cm-case-flow.js. On Day 3's Backup File Maintenance (d3-drive) and Day 1's
-// "Does PD Touch Our Case?" (d1m3-a3): no Purpose/Principle sidebar, no 🏷 naming bar or _DRAFT/_SUPERSEDED labels and no
+// the Case Plan (d1m4-a2; the PD sort it used was cut with the extra tasks): no Purpose/Principle sidebar, no 🏷 naming bar or _DRAFT/_SUPERSEDED labels and no
 // points badge on the slide; no ↗ pills beside the steps and no #cm-sb-dock card; the steps are the owner's five sentences;
 // the foot bar's 🧰 Tools holds the Source Files, which open their list, and Submit → turns the slide into the AI Grader. 📖 Reference opens with the
 // 📋 Rules & Naming Guide (Purpose, Principle, the naming convention and its 📋 Copy). Launch opens the CMS beside the slide and,
@@ -33,7 +33,7 @@ const D3 = [
     const ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === id && (!view || cmCaseFlow.viewsOf(d.lessons[s.lessonIndex].cf.block)[(s.part || 1) - 1] === view));
     if (k < 0) return false; goToSlide(k); return true; }, [n, id, view]);
 
-  for (const [n, id] of [[3, 'd3-drive'], [1, 'd1m3-a3']]) {
+  for (const [n, id] of [[3, 'd3-drive'], [1, 'd1m4-a2']]) {
     if (!await go(n, id, 'task')) { fail(`Day ${n} has no Your Task slide for ${id}`); continue; }
     await page.waitForTimeout(600);
     const s = await page.evaluate(() => {
@@ -54,7 +54,7 @@ const D3 = [
     if (s.naming) fail(`${id}: the naming convention (bar, _DRAFT/_SUPERSEDED labels or points) is still on the slide`);
     if (s.deliver) fail(`${id}: the old 📤 Deliver box is still on the slide`);
     if (s.dock) fail(`${id}: the floating CMS · Drive card (#cm-sb-dock) is still on the page`);
-    if (s.launch !== 1 || !s.launchTop) fail(`${id}: want one 🚀 Launch CMS & Google Drive button in the foot bar, found ${s.launch}`);
+    if (s.launch !== 1 || !s.launchTop) fail(`${id}: want one 🚀 Launch LSH CaseWorks & Google Drive button in the foot bar, found ${s.launch}`);
     if (!s.tools) fail(`${id}: the foot bar has no 🧰 Tools ▾ menu (the task's other tools and its Source Files)`);
     if (s.pts) fail(`${id}: a point counter shows before anything is submitted`);
     if (!s.foot || !/Submit →/.test(s.footText) || /AI Grader/.test(s.footText)) fail(`${id}: the foot bar should end in Submit → (never "AI Grader"): "${s.footText}"`);
@@ -105,7 +105,7 @@ const D3 = [
       const at = await page.evaluate(() => { const st = CMDrive.status; const CASE = 'https://drive.google.com/drive/folders/ci-case';
         CMDrive.status = () => ({ configured: true, connected: true, built: true, rootUrl: 'https://drive.google.com/drive/folders/ci-root', caseUrl: CASE });
         const la = CMDrive.launch; let used = false; CMDrive.launch = function () { used = true; window.open(CASE, '_blank', 'noopener'); return true; };
-        window.__opened = []; try { CMSbTask.go('d1m3-a3'); } finally { CMDrive.status = st; CMDrive.launch = la; }
+        window.__opened = []; try { CMSbTask.go('d1m4-a2'); } finally { CMDrive.status = st; CMDrive.launch = la; }
         return { used, opened: window.__opened.slice() }; });
       if (!at.used || !at.opened.includes('https://drive.google.com/drive/folders/ci-case')) fail(`🚀 Launch with a linked Drive should open it at the case folder through CMDrive.launch: ${JSON.stringify(at)}`);
     }
@@ -113,5 +113,5 @@ const D3 = [
 
   await browser.close();
   if (failures.length) { console.log('✗ Your Task slide:\n  ' + failures.join('\n  ')); process.exit(1); }
-  console.log('Your Task slide: one column, steps in full sentences, the rules in Reference, one foot bar: Launch CMS & Google Drive, Tools (with the Source Files) and Submit, which opens the AI Grader on the slide.');
+  console.log('Your Task slide: one column, steps in full sentences, the rules in Reference, one foot bar: Launch LSH CaseWorks & Google Drive, Tools (with the Source Files) and Submit, which opens the AI Grader on the slide.');
 })().catch(e => { console.log('✗ ' + (e && e.stack || e)); process.exit(1); });

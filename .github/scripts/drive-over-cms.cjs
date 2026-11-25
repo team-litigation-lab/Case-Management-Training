@@ -1,8 +1,8 @@
-// @check browser — 🚀 Launch CMS & Google Drive, for a trainee with no linked Drive: the Backup Drive panel shows OVER the CMS frame (not hidden behind it), and so does what the toast says
+// @check browser — 🚀 Launch LSH CaseWorks & Google Drive, for a trainee with no linked Drive: the Backup Drive panel shows OVER the CMS frame (not hidden behind it), and so does what the toast says
 // js/cm-sb-task.js go() opens the CMS frame (#cm-toolframe, z-index 9000, and the lifted #app at 9001: js/cm-skillbuilders.js),
 // then CMDrive.show(). The panel (.drv-wrap, js/cm-drive.js) used to sit at 4000, under the frame, so the trainee saw the CMS
 // and was told to "paste your folder's link in the Backup Drive panel" they could not see. This clicks Launch on Day 1's
-// "Does PD Touch Our Case?" Your Task slide as a new trainee and asks the browser which element is on top at the panel's
+// Case Plan Your Task slide (d1m4-a2; the PD sort it used was cut with the extra tasks) as a new trainee and asks the browser which element is on top at the panel's
 // centre and at the toast's: both must be the panel / the toast, at 1366×768.
 // Usage: node .github/scripts/drive-over-cms.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
@@ -19,9 +19,9 @@ const failures = []; const fail = (m) => failures.push(m);
   await signIn(page, 'Dana', last, 'B100926');
   await page.evaluate(() => { window.open = () => null; });
   const found = await page.evaluate(() => { const d = DAYS.find(d => d.cf && d.cf.n === 1); goto('day', d.id); state.dayViewMode = 'slides';
-    const ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === 'd1m3-a3' && cmCaseFlow.viewsOf(d.lessons[s.lessonIndex].cf.block)[(s.part || 1) - 1] === 'task');
+    const ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === 'd1m4-a2' && cmCaseFlow.viewsOf(d.lessons[s.lessonIndex].cf.block)[(s.part || 1) - 1] === 'task');
     if (k < 0) return false; goToSlide(k); return true; });
-  if (!found) fail('Day 1 has no Your Task slide for d1m3-a3');
+  if (!found) fail('Day 1 has no Your Task slide for d1m4-a2');
   else {
     await page.waitForTimeout(600);
     await page.click('#app .cfx-launch'); await page.waitForTimeout(900);
@@ -41,5 +41,5 @@ const failures = []; const fail = (m) => failures.push(m);
   }
   await browser.close();
   if (failures.length) { console.log('✗ Drive panel over the CMS:\n  ' + failures.join('\n  ')); process.exit(1); }
-  console.log('🚀 Launch CMS & Google Drive (no linked Drive): the CMS opens, and the Backup Drive panel and its toast show over it.');
+  console.log('🚀 Launch LSH CaseWorks & Google Drive (no linked Drive): the CMS opens, and the Backup Drive panel and its toast show over it.');
 })().catch(e => { console.log('✗ ' + (e && e.stack || e)); process.exit(1); });

@@ -12,7 +12,7 @@
 //     opens with its assumption ("Assuming …"), two or three steps; its slides say SKILL ACTIVITY on their top
 //     line, the Skill Building's say THE DAY'S SKILL BUILDING; the Practice Lab slide lists exactly the side exercises
 //     and its ⏭ goes to the Ready check;
-//   · the Skill Building's Your Task has 🚀 Launch CMS & Google Drive and its last slide is Submit;
+//   · the Skill Building's Your Task has 🚀 Launch LSH CaseWorks & Google Drive and its last slide is Submit;
 //   · the Case Profile slide's button opens the Case Profile (Day 1 on 👋 Meet John Doe, later on 📅 The Case So Far) and
 //     the Action Plan slide's opens My Notes & Action Plan; "← Back to Case Flow Day N" returns to the slide;
 //   · progressive autonomy: Day 1's Action Plan slide is numbered, step by step (at least five steps); each later day
@@ -181,7 +181,7 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
         w = await show(sbK);
         if (!/THE DAY'S SKILL BUILDING/.test(norm((w.querySelector('.topic-separator') || {}).textContent))) out.push(`${L}: the Skill Building's top line should say THE DAY'S SKILL BUILDING`);
         if (norm((w.querySelector('.cfx-what-k') || {}).textContent) !== 'Skill Building') out.push(`${L}: the Skill Building's band should say Skill Building (${norm((w.querySelector('.cfx-what-k') || {}).textContent)})`);
-        if (!w.querySelector('[data-launch]')) out.push(`${L}: the Skill Building's Your Task has no 🚀 Launch CMS & Google Drive`);
+        if (!w.querySelector('[data-launch]')) out.push(`${L}: the Skill Building's Your Task has no 🚀 Launch LSH CaseWorks & Google Drive`);
         if (!/Submit →/.test(w.textContent) || /AI Grader/.test(w.textContent)) out.push(`${L}: the Skill Building's Your Task should have "Submit →" and never say "AI Grader"`);
       }
       if (dv.length) { w = await show(dv[0][1]);

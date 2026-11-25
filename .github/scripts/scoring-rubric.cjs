@@ -1,4 +1,4 @@
-// @check browser — 📐 The Feedback Rubric, the CMS Case File grade, graded transcription and every simulator on the scorecard (the composer's rubric counts once sent; the Batch Sheet and its CSV carry every system)
+// @check browser — 📐 The Feedback Rubric, the CMS Case File grade, graded transcription and every simulator on the scorecard (the composer's rubric counts once sent; the Scorecard's ⬇ Download carries every system)
 // 📐 The Feedback Rubric, the CMS Case File grade, graded transcription and every simulator on the scorecard
 // (js/cm-rubric.js, js/cm-cms-file.js, js/cm-case-flow.js Notes & Action Plan, js/cm-scorecard.js SOURCES, js/cm-batch-sheet.js):
 // 1. the rubric: four dimensions 25 / 25 / 30 / 20 points, four tiers (Exemplary 90 · Proficient 80 · Developing 65 ·
@@ -6,7 +6,7 @@
 //    the scorecard's tiers are the rubric's; a total is the points' share; only a trainer's sent review counts;
 // 2. every grading system names the dimensions it feeds and how it is scored, and the course's simulators are all there
 //    (Transcription, Email Simulators, Calendaring, Case Exercises, the CMS Case File, the Trainer Rubric beside the calls,
-//    the Net Sheet, the Skill Builders, the Portal simulators, the random tasks and the case calls);
+//    the Net Sheet, the Skill Builders, the Portal simulators, the action plans and the case calls);
 // 3. transcription: word accuracy against what was said (numbers said or typed as digits, fillers ignored); every
 //    attempt is graded and kept, the answer key stays shut until it is handed in, the one handed in is the grade and it
 //    is on 🎙 Transcription;
@@ -60,7 +60,10 @@ const PARAPHRASE = 'John Doe called. Someone from an insurance company phoned hi
 
     // 2. every grading system, mapped to the rubric
     const S = await page.evaluate(() => cmScorecard.sources.map(s => ({ id: s.id, label: s.label, dims: s.dims || [], how: s.how || '' })));
-    ['kc', 'lc', 'tk', 'sa', 'cms', 'bd', 'ns', 'tx', 'em', 'cal', 'cx', 'sb', 'gc', 'cc', 'ps', 'rt', 'tr'].forEach(id => check(S.some(s => s.id === id), `the scorecard has the ${id} grading system`));
+    ['kc', 'lc', 'sa', 'cms', 'bd', 'ns', 'tx', 'em', 'cal', 'cx', 'sb', 'gc', 'cc', 'ps', 'ap', 'tr'].forEach(id => check(S.some(s => s.id === id), `the scorecard has the ${id} grading system`));
+    // (📝 the takeaways are not scored: the owner took their grades out of the scorecards)
+    check(!S.some(s => s.id === 'tk'), 'the scorecard has no takeaway grading system');
+    check(!S.some(s => s.id === 'rt'), 'the 🎲 Random Tasks are no grading system (the owner removed them from the scores)');
     check(S.every(s => s.dims.length && s.dims.every(d => ['pc', 'na', 'cp', 'cd'].includes(d)) && s.how.length > 20), 'every grading system names the dimensions it feeds and how it is scored');
     check((S.find(s => s.id === 'cms') || {}).label === 'CMS Case File' && (S.find(s => s.id === 'tx') || {}).label === 'Transcription' && (S.find(s => s.id === 'tr') || {}).label === 'Trainer Rubric', 'the CMS Case File, Transcription and the Trainer Rubric are grading systems');
     // the Portal's simulators are split by kind: email, calendaring, the others
@@ -164,7 +167,7 @@ const PARAPHRASE = 'John Doe called. Someone from an insurance company phoned hi
     await page.evaluate(() => { state.isAdmin = true; state.adminData = null; goto('admin'); setAdminTab('rubric'); });
     await page.waitForSelector('.rbp-grid', { timeout: 15000 }).catch(() => fail('Admin → 🏅 Scorecard → 📐 Feedback Rubric shows no rubric'));
     const adm = await page.evaluate(() => ({ tabs: [...document.querySelectorAll('.cmsh-row .admin-tab-btn')].map(b => b.textContent.trim()), sec: (document.querySelector('.cmsh-sec.active') || {}).textContent || '' }));
-    check(/Scorecard/.test(adm.sec) && adm.tabs.includes('📐 Feedback Rubric') && adm.tabs.includes('📋 Batch Sheet'), `the 📐 Feedback Rubric is a tab of the 🏅 Scorecard section: ${JSON.stringify(adm.tabs)}`);
+    check(/Scorecard/.test(adm.sec) && adm.tabs.includes('📐 Feedback Rubric') && adm.tabs.includes('🏅 Scorecards') && !adm.tabs.includes('📋 Batch Sheet'), `the 📐 Feedback Rubric is a tab of the 🏅 Scorecard section: ${JSON.stringify(adm.tabs)}`);
     await page.evaluate(() => setAdminTab('traineeaudit'));
     await page.waitForFunction(() => typeof openFeedbackFor === 'function' && (state.adminData || []).length > 0, null, { timeout: 15000 }).catch(() => {});
     await page.evaluate((id) => openFeedbackFor(id), id);
@@ -198,17 +201,24 @@ const PARAPHRASE = 'John Doe called. Someone from an insurance company phoned hi
     await page.waitForFunction((id) => !!document.getElementById('bs-pt-' + id.replace(/[^A-Za-z0-9_-]/g, '_')), id, { timeout: 20000 }).catch(() => fail('the trainer\'s Scorecards shows no card for the trainee'));
     const card = await page.evaluate((id) => { const c = document.getElementById('bs-pt-' + id.replace(/[^A-Za-z0-9_-]/g, '_')); if (c) c.querySelectorAll('details').forEach(d => { d.open = true; }); return c ? c.innerText : ''; }, id);
     check(/Trainer's rubric/.test(card) && /CMS Case File/.test(card) && !/▢▢▢/.test(card), 'the trainer\'s card shows the trainer rubric in the day\'s dimensions and the CMS Case File with its answers');
-    await page.evaluate(() => { goto('admin'); setAdminTab('audit'); });
-    await page.waitForSelector('#bs-scores', { timeout: 30000 }).catch(() => fail('the Batch Sheet shows no 🏅 Scores'));
-    const bs = await page.evaluate(() => [...document.querySelectorAll('#bs-scores .gs-head th')].map(t => t.textContent));
-    ['🗂 CMS Case File', '🎙 Transcription', '✉️ Email Simulators', '🗓 Calendaring', '🔎 Case Exercises', '📐 Trainer Rubric', '🎯 Graded Calls', '📞 Case Calls', '📊 Net Sheet Checks', '🛠 Skill Builders', '🧰 Portal Simulators', '🎲 Random Tasks']
-        .forEach(h => check(bs.includes(h), `the Batch Sheet's 🏅 Scores has a "${h}" column`));
-    const [dl] = await Promise.all([page.waitForEvent('download', { timeout: 8000 }).catch(() => null), page.evaluate(() => cmBatchSheet.csv())]);
-    if (!dl) fail('the Batch Sheet\'s ⬇ Download gave no CSV');
-    else { const txt = require('fs').readFileSync(await dl.path(), 'utf8'); check(/"🗂 CMS Case File"/.test(txt) && /"🎙 Transcription"/.test(txt) && /"📐 Trainer Rubric"/.test(txt) && /"🗂 CMS file"/.test(txt), 'the CSV carries the new grading systems and the Score Card\'s CMS file column'); }
+    // the one Admin → 🏅 Scorecard page: 🏅 Scores on screen (a column per kind of work) and ⬇ Download, which carries a column
+    // per grading system (the 100-point model in full) and the Score Card's CMS file column
+    await page.evaluate(() => { state.adminTab = ''; goto('admin'); });
+    await page.waitForSelector('.cmsh-screen #scx-scores', { timeout: 30000 }).catch(() => fail('Admin → 🏅 Scorecard shows no 🏅 Scores'));
+    const bs = await page.evaluate(() => [...document.querySelectorAll('.cmsh-screen #scx-scores .gs-head th')].map(t => t.textContent));
+    check(!bs.some(h => /Random/.test(h)), '🏅 Scores has no 🎲 Random Tasks column');
+    const txt = await require('./csv-sections.cjs').grab(page, () => cmScorecard.csv());
+    if (!txt) fail('⬇ Download gave no CSV');
+    else {
+        const T = require('./csv-sections.cjs').parse(txt), full = T.find(x => x.title === '🏅 The 100-point model in full'), head = full ? full.head : [];
+        ['🗂 CMS Case File', '🎙 Transcription', '✉️ Email Simulators', '🗓 Calendaring', '🔎 Case Exercises', '📐 Trainer Rubric', '🎯 Graded Calls', '📞 Case Calls', '📊 Net Sheet Checks', '🛠 Skill Builders', '🧰 Portal Simulators', '📝 Action Plan']
+            .forEach(h => check(head.includes(h), `⬇ Download has a "${h}" column`));
+        check(!head.includes('🎲 Random Tasks'), '⬇ Download has no 🎲 Random Tasks column');
+        check(/"🗂 CMS Case File"/.test(txt) && /"🎙 Transcription"/.test(txt) && /"📐 Trainer Rubric"/.test(txt) && /"🗂 CMS file"/.test(txt), 'the CSV carries the new grading systems and the Score Card\'s CMS file column');
+    }
 
     await browser.close();
     if (failures.length) { console.error(failures.length + ' failure(s):\n' + failures.map((f, i) => `${i + 1}. ${f}`).join('\n')); process.exit(1); }
-    console.log('One Feedback Rubric (4 dimensions, 4 tiers with point bands and descriptors, the critical items) maps every grading system; transcription attempts are graded; the CMS Case File is graded day by day; the trainer\'s rubric score counts on the scorecard; the trainee card, the Batch Sheet and its CSV carry them.');
+    console.log('One Feedback Rubric (4 dimensions, 4 tiers with point bands and descriptors, the critical items) maps every grading system; transcription attempts are graded; the CMS Case File is graded day by day; the trainer\'s rubric score counts on the scorecard; the trainee card and the Scorecard\'s ⬇ Download carry them.');
     console.log('All good.');
 })().catch(e => { console.error(e); process.exit(1); });

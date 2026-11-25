@@ -68,8 +68,8 @@ slide, a `say` of **talking points**:
 - Each point a short phrase or plain sentence, at most 25 words; at most 110 words in all. In the order the slide
   covers it.
 - What to cover and explain, in plain language, with John Doe v. Robert Smith's real facts (names, dates, amounts
-  exactly as on the file). A term that needs it gets its plain meaning in a few words ("PIP: the client's own
-  no-fault medical coverage").
+  exactly as on the file). A term that needs it gets its plain meaning in a few words ("PIP: add-on medical
+  coverage that pays regardless of fault").
 - No games, icebreakers, jokes, teasers, mysteries or war stories; no `{name}`; no "I/we" narration; no arrows or
   `**`.
 - `ask` stays optional: one simple check question, ending in "?", only where it helps (a block's last slide, an

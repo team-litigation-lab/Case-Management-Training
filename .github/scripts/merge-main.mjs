@@ -32,7 +32,8 @@ import { fileURLToPath } from 'node:url';
 export const GENERATED = [
   /^js\/cm-case-flow-(slides|scripts|sim|exhibits)\.js$/, /^js\/cm-companion-cases\.js$/, /^js\/cm-deck-slides\.js$/, /^worker-kc-key\.js$/,
   /^curriculum\/5-day-flow\/(day\d+|traceability|document-inventory)\.md$/,
-  /^docs\/INVENTORY\.md$/
+  /^docs\/INVENTORY\.md$/,
+  /^worker-drive-versions\.js$/   // only grows: rebuilt from the merged history, so both sides' versions are kept
 ];
 // The builders, in the order they depend on each other. The exhibits come from the sources alone, and build.cjs (terms,
 // slides, scripts, sim and curriculum) reads them; the document inventory reads the exhibits too; build/inventory.cjs
@@ -49,8 +50,10 @@ export const NOT_REBUILT = {
   'build/case-flow/sim/assemble.cjs': 'run by build.cjs',
   'build/case-flow/curriculum.cjs': 'run by build.cjs',
   'build/case-flow/kc-key.cjs': 'worker-kc-key.js, run by build.cjs',
+  'build/case-flow/documents/versions.cjs': 'run by build.cjs (worker-drive-versions.js: it only adds, from the git history)',
   'build/case-flow/documents/render.cjs': 'PDFs and .docx: needs Playwright and LibreOffice, run locally; a conflict in one is real',
   'build/case-flow/documents/thumbs.py': 'image thumbnails: needs Python and Pillow, run locally',
+  'build/debrief/render.cjs': 'the Case Debrief\'s slide pictures (decks/debrief) and the PDF make_video.py records over: needs Playwright and Google Fonts, run locally',
   'build/videoslide/make_video.py': 'the narrated video: needs ffmpeg and Python, run locally',
   'build/videoslide/revoice.py': 'the narration audio: needs Python and a voice service, run locally',
   'build/case-flow/documents/handouts/render-handout.cjs': 'a handout PDF: needs Playwright, run locally',
@@ -127,6 +130,11 @@ function main(){
       if (!run(process.execPath, ['build/inventory.cjs'])) fail(1, 'build/inventory.cjs failed: fix it, then commit.');
       git('add', '-u');
     }
+  }
+  // the Worker's dependencies, as the merged package-lock.json has them (worker-claude.js's SDK, which its check loads)
+  if (fs.existsSync('package-lock.json')){
+    console.log('\nInstalling the Worker\'s dependencies (npm ci)…');
+    if (!run('npm', ['ci', '--no-audit', '--no-fund'])) fail(1, 'npm ci failed: fix it, then commit the merge (git commit).');
   }
   console.log('\nRunning the node checks…');
   if (!run(process.execPath, ['.github/scripts/run-checks.mjs', 'node'])) fail(1, '\nA check failed: fix it, then commit the merge (git commit).');
