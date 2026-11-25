@@ -11,6 +11,8 @@
        that record, which the Worker keeps (worker.js OWNED.feedback), so a trainee's save never overwrites it.
      • Trainee: the record their page already reads (state.myFeedbackRaw, index.html loadMyFeedbackCore, refreshed every
        few minutes and on coming back to the tab); the note shows under the grade as "🧑‍🏫 Your trainer's feedback".
+     • 📞 Case Calls too: each call taken on John Doe's file (roleplayHistory, category "caseflow") has its own box, saved
+       as activities["call:<blockId>"]; the trainee reads it on that call's screen and under the activity's grade.
      • 🛠 Skill Builders too: each tool the trainee has tried (trainee:<id>.practiceProgress) has its own box, saved as
        activities["sb:<toolId>"]; the trainee reads it under the Skill Builders hub's cards and inside the tool, at the top
        of the part whose work is reviewed (the Calendar Conflict Resolver's briefing).
@@ -54,7 +56,22 @@ function panel(rec){
       <div class="fbc-actions"><button class="btn btn-primary btn-sm" onclick="cmTrainerNotes.save('${J(rec.id)}','${J(id)}')">Save feedback</button>${nt.at ? `<span class="cf-note">Saved ${E(when(nt.at))}${nt.by ? ` by ${E(nt.by)}` : ""}</span>` : ""}</div>
     </details>`;
   }).join("");
-  return `<div class="fb-admin tn-wrap">${head}${rows || `<p class="cf-note">No graded activities yet.</p>`}${sbPanel(rec, notes, sid)}</div>`;
+  return `<div class="fb-admin tn-wrap">${head}${rows || `<p class="cf-note">No graded activities yet.</p>`}${callPanel(rec, work, notes, sid, A)}${sbPanel(rec, notes, sid)}</div>`;
+}
+/* 📞 the Case Calls the trainee took on John Doe's file (their roleplayHistory, category "caseflow", topic "cf-<blockId>"),
+   each with its best score and a box: notes under "call:<blockId>" */
+function callPanel(rec, work, notes, sid, A){
+  const by = {};
+  (((work.snap || {}).roleplayHistory) || []).forEach(h => { if(!h || h.categoryId !== "caseflow" || typeof h.score !== "number") return;
+    const id = String(h.topicId || "").replace(/^cf-/, ""); if(!id) return;
+    const x = by[id] = by[id] || {best: 0, n: 0, label: h.topicLabel || id}; x.best = Math.max(x.best, h.score); x.n++; });
+  const rows = Object.keys(by).sort((a, b) => ((A[a] || {}).n || 9) - ((A[b] || {}).n || 9)).map(id => { const x = by[id], key = "call:" + id, nt = notes[key] || {}, a = A[id] || {};
+    return `<details class="cf-tr tn-row"><summary><b>📞 ${a.n ? `Case Flow Day ${E(a.n)} call` : "Case call"}</b> ${E(x.label)}
+        <span class="cf-tr-chips"><span class="fb-chip sent">Best ${E(x.best)}% · ${E(x.n)} call${x.n === 1 ? "" : "s"}</span>${nt.comment ? `<span class="fb-chip sent">Your feedback ✓</span>` : `<span class="fb-chip draft">No feedback yet</span>`}</span></summary>
+      <label class="fbc-full">Your feedback on the call<textarea id="tn_${sid}_${cssId(key)}" rows="3" placeholder="How the call went, what to keep doing, and what to say differently next time.">${E(nt.comment || "")}</textarea></label>
+      <div class="fbc-actions"><button class="btn btn-primary btn-sm" onclick="cmTrainerNotes.save('${J(rec.id)}','${J(key)}')">Save feedback</button>${nt.at ? `<span class="cf-note">Saved ${E(when(nt.at))}${nt.by ? ` by ${E(nt.by)}` : ""}</span>` : ""}</div>
+    </details>`; }).join("");
+  return `<div class="sidebar-section-lbl" style="padding-left:0;margin-top:12px;">📞 Case Calls: your feedback</div>${rows || `<p class="cf-note">No case calls taken yet.</p>`}`;
 }
 /* 🛠 the Skill Builders the trainee has tried (trainee:<id>.practiceProgress), each with a box: notes under "sb:<toolId>" */
 const SB_TOOLS = () => (typeof PRACTICE_TOOLS !== "undefined" && Array.isArray(PRACTICE_TOOLS)) ? PRACTICE_TOOLS : [];
@@ -81,7 +98,7 @@ async function save(id, blockId){
   const ok = await sharedSet("feedback:" + id, latest);
   if(!ok){ if(typeof toast === "function") toast("Couldn't save your feedback: check your connection and try again."); return; }
   work.feedback = latest;
-  if(typeof toast === "function") toast(text ? (String(blockId).startsWith("sb:") ? "Feedback saved: the trainee sees it on the Skill Builder." : "Feedback saved: the trainee sees it under the activity's grade.") : "Feedback removed.");
+  if(typeof toast === "function") toast(text ? (String(blockId).startsWith("sb:") ? "Feedback saved: the trainee sees it on the Skill Builder." : String(blockId).startsWith("call:") ? "Feedback saved: the trainee sees it on the call and under the activity." : "Feedback saved: the trainee sees it under the activity's grade.") : "Feedback removed.");
   const wrap = document.getElementById("adminRowsWrap"); if(wrap && typeof renderAdminRows === "function") wrap.innerHTML = renderAdminRows();
 }
 if(typeof renderFeedbackAdmin === "function"){
@@ -101,7 +118,7 @@ function noteHtml(id){
 function wrapView(){
   const G = window.CMAIGrader; if(!G || typeof G.view !== "function" || G.view.__tn) return;
   const __view = G.view;
-  G.view = function(id){ const html = __view.apply(this, arguments); try{ return html + noteHtml(id); }catch(e){ return html; } };
+  G.view = function(id){ const html = __view.apply(this, arguments); try{ return html + noteHtml(id) + noteHtml("call:" + id).replace("🧑‍🏫 Your trainer's feedback", "🧑‍🏫 Your trainer's feedback on the call"); }catch(e){ return html; } };
   G.view.__tn = true;
 }
 // a note saved since the trainee's page last read their record shows at once (the page redraws only for a new day's review)
@@ -110,7 +127,7 @@ if(typeof loadMyFeedbackCore === "function"){
   loadMyFeedbackCore = async function(){
     const before = JSON.stringify(((state.myFeedbackRaw || {}).activities) || {});
     const r = await __load.apply(this, arguments);
-    try{ if(JSON.stringify(((state.myFeedbackRaw || {}).activities) || {}) !== before && (document.querySelector("[data-aig]") || state.view === "practice" || state.view === "tool") && typeof render === "function") render(); }catch(e){}
+    try{ if(JSON.stringify(((state.myFeedbackRaw || {}).activities) || {}) !== before && (document.querySelector("[data-aig]") || ["practice", "tool", "openroleplay"].includes(state.view)) && typeof render === "function") render(); }catch(e){}
     return r;
   };
 }
@@ -133,6 +150,14 @@ function wrapCalendar(){
     return r;
   };
   window.renderCalendarBody.__tn = true;
+}
+// 📞 the call screen of a call on John Doe's file: the trainer's note on it, under the call's plan
+if(typeof renderOpenRoleplay === "function"){
+  const __rp = renderOpenRoleplay;
+  renderOpenRoleplay = function(){
+    const html = __rp.apply(this, arguments), s = state.rpSession;
+    try{ const n = s && s.cf ? noteHtml("call:" + s.cf.blockId) : ""; return n ? html + n.replace("🧑‍🏫 Your trainer's feedback", "🧑‍🏫 Your trainer's feedback on this call") : html; }catch(e){ return html; }
+  };
 }
 wrapCalendar();
 wrapView();

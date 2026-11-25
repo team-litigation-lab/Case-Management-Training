@@ -109,7 +109,10 @@ const blockOf = id => { const X = (window.CM_AIG_EXTRA || {})[id]; if(X && X.b) 
 // work log's "… — CM Self-Summary" line) only says whether it gives the client legal advice: the UPL critical item.
 // the Case Flow day of a work-log entry: its label's "Case Flow Day n", else its day id (11–15)
 // one Skill Activity's key in the work log: "<day>|<title>" from "… Case Flow Day <n> · <title> — Skill Building"
-const labKey = e => { const m = /Case Flow Day (\d) · (.+?) — Skill Building\s*$/.exec(e.label || ""); return m ? `${m[1]}|${m[2].trim()}` : String(e.label || e.toolId || "Skill Activity"); };
+// (a title is keyed without "AI" and "the": three call activities lost the "AI" in their titles, "… with AI John Doe" →
+// "… with John Doe", and a line logged under the old title is the same activity)
+const titleKey = t => String(t || "").replace(/\b(?:AI|the)\s+/g, "").replace(/\s+/g, " ").trim();
+const labKey = e => { const m = /Case Flow Day (\d) · (.+?) — Skill Building\s*$/.exec(e.label || ""); return m ? `${m[1]}|${titleKey(m[2])}` : String(e.label || e.toolId || "Skill Activity"); };
 const labDayOf = e => { const m = /Case Flow Day (\d)/.exec(e.label || ""); if(m) return +m[1]; const v = parseInt(e.dayId, 10); return v >= 11 && v <= 15 ? v - 10 : v >= 1 && v <= 5 ? v : null; };
 // 🧪 each Skill Activity's latest attempt: the grader's (cf-ai-grades, js/cm-ai-grader.js: {blocks: {<id>: {score, at, …}}})
 // and the work log's "lab" entries (index.html wrapEvaluators: every runRubricEvaluation, the older labs' and the grader's
@@ -124,7 +127,7 @@ function skillActs(c){
       day, pct: num(e.score), at: e.at || "", tier: e.tier || "", subs: e.subs || null, best: e.strengths || [], improve: (e.gaps || []).concat(e.growth || []), from: "work log"}); });
   Object.entries((((c.data || {})["cf-ai-grades"]) || {}).blocks || {}).forEach(([id, r]) => { if(!r || !fin(r.score)) return;
     const f = blockOf(id), t = f && f.b && f.b.title ? String(f.b.title).trim() : id, day = (f && f.n) || taughtOf(id);
-    const k = day ? `${day}|${t}` : "aig|" + id;
+    const k = day ? `${day}|${titleKey(t)}` : "aig|" + id;
     // logged: this attempt is the work log's latest line of the activity (the grader writes that line as it grades, so the
     // two share the score, a few minutes apart at most). An older line is another attempt: this one counts by its total.
     const w = lines[k], ta = Date.parse(r.at || ""), wa = Date.parse((w && w.at) || "");

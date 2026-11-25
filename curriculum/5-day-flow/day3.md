@@ -609,7 +609,7 @@ Centre: Vance & Kettering's notice as a cream letter with a red stamp, CHARGING 
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI Client: John Doe · CMS → Notes → Case Notes · CMS → Settlement (BI/UM) → Check Received / Disbursed · Action Plan Editor · CMS → Tasks → + Add Task |
+| **Tool / interface** | Call Simulator → Client: John Doe · CMS → Notes → Case Notes · CMS → Settlement (BI/UM) → Check Received / Disbursed · Action Plan Editor · CMS → Tasks → + Add Task |
 | **Expected output** | A logged and routed notice, a $6,666.67 hold, an evidentiary packet on Atty. Thorne's desk, and the correspondence archived in the CMS and Drive. |
 
 **Verification checkpoints**
@@ -675,7 +675,7 @@ A phone-call storyboard in three frames across the slide, each a cream card with
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI Billing Manager: Riverton Spine & Rehab · Email Workspace · CMS → Settlement (BI/UM) → Medical Liens / Payoffs |
+| **Tool / interface** | Call Simulator → Billing Manager: Riverton Spine & Rehab · Email Workspace · CMS → Settlement (BI/UM) → Medical Liens / Payoffs |
 | **Expected output** | An audited Riverton balance of $6,105.00, an approved written request and a logged call, a signed Payoff Letter accepting $4,580.00 dated 10/12/2026, and a recomputed Net Sheet. |
 
 **Verification checkpoints**

@@ -85,6 +85,24 @@ const failures = []; const fail = (m) => failures.push(m);
   if (!sb.listed) fail('the trainer\'s panel should list a Skill Builder the trainee tried, with its best score and a box');
   if (!/Your trainer's feedback/.test(sb.hub) || !/led with the bottom line/.test(sb.hub)) fail('the trainee should read a Skill Builder note on the Skill Builders hub');
 
+  // 📞 Case Calls: the trainer's panel lists a call taken; the call screen shows the call's plan and the trainer's note
+  const calls = await page.evaluate(async () => {
+    const rec = { id: state.traineeId, name: 'Tina' };
+    state.isAdmin = true; state.traineeWork[state.traineeId] = { snap: { roleplayHistory: [{ categoryId: 'caseflow', topicId: 'cf-d2m2-a1', topicLabel: 'Tammy Greer: Transmitting LOPs', score: 80 }] }, feedback: { days: {} } };
+    const html = renderFeedbackAdmin(rec); state.isAdmin = false;
+    state.myFeedbackRaw = { days: {}, activities: { 'call:d2m2-a1': { comment: 'You promised no payment date. Exactly right.', by: 'Coach Rivera', at: new Date().toISOString() } } };
+    window.callAIText = async () => 'Riverton Spine and Rehab, this is Tammy.'; window.callAIJson = async () => ({});
+    cmCaseFlow.call('d2m2-a1'); await new Promise(r => setTimeout(r, 600));
+    const app = document.getElementById('app'), text = app ? app.innerText : '';
+    const plan = app && app.querySelector('.cf-call-plan');
+    return { listed: /Case Calls: your feedback/.test(html) && /Best 80%/.test(html), plan: plan ? plan.innerText : '', text };
+  });
+  if (!calls.listed) fail('the trainer\'s panel should list a case call taken, with its best score and a box');
+  if (!/Your call, step by step/.test(calls.plan) || !/On this call, you need to/.test(calls.plan) || !/The line you don't cross/.test(calls.plan)) fail(`a call on John Doe's file should show its plan (goals and the line): "${calls.plan.slice(0, 200)}"`);
+  if (!/Your trainer's feedback on this call/.test(calls.text) || !/Exactly right/.test(calls.text)) fail('the trainee should read the trainer\'s note on the call screen');
+  const labels = await page.evaluate(() => typeof renderRoleplayEvaluationReport === 'function' ? renderRoleplayEvaluationReport({ totalScore: 70, gradeTier: 'Proficient', blufScore: 20, riskPrivilegeScore: 20, composureScore: 15, actProtocolScore: 15, summary: 'ok', strengths: [], blindspots: [], better: ['You could have confirmed the date.'], growthSuggestions: [] }) : '');
+  if (!/Bottom line first/.test(labels) || /BLUF Adherence/.test(labels) || !/What you could have done better/.test(labels)) fail('the call debrief should name its scores plainly and say what could have been done better');
+
   await browser.close();
   if (failures.length) { console.log(`${failures.length} problem(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
   console.log('🧑‍🏫 Trainer notes: the grade has a coach\'s note and "What you could have done better" with no AI label; a trainer\'s note is saved to the trainee\'s feedback record from the composer, removed when emptied, and shown to the trainee under the grade.');

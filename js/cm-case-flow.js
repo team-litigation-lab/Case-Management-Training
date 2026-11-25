@@ -2630,9 +2630,18 @@ if(typeof window.renderOpenRoleplay === "function" || typeof renderOpenRoleplay 
     const s = state.rpSession, html = __rp.apply(this, arguments);
     if(!s || !s.cf) return html;
     const d = cfDay(s.cf.dayId);
+    // a call on John Doe's file: its own plan (who, what to achieve, the line not to cross) in place of the general tips
+    const c = SIM.calls[s.cf.blockId], ROLE = {client: "the client", provider: "a provider", lienholder: "a lienholder", adjuster: "the insurance adjuster", attorney: "your supervising attorney", paralegal: "the other side's paralegal", family: "a family member"};
+    const plan = c ? `<div class="card rp-coach-panel cf-call-plan"><b>📋 Your call, step by step</b>
+        <p class="cf-cp-who">📞 <b>${E(c.who)}</b>${ROLE[c.role] ? `, ${E(ROLE[c.role])}` : ""}</p>
+        <b>On this call, you need to:</b><ol>${c.goals.map(g => `<li>${E(g)}</li>`).join("")}</ol>
+        <b>⛔ The line you don't cross</b><p>${E(c.line)}</p>
+        <b>💡 Tips</b><ul><li>Say the bottom line first.</li><li>Show you heard them before you answer.</li><li>Promise nothing you aren't allowed to.</li></ul>
+        <p class="cf-cp-end">When you're done, press <b>End &amp; Get Debrief</b>.</p></div>` : "";
     return `<div class="cf-call-bar"><button class="btn btn-navy btn-sm" onclick="cmCaseFlow.callBack()">← Back to Case Flow Day ${d ? d.cf.n : ""}</button>
       <span>📞 A live call on <b>${E(CF.case.style)}</b>. Speak or type as the Case Manager, then <b>End &amp; Get Debrief</b>; your call counts once you've replied.</span></div>`
-      + html.replace(/<button class="btn btn-ghost btn-sm" style="margin-bottom:14px;" onclick="rpExitToHub\(\)">&larr; Back to Dashboard<\/button>/, "");
+      + html.replace(/<button class="btn btn-ghost btn-sm" style="margin-bottom:14px;" onclick="rpExitToHub\(\)">&larr; Back to Dashboard<\/button>/, "")
+        .replace(/<div class="card rp-coach-panel">[\s\S]*?<\/div>/, m => plan || m);
   };
 }
 /* ---------- the Practice Lab: one slide a day, after ALL of the day's lessons ----------
@@ -5789,6 +5798,8 @@ main.cm-admin-main, main:has(.cm-admin-screen){max-width:min(2200px,97vw);paddin
 .cf-score small{font-size:11.5px;color:var(--ink-soft);}
 .cf-ai{margin-top:8px;font-size:13px;background:#FFFBF3;border:1px solid var(--orange-soft);border-radius:12px;padding:9px 12px;}
 .cf-ai p{margin:4px 0 0;}
+.cf-call-plan{font-size:13px;line-height:1.45;} .cf-call-plan > b{display:block;margin:10px 0 4px;color:var(--navy);font-size:13px;} .cf-call-plan > b:first-child{margin-top:0;font-size:14px;}
+.cf-call-plan ol,.cf-call-plan ul{margin:0;padding-left:18px;} .cf-call-plan li{margin:0 0 4px;} .cf-call-plan p{margin:0;} .cf-cp-who{margin:4px 0 0 !important;} .cf-cp-end{margin-top:10px !important;color:var(--ink-soft);}
 .cf-ai-gaps{margin:6px 0 0;padding-left:18px;} .cf-ai-gaps li{margin:0 0 6px;} .cf-ai-coach{font-weight:700;}
 .cf-dash{margin-top:22px;}
 @media(min-width:1001px){

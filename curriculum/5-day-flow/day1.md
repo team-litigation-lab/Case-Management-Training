@@ -1391,7 +1391,7 @@ An exploded packet: a central navy folder with six document cards fanned around 
 
 | | |
 |---|---|
-| **Tool / interface** | Notes & Action Plan · Email Workspace · Call Simulator → AI John Doe · CMS → Notes → Case Notes · CMS → Notes → Case Notes |
+| **Tool / interface** | Notes & Action Plan · Email Workspace · Call Simulator → John Doe · CMS → Notes → Case Notes · CMS → Notes → Case Notes |
 | **Expected output** | A graded transcript and action plan, the emails to Keystone and the facility sent, the check-in call taken, and a delivered, logged Direction Packet specific to John Doe's file. |
 
 **Verification checkpoints**
@@ -1671,7 +1671,7 @@ A horizontal treatment timeline from 04/02/2026 to 04/21/2026. A hollow red band
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI John Doe · Email Workspace · CMS → Notes → Case Notes · CMS → Case Status · CMS → Calendar |
+| **Tool / interface** | Call Simulator → John Doe · Email Workspace · CMS → Notes → Case Notes · CMS → Case Status · CMS → Calendar |
 | **Expected output** | A complete near-drop record: dated notices, the Final Warning Letter, the interview's GIRP note in his words, the file restored and attendance confirmed 04/21 and 04/23/2026. |
 
 **Show Them — reference model**

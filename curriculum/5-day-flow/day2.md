@@ -40,10 +40,10 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 5. *Lesson* — Settlement Negotiations & the BI Settlement
 6. *Lesson* — BI Settlement: the UM/UIM Safety Check & Key Laws
 7. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package (practises: Case Phase: Demand) — **Skill Building**
-8. *Skill Activity* — Probe the 14-Day Treatment Gap with AI John Doe (practises: Interview Techniques & UPL Boundaries in Client Investigation) — *side*
-9. *Skill Activity* — Pre-Demand Strategy Session with AI Atty. Elijah Thorne (practises: Pre-Demand Case Auditing) — *side*
+8. *Skill Activity* — Probe the 14-Day Treatment Gap with John Doe (practises: Interview Techniques & UPL Boundaries in Client Investigation) — *side*
+9. *Skill Activity* — Pre-Demand Strategy Session with Atty. Elijah Thorne (practises: Pre-Demand Case Auditing) — *side*
 10. *Skill Activity* — Backup File Maintenance: Records and Bills in Their Folders (practises: Pre-Demand Case Auditing) — **Required: Backup File Maintenance**
-11. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap (practises: Settlement Negotiations & the BI Settlement) — *side*
+11. *Skill Activity* — Negotiate with the Adjuster: MRI Findings vs. the 14-Day Gap (practises: Settlement Negotiations & the BI Settlement) — *side*
 12. *Skill Activity* — Settlement Release Clause Review & Attorney Approval (practises: BI Settlement: the UM/UIM Safety Check & Key Laws) — *side*
 13. *Knowledge Check* — Treatment Monitoring Review
 14. *Knowledge Check* — UPL & Investigation Review
@@ -587,7 +587,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 2.1.8 Probe the 14-Day Treatment Gap with AI John Doe
+### 2.1.8 Probe the 14-Day Treatment Gap with John Doe
 
 > **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Skill Activity 1 — Call Simulator: the 14-Day Gap, in his words  
@@ -596,17 +596,17 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 #### 1 · Visual Layout Description
 
-A call-simulator screen across the left two-thirds: a navy header bar reading AI JOHN DOE · RECORDED CALL · 03/04/2026 with a red recording dot, a cream transcript pane, and beneath it a question meter of three mono pills that count OPEN · CLOSED · LEADING, the last in red. Right third: four empty reason slots with orange numbered badges ①–④, each with a document slot beside it, filling only as the trainee surfaces them. Under the slots, a red danger callout: “A suggested reason earns a yes, not a fact.” The argument: reasons are earned by questions, never supplied.
+A call-simulator screen across the left two-thirds: a navy header bar reading JOHN DOE · RECORDED CALL · 03/04/2026 with a red recording dot, a cream transcript pane, and beneath it a question meter of three mono pills that count OPEN · CLOSED · LEADING, the last in red. Right third: four empty reason slots with orange numbered badges ①–④, each with a document slot beside it, filling only as the trainee surfaces them. Under the slots, a red danger callout: “A suggested reason earns a yes, not a fact.” The argument: reasons are earned by questions, never supplied.
 
 #### 2 · Slide Body — the scenario and the task
 
 **Scenario.** 03/04/2026. The first records are in. Riverton Urgent Care's note of 02/20/2026 reads: “onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18.” The EMS Run Report records neck stiffness on 02/06/2026. John Doe has been at Riverton Spine & Rehab since 02/24/2026; Margaret's rental runs to 03/19/2026. Nobody has asked him why he waited 14 days.
 
-**Execution prompt.** Run a recorded call with AI John Doe to learn why he first treated on 02/20/2026, 14 days after the collision. Open on the record: the date, who is on the call, his consent to recording, and that he can talk privately. Ask open questions, follow his words, and keep closed questions for pinning dates and documents. Find out who he told and what he kept; read his account back. Close with the standing instruction and his next appointment, then file a privileged GIRP note. Graded failures: any leading question or suggested reason, and telling him the gap “won't matter” or “will hurt the case”.
+**Execution prompt.** Run a recorded call with John Doe to learn why he first treated on 02/20/2026, 14 days after the collision. Open on the record: the date, who is on the call, his consent to recording, and that he can talk privately. Ask open questions, follow his words, and keep closed questions for pinning dates and documents. Find out who he told and what he kept; read his account back. Close with the standing instruction and his next appointment, then file a privileged GIRP note. Graded failures: any leading question or suggested reason, and telling him the gap “won't matter” or “will hurt the case”.
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI John Doe (recorded call) · CMS → Notes → Case Notes · Tasks |
+| **Tool / interface** | Call Simulator → John Doe (recorded call) · CMS → Notes → Case Notes · Tasks |
 | **Expected output** | A consented, privileged recording with all four reasons in John Doe's own words, a same-day GIRP note, and a dated task for every corroborating document. |
 
 **Show Them — reference model**
@@ -663,12 +663,12 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 2) and that day'
 
 - Before the first trainee dials, read the two graded failures aloud: a leading question or suggested reason, and any “won't matter” or “will hurt the case”. Then let the simulator run without coaching.
 - After the first call, ask the room: “Which reason was hardest to get, and what question finally got it?” Usually it is the cost worry; clients are embarrassed by it, and only a non-judgmental question reaches it.
-- Watch the rental reason. Trainees who know the file ask “Was it the car?” within two minutes. AI John Doe will say yes, the other reasons stay hidden, and the call fails: a leading question buys agreement, not information.
+- Watch the rental reason. Trainees who know the file ask “Was it the car?” within two minutes. John Doe will say yes, the other reasons stay hidden, and the call fails: a leading question buys agreement, not information.
 - Grade the note as hard as the call: his words under Response, a dated plan, the privileged label. A strong call with a feelings-only note leaves the demand with nothing to stand on.
 
 ---
 
-### 2.1.9 Pre-Demand Strategy Session with AI Atty. Elijah Thorne
+### 2.1.9 Pre-Demand Strategy Session with Atty. Elijah Thorne
 
 > **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity 2 — present the audit; record his decisions  
@@ -677,17 +677,17 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 2) and that day'
 
 #### 1 · Visual Layout Description
 
-A two-pane Call Simulator screen. Left pane: the session transcript as alternating bubbles, navy for AI ATTY. ELIJAH THORNE and cream for the trainee; two of his bubbles are outlined in orange as challenges: “Keystone will call this low-speed” and “Why should they pay for a gap?” Right pane: a DECISION RECORD card filling as the session runs, rows with orange numbered badges — ① BI DEMAND · TIME-LIMITED · SERVE 07/20/2026 ② GAP · UP FRONT ③ UM · CONSENT PLAN ④ BILLED OR PAID — each stamped DECIDED BY ATTY. THORNE with a task chip. A red strip along the bottom: “The CM recommends operations. Counsel decides.”
+A two-pane Call Simulator screen. Left pane: the session transcript as alternating bubbles, navy for ATTY. ELIJAH THORNE and cream for the trainee; two of his bubbles are outlined in orange as challenges: “Keystone will call this low-speed” and “Why should they pay for a gap?” Right pane: a DECISION RECORD card filling as the session runs, rows with orange numbered badges — ① BI DEMAND · TIME-LIMITED · SERVE 07/20/2026 ② GAP · UP FRONT ③ UM · CONSENT PLAN ④ BILLED OR PAID — each stamped DECIDED BY ATTY. THORNE with a task chip. A red strip along the bottom: “The CM recommends operations. Counsel decides.”
 
 #### 2 · Slide Body — the scenario and the task
 
 **Scenario.** File date: 07/08/2026, before any demand is drafted. Your audit is done: MMI 06/12/2026; Specials $42,984.00 ($41,400.00 medical after the duplicate came out + $1,584.00 wages); liens $1,860.00 (Peach State) and $6,105.00 (the LOP); targets $10,000 BI → $20,000 Host UM → $10,000 Relative UM. The Gap Explanation Record (07/01/2026) and Dr. Reyes's 06/19/2026 Causation Letter are in the file. Atty. Thorne has called the pre-demand strategy session.
 
-**Execution prompt.** Run the pre-demand strategy session with AI Atty. Elijah Thorne. Brief him in protocol order: bottom line, audited facts, risks with their answering documents, the decisions he must make, and each option's operational consequences. Answer his challenges with objective facts, not adjectives. Recommend only on operations; ask for his decision on everything legal. Read back each decision before you close. Then record the decisions in the CMS, open a task for each, and re-route the Case Plan.
+**Execution prompt.** Run the pre-demand strategy session with Atty. Elijah Thorne. Brief him in protocol order: bottom line, audited facts, risks with their answering documents, the decisions he must make, and each option's operational consequences. Answer his challenges with objective facts, not adjectives. Recommend only on operations; ask for his decision on everything legal. Read back each decision before you close. Then record the decisions in the CMS, open a task for each, and re-route the Case Plan.
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI Atty. Elijah Thorne (strategy session) · CMS → Notes → Case Notes · CMS → Tasks |
+| **Tool / interface** | Call Simulator → Atty. Elijah Thorne (strategy session) · CMS → Notes → Case Notes · CMS → Tasks |
 | **Expected output** | A recorded strategy session and a dated decision record, each decision attributed to Atty. Thorne with its tasks and owners. |
 
 **Verification checkpoints**
@@ -733,9 +733,9 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 2) and that d
 
 #### 5 · Speaker Notes
 
-- Set the simulator so AI Atty. Thorne interrupts within the first minute: “Keystone will call this low-speed.” A trainee who answers with adjectives (“it was a serious crash”) has missed the point; objective facts only.
+- Set the simulator so Atty. Thorne interrupts within the first minute: “Keystone will call this low-speed.” A trainee who answers with adjectives (“it was a serious crash”) has missed the point; objective facts only.
 - Ask the observers: “What did Atty. Thorne decide, in his words?” If they can't quote it, the trainee didn't read it back.
-- Watch for the trap in the script: AI Atty. Thorne asks, “What do you think we should demand?” The right answer gives him the inputs (the limits in order, $42,984.00, the future medical) and hands the figure back to him.
+- Watch for the trap in the script: Atty. Thorne asks, “What do you think we should demand?” The right answer gives him the inputs (the limits in order, $42,984.00, the future medical) and hands the figure back to him.
 - Grade the decision record, not the conversation: each decision dated, attributed and tasked, or the session didn't happen.
 
 ---
@@ -802,7 +802,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.11 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
+### 2.1.11 Negotiate with the Adjuster: MRI Findings vs. the 14-Day Gap
 
 > **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 1 — hold the Limits Demand on a recorded call  
@@ -821,7 +821,7 @@ A call-simulator screen across two-thirds of the slide: a navy header bar readin
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI Adjuster: Dana Whitfield, Keystone Mutual · CMS → Notes → Case Notes · Email Workspace |
+| **Tool / interface** | Call Simulator → Adjuster: Dana Whitfield, Keystone Mutual · CMS → Notes → Case Notes · Email Workspace |
 | **Expected output** | A recorded call held inside Atty. Thorne's authority, a math check on $3,500, a logged offer in the adjuster's own words, a same-day report to Atty. Thorne, and the 08/06/2026 rebuttal drafted for his approval. |
 
 **Show Them — reference model**

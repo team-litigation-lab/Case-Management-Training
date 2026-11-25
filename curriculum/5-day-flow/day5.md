@@ -1027,17 +1027,17 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 #### 1 · Visual Layout Description
 
-A video-call frame fills the left two-thirds: AI John Doe's tile large, the trainee's tile beside it, and Atty. Thorne's tile small in the corner with a LISTENING tag. Under the frame, a segment agenda bar of five orange-numbered chips: ① LOGISTICS ② CALM ③ GUIDELINES → ATTY. THORNE ④ DRESS & DEMEANOR ⑤ IN-ROOM RULES. Right third: a cream card headed ROUTED TO ATTY. THORNE with five empty lines and mono tags GAP · DISRUPTION · SEATBELT · 2021 VISITS · MRI, which fill as John asks. A red-bordered callout across the bottom: “Answer the process. Route the substance.” The argument: the routing card fills up, and the trainee's answers to it stay empty.
+A video-call frame fills the left two-thirds: John Doe's tile large, the trainee's tile beside it, and Atty. Thorne's tile small in the corner with a LISTENING tag. Under the frame, a segment agenda bar of five orange-numbered chips: ① LOGISTICS ② CALM ③ GUIDELINES → ATTY. THORNE ④ DRESS & DEMEANOR ⑤ IN-ROOM RULES. Right third: a cream card headed ROUTED TO ATTY. THORNE with five empty lines and mono tags GAP · DISRUPTION · SEATBELT · 2021 VISITS · MRI, which fill as John asks. A red-bordered callout across the bottom: “Answer the process. Route the substance.” The argument: the routing card fills up, and the trainee's answers to it stay empty.
 
 #### 2 · Slide Body — the scenario and the task
 
 **Scenario.** File date 02/04/2027, Track B. John Doe was reached through Margaret yesterday after going dark on 01/22/2027; he has a new phone number. His deposition is noticed for 02/18/2027, 10:00 a.m., by videoconference with Riverton Court Reporting. He is anxious and expects a TV cross-examination. Atty. Thorne opens the prep session, hands you the first segment while he listens, and takes the substance after you.
 
-**Execution prompt.** Run your segment of John's first prep session in the Call Simulator. Confirm his new number with Margaret as backup, the deposition logistics, and a 02/16/2027 test call on the device and in the room he will use. Explain the setting (Pillar 1), what to wear and how the room works (Pillar 3 and the in-room rules) in plain words, and have the document set ready; Pillar 2, the testimony habits and any practice questions, is Atty. Thorne's segment, never yours. AI John will ask what to say about the gap, the missed April therapy, the seatbelt, his 2021 chiropractor visits and the MRI: recognise each as substance, answer none, and log each in his words for Atty. Thorne. Have Atty. Thorne's chosen gap set ready to share for his segment. Calm John with the process, never a prediction.
+**Execution prompt.** Run your segment of John's first prep session in the Call Simulator. Confirm his new number with Margaret as backup, the deposition logistics, and a 02/16/2027 test call on the device and in the room he will use. Explain the setting (Pillar 1), what to wear and how the room works (Pillar 3 and the in-room rules) in plain words, and have the document set ready; Pillar 2, the testimony habits and any practice questions, is Atty. Thorne's segment, never yours. John will ask what to say about the gap, the missed April therapy, the seatbelt, his 2021 chiropractor visits and the MRI: recognise each as substance, answer none, and log each in his words for Atty. Thorne. Have Atty. Thorne's chosen gap set ready to share for his segment. Calm John with the process, never a prediction.
 
 | | |
 |---|---|
-| **Tool / interface** | Call Simulator → AI John Doe (deposition prep session) · CMS → Tasks → + Add Task |
+| **Tool / interface** | Call Simulator → John Doe (deposition prep session) · CMS → Tasks → + Add Task |
 | **Expected output** | A delivered prep segment, a logistics record, and John's substantive questions routed to Atty. Thorne in John's own words. |
 
 **Show Them — reference model**
