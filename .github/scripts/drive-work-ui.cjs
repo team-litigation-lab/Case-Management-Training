@@ -128,7 +128,7 @@ async function answer(route) {
   const sc = await page.evaluate((TID) => { const src = cmScorecard.sources.find((s) => s.id === 'bd'); return src.items({ rec: { id: TID }, data: { 'drive-grades': { 3: { score: 70, passed: true } } }, cf: { days: {} } }); }, TID);
   const d3 = sc.find((x) => x.name === 'Day 3: Backup File Maintenance'), w = sc.find((x) => /✍ Settlement Release/.test(x.name));
   if (!d3 || d3.pct !== 65 || !/trainer/i.test(d3.note)) fail(`the Scorecard's Day 3 should be the trainer's 65%: ${JSON.stringify(d3)}`);
-  if (!w || w.pct !== 74 || !/AI 82%/.test(w.note)) fail(`the Scorecard should carry the written work's final grade, the AI's beside it: ${JSON.stringify(w)}`);
+  if (!w || w.pct !== 74 || !/automated 82%/.test(w.note)) fail(`the Scorecard should carry the written work's final grade, the AI's beside it: ${JSON.stringify(w)}`);
   const bs = await page.evaluate((TID) => { const out = [{ grp: 'bd', name: '📂 Backup File Maintenance', pct: 70 }]; cmDriveWork.dayParts({ id: TID }, 3, {}, out); return out; }, TID);
   if (bs[0].pct !== 65 || !bs.some((x) => /✍/.test(x.name) && x.pct === 74)) fail(`the Batch Sheet's day should carry the override and the written work: ${JSON.stringify(bs)}`);
   // a trainee's own progress can't carry a grade: a forged "trainer's grade" there is never read
@@ -150,7 +150,7 @@ async function answer(route) {
   const mine = await p2.evaluate(() => { const s = document.querySelector('#cmDriveHost [data-cmdw-sec]'); return s ? { text: s.innerText, img: !!s.querySelector('img') } : null; });
   if (!mine) fail('📂 My Backup Drive should show ✍ Your written work, graded');
   else {
-    if (!/Your trainer's grade: 74%/.test(mine.text) || !/the AI's: 82%/.test(mine.text) || !/approval is not on file/.test(mine.text)) fail(`the trainee should see the trainer's grade, the AI's beside it, and the comment: "${mine.text.slice(0, 500)}"`);
+    if (!/Your trainer's grade: 74%/.test(mine.text) || !/automated: 82%/.test(mine.text) || !/approval is not on file/.test(mine.text)) fail(`the trainee should see the trainer's grade, the AI's beside it, and the comment: "${mine.text.slice(0, 500)}"`);
     if (!/Day 3 · Backup File Maintenance: your trainer's grade 65%/.test(mine.text) || !/Superseded versions left unlabeled/.test(mine.text)) fail('the trainee should see a day\'s override and its comment');
     if (!/What your work shows/.test(mine.text) || !/The standard/.test(mine.text) || !/Why it matters/.test(mine.text) || !/Your next step/.test(mine.text)) fail('the feedback should teach: what your work shows, the standard, why it matters, your next step');
     if (!/Where your written work goes/.test(mine.text)) fail('the trainee should be told where each activity\'s work goes and how to head it');

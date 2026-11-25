@@ -42,8 +42,8 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     });
     check(!!why, 'window.cmWhyNotGraded is on the page (js/cm-ai-grader.js)');
     if (why) {
-        check(/longer than the AI takes/.test(why.long), `a request too long reads as such: "${why.long}"`);
-        check(/AI budget/.test(why.budget), `the shared AI budget reads as such: "${why.budget}"`);
+        check(/longer than the grader takes/.test(why.long), `a request too long reads as such: "${why.long}"`);
+        check(/grading budget/.test(why.budget), `the shared AI budget reads as such: "${why.budget}"`);
         check(/connection was refused.*trainer/.test(why.refused), `the gateway refusing the site reads as "tell your trainer": "${why.refused}"`);
         check(/took too long/.test(why.slow), `a timeout reads as such: "${why.slow}"`);
         check(/incomplete/.test(why.cut), `an answer cut off reads as such: "${why.cut}"`);
@@ -67,7 +67,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
         return { id, title: all[id].title, failed: { why: failed.failed && failed.failed.why, detail: failed.failed && failed.failed.detail, score: failed.score, tries: failed.tries || 0 },
             graded: { score: graded.score, tries: graded.tries || 0, failed: !!graded.failed } };
     });
-    check(/AI budget/.test(aig.failed.why || '') && /429/.test(aig.failed.detail || ''), `a failed grading keeps its reason on the activity (${aig.id}): ${JSON.stringify(aig.failed)}`);
+    check(/grading budget/.test(aig.failed.why || '') && /429/.test(aig.failed.detail || ''), `a failed grading keeps its reason on the activity (${aig.id}): ${JSON.stringify(aig.failed)}`);
     check(aig.failed.score == null && aig.failed.tries === 0, `a failed grading gives no score and uses none of the 3 attempts: ${JSON.stringify(aig.failed)}`);
     check(aig.graded.score === 82 && aig.graded.tries === 1 && !aig.graded.failed, `graded on the next try, the reason is cleared: ${JSON.stringify(aig.graded)}`);
 

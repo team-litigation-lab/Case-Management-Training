@@ -887,7 +887,7 @@ window.CM_CF_SIM = {
    "from": "Atty. Elijah Thorne",
    "to": "Case Manager",
    "subject": "Mock cross at 2:00 p.m.: keep the Trap Log",
-   "body": "Second prep session today. I'm running a mock cross: AI Mercer questions John, I defend and object. Your microphone stays muted. Log every trap with its time, Mercer's exact words and the record fact beside any mischaracterisation, plus each objection. I debrief John from your log, so route it to me before we finish.",
+   "body": "Second prep session today. I'm running a mock cross: Mercer questions John, I defend and object. Your microphone stays muted. Log every trap with its time, Mercer's exact words and the record fact beside any mischaracterisation, plus each objection. I debrief John from your log, so route it to me before we finish.",
    "attachments": [
     "RS53",
     "RS16",
@@ -954,12 +954,12 @@ window.CM_CF_SIM = {
    "context": "02/23/2026, afternoon. Riverton Spine & Rehab (chiropractic and PT, out of network for Peach State) has John Doe booked for his evaluation 02/24/2026. The LOP signed today by John Doe and Atty. Thorne was emailed with the HIPAA authorization. Harbor Point's PIP (HP-26-7741) will go to his ER and ambulance bills. Tammy asks why not bill Peach State or PIP, how often he will come, where records and statements go, and whether the firm guarantees full payment and when. Answered with facts, she confirms the LOP and the appointment.",
    "opening": "Riverton Spine and Rehab, this is Tammy. I've got the LOP you emailed. Before I put Mr. Doe on tomorrow's schedule, I have a few questions about how we're getting paid.",
    "goals": [
-    "Introduce John Doe's case; confirm LOP acceptance and the 02/24/2026 evaluation",
-    "Answer insurance status with facts: PIP open, out of network for Peach State",
-    "Set records and billing: 30-day itemized statements, missed-visit alert, HIPAA authorization",
-    "Promise no payment amount, reduction or date; route those to Atty. Thorne"
+    "Say who you are and confirm the LOP and his 02/24/2026 evaluation",
+    "Answer insurance with facts: PIP is open; Peach State is out of network",
+    "Ask for itemized bills every 30 days, missed-visit alerts and HIPAA-covered records",
+    "Promise no payment amount, discount or date; those go to Atty. Thorne"
    ],
-   "line": "Facts and logistics only: the cadence is the provider's plan of care, and payment terms are Atty. Thorne's."
+   "line": "Facts and logistics only. How often he visits is the provider's call; payment terms are Atty. Thorne's."
   },
   "d1m3-a1": {
    "who": "John Doe",
@@ -968,12 +968,12 @@ window.CM_CF_SIM = {
    "context": "02/09/2026, afternoon: retainer signed this morning, matter opened at 1:12 p.m., no onboarding packet yet. John, 34, a Northgate warehouse shift lead, was the front-seat passenger in coworker Kevin Alvarez's Escape on 02/06. On Saturday (02/07) a Keystone Mutual caller asked to record his account; he said he'd think about it, and she said she'd call back. His neck is stiff; he hasn't seen anyone. Margaret's Civic was towed from the scene and he has no car. Calms with clear steps; repeats instructions back if asked.",
    "opening": "Hey, it's John Doe, returning your call. So the other guy's insurance called me on Saturday, a lady from Keystone, wanting to record what happened. She said she'd call back. What do I tell her?",
    "goals": [
-    "Ask about the stiff neck and whether he has seen anyone yet",
-    "Outline next steps: get evaluated this week; the packet is on its way",
-    "No Recorded Statement: Keystone's calls go to the firm",
-    "Discuss the case with no one outside the firm; have him repeat it"
+    "Ask about his stiff neck, and whether he has seen a doctor yet",
+    "Tell him the next steps: see a doctor this week; his packet is coming",
+    "No Recorded Statement to Keystone; their calls go to the firm",
+    "Ask him not to discuss the case with anyone; have him repeat it back"
    ],
-   "line": "Give the firm's instructions only; fault, claim value and legal effect go to Atty. Thorne."
+   "line": "Give the firm's instructions only. Questions about fault, value or legal effect go to Atty. Thorne."
   },
   "d2m1-a2": {
    "who": "Dana Whitfield",
@@ -1010,12 +1010,12 @@ window.CM_CF_SIM = {
    "context": "04/17/2026, 4:48 p.m.; he calls in, three days before the Final Warning Letter's 04/20 date. Last PT 04/02. That day, driven home by his mother, the car stopped at their own corner, Maple Hollow Rd & Birch Ave, where the crash happened, as a pickup came up Birch: he panicked and got out. Since then he avoids cars, sleeps 4–5 hours, feels low, quit basketball, still works (bus). Neck and right hand still bad. Safe. Declines recording. Asks if this ruins his case.",
    "opening": "Hey... it's John Doe. I got your letter. My mom signed for it. I'm sorry I didn't call back. I just... I didn't know how to say it. Am I getting dropped?",
    "goals": [
-    "Lead with relief and safety; offer choices, including recording",
-    "Draw out what happened in his words, without labels or blame",
-    "With consent: Dr. Reyes appointment and evening slots under the LOP",
-    "Read back; route claim questions to Atty. Thorne"
+    "Start with relief that he called and that he is safe; give him choices",
+    "Let him tell what happened in his own words, with no labels or blame",
+    "If he agrees, book Dr. Reyes and evening visits under the LOP",
+    "Repeat back what he said; send claim questions to Atty. Thorne"
    ],
-   "line": "No diagnosis, no counseling advice, no value talk, no promise about withdrawal; claim questions go to Atty. Thorne."
+   "line": "No diagnosis, no counseling, no talk of value or dropping the case. Claim questions go to Atty. Thorne."
   },
   "d2m3-a1": {
    "who": "John Doe",
@@ -1024,12 +1024,12 @@ window.CM_CF_SIM = {
    "context": "03/04/2026, recorded call. John first treated 02/20/2026, 14 days after the collision. Asked openly, he gives four reasons in his own words: no car (Civic towed, Kevin's Escape in the shop, no rental until 02/18); thought it was soreness, took ibuprofen and patches; signed the PIP form unaware it paid his bills, unsure his Peach State plan was active; right-hand numbness from 02/18, worked 02/18–02/19, went in on his first day off. He texted his mother about it 02/07–02/15, called out of work 02/09–02/13, kept the 02/07 pharmacy receipt.",
    "opening": "Hey, it's John. I'm on my break, sitting in the rental, so I've got about twenty minutes. What did you need to go over?",
    "goals": [
-    "Open on record: date, parties, role, his consent, privacy confirmed",
-    "Draw out all four reasons with open, non-leading questions",
-    "Ask for the paper: the texts, the call-outs, the 02/07 receipt",
-    "Read back his account; confirm 03/05 consult and post-03/19 transport"
+    "Start the recording: the date, who is on the call, his consent, privacy",
+    "Ask open questions until you have all four reasons; never suggest one",
+    "Ask for the proof: the texts, the call-outs, the 02/07 receipt",
+    "Repeat back his account; confirm the 03/05 consult and rides after 03/19"
    ],
-   "line": "Never suggest a reason, interpret it or say what the gap does to his case; route that to Atty. Thorne."
+   "line": "Never suggest a reason, explain it, or say what the gap does to his case. That is Atty. Thorne's."
   },
   "d2m4-a2": {
    "who": "Atty. Elijah Thorne",
@@ -1038,12 +1038,12 @@ window.CM_CF_SIM = {
    "context": "07/08/2026, before any demand. MMI 06/12; Specials $42,984.00 ($41,400.00 medical after the 05/04 duplicate came out, plus $1,584.00 wages); liens $1,860.00 Peach State and $6,105.00 LOP; targets $10,000 BI, $20,000 Host UM, $10,000 Relative UM. He pushes: low-speed impact, the 14-day gap, the “degenerative” MRI, and asks what the case is worth. Briefed well, he decides: a time-limited BI demand served 07/20/2026, the gap addressed up front, no UM demand before a documented BI tender, billed-vs-paid his call.",
    "opening": "I've got twenty minutes. Bottom line first. Then tell me why Keystone shouldn't call this a low-speed bump with a guy who waited two weeks to see a doctor.",
    "goals": [
-    "Lead with the bottom line: MMI, $42,984.00 Specials, $10,000 BI limit",
-    "Meet each challenge with dated documents, not adjectives",
-    "Get his decisions: demand, the gap, UM consents, billed-vs-paid",
-    "Read back each decision; task it with an owner and date"
+    "Start with the bottom line: MMI, $42,984.00 Specials, the $10,000 BI limit",
+    "Answer each challenge with a dated document, not an opinion",
+    "Get his decisions on the demand, the gap, UM consents, billed vs. paid",
+    "Repeat each decision back, then give it an owner and a date"
    ],
-   "line": "Recommend operations only; propose no demand figure and leave every legal decision to Atty. Thorne."
+   "line": "Suggest how to run the work only. Propose no demand figure; every legal decision is Atty. Thorne's."
   },
   "d3m1-a1": {
    "who": "Dana Whitfield",
@@ -1052,12 +1052,12 @@ window.CM_CF_SIM = {
    "context": "07/23/2026. The $10,000 time-limited BI demand (KM-26-440871) was emailed to Dana on 07/20/2026 with the 81-page Demand Package; her reply email of 07/22/2026, 9:06 a.m., confirmed receipt in writing. Acceptance window: 30 days from that written acknowledgement, 08/21/2026. Dana says the 14-day gap needs a closer look, asks whether the 30 days run from the 07/20 send date, asks for 30 more days and the full Riverton Spine & Rehab chart. She stays polite but presses for a yes. She offers no number.",
    "opening": "Hi, Dana Whitfield at Keystone, on the Doe claim. I've got your demand here. Before I dig in, I need to talk about this thirty-day window, because I don't think it's realistic.",
    "goals": [
-    "Confirm her 07/22/2026 acknowledgement and the 08/21/2026 deadline as written",
-    "Agree to no extension; route her request to Atty. Thorne today",
-    "Log her requests in her exact words",
-    "Note the records she wants; send nothing without Atty. Thorne's approval"
+    "Confirm her 07/22/2026 written receipt and the 08/21/2026 deadline as written",
+    "Agree to no extension; pass her request to Atty. Thorne today",
+    "Write down each request in her exact words",
+    "Note the records she wants; send nothing until Atty. Thorne approves"
    ],
-   "line": "The CM never extends the deadline, changes a term or discusses value; Atty. Thorne decides."
+   "line": "You never extend the deadline, change a term or talk about value. Atty. Thorne decides."
   },
   "d3m2-a1": {
    "who": "Dana Whitfield",
@@ -1066,12 +1066,12 @@ window.CM_CF_SIM = {
    "context": "08/05/2026. Demand received 07/22; acceptance runs to 08/21/2026. Dana offers $3,500, citing the 14-day gap (DOL 02/06, first treatment 02/20/2026) and a “degenerative” MRI. She has the EMS report and the Causation Letter but has not weighed them. Asked what supports $3,500, she says “our evaluation.” She may call the April break non-compliance. She will not move today and wants a counter. Atty. Thorne's authority: restate the Limits Demand, no counter.",
    "opening": "Dana Whitfield, Keystone. I've finished my evaluation on Doe. I can offer thirty-five hundred. Honestly, he waited two weeks to see anybody, and that MRI reads degenerative to me.",
    "goals": [
-    "Pause, then ask what data supports $3,500",
+    "Pause, then ask what supports her $3,500 offer",
     "Answer the gap and “degenerative” with dated records and Dr. Park's words",
-    "Restate the $10,000 Limits Demand and 08/21/2026 deadline; no counter",
-    "Log her exact words; report the offer to Atty. Thorne today"
+    "Repeat the $10,000 Limits Demand and the 08/21/2026 deadline; make no counter",
+    "Write down her exact words; report the offer to Atty. Thorne today"
    ],
-   "line": "The CM never accepts, rejects, counters or values; the offer goes to Atty. Thorne to convey."
+   "line": "You never accept, reject, counter or put a value on an offer. Atty. Thorne passes it to John."
   },
   "d3m2-exec": {
    "who": "John Doe",
@@ -1094,12 +1094,12 @@ window.CM_CF_SIM = {
    "context": "10/09/2026. Riverton Spine & Rehab treated John Doe under an LOP signed 02/23/2026. Tammy's ledger shows 34 lines × $185.00 = $6,290.00; the 05/04/2026 line is a duplicate (33 visits, $6,105.00). The firm's approved Reduction Request is in her inbox. Recovery is capped at $40,000 of coverage. She defends the ledger first, concedes the duplicate when shown the dates, then agrees to $4,580.00 and asks, “So we have a deal?”",
    "opening": "Tammy Greer, Riverton Spine and Rehab. I got your reduction letter. We treated him four months on a promise. Why would we take less than the sixty-two ninety we're owed?",
    "goals": [
-    "State the audited balance: 05/04/2026 duplicate removed, $6,105.00",
-    "Explain the coverage-capped recovery as facts; ask for reduced payment in full",
-    "Accept nothing on the call; $4,580.00 goes to Atty. Thorne",
-    "Request a signed Payoff Letter: full satisfaction, no balance billing"
+    "Give the checked balance: the 05/04/2026 duplicate removed, $6,105.00",
+    "Explain the limited coverage as facts; ask them to accept less in full",
+    "Accept nothing on the call; the $4,580.00 offer goes to Atty. Thorne",
+    "Ask for a signed Payoff Letter: paid in full, no billing John later"
    ],
-   "line": "The CM negotiates only inside Atty. Thorne's written authority and never accepts a figure on the call."
+   "line": "Negotiate only inside Atty. Thorne's written limits, and never accept a figure on the call."
   },
   "d3m4-pal": {
    "who": "John Doe",
@@ -1108,12 +1108,12 @@ window.CM_CF_SIM = {
    "context": "10/15/2026. Vance & Kettering claims a charging lien ($6,666.67) on an agreement dated 07/27/2026, signed only by Margaret Doe. John never contacted or signed with them and didn't know. Asked neutrally, he says so; after calling his mother he calls back: she signed after a radio ad, to help. He asks whether he has to pay them and whether 10/22 is delayed.",
    "opening": "Vance and what? I've never talked to any other lawyer. You guys are my lawyers. Is somebody trying to take my settlement?",
    "goals": [
-    "Ask neutrally whether he ever contacted or signed with the firm",
-    "Record his account in his own words",
-    "Route whether he owes them anything to Atty. Thorne",
-    "Tell him what happens next and when he'll hear"
+    "Ask him, neutrally, whether he ever contacted or signed with that firm",
+    "Write down his account in his own words",
+    "Send the question of whether he owes them anything to Atty. Thorne",
+    "Tell him what happens next and when he will hear from you"
    ],
-   "line": "Facts only. Never say the lien is invalid, never blame Margaret, never predict the outcome."
+   "line": "Facts only. Never call the lien invalid, never blame Margaret, never predict the outcome."
   },
   "d3m4-a2": {
    "who": "John Doe",
@@ -1150,12 +1150,12 @@ window.CM_CF_SIM = {
    "context": "12/10/2026, Track B, No. 26-CV-04417. Defendant's Interrogatories (25), RFPs (30) and RFAs (15) were mailed to Atty. Thorne 12/01/2026; responses due 01/04/2027 (30 days, plus 3 for mail, Sunday rolls to Monday). Unanswered RFAs may be deemed admitted. Jenna says Grant is fine with mid-January, “no need to put it in writing,” and asks the firm to return the favor on Smith's responses. She bristles at a written stipulation, then agrees to pass the request along.",
    "opening": "Hi, Jenna with Grant Mercer's office on Doe versus Smith. Quick one: Grant says no rush on your client's discovery, mid-January's fine. No need to put it in writing.",
    "goals": [
-    "Agree to nothing; keep 01/04/2027 docketed, RFAs flagged",
-    "Log her words verbatim, including “no need to put it in writing”",
-    "Route to Atty. Thorne today; any extension only in writing",
+    "Agree to nothing; keep the 01/04/2027 deadline on the calendar, RFAs flagged",
+    "Write down her exact words, including “no need to put it in writing”",
+    "Pass it to Atty. Thorne today; any extension only in writing",
     "Offer no favor in return on Smith's responses"
    ],
-   "line": "The CM never agrees an extension with opposing counsel; only Atty. Thorne, and only in writing."
+   "line": "You never agree to an extension with the other side. Only Atty. Thorne can, and only in writing."
   },
   "d4m3-a2": {
    "who": "Lori Banks, records coordinator, Crescent Pain & Spine",
@@ -1178,12 +1178,12 @@ window.CM_CF_SIM = {
    "context": "05/24/2027, Track B. Consolidated UM arbitration before Laura Whitcomb, Esq.: exhibit exchange 06/02/2027, hearing 06/22/2027. Harbor Point confirmed format and exchange method 05/20; Cardinal State (CS-26-20355) never answered. The CM escalated to Teresa's supervisor in writing 05/21; the item reached Atty. Thorne today. CMS shows no counsel appeared. Teresa finally calls back, resents the escalation, says “we'll do whatever Harbor Point does,” mentions “our lawyer” vaguely, and tries to argue the gap.",
    "opening": "This is Teresa Okafor at Cardinal State. My supervisor forwarded your email. You didn't need to go over my head. What exactly do you need from me?",
    "goals": [
-    "Ask whether Cardinal State has counsel; if so, logistics go there",
+    "Ask whether Cardinal State has a lawyer; if so, logistics go through them",
     "Get the hearing format and exchange method confirmed in writing",
-    "Confirm the 06/02/2027 exchange and 06/22/2027 hearing",
+    "Confirm the 06/02/2027 exhibit exchange and the 06/22/2027 hearing",
     "Decline any talk of the gap or value; update Atty. Thorne"
    ],
-   "line": "The CM handles logistics only; damages, the gap and value are Atty. Thorne's."
+   "line": "You handle logistics only. Damages, the gap and value are Atty. Thorne's."
   },
   "d5m1-a1": {
    "who": "Jenna Price, Atty. Mercer's paralegal",
@@ -1192,12 +1192,12 @@ window.CM_CF_SIM = {
    "context": "01/05/2027, No. 26-CV-04417. Defendant's discovery, including 15 Requests for Admission, was mailed 12/01/2026; responses were due 01/04/2027. The firm's Certificate of Service shows John Doe's verified responses mailed to Atty. Mercer 01/04/2027; they have not arrived there yet. Jenna says nothing came in, calls the RFAs “deemed admitted,” and asks the CM to “just confirm” they were late. She accepts being told Atty. Thorne will respond today.",
    "opening": "Hi, Jenna again at Mercer and Hale. We have nothing from you on our discovery, and the admissions were due yesterday. Grant asked me to confirm they're deemed admitted.",
    "goals": [
-    "Log her words verbatim, with the time of the call",
-    "Take no position on timeliness or deemed admissions",
-    "Route to Atty. Thorne today with the 01/04/2027 Certificate of Service",
+    "Write down her exact words and the time of the call",
+    "Take no side on whether anything was late or admitted",
+    "Send it to Atty. Thorne today, with the 01/04/2027 Certificate of Service",
     "Tell her only that Atty. Thorne will respond"
    ],
-   "line": "The CM never argues the rules or concedes anything to opposing counsel; Atty. Thorne answers."
+   "line": "You never argue the rules or give anything up to the other side. Atty. Thorne answers."
   },
   "d5m2-a1": {
    "who": "Leah Moran",
@@ -1220,18 +1220,18 @@ window.CM_CF_SIM = {
    "context": "02/04/2027, Track B. John was unreachable 01/22–02/03 after losing his phone; Margaret reached him 02/03; he has a new number. Deposition 02/18/2027, 10:00 a.m., by videoconference, Riverton Court Reporting; test call 02/16. Atty. Thorne listens and takes the substance after the CM's segment. John asks what to say about the 14-day gap, the missed April therapy, the seatbelt, his 2021 chiropractor visits and the “degenerative” MRI, and whether he will win.",
    "opening": "Hey, sorry about the phone thing. This is my new number. So, the deposition. Are they going to yell at me like on TV? And what do I say about the two weeks?",
    "goals": [
-    "Confirm his new number, with Margaret as backup contact",
-    "State the logistics exactly; set the 02/16/2027 test call",
-    "Explain the setting and room rules; leave testimony practice to Atty. Thorne",
-    "Route each substantive question to Atty. Thorne in John's words"
+    "Confirm his new number, with Margaret as the backup contact",
+    "Give the date, time and place exactly; set the 02/16/2027 test call",
+    "Explain the room and the rules; leave testimony practice to Atty. Thorne",
+    "Send each question about his case to Atty. Thorne, in John's words"
    ],
-   "line": "The CM never scripts testimony, answers substance or predicts the outcome; Atty. Thorne handles the substance."
+   "line": "You never tell him what to say, answer case questions or predict the outcome. Atty. Thorne does."
   },
   "d5m3-a2": {
    "who": "Atty. Grant Mercer",
    "role": "counsel",
    "persona": "Polished, patient defense counsel in a mock cross; friendly tone, sharp traps; uses silence; aims at the gap, prior care and the seatbelt.",
-   "context": "02/16/2027, mock cross-examination led by Atty. Thorne. AI Mercer questions AI John Doe; Thorne defends and objects; the CM is muted and keeps the Trap Log. Traps: “Is that all?”, compound questions, “degenerative” (MRI 03/13/2026: no significant degenerative change at the adjacent levels), the gap mischaracterised (14 days, 02/06–02/20/2026), the seatbelt (EMS “restrained”; EDR buckled), the 2021 low-back visits, the silent stare. He never addresses the CM.",
+   "context": "02/16/2027, mock cross-examination led by Atty. Thorne. Mercer questions John Doe; Thorne defends and objects; the CM is muted and keeps the Trap Log. Traps: “Is that all?”, compound questions, “degenerative” (MRI 03/13/2026: no significant degenerative change at the adjacent levels), the gap mischaracterised (14 days, 02/06–02/20/2026), the seatbelt (EMS “restrained”; EDR buckled), the 2021 low-back visits, the silent stare. He never addresses the CM.",
    "opening": "Mr. Doe, good afternoon. You understand you're under oath, just as if we were in a courtroom? Let's start easy. Tell me everything you did the morning of February sixth.",
    "goals": [
     "Log each trap with its timestamp and Mercer's exact words",
@@ -1248,12 +1248,12 @@ window.CM_CF_SIM = {
    "context": "02/03/2027, Track B. John has been unreachable since 01/22 (lost his phone; new number). His deposition is 02/18/2027, with prep sessions 02/04 and 02/16; a certified warning letter went to 2214 Maple Hollow Rd. The CM left Margaret a voicemail; she calls back, says John is fine and working, and gives his new number if asked. She asks whether he will “lose the case” and what the letter means. She is not the client.",
    "opening": "This is Margaret Doe, John's mom. You left me a message. Is everything alright? He lost his phone, he's got a new number. Is he in trouble over this deposition?",
    "goals": [
-    "Verify her identity against the emergency-contact record",
+    "Check she is the emergency contact on the file",
     "Say only that the firm needs John to call, and how",
-    "Share no case details or consequences of missing the deposition",
-    "Log the call and any new number, to verify with John"
+    "Share no case details, and nothing about missing the deposition",
+    "Log the call and any new number, to check with John"
    ],
-   "line": "Margaret is not the client: the CM shares nothing on the case and never advises."
+   "line": "Margaret is not the client. Share nothing about the case and never give advice."
   },
   "d5m6-a1": {
    "who": "Denise Harlow",

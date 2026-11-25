@@ -43,7 +43,7 @@
   },
   "d5m1-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Litigation › Discovery & Filing Tracker, add the RFA row with a deemed-admission flag, and log the Certificate of Service with its date\n• Step 2: Report any miss to Atty. Thorne today in CMS › Tasks › + Add Task, without back-dating"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Litigation › Discovery & Filing Tracker, add the RFA row with a deemed-admission flag, and log the dated Certificate of Service\n• Step 2: In CMS › Tasks › + Add Task, tell Atty. Thorne today about anything that was missed. Never back-date an entry"
     },
     "case": {
       "say": "• Assuming the 15 RFAs have no row in the Discovery & Filing Tracker and their 01/04/2027 Certificate of Service sits unlogged, the log needs fixing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a corrected, source-linked log, misses reported the same day"
@@ -150,7 +150,7 @@
   },
   "d5m3-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log his new number, the 02/16/2027 test call and the 10:00 a.m. deposition at Riverton Court Reporting in CMS › Tasks\n• Step 2: Route each question he asked about his case to Atty. Thorne in his own words, answering none and giving him no script"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Tasks, log his new number, the 02/16/2027 test call and the 10:00 a.m. deposition at Riverton Court Reporting\n• Step 2: Send each question he asked to Atty. Thorne, in his own words. Answer none, and give him no script"
     },
     "case": {
       "say": "• Assuming John Doe has a new number and his video deposition is 02/18/2027, the prep logistics and his questions need logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Logistics logged and his questions routed in his words"
@@ -237,7 +237,7 @@
   },
   "d5m4-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Notes › Case Notes, log service at 4410 Quarry Ridge Ct, Millbrook, and docket the answer date in CMS › Calendar\n• Step 2: Log why John Doe's Skip-Trace gate is not met yet in CMS › Notes › Case Notes"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Notes › Case Notes, log service at 4410 Quarry Ridge Ct, Millbrook. Then add the answer date in CMS › Calendar\n• Step 2: In CMS › Notes › Case Notes, explain why a Skip-Trace on John Doe isn't justified yet: its gate is not met"
     },
     "case": {
       "say": "• Assuming Robert Smith's new address is confirmed on two sources, his service and the answer date need logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a service record through the answer date"

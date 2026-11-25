@@ -75,13 +75,14 @@ const pctOf = (t) => { const m = /(\d+)%/.exec(String(t || '')); return m ? +m[1
     if (dash.my != null) { seen['Dashboard · My Scores'] = pctOf(dash.my); if (!/Overall/.test(dash.my)) fail(`My Scores should name its number the Overall: "${dash.my}"`); }
 
     // the trainer: the card and its 🏅 Scores row
-    await page.evaluate(() => { state.isAdmin = true; state.adminData = null; if (window.cmScorecard) cmScorecard.refresh(); goto('scorecard'); });
+    // (the trainer's Scorecards shows one trainee's card at a time: this one is picked, as a trainer picks a name in the hero)
+    await page.evaluate((id) => { state.isAdmin = true; state.adminData = null; if (window.cmScorecard) { cmScorecard.refresh(); cmScorecard.only(id); } goto('scorecard'); }, id);
     const dom = id.replace(/[^A-Za-z0-9_-]/g, '_');
     await page.waitForFunction((d) => !!document.getElementById('bs-pt-' + d), dom, { timeout: 20000 }).catch(() => fail('the trainer\'s Scorecards shows no card for the trainee'));
     await page.evaluate((id) => cmScorecard.only(id), id); await page.waitForTimeout(500);
     const tc = await page.evaluate((d) => { const c = document.getElementById('bs-pt-' + d); return c ? [...c.querySelectorAll('.bs-pt-k')].map(x => x.textContent.replace(/\s+/g, ' ').trim()) : []; }, dom);
     seen['Scorecards · the card\'s Overall pill'] = pctOf(tc.find(p => /^Overall\b/.test(p)));
-    const realName = await page.evaluate((d) => { const c = document.getElementById('bs-pt-' + d), s = c && c.querySelector('.bs-pt-who select'); return s ? s.options[s.selectedIndex].textContent : ''; }, dom);
+    const realName = await page.evaluate((d) => { const c = document.getElementById('bs-pt-' + d), s = c && document.querySelector('.scx-who-row .bs-pt-who select'); return s ? s.options[s.selectedIndex].textContent : ''; }, dom);
     const nm = realName || NAME;
     const cell = (sel, head) => page.evaluate(([sel, head, name]) => {
         const sec = document.querySelector(sel); if (!sec) return { err: `no ${sel}` };

@@ -41,6 +41,7 @@ const KV_PREFIX = "cm:";
      trainee:<id>   approval, rejection, archive, unlocks, assignments, and who they are (name and batch)
      feedback:<id>  a trainer's review of a day (and its read mark stays the trainee's), a trainer's note on an auto-review,
                     the trainer's 40% per Case Flow module (caseFlow)
+                    a trainer's note on each graded activity (activities)
      focus:<id>     the focus items themselves (seen and done stay the trainee's)
      actsub:<id>    a trainer's feedback on an activity, for the submission it was written for: a new submission
                     retires it to prevFeedback, as the trainee's own save does */
@@ -59,8 +60,11 @@ const OWNED = {
       });
       // 🏅 the trainer's 40% per Case Flow module (feedback:<id>.caseFlow): the record's t and Composite come only from here
       // (caseFlowAt: which trainer's save of it this is, stamped by the Worker: layTrainerScores)
-      // 📤 the progress reports a trainer sent (js/cm-send-progress.js) are the trainer's too
-      return Object.assign({ days, caseFlow: (rec && rec.caseFlow && typeof rec.caseFlow === "object") ? rec.caseFlow : {} }, typeof (rec && rec.caseFlowAt) === "string" ? { caseFlowAt: rec.caseFlowAt } : {}, Array.isArray(rec && rec.reports) ? { reports: rec.reports } : {});
+      // 📤 the progress reports a trainer sent (js/cm-send-progress.js) are the trainer's too, and so are the 🧑‍🏫 notes on
+      // graded activities (js/cm-trainer-notes.js)
+      const own = Object.assign({ days, caseFlow: (rec && rec.caseFlow && typeof rec.caseFlow === "object") ? rec.caseFlow : {} }, typeof (rec && rec.caseFlowAt) === "string" ? { caseFlowAt: rec.caseFlowAt } : {}, Array.isArray(rec && rec.reports) ? { reports: rec.reports } : {});
+      if (rec && rec.activities && typeof rec.activities === "object" && !Array.isArray(rec.activities)) own.activities = rec.activities;
+      return own;
     },
     overlay: (rec, own) => {
       if (!rec.days || typeof rec.days !== "object") rec.days = {};
@@ -72,6 +76,7 @@ const OWNED = {
       if (own.caseFlow && typeof own.caseFlow === "object") rec.caseFlow = own.caseFlow;   // (a copy saved before this was kept has none: left as it is)
       if (typeof own.caseFlowAt === "string") rec.caseFlowAt = own.caseFlowAt; else delete rec.caseFlowAt;
       if (Array.isArray(own.reports)) rec.reports = own.reports;
+      if (own.activities && typeof own.activities === "object") rec.activities = own.activities;
     }
   },
   focus: {

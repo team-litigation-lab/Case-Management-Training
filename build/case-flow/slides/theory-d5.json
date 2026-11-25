@@ -288,42 +288,42 @@
     }
   },
   "d5m4-l1": {
-    "lead": "Comparative negligence **apportions fault** between the parties; the share charged to the injured person can reduce, or bar, what they recover.",
+    "lead": "Comparative negligence **splits fault** between the parties. The injured person's share can reduce, or bar, what they recover.",
     "concepts": [
       {
         "term": "Three Fault Regimes",
-        "text": "Pure, modified and contributory treat one fault finding differently: **the governing rule**, not the percentage alone, decides reduce or bar",
+        "text": "Pure, modified and contributory treat the same fault finding differently. **The governing rule** decides: reduce or bar",
         "more": [
-          "Pure: damages fall by John's share, however large",
-          "Modified: damages fall, but recovery is barred at 50% in some states, 51% in others",
-          "Contributory, in a handful of jurisdictions: **any fault bars recovery**",
+          "Pure: damages drop by John's share, however large",
+          "Modified: damages drop, but recovery is barred at 50% in some states, 51% in others",
+          "Contributory, in a handful of places: **any fault bars recovery**",
           "John at 20%: recovers 80% everywhere except contributory",
-          "Confirm the governing rule; telling John his share of fault is never yours"
+          "Confirm the governing rule; never tell John his share of fault"
         ]
       },
       {
         "term": "Liability Status",
-        "text": "Liability is accepted, partial or denied; recording **its status and source** shows Atty. Thorne what remains contested"
+        "text": "Liability is accepted, partial or denied. Record **its status and source** so Atty. Thorne sees what is still disputed"
       },
       {
         "term": "Fault Versus Mitigation",
-        "text": "Comparative fault concerns the crash; failure to mitigate concerns later care and **trims only avoidable damages**",
+        "text": "Fault is about the crash. Failure to mitigate is about later care and **cuts only avoidable damages**",
         "more": [
-          "Failure to mitigate targets 19 days without visits, 04/02 → 04/21/2026",
-          "The record answers: the A-C-T follow-up and **a documented clinical cause**",
-          "Attendance resumed 04/21 and 04/23",
+          "Failure to mitigate points to 19 days without visits, 04/02 → 04/21/2026",
+          "The record answers it: the A-C-T follow-up and **a documented clinical cause**",
+          "Visits resumed 04/21 and 04/23",
           "Burden: **generally the defense's**; confirm the rule"
         ]
       },
       {
         "term": "The Counter-Package",
-        "text": "An index answering each pleaded allegation with **evidence that can come in**, built for Atty. Thorne's analysis",
+        "text": "An index that answers each allegation with **evidence the court can admit**, for Atty. Thorne's analysis",
         "more": [
           "One allegation, one row",
-          "Every item: its source, who can authenticate it, **its chain of custody**",
-          "Doorbell video: preservation asked 02/17/2026, copy secured 02/19/2026, native file unaltered, every transfer logged",
-          "Don't rest liability on report RPD-26-018842: its admissibility varies by state",
-          "No foundation, or a holder won't produce: flag it for a Subpoena Duces Tecum"
+          "Each item: its source, who can authenticate it, **its chain of custody**",
+          "Doorbell video: preservation requested 02/17/2026; copy secured 02/19/2026; original file unchanged; every transfer logged",
+          "Don't rest liability on report RPD-26-018842: states differ on whether it is allowed",
+          "If no one can authenticate it, or a holder won't hand it over, flag it for a Subpoena Duces Tecum"
         ]
       }
     ],
@@ -427,26 +427,26 @@
     }
   },
   "d5m6-l1": {
-    "lead": "A Dropped Case is a claim **discontinued before resolution**: documented, closed out and proved, so the client is informed and the firm is protected.",
+    "lead": "A Dropped Case is a claim **ended before it resolves**. You document, close out and prove it, so the client knows and the firm is protected.",
     "concepts": [
       {
         "term": "Why cases are dropped",
-        "text": "Unresponsive client, no liability, no coverage, unfinished treatment such as **no Health Plan**, or conflicting information",
+        "text": "Silent client, no liability, no coverage, care cut short by **no Health Plan**, or conflicting information",
         "more": [
           "Whether any reason ends a case is **Atty. Thorne's decision**",
-          "An unresponsive client arrives here only through the No Contact Protocol and its Final Warning Letter",
-          "Then Atty. Thorne chooses a Notice of Withdrawal or, in a filed suit, a Motion to Withdraw"
+          "A silent client gets here only through the No Contact Protocol and its Final Warning Letter",
+          "Then Atty. Thorne chooses a Notice of Withdrawal or, if suit is filed, a Motion to Withdraw"
         ]
       },
       {
         "term": "The Withdrawal Letter",
-        "text": "A formal notice that **the attorney-client relationship has ended**, directing the client to seek other counsel",
+        "text": "A formal notice that **the attorney-client relationship has ended**; it tells the client to find other counsel",
         "more": [
-          "One for the client and for every carrier and provider on the file",
-          "From the firm's template, over Atty. Thorne's signature",
-          "Each carries the date, client name, date of loss and claim number",
+          "One for the client and one for every carrier and provider on the file",
+          "From the firm's template, signed by Atty. Thorne",
+          "Each shows the date, client name, date of loss and claim number",
           "Saved in Word and PDF",
-          "Only the client's carries **the reason**, in Atty. Thorne's words, and the next step he approves"
+          "Only the client's gives **the reason**, in Atty. Thorne's words, and the next step he approves"
         ]
       },
       {
@@ -458,8 +458,8 @@
         "text": "Certified Mail receipts, dispatch logs and saved letters **protect the firm** if the drop is questioned later",
         "more": [
           "Log each dispatch: party, method and date",
-          "Follow up the return receipt, the carrier's acknowledgement, the fax confirmation",
-          "A time-sensitive party gets a call",
+          "Follow up on the return receipt, the carrier's acknowledgement and the fax confirmation",
+          "Call any time-sensitive party",
           "Then switch the status to Dropped; **keep the proof**: letters, receipts, logs, Atty. Thorne's note"
         ]
       }
@@ -476,12 +476,12 @@
       "rows": [
         [
           "Client",
-          "Date, DOL, the reason, and to seek other counsel",
+          "Date, date of loss, the reason, and to seek other counsel",
           "Preferred method plus **Certified Mail**"
         ],
         [
           "Carrier",
-          "Date, client, DOL, claim number; representation ended",
+          "Date, client, date of loss, claim number; representation ended",
           "Email or fax, per the CRM"
         ],
         [
@@ -498,7 +498,7 @@
     "concepts": [
       {
         "term": "The Common Fund Doctrine",
-        "text": "The attorney's work and costs created the fund, so lienholders contribute **their proportional share** of fees and costs",
+        "text": "The firm's work and costs built the fund, so lienholders pay **their proportional share** of fees and costs",
         "more": [
           "The reduction follows **the fee actually charged**: 40% on this file",
           "Peach State: 40% of $1,860.00 is $744.00, accepted at $1,116.00 on 07/14/2027",
@@ -508,16 +508,16 @@
       },
       {
         "term": "The Double-Dipping Trap",
-        "text": "Carriers audit the file, so the sheet traces **every dollar to its source**, never mixing funds"
+        "text": "Carriers audit the file, so the sheet traces **every dollar to its source** and never mixes funds"
       },
       {
         "term": "Fee Structure Transparency",
-        "text": "Fees can differ by stream and stage; tracking **each stream's fee separately** keeps the ledger accurate and explainable",
+        "text": "Fees can differ by stream and stage. Track **each stream's fee separately** so the ledger stays right and explainable",
         "more": [
           "Suit filed 09/24/2026, so **the 40% tier** applies: $16,000.00 on $40,000.00",
           "Atty. Thorne confirms each stream's fee from the retainer before the Net Sheet is drafted",
           "Show John the tier in his own retainer",
-          "Track A, settled before suit, charged 33⅓%: never carry it into this file"
+          "Track A settled before suit at 33⅓%: never carry it into this file"
         ]
       },
       {

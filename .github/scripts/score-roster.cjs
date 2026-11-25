@@ -46,7 +46,9 @@ const KEEP = 'ann-roster--b111326', OLD = 'ann-roster--b111326x';
         for (let i = 0; i < 60 && !document.querySelector('.cmsh-screen #scx-scores'); i++) await new Promise(r => setTimeout(r, 300));
         cmScorecard.batch(typeof batchShow === 'function' ? (batchShow('B111326') || 'B111326') : 'B111326'); await new Promise(r => setTimeout(r, 600));
         const rows = [...document.querySelectorAll('.cmsh-screen #scx-scores tbody tr')].map(tr => (tr.querySelector('td') || {}).textContent || '').filter(Boolean);
-        const cards = [...document.querySelectorAll('.cmsh-screen .bs-pt')].map(x => x.dataset.id);
+        // one trainee's card at a time: the trainees it can show are the hero's names (and the card shown is one of them)
+        const cards = [...document.querySelectorAll('.cmsh-screen .scx-who-row .bs-pt-who select option')].map(x => x.value);
+        const shown = [...document.querySelectorAll('.cmsh-screen .bs-pt')].map(x => x.dataset.id);
         const hs = [...document.querySelectorAll('.cmsh-screen #scx-scores .gs-head th')].map(t => t.textContent.trim()), bi = hs.indexOf('📂 Backup Drive %');
         const annTr = [...document.querySelectorAll('.cmsh-screen #scx-scores tbody tr')].find(x => (x.querySelector('td') || {}).textContent === 'Ann Roster');
         const bdCol = annTr && bi > 0 ? annTr.querySelectorAll('td')[bi - 1].textContent : null;
@@ -56,7 +58,7 @@ const KEEP = 'ann-roster--b111326', OLD = 'ann-roster--b111326x';
         // the model's own Day 1 Backup Drive item
         const ann = state.adminData.find(x => x.id === KEEP), ev = cmScorecard.model.evidence({ rec: ann, cf: ann.caseFlow || { days: {} }, data: { 'day-progress': ann.dayProgress }, fb: { days: {} } });
         const bdModel = (ev.items.find(x => x.group === '📂 Backup Drive' && x.day === 1) || {}).pct;
-        const out = { rows, cards, bdCol, bdPct, bdModel };
+        const out = { rows, cards, shown, bdCol, bdPct, bdModel };
         state.adminBatchFilter = ''; out.dup = cmBatchSheet.dupHtml();
         const lk = cmAccountRepair.findLocked(state.adminData, { [OLD]: { into: KEEP, how: 'account-merge', at: now, by: 'trainer' } }, {}, {});
         out.locked = lk.map(x => ({ from: x.from, level: x.level, pending: !!x.pending }));
@@ -71,6 +73,7 @@ const KEEP = 'ann-roster--b111326', OLD = 'ann-roster--b111326x';
     only('⬇ Download · ✍️ Knowledge Checks', col('✍️ Knowledge Checks'), want);
     only('⬇ Download · 📅 Day 1–5: Detailed Scores', col('📅 Day 1–5: Detailed Scores'), want);
     if (JSON.stringify(r.cards) !== JSON.stringify([KEEP, 'ben-two--b111326'])) fail(`a card per scored trainee only: ${JSON.stringify(r.cards)}`);
+    if (r.shown.length !== 1 || !r.cards.includes(r.shown[0])) fail(`the Scorecards should show one scored trainee's card at a time: ${JSON.stringify(r.shown)}`);
     const lessons = col('📚 Lessons');
     if (!lessons || !lessons.includes('Wes Wait') || !lessons.includes('Arc Old')) fail(`⬇ Download's 📚 Lessons should still list the trainee waiting for approval and the archived one: ${JSON.stringify(lessons)}`);
     if (lessons && lessons.filter(x => x === 'Ann Roster').length !== 1) fail(`the merged-away account should not be on 📚 Lessons either: ${JSON.stringify(lessons)}`);

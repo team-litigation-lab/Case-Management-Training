@@ -197,7 +197,8 @@ const PARAPHRASE = 'John Doe called. Someone from an insurance company phoned hi
     check(JSON.stringify(sc.groups) === '[["pc",88],["na",100],["cp",70],["cd",60]]', `each dimension's points count in the day's 100-point model: ${JSON.stringify(sc.groups)}`);
     check(sc.breach.includes('trust') && sc.status === 'gate', `a critical item the trainer marks breached fails the safety gate: ${JSON.stringify(sc)}`);
     // the trainer's Scorecards card and the Batch Sheet carry it
-    await page.evaluate(() => { cmScorecard.refresh(); goto('scorecard'); });
+    // (one trainee's card at a time: this one is picked, as a trainer picks a name in the hero)
+    await page.evaluate((id) => { cmScorecard.refresh(); cmScorecard.only(id); goto('scorecard'); }, id);
     await page.waitForFunction((id) => !!document.getElementById('bs-pt-' + id.replace(/[^A-Za-z0-9_-]/g, '_')), id, { timeout: 20000 }).catch(() => fail('the trainer\'s Scorecards shows no card for the trainee'));
     const card = await page.evaluate((id) => { const c = document.getElementById('bs-pt-' + id.replace(/[^A-Za-z0-9_-]/g, '_')); if (c) c.querySelectorAll('details').forEach(d => { d.open = true; }); return c ? c.innerText : ''; }, id);
     check(/Trainer's rubric/.test(card) && /CMS Case File/.test(card) && !/▢▢▢/.test(card), 'the trainer\'s card shows the trainer rubric in the day\'s dimensions and the CMS Case File with its answers');

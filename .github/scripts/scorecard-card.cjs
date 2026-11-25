@@ -1,4 +1,4 @@
-// @check browser — The Scorecard as the trainee card (the 100-point model, its day multipliers, pass at 80% with the safety gate; the trainee's own card, every card for the trainer, the CSV)
+// @check browser — The Scorecard as the trainee card (the 100-point model, its day multipliers, pass at 80% with the safety gate; the trainee's own card, one trainee's card at a time for the trainer, picked in the hero, the CSV)
 // The Scorecard as Foundational's batch-sheet trainee card, with the client's 100-point model (js/cm-scorecard.js):
 // 1. the model, from records of known shape: the four weights (25/25/30/20), the day multipliers (Day 1 × 1.0, Days 2–3
 //    × 1.15, Days 4–5 × 1.3), Final = Σ(day score × multiplier) ÷ Σ multipliers, the tiers (90/80/65), pass at 80% only
@@ -8,7 +8,7 @@
 // 2. the trainee's 🏅 My Performance: their own card: the name, the Overall / Daily compliance pills, the
 //    🎯 Focus on box, the 100-point model (what feeds each dimension, the critical items), the Day scores, and the
 //    grading-systems table under a toggle; no other trainee's card;
-// 3. the trainer's 🏅 Scorecards: every approved trainee's card, the batch filter, the 🔎 one-trainee pick, the one 🏅 Scores
+// 3. the trainer's 🏅 Scorecards: one approved trainee's card at a time, picked by name in the hero, the batch filter, the one 🏅 Scores
 //    sheet on screen (days, a column per kind of work, Overall, Result: no column per grading system), and ⬇ Download a CSV
 //    that starts with it and keeps every column (the model's too); the same page is Admin → 🏅 Scorecard → 🏅 Scorecards
 //    (the old 📋 Batch Sheet folded into it), with no admin action on it.
@@ -112,7 +112,8 @@ const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
     }
 
     // 3. the trainer: every trainee's card, the batch filter, one trainee, the CSV
-    await page.evaluate(() => { state.isAdmin = true; state.adminData = null; if (window.cmScorecard) cmScorecard.refresh(); goto('scorecard'); });
+    // (one trainee's card at a time: the trainee is picked, as a trainer picks a name in the hero)
+    await page.evaluate((id) => { state.isAdmin = true; state.adminData = null; if (window.cmScorecard) { cmScorecard.refresh(); cmScorecard.only(id); } goto('scorecard'); }, id);
     await page.waitForFunction((id) => !!document.getElementById('bs-pt-' + id.replace(/[^A-Za-z0-9_-]/g, '_')), id, { timeout: 20000 }).catch(() => fail('the trainer\'s Scorecards shows no card for the trainee'));
     const all = await page.evaluate((id) => ({ cards: document.querySelectorAll('.bs-pt').length, batch: !!document.querySelector('select[onchange^="cmScorecard.batch"]'),
         who: [...document.querySelectorAll('select[onchange^="cmScorecard.only"] option')].map(o => o.value), head: [...document.querySelectorAll('#scx-scores .gs-head th')].map(t => t.textContent) }), id);
@@ -145,18 +146,18 @@ const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
     await page.selectOption('select[onchange^="cmScorecard.only"]', id); await page.waitForTimeout(400);
     const one = await page.evaluate(() => document.querySelectorAll('.bs-pt').length);
     if (one !== 1) fail(`🔎 one trainee should show one card: ${one}`);
-    // the card names its trainee in a dropdown of names: every trainee shown, this one selected; choosing a name opens that card
-    const whoPick = await page.evaluate((id) => { const c = document.getElementById('bs-pt-' + id.replace(/[^A-Za-z0-9_-]/g, '_')), sel = c && c.querySelector('.bs-pt-h .bs-pt-who select');
+    // the Scorecards hero names the trainee in a dropdown of names: every trainee shown, this one selected; choosing a name opens that card
+    const whoPick = await page.evaluate((id) => { const sel = document.querySelector('.scx-banner .scx-who-row .bs-pt-who select');
         return sel ? { picked: sel.value, names: [...sel.options].map(o => o.textContent), ids: [...sel.options].map(o => o.value), size: parseFloat(getComputedStyle(sel).fontSize) } : null; }, id);
-    if (!whoPick) fail('a trainer\'s card should name its trainee in a dropdown of names (.bs-pt-who select)');
+    if (!whoPick) fail('the Scorecards hero should name the trainee shown in a dropdown of names (.scx-who-row .bs-pt-who select)');
     else {
-        if (whoPick.picked !== id || !whoPick.names.some(n => /Cara Card/.test(n))) fail(`the card's dropdown should have this trainee selected and listed: ${JSON.stringify(whoPick).slice(0, 300)}`);
-        if (whoPick.size < 20) fail(`the name in the card's dropdown should stay large (${whoPick.size}px)`);
+        if (whoPick.picked !== id || !whoPick.names.some(n => /Cara Card/.test(n))) fail(`the hero's dropdown should have this trainee selected and listed: ${JSON.stringify(whoPick).slice(0, 300)}`);
+        if (whoPick.size < 20) fail(`the name in the hero's dropdown should stay large (${whoPick.size}px)`);
         const other = whoPick.ids.find(v => v && v !== id);
         if (other) {
-            await page.selectOption('#bs-pt-' + id.replace(/[^A-Za-z0-9_-]/g, '_') + ' .bs-pt-who select', other); await page.waitForTimeout(400);
+            await page.selectOption('.scx-banner .scx-who-row .bs-pt-who select', other); await page.waitForTimeout(400);
             const now = await page.evaluate(() => [...document.querySelectorAll('.bs-pt')].map(c => c.dataset.id));
-            if (now.length !== 1 || now[0] !== other) fail(`choosing a name in the card should open that trainee's card by itself: ${JSON.stringify(now)}`);
+            if (now.length !== 1 || now[0] !== other) fail(`choosing a name in the hero should open that trainee's card by itself: ${JSON.stringify(now)}`);
             await page.evaluate((id) => cmScorecard.only(id), id); await page.waitForTimeout(300);
         }
     }
@@ -172,7 +173,7 @@ const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
         if (!T[0] || !T[0].rows.some(r => r[0].includes('Cara Card')) || !full || !full.rows.some(r => r[0].includes('Cara Card'))) fail('the CSV should have the trainee\'s row');
     }
     // the same cards in Admin → 🏅 Scorecard → 🏅 Scorecards, scores only
-    await page.evaluate(() => { cmScorecard.only(''); state.adminTab = 'scorecards'; goto('admin'); });
+    await page.evaluate((id) => { cmScorecard.only(id); state.adminTab = 'scorecards'; goto('admin'); }, id);
     await page.waitForFunction((id) => !!document.querySelector('.cmsh-screen #bs-pt-' + id.replace(/[^A-Za-z0-9_-]/g, '_')), id, { timeout: 20000 }).catch(() => fail('Admin → 🏅 Scorecards shows no card for the trainee'));
     const inAdmin = await page.evaluate(() => ({ sec: ((document.querySelector('.cmsh-sec.active') || {}).textContent || ''), tab: ((document.querySelector('.cmsh-row .admin-tab-btn.active') || {}).textContent || ''),
         acts: /approveTrainee\(|resetTraineeLabAttempts\(|confirmRevokeTrainee\(|cmCompanion\.assign\(|openFeedbackFor\(|adminOpenCertificate\(/.test((document.querySelector('.cmsh-screen') || {}).innerHTML || '') }));

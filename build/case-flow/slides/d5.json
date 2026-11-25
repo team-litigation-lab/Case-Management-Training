@@ -31,8 +31,8 @@
     "situation": "Assuming the **15 RFAs** have no row in the Discovery & Filing Tracker and their 01/04/2027 Certificate of Service sits unlogged, the log needs fixing.",
     "side": true,
     "steps": [
-      "In CMS → Litigation → Discovery & Filing Tracker, add the RFA row with a **deemed-admission flag**, and log the Certificate of Service with its date.",
-      "Report any miss to Atty. Thorne today in CMS → Tasks → + Add Task, without back-dating."
+      "In CMS → Litigation → Discovery & Filing Tracker, add the RFA row with a **deemed-admission flag**, and log the dated Certificate of Service.",
+      "In CMS → Tasks → + Add Task, tell Atty. Thorne today about anything that was missed. Never back-date an entry."
     ],
     "deliver": "**A corrected, source-linked log**, misses reported the same day",
     "purpose": "A missed RFA deadline can mean **deemed admissions** against John Doe",
@@ -100,9 +100,9 @@
   "d5m1-kc": {
     "image": "knowledge-check",
     "questions": [
-      "Discovery mailed 12/01/2026: compute the **response date**. What changes for e-service, and why confirm the court's rule?",
-      "Name the Answer's **three defenses** and the file evidence you would pull for Atty. Thorne against each.",
-      "File the affidavit, 12/01/2026 RFAs and Scheduling Order: **where, under what names**? What happens to the order's dates?"
+      "Discovery mailed 12/01/2026: what is the **response date**, what changes for e-service, and why check the court's rule?",
+      "Name the Answer's **three defenses**. What file evidence would you pull for Atty. Thorne against each?",
+      "Where do the affidavit, RFAs and Scheduling Order go, **under what names**, and what happens to its dates?"
     ]
   },
   "d5m2-l1": {
@@ -156,9 +156,9 @@
   "d5m2-kc": {
     "image": "knowledge-check",
     "questions": [
-      "Keystone's release covers **“all claims”**: why must it never reach John Doe, and what do you do?",
-      "Sort Keystone's final PD position: **which items reach John's settlement**, and which stay Margaret's?",
-      "Which PD documents **already serve John's case**, and what must match on both files?"
+      "Keystone's release covers **“all claims”**. Why must it never reach John Doe, and what do you do?",
+      "Keystone's final PD position: **which items reach John's settlement**, and which stay with Margaret?",
+      "Which PD documents **already help John's case**, and what must match on both files?"
     ]
   },
   "d5m3-l1": {
@@ -187,8 +187,8 @@
     "situation": "Assuming John Doe has **a new number** and his video deposition is 02/18/2027, the prep logistics and his questions need logging.",
     "side": true,
     "steps": [
-      "Log his new number, the **02/16/2027 test call** and the 10:00 a.m. deposition at Riverton Court Reporting in CMS → Tasks.",
-      "Route each question he asked about his case to Atty. Thorne in his own words, answering none and giving him no script."
+      "In CMS → Tasks, log his new number, the **02/16/2027 test call** and the 10:00 a.m. deposition at Riverton Court Reporting.",
+      "Send each question he asked to Atty. Thorne, in his own words. Answer none, and give him no script."
     ],
     "deliver": "Logistics logged and **his questions routed** in his words",
     "purpose": "A calm, prepared John gives **shorter, more accurate answers** on 02/18/2027",
@@ -260,24 +260,24 @@
   "d5m3-kc": {
     "image": "knowledge-check",
     "questions": [
-      "List the **landmines the audit must surface** before 02/04/2027, with the record that documents each.",
-      "Set out **the 02/17/2027 day-before checklist**: who you confirm with, what, the exhibit set and backup contact.",
-      "Name **the four defense question categories**. Which do clients underreport most, and where's that risk here?"
+      "Which **landmines must the audit find** before 02/04/2027, and which record documents each?",
+      "On **the 02/17/2027 day-before checklist**, who do you confirm with, and what, including exhibits and backup contact?",
+      "Name **the four defense question categories**. Which do clients underreport most, and where is that risk here?"
     ]
   },
   "d5m4-l1": {
     "image": "binder-exhibits",
-    "hook": "Fault can reduce or bar recovery; **answer each allegation with evidence** that can come in.",
+    "hook": "Fault can cut or end recovery; answer each defense with **evidence the court allows**.",
     "points": [
-      "Don't rest liability on **report RPD-26-018842**",
-      "“Unbelted” is answered twice: **the EDR and EMS report**",
-      "Failure to mitigate: **the A-C-T record** answers the 19 days",
-      "Every item needs source, **authenticating witness and custody**"
+      "Don't rest liability on **report RPD-26-018842** alone",
+      "**Two records** answer “unbelted”: the car's EDR and the EMS report",
+      "Failure to mitigate (the 19-day break): **the A-C-T record** answers it",
+      "Each item: its source, **who can authenticate it**, its chain of custody"
     ],
-    "upl": "Gather, authenticate and index; never tell John his share of fault",
+    "upl": "Gather, authenticate and index evidence. Never tell John his share of fault",
     "dos": [
       "Answer each allegation **with a document**, not an argument",
-      "Read **the damage pattern** with the video and witness"
+      "Read **the damage pattern** alongside the video and the witness"
     ],
     "donts": [
       "Telling John he **“can't be blamed”** as a passenger",
@@ -341,8 +341,8 @@
     "situation": "Assuming Robert Smith's new address is **confirmed on two sources**, his service and the answer date need logging.",
     "side": true,
     "steps": [
-      "In CMS → Notes → Case Notes, log service at 4410 Quarry Ridge Ct, Millbrook, and docket **the answer date** in CMS → Calendar.",
-      "Log why John Doe's Skip-Trace gate is not met yet in CMS → Notes → Case Notes."
+      "In CMS → Notes → Case Notes, log service at 4410 Quarry Ridge Ct, Millbrook. Then add **the answer date** in CMS → Calendar.",
+      "In CMS → Notes → Case Notes, explain why a Skip-Trace on John Doe isn't justified yet: its gate is not met."
     ],
     "deliver": "A service record through **the answer date**",
     "purpose": "An unserved defendant stalls the case; **an unreachable client** imperils his deposition",
@@ -363,23 +363,23 @@
   "d5m4-kc": {
     "image": "knowledge-check",
     "questions": [
-      "List the **Recovery Stack in order**, limits and total; name three coverages outside it, then the Payer Order.",
-      "When did **the 07/20/2026 demand's window** close? Why? Track A: what must UM carriers give before BI release?",
-      "Track A: $40,000.00 **nets $20,359.92**. Name each deduction's figure and how costs and liens split by stream."
+      "What is **the Recovery Stack order**, its limits and total, three coverages outside it, and the Payer Order?",
+      "When and why did **the 07/20/2026 demand's window** close, and what must UM carriers give before BI release?",
+      "Track A: $40,000.00 **nets $20,359.92**. What is each deduction, and how do costs and liens split by stream?"
     ]
   },
   "d5m6-l1": {
     "image": "policy-letter",
-    "hook": "Atty. Thorne **decides the drop**; you close it out so the file proves it.",
+    "hook": "Atty. Thorne **decides to drop a case**; you close it out and keep the proof.",
     "points": [
-      "**No note, no letter**: confirm Pending Drop and the client told",
-      "Only the client's letter carries **the reason and next step**",
-      "Client: preferred method plus **Certified Mail**; others by email or fax",
-      "Log, follow up, then **switch to Dropped**; keep the proof"
+      "**No note, no letter**: confirm Pending Drop and that the client knows",
+      "Only the client's letter gives **the reason and next step**",
+      "Client: preferred method and **Certified Mail**. Others: email or fax",
+      "Log and follow up, then **switch to Dropped**; keep the proof"
     ],
-    "upl": "Atty. Thorne decides and explains; **never call a case worthless**.",
+    "upl": "Atty. Thorne decides and explains the drop. **Never call a case worthless**.",
     "dos": [
-      "Check **the gate** before you open the template",
+      "Check **the gate** (Pending Drop, client told) before the template",
       "Send the client's letter **two ways**, one with proof"
     ],
     "donts": [
@@ -388,9 +388,9 @@
       "Telling the client **the case is worthless**"
     ],
     "redFlag": {
-      "see": "A carrier's disengagement letter saying **she stopped treating**",
-      "costs": "Only the client's letter carries the reason, in Atty. Thorne's words: this one is a defect",
-      "do": "Strip the reason from carrier and provider letters; **send the client's as approved**",
+      "see": "A carrier's Withdrawal Letter saying **she stopped treating**",
+      "costs": "Only the client's letter gives the reason, in Atty. Thorne's words. This letter is a defect.",
+      "do": "Remove the reason from carrier and provider letters; **send the client's as approved**",
       "owner": "Atty. Thorne"
     }
   },
@@ -420,23 +420,23 @@
   "d5m6-kc": {
     "image": "knowledge-check",
     "questions": [
-      "Name **the two things you confirm** before any Withdrawal Letter goes out, and why.",
+      "What are **the two things you confirm** before any Withdrawal Letter goes out, and why?",
       "What goes in Denise's letter but **not in Granite Shield's or Brookside's**, and why?",
-      "Before Denise's status becomes Dropped, what must be true, and **what proof stays**?"
+      "Before Denise's status becomes Dropped, what must be true, and **what proof stays in the file**?"
     ]
   },
   "d5m5-l1": {
     "image": "money-ledger",
-    "hook": "Same $40,000.00 gross; **suit changes the net** to $14,713.75.",
-    "points": ["Suit filed 09/24/2026: **the 40% tier**, $16,000.00", "Receipt **every litigation cost**: $3,895.25 in all", "Reduce liens **at the fee actually charged**", "Net: **$14,713.75**, routed before John Doe signs"],
-    "upl": "Explain the arithmetic; whether suing was worth it is Atty. Thorne's.",
+    "hook": "The gross is the same $40,000.00, but **the lawsuit lowers John's net** to $14,713.75.",
+    "points": ["Suit was filed 09/24/2026, so the fee is **the 40% tier**: $16,000.00", "Keep **a receipt for every litigation cost**: $3,895.25 in all", "Reduce each lien using **the fee actually charged** (40%)", "John's net is **$14,713.75**; route it before he signs"],
+    "upl": "You explain the math. Whether suing was worth it is Atty. Thorne's call.",
     "dos": [
       "Show John **the 40% tier** in his retainer",
       "Attach **a receipt** to every cost"
     ],
     "donts": [
-      "Carrying **Track A's 33⅓%** into this file",
-      "Disbursing **before the liens resolve**"
+      "Using **Track A's 33⅓% fee** on this file",
+      "Paying out **before the liens are resolved**"
     ]
   },
   "d5m5-a1": {
@@ -465,9 +465,9 @@
   "d5m5-kc": {
     "image": "knowledge-check",
     "questions": [
-      "Take the award to **$14,713.75**: every deduction, its figure and its source.",
+      "Walk the award down to **$14,713.75**: what is every deduction, its figure and its source?",
       "Why is the fee **40% on this file**, which document says so, and who confirms it?",
-      "Peach State: $1,240.00 on Track A, $1,116.00 on Track B. **Show both reductions**."
+      "Peach State: $1,240.00 (Track A), $1,116.00 (Track B). How was each worked out, and **why do they differ**?"
     ]
   },
   "d5m1-subp": {
@@ -526,8 +526,8 @@
     "situation": "07/30/2027, 3:00 p.m. The award is **disbursed**, and the file waits on **Atty. Thorne's sign-off**.",
     "steps": [
       "File the litigation and ADR papers in the CMS so they reach **09 Litigation & ADR**.",
-      "Run ✓ Check my drive and confirm the drive holds every document filed in the CMS, across all nine folders.",
-      "Write the closing checklist in Case Notes for Atty. Thorne's sign-off. Do not move the folder in your training drive."
+      "Run ✓ Check my drive. Confirm the drive holds every document filed in the CMS, across all nine folders.",
+      "In Case Notes, write the closing checklist for Atty. Thorne to sign off. Do not move the folder in your training drive."
     ],
     "deliver": "A complete, checked backup **ready to close**",
     "purpose": "Years later, **anyone can find any page**",
