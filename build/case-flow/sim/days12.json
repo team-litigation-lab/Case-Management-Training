@@ -420,12 +420,12 @@
       "context": "02/23/2026, afternoon. Riverton Spine & Rehab (chiropractic and PT, out of network for Peach State) has John Doe booked for his evaluation 02/24/2026. The LOP signed today by John Doe and Atty. Thorne was emailed with the HIPAA authorization. Harbor Point's PIP (HP-26-7741) will go to his ER and ambulance bills. Tammy asks why not bill Peach State or PIP, how often he will come, where records and statements go, and whether the firm guarantees full payment and when. Answered with facts, she confirms the LOP and the appointment.",
       "opening": "Riverton Spine and Rehab, this is Tammy. I've got the LOP you emailed. Before I put Mr. Doe on tomorrow's schedule, I have a few questions about how we're getting paid.",
       "goals": [
-        "Introduce John Doe's case; confirm LOP acceptance and the 02/24/2026 evaluation",
-        "Answer insurance status with facts: PIP open, out of network for Peach State",
-        "Set records and billing: 30-day itemized statements, missed-visit alert, HIPAA authorization",
-        "Promise no payment amount, reduction or date; route those to Atty. Thorne"
+        "Say who you are and confirm the LOP and his 02/24/2026 evaluation",
+        "Answer insurance with facts: PIP is open; Peach State is out of network",
+        "Ask for itemized bills every 30 days, missed-visit alerts and HIPAA-covered records",
+        "Promise no payment amount, discount or date; those go to Atty. Thorne"
       ],
-      "line": "Facts and logistics only: the cadence is the provider's plan of care, and payment terms are Atty. Thorne's."
+      "line": "Facts and logistics only. How often he visits is the provider's call; payment terms are Atty. Thorne's."
     },
     "d1m3-a1": {
       "who": "John Doe",
@@ -434,12 +434,12 @@
       "context": "02/09/2026, afternoon: retainer signed this morning, matter opened at 1:12 p.m., no onboarding packet yet. John, 34, a Northgate warehouse shift lead, was the front-seat passenger in coworker Kevin Alvarez's Escape on 02/06. On Saturday (02/07) a Keystone Mutual caller asked to record his account; he said he'd think about it, and she said she'd call back. His neck is stiff; he hasn't seen anyone. Margaret's Civic was towed from the scene and he has no car. Calms with clear steps; repeats instructions back if asked.",
       "opening": "Hey, it's John Doe, returning your call. So the other guy's insurance called me on Saturday, a lady from Keystone, wanting to record what happened. She said she'd call back. What do I tell her?",
       "goals": [
-        "Ask about the stiff neck and whether he has seen anyone yet",
-        "Outline next steps: get evaluated this week; the packet is on its way",
-        "No Recorded Statement: Keystone's calls go to the firm",
-        "Discuss the case with no one outside the firm; have him repeat it"
+        "Ask about his stiff neck, and whether he has seen a doctor yet",
+        "Tell him the next steps: see a doctor this week; his packet is coming",
+        "No Recorded Statement to Keystone; their calls go to the firm",
+        "Ask him not to discuss the case with anyone; have him repeat it back"
       ],
-      "line": "Give the firm's instructions only; fault, claim value and legal effect go to Atty. Thorne."
+      "line": "Give the firm's instructions only. Questions about fault, value or legal effect go to Atty. Thorne."
     },
     "d2m1-a2": {
       "who": "Dana Whitfield",
@@ -476,12 +476,12 @@
       "context": "04/17/2026, 4:48 p.m.; he calls in, three days before the Final Warning Letter's 04/20 date. Last PT 04/02. That day, driven home by his mother, the car stopped at their own corner, Maple Hollow Rd & Birch Ave, where the crash happened, as a pickup came up Birch: he panicked and got out. Since then he avoids cars, sleeps 4–5 hours, feels low, quit basketball, still works (bus). Neck and right hand still bad. Safe. Declines recording. Asks if this ruins his case.",
       "opening": "Hey... it's John Doe. I got your letter. My mom signed for it. I'm sorry I didn't call back. I just... I didn't know how to say it. Am I getting dropped?",
       "goals": [
-        "Lead with relief and safety; offer choices, including recording",
-        "Draw out what happened in his words, without labels or blame",
-        "With consent: Dr. Reyes appointment and evening slots under the LOP",
-        "Read back; route claim questions to Atty. Thorne"
+        "Start with relief that he called and that he is safe; give him choices",
+        "Let him tell what happened in his own words, with no labels or blame",
+        "If he agrees, book Dr. Reyes and evening visits under the LOP",
+        "Repeat back what he said; send claim questions to Atty. Thorne"
       ],
-      "line": "No diagnosis, no counseling advice, no value talk, no promise about withdrawal; claim questions go to Atty. Thorne."
+      "line": "No diagnosis, no counseling, no talk of value or dropping the case. Claim questions go to Atty. Thorne."
     },
     "d2m3-a1": {
       "who": "John Doe",
@@ -490,12 +490,12 @@
       "context": "03/04/2026, recorded call. John first treated 02/20/2026, 14 days after the collision. Asked openly, he gives four reasons in his own words: no car (Civic towed, Kevin's Escape in the shop, no rental until 02/18); thought it was soreness, took ibuprofen and patches; signed the PIP form unaware it paid his bills, unsure his Peach State plan was active; right-hand numbness from 02/18, worked 02/18–02/19, went in on his first day off. He texted his mother about it 02/07–02/15, called out of work 02/09–02/13, kept the 02/07 pharmacy receipt.",
       "opening": "Hey, it's John. I'm on my break, sitting in the rental, so I've got about twenty minutes. What did you need to go over?",
       "goals": [
-        "Open on record: date, parties, role, his consent, privacy confirmed",
-        "Draw out all four reasons with open, non-leading questions",
-        "Ask for the paper: the texts, the call-outs, the 02/07 receipt",
-        "Read back his account; confirm 03/05 consult and post-03/19 transport"
+        "Start the recording: the date, who is on the call, his consent, privacy",
+        "Ask open questions until you have all four reasons; never suggest one",
+        "Ask for the proof: the texts, the call-outs, the 02/07 receipt",
+        "Repeat back his account; confirm the 03/05 consult and rides after 03/19"
       ],
-      "line": "Never suggest a reason, interpret it or say what the gap does to his case; route that to Atty. Thorne."
+      "line": "Never suggest a reason, explain it, or say what the gap does to his case. That is Atty. Thorne's."
     },
     "d2m4-a2": {
       "who": "Atty. Elijah Thorne",
@@ -504,12 +504,12 @@
       "context": "07/08/2026, before any demand. MMI 06/12; Specials $42,984.00 ($41,400.00 medical after the 05/04 duplicate came out, plus $1,584.00 wages); liens $1,860.00 Peach State and $6,105.00 LOP; targets $10,000 BI, $20,000 Host UM, $10,000 Relative UM. He pushes: low-speed impact, the 14-day gap, the “degenerative” MRI, and asks what the case is worth. Briefed well, he decides: a time-limited BI demand served 07/20/2026, the gap addressed up front, no UM demand before a documented BI tender, billed-vs-paid his call.",
       "opening": "I've got twenty minutes. Bottom line first. Then tell me why Keystone shouldn't call this a low-speed bump with a guy who waited two weeks to see a doctor.",
       "goals": [
-        "Lead with the bottom line: MMI, $42,984.00 Specials, $10,000 BI limit",
-        "Meet each challenge with dated documents, not adjectives",
-        "Get his decisions: demand, the gap, UM consents, billed-vs-paid",
-        "Read back each decision; task it with an owner and date"
+        "Start with the bottom line: MMI, $42,984.00 Specials, the $10,000 BI limit",
+        "Answer each challenge with a dated document, not an opinion",
+        "Get his decisions on the demand, the gap, UM consents, billed vs. paid",
+        "Repeat each decision back, then give it an owner and a date"
       ],
-      "line": "Recommend operations only; propose no demand figure and leave every legal decision to Atty. Thorne."
+      "line": "Suggest how to run the work only. Propose no demand figure; every legal decision is Atty. Thorne's."
     }
   },
   "fallout": [

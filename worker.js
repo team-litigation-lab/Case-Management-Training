@@ -38,7 +38,8 @@ const KV_PREFIX = "cm:";
    admin's save or the Worker writes (ownerPut) and the trainee never can, and every read lays it back over the record.
    A record no admin has saved since reads exactly as it is.
      trainee:<id>   approval, rejection, archive, unlocks, assignments, and who they are (name and batch)
-     feedback:<id>  a trainer's review of a day (and its read mark stays the trainee's), a trainer's note on an auto-review
+     feedback:<id>  a trainer's review of a day (and its read mark stays the trainee's), a trainer's note on an auto-review,
+                    a trainer's note on each graded activity (activities)
      focus:<id>     the focus items themselves (seen and done stay the trainee's)
      actsub:<id>    a trainer's feedback on an activity, for the submission it was written for: a new submission
                     retires it to prevFeedback, as the trainee's own save does */
@@ -55,8 +56,11 @@ const OWNED = {
         if (isTrainerReview(v)) days[d] = { review: v };
         else if (v && v.trainerNote) days[d] = { note: v.trainerNote };
       });
-      // 📤 the progress reports a trainer sent (js/cm-send-progress.js) are the trainer's too
-      return Array.isArray(rec && rec.reports) ? { days, reports: rec.reports } : { days };
+      // 📤 the progress reports a trainer sent (js/cm-send-progress.js) are the trainer's too, and so are the 🧑‍🏫 notes on
+      // graded activities (js/cm-trainer-notes.js)
+      const own = Array.isArray(rec && rec.reports) ? { days, reports: rec.reports } : { days };
+      if (rec && rec.activities && typeof rec.activities === "object" && !Array.isArray(rec.activities)) own.activities = rec.activities;
+      return own;
     },
     overlay: (rec, own) => {
       if (!rec.days || typeof rec.days !== "object") rec.days = {};
@@ -66,6 +70,7 @@ const OWNED = {
         else if (o.note && cur && typeof cur === "object") cur.trainerNote = o.note;
       });
       if (Array.isArray(own.reports)) rec.reports = own.reports;
+      if (own.activities && typeof own.activities === "object") rec.activities = own.activities;
     }
   },
   focus: {

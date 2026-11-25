@@ -440,11 +440,13 @@ window.cmCheckCalc = async function(key){
     let good;
     if(f.type==="date") good = raw===f.answer;
     else { const v = parseFloat(String(raw).replace(/[$,\s]/g,"")); good = !isNaN(v) && Math.abs(v - f.answer) <= (f.tol==null?1:f.tol); }
-    if(good) ok++; else notes.push(`<li><b>${f.label.replace(/<[^>]+>/g,"")}:</b> expected ${f.type==="date"?f.answer:money(f.answer)}${f.hint?` — ${f.hint}`:""}</li>`);
+    if(good) ok++; else notes.push(`<li><b>${f.label.replace(/<[^>]+>/g,"")}:</b> ${raw ? "not quite. " : "left empty. "}The right ${f.type==="date"?"date":"figure"} is <b>${f.type==="date"?f.answer:money(f.answer)}</b>${f.hint?`: ${f.hint}`:"."}</li>`);
     if(el){ el.classList.toggle("ok",good); el.classList.toggle("bad",!good); }
   });
   const score = Math.round(ok/cfg.fields.length*100);
-  document.getElementById("res_"+k).innerHTML = `<b style="color:${score>=80?"var(--success)":"var(--danger)"}">${ok}/${cfg.fields.length} correct (${score}%)</b>${notes.length?`<ul style="margin:6px 0 0;padding-left:18px">${notes.join("")}</ul>`:""}${cfg.afterCheck?`<div style="margin-top:8px">${cfg.afterCheck}</div>`:""}`;
+  const anyDate = cfg.fields.some(f => f.type==="date");
+  const tip = notes.length ? `<p style="margin:8px 0 0"><b>What you could have done better:</b> ${anyDate ? "you could have read each date straight from the source document and checked it against the line it belongs to, before typing it in." : "you could have worked each figure from its source document and checked the math once more before entering it."}</p>` : "";
+  document.getElementById("res_"+k).innerHTML = `<b style="color:${score>=80?"var(--success)":"var(--danger)"}">${ok} of ${cfg.fields.length} right (${score}%)</b><span style="display:block;margin-top:4px">${notes.length ? `${notes.length} to fix. Here is the right answer for each, so you can see where it went wrong:` : "All right. Well done."}</span>${notes.length?`<ul style="margin:6px 0 0;padding-left:18px">${notes.join("")}</ul>`:""}${tip}${cfg.afterCheck?`<div style="margin-top:8px">${cfg.afterCheck}</div>`:""}`;
   await scorePart(key, score);
 };
 
@@ -458,17 +460,17 @@ window.renderCalendarBody = function(body){
   const screens = body.querySelectorAll(".wizard-screen");
   if(screens.length < 4) return;
   // Part B: docket briefing for the handling attorney (written by the trainee)
-  screens[1].innerHTML = part("Weekly Docket Briefing for the Handling Attorney",
-    "Using your resolved week, write the BLUF briefing the attorney reads on Monday: hard deadlines first (brief deadline, SOL filing, RFA responses, strike list), what moved and why, what needs a decision.",
+  screens[1].innerHTML = part("Brief the Attorney on the Week",
+    "Write the short note the attorney reads on Monday, from the week you just fixed." + `<ol class="sb-steps"><li>Start with the <b>bottom line</b>: the one thing the attorney must know (BLUF).</li><li>List the <b>hard deadlines</b> next, each with its date and time: the brief, the SOL filing, the RFA responses, the strike list.</li><li>Say <b>what you moved</b> and why.</li><li>End with the <b>decisions</b> only the attorney can make. Then press <b>Check my briefing</b>.</li></ol>`,
     `<textarea id="calPromptInput" class="cm-ta" style="min-height:170px" placeholder="BLUF: … &#10;Hard deadlines this week: … &#10;Moved: … &#10;Decisions needed: …"></textarea>
-     <button class="btn btn-navy btn-sm" style="margin-top:10px" onclick="checkCalendarPrompt(this)">Review</button><div id="calPromptResult" style="margin-top:10px"></div>`);
-  screens[2].innerHTML = part("Proactive Case Manager Tasks",
-    "A strong Case Manager spots what is missing from the calendar: warning alerts before hard dates, 30-day client pulses, subpoena audits, payoff-letter follow-ups. Generate an AI read of your current week.",
-    `<button class="btn btn-orange btn-sm" onclick="generateProactiveTasks()">Generate proactive tasks</button><div id="proactiveResult" style="margin-top:14px"></div>`);
+     <button class="btn btn-navy btn-sm" style="margin-top:10px" onclick="checkCalendarPrompt(this)">Check my briefing</button><div id="calPromptResult" style="margin-top:10px"></div>`);
+  screens[2].innerHTML = part("Spot What's Missing",
+    "A strong Case Manager also sees what is <i>not</i> on the calendar yet." + `<ol class="sb-steps"><li>Look over your week and jot down what is missing: warnings before hard dates, 30-day client check-ins, subpoena checks, payoff-letter follow-ups.</li><li>Press <b>Show what's missing</b> and compare the list with yours.</li><li>Add anything you missed to the week with <b>+ Add Event</b> in Part 1.</li></ol>`,
+    `<button class="btn btn-orange btn-sm" onclick="generateProactiveTasks()">Show what's missing</button><div id="proactiveResult" style="margin-top:14px"></div>`);
   // dates as the trainee's case year has them (js/cm-case-dates.js rolls the file forward)
   const cd = iso => window.CM_CASE_DATES ? CM_CASE_DATES.text(iso) : iso;
   screens[3].innerHTML = part("Hard-Code the Scheduling Order Dates",
-    "John Doe VS Robert Smith is in suit, and the Court's Scheduling Order (RS55, entered 12/10/2026) sets the dates that govern it. Read it and enter each deadline.",
+    "John Doe's case is in court, and the judge's Scheduling Order (RS55, entered 12/10/2026) sets its deadlines." + `<ol class="sb-steps"><li>Open the Scheduling Order below.</li><li>Type each date into its line, exactly as the order sets it.</li><li>Press <b>Check my numbers</b> and fix anything it flags.</li><li>Then put the same dates in Court E-Filing's calendar, as the last step says.</li></ol>`,
     `<p class="cm-intro"><a href="case-doc.html?id=RS55" onclick="return window.cmCaseFlow && cmCaseFlow.doc ? cmCaseFlow.doc(event,'RS55') : true">📄 RS55 · Scheduling Order</a></p>` + calc("calendar:sched", [
       {type:"date", label:"Plaintiff's expert disclosure due", answer:cd("2027-03-15")},
       {type:"date", label:"Mediation completed by", answer:cd("2027-03-31")},
@@ -477,7 +479,7 @@ window.renderCalendarBody = function(body){
       {type:"date", label:"Pretrial conference (9:00 a.m., Courtroom 4A)", answer:cd("2027-08-12")},
       {type:"date", label:"Jury trial calendar term begins", answer:cd("2027-09-13")}
     ]) + toolStep("efiling", "calendar:docket", "Enter the six Scheduling Order deadlines in Court E-Filing's case calendar: the two expert disclosures, mediation, the close of discovery, the pretrial conference (9:00 a.m.) and the trial term. Add a warning alert before each one, and the proposed pretrial order seven days before the conference."));
-  const labs = ["Calendar Conflict Resolver","Docket Briefing for the Attorney","Proactive CM Tasks","Hard-Code the Scheduling Order Dates"];
+  const labs = ["Fix the Week's Clashes","Brief the Attorney","Spot What's Missing","Enter the Court's Dates"];
   toolState.wizardLabels = labs;
   body.querySelectorAll(".wizard-dot").forEach((d,i)=>{ if(labs[i]) d.title = labs[i]; });
   const pl = document.getElementById("wizardPartLabel"); const idx = toolState.wizardIndex||0;
@@ -502,7 +504,7 @@ window.checkCalendarPrompt = async function(btn){
 };
 window.generateProactiveTasks = async function(){
   const out = document.getElementById("proactiveResult");
-  out.innerHTML = `<div class="ai-loading">Reading your calendar…</div>`;
+  out.innerHTML = `<div class="ai-loading">Looking over your week…</div>`;
   const week = calMergedEvents().map(e=>`${typeof calDayDate==="function" ? calDayDate(e.day) : e.day} ${fmtHr(e.s)} ${e.t} (${e.type})`).join("\n");
   try{
     const txt = await callAIText(`You are a senior personal-injury Case Manager coaching a trainee. Here is the trainee's week:\n${week}\n\nList 6 specific proactive tasks that are MISSING from this calendar (e.g., 30/14/7-day alerts before hard dates, preservation letters, payoff-letter follow-ups, 30-day client pulses, subpoena audits, W-9 requests, deposition prep packets). One line each: the task, the day to schedule it, and why. Plain text, numbered.`, 600);

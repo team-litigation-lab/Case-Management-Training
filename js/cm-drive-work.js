@@ -3,7 +3,7 @@
    The Worker grades it (worker-drive-work.js: every night, and on 🏅 Grade now): each file the trainee writes in their
    own case folders is matched to its Skill Building activity and graded against that activity's rubric. This page:
      • the trainee: 📂 My Backup Drive gains ✍ Your written work, graded: each activity's final grade (the trainer's
-       where there is one, the AI's beside it), the trainer's comment, the rubric's points, and what to fix taught the
+       where there is one, the grader's beside it), the trainer's comment, the rubric's points, and what to fix taught the
        way the Progress Log's ⚠ Needs fixing is (what your work shows, the standard, why it matters, your next step);
        the files not matched, and why; and where each activity's work goes (its folder and the heading to start it
        with). Their dashboard's Backup Drive card says how many are graded. The grades are only ever read from the
@@ -55,10 +55,11 @@ function itemHtml(x, forTrainer){
   return `<div class="cmdw-item" data-cmdw-act="${E(x.id)}">
     <div class="cmdw-ih"><b>Day ${E(x.day)} · ${E(x.title)}</b>${pill(x.final)}</div>
     <div class="cmdw-meta">${x.file ? `${url ? `<a href="${E(url)}" target="_blank" rel="noopener noreferrer">📄 ${E(x.file)} ↗</a>` : `📄 ${E(x.file)}`}` : "No file on the drive now"}${x.gradedAt ? ` · graded ${E(when(x.gradedAt))}` : ""}</div>
-    ${o ? `<div class="cmdw-ov"><b>${forTrainer ? "Your grade" : "Your trainer's grade"}: ${E(o.score)}%</b>${x.auto != null ? ` <span>(the AI's: ${E(x.auto)}%)</span>` : ""}${o.comment ? `<div class="cmdw-com">💬 ${E(o.comment)}</div>` : ""}</div>` : ""}
+    ${o ? `<div class="cmdw-ov"><b>${forTrainer ? "Your grade" : "Your trainer's grade"}: ${E(o.score)}%</b>${x.auto != null ? ` <span>(automated: ${E(x.auto)}%)</span>` : ""}${o.comment ? `<div class="cmdw-com">💬 ${E(o.comment)}</div>` : ""}</div>` : ""}
     ${(x.dims || []).length ? `<div class="cmdw-dims">${x.dims.map(d=>`<span>${d.points === d.max ? "✓" : "○"} ${E(d.name)} ${E(d.points)}/${E(d.max)}</span>`).join("")}</div>` : ""}
     ${(x.strengths || []).length ? `<ul class="cmdw-good">${x.strengths.map(s=>`<li>⭐ ${E(s)}</li>`).join("")}</ul>` : ""}
     ${(x.fix || []).length ? `<div class="cmdw-fixh">⚠ Needs fixing</div><ul class="cmdw-fixes">${x.fix.map(teachHtml).join("")}</ul>` : ""}
+    ${(x.better || []).length ? `<div class="cmdw-fixh">💡 What you could have done better</div><ul class="cmdw-good">${x.better.map(s=>`<li>${E(s)}</li>`).join("")}</ul>` : ""}
     ${notes.length ? `<ul class="cmdw-notes">${notes.map(n=>`<li>${n}</li>`).join("")}</ul>` : ""}
   </div>`;
 }
@@ -94,7 +95,7 @@ function traineeSection(){
   const v = M.work || {items: [], unmatched: [], unreadable: []}, S = M.structure || {};
   const dayOv = Object.keys(S).filter(n=>S[n] && S[n].override);
   return `<section class="cmdw-sec" data-cmdw-sec><h4>✍ Your written work, graded</h4>
-    <p class="cmdw-p">What you write in your case folders (memos, letters, logs, summaries, drafts) is matched to its activity and graded by the AI against that activity's rubric, every night. A grade your trainer changed is the one that counts.${M.ai ? "" : " <b>The AI grader isn't switched on yet.</b>"}</p>
+    <p class="cmdw-p">What you write in your case folders (memos, letters, logs, summaries, drafts) is matched to its activity and graded against that activity's rubric, every night. A grade your trainer changed is the one that counts.${M.ai ? "" : " <b>Automatic grading isn't switched on yet.</b>"}</p>
     ${dayOv.length ? `<div class="cmdw-days">${dayOv.map(n=>`<div class="cmdw-ov"><b>Day ${E(n)} · ${E(DAYNAME[n])}: your trainer's grade ${E(S[n].final)}%</b>${S[n].auto != null ? ` <span>(auto: ${E(S[n].auto)}%)</span>` : ""}${S[n].override.comment ? `<div class="cmdw-com">💬 ${E(S[n].override.comment)}</div>` : ""}</div>`).join("")}</div>` : ""}
     ${(v.items || []).length ? (v.items || []).map(x=>itemHtml(Object.assign({maxChars: M.maxChars}, x), false)).join("") : `<p class="cmdw-p cmdw-none">Nothing graded yet. Write an activity's work in its folder, start it with its heading (below), and it is graded tonight.</p>`}
     ${listHtml("Not matched to an activity", v.unmatched, "Start each document with the heading of the activity it is the work of.")}
@@ -191,7 +192,7 @@ function foundHtml(V){
 function trainerSection(rows){
   const reps = state.driveReports || {};
   const list = rows.filter(r=>{ const p = reps[r.id] || {}; return p.connected || (p.work && (p.work.items || []).length) || p.overrides; });
-  return `<section class="cmdw-adm" id="cmdwAdm"><h3>✍ Graded work · the AI's grades and yours</h3>
+  return `<section class="cmdw-adm" id="cmdwAdm"><h3>✍ Graded work · the grader's grades and yours</h3>
     <p class="cmdw-p">Each trainee's written work on their Backup Drive is graded by the AI every night against its activity's rubric, and each day's folders and filing automatically. Change any grade and leave a comment: your grade is the one the trainee, the Scorecard and the Batch Sheet see, and the nightly grading never overwrites it. <b>🏅 Grade now</b> runs the same grading for one trainee straight away.</p>
     ${list.length ? list.map(r=>{ const p = reps[r.id] || {}, w = p.work || {}, xs = w.items || [], avg = xs.length ? Math.round(xs.reduce((t, x)=>t + (Number(x.s) || 0), 0) / xs.length) : null, m = MSG[r.id];
       return `<details class="cmdw-tr" data-cmdw-id="${E(r.id)}" ${OPEN[r.id] ? "open" : ""} ontoggle="cmDriveWork.toggle('${J(r.id)}', this.open)">
@@ -248,7 +249,7 @@ function ranText(r){
 }
 async function gradeNow(id){
   if(BUSY[id]) return;
-  BUSY[id] = true; OPEN[id] = true; MSG[id] = {ok:true, text:"Grading this trainee's Drive now: the AI reads each changed file…"}; redraw();
+  BUSY[id] = true; OPEN[id] = true; MSG[id] = {ok:true, text:"Grading this trainee's Drive now: reading each changed file…"}; redraw();
   try{
     DATA[id] = await api({action:"workGradeFor", traineeId:id}); keepBrief(id, DATA[id]);
     const r = DATA[id].ran || {};
@@ -340,7 +341,7 @@ function scoreItems(c, items){
     const it = {name, day: +n, pct: pct(d.s), src: "trainer", note: ovNote(d)};
     if(at >= 0) out[at] = Object.assign({}, out[at], it); else out.push(it);
   });
-  (b.items || []).forEach(x=>{ if(typeof x.s === "number") out.push({name: `Day ${x.d}: ✍ ${x.t}`, day: Number(x.d) || null, pct: pct(x.s), note: x.ov ? `${ovNote(x)}${x.ai != null ? ` (AI ${x.ai}%)` : ""}` : "AI-graded written work on the Backup Drive"}); });
+  (b.items || []).forEach(x=>{ if(typeof x.s === "number") out.push({name: `Day ${x.d}: ✍ ${x.t}`, day: Number(x.d) || null, pct: pct(x.s), note: x.ov ? `${ovNote(x)}${x.ai != null ? ` (automated ${x.ai}%)` : ""}` : "Graded written work on the Backup Drive"}); });
   return out;
 }
 function hookScorecard(){
@@ -358,7 +359,7 @@ function dayParts(r, n, data, out){
     if(it) Object.assign(it, ov); else out.push(Object.assign({grp: "bd", name: n === 1 ? "📂 Backup Drive: the firm's folders" : "📂 Backup File Maintenance", best: [], improve: d.c ? [d.c] : []}, ov));
   }
   (b.items || []).filter(x=>Number(x.d) === Number(n) && typeof x.s === "number").forEach(x=>out.push({grp: "bd", name: `✍ ${x.t}`, pct: pct(x.s),
-    status: x.ov ? "Trainer's grade" : x.s >= 70 ? "Passed" : "Below 70%", why: x.ov ? `${ovNote(x)}${x.ai != null ? ` · the AI's ${x.ai}%` : ""}` : "AI-graded written work, read from the trainee's Backup Drive", best: [], improve: []}));
+    status: x.ov ? "Trainer's grade" : x.s >= 70 ? "Passed" : "Below 70%", why: x.ov ? `${ovNote(x)}${x.ai != null ? ` · the grader's ${x.ai}%` : ""}` : "Graded written work, read from the trainee's Backup Drive", best: [], improve: []}));
 }
 
 window.cmDriveWork = {open: openMine, copy, toggle, draft, save: (id, kind, key)=>save(id, kind, key, false), clear: (id, kind, key)=>save(id, kind, key, true), gradeNow,

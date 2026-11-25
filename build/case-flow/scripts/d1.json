@@ -119,7 +119,7 @@
   },
   "d1m3-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Email Workspace, tell Dana Whitfield the firm represents John Doe: no direct contact, and any Recorded Statement goes through the firm\n• Step 2: Log it in CMS › Notes › Case Notes, with a task in CMS › Tasks to set up his first visit at Riverton Urgent Care"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Email Workspace, tell Dana Whitfield the firm represents John Doe: no direct contact, and any Recorded Statement goes through the firm\n• Step 2: Log that email in CMS › Notes › Case Notes. In CMS › Tasks, add a dated task to book his Riverton Urgent Care visit"
     },
     "case": {
       "say": "• Assuming John Doe's voicemail is transcribed and Keystone has asked to record him, the firm's instruction and his first visit now need logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Keystone told in writing, every contact logged, the first visit tasked"
@@ -188,7 +188,7 @@
       "say": "• Draft one LOR per insurer on the firm template, each naming that insurer's own insured\n• Request limits and the Declaration Page, the policy's one-page summary, plus preservation of photos, statements, video, vehicle data\n• Protect the client: the other driver's insurer gets his name only\n• Send by each insurer's preferred method, signed by Atty. Thorne, logged by the Case Manager\n• No acknowledgement by the third business day: follow up"
     },
     "theory": {
-      "say": "• On 02/17/2026 five letters leave John Doe's file: the LOR moves every carrier onto the firm; one wrong letter risks $30,000 of UM coverage\n• LOR, Letter of Representation: tells an insurer to deal with the firm; common errors: wrong insured, missed UM carrier, a notice reading like a demand\n• Claim set-up is coverage determination: which policies apply, how much they pay, what they exclude\n• Four coverage questions: is it valid, what type applies, what are the limits, any exclusions\n• Liability assessment: who is legally responsible and how much; Atty. Thorne weighs it, you secure proof\n• Third-party insurer is Robert Smith's, on the other side; first-party policies cover the client"
+      "say": "• On 02/17/2026 five letters leave John Doe's file: the LOR sends every carrier to the firm; one wrong letter risks $30,000 of UM coverage\n• LOR, Letter of Representation: tells an insurer to deal with the firm; common errors: wrong insured, missed UM carrier, a notice reading like a demand\n• Claim set-up is coverage determination: which policies apply, how much they pay, what they exclude\n• Four coverage questions: is it valid, what type applies, what are the limits, any exclusions\n• Liability assessment: who is legally responsible and how much; Atty. Thorne weighs it, you secure proof\n• Third-party insurer is Robert Smith's, on the other side; first-party policies cover the client"
     },
     "theory2": {
       "say": "• Information protection: the other side's insurer learns only what it must\n• Notice says a claim is coming; a demand asks for money; UM demand waits until BI offers full limit in writing\n• Preservation request: keep photos, statements, video, the vehicle and its event data recorder\n• Acknowledgement: the insurer's written receipt of the LOR, sometimes stating coverage and limit; calendar and log it"
@@ -274,7 +274,7 @@
   },
   "d2m1-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: three steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance, complete each layer from the claim calls, each limit with its source, still preliminary\n• Step 2: In CMS › Doc Hub › Others, draft three letters of representation and two notices\n• Each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages\n• Step 3: Route the set to Atty. Thorne for signature, send each by preferred method, calendar each acknowledgement check\n• As each written answer arrives, record that layer's verification status with its document and date"
+      "say": "• Skill activity, a few minutes: three steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance, fill in each layer's claim number, adjuster and limit, noting where each limit came from. Keep limits preliminary\n• Step 2: In CMS › Doc Hub › Others, draft three letters of representation and two notices, one for each carrier\n• Each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages\n• Step 3: After Atty. Thorne signs, send each one, calendar a check that it arrived, and update each layer's status as replies come in"
     },
     "case": {
       "say": "• Assuming claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, no adjuster assigned\n• Five letters must go out on 02/17/2026\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: five letters signed, sent and logged, follow-ups calendared"
@@ -332,7 +332,7 @@
   },
   "d1m4-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: three steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor, record the stack in order with a preliminary projection\n• And put the Treatment Gap, counted from the records, at the top of the risks band\n• Step 2: Under the gap, record John Doe's account from the 03/04 recorded call as his, the documents behind it marked requested\n• Step 3: Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne"
+      "say": "• Skill activity, a few minutes: three steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor, list the three insurance layers in order and mark the total as a preliminary projection\n• And put the Treatment Gap, counted from the records, at the top of the risks band\n• Step 2: Top of the risks band: the Treatment Gap in days, from the records. Under it, John Doe's 03/04 account, its documents marked requested\n• Step 3: Put the SOL filing deadline on the CMS Calendar, then send the plan to Atty. Thorne"
     },
     "case": {
       "say": "• Assuming the set-up is in, the $40,000 stack verified and the first treatment records on file, Atty. Thorne now needs the Case Plan\n• John's account of the gap from the 03/04 recorded call is on file too\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Case Plan routed to Atty. Thorne, the filing window docketed"

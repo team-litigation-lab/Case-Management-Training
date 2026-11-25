@@ -1027,17 +1027,17 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 #### 1 · Visual Layout Description
 
-A video-call frame fills the left two-thirds: AI John Doe's tile large, the trainee's tile beside it, and Atty. Thorne's tile small in the corner with a LISTENING tag. Under the frame, a segment agenda bar of five orange-numbered chips: ① LOGISTICS ② CALM ③ GUIDELINES → ATTY. THORNE ④ DRESS & DEMEANOR ⑤ IN-ROOM RULES. Right third: a cream card headed ROUTED TO ATTY. THORNE with five empty lines and mono tags GAP · DISRUPTION · SEATBELT · 2021 VISITS · MRI, which fill as John asks. A red-bordered callout across the bottom: “Answer the process. Route the substance.” The argument: the routing card fills up, and the trainee's answers to it stay empty.
+A video-call frame fills the left two-thirds: John Doe's tile large, the trainee's tile beside it, and Atty. Thorne's tile small in the corner with a LISTENING tag. Under the frame, a segment agenda bar of five orange-numbered chips: ① LOGISTICS ② CALM ③ GUIDELINES → ATTY. THORNE ④ DRESS & DEMEANOR ⑤ IN-ROOM RULES. Right third: a cream card headed ROUTED TO ATTY. THORNE with five empty lines and mono tags GAP · DISRUPTION · SEATBELT · 2021 VISITS · MRI, which fill as John asks. A red-bordered callout across the bottom: “Answer the process. Route the substance.” The argument: the routing card fills up, and the trainee's answers to it stay empty.
 
 #### 2 · Slide Body — the scenario and the task
 
 **Scenario.** File date 02/04/2027, Track B. John Doe was reached through Margaret yesterday after going dark on 01/22/2027; he has a new phone number. His deposition is noticed for 02/18/2027, 10:00 a.m., by videoconference with Riverton Court Reporting. He is anxious and expects a TV cross-examination. Atty. Thorne opens the prep session, hands you the first segment while he listens, and takes the substance after you.
 
-**Execution prompt.** Run your segment of John's first prep session in the Call Sim. Confirm his new number with Margaret as backup, the deposition logistics, and a 02/16/2027 test call on the device and in the room he will use. Explain the setting (Pillar 1), what to wear and how the room works (Pillar 3 and the in-room rules) in plain words, and have the document set ready; Pillar 2, the testimony habits and any practice questions, is Atty. Thorne's segment, never yours. AI John will ask what to say about the gap, the missed April therapy, the seatbelt, his 2021 chiropractor visits and the MRI: recognise each as substance, answer none, and log each in his words for Atty. Thorne. Have Atty. Thorne's chosen gap set ready to share for his segment. Calm John with the process, never a prediction.
+**Execution prompt.** Run your segment of John's first prep session in the Call Sim. Confirm his new number with Margaret as backup, the deposition logistics, and a 02/16/2027 test call on the device and in the room he will use. Explain the setting (Pillar 1), what to wear and how the room works (Pillar 3 and the in-room rules) in plain words, and have the document set ready; Pillar 2, the testimony habits and any practice questions, is Atty. Thorne's segment, never yours. John will ask what to say about the gap, the missed April therapy, the seatbelt, his 2021 chiropractor visits and the MRI: recognise each as substance, answer none, and log each in his words for Atty. Thorne. Have Atty. Thorne's chosen gap set ready to share for his segment. Calm John with the process, never a prediction.
 
 | | |
 |---|---|
-| **Tool / interface** | Call Sim → AI John Doe (deposition prep session) · CMS → Tasks → + Add Task |
+| **Tool / interface** | Call Sim → John Doe (deposition prep session) · CMS → Tasks → + Add Task |
 | **Expected output** | A delivered prep segment, a logistics record, and John's substantive questions routed to Atty. Thorne in John's own words. |
 
 **Show Them — reference model**
@@ -1247,9 +1247,9 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Explain the fork: what is the same on Track B as on Track A, what changes on 08/12/2026, and why a $10,000 carrier freezes all $40,000.
-2. List the impasse triggers on John Doe's file by 09/04/2026, each with its date and the proof that shows it.
-3. Keystone calls $3,500 “final” on 08/12. Using the “Never” rule, say what the file does next, and what it never does without Atty. Thorne's authority.
+1. What stays the same and what changes on Track B from 08/12/2026? Why does one $10,000 carrier freeze all $40,000?
+2. What were the impasse triggers on John Doe's file by 09/04/2026? Give each one's date and the proof that shows it.
+3. Keystone calls $3,500 “final” on 08/12. Under the “Never” rule, what does the file do next, and what does it never do without Atty. Thorne's authority?
 
 **Best practices & pitfalls**
 
@@ -1260,9 +1260,9 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, what you learned about recognizing an impasse and moving a file into litigation: the principles, not the clicks.
-- Articulate your strategy: the file is in Litigation status with a 09/24/2026 filing target. What is your next action, and why is it the right one rather than something else?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, what did you learn about spotting an impasse and moving a file into litigation? Focus on the ideas, not the clicks.
+- The file is in Litigation status, with a 09/24/2026 filing target. What would you do next, and why that and not something else?
+- What part of this module are you least sure about, and what would help you feel sure?
 
 **Skill Scale — self-rate 1–5**
 
@@ -1279,27 +1279,27 @@ The standard knowledge-check split: questions numbered in orange on the warm cre
 
 **Auto-graded share of the day's Knowledge Check** (7 questions):
 
-1. On Track B, why can't the file demand the $20,000 Host UM while Keystone stalls?  
-   Harbor Point has already denied the claim · **✓ Host UM opens only once BI is exhausted — paid or tendered at limits — so a UM demand now risks the stack (as configured for this training file; confirm the governing rule)** · UM claims can only be made after a lawsuit is filed · The lapsed Time-Limited Demand bars every other claim  
-   *BI → Host UM → Relative UM. Until Keystone pays or tenders its $10,000, the $30,000 of UM behind it stays closed: all $40,000 is frozen behind a $10,000 carrier.*
-2. Keystone calls its $3,500 offer “final” on 08/12/2026. Under the “Never” rule, the file:  
-   Accepts it as final and tells John Doe · Sends a lower number to keep talks alive · Sends Harbor Point a $20,000 UM demand in parallel · **✓ Doesn't accept “that's all I have” as final: it escalates to the supervisor and makes no move without Atty. Thorne's authority**  
-   *Never bid against yourself, and never treat the first “final” as final: every adjuster has a supervisor. The 09/02 escalation is that test, and any new number is Atty. Thorne's to set.*
-3. Which statement about the two neutrals is correct?  
-   **✓ A mediator cannot force a settlement; an arbitrator's binding award is final, with no appeal on the merits** · A mediator can order Keystone to pay limits if its offer is unreasonable · An arbitrator's award can be appealed like a jury verdict if the math is wrong · Both neutrals issue binding decisions; only the formality differs  
-   *The mediator's only tool is persuasion; the arbitrator is a private judge. Courts vacate or correct an award only on narrow grounds, so the Arbitration Binder must be right the first time.*
-4. The 09/08/2026 impasse memo to Atty. Thorne should end with:  
-   A recommendation to file suit and an estimate of Robert Smith's exposure above his limits · A proposed counter-offer to put to Keystone · **✓ The decision needed from him, framed as questions, with the dated record, the frozen stack and the SOL above it** · A note that John Doe has agreed to go to court  
-   *The memo documents and asks. Filing, value and any excess exposure are Atty. Thorne's analysis; the Case Manager's job is a record he can decide from.*
-5. Atty. Thorne authorized suit on 09/09/2026, the Case Manager changed the status to Litigation on 09/10, and the Complaint was filed 09/24/2026. From which date does the retainer's 40% fee tier apply?  
+1. On Track B, Keystone is stalling. Why can't you demand the $20,000 Host UM yet?  
+   Harbor Point has already denied the claim · **✓ Host UM opens only after BI is paid or tendered at limits (this file's rule)** · A UM claim can be made only after a lawsuit is filed · The lapsed Time-Limited Demand blocks every other claim  
+   *The order is BI, then Host UM, then Relative UM. Until Keystone pays or tenders its $10,000, the $30,000 of UM behind it stays closed, so all $40,000 is frozen. Confirm the governing rule.*
+2. On 08/12/2026, Keystone calls its $3,500 offer “final.” Under the “Never” rule, what does the file do?  
+   Accept it as final and tell John Doe · Send a lower number to keep talks going · Send Harbor Point a $20,000 UM demand at the same time · **✓ Escalate to the supervisor, and make no move without Atty. Thorne's authority**  
+   *Never bid against yourself, and never treat the first “final” as final: every adjuster has a supervisor. The 09/02 escalation tests that, and any new number is Atty. Thorne's to set.*
+3. What is true about the two neutrals, the mediator and the arbitrator?  
+   **✓ A mediator can't force a deal; a binding award can't be appealed on the merits** · A mediator can order Keystone to pay limits if its offer is unreasonable · An arbitrator's award can be appealed like a jury verdict if the math is wrong · Both neutrals make binding decisions; only the formality is different  
+   *A mediator can only persuade. An arbitrator is a private judge, and courts change an award only on narrow grounds. That is why the Arbitration Binder must be right the first time.*
+4. Your 09/08/2026 impasse memo goes to Atty. Thorne. How should it end?  
+   A recommendation to file suit and an estimate of the excess exposure · A proposed counter-offer to send to Keystone · **✓ The decision he needs to make, written as questions, after the dated record** · A note that John Doe has agreed to go to court  
+   *The memo records the facts and asks. Filing, value and any excess exposure are Atty. Thorne's analysis. Your job is a dated record, the frozen stack and the SOL, so he can decide.*
+5. Atty. Thorne authorized suit 09/09/2026. You changed the status 09/10. The Complaint was filed 09/24/2026. When does the 40% fee tier start?  
    09/09/2026, the authorization · 09/10/2026, the status change · **✓ 09/24/2026, the filing date** · 08/21/2026, the date the demand lapsed  
-   *Per the retainer, 33⅓% pre-suit and 40% once suit is filed: the tier follows the filing, not the status. Recording 40% from 09/10 changes John Doe's fee two weeks early. Atty. Thorne discussed the tier with John Doe on 09/09; the CM records that, never explains the fee.*
-6. On 09/24/2026 the e-filing envelope for John Doe's Complaint is accepted. Which entry belongs on the calendar that day?  
-   The answer deadline, 30 days from the filing date · **✓ The service deadline, 01/22/2027 (09/24/2026 + 120 days on this file's rule set), with warning alerts; the answer date is set only once Robert Smith is served** · Only the Case Management Conference, since service dates belong to the process server · The service deadline counted from the date Atty. Thorne signed, 09/23/2026  
-   *Each clock runs from its own trigger. Filing starts the service clock, so 01/22/2027 goes on with alerts the day the envelope is accepted. The answer runs from service, which has not happened yet.*
-7. Two Complaints sit in John Doe's CMS on 09/24/2026: the 09/15/2026 draft stamped NOT FOR FILING, and the set Atty. Thorne signed on 09/23. What does the Case Manager upload?  
-   Whichever was saved first, since the content is the same · The 09/15 draft, signed with Atty. Thorne's e-signature to save time · **✓ Only the set Atty. Thorne signed on 09/23, after checking every page's signature** · Both, so the clerk can choose the operative version  
-   *Nothing is filed that Atty. Thorne has not signed, and the Case Manager never signs for him. The signature check is the Case Manager's job even when the paralegal drafted the set.*
+   *The retainer says 33⅓% before suit and 40% once suit is filed. The tier follows the filing, not the status. Atty. Thorne discussed the tier with John Doe; you record it and never explain the fee.*
+6. On 09/24/2026, the court accepts the e-filing of John Doe's Complaint. What goes on the calendar that day?  
+   The answer deadline, 30 days from the filing date · **✓ The service deadline, 01/22/2027 (120 days after filing), with warning alerts** · Only the Case Management Conference; service dates are the process server's job · The service deadline, counted from Atty. Thorne's signing date, 09/23/2026  
+   *Each clock runs from its own trigger. Filing starts the service clock, so 01/22/2027 goes on with alerts that day. The answer date runs from service, so it waits until Robert Smith is served.*
+7. Two Complaints are in the CMS: the 09/15/2026 draft marked NOT FOR FILING, and the 09/23 set Atty. Thorne signed. Which do you upload?  
+   Whichever was saved first, since the content is the same · The 09/15 draft, with Atty. Thorne's e-signature added to save time · **✓ Only the 09/23 signed set, after checking the signature on every page** · Both, so the clerk can choose which one applies  
+   *Nothing is filed unless Atty. Thorne signed it, and you never sign for him. Checking every signature is your job, even when the paralegal drafted the set.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1338,9 +1338,9 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Defendant's discovery was mailed to John Doe on 12/01/2026. Compute the response date step by step, say how the count changes for a set e-served by consent, and why you confirm the court's rule.
-2. Atty. Mercer's Answer pleads three defenses. Name each one, and the evidence already on John Doe's file you would pull for Atty. Thorne against it.
-3. Where in the litigation file do the affidavit of service, the 12/01/2026 RFAs and the Scheduling Order go, under what names, and what happens to the order's dates?
+1. Discovery was mailed to John Doe on 12/01/2026. Work out the response date step by step. Then say what changes for e-service by consent, and why you confirm the court's rule.
+2. Atty. Mercer's Answer pleads three defenses. Name each one. What evidence already on John Doe's file would you pull for Atty. Thorne against each?
+3. Where in the litigation file do the affidavit of service, the 12/01/2026 RFAs and the Scheduling Order go, and under what names? What happens to the order's dates?
 
 **Best practices & pitfalls**
 
@@ -1352,9 +1352,9 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, what you learned about supporting John Doe's lawsuit: the principles, not the clicks.
-- Articulate your strategy: what is the next action on this file as of 01/20/2027, and why is it the right next action rather than something else?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, what did you learn about supporting John Doe's lawsuit? Focus on the principles, not the clicks.
+- As of 01/20/2027, what would you do next on this file, and why that step and not another?
+- What part of this module are you least sure about, and what would help?
 
 **Skill Scale — self-rate 1–5**
 
@@ -1371,24 +1371,24 @@ Split layout. Upper half: the Litigation Support Assessment on the warm cream ca
 
 **Auto-graded share of the day's Knowledge Check** (6 questions):
 
-1. John Doe's responses to the 12/01/2026 set are docketed for 01/04/2027, as computed in the calendar audit. On 01/05/2027 you reconcile the Discovery & Filing Tracker to the docket calendar. Which entry proves the file met that deadline?  
-   The 01/04/2027 due date in the calendar row · A note that John Doe reviewed the drafts with Atty. Thorne · **✓ The Certificate of Service dated 01/04/2027, logged and filed to 04_DISCOVERY_DEFENDANT_TO_PLAINTIFF** · Atty. Mercer's silence since the responses went out  
-   *A due date proves only that the deadline was known; compliance is proved by the Certificate of Service, its date checked against 01/04/2027 and the PDF filed where the set lives. Re-derive nothing: the count was settled in the calendar audit. Log the proof, then report to Atty. Thorne.*
-2. On 01/05/2027 you find that the 15 Requests for Admission served on 12/01/2026 were never given their own log row. What is the danger?  
-   None; the defense must still prove every fact at trial · **✓ Requests not answered in time may be deemed admitted, which can decide issues such as causation against John Doe** · The court extends discovery deadlines automatically over the holidays · Only Interrogatories carry a deadline; Requests for Admission are informal  
-   *An RFA not answered by its deadline may be deemed admitted. It gets its own log row and a red flag, Atty. Thorne is alerted the hour it lands, and if service of the responses can't be proved from the certificate, he hears about it today.*
-3. Two months after suit is filed, a Keystone adjuster calls John Doe to “just confirm a few facts.” What does the Case Manager do?  
-   Let John Doe answer, as long as he sticks to the Police Report · Answer the adjuster's questions on John Doe's behalf · Refer the adjuster to Harbor Point, the Host UM carrier · **✓ Step in, end the contact, and notify Atty. Thorne the same day**  
-   *Trap 2 of the litigation mindset: John Doe is represented by the firm, so every contact from the defense side, adjuster or investigator, goes through Atty. Thorne (true since the Letter of Representation, and absolute once suit is filed). The CM stops the contact, logs it and tells Atty. Thorne the same day; what happens next is his call.*
-4. Which of these is a litigation KPI, written so it can be measured?  
-   **✓ Discovery Countdown: draft responses reach Atty. Thorne at least 7 days before the court deadline** · Keep a close eye on discovery deadlines · Call the client whenever there is news from the court · Review subpoenas when time allows  
-   *A KPI has a formula and a target. For the 01/04/2027 deadline the Discovery Countdown target is 12/28/2026 (7 days before 01/04/2027). Litigation clients are called at least every 30 days, news or not, and subpoenas are audited every 10 days.*
-5. Atty. Thorne approves a Subpoena Duces Tecum to the Riverton Fire EMS records custodian. In what order does the Case Manager move it?  
-   Have the custodian served, then send Atty. Mercer a copy once the records arrive · **✓ Draft it on the court-approved form, serve a copy on Atty. Grant Mercer, have the custodian formally served after the notice period, then make the compliance call** · Email the draft to the custodian and ask for voluntary compliance before anyone else sees it · File it and wait for the custodian to call when the records are ready  
-   *Notice to opposing counsel comes before the non-party is served; most states set a notice period, often 5 to 10 days, so confirm the governing rule. Then a process server serves the Registered Agent or records custodian, and a compliance call goes out 5 days before production.*
-6. Which Exhibit A is least likely to draw a Motion to Quash?  
-   All records of any kind relating to John Doe · Every medical, billing and employment record of John Doe, of any date · **✓ The Run Report for Riverton Fire run RF-26-0206-114 (Medic 7), patient John Doe, 02/06/2026 only** · Any documents the custodian believes may be relevant to the lawsuit  
-   *A narrow Exhibit A names one subject, an exact date range and named record types. A blanket request is an overly broad fishing expedition that the defense or the third party can move to quash. The scope itself is Atty. Thorne's to set.*
+1. John Doe's responses to the 12/01/2026 set were due 01/04/2027. On 01/05/2027, which entry proves the file met that deadline?  
+   The 01/04/2027 due date in the calendar row · A note that John Doe reviewed the drafts with Atty. Thorne · **✓ The logged Certificate of Service dated 01/04/2027, filed with the set** · Atty. Mercer's silence since the responses went out  
+   *A due date only shows you knew the deadline. The Certificate of Service, dated 01/04/2027 and filed in 04_DISCOVERY_DEFENDANT_TO_PLAINTIFF, proves it was met. Log that proof, then report to Atty. Thorne.*
+2. On 01/05/2027 you find the 15 Requests for Admission served 12/01/2026 never got their own log row. What is the danger?  
+   None, because the defense must still prove every fact at trial · **✓ Late answers may count as admitted, which could decide causation against John Doe** · The court extends discovery deadlines automatically over the holidays · Only Interrogatories have a deadline; Requests for Admission are informal  
+   *A Request for Admission not answered on time may be treated as admitted. Give it its own log row and a red flag, and tell Atty. Thorne today if you can't prove the responses were served.*
+3. Two months after suit is filed, a Keystone adjuster calls John Doe to “just confirm a few facts.” What do you do?  
+   Let John Doe answer, as long as he sticks to the Police Report · Answer the adjuster's questions yourself on John Doe's behalf · Send the adjuster to Harbor Point, the Host UM carrier · **✓ Step in, end the contact, and tell Atty. Thorne the same day**  
+   *The firm represents John Doe, so every contact from the defense side goes through Atty. Thorne. You stop the contact, log it and tell him the same day; what happens next is his call.*
+4. Which one is a litigation KPI written so it can be measured?  
+   **✓ Discovery Countdown: drafts reach Atty. Thorne 7 days before the court deadline** · Keep a close eye on every discovery deadline on the file · Call the client whenever there is news from the court · Review open subpoenas whenever there is time in the week  
+   *A KPI has a formula and a target. For the 01/04/2027 deadline, drafts are due to Atty. Thorne by 12/28/2026. The other choices give you nothing to measure.*
+5. Atty. Thorne approves a Subpoena Duces Tecum to the Riverton Fire EMS records custodian. In what order do you move it?  
+   Have the custodian served, then copy Atty. Mercer once the records arrive · **✓ Draft it, notify Atty. Grant Mercer, serve the custodian after the notice period, then call** · Email the draft to the custodian and ask for voluntary compliance first · File it, then wait for the custodian to call when the records are ready  
+   *Opposing counsel gets notice before the non-party is served. The notice period is often 5 to 10 days, so confirm the rule. Then a process server serves the custodian, and you call 5 days before production.*
+6. Which Exhibit A is least likely to draw a Motion to Quash (a request to cancel the subpoena)?  
+   All records of any kind relating to John Doe · Every medical, billing and employment record of John Doe, of any date · **✓ Riverton Fire's Run Report for run RF-26-0206-114, John Doe, 02/06/2026 only** · Any documents the custodian believes may be relevant to the lawsuit  
+   *A narrow Exhibit A names one subject, an exact date range and the record types. A blanket request looks like a fishing expedition, so it can be quashed. The scope itself is Atty. Thorne's to set.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1428,8 +1428,8 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 #### 2 · Slide Body — Knowledge verification
 
 1. Keystone's 12/10/2026 release covers “all claims arising from the 02/06/2026 accident.” Why must it never reach John Doe, and what do you do with it?
-2. Sort Keystone's final PD position: which items reach John Doe's settlement, and which stay on Margaret Doe's file? Say why for each.
-3. Which PD documents already serve John Doe's case, and what must stay identical between his file and Margaret Doe's?
+2. Which items in Keystone's final PD position reach John Doe's settlement, and which stay on Margaret Doe's file? Say why for each.
+3. Which PD documents already help John Doe's case, and what must stay identical on his file and Margaret Doe's?
 
 **Best practices & pitfalls**
 
@@ -1440,9 +1440,9 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, how Property Damage touches John Doe's case at settlement, and how it doesn't.
-- Articulate your strategy: Leah Moran wants an answer today and her release is on your desk. What is your next action, and why that one?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, where does Property Damage touch John Doe's case at settlement, and where does it not?
+- Leah Moran wants an answer today, and her release is on your desk. What would you do next, and why?
+- What part of this module are you least sure about, and what would help?
 
 **Skill Scale — self-rate 1–5**
 
@@ -1458,21 +1458,21 @@ The standard knowledge-check split (cream question panel with orange-numbered qu
 
 **Auto-graded share of the day's Knowledge Check** (5 questions):
 
-1. Keystone PD's 12/10/2026 release, for Margaret Doe to sign as the Civic's owner, covers “all claims arising from the 02/06/2026 accident”. You:  
-   Send it to John Doe to sign, since he was in the crash · Send it to Margaret Doe to sign now, since it is her PD claim · **✓ Hold it, log it and route its language to Atty. Thorne the same day: it is not limited to Property Damage, and nobody signs until he has reviewed it** · Sign the firm's acknowledgment and return it  
-   *A PD release must be limited to Property Damage. The CM checks the scope and the claim number, holds the release, and routes it; Atty. Thorne decides what Margaret Doe signs, and John Doe, who has no PD claim, signs nothing.*
-2. Keystone's final PD position is $792.00 for Diminished Value and $0 for Loss of Use. What does it change on John Doe's settlement figures?  
-   His Net Sheet drops by the difference · **✓ Nothing: Loss of Use and Diminished Value are Margaret Doe's PD claim, paid under Keystone's $25,000 PD limit outside the $40,000 stack; his Specials, liens and stack don't move** · His liens rise · Keystone's BI limit falls by $792.00  
-   *PD figures stay on Margaret Doe's file. Whatever her Loss of Use or Diminished Value settles for, John Doe's Specials, liens, stack and Net Sheet are unaffected.*
-3. Which PD items are already working for John Doe's case?  
-   Margaret Doe's rental receipts, as his damages · **✓ The photos, the 02/16/2026 estimate and the $2,315.00 A-pillar supplement, indexed in his severity set as proof of impact force** · The Diminished Value appraisal, as his damages · Keystone's 17c worksheet  
-   *The PD file's severity evidence is already in John Doe's set. Keep it identical on both files; the PD claim itself stays Margaret Doe's.*
+1. Keystone's 12/10/2026 PD release for Margaret Doe, the Civic's owner, covers “all claims arising from the 02/06/2026 accident.” What do you do?  
+   Send it to John Doe to sign, since he was in the crash · Send it to Margaret Doe to sign now, since it is her PD claim · **✓ Hold it, log it, and send its wording to Atty. Thorne the same day** · Sign the firm's acknowledgment and send it back to Keystone  
+   *A PD release must cover Property Damage only, and this one goes much wider. Hold it and route it; Atty. Thorne decides what Margaret Doe signs. John Doe has no PD claim, so he signs nothing.*
+2. Keystone's final PD position is $792.00 for Diminished Value and $0 for Loss of Use. What does this change on John Doe's settlement figures?  
+   His Net Sheet drops by the difference · **✓ Nothing, because it is Margaret Doe's PD claim, outside his $40,000 stack** · His liens rise by the same amount · Keystone's BI limit falls by $792.00  
+   *Loss of Use and Diminished Value are Margaret Doe's PD claim, paid under Keystone's $25,000 PD limit. Whatever they settle for, John Doe's Specials, liens, stack and Net Sheet don't move.*
+3. Which PD items are already helping John Doe's case?  
+   Margaret Doe's rental receipts, counted as his damages · **✓ The photos, 02/16/2026 estimate and $2,315.00 A-pillar supplement, as proof of impact** · The Diminished Value appraisal, counted as his damages · Keystone's 17c worksheet, counted as his damages  
+   *The photos, estimate and supplement show how hard the impact was, so they sit in his severity set. Keep them identical on both files; the PD claim itself stays Margaret Doe's.*
 4. Where does the Civic's rental touch John Doe's case?  
-   Nowhere: it is Margaret Doe's claim · **✓ In his transportation history: no car until the 02/18/2026 rental and the 03/19/2026 cutoff sit behind his gap and disrupted care, so both records must match date for date** · As a damages item in his suit · As a lien on his settlement  
-   *The rental is Margaret Doe's claim, but its dates are part of John Doe's gap record. The CM keeps the two records identical; what the dates mean at deposition is Atty. Thorne's to prepare.*
-5. Leah Moran calls: “Will Ms. Doe take the $792.00 so I can close this?” You:  
-   Say yes, since anything beats $0 · Counter at $3,600.00 · Tell her it sounds fair and you'll ask him · **✓ Log her words, tell her the position is with Atty. Thorne, and route it the same day**  
-   *The CM never accepts, rejects, counters or values a PD figure. Log, say it is with Atty. Thorne, and route.*
+   Nowhere, because it is only Margaret Doe's claim · **✓ In his transportation history, which helps explain his gap in care** · As a damages item in his lawsuit · As a lien on his settlement  
+   *He had no car until the 02/18/2026 rental, and the 03/19/2026 cutoff disrupted his care. So both records must match, date for date. What the dates mean at deposition is Atty. Thorne's to prepare.*
+5. Leah Moran calls: “Will Ms. Doe take the $792.00 so I can close this?” What do you do?  
+   Say yes, since anything is better than $0 · Make a counteroffer of $3,600.00 · Tell her it sounds fair and you will ask Atty. Thorne · **✓ Log her words, say it is with Atty. Thorne, and route it today**  
+   *You never accept, reject, counter or value a PD figure, and saying it sounds fair is valuing it. Log her words, tell her it is with Atty. Thorne, and route it the same day.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1510,9 +1510,9 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 #### 2 · Slide Body — Knowledge verification
 
-1. List the landmines the pre-deposition audit must surface on John Doe's file before 02/04/2027, with the record that documents each.
-2. Set out the day-before checklist for 02/17/2027: who you confirm with, what you confirm, the exhibit set and the backup contact.
-3. Name the four categories of defense questions. Which do clients most often underreport, and where does that risk sit on this file?
+1. What landmines must the pre-deposition audit find on John Doe's file before 02/04/2027? Name the record that documents each one.
+2. Walk through the day-before checklist for 02/17/2027: who do you confirm with, and what? Include the exhibit set and the backup contact.
+3. Name the four kinds of defense questions. Which kind do clients most often underreport, and where is that risk on this file?
 
 **Best practices & pitfalls**
 
@@ -1523,9 +1523,9 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, what you learned about preparing a client to testify: the principles, not the clicks.
-- Articulate your strategy: John testifies on 02/18/2027. What is your next action on this file, and why is it the right one rather than another?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, what did you learn about preparing a client to testify? Focus on the principles, not the clicks.
+- John testifies on 02/18/2027. What would you do next on this file, and why that step and not another?
+- What part of this module are you least sure about, and what would help?
 
 **Skill Scale — self-rate 1–5**
 
@@ -1542,18 +1542,18 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 **Auto-graded share of the day's Knowledge Check** (4 questions):
 
-1. On 02/04/2027 John Doe asks you, “What should I say about why I waited two weeks to see a doctor?” What do you do?  
-   Tell him to say he had no ride and hoped it would pass · Tell him not to mention the gap unless he is asked about it · **✓ Tell him it is a question for Atty. Thorne, log it in his words and route it** · Send him the Gap Explanation Record to study before 02/18/2027  
-   *The gap is substance. Atty. Thorne prepares it with John and chooses what John reviews; the Case Manager supplies no wording and no study document on the gap, and routes the question the same day.*
-2. At the deposition, defense counsel asks, “So it was just the neck stiffness. Is that all?” This is:  
-   **✓ The “Is that all?” trap: a flat “yes” can be used later against the right-hand numbness and arm symptoms in his records** · A routine personal-background question · An improper question John may refuse to answer · The silent trap  
-   *It narrows the injury list to what John recalls on the spot. His Medical Records are the complete account, and Atty. Thorne drills how John meets the question.*
-3. Mid-answer, Atty. Thorne says “Objection, form.” John should:  
-   Finish his sentence quickly, then pause · **✓ Stop, let the objection finish, then answer unless Atty. Thorne instructs him not to** · Ask the court reporter whether he has to answer · Treat it as an instruction not to answer  
-   *An objection is a routine flag on the record. He stops, lets the objection finish, then answers; often he hears “You can answer.” Only “I instruct the witness not to answer” means he does not answer.*
-4. Which of the four categories of defense questions do clients most often underreport?  
-   Personal background, such as work and residences · The mechanics of the crash at Maple Hollow Rd & Birch Ave · The impact on work and daily life · **✓ Medical history, including anything before the accident**  
-   *Past medical history: on this file, the three 2021 low-back chiropractic visits. The defense will likely already have them from the records and its database searches, so the question tests honesty (Golden Rule 1).*
+1. On 02/04/2027 John Doe asks, “What should I say about why I waited two weeks to see a doctor?” What do you do?  
+   Tell him to say he had no ride and hoped it would pass · Tell him not to mention the gap unless someone asks about it · **✓ Tell him it is for Atty. Thorne, log his words and route it** · Send him the Gap Explanation Record to study before 02/18/2027  
+   *The gap is substance, so Atty. Thorne prepares it with John and chooses what he reviews. You give no wording and no study papers on the gap; route the question the same day.*
+2. At the deposition, defense counsel asks, “So it was just the neck stiffness. Is that all?” What kind of question is this?  
+   **✓ The “Is that all?” trap, which shrinks his list of injuries** · A routine question about his personal background · An improper question that John may refuse to answer · The silent trap  
+   *It narrows his injuries to what John remembers on the spot. A flat “yes” can be used against the right-hand numbness and arm symptoms in his Medical Records. Atty. Thorne drills how John answers.*
+3. In the middle of an answer, Atty. Thorne says “Objection, form.” What should John do?  
+   Finish his sentence quickly, then pause · **✓ Stop, let the objection finish, then answer unless told not to** · Ask the court reporter whether he has to answer · Treat it as an order not to answer the question  
+   *An objection is a routine flag on the record. John stops, lets it finish, then answers; often he hears “You can answer.” Only “I instruct the witness not to answer” means he does not answer.*
+4. There are four kinds of defense questions. Which kind do clients most often underreport (leave things out of)?  
+   Personal background, such as work and where they have lived · How the crash happened at Maple Hollow Rd & Birch Ave · How the injury affects work and daily life · **✓ Medical history, including anything before the accident**  
+   *Past medical history is the risk. On this file, that means the three 2021 low-back chiropractic visits. The defense likely has them already from records and database searches, so the question tests honesty (Golden Rule 1).*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1592,9 +1592,9 @@ The standard knowledge-check split, extended for the final check. Above the crea
 
 #### 2 · Slide Body — Knowledge verification
 
-1. List John Doe's Recovery Stack in its order of operations, with each limit and the total, and name three coverages on this file that are not part of it. Then state the Payer Order for his Medical Bills.
-2. When did the window on the 07/20/2026 BI Time-Limited Demand close, and why that date? On Track A, what had to come from Harbor Point and Cardinal State before the BI release was signed?
-3. Track A nets John Doe $20,359.92 from $40,000.00. Name every deduction with its figure, and explain how costs and liens split between the BI and UM streams.
+1. List John Doe's Recovery Stack in order, with each limit and the total, and name three coverages on this file outside it. What is the Payer Order for his Medical Bills?
+2. When did the 07/20/2026 BI Time-Limited Demand's window close, and why? On Track A, what had to come from Harbor Point and Cardinal State before the BI release?
+3. Track A nets John Doe $20,359.92 from $40,000.00. Name every deduction with its figure. How do costs and liens split between the BI and UM streams?
 
 **Best practices & pitfalls**
 
@@ -1605,9 +1605,9 @@ The standard knowledge-check split, extended for the final check. Above the crea
 
 **Case Manager Self-Summary**
 
-- Summarize what you learned across all five days of John Doe's file: the principles that carried from intake to deposition, not the clicks.
-- Articulate your strategy: the counter-package is with Atty. Thorne and mediation is set for 03/18/2027. What is your next action on this file, and why is it the right one rather than something else?
-- Identify the one thing across the whole Case Flow you are least confident about, and what you would need in order to be confident.
+- In your own words, which principles carried John Doe's file from intake to deposition across all five days?
+- The counter-package is with Atty. Thorne and mediation is set for 03/18/2027. What would you do next, and why?
+- What part of the whole Case Flow are you least sure about, and what would help?
 
 **Skill Scale — self-rate 1–5**
 
@@ -1624,15 +1624,15 @@ The standard knowledge-check split, extended for the final check. Above the crea
 
 **Auto-graded share of the day's Knowledge Check** (3 questions):
 
-1. (Day 1 · Day 5) John Doe goes unreachable on 01/22/2027, 27 days before his 02/18/2027 deposition. Running Day 1's No Contact Protocol at litigation speed, which of these is the Case Manager's work?  
-   Tell Margaret Doe that missing the deposition could end John's case · Decide whether to ask Atty. Mercer to move the deposition · **✓ Run the channel ladder, escalate to Atty. Thorne with the deposition impact, and prepare the certified Final Warning Letter for his signature** · Order a Skip-Trace on John at once, as was done for Robert Smith  
-   *The ladder, the escalation and the letter are the CM's; moving the deposition and any withdrawal are Atty. Thorne's. Margaret is told only that the firm needs John to call. John's address is known (2214 Maple Hollow Rd), so Day 1's Skip-Trace gate is not met; he was reached through Margaret on 02/03/2027.*
-2. (Day 2 · Day 5) At the 02/18/2027 deposition, defense counsel works the 14-Day Gap. Which Day 2 work product lets Atty. Thorne show the gap was explained from the start, not at deposition?  
-   **✓ The Gap Explanation Record from the recorded call, with its corroboration: the EMS report, Northgate's Attendance Record, the texts to Margaret, the 02/07/2026 pharmacy receipt and the urgent-care history** · Dr. Helen Park's MRI read of 03/13/2026 · The A-C-T record for April 2026 · The audited Riverton Spine & Rehab ledger  
-   *The MRI answers “degenerative,” and A-C-T answers the 19-day disruption in April; neither explains 02/06–02/20/2026. The Gap Explanation Record does, and Dr. Reyes's Causation Letter (06/19/2026) ties it to the injury. Atty. Thorne prepares the testimony; the CM never scripts it.*
-3. (Day 1 · Day 5) The 11/12/2026 Answer says Kevin Alvarez's Escape entered the all-way stop out of turn. Which evidence, preserved months before suit, shows the order of entry directly?  
-   The Escape's event data recorder, downloaded 10/2026 · The Riverton Fire EMS Run Report · Dr. Reyes's Causation Letter of 06/19/2026 · **✓ The doorbell-camera video from 2214 Maple Hollow Rd, preserved on 02/17/2026 and copied 02/19/2026**  
-   *The video shows the Escape stopped and Smith rolling through; Ruth Calloway and Smith's citation on RPD-26-018842 corroborate it. The EDR speaks to the belt and the 11 mph speed, not the order of entry. How fault would be weighed is Atty. Thorne's call.*
+1. (Day 1 · Day 5) John Doe stops answering on 01/22/2027, 27 days before his deposition. Under the No Contact Protocol, which work is yours?  
+   Tell Margaret Doe that missing the deposition could end John's case · Decide whether to ask Atty. Mercer to move the deposition · **✓ Run the channel ladder, escalate to Atty. Thorne, and prepare the Final Warning Letter** · Order a Skip-Trace on John at once, as was done for Robert Smith  
+   *The ladder, the escalation and the certified letter for his signature are yours; moving the deposition is Atty. Thorne's. Margaret hears only that the firm needs John to call. His address is known, so no Skip-Trace.*
+2. (Day 2 · Day 5) At the 02/18/2027 deposition, defense counsel attacks the 14-Day Gap. Which Day 2 record shows it was explained from the start?  
+   **✓ The Gap Explanation Record from the recorded call, with its corroboration** · Dr. Helen Park's MRI read of 03/13/2026 · The A-C-T record for April 2026 · The audited Riverton Spine & Rehab ledger  
+   *The Gap Explanation Record, backed by the EMS report, attendance record, texts, pharmacy receipt and urgent-care history, explains 02/06–02/20/2026. The MRI and A-C-T answer other questions. Atty. Thorne prepares the testimony; you never script it.*
+3. (Day 1 · Day 5) The 11/12/2026 Answer says Kevin Alvarez's Escape entered the all-way stop out of turn. Which evidence directly shows who entered first?  
+   The Escape's event data recorder, downloaded 10/2026 · The Riverton Fire EMS Run Report · Dr. Reyes's Causation Letter of 06/19/2026 · **✓ The doorbell-camera video from 2214 Maple Hollow Rd, preserved 02/17/2026**  
+   *The video shows the Escape stopped and Smith rolling through; Ruth Calloway and Smith's citation back it up. The EDR shows the seat belt and 11 mph speed, not entry order. Weighing fault is Atty. Thorne's call.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1671,9 +1671,9 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Take the $40,000.00 award to John Doe's $14,713.75: name every deduction with its figure and its source.
+1. Walk the $40,000.00 award down to John Doe's $14,713.75. Name every deduction, its figure and its source.
 2. Why is the fee 40% on this file, and which document says so? Who confirms it before the Net Sheet is drafted?
-3. Peach State accepted $1,240.00 on Track A and $1,116.00 on Track B. Show both reductions and why they differ.
+3. Peach State accepted $1,240.00 on Track A and $1,116.00 on Track B. How was each reduction worked out, and why do they differ?
 
 **Best practices & pitfalls**
 
@@ -1683,9 +1683,9 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, what you learned closing Track B: the principles behind a litigated Net Sheet, not the clicks.
-- Articulate your strategy: the award is in and both UM checks are in trust. What is your next action before the 07/30/2027 disbursement, and why is it the right one rather than something else?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, what did you learn closing Track B? Focus on the principles behind a litigated Net Sheet, not the clicks.
+- The award is in and both UM checks are in trust. What would you do next before the 07/30/2027 disbursement, and why?
+- What part of this module are you least sure about, and what would help?
 
 **Skill Scale — self-rate 1–5**
 
@@ -1700,12 +1700,12 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **Auto-graded share of the day's Knowledge Check** (2 questions):
 
-1. Track B recovers the same $40,000.00 gross as Track A. Why does John Doe net $14,713.75 instead of $20,359.92?  
-   The arbitrator reduced the award for the 14-Day Gap · **✓ Suit was filed: the fee moved to 40% ($16,000.00) and costs rose to $3,895.25** · The UM carriers paid less than their limits · Peach State's lien grew with interest  
-   *Same gross, different deductions: 40% once suit was filed ($16,000.00 against $13,333.33), $3,895.25 in receipted costs against $486.75, and liens of $5,391.00 against $5,820.00. $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75.*
-2. Peach State asserts $1,860.00 against the litigated fund. What does the procurement-cost reduction at this file's fee produce?  
+1. Track A and Track B both recover $40,000.00 gross. Why does John Doe net $14,713.75 on Track B instead of $20,359.92?  
+   The arbitrator cut the award because of the 14-Day Gap · **✓ Suit was filed, so the fee rose to 40% and costs rose** · The UM carriers paid less than their policy limits · Peach State's lien grew because interest was added  
+   *Same gross, different deductions: a 40% fee ($16,000.00, not $13,333.33), $3,895.25 in costs (not $486.75), and liens of $5,391.00 (not $5,820.00). $40,000.00 – $16,000.00 – $3,895.25 – $5,391.00 = $14,713.75.*
+2. Peach State asserts $1,860.00 against the litigated fund. What does the procurement-cost reduction at this file's fee bring it to?  
    $1,240.00 · **✓ $1,116.00** · $744.00 · $1,860.00  
-   *The reduction follows the fee actually charged: 40% of $1,860.00 is $744.00, so $1,860.00 – $744.00 = $1,116.00, accepted in writing 07/14/2027. Track A's $1,240.00 reflected the 33⅓% pre-suit fee.*
+   *The reduction follows the fee actually charged: 40% of $1,860.00 is $744.00, so the lien drops to $1,116.00, accepted in writing 07/14/2027. Track A's $1,240.00 used the 33⅓% pre-suit fee.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1739,7 +1739,7 @@ The standard knowledge-check split. Upper half: the cream question panel with or
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Name the two things you confirm before any Withdrawal Letter goes out, and why both matter.
+1. What two things do you confirm before any Withdrawal Letter goes out, and why do both matter?
 2. What goes in the client's Withdrawal Letter that does not go in the carrier's or the provider's, and why?
 3. A client's three Withdrawal Letters have gone out. What must be true before her status becomes “Dropped”, and what proof stays in the file?
 
@@ -1751,9 +1751,9 @@ The standard knowledge-check split. Upper half: the cream question panel with or
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, what you learned closing a Dropped Case: the principles behind the close-out, not the clicks.
-- Articulate your strategy: a client's letters are out and her return receipt hasn't come back a week later. What is your next action, and why is it the right one rather than something else?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, what did you learn closing a Dropped Case? Focus on the principles behind the close-out, not the clicks.
+- A client's letters are out, and a week later her return receipt hasn't come back. What would you do next, and why?
+- What part of this module are you least sure about, and what would help?
 
 **Skill Scale — self-rate 1–5**
 
@@ -1768,15 +1768,15 @@ The standard knowledge-check split. Upper half: the cream question panel with or
 
 **Auto-graded share of the day's Knowledge Check** (3 questions):
 
-1. A practice file shows status “Pending Drop”, but no note from Atty. Thorne or the Case Manager says the client has been told. What happens before any Withdrawal Letter goes out?  
-   The client's letter goes by Certified Mail, so it serves as the notice · **✓ Every letter is held until Atty. Thorne confirms, in a note on the file, that the client was told** · The Case Manager calls the client to explain why the firm is dropping the case · The carrier's and provider's letters go now; the client's waits  
-   *Two gates come first: the status is Pending Drop AND a note shows the client was told, so the letter is never the client's first news. Telling the client is Atty. Thorne's conversation; nothing goes to any party until both gates are met.*
-2. A client's three Withdrawal Letters are signed: hers, the BI carrier's and her treating provider's. Which dispatch plan follows the firm's close-out?  
-   **✓ The client by her preferred method plus Certified Mail with return receipt; the carrier and the provider by email or fax, as the CRM notes say; each dispatch logged, every letter saved in Word and PDF** · Everyone by Certified Mail only, and the status switched to “Dropped” the same day · The client by text only; the carrier and the provider by phone, logged afterwards · The client by email, with the carrier and the provider copied, so everyone sees the reason  
-   *The client gets her preferred method plus Certified Mail for proof of receipt; carriers and providers get email or fax as the CRM notes say. The reason stays in the client's letter. The status moves to Dropped only once every letter is sent, logged and followed up.*
-3. Which of these goes only in the client's Withdrawal Letter, never in the carrier's or the provider's?  
-   The date of loss and the claim number · That the firm no longer represents the client · **✓ The reason for the drop and the next step Atty. Thorne approves** · The date of the letter  
-   *Every letter carries the date, the client, the date of loss and the claim number, and says the representation has ended. Only the client's carries the reason, in Atty. Thorne's words, and the next step he approves: seek other counsel promptly. A carrier told why has been handed a defense.*
+1. A practice file shows “Pending Drop”, but no note says the client has been told. What must happen before any Withdrawal Letter goes out?  
+   The client's letter goes by Certified Mail, so it counts as the notice · **✓ All letters wait until Atty. Thorne confirms in a file note that the client was told** · The Case Manager calls the client to explain why the firm is dropping the case · The carrier's and provider's letters go now, and the client's letter waits  
+   *Two gates come first: the status is Pending Drop, and a note shows the client was told. The letter must never be the client's first news. Telling the client is Atty. Thorne's conversation, not yours.*
+2. A client's three Withdrawal Letters are signed: hers, the BI carrier's and her provider's. Which dispatch plan is right?  
+   **✓ Client: her preferred method plus Certified Mail; carrier and provider: email or fax, per CRM notes** · Everyone by Certified Mail only, with the status set to “Dropped” the same day · Client by text only; the carrier and provider by phone, logged afterwards · Client by email, with the carrier and provider copied so all see the reason  
+   *The client gets her preferred method plus Certified Mail, for proof of receipt; the others get email or fax per the CRM notes. Log each one, save Word and PDF copies, and keep the reason in her letter only.*
+3. What goes only in the client's Withdrawal Letter, never in the carrier's or the provider's?  
+   The date of loss and the claim number · A statement that the firm no longer represents the client · **✓ The reason for the drop and the next step Atty. Thorne approves** · The date at the top of the letter  
+   *Every letter carries the date, the client, the date of loss and the claim number, and says representation has ended. Only the client's gives the reason and the next step Atty. Thorne approves. A carrier told why gets a defense.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 

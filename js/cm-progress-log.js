@@ -465,7 +465,7 @@ function panelHtml(){
   const when = at => at ? `${new Date(at).toLocaleDateString(undefined, {month: "short", day: "numeric"})} ${fmtTime(at)}` : "—";
   return `<div class="card cma" id="cmAlertsPanel" role="region" aria-label="Case-file alerts">
     <div class="cma-h"><h2>🚨 Case-file alerts <span>${open} open</span></h2>
-      <div class="cma-tools"><label class="cma-res"><input type="checkbox" ${showRes ? "checked" : ""} onchange="cmCaseAlerts.showResolved(this.checked)"> Show resolved (${resN})</label>
+      <div class="cma-tools">${open ? `<button type="button" class="btn btn-sm btn-navy cma-all" onclick="cmCaseAlerts.resolveAll(this)" title="Mark every open alert shown here resolved in one go">✓ Resolve all (${open})</button>` : ""}<label class="cma-res"><input type="checkbox" ${showRes ? "checked" : ""} onchange="cmCaseAlerts.showResolved(this.checked)"> Show resolved (${resN})</label>
       <button type="button" class="btn btn-sm btn-ghost" onclick="cmAudit.need('alerts')">✕ Close</button></div></div>
     <details class="cma-rules"><summary>How an alert is raised (8 rules, from each trainee's own recorded work)</summary><ol>${Object.entries(RULES).map(([k, r], i) => `<li><b>R${i + 1} ${E(r.icon)} ${E(r.name)}</b> ${E(r.why)}</li>`).join("")}</ol></details>
     ${items.length ? `<table class="cma-table"><thead><tr><th>Trainee</th><th>Rule</th><th>Details</th><th>When</th><th></th></tr></thead><tbody>${items.map(({r, a, res}) => {
@@ -571,7 +571,27 @@ window.cmProgressLog = {
   },
   toggleAll(){ state.plogAll = !state.plogAll; const el = document.getElementById("myProgressLog"); if(el) el.outerHTML = logHtml(); }
 };
+/* ✓ Resolve all: every open alert of the trainees shown, in one read-modify-write of case-alerts:resolved (the same
+   record each ✓ Resolved writes), so a trainer clears a long list at once; each can still be reopened one by one */
+async function resolveAll(btn){
+  if(!isAdmin()) return;
+  const rows = (window.cmAudit && cmAudit.rows ? cmAudit.rows().map(x => x.rec) : (state.adminData || [])).filter(r => state.auditExtra && state.auditExtra[r.id]);
+  const open = []; rows.forEach(r => forRec(r).forEach(a => { if(!isResolved(r.id, a)) open.push([r.id, a.key]); }));
+  if(!open.length) return;
+  if(typeof confirm === "function" && !confirm(`Mark all ${open.length} open alert${open.length === 1 ? "" : "s"} resolved? Each opens again if the trainee repeats it.`)) return;
+  if(btn){ btn.disabled = true; btn.textContent = "Saving…"; }
+  let cur = null; try{ cur = await sharedGet("case-alerts:resolved"); }catch(e){}
+  cur = cur && typeof cur === "object" ? cur : {};
+  const mark = {at: new Date().toISOString(), by: state.traineeName || "Trainer"};
+  open.forEach(([id, key]) => { cur[id] = cur[id] || {}; cur[id][key] = mark; });
+  const ok = await sharedSet("case-alerts:resolved", cur);
+  if(!ok){ if(typeof toast === "function") toast("Couldn't save: check your connection and try again."); if(btn){ btn.disabled = false; btn.textContent = `✓ Resolve all (${open.length})`; } return; }
+  state.caseAlertsResolved = cur;
+  if(typeof toast === "function") toast(`${open.length} alert${open.length === 1 ? "" : "s"} marked resolved.`);
+  repaint();
+}
 window.cmCaseAlerts = {
+  resolveAll,
   RULES, T, compute, forRec, openFor, allOpen, panel: panelHtml, paintBadge,
   resolve: (id, key, btn) => setMark(id, key, {at: new Date().toISOString(), by: state.traineeName || "Trainer"}, btn),
   reopen: (id, key) => setMark(id, key, null),

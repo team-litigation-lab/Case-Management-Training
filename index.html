@@ -1347,6 +1347,13 @@ rect.svg-callout-badge{animation:none;}
 .eval-section b{font-size:12.5px;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:6px;}
 .eval-section ul{margin:0;padding-left:18px;}
 .eval-section li{font-size:13px;line-height:1.5;margin-bottom:4px;color:#37394A;}
+.eval-section li.fb-item{margin-bottom:10px;}
+.sb-steps{font-size:13px;color:#37394A;margin:0 0 12px;padding-left:20px;} .sb-steps li{margin:0 0 4px;}
+.quiz-review-intro{margin:0 0 14px;font-size:15px;line-height:1.5;color:#37394A;}
+.quiz-why{display:block;margin-top:4px;}
+.fb-part{display:block;}
+.fb-part b{display:inline;font-size:inherit;text-transform:none;letter-spacing:0;margin:0;color:var(--navy);}
+.eval-coach p{margin:0;font-size:14px;line-height:1.55;color:#37394A;}
 
 .example-block{
   background:#F6F7FB;border:1px dashed var(--line);border-radius:10px;
@@ -2567,7 +2574,7 @@ function dayText(t){ return String(t == null ? "" : t).replace(/\bDay \d+ · Cas
    Conflict Resolver (relates to Case Flow Day 5, id 15: the litigation calendar). */
 const PRACTICE_TOOLS = [
   {id:"calendar", icon:"◫", title:"Case Docket & Calendar Conflict Resolver", relates:"Day 15",
-   desc:"A case manager's week across John Doe VS Robert Smith and three other matters — depositions, mediation, IMEs, a brief deadline and an SOL — with overlapping commitments to resolve, hard deadlines to calculate, and an AI-drafted docket briefing for the handling attorney."}
+   desc:"A busy week across John Doe's file and three other cases. Fix the clashes, brief the attorney on what matters, spot what's missing, and enter the court's dates."}
 ];
 
 
@@ -4356,10 +4363,10 @@ const ROLEPLAY_CATEGORIES = [
     {id:"cf-d2m2-a2", label:"John Doe: The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol", fixedOpening:"Hey... it's John Doe. I got your letter. My mom signed for it. I'm sorry I didn't call back. I just... I didn't know how to say it. Am I getting dropped?", context:"John Doe (client). 04/17/2026, 4:48 p.m.; he calls in, three days before the Final Warning Letter's 04/20 date. Last PT 04/02. That day, driven home by his mother, the car stopped at their own corner, Maple Hollow Rd & Birch Ave, where the crash happened, as a pickup came up Birch: he panicked and got out. Since then he avoids cars, sleeps 4–5 hours, feels low, quit basketball, still works (bus). Neck and right hand still bad. Safe. Declines recording. Asks if this ruins his case. How they come across: Ashamed and on edge after two weeks of silence; speaks in short bursts, goes quiet when pushed. Opens up to warmth and choices; shuts down at blame or a deadline. The Case Manager must: Lead with relief and safety; offer choices, including recording; Draw out what happened in his words, without labels or blame; With consent: Dr. Reyes appointment and evening slots under the LOP; Read back; route claim questions to Atty. Thorne. UPL line: No diagnosis, no counseling advice, no value talk, no promise about withdrawal; claim questions go to Atty. Thorne."}
   ]},
   {id:"cfday2", icon:"📨", label:"Case Flow Day 2 · Pre-Demand, the BI Demand & BI Settlement", topics:[
-    {id:"cf-d2m3-a1", label:"John Doe: Probe the 14-Day Treatment Gap with AI John Doe", fixedOpening:"Hey, it's John. I'm on my break, sitting in the rental, so I've got about twenty minutes. What did you need to go over?", context:"John Doe (client). 03/04/2026, recorded call. John first treated 02/20/2026, 14 days after the collision. Asked openly, he gives four reasons in his own words: no car (Civic towed, Kevin's Escape in the shop, no rental until 02/18); thought it was soreness, took ibuprofen and lidocaine patches; signed the PIP form at intake but didn't understand it paid his bills, and was unsure his new Peach State plan was active; right-hand numbness from 02/18, worked 02/18–02/19, went in on his first day off. He texted his mother about it 02/07–02/15, called out of work 02/09–02/13, kept the 02/07 pharmacy receipt. How they come across: Guarded and expecting blame for the delay. Clipped answers to yes-or-no questions; talks freely to open ones. Agrees with any reason suggested to him. Asks if the gap hurts. The Case Manager must: Open on record: date, parties, role, his consent, privacy confirmed; Draw out all four reasons with open, non-leading questions; Surface the texts, the call-outs and the 02/07 receipt; Read back his account; confirm 03/05 consult and post-03/19 transport. UPL line: Never suggest a reason or say what the gap does to his case; route that to Atty. Thorne."},
-    {id:"cf-d2m4-a2", label:"Atty. Elijah Thorne: Pre-Demand Strategy Session with AI Atty. Elijah Thorne", fixedOpening:"I've got twenty minutes. Bottom line first. Then tell me why Keystone shouldn't call this a low-speed bump with a guy who waited two weeks to see a doctor.", context:"Atty. Elijah Thorne (attorney). 07/08/2026, before any demand. MMI 06/12; Specials $42,984.00 ($41,400.00 medical after the 05/04 duplicate came out, plus $1,584.00 wages); liens $1,860.00 Peach State and $6,105.00 LOP; targets $10,000 BI, $20,000 Host UM, $10,000 Relative UM. He pushes: low-speed impact, the 14-day gap, the “degenerative” MRI, and asks what the case is worth. Briefed well, he decides: a time-limited BI demand served 07/20/2026, the gap addressed up front, no UM demand before a documented BI tender, billed-vs-paid his call. How they come across: Exacting senior trial lawyer, short on time. Plays the adjuster to test you. Wants facts, not adjectives; bristles at any valuation from staff. The Case Manager must: Lead with the bottom line: MMI, $42,984.00 Specials, $10,000 BI limit; Meet each challenge with dated documents, not adjectives; Get his decisions: demand, the gap, UM consents, billed-vs-paid; Read back each decision; task it with an owner and date. UPL line: Recommend operations only; propose no demand figure and leave every legal decision to Atty. Thorne."},
+    {id:"cf-d2m3-a1", label:"John Doe: Probe the 14-Day Treatment Gap with John Doe", fixedOpening:"Hey, it's John. I'm on my break, sitting in the rental, so I've got about twenty minutes. What did you need to go over?", context:"John Doe (client). 03/04/2026, recorded call. John first treated 02/20/2026, 14 days after the collision. Asked openly, he gives four reasons in his own words: no car (Civic towed, Kevin's Escape in the shop, no rental until 02/18); thought it was soreness, took ibuprofen and lidocaine patches; signed the PIP form at intake but didn't understand it paid his bills, and was unsure his new Peach State plan was active; right-hand numbness from 02/18, worked 02/18–02/19, went in on his first day off. He texted his mother about it 02/07–02/15, called out of work 02/09–02/13, kept the 02/07 pharmacy receipt. How they come across: Guarded and expecting blame for the delay. Clipped answers to yes-or-no questions; talks freely to open ones. Agrees with any reason suggested to him. Asks if the gap hurts. The Case Manager must: Open on record: date, parties, role, his consent, privacy confirmed; Draw out all four reasons with open, non-leading questions; Surface the texts, the call-outs and the 02/07 receipt; Read back his account; confirm 03/05 consult and post-03/19 transport. UPL line: Never suggest a reason or say what the gap does to his case; route that to Atty. Thorne."},
+    {id:"cf-d2m4-a2", label:"Atty. Elijah Thorne: Pre-Demand Strategy Session with Atty. Elijah Thorne", fixedOpening:"I've got twenty minutes. Bottom line first. Then tell me why Keystone shouldn't call this a low-speed bump with a guy who waited two weeks to see a doctor.", context:"Atty. Elijah Thorne (attorney). 07/08/2026, before any demand. MMI 06/12; Specials $42,984.00 ($41,400.00 medical after the 05/04 duplicate came out, plus $1,584.00 wages); liens $1,860.00 Peach State and $6,105.00 LOP; targets $10,000 BI, $20,000 Host UM, $10,000 Relative UM. He pushes: low-speed impact, the 14-day gap, the “degenerative” MRI, and asks what the case is worth. Briefed well, he decides: a time-limited BI demand served 07/20/2026, the gap addressed up front, no UM demand before a documented BI tender, billed-vs-paid his call. How they come across: Exacting senior trial lawyer, short on time. Plays the adjuster to test you. Wants facts, not adjectives; bristles at any valuation from staff. The Case Manager must: Lead with the bottom line: MMI, $42,984.00 Specials, $10,000 BI limit; Meet each challenge with dated documents, not adjectives; Get his decisions: demand, the gap, UM consents, billed-vs-paid; Read back each decision; task it with an owner and date. UPL line: Recommend operations only; propose no demand figure and leave every legal decision to Atty. Thorne."},
     {id:"cf-d3m1-a1", label:"Dana Whitfield: Serving the $10,000 BI Time-Limit Demand Package", fixedOpening:"Hi, Dana Whitfield at Keystone, on the Doe claim. I've got your demand here. Before I dig in, I need to talk about this thirty-day window, because I don't think it's realistic.", context:"Dana Whitfield (adjuster). 07/23/2026. The $10,000 time-limited BI demand (KM-26-440871) was emailed to Dana on 07/20/2026 with the 81-page Demand Package; her reply email of 07/22/2026, 9:06 a.m., confirmed receipt in writing (no certified mail). Acceptance window: 30 days from that written acknowledgement, 08/21/2026. Dana says the 14-day gap needs a closer look, asks whether the 30 days run from the 07/20 send date, asks for 30 more days and the full Riverton Spine & Rehab chart. She stays polite but presses for a yes. She offers no number. How they come across: Courteous BI adjuster with a heavy desk; wants more time and more records; tests whether the Case Manager will agree to anything on the phone. The Case Manager must: Confirm receipt 07/22/2026 and the 08/21/2026 deadline as written; Agree to no extension; route her request to Atty. Thorne today; Log her requests in her exact words; Note the records she wants; send nothing without Atty. Thorne's approval. UPL line: The CM never extends the deadline, changes a term or discusses value; Atty. Thorne decides."},
-    {id:"cf-d3m2-a1", label:"Dana Whitfield: Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap", fixedOpening:"Dana Whitfield, Keystone. I've finished my evaluation on Doe. I can offer thirty-five hundred. Honestly, he waited two weeks to see anybody, and that MRI reads degenerative to me.", context:"Dana Whitfield (adjuster). 08/05/2026. Demand received 07/22; acceptance runs to 08/21/2026. Dana offers $3,500, citing the 14-day gap (DOL 02/06, first treatment 02/20/2026) and a “degenerative” MRI. She has the EMS report and the Causation Letter but has not weighed them. Asked what supports $3,500, she says “our evaluation.” She may call the April break non-compliance. She will not move today and wants a counter. Atty. Thorne's authority: restate the Limits Demand, no counter. How they come across: Firm, friendly, practiced; opens at $3,500, leans on “waited two weeks” and “degenerative”; stalls with “my hands are tied” and “I'll call you back.” The Case Manager must: Pause, then ask what data supports $3,500; Answer the gap and “degenerative” with dated records and Dr. Park's words; Restate the $10,000 Limits Demand and 08/21/2026 deadline; no counter; Log her exact words; report the offer to Atty. Thorne today. UPL line: The CM never accepts, rejects, counters or values; the offer goes to Atty. Thorne to convey."}
+    {id:"cf-d3m2-a1", label:"Dana Whitfield: Negotiate with the Adjuster: MRI Findings vs. the 14-Day Gap", fixedOpening:"Dana Whitfield, Keystone. I've finished my evaluation on Doe. I can offer thirty-five hundred. Honestly, he waited two weeks to see anybody, and that MRI reads degenerative to me.", context:"Dana Whitfield (adjuster). 08/05/2026. Demand received 07/22; acceptance runs to 08/21/2026. Dana offers $3,500, citing the 14-day gap (DOL 02/06, first treatment 02/20/2026) and a “degenerative” MRI. She has the EMS report and the Causation Letter but has not weighed them. Asked what supports $3,500, she says “our evaluation.” She may call the April break non-compliance. She will not move today and wants a counter. Atty. Thorne's authority: restate the Limits Demand, no counter. How they come across: Firm, friendly, practiced; opens at $3,500, leans on “waited two weeks” and “degenerative”; stalls with “my hands are tied” and “I'll call you back.” The Case Manager must: Pause, then ask what data supports $3,500; Answer the gap and “degenerative” with dated records and Dr. Park's words; Restate the $10,000 Limits Demand and 08/21/2026 deadline; no counter; Log her exact words; report the offer to Atty. Thorne today. UPL line: The CM never accepts, rejects, counters or values; the offer goes to Atty. Thorne to convey."}
   ]},
   {id:"cfday3", icon:"📑", label:"Case Flow Day 3 · Lien Negotiation & Disbursement", topics:[
     {id:"cf-d3m3-a2", label:"Tammy Greer, Riverton Spine & Rehab: Provider Balance Negotiation Exercises", fixedOpening:"Tammy Greer, Riverton Spine and Rehab. I got your reduction letter. We treated him four months on a promise. Why would we take less than the sixty-two ninety we're owed?", context:"Tammy Greer, Riverton Spine & Rehab (lienholder). 10/09/2026. Riverton Spine & Rehab treated John Doe under an LOP signed 02/23/2026. Tammy's ledger shows 34 lines × $185.00 = $6,290.00; the 05/04/2026 line is a duplicate (33 visits, $6,105.00). The firm's approved Reduction Request is in her inbox. Recovery is capped at $40,000 of coverage. She defends the ledger first, concedes the duplicate when shown the dates, then agrees to $4,580.00 and asks, “So we have a deal?” How they come across: Office manager who runs billing and LOPs; protective of the practice's money; brisk; will deal if the math is fair and in writing. The Case Manager must: State the audited balance: 05/04/2026 duplicate removed, $6,105.00; Explain the coverage-capped recovery as facts; ask for reduced payment in full; Accept nothing on the call; $4,580.00 goes to Atty. Thorne; Request a signed Payoff Letter: full satisfaction, no balance billing. UPL line: The CM negotiates only inside Atty. Thorne's written authority and never accepts a figure on the call."},
@@ -4375,7 +4382,7 @@ const ROLEPLAY_CATEGORIES = [
     {id:"cf-d5m1-a1", label:"Jenna Price, Atty. Mercer's paralegal: Pleadings & Discovery Log Maintenance", fixedOpening:"Hi, Jenna again at Mercer and Hale. We have nothing from you on our discovery, and the admissions were due yesterday. Grant asked me to confirm they're deemed admitted.", context:"Jenna Price, Atty. Mercer's paralegal (paralegal). 01/05/2027, No. 26-CV-04417. Defendant's discovery, including 15 Requests for Admission, was mailed 12/01/2026; responses were due 01/04/2027. The firm's Certificate of Service shows John Doe's verified responses mailed to Atty. Mercer 01/04/2027; they have not arrived there yet. Jenna says nothing came in, calls the RFAs “deemed admitted,” and asks the CM to “just confirm” they were late. She accepts being told Atty. Thorne will respond today. How they come across: Polite but pointed defense paralegal; fishing for a concession that the Requests for Admission are deemed admitted. The Case Manager must: Log her words verbatim, with the time of the call; Take no position on timeliness or deemed admissions; Route to Atty. Thorne today with the 01/04/2027 Certificate of Service; Tell her only that Atty. Thorne will respond. UPL line: The CM never argues the rules or concedes anything to opposing counsel; Atty. Thorne answers."},
     {id:"cf-d5m2-a1", label:"Leah Moran: Does It Touch Our Settlement? Keystone's Final PD Position", fixedOpening:"Hi, Leah Moran with Keystone, Property Damage, following up my email. Seven ninety-two on the Diminished Value is final. Will Mr. Doe sign so I can get the check out before the holidays?", context:"Leah Moran (adjuster). 12/10/2026. KM-26-440871-PD, Margaret Doe's 2019 Honda Civic LX, on her separate PD file; John Doe's BI suit (26-CV-04417) is in discovery. Keystone's final PD position: $792.00 Diminished Value and $0 Loss of Use. Her emailed release covers “all claims arising from the 02/06/2026 accident” and asks “Mr. Doe” to sign. She asks whether he'll take it and sign, and insists it is final. How they come across: Cheerful, efficient PD adjuster closing files before year-end; calls the formula “company standard”; wants a yes and a signature today. The Case Manager must: Tell her the position is with Atty. Thorne; nothing accepted or rejected; Make no counter and quote no figure; Note the “all claims” release scope and claim number; route it to Atty. Thorne; Log the call and her exact words. UPL line: The CM never accepts, rejects or counters; a PD release goes to Atty. Thorne, and John Doe signs nothing."},
     {id:"cf-d5m3-a1", label:"John Doe: Virtual Deposition Prep Roleplay", fixedOpening:"Hey, sorry about the phone thing. This is my new number. So, the deposition. Are they going to yell at me like on TV? And what do I say about the two weeks?", context:"John Doe (client). 02/04/2027, Track B. John was unreachable 01/22–02/03 after losing his phone; Margaret reached him 02/03; he has a new number. Deposition 02/18/2027, 10:00 a.m., by videoconference, Riverton Court Reporting; test call 02/16. Atty. Thorne listens and takes the substance after the CM's segment. John asks what to say about the 14-day gap, the missed April therapy, the seatbelt, his 2021 chiropractor visits and the “degenerative” MRI, and whether he will win. How they come across: Anxious and earnest; expects a TV cross-examination; wants to be told what to say; worried about his job and the outcome. The Case Manager must: Confirm his new number, with Margaret as backup contact; State the logistics exactly; set the 02/16/2027 test call; Explain the setting and the pause; drill neutral questions only; Route each substantive question to Atty. Thorne in John's words. UPL line: The CM never scripts testimony, answers substance or predicts the outcome; Atty. Thorne handles the substance."},
-    {id:"cf-d5m3-a2", label:"Atty. Grant Mercer: Mock Deposition Cross-Examination Handling", fixedOpening:"Mr. Doe, good afternoon. You understand you're under oath, just as if we were in a courtroom? Let's start easy. Tell me everything you did the morning of February sixth.", context:"Atty. Grant Mercer (counsel). 02/16/2027, mock cross-examination led by Atty. Thorne. AI Mercer questions AI John Doe; Thorne defends and objects; the CM is muted and keeps the Trap Log. Traps: “Is that all?”, compound questions, “degenerative” (MRI 03/13/2026: no significant degenerative change at the adjacent levels), the gap mischaracterised (14 days, 02/06–02/20/2026), the seatbelt (EMS “restrained”; EDR buckled), the 2021 low-back visits, the silent stare. He never addresses the CM. How they come across: Polished, patient defense counsel in a mock cross; friendly tone, sharp traps; uses silence; aims at the gap, prior care and the seatbelt. The Case Manager must: Log each trap with its timestamp and Mercer's exact words; Set the record fact and source beside each mischaracterisation; Log every objection and whether John stopped talking; Route the Trap Log to Atty. Thorne before the debrief. UPL line: The CM observes and logs; no signal, message or coaching to John, during or after."},
+    {id:"cf-d5m3-a2", label:"Atty. Grant Mercer: Mock Deposition Cross-Examination Handling", fixedOpening:"Mr. Doe, good afternoon. You understand you're under oath, just as if we were in a courtroom? Let's start easy. Tell me everything you did the morning of February sixth.", context:"Atty. Grant Mercer (counsel). 02/16/2027, mock cross-examination led by Atty. Thorne. Mercer questions John Doe; Thorne defends and objects; the CM is muted and keeps the Trap Log. Traps: “Is that all?”, compound questions, “degenerative” (MRI 03/13/2026: no significant degenerative change at the adjacent levels), the gap mischaracterised (14 days, 02/06–02/20/2026), the seatbelt (EMS “restrained”; EDR buckled), the 2021 low-back visits, the silent stare. He never addresses the CM. How they come across: Polished, patient defense counsel in a mock cross; friendly tone, sharp traps; uses silence; aims at the gap, prior care and the seatbelt. The Case Manager must: Log each trap with its timestamp and Mercer's exact words; Set the record fact and source beside each mischaracterisation; Log every objection and whether John stopped talking; Route the Trap Log to Atty. Thorne before the debrief. UPL line: The CM observes and logs; no signal, message or coaching to John, during or after."},
     {id:"cf-d5m4-a2", label:"Margaret Doe: Skip-Tracing Execution & Certified Notice Dispatch", fixedOpening:"This is Margaret Doe, John's mom. You left me a message. Is everything alright? He lost his phone, he's got a new number. Is he in trouble over this deposition?", context:"Margaret Doe (family). 02/03/2027, Track B. John has been unreachable since 01/22 (lost his phone; new number). His deposition is 02/18/2027, with prep sessions 02/04 and 02/16; a certified warning letter went to 2214 Maple Hollow Rd. The CM left Margaret a voicemail; she calls back, says John is fine and working, and gives his new number if asked. She asks whether he will “lose the case” and what the letter means. She is not the client. How they come across: Worried mother and emergency contact; protective; asks what happens if John misses the deposition; wants to help but has no authority. The Case Manager must: Verify her identity against the emergency-contact record; Say only that the firm needs John to call, and how; Share no case details or consequences of missing the deposition; Log the call and any new number, to verify with John. UPL line: Margaret is not the client: the CM shares nothing on the case and never advises."},
     {id:"cf-d5m5-a1", label:"John Doe: The Litigation Net Sheet: Disbursing the Award", fixedOpening:"Hey, it's John. I got the statement. Forty thousand, and I get fourteen-seven? My buddy settled his case and kept way more than that. Where did it all go?", context:"John Doe (client). 07/27/2027. The arbitration award came in 07/06; both UM checks and Keystone's are in trust: $40,000.00. John has the draft Settlement Statement: $14,713.75 to him. He remembers Atty. Thorne mentioning the 40% tier when suit was filed, not the amount. He thinks the arbitrator cut his award for the gap, and asks whether suing was a mistake and whether the fee is fair. He calms with plain arithmetic and a clear next step. How they come across: Relieved it's over but upset at the number; a friend kept more from his settlement. Wants to know where his money went. The Case Manager must: Walk the deductions in order: fee, costs, liens, net; Show the 40% tier from his own retainer; Give the reduced lien figures and their written acceptances; Route whether suing was worth it to Atty. Thorne. UPL line: Explain the arithmetic only; no opinion on the lawsuit, the fee or the award."}
   ]}
@@ -7819,7 +7826,7 @@ function renderAnswerFeedback(d){
   const missed = d.quiz.filter((q,i)=>state.quizAnswers[i]!==q.a).length;
   el.innerHTML = `
     <h2 class="section-title" style="margin-top:34px;">Answer Review</h2>
-    ${reveal ? "" : `<div class="quiz-key-locked">🔒 <b>The answer key unlocks when you pass (70%+).</b> You missed ${missed} question${missed===1?"":"s"}: they're marked ❌ below. Review those topics in the lesson slides, then retake the check.</div>`}
+    ${reveal ? `<p class="quiz-review-intro">${missed ? `You missed ${missed} of ${d.quiz.length}. That's how learning works. Each card below shows what you picked, the right answer and why, so you can see exactly what tripped you up.` : `You got every one right. Each card below says why the answer is right, so you can keep it for your notes.`}</p>` : `<div class="quiz-key-locked">🔒 <b>The answer key unlocks when you pass (70%+).</b> You missed ${missed} question${missed===1?"":"s"}: they're marked ❌ below. Review those topics in the lesson slides, then retake the check.</div>`}
     ${d.quiz.map((q,i)=>{
       const picked = state.quizAnswers[i];
       const isCorrect = picked===q.a;
@@ -7844,7 +7851,7 @@ function renderAnswerFeedback(d){
             return `<div class="${cls}">${oi===q.a?'✅':(oi===picked?'❌':'')} ${esc(o)}</div>`;
           }).join("")}
         </div>
-        <div class="quiz-rationale show">${esc(q.r)}</div>
+        <div class="quiz-rationale show">${isCorrect ? `<b>✅ You got this one.</b> ` : typeof picked==="number" ? `<b>Not quite: you picked ${String.fromCharCode(65+picked)}. The right answer is ${String.fromCharCode(65+q.a)}.</b> ` : `<b>You didn't answer this one. The right answer is ${String.fromCharCode(65+q.a)}.</b> `}<span class="quiz-why">Why: ${esc(q.r)}</span></div>
       </div>`;
     }).join("")}
   `;
@@ -7860,7 +7867,7 @@ function renderPracticeHub(){
   return `
     <p class="eyebrow">Skill Builders</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 10px;">Skill Builders — Practice on the Real Case File</h1>
-    <p style="color:var(--ink-soft);font-size:14.5px;max-width:70ch;margin:0 0 26px;">Every Skill Builder comes from the Skill Building slides and runs on the actual case documents — then sends you into the CMS to do the file work. Every day's Skill Builders are open — start any of them at any time.</p>
+    <p style="color:var(--ink-soft);font-size:14.5px;max-width:70ch;margin:0 0 26px;">Extra practice on real case work. Each Skill Builder walks you through its parts one step at a time, checks your work, and tells you what to fix. Start any of them, any time.</p>
     <div class="card" style="padding:14px 18px;margin-bottom:22px;background:#F8F9FC;border-left:4px solid var(--navy);">
       <b style="font-size:12px;color:var(--navy);text-transform:uppercase;letter-spacing:.03em;">A note before you begin</b>
       <p style="font-size:12.8px;color:#37394A;margin:8px 0 0;font-style:italic;">Utilization of AI in the legal industry depends entirely on the firm's or attorney's specific preferences — it is never a universal default. Different roles in this industry require human intervention regardless of how capable a tool is. Because this work touches attorney-client privilege, AI must be used with the utmost discretion, and only with actual approval.</p>
@@ -8137,6 +8144,21 @@ const GRADE_TIER_COLOR = {
   "Requires Remediation": "var(--danger)",
   "Not Yet — Keep Building": "var(--danger)"
 };
+/* How every AI grading writes its feedback (the Practice Lab's AI Grader, the roleplay and intake calls): the way a
+   kind, experienced senior Case Manager talks a new colleague through their work, so the trainee understands exactly
+   what their challenge is, why it matters and how to fix it. Each blindspot is "what happened → why it matters → how
+   to fix it" (feedbackItemHtml draws the three parts on their own lines); "summary" is the coach's note on top. */
+const HUMAN_FEEDBACK = `HOW TO WRITE THE FEEDBACK. Write it the way a kind, experienced senior Case Manager talks a new colleague through their work, sitting beside them. The goal is that they understand exactly what their challenge is, why it matters, and how to fix it.
+- Speak to them as "you". Never say "the trainee", "the submission", "the candidate" or "the user".
+- Use plain, everyday words and short sentences (under 20 words where you can). If you must use a course term (SOL, UPL, Payer Order, Net Sheet), say what it means in a few words the first time.
+- Never name the scoring categories or points ("Accuracy", "Executive Presence", "SOP Compliance", "BLUF Adherence"…) in the feedback. Talk about the work itself.
+- Be specific: point at what they actually did, wrote or said, or what is missing. Quote a few of their words where it helps. Nothing generic.
+- "strengths": up to 3 things they really did well, each with why it helps the client or the file.
+- "blindspots": up to 3 challenges, most important first. Each is ONE string in three parts joined by " → ": what happened (what you did or missed, in plain words) → why it matters (the real effect on this file, the client or the firm) → how to fix it (the exact steps: where in the CMS or which document, and what the corrected entry or words should say). Example: "Your correction note doesn't say which document proved each fix → Atty. Thorne can't trust a change he can't trace back to a source → In CMS → Case Notes, add the source after each fix, like: 'Date of birth corrected to 08/14/1991 (signed retainer)'." Never just point out a fault without the fix.
+- "better": 1 to 3 sentences looking back at the whole piece of work: what a strong Case Manager would have done differently on this exact task, and how that would have helped the client or the file. Start each with "You could have". This is about the approach, not a repeat of the fixes.
+- "growthSuggestions": 1 or 2 small, doable things to practise next time, one sentence each.
+- "summary": 2 or 3 sentences spoken straight to them: how it went overall, the single biggest challenge in plain words, and the first thing to do about it. Warm and honest: encouraging, but never vague or falsely positive.
+- Frame every gap as "not yet", never as a verdict on the person. No lecturing, no exclamation marks.`;
 async function runRubricEvaluation(exerciseLabel, exerciseContext, submissionText, criteriaNotes){
   const quality = assessSubmissionQuality(submissionText);
   if(!quality.ok){
@@ -8147,7 +8169,6 @@ async function runRubricEvaluation(exerciseLabel, exerciseContext, submissionTex
   // trainee a repeat each time they tried again)
   const spent = state.lastLabAttempt;
   state.lastLabAttempt = null;
-  criteriaNotes = (criteriaNotes||"") + " FEEDBACK STYLE: frame every gap as 'not yet' or 'not this way — here is the better way', never as a flat 'no' or a verdict on the person; each blindspot must point to a concrete next step.";
   const prompt = `You are an automated competency evaluator grading a trainee personal-injury Case Manager's submission for a legal-industry Case Management training program. Grade rigorously and realistically — a submission that is merely present or generic should score low; do not award high marks simply because something was submitted. Vary scores genuinely based on submission quality; do not default to the same score every time.
 
 EXERCISE: ${exerciseLabel}
@@ -8169,7 +8190,7 @@ Score this submission on a 100-point rubric across these four weighted categorie
 
 A generic, vague, or minimal-effort submission should score well below 70 overall. A submission with real errors or contradictions of the reference material should score well below 50 on Accuracy specifically. Reserve 85+ overall for submissions that are genuinely strong across all four categories, not just adequate.
 
-Feedback rule: every item in "blindspots" names what is wrong AND tells the trainee exactly how to correct it — the steps to take, where (which CMS screen, form or document) and what the corrected entry or wording should be (for example: "The Case ID is missing from your note → open the CMS Case File, copy the Case ID from the header and add it as the note's first line."). Never just point out the fault. Each "growthSuggestions" item is one concrete action to practice next.
+${HUMAN_FEEDBACK}
 
 Return ONLY a JSON object with this exact shape, no other text:
 {
@@ -8177,8 +8198,10 @@ Return ONLY a JSON object with this exact shape, no other text:
   "presenceScore": <integer 0-30>,
   "riskScore": <integer 0-20>,
   "efficiencyScore": <integer 0-15>,
+  "summary": "<2-3 warm, plain sentences to the trainee: how it went, the biggest challenge, what to do first>",
   "strengths": ["...", "..."],
-  "blindspots": ["<what is wrong> → <how to correct it: the exact steps>", "..."],
+  "blindspots": ["<what happened> → <why it matters> → <how to fix it: the exact steps>", "..."],
+  "better": ["You could have ...", "..."],
   "growthSuggestions": ["...", "..."]
 }`;
   let raw;
@@ -8192,8 +8215,10 @@ Return ONLY a JSON object with this exact shape, no other text:
   return {
     accuracyScore, presenceScore, riskScore, efficiencyScore, totalScore,
     gradeTier: gradeTierFor(totalScore),
+    summary: typeof raw.summary === "string" ? raw.summary.trim().slice(0, 600) : "",
     strengths: Array.isArray(raw.strengths) ? raw.strengths : [],
     blindspots: Array.isArray(raw.blindspots) ? raw.blindspots : [],
+    better: Array.isArray(raw.better) ? raw.better.filter(x => typeof x === "string" && x.trim()).slice(0, 3) : [],
     growthSuggestions: Array.isArray(raw.growthSuggestions) ? raw.growthSuggestions : []
   };
 }
@@ -8289,7 +8314,9 @@ Score this performance on a 100-point rubric across these four EQUALLY weighted 
 
 A generic or minimal-effort performance should score well below 70 overall. Reserve 85+ for genuinely strong performance across all four categories, not just adequate.
 
-Feedback rule: every item in "blindspots" names what is wrong AND tells the trainee exactly how to correct it — the steps to take, where (which CMS screen, form or document) and what the corrected entry or wording should be (for example: "The Case ID is missing from your note → open the CMS Case File, copy the Case ID from the header and add it as the note's first line."). Never just point out the fault. Each "growthSuggestions" item is one concrete action to practice next.
+Where the situation lists what the Case Manager must do on this call, the feedback says plainly which of those were done and which were missed, and the summary names the most important one missed.
+
+${HUMAN_FEEDBACK}
 
 Return ONLY a JSON object with this exact shape, no other text:
 {
@@ -8297,8 +8324,10 @@ Return ONLY a JSON object with this exact shape, no other text:
   "riskPrivilegeScore": <integer 0-25>,
   "composureScore": <integer 0-25>,
   "actProtocolScore": <integer 0-25>,
+  "summary": "<2-3 warm, plain sentences to the trainee: how it went, the biggest challenge, what to do first>",
   "strengths": ["...", "..."],
-  "blindspots": ["<what is wrong> → <how to correct it: the exact steps>", "..."],
+  "blindspots": ["<what happened> → <why it matters> → <how to fix it: the exact steps>", "..."],
+  "better": ["You could have ...", "..."],
   "growthSuggestions": ["...", "..."]
 }`;
   const raw = await callAIJson(prompt, 900, undefined, "grading");
@@ -8310,11 +8339,24 @@ Return ONLY a JSON object with this exact shape, no other text:
   return {
     blufScore, riskPrivilegeScore, composureScore, actProtocolScore, totalScore,
     gradeTier: gradeTierFor(totalScore),
+    summary: typeof raw.summary === "string" ? raw.summary.trim().slice(0, 600) : "",
     strengths: Array.isArray(raw.strengths) ? raw.strengths : [],
     blindspots: Array.isArray(raw.blindspots) ? raw.blindspots : [],
+    better: Array.isArray(raw.better) ? raw.better.filter(x => typeof x === "string" && x.trim()).slice(0, 3) : [],
     growthSuggestions: Array.isArray(raw.growthSuggestions) ? raw.growthSuggestions : []
   };
 }
+/* one challenge of the AI's feedback, "what happened → why it matters → how to fix it", drawn as labelled lines
+   (an older two-part "what is wrong → how to correct it" draws as what happened / how to fix it; plain text as it is) */
+function feedbackItemHtml(s){
+  const parts = String(s || "").split(/\s+→\s+/).map(x => x.trim()).filter(Boolean);
+  if(parts.length < 2) return esc(s);
+  const fix = parts.length > 3 ? parts.slice(2).join(" → ") : parts[parts.length - 1];
+  const rows = [["What happened", parts[0]]].concat(parts.length >= 3 ? [["Why it matters", parts[1]]] : []).concat([["How to fix it", fix]]);
+  return rows.map(([h, t]) => `<span class="fb-part"><b>${h}:</b> ${esc(t)}</span>`).join("");
+}
+window.feedbackItemHtml = feedbackItemHtml;
+const coachNoteHtml = report => report && report.summary ? `<div class="eval-section eval-coach"><b>💬 Your coach's note</b><p>${esc(report.summary)}</p></div>` : "";
 function renderRoleplayEvaluationReport(report){
   const tierColor = GRADE_TIER_COLOR[report.gradeTier] || "var(--ink-soft)";
   return `
@@ -8326,27 +8368,33 @@ function renderRoleplayEvaluationReport(report){
         <div>
           <div class="eval-tier" style="color:${tierColor};">${esc(displayTier(report.gradeTier))}</div>
           <div class="eval-subscore-row">
-            <span>BLUF Adherence ${report.blufScore}/25</span>
-            <span>Risk &amp; Privilege ${report.riskPrivilegeScore}/25</span>
-            <span>Composure &amp; Tone ${report.composureScore}/25</span>
-            <span>ACT Protocol ${report.actProtocolScore}/25</span>
+            <span title="Did you lead with the bottom line (BLUF)?">Bottom line first ${report.blufScore}/25</span>
+            <span title="Did you protect private information and avoid legal advice?">Privacy &amp; no legal advice ${report.riskPrivilegeScore}/25</span>
+            <span title="Did you stay calm and professional?">Calm &amp; professional ${report.composureScore}/25</span>
+            <span title="Did you Assess, Clarify and Track before committing (A-C-T)?">Assess, clarify, track ${report.actProtocolScore}/25</span>
           </div>
         </div>
       </div>
       ${mindsetNote(report.totalScore)}
+      ${coachNoteHtml(report)}
       ${report.strengths.length ? `
       <div class="eval-section">
-        <b>Strengths</b>
+        <b>What you did well</b>
         <ul>${report.strengths.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
       </div>` : ""}
       ${report.blindspots.length ? `
       <div class="eval-section">
-        <b>Not this way — what to change</b>
-        <ul>${report.blindspots.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
+        <b>What to work on, and how to fix it</b>
+        <ul>${report.blindspots.map(s=>`<li class="fb-item">${feedbackItemHtml(s)}</li>`).join("")}</ul>
+      </div>` : ""}
+      ${(report.better || []).length ? `
+      <div class="eval-section eval-better">
+        <b>What you could have done better</b>
+        <ul>${report.better.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
       </div>` : ""}
       ${report.growthSuggestions.length ? `
       <div class="eval-section">
-        <b>Growth Suggestions</b>
+        <b>Try this next time</b>
         <ul>${report.growthSuggestions.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
       </div>` : ""}
     </div>`;
@@ -8372,19 +8420,25 @@ function renderEvaluationReport(report, dayId){
         </div>
       </div>
       ${mindsetNote(report.totalScore)}
+      ${coachNoteHtml(report)}
       ${report.strengths.length ? `
       <div class="eval-section">
-        <b>Strengths</b>
+        <b>What you did well</b>
         <ul>${report.strengths.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
       </div>` : ""}
       ${report.blindspots.length ? `
       <div class="eval-section">
-        <b>Not this way — what to change</b>
-        <ul>${report.blindspots.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
+        <b>What to work on, and how to fix it</b>
+        <ul>${report.blindspots.map(s=>`<li class="fb-item">${feedbackItemHtml(s)}</li>`).join("")}</ul>
+      </div>` : ""}
+      ${(report.better || []).length ? `
+      <div class="eval-section eval-better">
+        <b>What you could have done better</b>
+        <ul>${report.better.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
       </div>` : ""}
       ${report.growthSuggestions.length ? `
       <div class="eval-section">
-        <b>Growth Suggestions</b>
+        <b>Try this next time</b>
         <ul>${report.growthSuggestions.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
       </div>` : ""}
       ${dayId ? `
@@ -8412,18 +8466,24 @@ async function downloadEvaluationReportPdf(){
     `Efficiency & Structure: ${report.efficiencyScore}/15`,
     "---"
   ];
+  if(report.summary){ lines.push("Your coach's note:", "   " + report.summary, "---"); }
   if(report.strengths.length){
-    lines.push("Strengths:");
+    lines.push("What you did well:");
     report.strengths.forEach(s=>lines.push("   • "+s));
     lines.push("---");
   }
   if(report.blindspots.length){
-    lines.push("Blindspots:");
-    report.blindspots.forEach(s=>lines.push("   • "+s));
+    lines.push("What to work on, and how to fix it:");
+    report.blindspots.forEach(s=>lines.push("   • "+String(s).split(/\s+→\s+/).join(" — ")));
+    lines.push("---");
+  }
+  if((report.better || []).length){
+    lines.push("What you could have done better:");
+    report.better.forEach(s=>lines.push("   • "+s));
     lines.push("---");
   }
   if(report.growthSuggestions.length){
-    lines.push("Growth Suggestions:");
+    lines.push("Try this next time:");
     report.growthSuggestions.forEach(s=>lines.push("   • "+s));
   }
   buildAndSavePdf("LSH Case Management Training", `Day ${dayNo(dayId)} — Evaluation Report`, lines, `LSH_Day${dayNo(dayId)}_Evaluation_Report`);
@@ -8592,7 +8652,13 @@ function renderCalendarBody(body){
 
   toolState.wizardIndex = toolState.wizardIndex || 0;
   const partA = `
-    <p style="font-size:13px;color:var(--ink-soft);margin-bottom:10px;">This attorney's <b>week</b> has <b>${toolState.calBaseline} overlapping commitments</b> (outlined in red). <b>Drag any block</b> to a new day or time, or click the <b>⇄ Move button</b> on a block for precise day/time selection if dragging is fiddly. Click one of the three priority-color dots to recolor, <b>✕</b> to remove an event entirely, or <b>+ Add Event</b> to schedule something new — including proactive tasks you spot are missing, like a debrief buffer or prep block. Nothing here is graded until you click Check My Plan.</p>
+    <p style="font-size:13px;color:var(--ink-soft);margin-bottom:6px;">This week has <b>${toolState.calBaseline} clashes</b>: two things booked at the same time, outlined in red.</p>
+    <ol class="sb-steps">
+      <li>In each clash, find the <b>lower-priority</b> item (the color dots show High, Medium and Low).</li>
+      <li>Move it: <b>drag</b> the block to a free time, or press <b>⇄</b> to pick a day and time.</li>
+      <li>Leave hard deadlines, depositions and the mediation where they are. Don't delete work to clear a clash.</li>
+      <li>Press <b>Check My Plan</b>. Nothing is graded until you do.</li>
+    </ol>
     <div class="legend-row">
       ${["High","Medium","Low"].map(p=>`<span class="legend-chip"><span class="sw" style="background:${PRI_COLOR[p]};"></span>${p} priority</span>`).join("")}
       <button class="btn btn-navy btn-sm" style="margin-left:auto;" onclick="openAddEventDialog()">+ Add Event</button>
@@ -9014,11 +9080,18 @@ function calPlanScore(events){
 async function submitCalendar(){
   const events = calMergedEvents();
   const {baseline, resolved, dropped, score} = calPlanScore(events);
+  const left = calFindConflicts(events).map(([i,j])=>[events.find(e=>e.idx===i), events.find(e=>e.idx===j)]).filter(([a,b])=>a&&b);
+  const lower = (a,b)=>{ const r = {High:3, Medium:2, Low:1}; return (r[a.p]||0) <= (r[b.p]||0) ? a : b; };
+  const better = [];
+  if(dropped) better.push(`You could have moved the lower-priority item instead of deleting it: a deleted commitment is work the firm still owes, so ${dropped===1?"that clash doesn't":"those clashes don't"} count as fixed.`);
+  if(left.length) better.push(`You could have cleared ${resolved?"the last ":"the "}${left.length===1?"clash":left.length+" clashes"} by moving the lower-priority item in each pair to a free time the same week.`);
   document.getElementById("calResult").innerHTML=`
     <div class="card" style="padding:18px 20px;margin-top:16px;">
-      <b style="color:var(--navy);">${resolved} / ${baseline} conflicts resolved (${score}%)</b>
-      ${dropped ? `<p style="font-size:12.8px;color:var(--ink-soft);margin:8px 0 0;">${dropped} conflict${dropped===1?" was":"s were"} cleared by deleting a commitment: that drops the work rather than resolving the clash, so ${dropped===1?"it doesn't":"they don't"} count. Move the lower-priority item instead.</p>` : ""}
-      <p style="font-size:12.8px;color:var(--ink-soft);margin:8px 0 0;">Best practice when reshuffling: move the lower-priority commitment, and keep High-priority items — depositions, hearings, client emergencies — right where they are.</p>
+      <b style="color:var(--navy);">${resolved} of ${baseline} clashes fixed (${score}%)</b>
+      <p style="font-size:13px;color:#37394A;margin:8px 0 0;">${score===100 ? "Every clash is fixed and no work was dropped. That is exactly what the attorney needs." : resolved ? "Good progress. Here is what is still open, and how to finish it." : "Not yet. Start with the clashes listed below: move the lower-priority item in each."}</p>
+      ${left.length ? `<p style="font-size:13px;margin:10px 0 4px;"><b>Still clashing:</b></p><ul style="font-size:13px;margin:0;padding-left:18px;">${left.slice(0,6).map(([a,b])=>`<li><b>${esc(a.t)}</b> and <b>${esc(b.t)}</b> (${esc(calDayDate(a.day))}). Move <b>${esc(lower(a,b).t)}</b>: it is the lower priority.</li>`).join("")}${left.length>6?`<li>and ${left.length-6} more, outlined in red on the week</li>`:""}</ul>` : ""}
+      ${better.length ? `<p style="font-size:13px;margin:10px 0 4px;"><b>What you could have done better</b></p><ul style="font-size:13px;margin:0;padding-left:18px;">${better.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+      <p style="font-size:12.8px;color:var(--ink-soft);margin:10px 0 0;">The rule of thumb: move the lower-priority item, and keep depositions, hearings, deadlines and client emergencies where they are.</p>
     </div>`;
   await bumpPracticeProgress("calendar", score);
   const lines = [
@@ -9157,8 +9230,8 @@ function initFinancial(body){
     <div id="attnDetailResult" style="margin-top:14px;"></div>
     ${trainerInline() ? `
     <div class="trainer-checkpoint" style="margin-top:16px;">
-      <div class="tc-tag">🧑‍🏫 Trainer Cue — AI-Graded, Answer Key Reference</div>
-      <p>This is now graded automatically against the planted errors below — the AI is given this exact list as its answer key, so scoring should be reliable. It's still worth spot-checking a few submissions, since cross-document accuracy checking is a nuanced skill.</p>
+      <div class="tc-tag">🧑‍🏫 Trainer Cue — Auto-Graded, Answer Key Reference</div>
+      <p>This is now graded automatically against the planted errors below — the grader is given this exact list as its answer key, so scoring should be reliable. It's still worth spot-checking a few submissions, since cross-document accuracy checking is a nuanced skill.</p>
       <p><b>The planted errors are:</b></p>
       <ul style="margin:8px 0 0;padding-left:20px;">
         ${ATTENTION_TO_DETAIL_ANSWERS.map(a=>`<li style="font-size:12.8px;margin-bottom:6px;">${esc(a)}</li>`).join("")}
@@ -10102,7 +10175,7 @@ Score this performance on a 100-point rubric across these four EQUALLY weighted 
 
 A generic or minimal-effort performance should score well below 70 overall. Reserve 85+ for genuinely strong performance across all four categories, not just adequate.
 
-Feedback rule: every item in "blindspots" names what is wrong AND tells the trainee exactly how to correct it — the steps to take, where (which CMS screen, form or document) and what the corrected entry or wording should be (for example: "The Case ID is missing from your note → open the CMS Case File, copy the Case ID from the header and add it as the note's first line."). Never just point out the fault. Each "growthSuggestions" item is one concrete action to practice next.
+${HUMAN_FEEDBACK}
 
 Return ONLY a JSON object with this exact shape, no other text:
 {
@@ -10110,8 +10183,10 @@ Return ONLY a JSON object with this exact shape, no other text:
   "stressScore": <integer 0-25>,
   "taskScore": <integer 0-25>,
   "strategicScore": <integer 0-25>,
+  "summary": "<2-3 warm, plain sentences to the trainee: how it went, the biggest challenge, what to do first>",
   "strengths": ["...", "..."],
-  "blindspots": ["<what is wrong> → <how to correct it: the exact steps>", "..."],
+  "blindspots": ["<what happened> → <why it matters> → <how to fix it: the exact steps>", "..."],
+  "better": ["You could have ...", "..."],
   "growthSuggestions": ["...", "..."]
 }`;
   const raw = await callAIJson(prompt, 900, undefined, "grading");
@@ -10123,8 +10198,10 @@ Return ONLY a JSON object with this exact shape, no other text:
   return {
     boundaryScore, stressScore, taskScore, strategicScore, totalScore,
     gradeTier: gradeTierFor(totalScore),
+    summary: typeof raw.summary === "string" ? raw.summary.trim().slice(0, 600) : "",
     strengths: Array.isArray(raw.strengths) ? raw.strengths : [],
     blindspots: Array.isArray(raw.blindspots) ? raw.blindspots : [],
+    better: Array.isArray(raw.better) ? raw.better.filter(x => typeof x === "string" && x.trim()).slice(0, 3) : [],
     growthSuggestions: Array.isArray(raw.growthSuggestions) ? raw.growthSuggestions : []
   };
 }
@@ -10147,19 +10224,25 @@ function renderIntakeCallEvaluationReport(report){
         </div>
       </div>
       ${mindsetNote(report.totalScore)}
+      ${coachNoteHtml(report)}
       ${report.strengths.length ? `
       <div class="eval-section">
-        <b>Strengths</b>
+        <b>What you did well</b>
         <ul>${report.strengths.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
       </div>` : ""}
       ${report.blindspots.length ? `
       <div class="eval-section">
-        <b>Not this way — what to change</b>
-        <ul>${report.blindspots.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
+        <b>What to work on, and how to fix it</b>
+        <ul>${report.blindspots.map(s=>`<li class="fb-item">${feedbackItemHtml(s)}</li>`).join("")}</ul>
+      </div>` : ""}
+      ${(report.better || []).length ? `
+      <div class="eval-section eval-better">
+        <b>What you could have done better</b>
+        <ul>${report.better.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
       </div>` : ""}
       ${report.growthSuggestions.length ? `
       <div class="eval-section">
-        <b>Growth Suggestions</b>
+        <b>Try this next time</b>
         <ul>${report.growthSuggestions.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
       </div>` : ""}
     </div>`;
@@ -11850,7 +11933,7 @@ async function requestMoreLabAttempts(dayId){
 window.requestMoreLabAttempts = requestMoreLabAttempts;
 async function generateAiReview(traineeId){
   const btnWrap = document.getElementById("aiReviewWrap-"+traineeId);
-  if(btnWrap) btnWrap.innerHTML = `<div class="ai-loading">Generating AI review…</div>`;
+  if(btnWrap) btnWrap.innerHTML = `<div class="ai-loading">Generating the review…</div>`;
   const rec = await sharedGet("trainee:"+traineeId);
   if(!rec) return;
   const dp = rec.dayProgress||{};
@@ -12649,7 +12732,7 @@ async function endSurpriseTaskFromAdmin(){
 window.endSurpriseTaskFromAdmin = endSurpriseTaskFromAdmin;
 function renderAiReviewBlock(rec){
   const r = rec.aiReview;
-  const btnLabel = r ? "Regenerate AI Review" : "Generate AI Review";
+  const btnLabel = r ? "Regenerate Review" : "Generate Review";
   return `
     ${r ? `
       <div style="font-size:12.5px;color:var(--ink-soft);margin-bottom:8px;">Generated ${fmtDate(r.generatedAt)} from Day scores and Skill Builders results.</div>
@@ -12667,7 +12750,7 @@ function renderAiReviewBlock(rec){
         <div><b style="font-size:12.5px;color:var(--navy);">Red Flag</b><p style="font-size:12.5px;margin:4px 0 0;">${esc(r.redFlag)}</p></div>
         <div><b style="font-size:12.5px;color:var(--navy);">Endorsement</b><p style="font-size:12.5px;margin:4px 0 0;font-weight:600;color:var(--navy);">${esc(r.endorsement)}</p></div>
       </div>
-    ` : `<p style="font-size:12.5px;color:var(--ink-soft);margin:0 0 10px;">No AI review generated yet.</p>`}
+    ` : `<p style="font-size:12.5px;color:var(--ink-soft);margin:0 0 10px;">No review generated yet.</p>`}
     <button class="btn btn-sm btn-navy" style="margin-top:10px;" onclick="generateAiReview('${esc(rec.id)}')">${btnLabel}</button>
   `;
 }
@@ -13866,9 +13949,10 @@ Do not evaluate filing or security awareness — those are scored separately and
       prompt
     );
     e.reportCard = report;
-    e.report = `<b>Strengths</b><ul>${report.strengths.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>` +
-      (report.blindspots.length ? `<b>Not this way — what to change</b><ul>${report.blindspots.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>` : "") +
-      (report.growthSuggestions.length ? `<b>Growth Suggestions</b><ul>${report.growthSuggestions.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>` : "");
+    e.report = `${report.summary ? `<p><b>💬 Your coach's note:</b> ${esc(report.summary)}</p>` : ""}<b>What you did well</b><ul>${report.strengths.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>` +
+      (report.blindspots.length ? `<b>What to work on, and how to fix it</b><ul>${report.blindspots.map(s=>`<li class="fb-item">${feedbackItemHtml(s)}</li>`).join("")}</ul>` : "") +
+      ((report.better || []).length ? `<b>What you could have done better</b><ul>${report.better.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>` : "") +
+      (report.growthSuggestions.length ? `<b>Try this next time</b><ul>${report.growthSuggestions.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>` : "");
     rubricScore = report.totalScore;
   }catch(err){
     e.report = "Couldn't reach the review service to assess Writing DNA Match and Professionalism — check your connection and try again. (Your Filing Accuracy and Security Awareness scores above were still computed normally.)";
@@ -15909,6 +15993,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-takeaway-catchup.js"></script>
 <!-- 🧠 Think it through: a Canva page's example worked on John Doe's own file, AI graded (beside the 💡 Tip; after cm-lesson-tips.js) -->
 <script src="/js/cm-think-through.js"></script>
+<!-- 🧑‍🏫 Trainer notes on graded activities: the trainer's own feedback beside the automated grade (after cm-ai-grader.js) -->
+<script src="/js/cm-trainer-notes.js"></script>
 <script src="/js/lsh-topbar.js"></script>
 <script src="/js/lsh-one-screen.js"></script>
 </body>

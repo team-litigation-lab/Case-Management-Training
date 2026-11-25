@@ -186,7 +186,7 @@
   },
   "d2m2-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Liens › Outstanding Case Liens, record Riverton's LOP signed by John Doe and Atty. Thorne\n• And send it with the HIPAA authorization from the Email Workspace\n• Step 2: Log Summit Imaging's declined LOP request in CMS › Notes › Case Notes, naming Harbor Point MedPay as payer, and calendar the rental's 03/19/2026 end"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Liens › Outstanding Case Liens, record Riverton's LOP, signed by John Doe and Atty. Thorne. Email it with the HIPAA authorization\n• And send it with the HIPAA authorization from the Email Workspace\n• Step 2: In CMS › Notes › Case Notes, note that Summit Imaging declined the LOP and Harbor Point MedPay pays instead. Calendar the rental's end, 03/19/2026"
     },
     "case": {
       "say": "• Assuming Riverton Spine & Rehab is out of network for Peach State and Atty. Thorne has approved its LOP, the LOP now needs sending and logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: One counsel-approved LOP sent, one declined, both logged"
@@ -197,7 +197,7 @@
   },
   "d2m3-a1": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Take the recorded call below: state the date and his consent, ask open questions only, and read his account back to him\n• Step 2: Log a privileged GIRP note in CMS › Notes › Case Notes the same day, with a dated task for each corroborating document"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Take the recorded call below. Say the date, get his consent, ask open questions only, and read his answers back to him\n• Step 2: File a privileged GIRP note in CMS › Notes › Case Notes the same day, plus a dated task for each supporting document"
     },
     "case": {
       "say": "• Assuming John Doe has agreed to a recorded call about why he waited 14 days, his four reasons now need capturing in his own words\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: All four reasons in his words, the GIRP note filed"
@@ -211,7 +211,7 @@
   },
   "d2m2-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the call in CMS › Notes › Case Notes in his own words, with no diagnosis or advice\n• Step 2: In CMS › Calendar, book his 04/21 and 04/23 visits, then restore the file's status in CMS › Case Status"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Notes › Case Notes, log the call using his own words. Add no diagnosis and no advice\n• Step 2: In CMS › Calendar, book his 04/21 and 04/23 visits. Then set the file back to active in CMS › Case Status"
     },
     "case": {
       "say": "• Assuming the No Contact Protocol has been maxed and John Doe calls back on 04/17, his re-engagement now needs logging before the letter's date\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: His words logged, visits booked, the file restored"
@@ -318,7 +318,7 @@
   },
   "d2m4-a2": {
     "task": {
-      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log each decision in CMS › Notes › Case Notes, attributed to Atty. Thorne, with the date it was made\n• Step 2: In CMS › Tasks, open a task with an owner for each decision, and propose no demand figure"
+      "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Notes › Case Notes, write down each decision, the date it was made, and that Atty. Thorne made it\n• Step 2: In CMS › Tasks, add one task with an owner for each decision. Do not suggest any demand amount"
     },
     "case": {
       "say": "• Assuming Atty. Thorne has decided on a time-limited BI demand, served 07/20/2026, his strategy decisions now need recording on the file\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a dated decision record, attributed to Atty. Thorne, tasked"

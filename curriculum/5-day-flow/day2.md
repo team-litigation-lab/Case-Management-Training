@@ -40,10 +40,10 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 5. *Lesson* — Settlement Negotiations & the BI Settlement
 6. *Lesson* — BI Settlement: the UM/UIM Safety Check & Key Laws
 7. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package (practises: Case Phase: Demand) — **Skill Building**
-8. *Skill Activity* — Probe the 14-Day Treatment Gap with AI John Doe (practises: Interview Techniques & UPL Boundaries in Client Investigation) — *side*
-9. *Skill Activity* — Pre-Demand Strategy Session with AI Atty. Elijah Thorne (practises: Pre-Demand Case Auditing) — *side*
+8. *Skill Activity* — Probe the 14-Day Treatment Gap with John Doe (practises: Interview Techniques & UPL Boundaries in Client Investigation) — *side*
+9. *Skill Activity* — Pre-Demand Strategy Session with Atty. Elijah Thorne (practises: Pre-Demand Case Auditing) — *side*
 10. *Skill Activity* — Backup File Maintenance: Records and Bills in Their Folders (practises: Pre-Demand Case Auditing) — **Required: Backup File Maintenance**
-11. *Skill Activity* — Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap (practises: Settlement Negotiations & the BI Settlement) — *side*
+11. *Skill Activity* — Negotiate with the Adjuster: MRI Findings vs. the 14-Day Gap (practises: Settlement Negotiations & the BI Settlement) — *side*
 12. *Skill Activity* — Settlement Release Clause Review & Attorney Approval (practises: BI Settlement: the UM/UIM Safety Check & Key Laws) — *side*
 13. *Knowledge Check* — Treatment Monitoring Review
 14. *Knowledge Check* — UPL & Investigation Review
@@ -587,7 +587,7 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 ---
 
-### 2.1.8 Probe the 14-Day Treatment Gap with AI John Doe
+### 2.1.8 Probe the 14-Day Treatment Gap with John Doe
 
 > **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with UPL & Investigation Review (`d2m3`)  
 > **Topic:** Skill Activity 1 — Call Sim: the 14-Day Gap, in his words  
@@ -596,17 +596,17 @@ Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's au
 
 #### 1 · Visual Layout Description
 
-A call-simulator screen across the left two-thirds: a navy header bar reading AI JOHN DOE · RECORDED CALL · 03/04/2026 with a red recording dot, a cream transcript pane, and beneath it a question meter of three mono pills that count OPEN · CLOSED · LEADING, the last in red. Right third: four empty reason slots with orange numbered badges ①–④, each with a document slot beside it, filling only as the trainee surfaces them. Under the slots, a red danger callout: “A suggested reason earns a yes, not a fact.” The argument: reasons are earned by questions, never supplied.
+A call-simulator screen across the left two-thirds: a navy header bar reading JOHN DOE · RECORDED CALL · 03/04/2026 with a red recording dot, a cream transcript pane, and beneath it a question meter of three mono pills that count OPEN · CLOSED · LEADING, the last in red. Right third: four empty reason slots with orange numbered badges ①–④, each with a document slot beside it, filling only as the trainee surfaces them. Under the slots, a red danger callout: “A suggested reason earns a yes, not a fact.” The argument: reasons are earned by questions, never supplied.
 
 #### 2 · Slide Body — the scenario and the task
 
 **Scenario.** 03/04/2026. The first records are in. Riverton Urgent Care's note of 02/20/2026 reads: “onset at MVA 02/06/2026, progressively worsening; numbness to right hand since 02/18.” The EMS Run Report records neck stiffness on 02/06/2026. John Doe has been at Riverton Spine & Rehab since 02/24/2026; Margaret's rental runs to 03/19/2026. Nobody has asked him why he waited 14 days.
 
-**Execution prompt.** Run a recorded call with AI John Doe to learn why he first treated on 02/20/2026, 14 days after the collision. Open on the record: the date, who is on the call, his consent to recording, and that he can talk privately. Ask open questions, follow his words, and keep closed questions for pinning dates and documents. Find out who he told and what he kept; read his account back. Close with the standing instruction and his next appointment, then file a privileged GIRP note. Graded failures: any leading question or suggested reason, and telling him the gap “won't matter” or “will hurt the case”.
+**Execution prompt.** Run a recorded call with John Doe to learn why he first treated on 02/20/2026, 14 days after the collision. Open on the record: the date, who is on the call, his consent to recording, and that he can talk privately. Ask open questions, follow his words, and keep closed questions for pinning dates and documents. Find out who he told and what he kept; read his account back. Close with the standing instruction and his next appointment, then file a privileged GIRP note. Graded failures: any leading question or suggested reason, and telling him the gap “won't matter” or “will hurt the case”.
 
 | | |
 |---|---|
-| **Tool / interface** | Call Sim → AI John Doe (recorded call) · CMS → Notes → Case Notes · Tasks |
+| **Tool / interface** | Call Sim → John Doe (recorded call) · CMS → Notes → Case Notes · Tasks |
 | **Expected output** | A consented, privileged recording with all four reasons in John Doe's own words, a same-day GIRP note, and a dated task for every corroborating document. |
 
 **Show Them — reference model**
@@ -663,12 +663,12 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 2) and that day'
 
 - Before the first trainee dials, read the two graded failures aloud: a leading question or suggested reason, and any “won't matter” or “will hurt the case”. Then let the simulator run without coaching.
 - After the first call, ask the room: “Which reason was hardest to get, and what question finally got it?” Usually it is the cost worry; clients are embarrassed by it, and only a non-judgmental question reaches it.
-- Watch the rental reason. Trainees who know the file ask “Was it the car?” within two minutes. AI John Doe will say yes, the other reasons stay hidden, and the call fails: a leading question buys agreement, not information.
+- Watch the rental reason. Trainees who know the file ask “Was it the car?” within two minutes. John Doe will say yes, the other reasons stay hidden, and the call fails: a leading question buys agreement, not information.
 - Grade the note as hard as the call: his words under Response, a dated plan, the privileged label. A strong call with a feelings-only note leaves the demand with nothing to stand on.
 
 ---
 
-### 2.1.9 Pre-Demand Strategy Session with AI Atty. Elijah Thorne
+### 2.1.9 Pre-Demand Strategy Session with Atty. Elijah Thorne
 
 > **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Pre-Demand Audit & Day 3 Gate (`d2m4`)  
 > **Topic:** Skill Activity 2 — present the audit; record his decisions  
@@ -677,17 +677,17 @@ Verified in UPL & Investigation Review (taught on Case Flow Day 2) and that day'
 
 #### 1 · Visual Layout Description
 
-A two-pane Call Sim screen. Left pane: the session transcript as alternating bubbles, navy for AI ATTY. ELIJAH THORNE and cream for the trainee; two of his bubbles are outlined in orange as challenges: “Keystone will call this low-speed” and “Why should they pay for a gap?” Right pane: a DECISION RECORD card filling as the session runs, rows with orange numbered badges — ① BI DEMAND · TIME-LIMITED · SERVE 07/20/2026 ② GAP · UP FRONT ③ UM · CONSENT PLAN ④ BILLED OR PAID — each stamped DECIDED BY ATTY. THORNE with a task chip. A red strip along the bottom: “The CM recommends operations. Counsel decides.”
+A two-pane Call Sim screen. Left pane: the session transcript as alternating bubbles, navy for ATTY. ELIJAH THORNE and cream for the trainee; two of his bubbles are outlined in orange as challenges: “Keystone will call this low-speed” and “Why should they pay for a gap?” Right pane: a DECISION RECORD card filling as the session runs, rows with orange numbered badges — ① BI DEMAND · TIME-LIMITED · SERVE 07/20/2026 ② GAP · UP FRONT ③ UM · CONSENT PLAN ④ BILLED OR PAID — each stamped DECIDED BY ATTY. THORNE with a task chip. A red strip along the bottom: “The CM recommends operations. Counsel decides.”
 
 #### 2 · Slide Body — the scenario and the task
 
 **Scenario.** File date: 07/08/2026, before any demand is drafted. Your audit is done: MMI 06/12/2026; Specials $42,984.00 ($41,400.00 medical after the duplicate came out + $1,584.00 wages); liens $1,860.00 (Peach State) and $6,105.00 (the LOP); targets $10,000 BI → $20,000 Host UM → $10,000 Relative UM. The Gap Explanation Record (07/01/2026) and Dr. Reyes's 06/19/2026 Causation Letter are in the file. Atty. Thorne has called the pre-demand strategy session.
 
-**Execution prompt.** Run the pre-demand strategy session with AI Atty. Elijah Thorne. Brief him in protocol order: bottom line, audited facts, risks with their answering documents, the decisions he must make, and each option's operational consequences. Answer his challenges with objective facts, not adjectives. Recommend only on operations; ask for his decision on everything legal. Read back each decision before you close. Then record the decisions in the CMS, open a task for each, and re-route the Case Plan.
+**Execution prompt.** Run the pre-demand strategy session with Atty. Elijah Thorne. Brief him in protocol order: bottom line, audited facts, risks with their answering documents, the decisions he must make, and each option's operational consequences. Answer his challenges with objective facts, not adjectives. Recommend only on operations; ask for his decision on everything legal. Read back each decision before you close. Then record the decisions in the CMS, open a task for each, and re-route the Case Plan.
 
 | | |
 |---|---|
-| **Tool / interface** | Call Sim → AI Atty. Elijah Thorne (strategy session) · CMS → Notes → Case Notes · CMS → Tasks |
+| **Tool / interface** | Call Sim → Atty. Elijah Thorne (strategy session) · CMS → Notes → Case Notes · CMS → Tasks |
 | **Expected output** | A recorded strategy session and a dated decision record, each decision attributed to Atty. Thorne with its tasks and owners. |
 
 **Verification checkpoints**
@@ -733,9 +733,9 @@ Verified in Pre-Demand Audit & Day 3 Gate (taught on Case Flow Day 2) and that d
 
 #### 5 · Speaker Notes
 
-- Set the simulator so AI Atty. Thorne interrupts within the first minute: “Keystone will call this low-speed.” A trainee who answers with adjectives (“it was a serious crash”) has missed the point; objective facts only.
+- Set the simulator so Atty. Thorne interrupts within the first minute: “Keystone will call this low-speed.” A trainee who answers with adjectives (“it was a serious crash”) has missed the point; objective facts only.
 - Ask the observers: “What did Atty. Thorne decide, in his words?” If they can't quote it, the trainee didn't read it back.
-- Watch for the trap in the script: AI Atty. Thorne asks, “What do you think we should demand?” The right answer gives him the inputs (the limits in order, $42,984.00, the future medical) and hands the figure back to him.
+- Watch for the trap in the script: Atty. Thorne asks, “What do you think we should demand?” The right answer gives him the inputs (the limits in order, $42,984.00, the future medical) and hands the figure back to him.
 - Grade the decision record, not the conversation: each decision dated, attributed and tasked, or the session didn't happen.
 
 ---
@@ -802,7 +802,7 @@ Verified in Treatment Monitoring Review (taught on Case Flow Day 2) and that day
 
 ---
 
-### 2.1.11 Negotiate with AI Adjuster: MRI Findings vs. the 14-Day Gap
+### 2.1.11 Negotiate with the Adjuster: MRI Findings vs. the 14-Day Gap
 
 > **Skill Activity** · Day 2 — Pre-Demand, the BI Demand & BI Settlement · Module 2: Pre-Demand, the BI Demand & BI Settlement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity 1 — hold the Limits Demand on a recorded call  
@@ -821,7 +821,7 @@ A call-simulator screen across two-thirds of the slide: a navy header bar readin
 
 | | |
 |---|---|
-| **Tool / interface** | Call Sim → AI Adjuster: Dana Whitfield, Keystone Mutual · CMS → Notes → Case Notes · Email Workspace |
+| **Tool / interface** | Call Sim → Adjuster: Dana Whitfield, Keystone Mutual · CMS → Notes → Case Notes · Email Workspace |
 | **Expected output** | A recorded call held inside Atty. Thorne's authority, a math check on $3,500, a logged offer in the adjuster's own words, a same-day report to Atty. Thorne, and the 08/06/2026 rebuttal drafted for his approval. |
 
 **Show Them — reference model**
@@ -965,9 +965,9 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Read Peach State's 06/03/2026 EOB (claim PS-2605-449021) line by line: what does each amount mean, and where does each one go on John Doe's file?
-2. Crescent's 07/01/2026 statement asks John Doe for $1,540.00. What does the EOB show, what do you do, and what do you tell him?
-3. Riverton Spine & Rehab got an LOP on 02/23/2026; Summit Imaging's 03/11/2026 request was declined. Explain both decisions from the Payer Order, and what you may and may not tell either provider.
+1. Read Peach State's 06/03/2026 EOB (claim PS-2605-449021) line by line. What does each amount mean, and where does it go on John Doe's file?
+2. Crescent's 07/01/2026 statement asks John Doe for $1,540.00. Using the EOB, what do you do, and what do you tell him?
+3. Riverton Spine & Rehab got an LOP on 02/23/2026; Summit Imaging's 03/11/2026 request was declined. Why, using the Payer Order? What may you tell each provider?
 
 **Best practices & pitfalls**
 
@@ -978,9 +978,9 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, what you learned about keeping John Doe's treatment moving and paid for: the principles, not the clicks.
-- Articulate your strategy: care resumed on 04/21/2026. What is your next monitoring action, and why is it the right one rather than something else?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, what did you learn about keeping John Doe's treatment going and paid for? Focus on the ideas, not the clicks.
+- John Doe's care started again on 04/21/2026. What would you check next to keep it on track, and why?
+- What part of this module are you least sure about, and what would help you feel sure?
 
 **Skill Scale — self-rate 1–5**
 
@@ -999,72 +999,72 @@ The standard knowledge-check split. Upper half: the question panel on the cream 
 
 **Auto-graded share of the day's Knowledge Check** (22 questions):
 
-1. On 03/11/2026 Summit Imaging asks for an LOP for John Doe's $2,395.00 MRI. Harbor Point's PIP was spent on the emergency care; its MedPay has $3,675.00 left once Lakeside's billed $640.00 consult is paid. What do you do?  
-   Prepare the LOP for Atty. Thorne's approval, since the provider asked for one · **✓ Decline the LOP and route the bill to MedPay, which applies first** · Send the bill to Peach State first, to save MedPay for later · Tell Summit it will be paid in full at settlement  
-   *The Payer-First Principle: MedPay pays regardless of fault, and Harbor Point confirmed it has no reimbursement right, so the MRI is paid with nothing to repay. An LOP would have turned it into a $2,395.00 lien against John Doe's net. Never promise a provider payment at settlement.*
-2. Crescent Pain & Spine billed $3,400.00 for the 05/15/2026 injection, and Peach State paid $1,860.00. Why does Peach State's reimbursement claim start at $1,860.00?  
-   Peach State always discounts its claims by about 45% · **✓ Crescent is in network: the plan paid its contract rate, Crescent wrote off the rest and cannot balance-bill, so the plan can only claim what it paid** · The other $1,540.00 is owed by MedPay · John Doe still owes Crescent the $1,540.00, so it is left out of the plan's claim  
-   *A Health Plan's reimbursement claim is what it paid, not what was billed. In network, the $1,540.00 difference is written off for good. That is why the Health Plan comes before an LOP, which carries the full billed amount into the recovery.*
-3. Peach State's 06/03/2026 EOB for Crescent's injection shows billed $3,400.00, plan paid $1,860.00 and member responsibility $0.00. On 07/01/2026 Crescent mails John Doe a statement for $1,540.00. What is it?  
-   A balance John Doe owes, now that his insurance has processed the claim · A new lien to add to the Lien Tracker at $1,540.00 · **✓ A balance bill of the contractual write-off: document it, route it to Atty. Thorne and ask Crescent in writing to correct the account** · Peach State's reimbursement claim  
-   *In network, Crescent agreed to accept the allowed $1,860.00 as payment in full (CO-45), and the EOB shows John Doe's share as $0.00. The $1,540.00 is the write-off: not a debt and not a lien. Whether he owes it is Atty. Thorne's call; you document it, route it, request the correction in writing and tell John Doe what you are doing.*
+1. On 03/11/2026 Summit Imaging asks for an LOP for John Doe's $2,395.00 MRI. PIP is spent, but MedPay has $3,675.00 left. What do you do?  
+   Prepare the LOP for Atty. Thorne's approval, since the provider asked · **✓ Decline the LOP and send the bill to MedPay, which pays first** · Send the bill to Peach State first, to save MedPay for later · Tell Summit it will be paid in full at settlement  
+   *MedPay pays first, and Harbor Point has no reimbursement right, so the MRI gets paid with nothing to repay. An LOP would turn it into a $2,395.00 lien on John Doe's net. Never promise payment at settlement.*
+2. Crescent billed $3,400.00 for the 05/15/2026 injection, and Peach State paid $1,860.00. Why does Peach State's claim start at $1,860.00?  
+   Peach State always discounts its claims by about 45% · **✓ Crescent is in network, so the plan can claim only what it paid** · The other $1,540.00 is owed by MedPay · John Doe still owes Crescent $1,540.00, so it is left out  
+   *A Health Plan claims back what it paid, not what was billed. In network, Crescent writes off the $1,540.00 for good. That's why the Health Plan comes before an LOP, which carries the full bill.*
+3. Peach State's 06/03/2026 EOB shows: billed $3,400.00, plan paid $1,860.00, John Doe's share $0.00. On 07/01/2026 Crescent bills him $1,540.00. What is this?  
+   A balance John Doe owes, now that the claim is processed · A new lien to add to the Lien Tracker at $1,540.00 · **✓ A balance bill of the write-off: document it, route it, ask for a correction** · Peach State's reimbursement claim for the injection  
+   *In network, Crescent agreed to accept $1,860.00 as payment in full, and the EOB shows John Doe's share as $0.00. The $1,540.00 is the write-off, not a lien. Whether he owes it is Atty. Thorne's call.*
 4. Where does Peach State's reimbursement claim on Crescent's bill start?  
-   $3,400.00, the amount billed · **✓ $1,860.00, what the plan paid** · $1,540.00, the contractual adjustment · $0.00, because member responsibility is $0.00  
-   *A plan can claim back only what it paid. The EOB's plan-paid line, $1,860.00 (EFT PSH-EFT-0603-77815), is where its claim starts, and its itemized lien must match its EOBs line by line.*
-5. A provider sends Harbor Point a new bill for John Doe on 07/08/2026. What happens, and what do you do?  
-   Harbor Point pays it from the $20,000 Host UM limit · **✓ It comes back with a notice of exhaustion, because PIP's $10,000.00 was used up on 03/04/2026 and MedPay's $5,000.00 on 06/26/2026; the bill goes to the next payer in the Payer Order** · Harbor Point pays it and asks John Doe to repay it from his recovery · It is added to the $40,000 stack  
-   *Harbor Point's payment history (RS31) shows PIP's two checks totalling $10,000.00 (03/04/2026) and MedPay's five totalling $5,000.00, the last on 06/26/2026, and says bills received after exhaustion are returned with a notice of exhaustion. PIP and MedPay payments don't reduce the UM limit, Harbor Point asserts no reimbursement right, and neither is ever part of the stack.*
-6. On 03/11/2026 Summit Imaging Center asks for an LOP before John Doe's cervical MRI. What do you do?  
-   Issue the LOP on the firm's template so the MRI isn't delayed · Ask Peach State to pre-authorize the MRI, and issue an LOP for anything it won't pay · **✓ Decline: MedPay pays first, so give Summit the Harbor Point MedPay billing details and log the decline** · Tell Summit the firm will guarantee its bill at settlement  
-   *Payer Order: PIP → MedPay → Peach State → LOP. PIP was exhausted by the emergency care; MedPay had $3,675.00 left after Lakeside's pending $640.00 ($4,315.00 before it), enough for the $2,395.00 MRI. An unnecessary LOP turns a bill an earlier payer would cover into a lien on John Doe's net, and only Atty. Thorne sets LOP terms or commits the firm to anything.*
-7. Harbor Point MedPay has paid $685.00, $640.00, $2,395.00 and $640.00 in date order. How much is left for Lakeside Orthopedics' 06/12/2026 MMI visit?  
+   $3,400.00, the amount billed · **✓ $1,860.00, what the plan paid** · $1,540.00, the contractual adjustment · $0.00, because John Doe's share is $0.00  
+   *A plan can claim back only what it paid. The EOB's plan-paid line, $1,860.00 (EFT PSH-EFT-0603-77815), is where its claim starts. Its itemized lien must match its EOBs line by line.*
+5. A provider sends Harbor Point a new bill for John Doe on 07/08/2026. What happens to it?  
+   Harbor Point pays it from the $20,000 Host UM limit · **✓ It comes back with a notice of exhaustion, and goes to the next payer** · Harbor Point pays it and asks John Doe to repay it later · It is added to the $40,000 stack as a new layer  
+   *PIP's $10,000.00 was used up on 03/04/2026 and MedPay's $5,000.00 on 06/26/2026. Later bills come back with a notice of exhaustion, so the bill moves to the next payer in the Payer Order.*
+6. On 03/11/2026 Summit Imaging Center asks for an LOP before John Doe's neck MRI. What do you do?  
+   Issue the LOP on the firm's template so the MRI isn't delayed · Ask Peach State to pre-authorize the MRI, and issue an LOP for the rest · **✓ Decline, give Summit the Harbor Point MedPay billing details, and log it** · Tell Summit the firm will guarantee its bill at settlement  
+   *The Payer Order is PIP, MedPay, Peach State, then LOP. PIP was spent, but MedPay had $3,675.00 left, enough for the $2,395.00 MRI. An unneeded LOP creates a lien, and only Atty. Thorne sets LOP terms.*
+7. Harbor Point MedPay ($5,000.00 limit) has paid $685.00, $640.00, $2,395.00 and $640.00. How much is left for Lakeside Orthopedics' 06/12/2026 MMI visit?  
    **✓ $640.00** · $1,280.00 · $0.00 · $4,360.00  
-   *$685.00 + $640.00 + $2,395.00 + $640.00 = $4,360.00; $5,000.00 – $4,360.00 = $640.00. The 06/12/2026 visit uses it, and MedPay is exhausted at exactly $5,000.00 (PIP's $10,000.00 went to the emergency care in March).*
-8. Riverton Spine & Rehab's missed-visit alert reaches you on 04/08/2026, and John Doe isn't answering anyone. Under A-C-T, what comes first?  
-   Tell Atty. Thorne that John Doe is non-compliant · **✓ Assess: missed visits are a legal danger, so do the Step 1 review; then Clarify: ask the clinic and reach him through the No Contact Protocol, one channel after another, logging each attempt** · Send the Final Warning Letter today · Ask the clinic to discharge him until he calls  
-   *Assess comes first: two missed visits with no call are a legal danger (a gap in care), so the Step 1 internal review is done before any outreach. Clarify next, with the clinic's office and then John himself: call and text, call and email, the emergency contact, Atty. Thorne, and only then the Final Warning Letter. Track every attempt. Silence is a symptom; on this file its cause was crash-related anxiety, which only John could tell you.*
-9. John Doe calls on 04/17/2026 and says he panicked in the car at the corner where the crash happened and hasn't been able to ride to therapy since. What do you say?  
-   “That sounds like PTSD. You should see a therapist.” · “That will add to your pain and suffering, so it's good for your case.” · **✓ “I'm glad you told me. Would it help to tell Dr. Reyes about this yourself? I can set up a call with her office.”** · “You need to get back to therapy this week or the file closes.”  
-   *Record his words and offer a choice. A label is a diagnosis, “see a therapist” is direction of care, “good for your case” is a value statement, and the deadline is a threat. He tells Dr. Reyes; you schedule. What it means for the claim is Atty. Thorne's.*
-10. The Final Warning Letter of 04/10/2026 asks John Doe to respond by 04/20/2026. If he hadn't, when could the file have been closed?  
-   On 04/20/2026, automatically · **✓ Only when Atty. Thorne decides, and his retainer needs at least 30 days of documented attempts first (04/08 → 05/08/2026)** · On 04/16/2026, when the 14-day no-visit trigger fired · Whenever the Case Manager sets the status to Dropped  
-   *The letter's date is a response date, not a closure date. Section 7 of the retainer (RS05) requires documented attempts over at least 30 days, and withdrawal is always Atty. Thorne's decision. John Doe's case is never dropped: he called on 04/17.*
-11. Keystone will point to John Doe's three chiropractic visits in 2021. The Case Manager's job is to:  
-   Leave them out of the file, since they are unrelated · Tell John Doe the eggshell rule means they can't hurt his claim · Argue to the adjuster that a prior injury doesn't matter · **✓ Document the baseline (low back, resolved, no prior neck complaints), distinguish it from the neck injury, and route it to Atty. Thorne**  
-   *Highlight the prior, never hide it. The CM documents the pre-morbid baseline and the difference in body region; whether aggravation or the eggshell rule matters at all is Atty. Thorne's call.*
-12. The correct Payer Order for John Doe's Medical Bills is:  
-   Health Plan → PIP/MedPay → LOP/provider liens · **✓ PIP/MedPay → private health insurance → LOP/provider liens** · LOP/provider liens → Health Plan → PIP/MedPay · Robert Smith's BI carrier pays each bill as it arrives  
-   *The Regulatory Triple-Check Payer Order: PIP/MedPay, then private health insurance, then LOP/provider liens.*
-13. Which of these is NOT part of the Regulatory Triple-Check?  
-   A claim-specific HIPAA authorization that names the incident date · Medicare/Medicaid (BCRC) reporting where the client is 65+ or on SSDI · Payer Order and subrogation management · **✓ The Time-Limit Demand**  
-   *The triple-check is HIPAA, Medicare/Medicaid reporting, and the Payer Order. Demands come later, after the pre-demand audit.*
-14. Keystone ended Margaret Doe's rental on 03/19/2026; John Doe now rides to PT with his coworker Kevin Alvarez after work. What do you set up so his travel costs can reach the demand?  
-   An estimate of his miles, made at MMI · Nothing: travel to treatment is never recoverable · **✓ A trip log from his first visit (date, provider, round-trip miles), each cost entered with its receipt in the Specials ledger** · A reminder to ask him about it at the demand  
-   *Only what is documented can be recovered, so the log is kept as treatment happens, never rebuilt from memory. What the demand claims, and at what rate, is Atty. Thorne's call.*
-15. Which rate applies to John Doe's treatment mileage?  
-   **✓ The rate the governing state's rules allow, confirmed by Atty. Thorne** · Always the IRS business rate · Whatever rate John Doe asks for · The rental company's daily rate  
-   *The IRS standard rates are a reference only. The governing state's rules set the rate, and Atty. Thorne confirms it before anything is claimed.*
-16. Harbor Point's check for Lakeside Orthopedics' 06/12/2026 visit is paid on 06/26/2026. Where do you post it?  
-   In Case Notes only · In the Lien Tracker, as a PIP lien · Nowhere: PIP is outside the stack · **✓ In the PIP Log (CMS → Insurance → PIP / UM/UIM Coverage Stack): the check, the date of service and the limit remaining for PIP and MedPay, reconciled to Harbor Point's payment history**  
-   *The PIP Log (RS71) is the firm's record of John Doe's Harbor Point PIP and MedPay. It ties to Harbor Point's payment history (RS31) line for line: PIP's two payments, $10,000.00, $0.00 left after 03/04/2026; MedPay's five, $5,000.00, $0.00 left after 06/26/2026. Harbor Point has no reimbursement right, so neither is ever a lien.*
-17. Checking the PIP Log against the providers' statements: suppose Lakeside Orthopedics' statement still showed $640.00 owed for the 03/27/2026 visit that Harbor Point MedPay paid on 04/10/2026. What is it, and what do you do?  
-   A lien: add $640.00 to the Lien Tracker · **✓ A billing error: the MedPay payment is a credit Lakeside hasn't posted, so send it the payment proof in writing and ask it to correct the account** · A debt: tell John Doe to pay Lakeside · A reason to ask Harbor Point to pay the visit again  
-   *Every provider's statement must show the PIP or MedPay check or the plan's payment as a credit. A balance on a date of service Harbor Point already paid is a billing error, not a lien and not John Doe's debt: correct it in writing with the payment proof from the PIP Log and Harbor Point's payment history, and log it.*
-18. On a typical file in a state with an Emergency Medical Condition rule, the first treating records show no EMC finding. What do you do?  
-   Ask the treating physician to add an EMC finding so the full limit pays · **✓ Ask the provider whether an EMC was assessed and documented, and flag to Atty. Thorne which bills will move down the Payer Order if it wasn't** · Assume the full PIP limit until the carrier refuses a bill · Move all further treatment to LOPs at once  
-   *Without the finding, an EMC state can cap PIP (for example, $2,500 of a $10,000 limit), pushing bills onto the Health Plan, LOPs and the BI settlement. The finding is the physician's clinical judgment, never yours to suggest; you check, ask whether it was documented and flag the consequence to Atty. Thorne. On John Doe's file the finding is Dr. Sarah Spine's (Riverton General's emergency department, 02/20/2026), so his $10,000 had no $2,500 ceiling.*
-19. Harbor Point PIP paid Riverton General's emergency department and the ambulance, MedPay paid Summit Imaging's $2,395.00 MRI, and John Doe's chiropractic and PT ran under Riverton Spine & Rehab's LOP. Why does that pattern protect a client's net on a typical file?  
-   **✓ Imaging and hospital bills are fixed and rarely reduced at the end, while an LOP balance can still be negotiated, so less of the recovery goes to bills** · PIP pays imaging at a higher rate than chiropractic care · LOP bills are left out of the Specials · Harbor Point repays the LOP provider at settlement  
-   *Strategic exhaustion: PIP and MedPay spent on non-negotiable hard costs leave the negotiable LOP balance behind, which preserves more of the BI money for the client. The LOP bills stay in the Specials at their billed amounts; any reduction is Atty. Thorne's to negotiate, and you never promise a provider one.*
-20. Peach State's notice of reimbursement rights arrives on 02/27/2026, before the plan has paid any accident-related bill. When is the lien flagged in the CMS?  
-   Once the plan's first payment posts · **✓ That day: the right is known, so it is flagged in CMS → Liens, dated, before any demand** · At the pre-demand audit, when every lien is listed · At disbursement, when the final amount is known  
-   *The exact rule: flag the day a reimbursement right is first known (or the day a plan's first accident payment posts, if no notice came first), and always before the first demand. Registering a lien is not conceding it.*
-21. Peach State's 06/10/2026 interim itemization asserts $3,618.00, including a 02/03/2026 eye exam and the Crescent injection claimed at the billed $3,400.00. What does the lien register show after your audit?  
-   $3,618.00, the plan's figure, until the demand · $1,860.00 as soon as you finish the audit · **✓ $3,618.00 asserted and under dispute until Peach State confirms the corrected figure in writing; then $1,860.00 confirmed (06/24/2026)** · Nothing: a disputed lien is removed from the register  
-   *A plan claims only what it paid, for the collision's care: the three unrelated lines come off and Crescent is $1,860.00. The register changes only to a figure the plan confirms in writing; any reduction is Atty. Thorne's, at the lien stage.*
-22. On the endorsement call, Riverton Spine & Rehab's office manager asks whether the firm guarantees her bill in full and when it will be paid. What do you say?  
-   “Yes, the LOP guarantees full payment at settlement.” · **✓ “The LOP's terms are what protect the bill; payment amounts and timing are Atty. Thorne's, and I'll put you in touch with him”** · “Bill Peach State instead and we'll sort it out later.” · “Probably within six months, once the case settles.”  
-   *You confirm acceptance, secure the appointment and set the billing protocol. Payment amounts, reductions and dates are never promised by the Case Manager: they are Atty. Thorne's.*
+   *The payments add up to $4,360.00, and $5,000.00 – $4,360.00 = $640.00. The 06/12/2026 visit uses that last $640.00, so MedPay is used up at exactly $5,000.00.*
+8. On 04/08/2026 Riverton Spine & Rehab reports missed visits, and John Doe isn't answering anyone. Under A-C-T, what comes first?  
+   Tell Atty. Thorne that John Doe is non-compliant · **✓ Assess with the Step 1 review, then Clarify with the clinic and with him** · Send the Final Warning Letter today, before trying other channels · Ask the clinic to discharge him until he calls back  
+   *Assess comes first: missed visits risk a gap in care, so do the Step 1 internal review. Then Clarify: ask the clinic, then reach John through the No Contact Protocol, logging every attempt.*
+9. On 04/17/2026 John Doe says he panicked at the crash corner and hasn't been able to ride to therapy since. What do you say?  
+   “That sounds like PTSD. You should see a therapist.” · “That will add to your pain and suffering, so it's good for your case.” · **✓ “I'm glad you told me. Would you like to tell Dr. Reyes yourself? I can set up the call.”** · “You need to get back to therapy this week or the file closes.”  
+   *Record his words and offer him a choice: he tells Dr. Reyes, you schedule. A label is a diagnosis, “see a therapist” directs his care, “good for your case” values the claim, and a deadline is a threat.*
+10. The 04/10/2026 Final Warning Letter asks John Doe to reply by 04/20/2026. If he hadn't, when could the file close?  
+   On 04/20/2026, automatically · **✓ Only when Atty. Thorne decides, after at least 30 days of documented attempts** · On 04/16/2026, when the 14-day no-visit trigger fired · Whenever the Case Manager sets the status to Dropped  
+   *04/20 is a reply date, not a closing date. His retainer (Section 7) requires at least 30 days of documented attempts (04/08 to 05/08/2026), and withdrawal is always Atty. Thorne's decision. John called on 04/17.*
+11. Keystone will point to John Doe's three chiropractic visits in 2021. What is your job?  
+   Leave them out of the file, since they are unrelated · Tell John Doe the eggshell rule means they can't hurt his claim · Argue to the adjuster that a prior injury doesn't matter · **✓ Document his baseline, show how it differs, and route it to Atty. Thorne**  
+   *Point out the prior care; never hide it. You document his baseline: low back, resolved, no earlier neck complaints. Whether it matters at all, including the eggshell rule, is Atty. Thorne's call.*
+12. What is the correct Payer Order for John Doe's Medical Bills?  
+   Health Plan, then PIP/MedPay, then LOP/provider liens · **✓ PIP/MedPay, then private health insurance, then LOP/provider liens** · LOP/provider liens, then Health Plan, then PIP/MedPay · Robert Smith's BI carrier pays each bill as it arrives  
+   *PIP and MedPay pay first, then private health insurance, then LOPs and provider liens. That is the Payer Order in the Regulatory Triple-Check.*
+13. Which item does not belong in the Regulatory Triple-Check?  
+   A claim-specific HIPAA authorization naming the incident date · Medicare/Medicaid (BCRC) reporting for clients 65+ or on SSDI · Payer Order and subrogation management · **✓ The Time-Limited Demand**  
+   *The triple-check covers HIPAA, Medicare/Medicaid reporting and the Payer Order. Demands come later, after the pre-demand audit.*
+14. Keystone ended the rental on 03/19/2026, and John Doe now rides to PT with his coworker Kevin Alvarez. How do you capture his travel costs?  
+   An estimate of his total miles, made at MMI · Nothing: travel to treatment is never recoverable · **✓ A trip log (date, provider, round-trip miles), with receipts in the Specials ledger** · A reminder to ask him about it at the demand  
+   *You can recover only what is documented, so keep the log as treatment happens, not from memory later. What the demand claims, and at what rate, is Atty. Thorne's call.*
+15. Which mileage rate applies to John Doe's travel to treatment?  
+   **✓ The rate the governing state's rules allow, confirmed by Atty. Thorne** · The IRS business rate, in every case · Whatever rate John Doe asks for · The rental company's daily rate  
+   *The IRS standard rates are only a reference. The governing state's rules set the rate, and Atty. Thorne confirms it before anything is claimed.*
+16. Harbor Point pays Lakeside Orthopedics' 06/12/2026 visit on 06/26/2026. Where do you post the check?  
+   In Case Notes only · In the Lien Tracker, as a PIP lien · Nowhere, because PIP is outside the stack · **✓ In the PIP Log, with the date of service and limits remaining**  
+   *The PIP Log (CMS → Insurance → PIP / UM/UIM Coverage Stack) records John Doe's PIP and MedPay, matched to Harbor Point's payment history line by line. Harbor Point has no reimbursement right, so it's never a lien.*
+17. Lakeside's statement still shows $640.00 owed for the 03/27/2026 visit that MedPay paid on 04/10/2026. What is it, and what do you do?  
+   A lien: add $640.00 to the Lien Tracker · **✓ A billing error: send Lakeside the payment proof and ask for a correction** · A debt: tell John Doe to pay Lakeside the $640.00 · A reason to ask Harbor Point to pay the visit again  
+   *A paid visit should show the MedPay check as a credit. A leftover balance is a billing error, not a lien and not John Doe's debt. Correct it in writing with proof from the PIP Log, and log it.*
+18. On a typical file in a state with an Emergency Medical Condition (EMC) rule, the first records show no EMC finding. What do you do?  
+   Ask the treating physician to add an EMC finding so the full limit pays · **✓ Ask the provider if an EMC was documented, and flag the impact to Atty. Thorne** · Assume the full PIP limit until the carrier refuses a bill · Move all further treatment to LOPs at once  
+   *Without the finding, PIP can be capped (for example, $2,500 of a $10,000 limit), pushing bills down the Payer Order. The finding is the physician's judgment, never yours to suggest. You ask and flag.*
+19. PIP and MedPay paid John Doe's hospital, ambulance and MRI bills; his chiropractic and PT ran under an LOP. Why does that protect his net?  
+   **✓ Fixed hard costs get paid, leaving the LOP balance, which can be negotiated** · PIP pays imaging at a higher rate than chiropractic care · LOP bills are left out of the Specials entirely · Harbor Point repays the LOP provider at settlement  
+   *Hospital and imaging bills are rarely reduced, but an LOP balance can still be negotiated. Spending PIP and MedPay on the fixed costs leaves more BI money for the client. Any reduction is Atty. Thorne's to negotiate.*
+20. Peach State's notice of reimbursement rights arrives on 02/27/2026, before it has paid any accident bill. When do you flag the lien in the CMS?  
+   When the plan's first payment posts · **✓ That same day, dated, in CMS → Liens** · At the pre-demand audit, when every lien is listed · At disbursement, when the final amount is known  
+   *Flag a lien the day the right is first known (or when the plan's first accident payment posts, if no notice came), always before the first demand. Flagging a lien is not agreeing it is owed.*
+21. Peach State's 06/10/2026 itemization claims $3,618.00, including a 02/03/2026 eye exam and Crescent's billed $3,400.00. What does your lien register show after your audit?  
+   $3,618.00, the plan's figure, until the demand · $1,860.00, as soon as you finish the audit · **✓ $3,618.00, disputed until Peach State confirms in writing; then $1,860.00 (06/24/2026)** · Nothing, because a disputed lien comes off the register  
+   *A plan claims only what it paid for the collision's care, so the unrelated lines come off and Crescent is $1,860.00. But the register changes only when the plan confirms the figure in writing.*
+22. Riverton Spine & Rehab's office manager asks if the firm guarantees her bill in full, and when it will be paid. What do you say?  
+   “Yes, the LOP guarantees full payment at settlement.” · **✓ “The LOP's terms protect your bill. Amounts and timing are Atty. Thorne's; I'll connect you.”** · “Bill Peach State instead, and we'll sort it out later.” · “Probably within six months, once the case settles.”  
+   *You confirm acceptance, book the appointment and set up billing. You never promise payment amounts, reductions or dates: those are Atty. Thorne's.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1103,10 +1103,10 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Name the four reasons for John Doe's 14-day gap and, beside each, the document that corroborates it, with its date.
-2. Rewrite “Was it because you had no car?” so it could surface the same reason without suggesting it. Explain what the leading version costs the file.
-3. On the recorded call John Doe asks, “Is this gap going to wreck my case?” Give your answer word for word, then say what you do with the question.
-4. Robert Smith's citation proves fault. What else must John Doe's file prove, which document proves it, and what is your part, and not your part, in getting it?
+1. What were the four reasons for John Doe's 14-day gap? Beside each, name the document that supports it, with its date.
+2. Rewrite “Was it because you had no car?” so it can find the same reason without suggesting it. What does the leading version cost the file?
+3. On the recorded call, John Doe asks, “Is this gap going to wreck my case?” What exactly do you say, and what do you do with the question?
+4. Robert Smith's citation proves fault. What else must John Doe's file prove, and with which document? What is, and isn't, your part in getting it?
 
 **Best practices & pitfalls**
 
@@ -1117,9 +1117,9 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, what you learned about investigating a client's Treatment Gap: the principles, not the clicks.
-- Articulate your strategy: the Gap Record is with Atty. Thorne. What is your next action on this file, and why is it the right one rather than something else?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, what did you learn about looking into a client's Treatment Gap? Focus on the ideas, not the clicks.
+- The Gap Explanation Record is with Atty. Thorne. What would you do next on this file, and why?
+- What part of this module are you least sure about, and what would help you feel sure?
 
 **Skill Scale — self-rate 1–5**
 
@@ -1137,33 +1137,33 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 **Auto-graded share of the day's Knowledge Check** (9 questions):
 
-1. John Doe first treated on 02/20/2026, 14 days after the collision. Which question should open the investigation on the recorded call?  
-   “Was it because you had no car?” · “You were feeling fine at first, weren't you?” · **✓ “Take me through the days after the crash, from that morning up to 02/20.”** · “The adjuster will use this gap against you, so I need the reason.”  
-   *Broad, open and neutral. The first two suggest an answer, so the reason becomes yours, not his; the last is an opinion on what the gap does to the case, which is Atty. Thorne's to give.*
-2. On the recorded call, John Doe asks: “Is this gap going to hurt my case?” The Case Manager should:  
-   Reassure him that a two-week gap won't matter · Tell him honestly that it will lower the value · Tell him cases with a gap like his usually still settle at the limits · **✓ Say that's a question for Atty. Thorne, log it and route it, and carry on gathering the facts**  
-   *Reassurance, alarm and a settlement prediction are all opinions on his case. The Case Manager routes the question; Atty. Thorne answers it.*
-3. Which of these is NOT acceptable continuous-care evidence on John Doe's file?  
-   **✓ A note written in June at the firm's request, excusing him from work 02/09–02/13** · The EMS Run Report recording neck stiffness on 02/06/2026 · Northgate's Attendance Record of his call-outs 02/09–02/13 citing neck pain · The 02/20/2026 urgent-care note recording onset at the MVA  
-   *Nobody examined him 02/09–02/13, so a note made months later to the firm's order proves nothing and invites a fraud question. The employer's own record is the proof for those days.*
-4. John Doe's Gap Explanation Record must cover:  
-   Only the 14-day initial gap, because that is the one the adjuster will raise · **✓ The 14-day gap (02/06–02/20/2026) and the 19-day disruption (04/02–04/21/2026), every reason paired with its document** · Only the reasons that can be proved from Medical Records · The 14-day gap, with the firm's argument for why it doesn't matter  
-   *Both interruptions, each reason beside its dated document. Facts and citations only; the argument is Atty. Thorne's.*
-5. In John Doe's Gap Explanation Record, what corroborates the reason for the 19-day disruption (04/02–04/21/2026)?  
-   Keystone's rental record and its 04/10/2026 refusal · **✓ Dr. Reyes's 04/20/2026 telephone note and counseling referral, and the counselor's 06/10/2026 summary** · John Doe's Personal Impact Statement, as documented proof · The privileged 04/17/2026 interview note, quoted  
-   *The cause is crash-related anxiety and avoidance after the 04/02 panic at the collision corner, documented by Dr. Reyes and the EAP counselor. The rental's end is background; his statement is his account (“account only”); the interview note is privileged and never cited outward.*
-6. A provider's note looks wrong about when John Doe's neck pain began. What do you do?  
-   Ask the provider to correct it to match the file · **✓ Flag it to Atty. Thorne: a provider corrects its own record only by a dated addendum, and the original stays** · Fix it in the CMS copy · Leave it: records don't matter until the demand  
-   *Never ask a provider to change, back-date or add to a record. Altering a record can be evidence tampering or insurance fraud.*
-7. Robert Smith was cited for failure to stop, and Ruth Calloway saw the collision. Why is that not enough for Keystone to owe John Doe his damages?  
-   It is enough: proving fault proves the whole claim · **✓ It proves negligence only; the file must also prove the collision caused his specific injuries, his medical expenses and his ongoing limitations** · Ruth Calloway must first give a Recorded Statement to Keystone · Keystone never pays a claim before a lawsuit is filed  
-   *Proving negligence is only half the battle. Causation and damages are the other half: the C5-C6 herniation, the treatment it needed and the residual right-arm symptoms must be linked to the 02/06/2026 collision, and Dr. Reyes's Causation Letter is the document that links them.*
-8. Dr. Reyes holds each opinion in her Causation Letter “to a reasonable degree of medical probability”. What does that mean?  
-   The collision is certainly the only cause · The collision is possibly one of several causes · **✓ More likely than not: the standard a causation opinion is generally held to** · The opinion stands only until Keystone orders an examination  
-   *Reasonable medical probability means more likely than not. Wording such as “possibly” or “could be” generally falls short: flag it to Atty. Thorne, never ask the doctor to change it. The exact standard varies by state, so Atty. Thorne confirms the governing rule.*
-9. Dr. Reyes's Causation Letter dated 06/19/2026 arrives at the firm. What is the Case Manager's part?  
-   Edit its wording so it answers the 14-Day Gap more strongly, then file it · **✓ Check it against the file (the date of loss, the injury level and side, the visit dates, the records she reviewed), file it, cite it on the Gap Explanation Record and flag any mismatch to Atty. Thorne** · Call John Doe to tell him the letter raises what his claim is worth · Ask Dr. Reyes to add that the gap happened because John Doe had no car  
-   *You request, track, check, file and cite. The opinion is the doctor's own: never draft, edit or coach it, and never suggest what it should say. What causation means for the claim's value is Atty. Thorne's to explain.*
+1. John Doe first treated on 02/20/2026, 14 days after the crash. On the recorded call, which question should you ask first?  
+   “Was it because you had no car?” · “You were feeling fine at first, weren't you?” · **✓ “Take me through the days after the crash, up to 02/20.”** · “The adjuster will use this gap against you, so I need the reason.”  
+   *Start broad, open and neutral. The first two suggest an answer, so the reason becomes yours, not his. The last gives an opinion on the case, which is Atty. Thorne's to give.*
+2. On the recorded call, John Doe asks: “Is this gap going to hurt my case?” What do you do?  
+   Reassure him that a two-week gap won't matter · Tell him honestly that it will lower his claim's value · Tell him cases like his usually still settle at the limits · **✓ Say it's a question for Atty. Thorne, log and route it, and keep gathering facts**  
+   *Reassurance, alarm and a settlement prediction are all opinions on his case. You route the question; Atty. Thorne answers it.*
+3. Which document is NOT acceptable proof of continuous care on John Doe's file?  
+   **✓ A June note, written at the firm's request, excusing him from work 02/09–02/13** · The EMS Run Report recording neck stiffness on 02/06/2026 · Northgate's Attendance Record of his call-outs 02/09–02/13 citing neck pain · The 02/20/2026 urgent-care note saying the pain began at the crash  
+   *Nobody examined him from 02/09 to 02/13. A note made months later at the firm's request proves nothing and raises a fraud question. The employer's own record is the proof for those days.*
+4. What must John Doe's Gap Explanation Record cover?  
+   Only the 14-day gap, because the adjuster will raise that one · **✓ The 14-day gap and the 19-day disruption, each reason paired with its document** · Only the reasons that Medical Records can prove · The 14-day gap, with the firm's argument for why it doesn't matter  
+   *Cover both breaks in care, 02/06–02/20/2026 and 04/02–04/21/2026, with each reason next to its dated document. Facts and sources only: the argument is Atty. Thorne's.*
+5. In the Gap Explanation Record, what supports the reason for the 19-day disruption (04/02–04/21/2026)?  
+   Keystone's rental record and its 04/10/2026 refusal · **✓ Dr. Reyes's 04/20/2026 phone note and referral, and the counselor's 06/10/2026 summary** · John Doe's Personal Impact Statement, as documented proof · The privileged 04/17/2026 interview note, quoted in full  
+   *The cause was crash-related anxiety after his 04/02 panic at the crash corner, documented by Dr. Reyes and the EAP counselor. The rental is background, his statement is his account only, and the interview note is privileged.*
+6. A provider's note seems wrong about when John Doe's neck pain began. What do you do?  
+   Ask the provider to correct it to match the file · **✓ Flag it to Atty. Thorne; only the provider can add a dated addendum** · Fix it yourself in the CMS copy · Leave it, since records don't matter until the demand  
+   *Never ask a provider to change, back-date or add to a record: that can be evidence tampering or insurance fraud. A provider corrects its own record only by a dated addendum, and the original stays.*
+7. Robert Smith was cited for failure to stop, and Ruth Calloway saw the crash. Why isn't that enough for Keystone to owe damages?  
+   It is enough: proving fault proves the whole claim · **✓ It proves fault only; the file must also prove the crash caused his injuries** · Ruth Calloway must first give a Recorded Statement to Keystone · Keystone never pays a claim before a lawsuit is filed  
+   *Fault (negligence) is only half. The file must also link his C5-C6 herniation, his treatment and his right-arm symptoms to the 02/06/2026 collision. Dr. Reyes's Causation Letter is the document that links them.*
+8. Dr. Reyes gives each opinion “to a reasonable degree of medical probability”. What does that mean?  
+   The collision is certainly the only cause · The collision is possibly one of several causes · **✓ More likely than not: the usual standard for a causation opinion** · The opinion stands only until Keystone orders an exam  
+   *It means more likely than not. Words like “possibly” or “could be” usually fall short: flag them to Atty. Thorne, and never ask the doctor to change them. The standard varies by state; Atty. Thorne confirms it.*
+9. Dr. Reyes's Causation Letter dated 06/19/2026 arrives. What is your part?  
+   Edit its wording so it answers the 14-day gap more strongly, then file it · **✓ Check it against the file, file and cite it, and flag any mismatch to Atty. Thorne** · Call John Doe to say the letter raises what his claim is worth · Ask Dr. Reyes to add that the gap happened because he had no car  
+   *You check the dates, injury level and side, and records reviewed against the file, then file and cite it. The opinion is the doctor's own: never draft, edit or coach it. Its effect on value is Atty. Thorne's.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1202,9 +1202,9 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Total John Doe's Specials from the bills: show the Riverton Spine & Rehab correction, the medical total, the wage arithmetic and the final figure.
-2. Who determines MMI, when was John Doe's, and why must the demand wait for it? Where does the $3,400–$6,800 in future medical go?
-3. Name the four objectives of the pre-demand audit, and give one finding each produced on this file.
+1. Total John Doe's Specials from the bills. Show the Riverton Spine & Rehab correction, the medical total, the wage math and the final figure.
+2. Who decided John Doe's MMI, and when? Why must the demand wait for it, and where does the $3,400–$6,800 in future medical go?
+3. What are the four objectives of the pre-demand audit? Give one finding each one produced on this file.
 
 **Best practices & pitfalls**
 
@@ -1215,9 +1215,9 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, what you learned auditing John Doe's file before the demand: the principles, not the clicks.
-- Articulate your strategy: Atty. Thorne has made his decisions. What is your next action on the file, and why is it the right next action rather than something else?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, what did you learn from auditing John Doe's file before the demand? Focus on the ideas, not the clicks.
+- Atty. Thorne has made his decisions. What would you do next on the file, and why?
+- What part of this module are you least sure about, and what would help you feel sure?
 
 **Skill Scale — self-rate 1–5**
 
@@ -1235,44 +1235,44 @@ The standard knowledge-check split, with one Day-2-specific addition above the q
 **Auto-graded share of the day's Knowledge Check** (13 questions):
 
 1. Before the demand, which first-party ledger do you audit on John Doe's file, and what must it show?  
-   Peach State's EOBs: the Health Plan pays before PIP and MedPay · **✓ Harbor Point's PIP and MedPay ledger, reconciled to the PIP Log: each payment matched to its bill, the $10,000.00 PIP and $5,000.00 MedPay limits exhausted, and the 80% wage benefit checked** · Peach State's EOBs only · None: first-party payments never touch the demand  
-   *John Doe's PIP and MedPay are Harbor Point's, on the Escape he rode in: PIP paid the emergency department and EMS bills of his first 48 hours of care, $10,000.00, exhausted 03/04/2026; MedPay paid five bills, $5,000.00, exhausted with the 06/12/2026 visit (paid 06/26/2026). PIP's 80% wage benefit was never paid, so the full $1,584.00 in lost wages stays in the Specials.*
-2. Riverton Spine & Rehab billed 34 lines at $185.00, but its treatment notes show 33 visits. After the audit, John Doe's medical Specials are:  
+   Peach State's EOBs, because the Health Plan pays before PIP and MedPay · **✓ Harbor Point's PIP and MedPay ledger, matched bill by bill to the PIP Log** · Peach State's EOBs only, matched to each bill · None, because first-party payments never affect the demand  
+   *John Doe's PIP and MedPay are Harbor Point's. PIP's $10,000.00 was exhausted 03/04/2026 and MedPay's $5,000.00 on 06/26/2026. PIP's 80% wage benefit was never paid, so the full $1,584.00 in wages stays in the Specials.*
+2. Riverton Spine & Rehab billed 34 lines at $185.00 each, but its notes show 33 visits. What are John Doe's medical Specials after your audit?  
    $41,585.00 · **✓ $41,400.00** · $42,984.00 · $23,277.40  
-   *$41,585.00 less the duplicate 05/04/2026 line ($185.00) = $41,400.00. $42,984.00 adds the $1,584.00 in wages; $23,277.40 is the paid-and-owed column, not the billed medical total.*
-3. Lakeside Orthopedics declared MMI on 06/12/2026 and noted possibly 1–2 repeat injections within 24 months. Where does that $3,400–$6,800 go?  
-   Into the Specials ledger at $6,800 · Nowhere: it hasn't been incurred · **✓ Into the demand narrative as future medical, outside the Specials total** · Onto Riverton Spine & Rehab's LOP balance  
-   *The audited Specials total is charges already incurred. Future care is still economic damage, presented in the narrative with the MMI note behind it, never mixed into the audited total.*
-4. Crescent Pain & Spine billed $3,400.00 for the injection; Peach State paid $1,860.00 and Crescent wrote off the rest. Who decides whether the demand claims the billed or the paid amount?  
-   The Case Manager, who built the ledger · Dana Whitfield, Keystone's adjuster · Peach State, as the plan asserting reimbursement · **✓ Atty. Thorne, under the governing collateral-source rule**  
-   *It turns on a collateral-source rule that varies by state. The Case Manager shows both columns; the choice is counsel's.*
-5. In the pre-demand strategy session, which of these may the Case Manager recommend?  
-   **✓ Emailing the demand to Dana Whitfield and asking for her written acknowledgement of receipt, so receipt can be proved** · Demanding the $10,000 BI limits · Claiming billed rather than paid amounts · Sending the Host UM demand now, alongside the BI demand  
-   *Service method is operational, so you may recommend it; Atty. Thorne approves it. The demand figure and billed-vs-paid are his legal calls. A UM demand now would be premature: the UM layers owe nothing until BI is exhausted, and settling BI without their consent is what puts them at risk.*
-6. Northgate's HR letter verifies 9 missed shifts at 8 h × $22.00, but five of them (02/09–02/13/2026) fall before John Doe's first treatment and carry no provider work note. In the audited Specials, the Case Manager:  
-   Drops the five shifts and claims only four: $704.00 · Asks Dr. Reyes for a work note backdated to cover 02/09–02/13/2026 · **✓ Keeps $1,584.00, flags the five shifts with Northgate's Attendance Record (called out citing neck pain) as their support, and routes them to Atty. Thorne** · Keeps $1,584.00 and leaves the five shifts unmentioned so Keystone doesn't notice them  
-   *Flag, never drop, never hide. 9 × 8 h × $22.00 = $1,584.00, verified by Northgate. Five of the shifts fall inside the 14-Day Gap: record them exactly as the Attendance Record shows them, beside John Doe's own explanation of the gap. How they are presented is Atty. Thorne's call.*
-7. Who determines MMI on John Doe's file?  
-   The Case Manager, from the bills · **✓ His treating provider: Lakeside Orthopedics' 06/12/2026 note** · Keystone's adjuster · Atty. Thorne  
-   *MMI is a medical determination, never yours: record it from the treating provider's note, with the future-care plan.*
-8. Which four objectives does the pre-demand audit test?  
+   *Take out the duplicate 05/04/2026 line: $41,585.00 – $185.00 = $41,400.00. $42,984.00 wrongly adds the $1,584.00 in wages, and $23,277.40 is the paid-and-owed column, not billed medical.*
+3. At MMI on 06/12/2026, Lakeside Orthopedics noted 1–2 possible repeat injections within 24 months. Where does that $3,400–$6,800 go?  
+   Into the Specials ledger at $6,800 · Nowhere, because it hasn't been incurred yet · **✓ Into the demand narrative as future medical, outside the Specials total** · Onto Riverton Spine & Rehab's LOP balance  
+   *The audited Specials total holds only charges already incurred. Future care still counts as economic damage, so it goes in the narrative, backed by the MMI note, never mixed into the total.*
+4. Crescent billed $3,400.00; Peach State paid $1,860.00 and Crescent wrote off the rest. Who decides whether the demand claims billed or paid?  
+   The Case Manager, who built the ledger · Dana Whitfield, Keystone's adjuster · Peach State, as the plan seeking reimbursement · **✓ Atty. Thorne, under the governing collateral-source rule**  
+   *It depends on a collateral-source rule that varies by state. You show both columns in the ledger; the choice is Atty. Thorne's.*
+5. In the pre-demand strategy session, what may you recommend?  
+   **✓ Emailing the demand to Dana Whitfield and asking her to confirm receipt in writing** · Demanding the full $10,000 BI limit from Keystone · Claiming the billed amounts rather than the paid amounts · Sending the Host UM demand now, together with the BI demand  
+   *How the demand is sent is operational, so you may suggest it; Atty. Thorne approves it. The figure and billed-vs-paid are his legal calls. A UM demand is premature until BI is exhausted.*
+6. Northgate verified 9 missed shifts at 8 h × $22.00. Five (02/09–02/13/2026) fall before first treatment, with no work note. What do you do?  
+   Drop the five shifts and claim only four: $704.00 · Ask Dr. Reyes for a backdated work note for 02/09–02/13/2026 · **✓ Keep $1,584.00, flag the five shifts with their Attendance Record, and route to Atty. Thorne** · Keep $1,584.00 and leave the five shifts unmentioned so Keystone misses them  
+   *Flag them; never drop or hide them. Northgate verified 9 × 8 h × $22.00 = $1,584.00. Record the five shifts as the Attendance Record shows them, beside John Doe's gap explanation. How they're presented is Atty. Thorne's call.*
+7. Who decides when John Doe has reached MMI (Maximum Medical Improvement)?  
+   The Case Manager, from the bills · **✓ His treating provider, in Lakeside Orthopedics' 06/12/2026 note** · Keystone's adjuster, from the records · Atty. Thorne, from the file  
+   *MMI is a medical decision, never yours. You record it from the treating provider's note, along with the future-care plan.*
+8. What are the four objectives the pre-demand audit tests?  
    **✓ Verification, Valuation, Risk, Compliance** · Speed, Volume, Tone, Format · Liability, Venue, Jury, Judge · Clinical, Functional, Financial, Legal  
-   *Do the facts match the evidence, is every dollar justified, where will the defense attack, and are the SOL and any statutory terms confirmed?*
-9. Why does Margaret Doe's Civic stay out of his BI Specials?  
-   **✓ It runs on its own Keystone PD claim, outside the $40,000** · Property Damage is never recoverable · Bluewater already paid it · It is future medical  
-   *Special damages include Property Damage, but the Civic is on its own PD claim, so the BI Specials are medical plus wages.*
-10. Briefing Atty. Thorne for the strategy session, what comes first?  
-   The full chronology · **✓ The bottom line in one sentence: where the file stands and what you need** · The risks · Your recommended demand figure  
-   *Bottom line first. A brief that opens with the chronology buries the decision, and the demand figure is his call.*
-11. After the strategy session, how are Atty. Thorne's decisions recorded?  
-   From memory at the end of the week · **✓ The same day, in his words and dated, with a task for each and the Case Plan re-routed** · Only in an email · In the demand letter  
-   *Record the decisions the same day, attributed and dated; a task for each with an owner and a date; the Case Plan marked superseded and re-routed.*
-12. Northgate's records show nine unpaid shifts; the draft worksheet from John Doe's memory claims 02/18 and 02/19/2026, light duty and overtime, $1,760.00. What goes into the Specials?  
-   $1,760.00: the client knows his own hours · **✓ $1,584.00: nine shifts verified by Northgate, each matched to its record; 02/18 and 02/19 were worked, and no overtime or light-duty hours were lost** · $704.00: only the four shifts with a doctor's note · Nothing until Keystone asks for it  
-   *The employer's records, not memory, fix the wage claim: 9 × 8 h × $22.00 = $1,584.00. The five pre-treatment shifts stay in, flagged to Atty. Thorne.*
-13. Northgate's HR manager asks for John Doe's MRI and doctors' notes to update his restrictions file, and whether his settlement will repay the missed days. What do you do?  
-   Send the records: Northgate has been cooperative · Tell her lost wages are part of the claim and he will be repaid · **✓ Send no records, say work-status notes come from John and his providers, and route the claim question to Atty. Thorne** · Ignore the email  
-   *His authorization lets Northgate give records to the firm, not the reverse. Nothing about the claim or its value goes to a third party; that question is Atty. Thorne's, with John Doe.*
+   *Verification: do the facts match the evidence? Valuation: is every dollar justified? Risk: where will the defense attack? Compliance: are the SOL (deadline to sue) and any statutory terms confirmed?*
+9. Why does Margaret Doe's Civic stay out of John Doe's BI Specials?  
+   **✓ It has its own Keystone PD claim, outside the $40,000** · Property Damage is never recoverable in a claim · Bluewater already paid for the Civic · It counts as future medical instead  
+   *Special damages can include Property Damage, but the Civic has its own PD claim. So John Doe's BI Specials are his Medical Bills plus wages.*
+10. You are briefing Atty. Thorne for the strategy session. What do you say first?  
+   The full chronology of the file · **✓ The bottom line: where the file stands and what you need** · The main risks on the file · Your recommended demand figure  
+   *Lead with the bottom line in one sentence. Starting with the chronology buries the decision, and the demand figure is his call, not yours.*
+11. After the strategy session, how do you record Atty. Thorne's decisions?  
+   From memory, at the end of the week · **✓ The same day, in his words and dated, with a task for each** · Only in an email to the team · In the demand letter itself  
+   *Record them the same day, in his words and dated. Give each one a task with an owner and a date, and mark the old Case Plan superseded and re-routed.*
+12. Northgate's records show nine unpaid shifts. John Doe's worksheet, from memory, adds 02/18, 02/19, light duty and overtime: $1,760.00. What goes into the Specials?  
+   $1,760.00, because the client knows his own hours · **✓ $1,584.00: the nine shifts Northgate verified** · $704.00: only the four shifts with a doctor's note · Nothing until Keystone asks for it  
+   *The employer's records, not memory, set the wage claim: 9 × 8 h × $22.00 = $1,584.00. He worked 02/18 and 02/19 and lost no overtime or light-duty hours. The five pre-treatment shifts stay in, flagged.*
+13. Northgate's HR manager asks for John Doe's MRI and doctors' notes, and whether his settlement will repay the missed days. What do you do?  
+   Send the records, because Northgate has been helpful · Tell her lost wages are in the claim and he'll be repaid · **✓ Send nothing, say work notes come from John and his providers, route the claim question** · Ignore the email and keep working the file  
+   *His authorization lets Northgate send records to the firm, not the other way. Nothing about the claim or its value goes to a third party; that question is for Atty. Thorne and John Doe.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 

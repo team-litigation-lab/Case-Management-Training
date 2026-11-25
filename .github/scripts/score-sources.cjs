@@ -129,7 +129,8 @@ const pctOf = (t) => { const m = /(\d+)%/.exec(String(t || '')); return m ? +m[1
     const myCms = my ? pctOf(((my.rows.find(r => r[0].startsWith('Day 1')) || [])[my.hs.indexOf('🗂 CMS file')])) : null;
 
     // 2. the trainer: the trainee's card on 🏅 Scorecards
-    await page.evaluate(() => { state.isAdmin = true; state.adminData = null; if (window.cmScorecard) cmScorecard.refresh(); goto('scorecard'); });
+    // (the trainer's Scorecards shows one trainee's card at a time: this one is picked, as a trainer picks a name in the hero)
+    await page.evaluate((id) => { state.isAdmin = true; state.adminData = null; if (window.cmScorecard) { cmScorecard.refresh(); cmScorecard.only(id); } goto('scorecard'); }, id);
     const dom = id.replace(/[^A-Za-z0-9_-]/g, '_');
     await page.waitForFunction((d) => !!document.getElementById('bs-pt-' + d), dom, { timeout: 20000 }).catch(() => fail('the trainer\'s Scorecards shows no card for the trainee'));
     for (let i = 0; i < 30; i++) { const ls = await lines('#bs-pt-' + dom); const l = ls && (ls.find(([h]) => h.startsWith('Day 1:')) || [])[1]; if (l && /📂 Backup Drive 90%/.test(l)) break; await page.waitForTimeout(500); await page.evaluate(() => { cmScorecard.reload(); }); }
