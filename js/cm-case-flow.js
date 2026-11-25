@@ -385,6 +385,7 @@ function scoreHtml(modId){
   const m = rec(modId), s = composite(m);
   const pill = (label, v, note) => `<div class="cf-score"><b>${v == null ? "—" : v + "%"}</b><span>${E(label)}</span>${note ? `<small>${E(note)}</small>` : ""}</div>`;
   const ai = m.ai ? `<div class="cf-ai"><b>AI evaluation · ${E(m.ai.score)}% ${m.ai.tier ? "· " + E(m.ai.tier) : ""}</b>
+      ${m.ai.summary ? `<p class="cf-ai-coach">💬 ${E(m.ai.summary)}</p>` : ""}
       ${(m.ai.strengths || []).length ? `<p>✓ ${(m.ai.strengths || []).map(E).join(" · ")}</p>` : ""}
       ${(m.ai.gaps || []).length ? `<ul class="cf-ai-gaps">${(m.ai.gaps || []).map(g => `<li>${typeof feedbackItemHtml === "function" ? feedbackItemHtml(g) : E(g)}</li>`).join("")}</ul>` : ""}</div>` : "";
   return `<div class="cf-scores">
@@ -3430,7 +3431,7 @@ function takeawayHtml(d){
 }
 function cfResult(d){
   const {lastScore, lastCorrect, lastTotal, lastPassed} = state;
-  const msg = lastPassed ? `That's a wrap on Case Flow Day ${d.cf.n}. Well done.` : "Not quite 70% yet. See which questions you missed below, then retake when you're ready.";
+  const msg = lastPassed ? `That's a wrap on Case Flow Day ${d.cf.n}. Well done.` : "Not at 70% yet, and that's okay. Read why each missed answer is right in the review below, then retake when you're ready.";
   const history = (state.progress[d.id] && state.progress[d.id].history) || [];
   const next = d.cf.n < MODULES.length ? (dayUnlocked(cfIdOf(d.cf.n + 1)) ? `<button class="btn btn-primary" onclick="goToNextDay(${d.id})">Continue to Case Flow Day ${d.cf.n + 1} →</button>` : "")
     : (lastPassed ? `<button class="btn btn-primary" onclick="cmCaseFlow.finish()">🎓 Finish Training</button>` : "");   // the last day: the Congratulations slide
@@ -3590,7 +3591,7 @@ function gameQuiz(d){
       <p class="cfg-q">${E(q.q)}</p>${hint}
       <div class="cfg-opts">${q.opts.map((o, oi) => { const me = pick === oi, gone = hidden.includes(oi);
         return `<button type="button" class="cfg-opt${me ? (log && log.ok ? " right" : " wrong") : ""}${done && !me ? " dim" : ""}${gone ? " gone" : ""}" ${done || gone ? "disabled" : ""} onclick="cmCaseFlow.gameAnswer(${d.id},${qi},${oi})"><span class="cfg-letter">${String.fromCharCode(65 + oi)}</span><span>${E(o)}</span>${aud ? `<span class="cfg-aud"><i style="width:${aud[oi]}%"></i><em>${aud[oi]}%</em></span>` : ""}${me ? `<span class="cfg-mark">${log && log.ok ? "✓" : "✗"}</span>` : ""}</button>`; }).join("")}</div>
-      ${done && log ? `<div class="cfg-say ${log.ok ? "ok" : "no"}">${log.ok ? `Correct! <b>${g.mode === "millionaire" ? (rankAt(right, n) > rankAt(right - 1, n) ? "Promoted to " + rankName(rankAt(right, n)) : `Level ${qi + 1} cleared`) : "+" + log.pts}</b>${right % TOKEN_EVERY === 0 && right / TOKEN_EVERY <= TOKEN_MAX ? " · 🤝 +1 token for your next round" : ""}${log.fast ? " · ⚡ speed bonus" : ""}${log.combo ? ` · 🔥 streak +${log.combo}` : ""}` : `${log.boom ? "💥 Boom, and " : ""}Not this one. The right answer shows in the review once you pass.`}</div>` : ""}
+      ${done && log ? `<div class="cfg-say ${log.ok ? "ok" : "no"}">${log.ok ? `Correct! <b>${g.mode === "millionaire" ? (rankAt(right, n) > rankAt(right - 1, n) ? "Promoted to " + rankName(rankAt(right, n)) : `Level ${qi + 1} cleared`) : "+" + log.pts}</b>${right % TOKEN_EVERY === 0 && right / TOKEN_EVERY <= TOKEN_MAX ? " · 🤝 +1 token for your next round" : ""}${log.fast ? " · ⚡ speed bonus" : ""}${log.combo ? ` · 🔥 streak +${log.combo}` : ""}` : `${log.boom ? "💥 Boom, and " : ""}Not quite, and that's okay. ${(() => { try{ const ph = phaseOfQ(d, qi); return ph && ph.title ? `This one is from <b>${E(ph.title)}</b>. ` : ""; }catch(e){ return ""; } })()}You'll see the right answer and why in your Answer Review at the end.`}</div>` : ""}
     </div>`;
   const side = g.mode === "millionaire" ? `<div class="cfg-ranks"><b>Your career</b><ol class="cfg-ladder">${RANKS.map(([ic, t], i) => `<li class="${i === rk ? "at" : i < rk ? "won" : ""}"><span>${ic}</span>${E(t)}</li>`).reverse().join("")}</ol><small>${right} of ${n} right · next rank at ${Math.min(n, Math.ceil((rk + 1) * n / (RANKS.length - 1)))}</small></div>` : "";
   const nav = finished ? `<div class="cfg-nav"><button class="btn btn-ghost" type="button" onclick="cmCaseFlow.gameGo(-1)">← Back to the ${g.mode === "jeopardy" ? "board" : "tally"}</button></div>`
@@ -3879,10 +3880,11 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
     const notes = `This is a short takeaway (a few sentences), not a full write-up: grade the understanding it shows, not its length. Grade against this module's rubric. AI criteria: ${b.rubric.ai.map(r => `${r[0]} (${r[1]}%): ${r[2]}`).join("; ")}. `
       + `A trainer separately assesses: ${b.rubric.trainer.map(r => r[0]).join(", ")}. `
       + `UPL is a gate: if the trainee proposes giving the client legal advice (case value, merits, what silence does to their rights, announcing withdrawal), score Risk Mitigation 0 and say so. `
-      + `Use the case facts above; numbers that contradict them (limits, dates, order of the stack, the 14-day gap, the figures for this day) are accuracy errors.`;
+      + `Use the case facts above; numbers that contradict them (limits, dates, order of the stack, the 14-day gap, the figures for this day) are accuracy errors. `
+      + `In the feedback, say plainly which idea they have right and which they have not got yet, and explain the missing idea in a sentence or two as you would to a new colleague, with where to look again in today's lessons.`;
     try{
       const rep = await runRubricEvaluation(label, ctx, text, notes);
-      m.ai = {score: Math.round(rep.totalScore), tier: rep.gradeTier || "", strengths: (rep.strengths || []).slice(0, 3),
+      m.ai = {score: Math.round(rep.totalScore), tier: rep.gradeTier || "", summary: String(rep.summary || "").slice(0, 600), strengths: (rep.strengths || []).slice(0, 3),
               gaps: (rep.blindspots || []).slice(0, 3), growth: (rep.growthSuggestions || []).slice(0, 2), at: new Date().toISOString(), sig: kcSig(b, m)};
       await persist();
       status(modId, "Reviewed");
@@ -5786,7 +5788,7 @@ main.cm-admin-main, main:has(.cm-admin-screen){max-width:min(2200px,97vw);paddin
 .cf-score small{font-size:11.5px;color:var(--ink-soft);}
 .cf-ai{margin-top:8px;font-size:13px;background:#FFFBF3;border:1px solid var(--orange-soft);border-radius:12px;padding:9px 12px;}
 .cf-ai p{margin:4px 0 0;}
-.cf-ai-gaps{margin:6px 0 0;padding-left:18px;} .cf-ai-gaps li{margin:0 0 6px;}
+.cf-ai-gaps{margin:6px 0 0;padding-left:18px;} .cf-ai-gaps li{margin:0 0 6px;} .cf-ai-coach{font-weight:700;}
 .cf-dash{margin-top:22px;}
 @media(min-width:1001px){
   main.main-dash > .cf-first{flex:0 0 auto;min-height:100%;display:flex;flex-direction:column;}

@@ -1348,6 +1348,8 @@ rect.svg-callout-badge{animation:none;}
 .eval-section ul{margin:0;padding-left:18px;}
 .eval-section li{font-size:13px;line-height:1.5;margin-bottom:4px;color:#37394A;}
 .eval-section li.fb-item{margin-bottom:10px;}
+.quiz-review-intro{margin:0 0 14px;font-size:15px;line-height:1.5;color:#37394A;}
+.quiz-why{display:block;margin-top:4px;}
 .fb-part{display:block;}
 .fb-part b{display:inline;font-size:inherit;text-transform:none;letter-spacing:0;margin:0;color:var(--navy);}
 .eval-coach p{margin:0;font-size:14px;line-height:1.55;color:#37394A;}
@@ -7823,7 +7825,7 @@ function renderAnswerFeedback(d){
   const missed = d.quiz.filter((q,i)=>state.quizAnswers[i]!==q.a).length;
   el.innerHTML = `
     <h2 class="section-title" style="margin-top:34px;">Answer Review</h2>
-    ${reveal ? "" : `<div class="quiz-key-locked">🔒 <b>The answer key unlocks when you pass (70%+).</b> You missed ${missed} question${missed===1?"":"s"}: they're marked ❌ below. Review those topics in the lesson slides, then retake the check.</div>`}
+    ${reveal ? `<p class="quiz-review-intro">${missed ? `You missed ${missed} of ${d.quiz.length}. That's how learning works. Each card below shows what you picked, the right answer and why, so you can see exactly what tripped you up.` : `You got every one right. Each card below says why the answer is right, so you can keep it for your notes.`}</p>` : `<div class="quiz-key-locked">🔒 <b>The answer key unlocks when you pass (70%+).</b> You missed ${missed} question${missed===1?"":"s"}: they're marked ❌ below. Review those topics in the lesson slides, then retake the check.</div>`}
     ${d.quiz.map((q,i)=>{
       const picked = state.quizAnswers[i];
       const isCorrect = picked===q.a;
@@ -7848,7 +7850,7 @@ function renderAnswerFeedback(d){
             return `<div class="${cls}">${oi===q.a?'✅':(oi===picked?'❌':'')} ${esc(o)}</div>`;
           }).join("")}
         </div>
-        <div class="quiz-rationale show">${esc(q.r)}</div>
+        <div class="quiz-rationale show">${isCorrect ? `<b>✅ You got this one.</b> ` : typeof picked==="number" ? `<b>Not quite: you picked ${String.fromCharCode(65+picked)}. The right answer is ${String.fromCharCode(65+q.a)}.</b> ` : `<b>You didn't answer this one. The right answer is ${String.fromCharCode(65+q.a)}.</b> `}<span class="quiz-why">Why: ${esc(q.r)}</span></div>
       </div>`;
     }).join("")}
   `;
