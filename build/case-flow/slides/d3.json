@@ -71,11 +71,11 @@
     "image": "checklist-qa",
     "situation": "File date 07/20/2026. The pre-demand audit (Specials, wages, gap record) is **yours to re-check**. Atty. Thorne approved $10,000 limits, a Limited Release, Smith's affidavit, 30 days from receipt. The draft awaits **you**.",
     "steps": [
-      "Download the case documents from 📁 Source Files, re-check the Specials and wages bill by bill and the Gap Record against the filed notes, then check the draft against the Big Four.",
-      "Build the packet by hand: demand letter, exhibit index, then Exhibits A–J, **liability first** (A–D), then records and bills, MRI, Causation Letter, wages, Gap Record, Dec Page.",
-      "Combine them into one PDF, make it searchable (OCR), bookmark each section, and Bates-number every page once.",
-      "Name it by the firm's convention, ending in _DRAFT, and file it in CMS → Doc Hub so it reaches folder 05 Insurance.",
-      "Once Atty. Thorne signs, email it to Dana Whitfield, log each fix as a CMS task, and docket the acceptance deadline from her **written acknowledgement**."
+      "Download the documents from 📁 Source Files. Re-check the bills, wages and Gap Record against the file yourself, then check the draft against the Big Four.",
+      "Put the packet in this order: demand letter, exhibit index, then Exhibits A–J, **liability first** (A–D), then records and bills, MRI, Causation Letter, wages, Gap Record, Dec Page.",
+      "Merge everything into one searchable PDF (run OCR), add a bookmark for each section, and Bates-number every page once.",
+      "Name the file the firm's way, ending in _DRAFT, and file it in CMS → Doc Hub so it reaches folder 05 Insurance.",
+      "After Atty. Thorne signs, email it to Dana Whitfield, log each fix as a CMS task, and set the deadline from her **written acknowledgement**."
     ],
     "deliver": "An audited, emailed demand with **written acknowledgement** and its deadline docketed",
     "purpose": "Keystone's 30 days run from receipt: **without proof, no deadline** to hold",
@@ -257,8 +257,8 @@
     "situation": "Assuming Dana Whitfield has **offered $3,500** citing the gap and a degenerative MRI, and Atty. Thorne's authority is no counter, the offer needs logging.",
     "side": true,
     "steps": [
-      "Log her exact words in CMS → Notes → Case Notes, and report the offer to **Atty. Thorne** the same day.",
-      "In the Email Workspace, draft the 08/06/2026 rebuttal for his approval, answering the gap from the record."
+      "In CMS → Notes → Case Notes, log her offer in her exact words, and tell **Atty. Thorne** the same day.",
+      "In the Email Workspace, draft the 08/06/2026 reply for his approval, answering the gap with facts from the records. Make no counter-offer."
     ],
     "deliver": "A logged offer, **a same-day report**, a drafted rebuttal",
     "purpose": "A careless word on this call **cracks the demand** before 08/21/2026",
@@ -319,8 +319,8 @@
     "situation": "Assuming Keystone's **Release of All Claims** has arrived for John Doe's signature, its clauses need checking against the approved terms.",
     "side": true,
     "steps": [
-      "In CMS → Doc Hub → Case Files, replace the catch-all insurers clause, reserve **the UM claims**, and flag the rest for Atty. Thorne.",
-      "Log your review by email to Atty. Thorne for approval, and send nothing to John Doe."
+      "In CMS → Doc Hub → Case Files, replace the catch-all insurers clause, reserve **the UM claims**, and flag anything else for Atty. Thorne.",
+      "Email your review to Atty. Thorne for approval. Send nothing to John Doe."
     ],
     "deliver": "An audited release sent **for Atty. Thorne's approval**",
     "purpose": "One unread line would **cost John Doe $30,000** of UM",
@@ -466,8 +466,8 @@
     "situation": "Assuming Peach State **asserts $1,860.00** and Atty. Thorne has signed off on the one-third reduction, the lien needs recording.",
     "side": true,
     "steps": [
-      "In CMS → Settlement (BI/UM) → Medical Liens / Payoffs, show the math, **$1,860.00 – $620.00 = $1,240.00**, and record each absent claimant as a verified none.",
-      "Log the 10/09/2026 acceptance only once Peach State confirms it in writing."
+      "In CMS → Settlement (BI/UM) → Medical Liens / Payoffs, show the math, **$1,860.00 – $620.00 = $1,240.00**, and mark every other possible lien holder as checked: none.",
+      "Log the 10/09/2026 acceptance only after Peach State confirms it in writing."
     ],
     "deliver": "$1,240.00 recorded **once confirmed in writing**",
     "purpose": "Every lien dollar left unproved comes out of **John Doe's net**",
@@ -582,8 +582,8 @@
     "situation": "Assuming Riverton's ledger is corrected to **$6,105.00** and its billing manager agreed to $4,580.00 in a signed Payoff Letter, the Net Sheet needs updating.",
     "side": true,
     "steps": [
-      "In CMS → Settlement (BI/UM) → Medical Liens / Payoffs, enter $4,580.00 with the **signed Payoff Letter** as its source.",
-      "Log the call and the letter in CMS → Doc Hub, and recompute the Net Sheet."
+      "In CMS → Settlement (BI/UM) → Medical Liens / Payoffs, enter $4,580.00 and name the **signed Payoff Letter** as its source.",
+      "Log the call and the letter in CMS → Doc Hub, then recalculate the Net Sheet."
     ],
     "deliver": "**A signed $4,580.00 Payoff Letter** logged, the Net Sheet recomputed",
     "purpose": "Without a signed Payoff Letter, **balance billing can follow** John Doe",
@@ -641,11 +641,11 @@
     "image": "money-ledger",
     "situation": "File date 10/13/2026. **$40,000.00 is received** in two streams; Peach State accepted $1,240.00 and Riverton $4,580.00; costs are $486.75. The final Net Sheet needs finishing before John Doe signs.",
     "steps": [
-      "On the Net Sheet's Recovery Ledger, post each check **by stream** (Stream 1 the $10,000 BI, Stream 2 the $30,000 UM stack) with the 33⅓% fee.",
-      "Split the costs and liens **25% and 75%** between the streams, the UM share as the remainder of each split.",
-      "Log each lien's figures and payoff status in the Lien Tracker, and tie both tabs to the **BI/UM Master Financial Ledger** and the Trust Ledger.",
-      "Flag future ESIs to Atty. Thorne and route the Net Sheet to him for approval before John Doe signs.",
-      "At the disbursement gate, confirm each condition against its document, then queue one line per Net Sheet line in the **Trust Ledger** for Atty. Thorne."
+      "On the Net Sheet's Recovery Ledger, enter each check **in its own stream**: Stream 1 is the $10,000 BI, Stream 2 the $30,000 UM. Apply the 33⅓% fee.",
+      "Split the costs and liens 25% to Stream 1 and 75% to Stream 2. Work out Stream 1's share first; Stream 2 gets what is left.",
+      "In the Lien Tracker, log each lien's amounts and payoff status. Make both tabs match the **BI/UM Master Financial Ledger** and the Trust Ledger.",
+      "Flag the future ESIs (possible repeat injections) to Atty. Thorne, then send him the Net Sheet to approve before John Doe signs.",
+      "At the disbursement gate, check each condition against its document. Then queue one **Trust Ledger** line for each Net Sheet line, for Atty. Thorne."
     ],
     "deliver": "A two-tab Net Sheet reaching **$20,359.92 both ways**",
     "purpose": "John Doe signs on this Net Sheet: **one wrong cent** misstates his net",
@@ -721,8 +721,8 @@
     "situation": "Assuming Vance & Kettering's **charging lien notice** for $6,666.67 has arrived and Atty. Thorne has ordered a hold, the file needs securing.",
     "side": true,
     "steps": [
-      "Log the notice in CMS → Notes → Case Notes, routed to Atty. Thorne, and send nothing to Vance & Kettering.",
-      "In CMS → Settlement (BI/UM) → Check Received / Disbursed, hold **$6,666.67** on his instruction."
+      "In CMS → Notes → Case Notes, log the notice and route it to Atty. Thorne. Send nothing to Vance & Kettering.",
+      "In CMS → Settlement (BI/UM) → Check Received / Disbursed, hold **$6,666.67** as Atty. Thorne instructed."
     ],
     "deliver": "The notice logged and **$6,666.67 held**",
     "purpose": "The disbursement waits on **a dispute only counsel resolves**",
@@ -817,8 +817,8 @@
     "situation": "Assuming Keystone **tendered the $10,000 BI limits** today and the liens are still unreduced, Atty. Thorne needs Stream 1's Net Sheet.",
     "side": true,
     "steps": [
-      "In the LSH Net Sheet, enter the $10,000.00 gross, the 33⅓% fee, the receipted costs and both liens, with the 25% projection **labelled as a projection**.",
-      "Log it to Atty. Thorne in CMS → Tasks → + Add Task, flagging that the money stays in trust."
+      "In the LSH Net Sheet, enter the $10,000.00 gross, 33⅓% fee, receipted costs and both liens. Label the 25% figure **a projection**.",
+      "In CMS → Tasks → + Add Task, send it to Atty. Thorne and flag that the money stays in trust."
     ],
     "deliver": "A Stream 1 Net Sheet, **the projection labelled**, routed",
     "purpose": "Alone, the BI money **nets John Doe $0.00**; Atty. Thorne must see why",

@@ -31,8 +31,8 @@
     "situation": "Assuming the **15 RFAs** have no row in the Discovery & Filing Tracker and their 01/04/2027 Certificate of Service sits unlogged, the log needs fixing.",
     "side": true,
     "steps": [
-      "In CMS → Litigation → Discovery & Filing Tracker, add the RFA row with a **deemed-admission flag**, and log the Certificate of Service with its date.",
-      "Report any miss to Atty. Thorne today in CMS → Tasks → + Add Task, without back-dating."
+      "In CMS → Litigation → Discovery & Filing Tracker, add the RFA row with a **deemed-admission flag**, and log the dated Certificate of Service.",
+      "In CMS → Tasks → + Add Task, tell Atty. Thorne today about anything that was missed. Never back-date an entry."
     ],
     "deliver": "**A corrected, source-linked log**, misses reported the same day",
     "purpose": "A missed RFA deadline can mean **deemed admissions** against John Doe",
@@ -187,8 +187,8 @@
     "situation": "Assuming John Doe has **a new number** and his video deposition is 02/18/2027, the prep logistics and his questions need logging.",
     "side": true,
     "steps": [
-      "Log his new number, the **02/16/2027 test call** and the 10:00 a.m. deposition at Riverton Court Reporting in CMS → Tasks.",
-      "Route each question he asked about his case to Atty. Thorne in his own words, answering none and giving him no script."
+      "In CMS → Tasks, log his new number, the **02/16/2027 test call** and the 10:00 a.m. deposition at Riverton Court Reporting.",
+      "Send each question he asked to Atty. Thorne, in his own words. Answer none, and give him no script."
     ],
     "deliver": "Logistics logged and **his questions routed** in his words",
     "purpose": "A calm, prepared John gives **shorter, more accurate answers** on 02/18/2027",
@@ -341,8 +341,8 @@
     "situation": "Assuming Robert Smith's new address is **confirmed on two sources**, his service and the answer date need logging.",
     "side": true,
     "steps": [
-      "In CMS → Notes → Case Notes, log service at 4410 Quarry Ridge Ct, Millbrook, and docket **the answer date** in CMS → Calendar.",
-      "Log why John Doe's Skip-Trace gate is not met yet in CMS → Notes → Case Notes."
+      "In CMS → Notes → Case Notes, log service at 4410 Quarry Ridge Ct, Millbrook. Then add **the answer date** in CMS → Calendar.",
+      "In CMS → Notes → Case Notes, explain why a Skip-Trace on John Doe isn't justified yet: its gate is not met."
     ],
     "deliver": "A service record through **the answer date**",
     "purpose": "An unserved defendant stalls the case; **an unreachable client** imperils his deposition",
@@ -526,8 +526,8 @@
     "situation": "07/30/2027, 3:00 p.m. The award is **disbursed**, and the file waits on **Atty. Thorne's sign-off**.",
     "steps": [
       "File the litigation and ADR papers in the CMS so they reach **09 Litigation & ADR**.",
-      "Run ✓ Check my drive and confirm the drive holds every document filed in the CMS, across all nine folders.",
-      "Write the closing checklist in Case Notes for Atty. Thorne's sign-off. Do not move the folder in your training drive."
+      "Run ✓ Check my drive. Confirm the drive holds every document filed in the CMS, across all nine folders.",
+      "In Case Notes, write the closing checklist for Atty. Thorne to sign off. Do not move the folder in your training drive."
     ],
     "deliver": "A complete, checked backup **ready to close**",
     "purpose": "Years later, **anyone can find any page**",

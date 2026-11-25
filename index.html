@@ -1347,6 +1347,10 @@ rect.svg-callout-badge{animation:none;}
 .eval-section b{font-size:12.5px;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:6px;}
 .eval-section ul{margin:0;padding-left:18px;}
 .eval-section li{font-size:13px;line-height:1.5;margin-bottom:4px;color:#37394A;}
+.eval-section li.fb-item{margin-bottom:10px;}
+.fb-part{display:block;}
+.fb-part b{display:inline;font-size:inherit;text-transform:none;letter-spacing:0;margin:0;color:var(--navy);}
+.eval-coach p{margin:0;font-size:14px;line-height:1.55;color:#37394A;}
 
 .example-block{
   background:#F6F7FB;border:1px dashed var(--line);border-radius:10px;
@@ -8134,6 +8138,20 @@ const GRADE_TIER_COLOR = {
   "Requires Remediation": "var(--danger)",
   "Not Yet — Keep Building": "var(--danger)"
 };
+/* How every AI grading writes its feedback (the Practice Lab's AI Grader, the roleplay and intake calls): the way a
+   kind, experienced senior Case Manager talks a new colleague through their work, so the trainee understands exactly
+   what their challenge is, why it matters and how to fix it. Each blindspot is "what happened → why it matters → how
+   to fix it" (feedbackItemHtml draws the three parts on their own lines); "summary" is the coach's note on top. */
+const HUMAN_FEEDBACK = `HOW TO WRITE THE FEEDBACK. Write it the way a kind, experienced senior Case Manager talks a new colleague through their work, sitting beside them. The goal is that they understand exactly what their challenge is, why it matters, and how to fix it.
+- Speak to them as "you". Never say "the trainee", "the submission", "the candidate" or "the user".
+- Use plain, everyday words and short sentences (under 20 words where you can). If you must use a course term (SOL, UPL, Payer Order, Net Sheet), say what it means in a few words the first time.
+- Never name the scoring categories or points ("Accuracy", "Executive Presence", "SOP Compliance", "BLUF Adherence"…) in the feedback. Talk about the work itself.
+- Be specific: point at what they actually did, wrote or said, or what is missing. Quote a few of their words where it helps. Nothing generic.
+- "strengths": up to 3 things they really did well, each with why it helps the client or the file.
+- "blindspots": up to 3 challenges, most important first. Each is ONE string in three parts joined by " → ": what happened (what you did or missed, in plain words) → why it matters (the real effect on this file, the client or the firm) → how to fix it (the exact steps: where in the CMS or which document, and what the corrected entry or words should say). Example: "Your correction note doesn't say which document proved each fix → Atty. Thorne can't trust a change he can't trace back to a source → In CMS → Case Notes, add the source after each fix, like: 'Date of birth corrected to 08/14/1991 (signed retainer)'." Never just point out a fault without the fix.
+- "growthSuggestions": 1 or 2 small, doable things to practise next time, one sentence each.
+- "summary": 2 or 3 sentences spoken straight to them: how it went overall, the single biggest challenge in plain words, and the first thing to do about it. Warm and honest: encouraging, but never vague or falsely positive.
+- Frame every gap as "not yet", never as a verdict on the person. No lecturing, no exclamation marks.`;
 async function runRubricEvaluation(exerciseLabel, exerciseContext, submissionText, criteriaNotes){
   const quality = assessSubmissionQuality(submissionText);
   if(!quality.ok){
@@ -8141,7 +8159,6 @@ async function runRubricEvaluation(exerciseLabel, exerciseContext, submissionTex
     const err = new Error(quality.msg); err.invalidInput = true; throw err;
   }
   state.lastLabAttempt = null;
-  criteriaNotes = (criteriaNotes||"") + " FEEDBACK STYLE: frame every gap as 'not yet' or 'not this way — here is the better way', never as a flat 'no' or a verdict on the person; each blindspot must point to a concrete next step.";
   const prompt = `You are an automated competency evaluator grading a trainee personal-injury Case Manager's submission for a legal-industry Case Management training program. Grade rigorously and realistically — a submission that is merely present or generic should score low; do not award high marks simply because something was submitted. Vary scores genuinely based on submission quality; do not default to the same score every time.
 
 EXERCISE: ${exerciseLabel}
@@ -8163,7 +8180,7 @@ Score this submission on a 100-point rubric across these four weighted categorie
 
 A generic, vague, or minimal-effort submission should score well below 70 overall. A submission with real errors or contradictions of the reference material should score well below 50 on Accuracy specifically. Reserve 85+ overall for submissions that are genuinely strong across all four categories, not just adequate.
 
-Feedback rule: every item in "blindspots" names what is wrong AND tells the trainee exactly how to correct it — the steps to take, where (which CMS screen, form or document) and what the corrected entry or wording should be (for example: "The Case ID is missing from your note → open the CMS Case File, copy the Case ID from the header and add it as the note's first line."). Never just point out the fault. Each "growthSuggestions" item is one concrete action to practice next.
+${HUMAN_FEEDBACK}
 
 Return ONLY a JSON object with this exact shape, no other text:
 {
@@ -8171,8 +8188,9 @@ Return ONLY a JSON object with this exact shape, no other text:
   "presenceScore": <integer 0-30>,
   "riskScore": <integer 0-20>,
   "efficiencyScore": <integer 0-15>,
+  "summary": "<2-3 warm, plain sentences to the trainee: how it went, the biggest challenge, what to do first>",
   "strengths": ["...", "..."],
-  "blindspots": ["<what is wrong> → <how to correct it: the exact steps>", "..."],
+  "blindspots": ["<what happened> → <why it matters> → <how to fix it: the exact steps>", "..."],
   "growthSuggestions": ["...", "..."]
 }`;
   const raw = await callAIJson(prompt, 900, undefined, "grading");
@@ -8184,6 +8202,7 @@ Return ONLY a JSON object with this exact shape, no other text:
   return {
     accuracyScore, presenceScore, riskScore, efficiencyScore, totalScore,
     gradeTier: gradeTierFor(totalScore),
+    summary: typeof raw.summary === "string" ? raw.summary.trim().slice(0, 600) : "",
     strengths: Array.isArray(raw.strengths) ? raw.strengths : [],
     blindspots: Array.isArray(raw.blindspots) ? raw.blindspots : [],
     growthSuggestions: Array.isArray(raw.growthSuggestions) ? raw.growthSuggestions : []
@@ -8281,7 +8300,7 @@ Score this performance on a 100-point rubric across these four EQUALLY weighted 
 
 A generic or minimal-effort performance should score well below 70 overall. Reserve 85+ for genuinely strong performance across all four categories, not just adequate.
 
-Feedback rule: every item in "blindspots" names what is wrong AND tells the trainee exactly how to correct it — the steps to take, where (which CMS screen, form or document) and what the corrected entry or wording should be (for example: "The Case ID is missing from your note → open the CMS Case File, copy the Case ID from the header and add it as the note's first line."). Never just point out the fault. Each "growthSuggestions" item is one concrete action to practice next.
+${HUMAN_FEEDBACK}
 
 Return ONLY a JSON object with this exact shape, no other text:
 {
@@ -8289,8 +8308,9 @@ Return ONLY a JSON object with this exact shape, no other text:
   "riskPrivilegeScore": <integer 0-25>,
   "composureScore": <integer 0-25>,
   "actProtocolScore": <integer 0-25>,
+  "summary": "<2-3 warm, plain sentences to the trainee: how it went, the biggest challenge, what to do first>",
   "strengths": ["...", "..."],
-  "blindspots": ["<what is wrong> → <how to correct it: the exact steps>", "..."],
+  "blindspots": ["<what happened> → <why it matters> → <how to fix it: the exact steps>", "..."],
   "growthSuggestions": ["...", "..."]
 }`;
   const raw = await callAIJson(prompt, 900, undefined, "grading");
@@ -8302,11 +8322,23 @@ Return ONLY a JSON object with this exact shape, no other text:
   return {
     blufScore, riskPrivilegeScore, composureScore, actProtocolScore, totalScore,
     gradeTier: gradeTierFor(totalScore),
+    summary: typeof raw.summary === "string" ? raw.summary.trim().slice(0, 600) : "",
     strengths: Array.isArray(raw.strengths) ? raw.strengths : [],
     blindspots: Array.isArray(raw.blindspots) ? raw.blindspots : [],
     growthSuggestions: Array.isArray(raw.growthSuggestions) ? raw.growthSuggestions : []
   };
 }
+/* one challenge of the AI's feedback, "what happened → why it matters → how to fix it", drawn as labelled lines
+   (an older two-part "what is wrong → how to correct it" draws as what happened / how to fix it; plain text as it is) */
+function feedbackItemHtml(s){
+  const parts = String(s || "").split(/\s+→\s+/).map(x => x.trim()).filter(Boolean);
+  if(parts.length < 2) return esc(s);
+  const fix = parts.length > 3 ? parts.slice(2).join(" → ") : parts[parts.length - 1];
+  const rows = [["What happened", parts[0]]].concat(parts.length >= 3 ? [["Why it matters", parts[1]]] : []).concat([["How to fix it", fix]]);
+  return rows.map(([h, t]) => `<span class="fb-part"><b>${h}:</b> ${esc(t)}</span>`).join("");
+}
+window.feedbackItemHtml = feedbackItemHtml;
+const coachNoteHtml = report => report && report.summary ? `<div class="eval-section eval-coach"><b>💬 Your coach's note</b><p>${esc(report.summary)}</p></div>` : "";
 function renderRoleplayEvaluationReport(report){
   const tierColor = GRADE_TIER_COLOR[report.gradeTier] || "var(--ink-soft)";
   return `
@@ -8326,19 +8358,20 @@ function renderRoleplayEvaluationReport(report){
         </div>
       </div>
       ${mindsetNote(report.totalScore)}
+      ${coachNoteHtml(report)}
       ${report.strengths.length ? `
       <div class="eval-section">
-        <b>Strengths</b>
+        <b>What you did well</b>
         <ul>${report.strengths.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
       </div>` : ""}
       ${report.blindspots.length ? `
       <div class="eval-section">
-        <b>Not this way — what to change</b>
-        <ul>${report.blindspots.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
+        <b>What to work on, and how to fix it</b>
+        <ul>${report.blindspots.map(s=>`<li class="fb-item">${feedbackItemHtml(s)}</li>`).join("")}</ul>
       </div>` : ""}
       ${report.growthSuggestions.length ? `
       <div class="eval-section">
-        <b>Growth Suggestions</b>
+        <b>Try this next time</b>
         <ul>${report.growthSuggestions.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
       </div>` : ""}
     </div>`;
@@ -8364,19 +8397,20 @@ function renderEvaluationReport(report, dayId){
         </div>
       </div>
       ${mindsetNote(report.totalScore)}
+      ${coachNoteHtml(report)}
       ${report.strengths.length ? `
       <div class="eval-section">
-        <b>Strengths</b>
+        <b>What you did well</b>
         <ul>${report.strengths.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
       </div>` : ""}
       ${report.blindspots.length ? `
       <div class="eval-section">
-        <b>Not this way — what to change</b>
-        <ul>${report.blindspots.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
+        <b>What to work on, and how to fix it</b>
+        <ul>${report.blindspots.map(s=>`<li class="fb-item">${feedbackItemHtml(s)}</li>`).join("")}</ul>
       </div>` : ""}
       ${report.growthSuggestions.length ? `
       <div class="eval-section">
-        <b>Growth Suggestions</b>
+        <b>Try this next time</b>
         <ul>${report.growthSuggestions.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
       </div>` : ""}
       ${dayId ? `
@@ -8404,18 +8438,19 @@ async function downloadEvaluationReportPdf(){
     `Efficiency & Structure: ${report.efficiencyScore}/15`,
     "---"
   ];
+  if(report.summary){ lines.push("Your coach's note:", "   " + report.summary, "---"); }
   if(report.strengths.length){
-    lines.push("Strengths:");
+    lines.push("What you did well:");
     report.strengths.forEach(s=>lines.push("   • "+s));
     lines.push("---");
   }
   if(report.blindspots.length){
-    lines.push("Blindspots:");
-    report.blindspots.forEach(s=>lines.push("   • "+s));
+    lines.push("What to work on, and how to fix it:");
+    report.blindspots.forEach(s=>lines.push("   • "+String(s).split(/\s+→\s+/).join(" — ")));
     lines.push("---");
   }
   if(report.growthSuggestions.length){
-    lines.push("Growth Suggestions:");
+    lines.push("Try this next time:");
     report.growthSuggestions.forEach(s=>lines.push("   • "+s));
   }
   buildAndSavePdf("LSH Case Management Training", `Day ${dayNo(dayId)} — Evaluation Report`, lines, `LSH_Day${dayNo(dayId)}_Evaluation_Report`);
@@ -10094,7 +10129,7 @@ Score this performance on a 100-point rubric across these four EQUALLY weighted 
 
 A generic or minimal-effort performance should score well below 70 overall. Reserve 85+ for genuinely strong performance across all four categories, not just adequate.
 
-Feedback rule: every item in "blindspots" names what is wrong AND tells the trainee exactly how to correct it — the steps to take, where (which CMS screen, form or document) and what the corrected entry or wording should be (for example: "The Case ID is missing from your note → open the CMS Case File, copy the Case ID from the header and add it as the note's first line."). Never just point out the fault. Each "growthSuggestions" item is one concrete action to practice next.
+${HUMAN_FEEDBACK}
 
 Return ONLY a JSON object with this exact shape, no other text:
 {
@@ -10102,8 +10137,9 @@ Return ONLY a JSON object with this exact shape, no other text:
   "stressScore": <integer 0-25>,
   "taskScore": <integer 0-25>,
   "strategicScore": <integer 0-25>,
+  "summary": "<2-3 warm, plain sentences to the trainee: how it went, the biggest challenge, what to do first>",
   "strengths": ["...", "..."],
-  "blindspots": ["<what is wrong> → <how to correct it: the exact steps>", "..."],
+  "blindspots": ["<what happened> → <why it matters> → <how to fix it: the exact steps>", "..."],
   "growthSuggestions": ["...", "..."]
 }`;
   const raw = await callAIJson(prompt, 900, undefined, "grading");
@@ -10115,6 +10151,7 @@ Return ONLY a JSON object with this exact shape, no other text:
   return {
     boundaryScore, stressScore, taskScore, strategicScore, totalScore,
     gradeTier: gradeTierFor(totalScore),
+    summary: typeof raw.summary === "string" ? raw.summary.trim().slice(0, 600) : "",
     strengths: Array.isArray(raw.strengths) ? raw.strengths : [],
     blindspots: Array.isArray(raw.blindspots) ? raw.blindspots : [],
     growthSuggestions: Array.isArray(raw.growthSuggestions) ? raw.growthSuggestions : []
@@ -10139,19 +10176,20 @@ function renderIntakeCallEvaluationReport(report){
         </div>
       </div>
       ${mindsetNote(report.totalScore)}
+      ${coachNoteHtml(report)}
       ${report.strengths.length ? `
       <div class="eval-section">
-        <b>Strengths</b>
+        <b>What you did well</b>
         <ul>${report.strengths.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
       </div>` : ""}
       ${report.blindspots.length ? `
       <div class="eval-section">
-        <b>Not this way — what to change</b>
-        <ul>${report.blindspots.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
+        <b>What to work on, and how to fix it</b>
+        <ul>${report.blindspots.map(s=>`<li class="fb-item">${feedbackItemHtml(s)}</li>`).join("")}</ul>
       </div>` : ""}
       ${report.growthSuggestions.length ? `
       <div class="eval-section">
-        <b>Growth Suggestions</b>
+        <b>Try this next time</b>
         <ul>${report.growthSuggestions.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
       </div>` : ""}
     </div>`;
@@ -13859,8 +13897,8 @@ Do not evaluate filing or security awareness — those are scored separately and
     );
     e.reportCard = report;
     e.report = `<b>Strengths</b><ul>${report.strengths.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>` +
-      (report.blindspots.length ? `<b>Not this way — what to change</b><ul>${report.blindspots.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>` : "") +
-      (report.growthSuggestions.length ? `<b>Growth Suggestions</b><ul>${report.growthSuggestions.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>` : "");
+      (report.blindspots.length ? `<b>What to work on, and how to fix it</b><ul>${report.blindspots.map(s=>`<li class="fb-item">${feedbackItemHtml(s)}</li>`).join("")}</ul>` : "") +
+      (report.growthSuggestions.length ? `<b>Try this next time</b><ul>${report.growthSuggestions.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>` : "");
     rubricScore = report.totalScore;
   }catch(err){
     e.report = "Couldn't reach the review service to assess Writing DNA Match and Professionalism — check your connection and try again. (Your Filing Accuracy and Security Awareness scores above were still computed normally.)";

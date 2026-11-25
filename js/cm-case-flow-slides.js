@@ -355,12 +355,12 @@ window.CM_CF_SLIDES = {
   "image": "data-entry",
   "situation": "02/09/2026. The raw file is in and a colleague keyed **a draft intake record** into the CMS. Atty. Thorne wants the matter **active today**.",
   "steps": [
-   "Press 🚀 Launch CMS & Google Drive, then open John Doe's matter in the CMS under New Case.",
-   "Before anything else, run the **Conflict Check** on every party's full legal name and log the result in the CMS.",
-   "Check each field of the draft intake record against its source document: date of loss, names and roles, John Doe's position, date of birth and report number.",
-   "Correct every error you find and write in Case Notes which document proves it. Never change a field silently.",
-   "On the CMS Calendar, docket the SOL of **02/06/2028** with reminders, map all six roles under Parties, then enter each recovery layer in CMS → Insurance.",
-   "Log the retainer and the HIPAA authorization, file each intake document under its CMS category, and send Atty. Thorne a short note of your corrections in Case Notes."
+   "Press 🚀 Launch CMS & Google Drive. In New Case, run the **Conflict Check** on every party's full legal name before you do anything else.",
+   "Compare the draft record with the documents, one field at a time: date of loss, names, roles, John Doe's seat, date of birth and report number.",
+   "Fix each mistake you find. In Case Notes, say which document shows the right answer. Never change a field without a note.",
+   "Put the SOL, **02/06/2028**, on the CMS Calendar with reminders. Then list all six people and their roles under Parties.",
+   "In CMS → Insurance, enter the three layers in order. If a limit or claim number isn't known yet, write that down and set a follow-up. **Never guess.**",
+   "Log the retainer and the HIPAA authorization, file each intake document in its CMS category, and send Atty. Thorne a short note of what you fixed."
   ],
   "deliver": "An active matter, **every field verified**, corrections noted to Atty. Thorne",
   "purpose": "A file opened wrong stays wrong: **every later step** trusts this record",
@@ -383,11 +383,11 @@ window.CM_CF_SLIDES = {
   "image": "documents-audit",
   "situation": "02/09/2026, 4:30 p.m. John Doe's matter is **active in the CMS**, and nothing is on **the firm's backup drive** yet.",
   "steps": [
-   "Press 🚀 Launch CMS & Google Drive. Not linked yet? Paste your folder's link in the **Backup Drive panel**.",
-   "In Google Drive, build 01 Clients by hand, holding Doe-John with its nine numbered folders.",
-   "Add 02 Firm Administration with its two folders, then 03 Templates and 04 Closed Files, named as the standard shows.",
-   "In 📂 My Backup Drive, submit the folders, fix what it returns, and run **✓ Check my drive** until clean.",
-   "In CMS → Notes → Case Notes, write where the retainer, the Police Report and the HIPAA authorization belong, and why."
+   "Press 🚀 Launch CMS & Google Drive. If your Drive isn't linked yet, paste your folder's link in the **Backup Drive panel**.",
+   "In Google Drive, make the folder 01 Clients. Inside it, make Doe-John, and inside Doe-John, make the nine numbered folders.",
+   "Beside 01 Clients, add 02 Firm Administration with its two folders, then 03 Templates and 04 Closed Files. Copy every name exactly.",
+   "In 📂 My Backup Drive, submit your folders, fix anything it flags, and run **✓ Check my drive** until nothing is missing.",
+   "In CMS → Notes → Case Notes, write which folder the retainer, the Police Report and the HIPAA authorization each belong in, and why."
   ],
   "deliver": "A linked drive **built to standard**, confirmed by a clean check",
   "purpose": "A covering Case Manager must **find any document in seconds**",
@@ -807,7 +807,7 @@ window.CM_CF_SLIDES = {
   "side": true,
   "steps": [
    "In the Email Workspace, tell Dana Whitfield the firm represents John Doe: no direct contact, and any Recorded Statement goes **through the firm**.",
-   "Log it in CMS → Notes → Case Notes, with a task in CMS → Tasks to set up his first visit at Riverton Urgent Care."
+   "Log that email in CMS → Notes → Case Notes. In CMS → Tasks, add a dated task to book his Riverton Urgent Care visit."
   ],
   "deliver": "Keystone told in writing, **every contact logged**, the first visit tasked",
   "purpose": "The other side **has already called him**: today's plan stops the next call",
@@ -1765,9 +1765,9 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming the set-up is in, the **$40,000 stack verified** and the first treatment records on file, Atty. Thorne now needs the Case Plan.",
   "side": true,
   "steps": [
-   "In the Action Plan Editor, record the stack in order with a preliminary projection, and put the **Treatment Gap**, counted from the records, at the top of the risks band.",
-   "Under the gap, record **John Doe's 03/04 account** as his, with the documents behind it marked requested.",
-   "Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne."
+   "In the Action Plan Editor, list the three insurance layers in order and mark the total as a **preliminary** projection.",
+   "Top of the risks band: the Treatment Gap in days, from the records. Under it, John Doe's 03/04 account, its documents marked requested.",
+   "Put the SOL filing deadline on the CMS Calendar, then send the plan to Atty. Thorne."
   ],
   "deliver": "A Case Plan **routed to Atty. Thorne**, the filing window docketed",
   "purpose": "This plan is **the gate**: the Treatment Phase doesn't begin until it's routed",
@@ -1967,9 +1967,9 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, **no adjuster assigned**, **five letters** must go out on 02/17/2026.",
   "side": true,
   "steps": [
-   "In CMS → Insurance, complete each layer from the claim calls: claim number, adjuster, and each limit **with its source**, still preliminary.",
-   "In CMS → Doc Hub → Others, draft three letters of representation and **two notices**, each with its Attn line, insured, claim number and date of loss.",
-   "Route the set to Atty. Thorne for signature, send each by preferred method, calendar the acknowledgement checks, and record each layer's **verification status** as answers arrive."
+   "In CMS → Insurance, fill in each layer's claim number, adjuster and limit, noting **where each limit came from**. Keep limits preliminary.",
+   "In CMS → Doc Hub → Others, draft three letters of representation and **two notices**, one for each carrier.",
+   "After Atty. Thorne signs, send each one, calendar a check that it arrived, and update each layer's status as replies come in."
   ],
   "deliver": "Five letters **signed, sent and logged**, each correctly addressed, follow-ups calendared",
   "purpose": "One wrong letter risks **the UM coverage** or hands Keystone his private details",
@@ -2776,8 +2776,8 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming Riverton Spine & Rehab is **out of network** for Peach State and Atty. Thorne has approved its LOP, the LOP now needs sending and logging.",
   "side": true,
   "steps": [
-   "In CMS → Liens → Outstanding Case Liens, record Riverton's LOP signed by John Doe and Atty. Thorne, and send it with the **HIPAA authorization** from the Email Workspace.",
-   "Log Summit Imaging's declined LOP request in CMS → Notes → Case Notes, naming Harbor Point MedPay as the payer, and calendar the rental's 03/19/2026 end."
+   "In CMS → Liens → Outstanding Case Liens, record Riverton's LOP, signed by John Doe and Atty. Thorne. Email it with the **HIPAA authorization**.",
+   "In CMS → Notes → Case Notes, note that Summit Imaging declined the LOP and Harbor Point MedPay pays instead. Calendar the rental's end, 03/19/2026."
   ],
   "deliver": "One **counsel-approved LOP** sent, one declined, both logged",
   "purpose": "A needless LOP makes **a bill MedPay would pay** a lien on his recovery",
@@ -3188,8 +3188,8 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming the No Contact Protocol has been maxed and John Doe **calls back on 04/17**, his re-engagement now needs logging before the letter's date.",
   "side": true,
   "steps": [
-   "Log the call in CMS → Notes → Case Notes in **his own words**, with no diagnosis or advice.",
-   "In CMS → Calendar, book his 04/21 and 04/23 visits, then restore the file's status in CMS → Case Status."
+   "In CMS → Notes → Case Notes, log the call using **his own words**. Add no diagnosis and no advice.",
+   "In CMS → Calendar, book his 04/21 and 04/23 visits. Then set the file back to active in CMS → Case Status."
   ],
   "deliver": "His words logged, visits booked, **the file restored**",
   "purpose": "**Silence is a symptom**: find the cause before anyone calls it non-compliance",
@@ -3475,10 +3475,10 @@ window.CM_CF_SLIDES = {
   "image": "medical-visit",
   "situation": "04/24/2026, 3:30 p.m. Four **treatment documents** are filed in the CMS, and a **bill sits in the records folder**.",
   "steps": [
-   "File each of the four documents in the CMS from 📁 Source Files, so each copy reaches its **folder on your Drive**.",
-   "In Google Drive, find the Summit Imaging invoice in 03 Medical Records, move it to 04 Bills & Invoices, and rename it the firm's way.",
+   "Open 📁 Source Files and file each of the four documents in the CMS. Each copy then lands in **its folder on your Drive**.",
+   "In Google Drive, find the Summit Imaging bill in 03 Medical Records. Move it to 04 Bills & Invoices and rename it the firm's way.",
    "Open 📂 My Backup Drive and run ✓ Check my drive.",
-   "In CMS → Notes → Case Notes, write in two sentences what goes in each folder and why a bill in the records folder is a damages problem."
+   "In CMS → Notes → Case Notes, write two sentences: what goes in each folder, and why a bill in the records folder hurts the damages claim."
   ],
   "deliver": "Records and bills **each in their own folder**, checked",
   "purpose": "The Specials audit reads **the bills folder only**",
@@ -3641,8 +3641,8 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming John Doe has agreed to a **recorded call** about why he waited 14 days, his four reasons now need capturing in his own words.",
   "side": true,
   "steps": [
-   "Take the recorded call below: state the date and his consent, ask open questions only, and read his account back to him.",
-   "Log a privileged GIRP note in CMS → Notes → Case Notes **the same day**, with a dated task for each corroborating document."
+   "Take the recorded call below. Say the date, get his consent, ask open questions only, and read his answers back to him.",
+   "File a privileged GIRP note in CMS → Notes → Case Notes **the same day**, plus a dated task for each supporting document."
   ],
   "deliver": "**All four reasons** in his words, the GIRP note filed",
   "purpose": "A suggested reason proves nothing: **only his own words**, backed by documents, hold up",
@@ -4199,8 +4199,8 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming Atty. Thorne has decided on a **time-limited BI demand**, served 07/20/2026, his strategy decisions now need recording on the file.",
   "side": true,
   "steps": [
-   "Log each decision in CMS → Notes → Case Notes, **attributed to Atty. Thorne**, with the date it was made.",
-   "In CMS → Tasks, open a task with an owner for each decision, and propose no demand figure."
+   "In CMS → Notes → Case Notes, write down each decision, the date it was made, and that **Atty. Thorne made it**.",
+   "In CMS → Tasks, add one task with an owner for each decision. Do not suggest any demand amount."
   ],
   "deliver": "A dated decision record, **attributed to Atty. Thorne**, tasked",
   "purpose": "The demand follows this session: **an unrecorded decision** leaves the file adrift",
@@ -4401,11 +4401,11 @@ window.CM_CF_SLIDES = {
   "image": "checklist-qa",
   "situation": "File date 07/20/2026. The pre-demand audit (Specials, wages, gap record) is **yours to re-check**. Atty. Thorne approved $10,000 limits, a Limited Release, Smith's affidavit, 30 days from receipt. The draft awaits **you**.",
   "steps": [
-   "Download the case documents from 📁 Source Files, re-check the Specials and wages bill by bill and the Gap Record against the filed notes, then check the draft against the Big Four.",
-   "Build the packet by hand: demand letter, exhibit index, then Exhibits A–J, **liability first** (A–D), then records and bills, MRI, Causation Letter, wages, Gap Record, Dec Page.",
-   "Combine them into one PDF, make it searchable (OCR), bookmark each section, and Bates-number every page once.",
-   "Name it by the firm's convention, ending in _DRAFT, and file it in CMS → Doc Hub so it reaches folder 05 Insurance.",
-   "Once Atty. Thorne signs, email it to Dana Whitfield, log each fix as a CMS task, and docket the acceptance deadline from her **written acknowledgement**."
+   "Download the documents from 📁 Source Files. Re-check the bills, wages and Gap Record against the file yourself, then check the draft against the Big Four.",
+   "Put the packet in this order: demand letter, exhibit index, then Exhibits A–J, **liability first** (A–D), then records and bills, MRI, Causation Letter, wages, Gap Record, Dec Page.",
+   "Merge everything into one searchable PDF (run OCR), add a bookmark for each section, and Bates-number every page once.",
+   "Name the file the firm's way, ending in _DRAFT, and file it in CMS → Doc Hub so it reaches folder 05 Insurance.",
+   "After Atty. Thorne signs, email it to Dana Whitfield, log each fix as a CMS task, and set the deadline from her **written acknowledgement**."
   ],
   "deliver": "An audited, emailed demand with **written acknowledgement** and its deadline docketed",
   "purpose": "Keystone's 30 days run from receipt: **without proof, no deadline** to hold",
@@ -4869,8 +4869,8 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming Dana Whitfield has **offered $3,500** citing the gap and a degenerative MRI, and Atty. Thorne's authority is no counter, the offer needs logging.",
   "side": true,
   "steps": [
-   "Log her exact words in CMS → Notes → Case Notes, and report the offer to **Atty. Thorne** the same day.",
-   "In the Email Workspace, draft the 08/06/2026 rebuttal for his approval, answering the gap from the record."
+   "In CMS → Notes → Case Notes, log her offer in her exact words, and tell **Atty. Thorne** the same day.",
+   "In the Email Workspace, draft the 08/06/2026 reply for his approval, answering the gap with facts from the records. Make no counter-offer."
   ],
   "deliver": "A logged offer, **a same-day report**, a drafted rebuttal",
   "purpose": "A careless word on this call **cracks the demand** before 08/21/2026",
@@ -4893,8 +4893,8 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming Keystone **tendered the $10,000 BI limits** today and the liens are still unreduced, Atty. Thorne needs Stream 1's Net Sheet.",
   "side": true,
   "steps": [
-   "In the LSH Net Sheet, enter the $10,000.00 gross, the 33⅓% fee, the receipted costs and both liens, with the 25% projection **labelled as a projection**.",
-   "Log it to Atty. Thorne in CMS → Tasks → + Add Task, flagging that the money stays in trust."
+   "In the LSH Net Sheet, enter the $10,000.00 gross, 33⅓% fee, receipted costs and both liens. Label the 25% figure **a projection**.",
+   "In CMS → Tasks → + Add Task, send it to Atty. Thorne and flag that the money stays in trust."
   ],
   "deliver": "A Stream 1 Net Sheet, **the projection labelled**, routed",
   "purpose": "Alone, the BI money **nets John Doe $0.00**; Atty. Thorne must see why",
@@ -5003,8 +5003,8 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming Keystone's **Release of All Claims** has arrived for John Doe's signature, its clauses need checking against the approved terms.",
   "side": true,
   "steps": [
-   "In CMS → Doc Hub → Case Files, replace the catch-all insurers clause, reserve **the UM claims**, and flag the rest for Atty. Thorne.",
-   "Log your review by email to Atty. Thorne for approval, and send nothing to John Doe."
+   "In CMS → Doc Hub → Case Files, replace the catch-all insurers clause, reserve **the UM claims**, and flag anything else for Atty. Thorne.",
+   "Email your review to Atty. Thorne for approval. Send nothing to John Doe."
   ],
   "deliver": "An audited release sent **for Atty. Thorne's approval**",
   "purpose": "One unread line would **cost John Doe $30,000** of UM",
@@ -5316,8 +5316,8 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming Peach State **asserts $1,860.00** and Atty. Thorne has signed off on the one-third reduction, the lien needs recording.",
   "side": true,
   "steps": [
-   "In CMS → Settlement (BI/UM) → Medical Liens / Payoffs, show the math, **$1,860.00 – $620.00 = $1,240.00**, and record each absent claimant as a verified none.",
-   "Log the 10/09/2026 acceptance only once Peach State confirms it in writing."
+   "In CMS → Settlement (BI/UM) → Medical Liens / Payoffs, show the math, **$1,860.00 – $620.00 = $1,240.00**, and mark every other possible lien holder as checked: none.",
+   "Log the 10/09/2026 acceptance only after Peach State confirms it in writing."
   ],
   "deliver": "$1,240.00 recorded **once confirmed in writing**",
   "purpose": "Every lien dollar left unproved comes out of **John Doe's net**",
@@ -5555,8 +5555,8 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming Riverton's ledger is corrected to **$6,105.00** and its billing manager agreed to $4,580.00 in a signed Payoff Letter, the Net Sheet needs updating.",
   "side": true,
   "steps": [
-   "In CMS → Settlement (BI/UM) → Medical Liens / Payoffs, enter $4,580.00 with the **signed Payoff Letter** as its source.",
-   "Log the call and the letter in CMS → Doc Hub, and recompute the Net Sheet."
+   "In CMS → Settlement (BI/UM) → Medical Liens / Payoffs, enter $4,580.00 and name the **signed Payoff Letter** as its source.",
+   "Log the call and the letter in CMS → Doc Hub, then recalculate the Net Sheet."
   ],
   "deliver": "**A signed $4,580.00 Payoff Letter** logged, the Net Sheet recomputed",
   "purpose": "Without a signed Payoff Letter, **balance billing can follow** John Doe",
@@ -5688,11 +5688,11 @@ window.CM_CF_SLIDES = {
   "image": "money-ledger",
   "situation": "File date 10/13/2026. **$40,000.00 is received** in two streams; Peach State accepted $1,240.00 and Riverton $4,580.00; costs are $486.75. The final Net Sheet needs finishing before John Doe signs.",
   "steps": [
-   "On the Net Sheet's Recovery Ledger, post each check **by stream** (Stream 1 the $10,000 BI, Stream 2 the $30,000 UM stack) with the 33⅓% fee.",
-   "Split the costs and liens **25% and 75%** between the streams, the UM share as the remainder of each split.",
-   "Log each lien's figures and payoff status in the Lien Tracker, and tie both tabs to the **BI/UM Master Financial Ledger** and the Trust Ledger.",
-   "Flag future ESIs to Atty. Thorne and route the Net Sheet to him for approval before John Doe signs.",
-   "At the disbursement gate, confirm each condition against its document, then queue one line per Net Sheet line in the **Trust Ledger** for Atty. Thorne."
+   "On the Net Sheet's Recovery Ledger, enter each check **in its own stream**: Stream 1 is the $10,000 BI, Stream 2 the $30,000 UM. Apply the 33⅓% fee.",
+   "Split the costs and liens 25% to Stream 1 and 75% to Stream 2. Work out Stream 1's share first; Stream 2 gets what is left.",
+   "In the Lien Tracker, log each lien's amounts and payoff status. Make both tabs match the **BI/UM Master Financial Ledger** and the Trust Ledger.",
+   "Flag the future ESIs (possible repeat injections) to Atty. Thorne, then send him the Net Sheet to approve before John Doe signs.",
+   "At the disbursement gate, check each condition against its document. Then queue one **Trust Ledger** line for each Net Sheet line, for Atty. Thorne."
   ],
   "deliver": "A two-tab Net Sheet reaching **$20,359.92 both ways**",
   "purpose": "John Doe signs on this Net Sheet: **one wrong cent** misstates his net",
@@ -5962,8 +5962,8 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming Vance & Kettering's **charging lien notice** for $6,666.67 has arrived and Atty. Thorne has ordered a hold, the file needs securing.",
   "side": true,
   "steps": [
-   "Log the notice in CMS → Notes → Case Notes, routed to Atty. Thorne, and send nothing to Vance & Kettering.",
-   "In CMS → Settlement (BI/UM) → Check Received / Disbursed, hold **$6,666.67** on his instruction."
+   "In CMS → Notes → Case Notes, log the notice and route it to Atty. Thorne. Send nothing to Vance & Kettering.",
+   "In CMS → Settlement (BI/UM) → Check Received / Disbursed, hold **$6,666.67** as Atty. Thorne instructed."
   ],
   "deliver": "The notice logged and **$6,666.67 held**",
   "purpose": "The disbursement waits on **a dispute only counsel resolves**",
@@ -6009,10 +6009,10 @@ window.CM_CF_SLIDES = {
   "image": "escalation-alert",
   "situation": "10/23/2026, 2:00 p.m. Track A has disbursed, the liens are closed, and **a lien folder has been deleted**.",
   "steps": [
-   "In Google Drive, delete 06 Liens & Reimbursement from Doe-John as the drill, then run ✓ Check my drive and read what it reports.",
-   "Use 🔁 Put the missing folders back and check again until **nothing is missing**.",
-   "File the day's lien papers in the CMS so they reach 06, and the cost ledger and closing letter so they reach 07.",
-   "In CMS → Notes → Case Notes, record what was lost, how you found it and what you restored."
+   "In Google Drive, delete 06 Liens & Reimbursement from Doe-John (it is a drill). Run ✓ Check my drive and read what it finds.",
+   "Press 🔁 Put the missing folders back, then check again until **nothing is missing**.",
+   "File today's lien papers in the CMS so they reach 06, and the cost ledger and closing letter so they reach 07.",
+   "In CMS → Notes → Case Notes, write what was lost, how you found it and what you put back."
   ],
   "deliver": "A restored folder and **every lien paper backed up**",
   "purpose": "A copy filed into a **deleted folder is lost**",
@@ -6423,8 +6423,8 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming the Scheduling Order in No. 26-CV-04417 was entered 12/10/2026 and **15 RFAs** were mailed 12/01/2026, the calendar needs two fixes.",
   "side": true,
   "steps": [
-   "In CMS → Calendar, correct the responses to **01/04/2027 (Mon)**: 30 days plus 3 mail days from the trigger, moved to a business day.",
-   "Log the RFA entry, “deemed admitted if unanswered”, and route the change to Atty. Thorne in Case Notes."
+   "In CMS → Calendar, change the response deadline to **01/04/2027 (Mon)**: 30 days plus 3 for mailing, moved to the next business day.",
+   "Add the RFA entry, marked “deemed admitted if unanswered”, and tell Atty. Thorne about the change in Case Notes."
   ],
   "deliver": "A corrected calendar and **the RFA entry** logged",
   "purpose": "One mis-counted day can **deem 15 RFAs admitted** or end the claim",
@@ -6754,8 +6754,8 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming Laura Whitcomb's letter sets the hearing for **06/22/2027 at 9:00 a.m.**, with exhibits due 20 days before and the brief 10, the dates must be logged.",
   "side": true,
   "steps": [
-   "Log it in the CMS Calendar: the hearing, exhibits 06/02/2027, the brief 06/11/2027, and records requests out by **05/03/2027**.",
-   "Route the $900.00 fee share to accounting as a case cost, and ask Atty. Thorne in writing which old court dates stay."
+   "In the CMS Calendar, add the hearing, exhibits due 06/02/2027, the brief due 06/11/2027 and records requests out by **05/03/2027**.",
+   "Send the $900.00 fee share to accounting as a case cost. Ask Atty. Thorne in writing which old court dates to keep."
   ],
   "deliver": "A letter-anchored calendar, **every date with its rule**, questions to Atty. Thorne",
   "purpose": "Every arbitration task counts back from **one hearing date**",
@@ -6779,8 +6779,8 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming Harbor Point offers **$8,000 of $20,000**, Cardinal State $6,000 of $10,000, and neither will move, the impasse needs routing.",
   "side": true,
   "steps": [
-   "Log the impasse memo to Atty. Thorne in CMS → Notes → Case Notes, with each layer's dispute clause **quoted word for word**.",
-   "Ask him in writing for the route and the deadline, and docket nothing before his answer."
+   "In CMS → Notes → Case Notes, write an impasse memo to Atty. Thorne that quotes each layer's dispute clause **word for word**.",
+   "Ask him in writing which route to take and by when. Put nothing on the calendar until he answers."
   ],
   "deliver": "An impasse memo **routed to Atty. Thorne**, nothing docketed",
   "purpose": "Two UM layers, two clauses: **a misread route** sends the claim the wrong way",
@@ -6937,10 +6937,10 @@ window.CM_CF_SLIDES = {
   "image": "money-ledger",
   "situation": "It is 03/04/2027 and the mediation is **not yet calendared**. The draft carries Riverton Spine & Rehab at **$6,290.00** and Crescent's $3,400.00 as open. Riverton's certified ledger is outstanding.",
   "steps": [
-   "Build the six sections from the master index, starting from the 07/20/2026 demand, and give each document **one exhibit number** and Bates range.",
-   "Map every defense in the answer to the exhibit that answers it, and rebuild the ledger from the certified bills to $42,984.00.",
-   "Calendar the mediation from the verified notice in CMS → Calendar: the session, the exchange and internal dates, the report and the fee, each **conflict-checked**.",
-   "Add the Negotiation Log, a draft release and the consent requests, then route the binder to Atty. Thorne."
+   "Build the six sections from the master index, starting with the 07/20/2026 demand. Give each document **one exhibit number** and Bates range.",
+   "Match every defense in the answer to the exhibit that answers it. Rebuild the ledger from the certified bills to $42,984.00.",
+   "In CMS → Calendar, add the mediation from the verified notice: the session, the exchange and internal dates, the report and the fee. **Check each for conflicts.**",
+   "Add the Negotiation Log, a draft release and the consent requests, then send the binder to Atty. Thorne."
   ],
   "deliver": "Indexed, searchable binder, **an audited ledger**, to Atty. Thorne by the exchange date",
   "purpose": "Keystone won't put a real number up **while the ledger is unverified**",
@@ -7530,8 +7530,8 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming **five problems** threaten the 06/02/2027 exhibit exchange and Atty. Thorne must decide three of them, one report needs sending.",
   "side": true,
   "steps": [
-   "Log one bottleneck report in CMS → Notes → Case Notes, nearest hard date first, with **one ask** per item.",
-   "Send it in CMS → Tasks → + Add Task, and date the 48-hour audit."
+   "In CMS → Notes → Case Notes, write one bottleneck report: the nearest hard date first, and **one clear ask** for each item.",
+   "Send it with CMS → Tasks → + Add Task, and set the date of the 48-hour audit."
   ],
   "deliver": "**One five-field report**, sent 05/24/2027",
   "purpose": "Five problems converge on **the 06/02/2027 exchange**, and none can wait",
@@ -7662,8 +7662,8 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming the **15 RFAs** have no row in the Discovery & Filing Tracker and their 01/04/2027 Certificate of Service sits unlogged, the log needs fixing.",
   "side": true,
   "steps": [
-   "In CMS → Litigation → Discovery & Filing Tracker, add the RFA row with a **deemed-admission flag**, and log the Certificate of Service with its date.",
-   "Report any miss to Atty. Thorne today in CMS → Tasks → + Add Task, without back-dating."
+   "In CMS → Litigation → Discovery & Filing Tracker, add the RFA row with a **deemed-admission flag**, and log the dated Certificate of Service.",
+   "In CMS → Tasks → + Add Task, tell Atty. Thorne today about anything that was missed. Never back-date an entry."
   ],
   "deliver": "**A corrected, source-linked log**, misses reported the same day",
   "purpose": "A missed RFA deadline can mean **deemed admissions** against John Doe",
@@ -8055,8 +8055,8 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming John Doe has **a new number** and his video deposition is 02/18/2027, the prep logistics and his questions need logging.",
   "side": true,
   "steps": [
-   "Log his new number, the **02/16/2027 test call** and the 10:00 a.m. deposition at Riverton Court Reporting in CMS → Tasks.",
-   "Route each question he asked about his case to Atty. Thorne in his own words, answering none and giving him no script."
+   "In CMS → Tasks, log his new number, the **02/16/2027 test call** and the 10:00 a.m. deposition at Riverton Court Reporting.",
+   "Send each question he asked to Atty. Thorne, in his own words. Answer none, and give him no script."
   ],
   "deliver": "Logistics logged and **his questions routed** in his words",
   "purpose": "A calm, prepared John gives **shorter, more accurate answers** on 02/18/2027",
@@ -8419,8 +8419,8 @@ window.CM_CF_SLIDES = {
   "situation": "Assuming Robert Smith's new address is **confirmed on two sources**, his service and the answer date need logging.",
   "side": true,
   "steps": [
-   "In CMS → Notes → Case Notes, log service at 4410 Quarry Ridge Ct, Millbrook, and docket **the answer date** in CMS → Calendar.",
-   "Log why John Doe's Skip-Trace gate is not met yet in CMS → Notes → Case Notes."
+   "In CMS → Notes → Case Notes, log service at 4410 Quarry Ridge Ct, Millbrook. Then add **the answer date** in CMS → Calendar.",
+   "In CMS → Notes → Case Notes, explain why a Skip-Trace on John Doe isn't justified yet: its gate is not met."
   ],
   "deliver": "A service record through **the answer date**",
   "purpose": "An unserved defendant stalls the case; **an unreachable client** imperils his deposition",
@@ -8572,8 +8572,8 @@ window.CM_CF_SLIDES = {
   "situation": "07/30/2027, 3:00 p.m. The award is **disbursed**, and the file waits on **Atty. Thorne's sign-off**.",
   "steps": [
    "File the litigation and ADR papers in the CMS so they reach **09 Litigation & ADR**.",
-   "Run ✓ Check my drive and confirm the drive holds every document filed in the CMS, across all nine folders.",
-   "Write the closing checklist in Case Notes for Atty. Thorne's sign-off. Do not move the folder in your training drive."
+   "Run ✓ Check my drive. Confirm the drive holds every document filed in the CMS, across all nine folders.",
+   "In Case Notes, write the closing checklist for Atty. Thorne to sign off. Do not move the folder in your training drive."
   ],
   "deliver": "A complete, checked backup **ready to close**",
   "purpose": "Years later, **anyone can find any page**",

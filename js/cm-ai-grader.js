@@ -12,12 +12,12 @@
      • then each step of the task, with room to say what was done.
    Submit to AI Grader → sends it to runRubricEvaluation (index.html), the way the Knowledge Check takeaways are graded,
    with the activity's own rubric (rubric.ai in js/cm-case-flow-data.js), its scenario, instructions, expected output and
-   checkpoints as the answer key. The result shows as a score, what went well and what to work on next. Up to MAX_TRIES
+   checkpoints as the answer key. The result shows as a score, the coach's note, what went well, each challenge (what happened, why it matters, how to fix it) and what to try next time. Up to MAX_TRIES
    graded attempts per activity; the last one counts. The answer key (the slide's checks) opens only once no attempt is
    left, or when the trainee chooses 🔑 I'm done (after which no more attempts), so it can't be copied into a resubmission.
 
    Saved in the trainee's own record, "cf-ai-grades" (registered here as a personal key, so it syncs with their progress):
-     {v:1, blocks:{<blockId>:{draft, score, tier, subs, strengths, gaps, growth, at, tries, done, failed}}, calls:{<blockId>:{at, text}}}
+     {v:1, blocks:{<blockId>:{draft, score, tier, subs, summary, strengths, gaps, growth, at, tries, done, failed}}, calls:{<blockId>:{at, text}}}
    failed: {at, why, detail} is a grading that didn't come back (why in plain words, detail as the service said it), kept so the
    trainer's 📅 Day by Day lists the activity as handed in, not graded (js/cm-batch-sheet.js); it uses none of the attempts and
    is cleared when the activity is graded.
@@ -140,14 +140,24 @@ function evidenceLines(id){
 }
 
 /* ---------- the slide ---------- */
+/* one challenge, "what happened → why it matters → how to fix it" (the AI's feedback rule, index.html HUMAN_FEEDBACK),
+   as three labelled lines; an older "what is wrong → how to correct it" as two; plain text as it is */
+function gapHtml(x){
+  const p = String(x || "").split(/\s+→\s+/).map(t => t.trim()).filter(Boolean);
+  if(p.length < 2) return E(x);
+  const rows = [["What happened", p[0]]].concat(p.length >= 3 ? [["Why it matters", p[1]]] : []).concat([["How to fix it", p.length > 3 ? p.slice(2).join(" → ") : p[p.length - 1]]]);
+  return rows.map(([h, t]) => `<span class="aig-part"><b>${h}:</b> ${E(t)}</span>`).join("");
+}
 function resultHtml(id, r){
-  const list = (xs, cls) => (xs || []).length ? `<ul class="${cls}">${xs.map(x => `<li>${E(x)}</li>`).join("")}</ul>` : "";
+  const list = (xs, cls, fmt) => (xs || []).length ? `<ul class="${cls}">${xs.map(x => `<li>${(fmt || E)(x)}</li>`).join("")}</ul>` : "";
   const left = r.done ? 0 : MAX_TRIES - (r.tries || 0);
   return `<div class="aig-res" data-aig-result="${E(id)}">
       <div class="aig-score"><b>${E(r.score)}</b><span>/100</span>${r.tier ? `<em>${E(r.tier)}</em>` : ""}</div>
       <div class="aig-fb">
+        ${r.summary ? `<p class="aig-coach"><b>💬 Your coach's note</b>${E(r.summary)}</p>` : ""}
         ${(r.strengths || []).length ? `<h4>✅ What you did well</h4>${list(r.strengths, "aig-good")}` : ""}
-        ${(r.gaps || []).concat(r.growth || []).length ? `<h4>🎯 What to work on next</h4>${list((r.gaps || []).concat(r.growth || []), "aig-next")}` : ""}
+        ${(r.gaps || []).length ? `<h4>🎯 What to work on next</h4>${list(r.gaps, "aig-next", gapHtml)}` : ""}
+        ${(r.growth || []).length ? `<h4>🌱 Try this next time</h4>${list(r.growth, "aig-grow")}` : ""}
       </div>
       <div class="aig-row"><small>Graded ${E(new Date(r.at).toLocaleString())} · attempt ${E(r.tries)} of ${MAX_TRIES}. Your trainer sees this score on your Scorecard.</small>
         ${left > 0 && !isTrainer() ? `<button type="button" class="btn btn-ghost btn-sm" onclick="CMAIGrader.again('${E(id)}')" title="Fix your file first: it is checked again from what the platform holds">↻ Check again (${left} left)</button>
@@ -271,7 +281,8 @@ window.CMAIGrader = {
       + `${sl.side ? "This is a short side activity: the task is only to log the entry in the CMS under the stated assumptions; do not mark down for leaving out work it did not ask for. " : ""}`
       + `Grade against this activity's rubric. AI criteria: ${(((b.rubric || {}).ai) || []).map(x => `${x[0]} (${x[1]}%): ${x[2]}`).join("; ")}. `
       + `UPL is a gate: if the trainee gives the client legal advice (case value, merits, legal consequences), score Risk Mitigation 0 and say so. `
-      + `Write strengths and next steps as a coach teaching a new Case Manager: plain words, one concrete action each. Every blindspot must say what is wrong and then exactly how to correct it on this file (the steps, where in the CMS or which document, and what the corrected entry should read): never only point out the fault.`;
+      + `Write the feedback for a new Case Manager who is still learning: plain words, no grading terms, and nothing about "the submission" or "the record" as such: talk about their work on John Doe's file. `
+      + `Where an answer-key item has no evidence, say plainly what is missing and where in the CMS or which tool to do it, as a "not yet". Each challenge says what happened, why it matters on this file and exactly how to fix it.`;
     try{
       // what is sent is the platform's own record, not typed words: the typed-answer guard (assessSubmissionQuality,
       // index.html: too short, repeated words) is not for it. It runs before runRubricEvaluation's first await, so it is
@@ -284,7 +295,7 @@ window.CMAIGrader = {
       // work log keeps them: the Scorecard reads them for its 🧪 Skill Activities columns and the 100-point model's dimensions
       const part = (v, max) => Number.isFinite(Number(v)) ? Math.max(0, Math.min(100, Math.round(100 * Number(v) / max))) : null;
       const subs = {accuracy: part(rep.accuracyScore, 35), presence: part(rep.presenceScore, 30), risk: part(rep.riskScore, 20), efficiency: part(rep.efficiencyScore, 15)};
-      Object.assign(r, {score: Math.round(rep.totalScore), tier: rep.gradeTier || "", strengths: (rep.strengths || []).slice(0, 3),
+      Object.assign(r, {score: Math.round(rep.totalScore), tier: rep.gradeTier || "", summary: String(rep.summary || "").slice(0, 600), strengths: (rep.strengths || []).slice(0, 3),
         gaps: (rep.blindspots || []).slice(0, 3), growth: (rep.growthSuggestions || []).slice(0, 2), at: new Date().toISOString(), tries: (r.tries || 0) + 1});
       if(Object.values(subs).every(v => v != null)) r.subs = subs; else delete r.subs;
       delete r.failed;
@@ -373,6 +384,14 @@ css.textContent = `
 .aig-fb h4,.aig-key h4{margin:0 0 6px;font:800 17px/1.3 var(--font-ui);color:#1E2340;}
 .aig-fb ul{margin:0 0 10px;padding-left:20px;}
 .aig-fb li,.aig-key li{font:700 16px/1.4 var(--font-ui);color:#141A2E;margin:0 0 4px;}
+#app .aig .aig-fb h4{margin:0 0 6px !important;font:800 17px/1.3 var(--font-ui) !important;color:#1E2340 !important;text-align:left !important;}
+#app .aig .aig-fb ul,#app .aig .aig-fb li,#app .aig .aig-coach{text-align:left !important;}
+.aig .aig-res .aig-fb{max-height:34vh;}
+#app .aig .aig-fb ul{display:block !important;width:auto !important;margin:0 0 10px !important;padding-left:22px !important;}
+.aig-part b{color:#B25E14 !important;}
+.aig-next li{margin:0 0 10px;} .aig-part{display:block;} .aig-part b{color:#1E2340;font-weight:800;}
+.aig-coach{margin:0 0 10px;padding:10px 12px;background:#fff;border:2px solid #F3C99E;border-radius:12px;font:700 16px/1.45 var(--font-ui);color:#141A2E;}
+.aig-coach b{display:block;margin:0 0 4px;font:800 17px/1.3 var(--font-ui);color:#1E2340;}
 .aig-key{background:#fff;border:2px solid #E3E6EF;border-radius:14px;padding:12px 14px;max-height:52vh;overflow:auto;}
 .aig-key ol{margin:0;padding-left:22px;}
 .aig-note{margin:8px 0 0;font:700 16px/1.35 var(--font-ui);color:#4A5068;}

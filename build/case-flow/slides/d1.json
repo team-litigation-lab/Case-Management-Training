@@ -36,12 +36,12 @@
     "image": "data-entry",
     "situation": "02/09/2026. The raw file is in and a colleague keyed **a draft intake record** into the CMS. Atty. Thorne wants the matter **active today**.",
     "steps": [
-      "Press 🚀 Launch CMS & Google Drive, then open John Doe's matter in the CMS under New Case.",
-      "Before anything else, run the **Conflict Check** on every party's full legal name and log the result in the CMS.",
-      "Check each field of the draft intake record against its source document: date of loss, names and roles, John Doe's position, date of birth and report number.",
-      "Correct every error you find and write in Case Notes which document proves it. Never change a field silently.",
-      "On the CMS Calendar, docket the SOL of **02/06/2028** with reminders, map all six roles under Parties, then enter each recovery layer in CMS → Insurance.",
-      "Log the retainer and the HIPAA authorization, file each intake document under its CMS category, and send Atty. Thorne a short note of your corrections in Case Notes."
+      "Press 🚀 Launch CMS & Google Drive. In New Case, run the **Conflict Check** on every party's full legal name before you do anything else.",
+      "Compare the draft record with the documents, one field at a time: date of loss, names, roles, John Doe's seat, date of birth and report number.",
+      "Fix each mistake you find. In Case Notes, say which document shows the right answer. Never change a field without a note.",
+      "Put the SOL, **02/06/2028**, on the CMS Calendar with reminders. Then list all six people and their roles under Parties.",
+      "In CMS → Insurance, enter the three layers in order. If a limit or claim number isn't known yet, write that down and set a follow-up. **Never guess.**",
+      "Log the retainer and the HIPAA authorization, file each intake document in its CMS category, and send Atty. Thorne a short note of what you fixed."
     ],
     "deliver": "An active matter, **every field verified**, corrections noted to Atty. Thorne",
     "purpose": "A file opened wrong stays wrong: **every later step** trusts this record",
@@ -64,11 +64,11 @@
     "image": "documents-audit",
     "situation": "02/09/2026, 4:30 p.m. John Doe's matter is **active in the CMS**, and nothing is on **the firm's backup drive** yet.",
     "steps": [
-      "Press 🚀 Launch CMS & Google Drive. Not linked yet? Paste your folder's link in the **Backup Drive panel**.",
-      "In Google Drive, build 01 Clients by hand, holding Doe-John with its nine numbered folders.",
-      "Add 02 Firm Administration with its two folders, then 03 Templates and 04 Closed Files, named as the standard shows.",
-      "In 📂 My Backup Drive, submit the folders, fix what it returns, and run **✓ Check my drive** until clean.",
-      "In CMS → Notes → Case Notes, write where the retainer, the Police Report and the HIPAA authorization belong, and why."
+      "Press 🚀 Launch CMS & Google Drive. If your Drive isn't linked yet, paste your folder's link in the **Backup Drive panel**.",
+      "In Google Drive, make the folder 01 Clients. Inside it, make Doe-John, and inside Doe-John, make the nine numbered folders.",
+      "Beside 01 Clients, add 02 Firm Administration with its two folders, then 03 Templates and 04 Closed Files. Copy every name exactly.",
+      "In 📂 My Backup Drive, submit your folders, fix anything it flags, and run **✓ Check my drive** until nothing is missing.",
+      "In CMS → Notes → Case Notes, write which folder the retainer, the Police Report and the HIPAA authorization each belong in, and why."
     ],
     "deliver": "A linked drive **built to standard**, confirmed by a clean check",
     "purpose": "A covering Case Manager must **find any document in seconds**",
@@ -408,7 +408,7 @@
     "side": true,
     "steps": [
       "In the Email Workspace, tell Dana Whitfield the firm represents John Doe: no direct contact, and any Recorded Statement goes **through the firm**.",
-      "Log it in CMS → Notes → Case Notes, with a task in CMS → Tasks to set up his first visit at Riverton Urgent Care."
+      "Log that email in CMS → Notes → Case Notes. In CMS → Tasks, add a dated task to book his Riverton Urgent Care visit."
     ],
     "deliver": "Keystone told in writing, **every contact logged**, the first visit tasked",
     "purpose": "The other side **has already called him**: today's plan stops the next call",
@@ -598,9 +598,9 @@
     "situation": "Assuming the set-up is in, the **$40,000 stack verified** and the first treatment records on file, Atty. Thorne now needs the Case Plan.",
     "side": true,
     "steps": [
-      "In the Action Plan Editor, record the stack in order with a preliminary projection, and put the **Treatment Gap**, counted from the records, at the top of the risks band.",
-      "Under the gap, record **John Doe's 03/04 account** as his, with the documents behind it marked requested.",
-      "Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne."
+      "In the Action Plan Editor, list the three insurance layers in order and mark the total as a **preliminary** projection.",
+      "Top of the risks band: the Treatment Gap in days, from the records. Under it, John Doe's 03/04 account, its documents marked requested.",
+      "Put the SOL filing deadline on the CMS Calendar, then send the plan to Atty. Thorne."
     ],
     "deliver": "A Case Plan **routed to Atty. Thorne**, the filing window docketed",
     "purpose": "This plan is **the gate**: the Treatment Phase doesn't begin until it's routed",

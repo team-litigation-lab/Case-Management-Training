@@ -92,9 +92,9 @@
     "situation": "Assuming claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, **no adjuster assigned**, **five letters** must go out on 02/17/2026.",
     "side": true,
     "steps": [
-      "In CMS → Insurance, complete each layer from the claim calls: claim number, adjuster, and each limit **with its source**, still preliminary.",
-      "In CMS → Doc Hub → Others, draft three letters of representation and **two notices**, each with its Attn line, insured, claim number and date of loss.",
-      "Route the set to Atty. Thorne for signature, send each by preferred method, calendar the acknowledgement checks, and record each layer's **verification status** as answers arrive."
+      "In CMS → Insurance, fill in each layer's claim number, adjuster and limit, noting **where each limit came from**. Keep limits preliminary.",
+      "In CMS → Doc Hub → Others, draft three letters of representation and **two notices**, one for each carrier.",
+      "After Atty. Thorne signs, send each one, calendar a check that it arrived, and update each layer's status as replies come in."
     ],
     "deliver": "Five letters **signed, sent and logged**, each correctly addressed, follow-ups calendared",
     "purpose": "One wrong letter risks **the UM coverage** or hands Keystone his private details",
@@ -240,8 +240,8 @@
     "situation": "Assuming Riverton Spine & Rehab is **out of network** for Peach State and Atty. Thorne has approved its LOP, the LOP now needs sending and logging.",
     "side": true,
     "steps": [
-      "In CMS → Liens → Outstanding Case Liens, record Riverton's LOP signed by John Doe and Atty. Thorne, and send it with the **HIPAA authorization** from the Email Workspace.",
-      "Log Summit Imaging's declined LOP request in CMS → Notes → Case Notes, naming Harbor Point MedPay as the payer, and calendar the rental's 03/19/2026 end."
+      "In CMS → Liens → Outstanding Case Liens, record Riverton's LOP, signed by John Doe and Atty. Thorne. Email it with the **HIPAA authorization**.",
+      "In CMS → Notes → Case Notes, note that Summit Imaging declined the LOP and Harbor Point MedPay pays instead. Calendar the rental's end, 03/19/2026."
     ],
     "deliver": "One **counsel-approved LOP** sent, one declined, both logged",
     "purpose": "A needless LOP makes **a bill MedPay would pay** a lien on his recovery",
@@ -324,8 +324,8 @@
     "situation": "Assuming the No Contact Protocol has been maxed and John Doe **calls back on 04/17**, his re-engagement now needs logging before the letter's date.",
     "side": true,
     "steps": [
-      "Log the call in CMS → Notes → Case Notes in **his own words**, with no diagnosis or advice.",
-      "In CMS → Calendar, book his 04/21 and 04/23 visits, then restore the file's status in CMS → Case Status."
+      "In CMS → Notes → Case Notes, log the call using **his own words**. Add no diagnosis and no advice.",
+      "In CMS → Calendar, book his 04/21 and 04/23 visits. Then set the file back to active in CMS → Case Status."
     ],
     "deliver": "His words logged, visits booked, **the file restored**",
     "purpose": "**Silence is a symptom**: find the cause before anyone calls it non-compliance",
@@ -448,8 +448,8 @@
     "situation": "Assuming John Doe has agreed to a **recorded call** about why he waited 14 days, his four reasons now need capturing in his own words.",
     "side": true,
     "steps": [
-      "Take the recorded call below: state the date and his consent, ask open questions only, and read his account back to him.",
-      "Log a privileged GIRP note in CMS → Notes → Case Notes **the same day**, with a dated task for each corroborating document."
+      "Take the recorded call below. Say the date, get his consent, ask open questions only, and read his answers back to him.",
+      "File a privileged GIRP note in CMS → Notes → Case Notes **the same day**, plus a dated task for each supporting document."
     ],
     "deliver": "**All four reasons** in his words, the GIRP note filed",
     "purpose": "A suggested reason proves nothing: **only his own words**, backed by documents, hold up",
@@ -665,8 +665,8 @@
     "situation": "Assuming Atty. Thorne has decided on a **time-limited BI demand**, served 07/20/2026, his strategy decisions now need recording on the file.",
     "side": true,
     "steps": [
-      "Log each decision in CMS → Notes → Case Notes, **attributed to Atty. Thorne**, with the date it was made.",
-      "In CMS → Tasks, open a task with an owner for each decision, and propose no demand figure."
+      "In CMS → Notes → Case Notes, write down each decision, the date it was made, and that **Atty. Thorne made it**.",
+      "In CMS → Tasks, add one task with an owner for each decision. Do not suggest any demand amount."
     ],
     "deliver": "A dated decision record, **attributed to Atty. Thorne**, tasked",
     "purpose": "The demand follows this session: **an unrecorded decision** leaves the file adrift",
@@ -980,10 +980,10 @@
     "image": "medical-visit",
     "situation": "04/24/2026, 3:30 p.m. Four **treatment documents** are filed in the CMS, and a **bill sits in the records folder**.",
     "steps": [
-      "File each of the four documents in the CMS from 📁 Source Files, so each copy reaches its **folder on your Drive**.",
-      "In Google Drive, find the Summit Imaging invoice in 03 Medical Records, move it to 04 Bills & Invoices, and rename it the firm's way.",
+      "Open 📁 Source Files and file each of the four documents in the CMS. Each copy then lands in **its folder on your Drive**.",
+      "In Google Drive, find the Summit Imaging bill in 03 Medical Records. Move it to 04 Bills & Invoices and rename it the firm's way.",
       "Open 📂 My Backup Drive and run ✓ Check my drive.",
-      "In CMS → Notes → Case Notes, write in two sentences what goes in each folder and why a bill in the records folder is a damages problem."
+      "In CMS → Notes → Case Notes, write two sentences: what goes in each folder, and why a bill in the records folder hurts the damages claim."
     ],
     "deliver": "Records and bills **each in their own folder**, checked",
     "purpose": "The Specials audit reads **the bills folder only**",

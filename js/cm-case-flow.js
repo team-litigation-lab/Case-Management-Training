@@ -386,7 +386,7 @@ function scoreHtml(modId){
   const pill = (label, v, note) => `<div class="cf-score"><b>${v == null ? "—" : v + "%"}</b><span>${E(label)}</span>${note ? `<small>${E(note)}</small>` : ""}</div>`;
   const ai = m.ai ? `<div class="cf-ai"><b>AI evaluation · ${E(m.ai.score)}% ${m.ai.tier ? "· " + E(m.ai.tier) : ""}</b>
       ${(m.ai.strengths || []).length ? `<p>✓ ${(m.ai.strengths || []).map(E).join(" · ")}</p>` : ""}
-      ${(m.ai.gaps || []).length ? `<p>→ ${(m.ai.gaps || []).map(E).join(" · ")}</p>` : ""}</div>` : "";
+      ${(m.ai.gaps || []).length ? `<ul class="cf-ai-gaps">${(m.ai.gaps || []).map(g => `<li>${typeof feedbackItemHtml === "function" ? feedbackItemHtml(g) : E(g)}</li>`).join("")}</ul>` : ""}</div>` : "";
   return `<div class="cf-scores">
       ${pill("Automated (60%)", s.a, m.quiz ? `Quiz ${m.quiz.correct}/${m.quiz.total}${m.ai ? " · written answers" : ""}` : (m.ai ? "Written answers" : "Pass the day's Knowledge Check and submit below"))}
       ${pill("Trainer (40%)", s.t, s.t == null ? "Pending your trainer's review" : (m.trainer.comment || ""))}
@@ -411,6 +411,16 @@ function selfSummary(b, day, mod, part){   // part: "qs" (the prompts) or "scale
       <div id="cfss_res_${mod.id}">${scoreHtml(mod.id)}</div></div>`;
 }
 
+/* an activity's full task as numbered sentences, so 📖 Reference reads as steps rather than one dense paragraph
+   ("Atty.", "a.m.", "No." and the like never end a sentence) */
+function taskSentences(t){
+  const s = String(t || "").replace(/\s+/g, " ").trim(); if(!s) return [];
+  const out = [], abbr = /\b(Atty|Dr|Mr|Mrs|Ms|No|Ct|St|Rd|Ave|vs|v|e\.g|i\.e|a\.m|p\.m|Inc|Co)\.$/i;
+  let cur = "";
+  s.split(/(?<=[.!?])\s+(?=[A-Z0-9“"(])/).forEach(p => { cur = cur ? cur + " " + p : p; if(!abbr.test(cur)) { out.push(cur); cur = ""; } });
+  if(cur) out.push(cur);
+  return out;
+}
 /* ---------- the full text of a block (the curriculum as written), behind "📖 Additional Reference" ---------- */
 function fullText(l, d){
   const {block: b} = l.cf;
@@ -428,7 +438,7 @@ function fullText(l, d){
     const col = (h, xs, ol) => `<div><b>${h}</b><${ol ? "ol" : "ul"}>${xs.map(x => `<li>${hl(x)}</li>`).join("")}</${ol ? "ol" : "ul"}></div>`;
     return S(++n, "The scenario", `<div class="scenario-card"><div class="stag">John Doe VS Robert Smith</div><p class="scn">${E(b.act.scenario)}</p></div>`)
     + (ev && !vs.includes("case") ? S(++n, "📂 Your Case: what landed on the file", `${timeBanner(l)}${falloutFor(b.id).map(x => `<p class="cf-note">⚠️ <b>${E(x.f.then.event.subject)}</b> (${E(x.f.then.event.from || "")}): ${E(x.f.then.event.body)}</p>`).join("")}${(ev.before || []).map(x => eventCard(x, "cfx-ev-before")).join("")}${eventCard(ev, "")}`) : "")
-    + S(++n, "Execute on the live file", `<p class="cf-prompt">${E(b.act.prompt)}</p><div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div></div>`)
+    + S(++n, "The full task, step by step", `<ol class="cf-prompt">${taskSentences(b.act.prompt).map(x => `<li>${E(x)}</li>`).join("")}</ol><div class="cf-tool"><div><b>🛠 Tool / interface</b><span>${E(b.act.tool)}</span></div><div><b>📤 Expected output</b><span>${E(b.act.output)}</span></div></div>`)
     + (g ? S(++n, `🏅 ${g.title}`, `<div class="cfx-guide-g">${col("📐 Guidelines", g.guide)}${col("📦 Standard Inclusions", g.include)}${col("🪜 Steps to Grade A", g.steps, true)}</div>`) : "")
     + (b.show ? S(++n, showLabel(b, "See It"), visual(l, b)) : "")
     + S(++n, "Verification checkpoints", answersOpen(b.id) ? ul(b.act.checkpoints) : `<p class="cf-note">Shown once your work on this activity has been submitted and graded.</p>`)
@@ -5732,7 +5742,8 @@ main.cm-admin-main, main:has(.cm-admin-screen){max-width:min(2200px,97vw);paddin
 .cf-anchor.cf-flag{background:#FFF8EF;border-color:#F0D2AE;}
 .cf-anchor.cf-flag b{color:var(--orange-deep);}
 .cf-why{margin:0 0 8px;font-weight:600;color:var(--navy);}
-.cf-prompt{margin:0 0 10px;}
+.cf-prompt{margin:0 0 10px;padding-left:22px;}
+.cf-prompt li{margin:0 0 6px;}
 .cf-note{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;}
 .cf-tool{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;}
 .cf-tool>div{flex:1 1 220px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--orange);border-radius:12px;padding:9px 12px;display:flex;flex-direction:column;gap:2px;font-size:13.5px;}
@@ -5775,6 +5786,7 @@ main.cm-admin-main, main:has(.cm-admin-screen){max-width:min(2200px,97vw);paddin
 .cf-score small{font-size:11.5px;color:var(--ink-soft);}
 .cf-ai{margin-top:8px;font-size:13px;background:#FFFBF3;border:1px solid var(--orange-soft);border-radius:12px;padding:9px 12px;}
 .cf-ai p{margin:4px 0 0;}
+.cf-ai-gaps{margin:6px 0 0;padding-left:18px;} .cf-ai-gaps li{margin:0 0 6px;}
 .cf-dash{margin-top:22px;}
 @media(min-width:1001px){
   main.main-dash > .cf-first{flex:0 0 auto;min-height:100%;display:flex;flex-direction:column;}

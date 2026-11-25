@@ -184,7 +184,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m3-a1": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Email Workspace, tell Dana Whitfield the firm represents John Doe: no direct contact, and any Recorded Statement goes through the firm\n• Step 2: Log it in CMS › Notes › Case Notes, with a task in CMS › Tasks to set up his first visit at Riverton Urgent Care"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Email Workspace, tell Dana Whitfield the firm represents John Doe: no direct contact, and any Recorded Statement goes through the firm\n• Step 2: Log that email in CMS › Notes › Case Notes. In CMS › Tasks, add a dated task to book his Riverton Urgent Care visit"
   },
   "case": {
    "say": "• Assuming John Doe's voicemail is transcribed and Keystone has asked to record him, the firm's instruction and his first visit now need logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Keystone told in writing, every contact logged, the first visit tasked"
@@ -322,7 +322,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m4-a2": {
   "task": {
-   "say": "• Skill activity, a few minutes: three steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor, record the stack in order with a preliminary projection\n• And put the Treatment Gap, counted from the records, at the top of the risks band\n• Step 2: Under the gap, record John Doe's account from the 03/04 recorded call as his, the documents behind it marked requested\n• Step 3: Log the filing window on the CMS Calendar, then route the plan to Atty. Thorne"
+   "say": "• Skill activity, a few minutes: three steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the Action Plan Editor, list the three insurance layers in order and mark the total as a preliminary projection\n• And put the Treatment Gap, counted from the records, at the top of the risks band\n• Step 2: Top of the risks band: the Treatment Gap in days, from the records. Under it, John Doe's 03/04 account, its documents marked requested\n• Step 3: Put the SOL filing deadline on the CMS Calendar, then send the plan to Atty. Thorne"
   },
   "case": {
    "say": "• Assuming the set-up is in, the $40,000 stack verified and the first treatment records on file, Atty. Thorne now needs the Case Plan\n• John's account of the gap from the 03/04 recorded call is on file too\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Case Plan routed to Atty. Thorne, the filing window docketed"
@@ -368,7 +368,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m1-a1": {
   "task": {
-   "say": "• Skill activity, a few minutes: three steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance, complete each layer from the claim calls, each limit with its source, still preliminary\n• Step 2: In CMS › Doc Hub › Others, draft three letters of representation and two notices\n• Each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages\n• Step 3: Route the set to Atty. Thorne for signature, send each by preferred method, calendar each acknowledgement check\n• As each written answer arrives, record that layer's verification status with its document and date"
+   "say": "• Skill activity, a few minutes: three steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Insurance, fill in each layer's claim number, adjuster and limit, noting where each limit came from. Keep limits preliminary\n• Step 2: In CMS › Doc Hub › Others, draft three letters of representation and two notices, one for each carrier\n• Each with its Attn line, insured, claim number and date of loss, asking for limits and Declaration Pages\n• Step 3: After Atty. Thorne signs, send each one, calendar a check that it arrived, and update each layer's status as replies come in"
   },
   "case": {
    "say": "• Assuming claims are open with Keystone (BI and PD), Harbor Point (Host UM, PIP) and Cardinal State, no adjuster assigned\n• Five letters must go out on 02/17/2026\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: five letters signed, sent and logged, follow-ups calendared"
@@ -482,7 +482,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m2-a1": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Liens › Outstanding Case Liens, record Riverton's LOP signed by John Doe and Atty. Thorne\n• And send it with the HIPAA authorization from the Email Workspace\n• Step 2: Log Summit Imaging's declined LOP request in CMS › Notes › Case Notes, naming Harbor Point MedPay as payer, and calendar the rental's 03/19/2026 end"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Liens › Outstanding Case Liens, record Riverton's LOP, signed by John Doe and Atty. Thorne. Email it with the HIPAA authorization\n• And send it with the HIPAA authorization from the Email Workspace\n• Step 2: In CMS › Notes › Case Notes, note that Summit Imaging declined the LOP and Harbor Point MedPay pays instead. Calendar the rental's end, 03/19/2026"
   },
   "case": {
    "say": "• Assuming Riverton Spine & Rehab is out of network for Peach State and Atty. Thorne has approved its LOP, the LOP now needs sending and logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: One counsel-approved LOP sent, one declined, both logged"
@@ -532,7 +532,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m2-a2": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the call in CMS › Notes › Case Notes in his own words, with no diagnosis or advice\n• Step 2: In CMS › Calendar, book his 04/21 and 04/23 visits, then restore the file's status in CMS › Case Status"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Notes › Case Notes, log the call using his own words. Add no diagnosis and no advice\n• Step 2: In CMS › Calendar, book his 04/21 and 04/23 visits. Then set the file back to active in CMS › Case Status"
   },
   "case": {
    "say": "• Assuming the No Contact Protocol has been maxed and John Doe calls back on 04/17, his re-engagement now needs logging before the letter's date\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: His words logged, visits booked, the file restored"
@@ -616,7 +616,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m3-a1": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Take the recorded call below: state the date and his consent, ask open questions only, and read his account back to him\n• Step 2: Log a privileged GIRP note in CMS › Notes › Case Notes the same day, with a dated task for each corroborating document"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Take the recorded call below. Say the date, get his consent, ask open questions only, and read his answers back to him\n• Step 2: File a privileged GIRP note in CMS › Notes › Case Notes the same day, plus a dated task for each supporting document"
   },
   "case": {
    "say": "• Assuming John Doe has agreed to a recorded call about why he waited 14 days, his four reasons now need capturing in his own words\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: All four reasons in his words, the GIRP note filed"
@@ -739,7 +739,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d2m4-a2": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log each decision in CMS › Notes › Case Notes, attributed to Atty. Thorne, with the date it was made\n• Step 2: In CMS › Tasks, open a task with an owner for each decision, and propose no demand figure"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Notes › Case Notes, write down each decision, the date it was made, and that Atty. Thorne made it\n• Step 2: In CMS › Tasks, add one task with an owner for each decision. Do not suggest any demand amount"
   },
   "case": {
    "say": "• Assuming Atty. Thorne has decided on a time-limited BI demand, served 07/20/2026, his strategy decisions now need recording on the file\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a dated decision record, attributed to Atty. Thorne, tasked"
@@ -869,7 +869,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m2-a1": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log her exact words in CMS › Notes › Case Notes, and report the offer to Atty. Thorne the same day\n• Step 2: In the Email Workspace, draft the 08/06/2026 rebuttal for his approval, answering the gap from the record"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Notes › Case Notes, log her offer in her exact words, and tell Atty. Thorne the same day\n• Step 2: In the Email Workspace, draft the 08/06/2026 reply for his approval, answering the gap with facts from the records. Make no counter-offer"
   },
   "case": {
    "say": "• Assuming Dana Whitfield has offered $3,500 citing the gap and a degenerative MRI, and Atty. Thorne's authority is no counter, the offer needs logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a logged offer, a same-day report, a drafted rebuttal"
@@ -880,7 +880,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m2-bins": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the LSH Net Sheet, enter the $10,000.00 gross, the 33⅓% fee\n• The receipted costs and both liens, with the 25% projection labelled as a projection\n• Step 2: Log it to Atty. Thorne in CMS › Tasks › + Add Task, flagging that the money stays in trust"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the LSH Net Sheet, enter the $10,000.00 gross, 33⅓% fee, receipted costs and both liens. Label the 25% figure a projection\n• The receipted costs and both liens, with the 25% projection labelled as a projection\n• Step 2: In CMS › Tasks › + Add Task, send it to Atty. Thorne and flag that the money stays in trust"
   },
   "case": {
    "say": "• Assuming Keystone tendered the $10,000 BI limits today and the liens are still unreduced, Atty. Thorne needs Stream 1's Net Sheet\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a Stream 1 Net Sheet, the projection labelled, routed"
@@ -904,7 +904,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m2-rel": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Doc Hub › Case Files, replace the catch-all insurers clause, reserve the UM claims, and flag the rest for Atty. Thorne\n• Step 2: Log your review by email to Atty. Thorne for approval, and send nothing to John Doe"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Doc Hub › Case Files, replace the catch-all insurers clause, reserve the UM claims, and flag anything else for Atty. Thorne\n• Step 2: Email your review to Atty. Thorne for approval. Send nothing to John Doe"
   },
   "case": {
    "say": "• Assuming Keystone's Release of All Claims has arrived for John Doe's signature, its clauses need checking against the approved terms\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an audited release sent for Atty. Thorne's approval"
@@ -989,7 +989,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m3-a1": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Settlement (BI/UM) › Medical Liens / Payoffs, show the math, $1,860.00 – $620.00 = $1,240.00, and record each absent claimant as a verified none\n• Step 2: Log the 10/09/2026 acceptance only once Peach State confirms it in writing"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Settlement (BI/UM) › Medical Liens / Payoffs, show the math, $1,860.00 – $620.00 = $1,240.00, and mark every other possible lien holder as checked: none\n• Step 2: Log the 10/09/2026 acceptance only after Peach State confirms it in writing"
   },
   "case": {
    "say": "• Assuming Peach State asserts $1,860.00 and Atty. Thorne has signed off on the one-third reduction, the lien needs recording\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: $1,240.00 recorded once confirmed in writing"
@@ -1026,7 +1026,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m3-a2": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Settlement (BI/UM) › Medical Liens / Payoffs, enter $4,580.00 with the signed Payoff Letter as its source\n• Step 2: Log the call and the letter in CMS › Doc Hub, and recompute the Net Sheet"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Settlement (BI/UM) › Medical Liens / Payoffs, enter $4,580.00 and name the signed Payoff Letter as its source\n• Step 2: Log the call and the letter in CMS › Doc Hub, then recalculate the Net Sheet"
   },
   "case": {
    "say": "• Assuming Riverton's ledger is corrected to $6,105.00 and its billing manager agreed to $4,580.00 in a signed Payoff Letter, the Net Sheet needs updating\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a signed $4,580.00 Payoff Letter logged, the Net Sheet recomputed"
@@ -1096,7 +1096,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d3m4-pal": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the notice in CMS › Notes › Case Notes, routed to Atty. Thorne, and send nothing to Vance & Kettering\n• Step 2: In CMS › Settlement (BI/UM) › Check Received / Disbursed, hold $6,666.67 on his instruction"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Notes › Case Notes, log the notice and route it to Atty. Thorne. Send nothing to Vance & Kettering\n• Step 2: In CMS › Settlement (BI/UM) › Check Received / Disbursed, hold $6,666.67 as Atty. Thorne instructed"
   },
   "case": {
    "say": "• Assuming Vance & Kettering's charging lien notice for $6,666.67 has arrived and Atty. Thorne has ordered a hold, the file needs securing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: the notice logged and $6,666.67 held"
@@ -1217,7 +1217,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m2-a1": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Calendar, correct the responses to 01/04/2027 (Mon): 30 days plus 3 mail days from the trigger, moved to a business day\n• Step 2: Log the RFA entry, “deemed admitted if unanswered”, and route the change to Atty. Thorne in Case Notes"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Calendar, change the response deadline to 01/04/2027 (Mon): 30 days plus 3 for mailing, moved to the next business day\n• Step 2: Add the RFA entry, marked “deemed admitted if unanswered”, and tell Atty. Thorne about the change in Case Notes"
   },
   "case": {
    "say": "• Assuming the Scheduling Order in No. 26-CV-04417 was entered 12/10/2026 and 15 RFAs were mailed 12/01/2026, the calendar needs two fixes\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a corrected calendar and the RFA entry logged"
@@ -1286,7 +1286,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m2-arbcal": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log it in the CMS Calendar: the hearing, exhibits 06/02/2027, the brief 06/11/2027, and records requests out by 05/03/2027\n• Step 2: Route the $900.00 fee share to accounting as a case cost, and ask Atty. Thorne in writing which old court dates stay"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In the CMS Calendar, add the hearing, exhibits due 06/02/2027, the brief due 06/11/2027 and records requests out by 05/03/2027\n• Step 2: Send the $900.00 fee share to accounting as a case cost. Ask Atty. Thorne in writing which old court dates to keep"
   },
   "case": {
    "say": "• Assuming Laura Whitcomb's letter sets the hearing for 06/22/2027 at 9:00 a.m\n• With exhibits due 20 days before and the brief 10, the dates must be logged\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a letter-anchored calendar, every date with its rule, questions to Atty. Thorne"
@@ -1297,7 +1297,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m2-a3": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log the impasse memo to Atty. Thorne in CMS › Notes › Case Notes, with each layer's dispute clause quoted word for word\n• Step 2: Ask him in writing for the route and the deadline, and docket nothing before his answer"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Notes › Case Notes, write an impasse memo to Atty. Thorne that quotes each layer's dispute clause word for word\n• Step 2: Ask him in writing which route to take and by when. Put nothing on the calendar until he answers"
   },
   "case": {
    "say": "• Assuming Harbor Point offers $8,000 of $20,000, Cardinal State $6,000 of $10,000, and neither will move, the impasse needs routing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: an impasse memo routed to Atty. Thorne, nothing docketed"
@@ -1452,7 +1452,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d4m4-a2": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log one bottleneck report in CMS › Notes › Case Notes, nearest hard date first, with one ask per item\n• Step 2: Send it in CMS › Tasks › + Add Task, and date the 48-hour audit"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Notes › Case Notes, write one bottleneck report: the nearest hard date first, and one clear ask for each item\n• Step 2: Send it with CMS › Tasks › + Add Task, and set the date of the 48-hour audit"
   },
   "case": {
    "say": "• Assuming five problems threaten the 06/02/2027 exhibit exchange and Atty. Thorne must decide three of them, one report needs sending\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: One five-field report, sent 05/24/2027"
@@ -1483,7 +1483,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m1-a1": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Litigation › Discovery & Filing Tracker, add the RFA row with a deemed-admission flag, and log the Certificate of Service with its date\n• Step 2: Report any miss to Atty. Thorne today in CMS › Tasks › + Add Task, without back-dating"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Litigation › Discovery & Filing Tracker, add the RFA row with a deemed-admission flag, and log the dated Certificate of Service\n• Step 2: In CMS › Tasks › + Add Task, tell Atty. Thorne today about anything that was missed. Never back-date an entry"
   },
   "case": {
    "say": "• Assuming the 15 RFAs have no row in the Discovery & Filing Tracker and their 01/04/2027 Certificate of Service sits unlogged, the log needs fixing\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a corrected, source-linked log, misses reported the same day"
@@ -1572,7 +1572,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m3-a1": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: Log his new number, the 02/16/2027 test call and the 10:00 a.m. deposition at Riverton Court Reporting in CMS › Tasks\n• Step 2: Route each question he asked about his case to Atty. Thorne in his own words, answering none and giving him no script"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Tasks, log his new number, the 02/16/2027 test call and the 10:00 a.m. deposition at Riverton Court Reporting\n• Step 2: Send each question he asked to Atty. Thorne, in his own words. Answer none, and give him no script"
   },
   "case": {
    "say": "• Assuming John Doe has a new number and his video deposition is 02/18/2027, the prep logistics and his questions need logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: Logistics logged and his questions routed in his words"
@@ -1641,7 +1641,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d5m4-a2": {
   "task": {
-   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Notes › Case Notes, log service at 4410 Quarry Ridge Ct, Millbrook, and docket the answer date in CMS › Calendar\n• Step 2: Log why John Doe's Skip-Trace gate is not met yet in CMS › Notes › Case Notes"
+   "say": "• Skill activity, a few minutes: two steps, one entry logged; the assumption it starts from is on the next slide\n• Step 1: In CMS › Notes › Case Notes, log service at 4410 Quarry Ridge Ct, Millbrook. Then add the answer date in CMS › Calendar\n• Step 2: In CMS › Notes › Case Notes, explain why a Skip-Trace on John Doe isn't justified yet: its gate is not met"
   },
   "case": {
    "say": "• Assuming Robert Smith's new address is confirmed on two sources, his service and the answer date need logging\n• Everything before that is taken as done: nobody rebuilds the file to get here\n• What they hand in: a service record through the answer date"
