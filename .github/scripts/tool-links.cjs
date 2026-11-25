@@ -28,7 +28,10 @@ async function sign(payload, secret) {
     const sig = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(payload));
     return btoa(String.fromCharCode(...new Uint8Array(sig))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 }
-const ticketFor = async (obj, secret) => { const p = b64url(JSON.stringify(obj)); return p + '.' + await sign(p, secret); };
+// A Portal ticket names the program it is for (p, its topic key: the Portal's makeTicket); p: undefined leaves it out.
+// j: a few random characters, as makeTicket adds, so two tickets made in the same millisecond are two tickets (each works once).
+const PORTAL_TOPIC = 'CM TRAINING';
+const ticketFor = async (obj, secret) => { const p = b64url(JSON.stringify(Object.assign({ p: PORTAL_TOPIC, j: crypto.randomUUID().slice(0, 8) }, obj))); return p + '.' + await sign(p, secret); };
 
 // ---------- the Training Tools hub's addresses (js/cm-skillbuilders.js) ----------
 function toolAddresses() {
@@ -80,7 +83,7 @@ function loadToolLinks(stateObj, fetchImpl) {
         return { status: res.status, body: await res.json().catch(() => null) };
     };
     const signInTrainee = async (env) => (await call(env, '/api/auth/portal',
-        { ticket: await ticketFor({ first: 'Ana', last: 'Cruz', b: 'B100926', exp: Date.now() + 60000 }, SECRET) })).body;
+        { ticket: await ticketFor({ first: 'Ana', last: 'Cruz', b: 'B100926', u: 'U-ana', exp: Date.now() + 60000 }, SECRET) })).body;   // (u: the Portal account id, which a tool ticket must carry: portal-uid-ticket.cjs)
 
     /* ---------- 1. the Worker mints the ticket ---------- */
     const env = makeEnv({ PORTAL_SSO_SECRET: SECRET });
@@ -98,6 +101,7 @@ function loadToolLinks(stateObj, fetchImpl) {
                 if (claims.first !== 'Ana' || claims.last !== 'Cruz') fail(`the ticket should carry the trainee's name: ${JSON.stringify(claims)}`);
                 if (claims.b !== 'B100926') fail(`the ticket should carry the trainee's batch: ${JSON.stringify(claims.b)}`);
                 if (claims.r) fail("the ticket must not claim the administrator's role");
+                if (claims.u !== 'U-ana') fail(`the ticket should carry the trainee's Portal account id (u): ${JSON.stringify(claims.u)}`);
                 const left = claims.exp - Date.now();
                 if (!(left > 0 && left <= 5 * 60 * 1000 + 2000)) fail(`the ticket should be good for about 5 minutes, not ${Math.round(left / 1000)}s`);
             }
@@ -152,9 +156,16 @@ function loadToolLinks(stateObj, fetchImpl) {
         if (c1.first === 'Vic' || c1.last === 'Tim') fail(`a renamed trainee's tool ticket must not name someone else: ${JSON.stringify(c1)}`);
         // a record tampered with before the identity guard, with no admin-owned copy to correct it
         await imp.LSH_KV.delete('cm:trainee-admin:' + eve.id);
-        await imp.LSH_KV.put(recKey, JSON.stringify(Object.assign({}, mine, { name: 'Vic Tim', firstName: 'Vic', lastName: 'Tim' })));
+        // (with no Portal id on it, so nothing but its names leads back to the session: refused, identity-mismatch)
+        const tampered = Object.assign({}, mine, { name: 'Vic Tim', firstName: 'Vic', lastName: 'Tim' }); delete tampered.portalUid;
+        await imp.LSH_KV.put(recKey, JSON.stringify(tampered));
         const t2 = await call(imp, '/api/auth/tool-ticket', {}, eveAuth);
         if (t2.status !== 403) fail(`a record naming someone other than the signed-in trainee should get no tool ticket (403), got ${JSON.stringify(t2)}`);
+        // (with its Portal id, the uid index leads it back to the session whatever its names say, as after a rename on the
+        // Portal: its ticket's u is still this trainee's own account, the only thing the Portal signs in by)
+        await imp.LSH_KV.put(recKey, JSON.stringify(Object.assign({}, tampered, { portalUid: mine.portalUid })));
+        const t3 = await call(imp, '/api/auth/tool-ticket', {}, eveAuth);
+        if (t3.status === 200 && JSON.parse(unb64url(t3.body.ticket.split('.')[0])).u !== 'U-ana') fail(`a linked record's tool ticket must carry only its own u: ${JSON.stringify(t3)}`);
     }
     // without the secret the links open as they are, and the Worker says why
     const noSecret = makeEnv({});

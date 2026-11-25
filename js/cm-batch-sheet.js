@@ -162,12 +162,14 @@ function docDay(){
 }
 // everything a trainee did, with its score and its Case Flow day (n, null: no day), newest first
 function eventsOf(r){
-  const out = [], data = dataOf(r), dp = data["day-progress"] || r.dayProgress || {}, dd = docDay();
+  const out = [], data = dataOf(r), dp = data["day-progress"] || {}, rdp = r.dayProgress || {}, dd = docDay();
   const push = (at, n, what, detail, score) => { const d = T0(at); if(d) out.push({r, at: d, n: n == null ? null : Number(n), what, detail: detail || "", score: num(score)}); };
-  // every Knowledge Check attempt (its history), not only the best one
-  days().forEach(d => { const p = dp[d.id] || {}, h = Array.isArray(p.history) ? p.history : [], n = d.cf ? d.cf.n : null;
-    if(h.length) h.forEach((x, i) => push(x.date || x.at, n, "Knowledge Check", `${dayLabel(d)} · attempt ${i + 1}${x.passed ? " · passed" : ""}`, x.score));
-    else if(typeof p.score === "number") push(p.date || p.at, n, "Knowledge Check", dayLabel(d), p.score); });
+  // every Knowledge Check attempt (its history), not only the best one: 🛡 the record's (the Worker scored them); a day only
+  // the device holds is shown as unconfirmed (js/cm-scorecard.js kcDevice)
+  days().forEach(d => { const rp = rdp[d.id], own = rp && (typeof rp.score === "number" || (Array.isArray(rp.history) && rp.history.length)), p = own ? rp : (dp[d.id] || {}), h = Array.isArray(p.history) ? p.history : [], n = d.cf ? d.cf.n : null;
+    const unc = own ? "" : " · unconfirmed: on the trainee's device only";
+    if(h.length) h.forEach((x, i) => push(x.date || x.at, n, "Knowledge Check", `${dayLabel(d)} · attempt ${i + 1}${x.passed && own ? " · passed" : ""}${unc}`, x.score));
+    else if(typeof p.score === "number") push(p.date || p.at, n, "Knowledge Check", dayLabel(d) + unc, p.score); });
   // documents filed into the CMS case (js/cm-doc-filing.js): first time right is 100%, then 100% ÷ the attempts
   Object.entries(data["doc-filing"] || {}).forEach(([id, x]) => { if(!x || !x.attempts) return;
     push(x.at || x.lastAt, dd[id], x.filed ? "Document filed in the CMS" : "Document refused by the CMS", `${x.name || id}${x.category ? " · " + x.category : ""} · ${x.attempts} attempt${x.attempts === 1 ? "" : "s"}`, x.filed ? Math.round(100 / x.attempts) : 0); });
@@ -619,6 +621,7 @@ window.cmBatchSheet = {
   // 👥 duplicate accounts: drawn on 🛡 Admin Master Control → 👥 Trainee Audit (js/cm-audit-table.js)
   dupHtml, dupKeep(key, id){ B.dupKeep = B.dupKeep || {}; B.dupKeep[key] = id; redraw(); },
   dupMerge,
+  recentTable,   // (🕒 Recent progress: read by .github/scripts/kc-device-views.cjs)
   dayParts,   // a trainee's deliverables of a day, as the feedback and 🏅 My Scores read them (.github/scripts/ai-grading-recovery.cjs)
   myOpen(id){ MY.open = MY.open === id ? null : id; render(); },
   refresh(){ if(window.cmScorecard && cmScorecard.refresh) cmScorecard.refresh(); else if(typeof refreshAdminData === "function") refreshAdminData(); },

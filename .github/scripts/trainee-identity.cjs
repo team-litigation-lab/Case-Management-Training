@@ -14,6 +14,7 @@
 //   8. a merged-away id whose record came back still signs in to the record it was merged into.
 // Usage: node .github/scripts/trainee-identity.cjs   (no server, no browser needed)
 const { harness, reporter } = require('./worker-harness.cjs');
+const { picksFor } = require('./kc-picks.cjs');   // (the Worker scores an attempt from its own picks, as the page sends them)
 const R = reporter();
 (async () => {
     const h = await harness({ portalOnly: true });
@@ -28,7 +29,7 @@ const R = reporter();
     R.check((h.raw('uid:U-ann') || {}).at === ixAt, 'an unchanged sign-in should not rewrite the uid index');
     // the trainee's Day 1 Knowledge Check, saved as their own page saves it
     const rec = await h.get('trainee:' + id);
-    rec.dayProgress = { 11: { score: 85, done: true, date: '2026-09-02T10:00:00.000Z', history: [{ score: 85, passed: true, date: '2026-09-02T10:00:00.000Z' }] } };
+    rec.dayProgress = { 11: { score: 85, done: true, date: '2026-09-02T10:00:00.000Z', history: [{ score: 85, passed: true, date: '2026-09-02T10:00:00.000Z', answers: picksFor(11, 85) }] } };
     R.check((await h.set('trainee:' + id, rec, s1.body.token)).status === 200, 'the trainee should save their own record');
 
     // 2. every change the Portal can make to who they are
