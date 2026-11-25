@@ -13,6 +13,9 @@
        few minutes and on coming back to the tab); the note shows under the grade as "🧑‍🏫 Your trainer's feedback".
      • 📞 Case Calls too: each call taken on John Doe's file (roleplayHistory, category "caseflow") has its own box, saved
        as activities["call:<blockId>"]; the trainee reads it on that call's screen and under the activity's grade.
+     • 🎯 Graded Calls too (the Training Portal's Call Sim: its calls and debriefs are the Portal's): each line the trainee
+       took (callsim:<id>, read only) has its own box, saved as activities["gc:<line key>"]; the trainee reads it on 🏅 My
+       Performance beside that line's score (js/cm-scorecard.js), with a next step when the best call is under the pass mark.
      • 🛠 Skill Builders too: each tool the trainee has tried (trainee:<id>.practiceProgress) has its own box, saved as
        activities["sb:<toolId>"]; the trainee reads it under the Skill Builders hub's cards and inside the tool, at the top
        of the part whose work is reviewed (the Calendar Conflict Resolver's briefing).
@@ -56,7 +59,7 @@ function panel(rec){
       <div class="fbc-actions"><button class="btn btn-primary btn-sm" onclick="cmTrainerNotes.save('${J(rec.id)}','${J(id)}')">Save feedback</button>${nt.at ? `<span class="cf-note">Saved ${E(when(nt.at))}${nt.by ? ` by ${E(nt.by)}` : ""}</span>` : ""}</div>
     </details>`;
   }).join("");
-  return `<div class="fb-admin tn-wrap">${head}${rows || `<p class="cf-note">No graded activities yet.</p>`}${callPanel(rec, work, notes, sid, A)}${sbPanel(rec, notes, sid)}</div>`;
+  return `<div class="fb-admin tn-wrap">${head}${rows || `<p class="cf-note">No graded activities yet.</p>`}${callPanel(rec, work, notes, sid, A)}${gcPanel(rec, work, notes, sid)}${sbPanel(rec, notes, sid)}</div>`;
 }
 /* 📞 the Case Calls the trainee took on John Doe's file (their roleplayHistory, category "caseflow", topic "cf-<blockId>"),
    each with its best score and a box: notes under "call:<blockId>" */
@@ -72,6 +75,25 @@ function callPanel(rec, work, notes, sid, A){
       <div class="fbc-actions"><button class="btn btn-primary btn-sm" onclick="cmTrainerNotes.save('${J(rec.id)}','${J(key)}')">Save feedback</button>${nt.at ? `<span class="cf-note">Saved ${E(when(nt.at))}${nt.by ? ` by ${E(nt.by)}` : ""}</span>` : ""}</div>
     </details>`; }).join("");
   return `<div class="sidebar-section-lbl" style="padding-left:0;margin-top:12px;">📞 Case Calls: your feedback</div>${rows || `<p class="cf-note">No case calls taken yet.</p>`}`;
+}
+/* 🎯 the Graded Calls taken on the Training Portal's Call Sim (callsim:<id>, the Portal's: read here, never written), each
+   line's best call with a box: notes under "gc:<line key>". The record is read once per trainee opened, then the rows redraw. */
+function gcPanel(rec, work, notes, sid){
+  if(work.callsim === undefined && typeof sharedGet === "function"){
+    work.callsim = null;
+    sharedGet("callsim:" + rec.id).then(v => { work.callsim = v && typeof v === "object" ? v : {best: {}};
+      const wrap = document.getElementById("adminRowsWrap"); if(wrap && typeof renderAdminRows === "function") wrap.innerHTML = renderAdminRows(); }).catch(() => { work.callsim = {best: {}}; });
+  }
+  const head = `<div class="sidebar-section-lbl" style="padding-left:0;margin-top:12px;">🎯 Graded Calls (Call Sim): your feedback</div>`;
+  if(!work.callsim) return head + `<p class="cf-note">${work.callsim === null ? "Reading the trainee's graded calls…" : "No graded calls yet."}</p>`;
+  const lines = Object.entries(work.callsim.best || {}).filter(([, b]) => b && typeof b.score === "number");
+  const rows = lines.map(([k, b]) => { const key = "gc:" + k, nt = notes[key] || {};
+    return `<details class="cf-tr tn-row"><summary><b>🎯 ${E(b.line || k.replace(/^line:/, ""))}</b>
+        <span class="cf-tr-chips"><span class="fb-chip sent">Best ${E(b.score)}% · ${E(b.calls || 1)} call${(b.calls || 1) === 1 ? "" : "s"}</span>${nt.comment ? `<span class="fb-chip sent">Your feedback ✓</span>` : `<span class="fb-chip draft">No feedback yet</span>`}</span></summary>
+      <label class="fbc-full">Your feedback on this line's calls<textarea id="tn_${sid}_${cssId(key)}" rows="3" placeholder="How the calls went, what to keep doing, and what to say differently next time.">${E(nt.comment || "")}</textarea></label>
+      <div class="fbc-actions"><button class="btn btn-primary btn-sm" onclick="cmTrainerNotes.save('${J(rec.id)}','${J(key)}')">Save feedback</button>${nt.at ? `<span class="cf-note">Saved ${E(when(nt.at))}${nt.by ? ` by ${E(nt.by)}` : ""}</span>` : ""}</div>
+    </details>`; }).join("");
+  return head + (rows || `<p class="cf-note">No graded calls yet.</p>`);
 }
 /* 🛠 the Skill Builders the trainee has tried (trainee:<id>.practiceProgress), each with a box: notes under "sb:<toolId>" */
 const SB_TOOLS = () => (typeof PRACTICE_TOOLS !== "undefined" && Array.isArray(PRACTICE_TOOLS)) ? PRACTICE_TOOLS : [];
@@ -98,7 +120,7 @@ async function save(id, blockId){
   const ok = await sharedSet("feedback:" + id, latest);
   if(!ok){ if(typeof toast === "function") toast("Couldn't save your feedback: check your connection and try again."); return; }
   work.feedback = latest;
-  if(typeof toast === "function") toast(text ? (String(blockId).startsWith("sb:") ? "Feedback saved: the trainee sees it on the Skill Builder." : String(blockId).startsWith("call:") ? "Feedback saved: the trainee sees it on the call and under the activity." : "Feedback saved: the trainee sees it under the activity's grade.") : "Feedback removed.");
+  if(typeof toast === "function") toast(text ? (String(blockId).startsWith("sb:") ? "Feedback saved: the trainee sees it on the Skill Builder." : String(blockId).startsWith("call:") ? "Feedback saved: the trainee sees it on the call and under the activity." : String(blockId).startsWith("gc:") ? "Feedback saved: the trainee sees it on 🏅 My Performance, beside the line's score." : "Feedback saved: the trainee sees it under the activity's grade.") : "Feedback removed.");
   const wrap = document.getElementById("adminRowsWrap"); if(wrap && typeof renderAdminRows === "function") wrap.innerHTML = renderAdminRows();
 }
 if(typeof renderFeedbackAdmin === "function"){
