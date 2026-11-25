@@ -3,7 +3,8 @@
 // feedback record (activities[<blockId>]), then "🧑‍🏫 Your trainer's feedback" with its words, and the grade's sections
 // (the coach's note, what went well, what to work on, what could have been done better) have no "AI" label. As a trainer:
 // the feedback composer (renderFeedbackAdmin) lists the trainee's graded activity with a box; Save writes
-// feedback:<id>.activities[<blockId>] (keeping the record's days), and an empty box removes the note.
+// feedback:<id>.activities[<blockId>] (keeping the record's days), and an empty box removes the note. 🛠 A Skill Builder the
+// trainee tried has its own box (activities["sb:<toolId>"]), and its note shows on the Skill Builders hub.
 // Usage: node .github/scripts/trainer-notes.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -71,6 +72,18 @@ const failures = []; const fail = (m) => failures.push(m);
   if (!n || n.comment !== 'Strong start. Cite the Police Report for each fix.' || n.by !== 'Coach Rivera' || !n.at) fail(`Save should write activities[d1m1-open] with the words, who and when: ${JSON.stringify(trainer.saved)}`);
   if (!trainer.saved || !trainer.saved.days || !trainer.saved.days[11]) fail('saving a note should keep the record\'s day reviews');
   if (trainer.cleared && trainer.cleared.activities && trainer.cleared.activities['d1m1-open']) fail('saving an empty box should remove the note');
+
+  // 🛠 Skill Builders: the trainer's panel lists a tool the trainee tried; the trainee reads the note on the hub
+  const sb = await page.evaluate(() => {
+    const rec = { id: state.traineeId, name: 'Tina', practiceProgress: { calendar: { runs: 2, bestScore: 75 } } };
+    state.isAdmin = true; state.traineeWork[state.traineeId] = { snap: {}, feedback: { days: {} } };
+    const html = renderFeedbackAdmin(rec); state.isAdmin = false;
+    state.myFeedbackRaw = { days: {}, activities: { 'sb:calendar': { comment: 'Your briefing led with the bottom line. Keep it.', by: 'Coach Rivera', at: new Date().toISOString() } } };
+    goto('practice'); const hub = document.getElementById('app').innerText;
+    return { listed: /Skill Builders: your feedback/.test(html) && /Best 75%/.test(html) && /tn_[^"]*sb_calendar/.test(html), hub };
+  });
+  if (!sb.listed) fail('the trainer\'s panel should list a Skill Builder the trainee tried, with its best score and a box');
+  if (!/Your trainer's feedback/.test(sb.hub) || !/led with the bottom line/.test(sb.hub)) fail('the trainee should read a Skill Builder note on the Skill Builders hub');
 
   await browser.close();
   if (failures.length) { console.log(`${failures.length} problem(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }

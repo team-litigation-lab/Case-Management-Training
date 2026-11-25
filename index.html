@@ -1348,6 +1348,7 @@ rect.svg-callout-badge{animation:none;}
 .eval-section ul{margin:0;padding-left:18px;}
 .eval-section li{font-size:13px;line-height:1.5;margin-bottom:4px;color:#37394A;}
 .eval-section li.fb-item{margin-bottom:10px;}
+.sb-steps{font-size:13px;color:#37394A;margin:0 0 12px;padding-left:20px;} .sb-steps li{margin:0 0 4px;}
 .quiz-review-intro{margin:0 0 14px;font-size:15px;line-height:1.5;color:#37394A;}
 .quiz-why{display:block;margin-top:4px;}
 .fb-part{display:block;}
@@ -2573,7 +2574,7 @@ function dayText(t){ return String(t == null ? "" : t).replace(/\bDay \d+ · Cas
    Conflict Resolver (relates to Case Flow Day 5, id 15: the litigation calendar). */
 const PRACTICE_TOOLS = [
   {id:"calendar", icon:"◫", title:"Case Docket & Calendar Conflict Resolver", relates:"Day 15",
-   desc:"A case manager's week across John Doe VS Robert Smith and three other matters — depositions, mediation, IMEs, a brief deadline and an SOL — with overlapping commitments to resolve, hard deadlines to calculate, and an AI-drafted docket briefing for the handling attorney."}
+   desc:"A busy week across John Doe's file and three other cases. Fix the clashes, brief the attorney on what matters, spot what's missing, and enter the court's dates."}
 ];
 
 
@@ -7866,7 +7867,7 @@ function renderPracticeHub(){
   return `
     <p class="eyebrow">Skill Builders</p>
     <h1 style="color:var(--navy);font-size:26px;margin:6px 0 10px;">Skill Builders — Practice on the Real Case File</h1>
-    <p style="color:var(--ink-soft);font-size:14.5px;max-width:70ch;margin:0 0 26px;">Every Skill Builder comes from the Skill Building slides and runs on the actual case documents — then sends you into the CMS to do the file work. Every day's Skill Builders are open — start any of them at any time.</p>
+    <p style="color:var(--ink-soft);font-size:14.5px;max-width:70ch;margin:0 0 26px;">Extra practice on real case work. Each Skill Builder walks you through its parts one step at a time, checks your work, and tells you what to fix. Start any of them, any time.</p>
     <div class="card" style="padding:14px 18px;margin-bottom:22px;background:#F8F9FC;border-left:4px solid var(--navy);">
       <b style="font-size:12px;color:var(--navy);text-transform:uppercase;letter-spacing:.03em;">A note before you begin</b>
       <p style="font-size:12.8px;color:#37394A;margin:8px 0 0;font-style:italic;">Utilization of AI in the legal industry depends entirely on the firm's or attorney's specific preferences — it is never a universal default. Different roles in this industry require human intervention regardless of how capable a tool is. Because this work touches attorney-client privilege, AI must be used with the utmost discretion, and only with actual approval.</p>
@@ -8641,7 +8642,13 @@ function renderCalendarBody(body){
 
   toolState.wizardIndex = toolState.wizardIndex || 0;
   const partA = `
-    <p style="font-size:13px;color:var(--ink-soft);margin-bottom:10px;">This attorney's <b>week</b> has <b>${toolState.calBaseline} overlapping commitments</b> (outlined in red). <b>Drag any block</b> to a new day or time, or click the <b>⇄ Move button</b> on a block for precise day/time selection if dragging is fiddly. Click one of the three priority-color dots to recolor, <b>✕</b> to remove an event entirely, or <b>+ Add Event</b> to schedule something new — including proactive tasks you spot are missing, like a debrief buffer or prep block. Nothing here is graded until you click Check My Plan.</p>
+    <p style="font-size:13px;color:var(--ink-soft);margin-bottom:6px;">This week has <b>${toolState.calBaseline} clashes</b>: two things booked at the same time, outlined in red.</p>
+    <ol class="sb-steps">
+      <li>In each clash, find the <b>lower-priority</b> item (the color dots show High, Medium and Low).</li>
+      <li>Move it: <b>drag</b> the block to a free time, or press <b>⇄</b> to pick a day and time.</li>
+      <li>Leave hard deadlines, depositions and the mediation where they are. Don't delete work to clear a clash.</li>
+      <li>Press <b>Check My Plan</b>. Nothing is graded until you do.</li>
+    </ol>
     <div class="legend-row">
       ${["High","Medium","Low"].map(p=>`<span class="legend-chip"><span class="sw" style="background:${PRI_COLOR[p]};"></span>${p} priority</span>`).join("")}
       <button class="btn btn-navy btn-sm" style="margin-left:auto;" onclick="openAddEventDialog()">+ Add Event</button>
@@ -9063,11 +9070,18 @@ function calPlanScore(events){
 async function submitCalendar(){
   const events = calMergedEvents();
   const {baseline, resolved, dropped, score} = calPlanScore(events);
+  const left = calFindConflicts(events).map(([i,j])=>[events.find(e=>e.idx===i), events.find(e=>e.idx===j)]).filter(([a,b])=>a&&b);
+  const lower = (a,b)=>{ const r = {High:3, Medium:2, Low:1}; return (r[a.p]||0) <= (r[b.p]||0) ? a : b; };
+  const better = [];
+  if(dropped) better.push(`You could have moved the lower-priority item instead of deleting it: a deleted commitment is work the firm still owes, so ${dropped===1?"that clash doesn't":"those clashes don't"} count as fixed.`);
+  if(left.length) better.push(`You could have cleared ${resolved?"the last ":"the "}${left.length===1?"clash":left.length+" clashes"} by moving the lower-priority item in each pair to a free time the same week.`);
   document.getElementById("calResult").innerHTML=`
     <div class="card" style="padding:18px 20px;margin-top:16px;">
-      <b style="color:var(--navy);">${resolved} / ${baseline} conflicts resolved (${score}%)</b>
-      ${dropped ? `<p style="font-size:12.8px;color:var(--ink-soft);margin:8px 0 0;">${dropped} conflict${dropped===1?" was":"s were"} cleared by deleting a commitment: that drops the work rather than resolving the clash, so ${dropped===1?"it doesn't":"they don't"} count. Move the lower-priority item instead.</p>` : ""}
-      <p style="font-size:12.8px;color:var(--ink-soft);margin:8px 0 0;">Best practice when reshuffling: move the lower-priority commitment, and keep High-priority items — depositions, hearings, client emergencies — right where they are.</p>
+      <b style="color:var(--navy);">${resolved} of ${baseline} clashes fixed (${score}%)</b>
+      <p style="font-size:13px;color:#37394A;margin:8px 0 0;">${score===100 ? "Every clash is fixed and no work was dropped. That is exactly what the attorney needs." : resolved ? "Good progress. Here is what is still open, and how to finish it." : "Not yet. Start with the clashes listed below: move the lower-priority item in each."}</p>
+      ${left.length ? `<p style="font-size:13px;margin:10px 0 4px;"><b>Still clashing:</b></p><ul style="font-size:13px;margin:0;padding-left:18px;">${left.slice(0,6).map(([a,b])=>`<li><b>${esc(a.t)}</b> and <b>${esc(b.t)}</b> (${esc(calDayDate(a.day))}). Move <b>${esc(lower(a,b).t)}</b>: it is the lower priority.</li>`).join("")}${left.length>6?`<li>and ${left.length-6} more, outlined in red on the week</li>`:""}</ul>` : ""}
+      ${better.length ? `<p style="font-size:13px;margin:10px 0 4px;"><b>What you could have done better</b></p><ul style="font-size:13px;margin:0;padding-left:18px;">${better.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+      <p style="font-size:12.8px;color:var(--ink-soft);margin:10px 0 0;">The rule of thumb: move the lower-priority item, and keep depositions, hearings, deadlines and client emergencies where they are.</p>
     </div>`;
   await bumpPracticeProgress("calendar", score);
   const lines = [

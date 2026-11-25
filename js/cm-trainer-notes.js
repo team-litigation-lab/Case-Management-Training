@@ -11,6 +11,9 @@
        that record, which the Worker keeps (worker.js OWNED.feedback), so a trainee's save never overwrites it.
      • Trainee: the record their page already reads (state.myFeedbackRaw, index.html loadMyFeedbackCore, refreshed every
        few minutes and on coming back to the tab); the note shows under the grade as "🧑‍🏫 Your trainer's feedback".
+     • 🛠 Skill Builders too: each tool the trainee has tried (trainee:<id>.practiceProgress) has its own box, saved as
+       activities["sb:<toolId>"]; the trainee reads it under the Skill Builders hub's cards and inside the tool, at the top
+       of the part whose work is reviewed (the Calendar Conflict Resolver's briefing).
    Nothing else is written; the score is unchanged (a trainer's score override stays where it is).
    ============================================================ */
 (function(){
@@ -41,7 +44,6 @@ function panel(rec){
     .sort((a, b) => ((A[a] || {}).n || 9) - ((A[b] || {}).n || 9) || String((A[a] || {}).title || a).localeCompare(String((A[b] || {}).title || b)));
   const head = `<div class="sidebar-section-lbl" style="padding-left:0;">🧑‍🏫 Practice Lab: your feedback on each graded activity</div>
     <p class="cf-note">Add your own words to any graded activity. The trainee reads them under the grade on that activity's Submit slide. The score itself is unchanged.</p>`;
-  if(!ids.length) return `<div class="fb-admin tn-wrap">${head}<p class="cf-note">No graded activities yet.</p></div>`;
   const rows = ids.map(id => {
     const g = G[id], a = A[id] || {title: id, n: ""}, nt = notes[id] || {};
     const list = (h, xs) => (xs || []).length ? `<div><b>${h}</b><ul>${xs.map(x => `<li>${E(plain(x))}</li>`).join("")}</ul></div>` : "";
@@ -52,7 +54,19 @@ function panel(rec){
       <div class="fbc-actions"><button class="btn btn-primary btn-sm" onclick="cmTrainerNotes.save('${J(rec.id)}','${J(id)}')">Save feedback</button>${nt.at ? `<span class="cf-note">Saved ${E(when(nt.at))}${nt.by ? ` by ${E(nt.by)}` : ""}</span>` : ""}</div>
     </details>`;
   }).join("");
-  return `<div class="fb-admin tn-wrap">${head}${rows}</div>`;
+  return `<div class="fb-admin tn-wrap">${head}${rows || `<p class="cf-note">No graded activities yet.</p>`}${sbPanel(rec, notes, sid)}</div>`;
+}
+/* 🛠 the Skill Builders the trainee has tried (trainee:<id>.practiceProgress), each with a box: notes under "sb:<toolId>" */
+const SB_TOOLS = () => (typeof PRACTICE_TOOLS !== "undefined" && Array.isArray(PRACTICE_TOOLS)) ? PRACTICE_TOOLS : [];
+function sbPanel(rec, notes, sid){
+  const P = rec.practiceProgress || {}, tried = SB_TOOLS().filter(t => P[t.id]);
+  const rows = tried.map(t => { const p = P[t.id] || {}, key = "sb:" + t.id, nt = notes[key] || {};
+    return `<details class="cf-tr tn-row"><summary><b>🛠 Skill Builder</b> ${E(t.title)}
+        <span class="cf-tr-chips"><span class="fb-chip sent">Best ${E(p.bestScore || 0)}% · ${E(p.runs || 0)} run${p.runs === 1 ? "" : "s"}</span>${nt.comment ? `<span class="fb-chip sent">Your feedback ✓</span>` : `<span class="fb-chip draft">No feedback yet</span>`}</span></summary>
+      <label class="fbc-full">Your feedback for the trainee<textarea id="tn_${sid}_${cssId(key)}" rows="3" placeholder="What you saw, what to keep doing, and what to change next time.">${E(nt.comment || "")}</textarea></label>
+      <div class="fbc-actions"><button class="btn btn-primary btn-sm" onclick="cmTrainerNotes.save('${J(rec.id)}','${J(key)}')">Save feedback</button>${nt.at ? `<span class="cf-note">Saved ${E(when(nt.at))}${nt.by ? ` by ${E(nt.by)}` : ""}</span>` : ""}</div>
+    </details>`; }).join("");
+  return `<div class="sidebar-section-lbl" style="padding-left:0;margin-top:12px;">🛠 Skill Builders: your feedback</div>${rows || `<p class="cf-note">No Skill Builders tried yet.</p>`}`;
 }
 async function save(id, blockId){
   if(!isTrainer()) return;
@@ -67,7 +81,7 @@ async function save(id, blockId){
   const ok = await sharedSet("feedback:" + id, latest);
   if(!ok){ if(typeof toast === "function") toast("Couldn't save your feedback: check your connection and try again."); return; }
   work.feedback = latest;
-  if(typeof toast === "function") toast(text ? "Feedback saved: the trainee sees it under the activity's grade." : "Feedback removed.");
+  if(typeof toast === "function") toast(text ? (String(blockId).startsWith("sb:") ? "Feedback saved: the trainee sees it on the Skill Builder." : "Feedback saved: the trainee sees it under the activity's grade.") : "Feedback removed.");
   const wrap = document.getElementById("adminRowsWrap"); if(wrap && typeof renderAdminRows === "function") wrap.innerHTML = renderAdminRows();
 }
 if(typeof renderFeedbackAdmin === "function"){
@@ -96,12 +110,33 @@ if(typeof loadMyFeedbackCore === "function"){
   loadMyFeedbackCore = async function(){
     const before = JSON.stringify(((state.myFeedbackRaw || {}).activities) || {});
     const r = await __load.apply(this, arguments);
-    try{ if(JSON.stringify(((state.myFeedbackRaw || {}).activities) || {}) !== before && document.querySelector("[data-aig]") && typeof render === "function") render(); }catch(e){}
+    try{ if(JSON.stringify(((state.myFeedbackRaw || {}).activities) || {}) !== before && (document.querySelector("[data-aig]") || state.view === "practice" || state.view === "tool") && typeof render === "function") render(); }catch(e){}
     return r;
   };
 }
+// 🛠 a Skill Builder's note: under the hub's cards, and at the top of the tool's briefing part (where its feedback lands)
+if(typeof renderPracticeHub === "function"){
+  const __hub = renderPracticeHub;
+  renderPracticeHub = function(){
+    const html = __hub.apply(this, arguments);
+    try{ const ns = SB_TOOLS().map(t => noteOf("sb:" + t.id) ? `<h3 class="tn-sb-h">${E(t.title)}</h3>${noteHtml("sb:" + t.id)}` : "").join("");
+      return ns ? html + `<div class="tn-sb">${ns}</div>` : html; }catch(e){ return html; }
+  };
+}
+function wrapCalendar(){
+  if(typeof window.renderCalendarBody !== "function" || window.renderCalendarBody.__tn) return;
+  const __cal = window.renderCalendarBody;
+  window.renderCalendarBody = function(body){
+    const r = __cal.apply(this, arguments);
+    try{ const scr = body && body.querySelectorAll(".wizard-screen"), n = noteHtml("sb:calendar");
+      if(n && scr && scr[1] && !scr[1].querySelector(".tn-note")) scr[1].insertAdjacentHTML("afterbegin", n); }catch(e){}
+    return r;
+  };
+  window.renderCalendarBody.__tn = true;
+}
+wrapCalendar();
 wrapView();
-if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", wrapView);
+if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => { wrapView(); wrapCalendar(); });
 
 const css = document.createElement("style");
 css.id = "cm-trainer-notes-css";
@@ -110,6 +145,7 @@ css.textContent = `
 .tn-note b{display:block;font:800 17px/1.3 var(--font-ui);color:#1E2340;margin:0 0 4px;}
 .tn-note p{margin:0;font:700 16px/1.45 var(--font-ui);color:#141A2E;white-space:pre-wrap;}
 .tn-note small{display:block;margin-top:4px;font:700 16px/1.3 var(--font-ui);color:#4A5068;}
+.tn-sb{margin-top:18px;} .tn-sb-h{margin:14px 0 0;font-size:15px;color:#1E2340;}
 .tn-row .fb-evidence ul{margin:4px 0 6px;padding-left:18px;}
 `;
 document.head.appendChild(css);

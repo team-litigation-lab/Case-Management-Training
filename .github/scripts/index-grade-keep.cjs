@@ -107,7 +107,7 @@ const doc = { getElementById: () => el(), querySelector: () => null, querySelect
         let saved = null;
         const ctx = {
             toolState: { calEdits: {}, calCustomEvents: [] }, document: doc, bumpPracticeProgress: async (id, s) => { saved = s; }, burstConfetti() {},
-            DAY_ORDER: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'], calDayDate: (d) => d, fmtHr: (h) => String(h), Object, Math, Set
+            DAY_ORDER: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'], calDayDate: (d) => d, fmtHr: (h) => String(h), esc: (t) => String(t == null ? '' : t), Object, Math, Set
         };
         run([cut('const CAL_EVENTS = [', '];'), cut('function calMergedEvents(){'), cut('function calFindConflicts(events){'),
             optional('function calPlanScore(events){') ? cut('function calPlanScore(events){') : '', cut('async function submitCalendar(){'),
