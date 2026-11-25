@@ -130,7 +130,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/ai-check` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/share/get` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/report.html` · `/version`
 
-## Node checks (69)
+## Node checks (70)
 
 | Check | What it covers |
 |---|---|
@@ -138,6 +138,7 @@ None.
 | `activity-deck-align.cjs` | Every Skill Activity practises what its deck lesson teaches: it uses that lesson's deck terms, names no method, order or step the Canva decks contradict, and dates no lesson to the wrong day |
 | `admin-kc-keep.cjs` | An admin write of a stale trainee record keeps a Knowledge Check attempt stored after it was read (keepKcStored), and the trainer's own change still lands |
 | `ai-claude-primary.cjs` | 🤖 With ANTHROPIC_API_KEY set, Claude (claude-opus-5-5, or ANTHROPIC_MODEL) answers every AI request first, through the Anthropic SDK: a grading at effort medium with 16,000 max_tokens and no 40,000-character cut, a call's line at effort low with 4,000, server-side fallbacks on, never a thinking or sampling setting; a 529, a 500, a 400 or a refusal falls back to the gateway, then to the Gemini keys, with one Claude request each; the AI check says via anthropic, or that Claude failed and what answered; the key is never returned; without the key nothing changes |
+| `ai-error-reason.mjs` | an AI review the server refuses with its own reason (the trainee's access revoked) shows that reason, not "your account type" |
 | `ai-gateway-grading.cjs` | An AI grading reaches the Portal's AI gateway as a grading (its JSON request: the grading model, the day's review reserve, never held back by the CMS flow's share of the day) and never over the gateway's 40,000 characters (a long AI Grader submission is cut in the middle, its head and tail kept); a chat line stays a chat line; 🤖 the AI check (trainers only) says whether the gateway answers, and a refused key names AI_GATEWAY_SECRET |
 | `ai-key-fingerprint.cjs` | 🤖 The AI check shows a fingerprint of the gateway key this site sends (its length and SHA-256 prefix, never the key), the same one the page works out for a pasted value; a key the Portal refuses is said even when this Worker's own Gemini keys carry the grading |
 | `ai-keys.mjs` | Gemini key pool (every numbered key is used, keys take turns, a key out of credits rests; Google answered by the test) |

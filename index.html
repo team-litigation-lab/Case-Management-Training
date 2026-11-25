@@ -8048,6 +8048,9 @@ function friendlyAiError(e){
   if(/x-api-key|authentication_error|invalid api key|API key not valid/i.test(m)) return /gemini/i.test(m) ? "The Gemini API key on the server is invalid — replace GEMINI_API_KEY in Cloudflare (Workers & Pages → case-management-training → Settings → Variables and Secrets)." : "The AI key on the server is invalid — replace it in Cloudflare (Settings → Variables and Secrets).";
   if(/quota|RESOURCE_EXHAUSTED|free tier/i.test(m)) return "AI generation limit reached. Try again in a minute.";
   if(/401|sign-in required|unauthor/i.test(m)) return (state.isAdmin || state.view==="admin") ? "Your admin sign-in has expired or was made before secure mode was switched on. Click 🛡 Admin → Sign out, then sign in again with the admin password and retry." : "Your session needs refreshing — sign out and back in, then try again.";
+  // (a 403 with the server's own reason — the trainee's access revoked: that reason, not a guess about the account type)
+  const why403 = (/AI service error 403: (.+)/i.exec(m) || [])[1];
+  if(why403 && /revoked|ended|archived|merged/i.test(why403)) return why403;
   if(/403|not allowed/i.test(m)) return "The server refused this request for your account type. Sign out and back in, then try again.";
   if(/GEMINI_API_KEY|not configured|No AI key/i.test(m)) return "No AI key is set on the server — add GEMINI_API_KEY (free, from Google AI Studio) as a Secret in Cloudflare (Workers & Pages → case-management-training → Settings → Variables and Secrets).";
   if(/credit|billing|balance/i.test(m)) return "The Gemini account has hit its quota or billing limit — check Google AI Studio, then retry.";
