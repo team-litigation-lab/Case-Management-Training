@@ -1747,9 +1747,9 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Name the seven stages of John Doe's file in order, and say what the Case Manager owns at Intake & Case Opening that nobody else will.
-2. John Doe asks you two things on the same call: what his case is worth, and whether waiting to see a doctor hurt it. Say word for word what you tell him on each, who answers them if you do not, and what you record and route in the CMS.
-3. You are opening John Doe's matter in the CMS. What must happen before the matter is created, on whose names, and why does the order matter?
+1. Name the seven stages of John Doe's file in order. What does the Case Manager own at Intake & Case Opening that nobody else will?
+2. John Doe asks what his case is worth and if waiting for a doctor hurt it. What exactly do you say, and what do you log and route to whom?
+3. You are opening John Doe's matter in the CMS. What must happen before the matter is created, on whose names, and why does that order matter?
 
 **Best practices & pitfalls**
 
@@ -1760,9 +1760,9 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, what you learned opening John Doe's file: the principles, not the clicks.
-- Articulate your strategy: John Doe's matter is open in the CMS. What is the next action you would take on this file, and why is it the right next action rather than something else?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, what did you learn about opening John Doe's file? Think about the principles, not the clicks.
+- John Doe's matter is open in the CMS. What would you do next on this file, and why is that the right next step?
+- What part of this module are you least sure about, and what would help you feel sure?
 
 **Skill Scale — self-rate 1–5**
 
@@ -1779,45 +1779,45 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **Auto-graded share of the day's Knowledge Check** (13 questions):
 
-1. The three pillars of the Case Plan are:  
+1. What are the three pillars of the Case Plan?  
    Coverage, Liability, Projection · **✓ Clinical, Functional, Subrogation Management** · Intake, Treatment, Demand · HIPAA, BCRC, Payer Order  
-   *Clinical (acute interventions), Functional (ADLs and return to work), Subrogation Management (the Payer Order: PIP or MedPay, then private health insurance, then LOP and provider liens).*
-2. Which of these is fact sharing, not legal advice?  
+   *The pillars are Clinical (acute care), Functional (daily activities and return to work) and Subrogation Management: the Payer Order, from PIP or MedPay to private health insurance to LOP and provider liens.*
+2. Which statement is fact sharing, not legal advice?  
    **✓ “The Police Report lists the date of loss as 02/06/2026.”** · “Your case is probably worth the policy limits.” · “The gap in your treatment won't matter.” · “I'd accept the first offer if I were you.”  
-   *Reading a fact from a document is fact sharing. Value, settlement and what a fact does to the case are legal advice: Atty. Thorne's alone.*
-3. John Doe asks, “Is waiting to see a doctor going to hurt my case?” What do you do?  
-   Tell him it won't matter, to keep him calm · Tell him it will lower the value, so he's prepared · **✓ Say it's a question for Atty. Thorne, log it word for word, route it today and tell him when to expect an answer** · Explain how adjusters usually argue a gap  
-   *Reassurance, alarm and an account of how gaps are argued are all opinions on his case. Hear it, log it, route it, and give him a time frame.*
-4. John Doe asks what his case is worth. Who answers?  
-   The Case Manager, from the Specials · **✓ Atty. Thorne** · Dana Whitfield, the BI adjuster · Nobody until the demand  
-   *Value, merits and strategy are Atty. Thorne's calls. The Case Manager logs the question and routes it the same day.*
-5. Opening John Doe's matter in the CMS, what comes first?  
-   Docketing the SOL · Creating the matter · **✓ The Conflict Check on every party's full legal name** · Calling Keystone Mutual  
-   *Nothing moves until the Conflict Check is documented, on full legal names.*
-6. Who owns the legal judgments on John Doe's file: value, merits, strategy and settlement authority?  
+   *Reading a fact from a document is fact sharing. Talking about value, settlement or what a fact does to the case is legal advice, and only Atty. Thorne gives it.*
+3. John Doe asks, “Will waiting to see a doctor hurt my case?” What do you do?  
+   Tell him it won't matter, so he stays calm and keeps going · Tell him it will lower his case value, so he isn't surprised later · **✓ Log his words, route the question to Atty. Thorne today, give a time frame** · Explain to him how adjusters usually argue about a gap in care  
+   *Comfort, warning and an account of how gaps are argued are all opinions on his case. You hear the question, log it word for word, route it today and tell him when to expect an answer.*
+4. John Doe asks what his case is worth. Who answers him?  
+   The Case Manager, using the Specials · **✓ Atty. Thorne** · Dana Whitfield, the BI adjuster · Nobody, until the demand is sent  
+   *Value, merits and strategy are Atty. Thorne's decisions. Your job is to log the question and route it to him the same day.*
+5. You are opening John Doe's matter in the CMS. What do you do first?  
+   Docket the SOL date on the calendar · Create the matter with the client's details · **✓ Run the Conflict Check on every party's full legal name** · Call Keystone Mutual about the claim  
+   *Nothing moves until the Conflict Check is done and documented, using every party's full legal name. Creating the matter and docketing the SOL come after it.*
+6. Who makes the legal judgments on John Doe's file: value, merits, strategy and settlement authority?  
    The Case Manager · **✓ Atty. Elijah Thorne** · The intake team · Keystone Mutual's adjuster  
-   *You own the file's movement: deadlines, documents, carriers, providers and updates. Atty. Thorne owns every legal judgment.*
-7. A call with John Doe was never logged in the CMS. For the file, that call:  
-   Counts, as long as you remember it · **✓ Didn't happen: the CMS is the single source of truth** · Belongs in an email to yourself · Gets logged at the end of the month  
-   *Every contact, document, deadline and decision is logged in the CMS the same day. If it isn't in the CMS, it didn't happen.*
-8. John Doe's Case Snapshot records where he was in the collision. What does it say, and where is it confirmed?  
-   A driver, from what he said on the intake call · **✓ A passenger, confirmed from the Police Report** · A pedestrian, from his own account · The Civic's owner, from Keystone's file  
-   *The Snapshot reads DOL 02/06/2026, SOL 02/06/2028, client a passenger. Who rode and who owns comes from the Police Report, and a wrong position is corrected from it.*
-9. Which statute of limitations is docketed on John Doe's file?  
+   *You own how the file moves: deadlines, documents, carriers, providers and updates. Every legal judgment belongs to Atty. Thorne.*
+7. A call with John Doe was never logged in the CMS. What does that mean for the file?  
+   It still counts, as long as you remember it · **✓ It didn't happen: the CMS is the single source of truth** · It belongs in an email to yourself · It can be logged at the end of the month  
+   *Log every contact, document, deadline and decision in the CMS the same day. If it isn't in the CMS, it didn't happen.*
+8. Where was John Doe in the collision, and which document confirms it?  
+   A driver, from what he said on the intake call · **✓ A passenger, confirmed by the Police Report** · A pedestrian, from his own account · The Civic's owner, from Keystone's file  
+   *The Case Snapshot shows DOL 02/06/2026, SOL 02/06/2028 and John Doe as a passenger. The Police Report shows who rode and who owns, and you correct any wrong position from it.*
+9. Which statute of limitations (SOL) date is docketed on John Doe's file?  
    02/06/2027 · 02/20/2028 · **✓ 02/06/2028** · 02/09/2028  
-   *Every deadline counts from the date of loss, 02/06/2026, and the SOL is docketed on day one: 02/06/2028.*
-10. The intake note and the Police Report give different dates of loss. Which do you confirm the date of loss against?  
+   *Every deadline counts from the date of loss, 02/06/2026. The SOL, 02/06/2028, is docketed on day one.*
+10. The intake note and the Police Report show different dates of loss. Which one do you confirm against?  
    The intake note · The client's memory · **✓ The Police Report** · The adjuster's first call  
-   *Confirm it against the Police Report: the SOL, every carrier deadline and the treatment timeline count from it. Document the correction; never fix it silently.*
-11. Why does recording John Doe as a passenger, not a driver, matter so much at intake?  
-   **✓ It decides which policies can be reached** · It changes the statute of limitations · It decides which court hears the case · It matters only for the Property Damage claim  
-   *Driver, passenger or pedestrian decides which policies can be reached. A mis-mapped party is a lost coverage layer.*
-12. A party on the intake record is left as “unknown”. What does that usually mean?  
-   Nothing: it can be filled in at the demand · **✓ A coverage layer you haven't found yet** · The party has no insurance · The Conflict Check is complete  
-   *Six roles exist on this file; a party left as “unknown” is a coverage layer you have not found yet.*
-13. At the acceptance decision, John Doe's file is Accepted, Escalated or Declined. What must go with the decision?  
-   **✓ A reason someone else can follow** · The case value · The adjuster's approval · Nothing: the status is enough  
-   *Record the decision with its reason. If eligibility is uncertain, clarify with the client and escalate to the attorney with a short summary of what is ambiguous.*
+   *Use the Police Report, because the SOL, every carrier deadline and the treatment timeline count from that date. Document the correction; never fix it quietly.*
+11. Why does it matter so much that John Doe is recorded as a passenger, not a driver?  
+   **✓ It decides which insurance policies can be reached** · It changes the statute of limitations date · It decides which court hears the case · It matters only for the Property Damage claim  
+   *Whether he was a driver, passenger or pedestrian decides which policies you can reach. A party recorded in the wrong role can mean a lost coverage layer.*
+12. A party on the intake record is left as “unknown.” What does that usually mean?  
+   Nothing: it can be filled in at the demand · **✓ A coverage layer you haven't found yet** · The party has no insurance at all · The Conflict Check is complete  
+   *This file has six party roles. A party left as “unknown” is usually a coverage layer you haven't found yet, so don't leave it for the demand.*
+13. John Doe's file is marked Accepted, Escalated or Declined. What must you record with that decision?  
+   **✓ A reason another person can follow** · The value of the case · The adjuster's approval · Nothing, because the status says enough  
+   *Record the decision with its reason. If you're unsure he qualifies, check with the client and escalate to the attorney with a short note on what is unclear.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1856,9 +1856,9 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Name every coverage on John Doe's file, whose it is and what it pays. Which three are the $40,000 Recovery Stack, and why do the others stay out of it?
-2. Before the letters went out, you built John Doe's Policy Stack in the CMS. Give each layer's carrier, claim number, limit, whether it is first- or third-party, and the order it must be pursued in.
-3. List the five letters that left John Doe's file on 02/17/2026. For each, give the insured it named and how it was addressed.
+1. List each coverage on John Doe's file, whose it is and what it pays. Which three form the $40,000 Recovery Stack, and why only those?
+2. You built John Doe's Policy Stack in the CMS before the letters went out. For each layer, give the carrier, claim number, limit, first- or third-party, and order.
+3. Which five letters left John Doe's file on 02/17/2026? For each, which insured did it name, and how was it addressed?
 
 **Best practices & pitfalls**
 
@@ -1869,9 +1869,9 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, what you learned setting up and verifying John Doe's coverage: the principles, not the clicks.
-- Articulate your strategy: on 03/11/2026 Keystone's limit is still unconfirmed. What is your next action on the coverage file, and why is it the right one rather than something else?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, what did you learn about setting up and checking John Doe's coverage? Focus on the ideas, not the clicks.
+- On 03/11/2026, Keystone's limit is still not confirmed. What would you do next on the coverage file, and why?
+- What part of this module are you least sure about, and what would help you feel sure?
 
 **Skill Scale — self-rate 1–5**
 
@@ -1890,57 +1890,57 @@ The standard knowledge-check split: the cream question panel with orange-numbere
 
 **Auto-graded share of the day's Knowledge Check** (17 questions):
 
-1. Who swears the affidavit of no other insurance on John Doe's file, and why does the file need it?  
-   **✓ Robert Smith, to prove Keystone's $10,000 is his only liability coverage before settling at the limit** · John Doe, to prove he owns no car for Relative UM · Dana Whitfield at Keystone, to confirm the BI limit · Atty. Thorne, to certify the Demand Package  
-   *The at-fault driver swears it: Robert Smith, 08/10/2026. Settling at the $10,000 limit, and the UM carriers' consents, rely on sworn proof that nothing else covers him.*
-2. A provider's certified records arrive with no custodian's affidavit. What do you do?  
-   **✓ Ask the provider for its records and billing custodian's affidavit, and log the request** · Sign a statement yourself that the copies are true · Use the records as they are: certified copies don't need it · Ask John Doe to swear the bills are correct  
-   *The custodian's affidavit is what lets the bills and records into evidence without calling the provider. Only the provider's custodian can swear it; you request it, log it and check it.*
+1. Who swears the affidavit of no other insurance on John Doe's file, and why is it needed?  
+   **✓ Robert Smith, to prove Keystone's $10,000 is his only liability coverage** · John Doe, to prove he owns no car for Relative UM · Dana Whitfield at Keystone, to confirm Robert Smith's BI limit · Atty. Thorne, to certify the Demand Package before it goes out  
+   *The at-fault driver swears it: Robert Smith did, on 08/10/2026. Settling at the $10,000 limit, and the UM carriers' consent, depend on sworn proof that nothing else covers him.*
+2. A provider's certified records arrive without a custodian's affidavit. What do you do?  
+   **✓ Ask the provider for its records and billing custodian's affidavit, and log it** · Sign a statement yourself that the copies are true · Use the records as they are, since certified copies don't need it · Ask John Doe to swear that the bills are correct  
+   *The custodian's affidavit lets the bills and records into evidence without calling the provider. Only the provider's custodian can swear it. You request it, log it and check it.*
 3. Which coverages make up John Doe's $40,000 Recovery Stack?  
    **✓ Keystone BI, Harbor Point Host UM and Cardinal State Relative UM** · Keystone BI, Host UM, Relative UM and Harbor Point PIP · Keystone BI, Keystone PD and Host UM · Host UM, Relative UM and Margaret Doe's Bluewater UM  
-   *Only the coverages that pay the claim stack: $10,000 BI + $20,000 Host UM + $10,000 Relative UM. PIP pays bills now (Payer Order), PD pays for the car, and Margaret Doe rejected UM on her Bluewater policy in writing on 03/14/2024.*
-4. On John Doe VS Robert Smith, in what order must the coverage layers be pursued?  
-   Host UM → BI → Relative UM · **✓ BI → Host UM → Relative UM** · Relative UM → Host UM → BI · All three at once, in parallel  
-   *BI pays first. Host UM opens once BI is exhausted or tendered, and Relative UM stacks behind Host UM.*
-5. Why can John Doe reach the $20,000 Host UM layer?  
+   *Only coverages that pay the claim stack: $10,000 BI + $20,000 Host UM + $10,000 Relative UM. PIP pays bills now, PD pays for the car, and Margaret Doe rejected Bluewater UM in writing on 03/14/2024.*
+4. In what order do you pursue the coverage layers on John Doe's file?  
+   Host UM, then BI, then Relative UM · **✓ BI, then Host UM, then Relative UM** · Relative UM, then Host UM, then BI · All three at the same time  
+   *BI pays first. Host UM opens once BI is exhausted (used up) or its limit is tendered (offered). Relative UM stacks behind Host UM.*
+5. Why can John Doe claim the $20,000 Host UM layer?  
    He owns the host vehicle · **✓ He was a passenger in the host vehicle** · Robert Smith has no insurance · His Health Plan assigns it to him  
-   *He reaches the host vehicle's UM because he was riding in that car. He owns no car and has no auto policy of his own, so his UM comes from the host vehicle and his mother's policy.*
-6. Cardinal State Mutual has no adjuster assigned when John Doe's LOR goes out on 02/17/2026. How is the letter addressed?  
-   “Attn: Teresa Okafor”, to save re-addressing it later · **✓ “Attn: Claims Department”, with the claim number in the subject line** · To Margaret Doe, the insured, to forward to her carrier · Held back until Cardinal State assigns an adjuster  
-   *With no adjuster assigned, the address line reads “Attn: Claims Department”. Teresa Okafor is not assigned until 03/03/2026, and holding the letter delays the UM notice.*
-7. Harbor Point's LOR goes out on 02/17/2026, long before BI can be exhausted. What should it do?  
-   Demand the $20,000 Host UM limits now, so the response clock starts running · Wait until Keystone tenders its $10,000 before writing to Harbor Point at all · Ask Harbor Point to pay the BI layer too, since Keystone is slow · **✓ Give notice of the Host UM claim, open the PIP claim with the PIP application John Doe signed at intake and ask for its claim forms and proof-of-loss requirements, and ask for written confirmation of coverage, with no UM payment demand**  
-   *UM policies carry notice conditions, so the carrier is noticed at set-up. Notice is not a demand: the UM layers owe nothing until BI is exhausted, so a UM payment demand now is premature. What puts the stack at risk is settling or releasing BI without the UM carriers' consent. PIP is different: it pays bills as they are submitted.*
-8. Keystone Mutual gave a figure on the set-up call but will not confirm Robert Smith's limits in writing or release its Declaration Page without a written request and authorizations. What do you do?  
-   **✓ Send the written limits request Atty. Thorne signs, with only the documents or limited authorization he approves, keep BI preliminary, and calendar the follow-up** · Mark BI $10,000 confirmed from the set-up call, so the projection can be finished · Demand Host UM now, so that Harbor Point puts pressure on Keystone · Tell John Doe the limit is probably $10,000, and revisit it later  
-   *Expect asymmetry: a third-party BI carrier often wants a written request and documents first. Until its Declaration Page arrives (03/20/2026 on this file), the set-up-call figure is a lead: BI stays preliminary and no limit is quoted to the client. What goes with the request is counsel's call: never a blanket Medical Authorization to an adverse carrier. Some states set what a limits request must contain; confirm the governing rule.*
-9. The Coverage Stack lists Harbor Point PIP, $10,000, as stack layer 4 and totals the stack at $50,000. What is the correct treatment?  
-   Leave it: PIP is first-party coverage from a stack carrier · Fold PIP into the Host UM limit, making it $30,000 · **✓ Move PIP out of the stack and restore it to $40,000** · Delete PIP from the file, since it is not part of the stack  
-   *PIP pays bills now; it is not part of the Recovery Stack. It stays tracked (Harbor Point confirmed no reimbursement right on 03/02/2026), and the stack is $10,000 + $20,000 + $10,000 = $40,000.*
+   *You reach a host vehicle's UM by riding in that car, and John Doe was a passenger. He owns no car and has no auto policy, so his UM comes from the host vehicle and his mother's policy.*
+6. Cardinal State Mutual has no adjuster assigned when John Doe's LOR goes out on 02/17/2026. How do you address it?  
+   “Attn: Teresa Okafor”, to save re-addressing it later · **✓ “Attn: Claims Department”, with the claim number in the subject line** · To Margaret Doe, the insured, to forward to her carrier · Hold it back until Cardinal State assigns an adjuster  
+   *With no adjuster assigned, you write “Attn: Claims Department”. Teresa Okafor is not assigned until 03/03/2026, and holding the letter back would delay the UM notice.*
+7. Harbor Point's LOR goes out on 02/17/2026, long before BI can be used up. What should the letter do?  
+   Demand the $20,000 Host UM limit now, so the response clock starts · Wait until Keystone tenders its $10,000 before writing to Harbor Point · Ask Harbor Point to pay the BI layer too, since Keystone is slow · **✓ Give Host UM notice, open the PIP claim, ask for coverage in writing: no demand**  
+   *UM policies have notice conditions, so you notify the carrier at set-up. Notice is not a demand: UM owes nothing until BI is exhausted. PIP is different: it pays bills as they arrive.*
+8. Keystone gave a limit by phone but won't confirm it in writing without a written request and authorizations. What do you do?  
+   **✓ Send the written request Atty. Thorne signs, keep BI preliminary and calendar a follow-up** · Mark BI $10,000 as confirmed from the set-up call and finish the projection · Demand Host UM now, so Harbor Point puts pressure on Keystone · Tell John Doe the limit is probably $10,000 and check later  
+   *A third-party carrier often wants a written request first. Until its Declaration Page arrives (03/20/2026 here), the phone figure is a lead: never quote it to John Doe. Atty. Thorne decides what goes with the request.*
+9. The Coverage Stack lists Harbor Point PIP ($10,000) as layer 4 and totals $50,000. How do you fix it?  
+   Leave it, because PIP is first-party coverage from a stack carrier · Fold PIP into the Host UM limit, making it $30,000 · **✓ Move PIP out of the stack and correct the total to $40,000** · Delete PIP from the file, because it is not in the stack  
+   *PIP pays bills now, so it is not part of the Recovery Stack. You still track it (Harbor Point confirmed no reimbursement right on 03/02/2026). The stack is $10,000 + $20,000 + $10,000 = $40,000.*
 10. Which insured does each LOR name?  
-   John Doe on all three · Robert Smith on all three · **✓ Robert Smith (Keystone), Kevin Alvarez (Harbor Point), Margaret Doe (Cardinal State)** · Kevin Alvarez on all three  
-   *The insured differs on each policy, and every LOR names the carrier's own insured.*
-11. What may the third-party LOR to Keystone Mutual give about John Doe?  
-   **✓ His name only: never his phone, address, date of birth or employer** · His full contact details, so the adjuster can call him · His employer, for the wage claim · His medical providers  
-   *Third-party correspondence protects the client's information; the first-party carriers may verify his details.*
-12. Which LOR carries the Property Damage carve-out?  
-   All three · **✓ Keystone's only: Leah Moran may discuss the Civic's damage claim with its owner, Margaret Doe, nothing else** · Harbor Point's · None: the client handles Property Damage alone  
-   *The carve-out goes only in Keystone's letter, which gives the PD adjuster 5 business days from the letter to inspect the Civic.*
+   John Doe on all three letters · Robert Smith on all three letters · **✓ Robert Smith (Keystone), Kevin Alvarez (Harbor Point), Margaret Doe (Cardinal State)** · Kevin Alvarez on all three letters  
+   *Each policy has a different insured, so every LOR names that carrier's own insured: the person who holds that policy.*
+11. What may the third-party LOR to Keystone Mutual say about John Doe?  
+   **✓ His name only: no phone, address, date of birth or employer** · His full contact details, so the adjuster can call him · His employer's name, for the wage claim · The names of his medical providers  
+   *Letters to a third-party carrier protect your client's information, so you give his name only. The first-party carriers may verify his details.*
+12. Which LOR carries the Property Damage carve-out (the one allowed exception)?  
+   All three, so every carrier can discuss the car's damage · **✓ Keystone's only: Leah Moran may discuss the Civic's damage with Margaret Doe** · Harbor Point's only, since it insures the host vehicle · None: the client handles Property Damage alone  
+   *The carve-out goes only in Keystone's letter. It lets the PD adjuster, Leah Moran, talk with Margaret Doe about her Civic, and gives 5 business days from the letter to inspect it.*
 13. An LOR has had no acknowledgement. When do you follow up?  
-   After 30 days · **✓ By the third business day** · Only when the adjuster calls · At the demand  
-   *Expect an acknowledgement in 24–48 hours. None by the third business day: follow up, log it and set the next date.*
-14. Keystone gave its $10,000 limit by phone at set-up. How does the Coverage Stack record it?  
-   Confirmed · **✓ Preliminary, with the set-up call as its source, until a Declaration Page or Coverage Letter confirms it** · Not at all until the demand · As $40,000  
-   *A phone figure is a lead: record its source and keep it preliminary, and never quote it to John Doe.*
+   After 30 days · **✓ By the third business day** · Only when the adjuster calls · When the demand goes out  
+   *Expect an acknowledgement within 24–48 hours. If none comes by the third business day, follow up, log it and set the next date.*
+14. Keystone gave its $10,000 limit by phone at set-up. How do you record it in the Coverage Stack?  
+   Confirmed, because the adjuster gave it on the call · **✓ Preliminary, from the set-up call, until a Declaration Page or Coverage Letter** · Not at all until the demand · As $40,000, the full stack  
+   *A phone figure is a lead. Record where it came from, keep it preliminary, and never quote it to John Doe.*
 15. Keystone accepted PD liability for Margaret Doe's Civic on 02/17/2026. What does that mean for John Doe's BI claim?  
-   Liability is settled on every claim from the collision · **✓ Nothing by itself: record Keystone's BI liability position separately, in writing, with its date** · The BI demand can go out now · The witness and the video are no longer needed  
-   *PD acceptance on Margaret Doe's claim does not bind Keystone's BI adjuster on John Doe's. Each carrier's liability position is recorded in writing, and the evidence is preserved either way.*
-16. Margaret Doe's doorbell camera recorded the collision. What protects that video as evidence?  
-   Trimming it to the 45 seconds that matter · **✓ A copy secured with its hash logged, the original kept unaltered and the chain of custody recorded** · Asking John Doe to post it so it can't be lost · Converting it to a smaller file for the CMS  
-   *The firm secured a copy on 02/19/2026 with its SHA-256 hash logged. An unaltered original and a recorded chain of custody are what make it usable later.*
-17. You need Atty. Thorne to approve declining Summit Imaging's 03/11/2026 LOP request. How does your note open?  
-   With how Summit's call came in and what was said · **✓ With the decision needed and its deadline, then why, the facts and what follows from each answer** · With the full PIP payment history · With your view of whether Summit will reduce its bill  
-   *Decision first: the first line, and the subject line, carry the decision and its deadline. Then why, the facts with their sources, and the options.*
+   Liability is now settled on every claim from the collision · **✓ Nothing by itself: record Keystone's BI liability position separately, in writing** · The BI demand can go out now · The witness and the video are no longer needed  
+   *Accepting fault on Margaret Doe's car claim does not bind Keystone's BI adjuster on John Doe's claim. Record each carrier's liability position in writing, with its date, and keep preserving the evidence.*
+16. Margaret Doe's doorbell camera recorded the collision. What protects the video as evidence?  
+   Trimming it to the 45 seconds that matter · **✓ A copy with its hash logged, the original unaltered, the chain of custody recorded** · Asking John Doe to post it online so it can't be lost · Converting it to a smaller file for the CMS  
+   *The firm secured a copy on 02/19/2026 and logged its SHA-256 hash (a digital fingerprint). An unaltered original and a record of who handled it make it usable later.*
+17. You need Atty. Thorne to approve declining Summit Imaging's 03/11/2026 LOP request. How does your note begin?  
+   With how Summit's call came in and what was said · **✓ With the decision needed and its deadline, then the reasons** · With the full PIP payment history · With your view on whether Summit will reduce its bill  
+   *Put the decision first: the subject line and first line carry the decision and its deadline. Then give why, the facts with their sources, and the options.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1979,9 +1979,9 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 #### 2 · Slide Body — Knowledge verification
 
-1. List the firm's standing instructions for a new personal injury client and, for each, the specific harm it prevents.
-2. Sort the PD side of John Doe's file: name two items that feed his injury claim and two that stay on Margaret Doe's claim, and why.
-3. John Doe asks whether Margaret Doe's rental can be his. What do the records show, what do you tell him, and what do you coordinate?
+1. List the firm's standing instructions for a new personal injury client. For each one, what harm does it prevent?
+2. Sort the Property Damage side of John Doe's file. Name two items that support his injury claim and two that stay on Margaret Doe's claim, and say why.
+3. John Doe asks if Margaret Doe's rental can be his. What do the records show, and what do you tell him and coordinate?
 
 **Best practices & pitfalls**
 
@@ -1992,9 +1992,9 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 **Case Manager Self-Summary**
 
-- Summarize what you learned about protecting a claim in its first two weeks, and whose job that protection is.
-- Answer in one line: does Property Damage touch John Doe's case, and how? Then say what you would do the next time Margaret Doe calls about her claim.
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, what did you learn about protecting a claim in its first two weeks, and whose job is that?
+- In one line: does Property Damage touch John Doe's case, and how? What would you do when Margaret Doe next calls about her claim?
+- What part of this module are you least sure about, and what would help you feel sure?
 
 **Skill Scale — self-rate 1–5**
 
@@ -2011,36 +2011,36 @@ The standard knowledge-check split (cream question panel, navy Self-Summary card
 
 **Auto-graded share of the day's Knowledge Check** (10 questions):
 
-1. The Property Damage carve-out in the LOR lets the adverse carrier talk directly about:  
-   Injuries and treatment · **✓ The Property Damage claim only, with the vehicle's owner** · Anything except settlement figures · A Recorded Statement  
-   *Only the resolution of the Property Damage claim, with the Civic's owner, Margaret Doe: John Doe owns no car and has no PD claim. Anything else routes to the firm.*
+1. The firm's letter of representation (LOR) has a Property Damage carve-out. What may the adverse carrier discuss directly?  
+   The client's injuries and medical treatment · **✓ Only the Property Damage claim, with the vehicle's owner** · Anything except the settlement figures · A Recorded Statement about the crash  
+   *Only the Property Damage claim, and only with the Civic's owner, Margaret Doe. John Doe owns no car, so he has no PD claim. Everything else goes through the firm.*
 2. Keystone Mutual's adjuster asks John Doe for a Recorded Statement about the crash. What has the firm told him to do?  
-   Give it, briefly · Give it, but only about the Civic · **✓ Give no Recorded Statement: all adverse contact routes through the firm** · Give it if the adjuster promises a quick settlement  
-   *The client gives no Recorded Statement to the adverse carrier. Only the Property Damage claim is carved out; injuries and the facts of the loss route to the firm.*
-3. Keystone asks the firm to confirm the claimant on the Civic. From the records, whose Property Damage and rental claim is it?  
-   John Doe's: he called about the rental first · **✓ The owner's, as the Police Report and the intake records show; John Doe, a passenger who owns no car, has none** · Kevin Alvarez's, as host driver · Robert Smith's carrier decides whose it is  
-   *The claim belongs to the vehicle's owner, found in the Police Report's Unit 3 box and the Intake Supplement. A passenger who owns no car has no PD or rental claim; the CM records the finding and tells the attorney.*
-4. Which of these from the Property Damage side belongs in John Doe's bodily-injury file?  
-   Margaret Doe's rental agreement and its daily rate · **✓ The damage photos, the Repair Estimate and any supplement, as proof of how hard the impact was** · Margaret Doe's Loss of Use claim · The repair negotiation with Keystone's PD adjuster  
-   *PD severity is evidence for the injury claim: photos with a clear point of impact, the estimate and any supplement show the force. The rental, Loss of Use and the repair negotiation stay on Margaret Doe's PD claim.*
+   Give it, but keep it brief · Give it, but only about the Civic · **✓ Give no Recorded Statement and send all contact to the firm** · Give it if the adjuster promises a quick settlement  
+   *The client gives the adverse carrier no Recorded Statement. Only the Property Damage claim is carved out; his injuries and the facts of the loss go through the firm.*
+3. Keystone asks the firm to confirm the claimant on the Civic. Whose Property Damage and rental claim is it?  
+   John Doe's, because he called about the rental first · **✓ The owner's, as the Police Report and intake records show** · Kevin Alvarez's, because he was the host driver · Robert Smith's carrier decides whose claim it is  
+   *The claim is the owner's, as the Police Report's Unit 3 box and the Intake Supplement show. John Doe, a passenger who owns no car, has none. Record it and tell the attorney.*
+4. Which Property Damage item belongs in John Doe's bodily-injury file?  
+   Margaret Doe's rental agreement and its daily rate · **✓ The damage photos, the Repair Estimate and any supplement** · Margaret Doe's Loss of Use claim · The repair negotiation with Keystone's PD adjuster  
+   *Photos, the Repair Estimate and any supplement show how hard the impact was, which is evidence for his injury claim. The rental, Loss of Use and repair negotiation stay on Margaret Doe's PD claim.*
 5. Margaret Doe asks you to push Keystone for a higher repair figure on the Civic. What do you do?  
-   Negotiate it: it is the same crash as John Doe's case · **✓ Log her request and refer it to Atty. Thorne: her PD claim is separate from John Doe's case, and whether the firm helps with it is his decision** · Tell her the figure is fair · Tell her to accept whatever Keystone offers  
-   *The Civic's repair figure is Margaret Doe's Property Damage claim, not the firm's bodily-injury work on John Doe's file. Refer, don't handle: log it and route it to Atty. Thorne, with no advice on the figure.*
+   Negotiate it, because it's the same crash as John Doe's · **✓ Log her request and refer it to Atty. Thorne** · Tell her the repair figure is fair · Tell her to accept whatever Keystone offers  
+   *The repair figure is her own Property Damage claim, separate from John Doe's case. Whether the firm helps is Atty. Thorne's decision. Log it, route it to him, and give no advice on the figure.*
 6. Keystone's Property Damage liability limit is $25,000. How does it relate to John Doe's $40,000 stack?  
-   It is added to the stack · **✓ It sits outside the stack: what the Civic's claim is paid neither adds to nor reduces John Doe's recovery** · It reduces Keystone's BI limit · It pays John Doe's Medical Bills first  
-   *PD liability is separate coverage for the property, outside the $40,000 stack of BI, Host UM and Relative UM. John Doe's figures don't move with the Civic's claim.*
-7. The Police Report lists three units. Why does the Case Manager read them on a Property Damage question?  
-   To find the repair shop · **✓ The unit boxes show who drove, who rode and who owns each vehicle, which decides whose claim each PD item is** · To value the Civic · They don't matter on a PD question  
-   *Records first: the units show John Doe rode in the Escape and Margaret Doe owns the Civic, so the PD and rental claim is hers, and his case is the injury claim.*
-8. Keystone authorized a rental on the Civic on 02/18/2026. On 02/23/2026 John Doe finally calls back and books Riverton Spine & Rehab for 02/24: he needs a car to get to treatment and asks to pick the rental up. What do you do?  
-   Set the rental up in his name: he was in the crash and he is the client · Ask Keystone to open a second rental for him under the BI claim · **✓ Explain that the rental belongs to the Civic's owner, Margaret Doe; as a passenger who owns no car he has no PD or rental claim. Then solve his real problem: his rides to treatment** · Tell him to use his mother's rental as his own until she needs it  
-   *Rental follows the vehicle. The Police Report's Unit 3 box names Margaret Doe as the Civic's owner, and John Doe was the Escape's front-seat passenger who owns no car, so the PD and rental claim is hers. Record the finding, tell Atty. Thorne, and treat his need as what it is: transport to care, planned and logged.*
-9. Margaret Doe's rental from Keystone starts 02/18/2026, and her Dec Page sets no longer period. John Doe rides with her to treatment. What goes on his calendar, and why?  
-   Nothing: the rental is her claim, so its end is no concern of John Doe's file · **✓ The rental's last covered day, 03/19/2026 (usually 30 days at most), as a treatment risk, with John Doe's rides planned before it** · A request to extend the rental in John Doe's name · The rental's end at settlement  
-   *This is where PD touches his case without being his claim: the rental is Margaret Doe's, but its cutoff takes away his ride to care. Coordinate, don't handle: calendar 03/19/2026 as a treatment risk and plan the rides before it.*
-10. Keystone's teardown supplement on the Civic adds $2,315.00 for A-pillar structural damage. Why does it matter to John Doe's case?  
-   It doesn't: Property Damage and the injury claim never touch · It raises the firm's fee · **✓ Structural damage is physical proof of how hard the impact was, which answers a low-impact defense to the injury claim** · It makes John Doe the Civic's claimant  
-   *Property Damage severity feeds the injury claim in every phase: the supplement is physical evidence of the force. It goes in John Doe's file as evidence; the repair claim itself stays Margaret Doe's.*
+   It is added to the $40,000 stack · **✓ It sits outside the stack and doesn't change his recovery** · It reduces Keystone's BI limit · It pays John Doe's Medical Bills first  
+   *PD liability covers the property and sits outside the $40,000 stack of BI, Host UM and Relative UM. Whatever the Civic's claim is paid, John Doe's figures don't move.*
+7. The Police Report lists three units. Why do you read them on a Property Damage question?  
+   To find which repair shop has the Civic · **✓ They show who drove, who rode and who owns each vehicle** · To work out what the Civic is worth · You don't: they don't matter on a PD question  
+   *Records come first. The units show John Doe rode in the Escape and Margaret Doe owns the Civic. So the PD and rental claim is hers, and his case is the injury claim.*
+8. Keystone authorized a rental for the Civic. John Doe needs a car to get to treatment and asks to pick it up. What do you do?  
+   Set the rental up in his name, since he is the client · Ask Keystone to open a second rental for him under the BI claim · **✓ Explain the rental is Margaret Doe's, then help plan his rides to treatment** · Tell him to use his mother's rental until she needs it  
+   *A rental follows the vehicle, and the Civic is Margaret Doe's. John Doe was a passenger who owns no car, so he has no rental claim. Record it, tell Atty. Thorne, and plan his rides to care.*
+9. Margaret Doe's Keystone rental starts 02/18/2026, and her Dec Page sets no longer period. John Doe rides with her to treatment. What goes on his calendar?  
+   Nothing, because the rental is her claim, not his · **✓ The rental's last covered day, 03/19/2026, as a treatment risk** · A request to extend the rental in John Doe's name · The rental's end date, set at settlement  
+   *The rental is Margaret Doe's, but when it ends, John Doe loses his ride to care. It usually lasts 30 days at most, so calendar 03/19/2026 as a treatment risk and plan his rides before it.*
+10. Keystone's teardown supplement adds $2,315.00 for A-pillar structural damage to the Civic. Why does it matter to John Doe's case?  
+   It doesn't, because Property Damage and injury claims never touch · It raises the firm's fee on the case · **✓ It is physical proof of how hard the impact was** · It makes John Doe the Civic's claimant  
+   *Structural damage shows the force of the crash, which answers a low-impact defense to the injury claim. The supplement goes in John Doe's file as evidence; the repair claim stays Margaret Doe's.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -2077,9 +2077,9 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Set out all six steps of the No Contact Protocol in order, with the required action at each step.
-2. State the three purposes the protocol serves, and explain which of them protects the firm rather than the client.
-3. A colleague logs three voicemails to the client's mobile on three days and reports the contact ladder exhausted. Explain what is wrong and what the log should show instead.
+1. List the six steps of the No Contact Protocol in order. What must you do at each step?
+2. What are the three purposes of the protocol? Which one protects the firm rather than the client?
+3. A colleague leaves three voicemails on the client's mobile over three days and says the contact ladder is exhausted. What is wrong, and what should the log show?
 
 **Best practices & pitfalls**
 
@@ -2090,9 +2090,9 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 **Case Manager Self-Summary**
 
-- Summarize what you learned about the firm's duty to a client who has gone silent, and what the record has to show.
-- Articulate your strategy: John Doe is on day eleven and still not treating. What do you do next, in what order, and why that order?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, what is the firm's duty to a client who has gone silent, and what must the record show?
+- John Doe is on day eleven and still not treating. What would you do next, in what order, and why?
+- What part of this module are you least sure about, and what would help you feel sure?
 
 **Skill Scale — self-rate 1–5**
 
@@ -2109,18 +2109,18 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 **Auto-graded share of the day's Knowledge Check** (4 questions):
 
-1. Under the No Contact Protocol, what comes before any outreach call?  
-   The Final Warning Letter · **✓ An internal review of case status, live deadlines and the date of last contact** · A Skip-Trace · A Motion to Withdraw  
-   *Step 1 is the internal review: you check what is running on the file before you dial.*
-2. Two voicemails on John Doe's mobile, on two days, show that:  
-   The contact ladder is exhausted · **✓ The phone rung is cleared; email, text and the emergency contact still follow** · Skip-tracing can begin · The client has abandoned the case  
-   *Escalate by channel, not by volume.*
-3. The Final Warning Letter is sent by:  
-   Email only · Certified mail only · **✓ Certified mail AND email** · Text message  
-   *Both: certified mail proves delivery and email gets a response. It states the prior attempts, a 7–14 day deadline and notice of potential withdrawal.*
-4. At Step 5 the client is still unresponsive. Who decides whether the firm withdraws?  
+1. Under the No Contact Protocol, what do you do before any outreach call?  
+   Send the Final Warning Letter to the client · **✓ Review the file's status, live deadlines and date of last contact** · Run a Skip-Trace to find a new address · Ask the attorney to file a Motion to Withdraw  
+   *Step 1 is an internal review. Before you dial, check what is running on the file: its status, its live deadlines and when the client was last reached.*
+2. You left two voicemails on John Doe's mobile, on two different days. What does that show?  
+   The whole contact ladder is exhausted · **✓ The phone step is done; email, text and the emergency contact come next** · You can start a Skip-Trace now · The client has abandoned the case  
+   *Calls alone don't exhaust the ladder. You move up by channel, not by volume: after the phone come email, text and the emergency contact.*
+3. How is the Final Warning Letter sent?  
+   By email only · By certified mail only · **✓ By certified mail and email** · By text message  
+   *Send it both ways: certified mail proves delivery, and email gets a response. It lists the earlier attempts, a 7–14 day deadline and notice of possible withdrawal.*
+4. At Step 5 the client still hasn't responded. Who decides whether the firm withdraws?  
    The Case Manager · **✓ The attorney** · The intake team · The adjuster  
-   *The Case Manager builds the record; the attorney decides on a Notice of Withdrawal or a Motion to Withdraw.*
+   *You build the record of every attempt. The attorney decides whether to send a Notice of Withdrawal or file a Motion to Withdraw.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -2159,9 +2159,9 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Set out the five bands of the Case Plan and what belongs in each, including the three pillars.
-2. Explain why an adverse fact buried in the body of a plan has not, in any meaningful sense, been disclosed to counsel.
-3. State John Doe's coverage position exactly as it should appear in the plan: layers, limits, total, order of operations, and the status of the projection.
+1. Name the five bands of the Case Plan. What belongs in each one, including the three pillars?
+2. Why does an adverse fact buried in the body of a plan not really count as disclosed to counsel?
+3. How should John Doe's coverage position appear in the plan? Include the layers, limits, total, order of operations and the projection's status.
 
 **Best practices & pitfalls**
 
@@ -2172,9 +2172,9 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 **Case Manager Self-Summary**
 
-- Summarize what you learned about turning a raw intake into a file an attorney can set strategy from.
-- Articulate your strategy: the plan is with Atty. Thorne. What is your next action, and what are you waiting on before the one after that?
-- Identify the one thing across Day 1 and Claim Set Up you are least confident about, and what you would need in order to be confident.
+- In your own words, what did you learn about turning a raw intake into a file an attorney can set strategy from?
+- The plan is with Atty. Thorne. What is your next action, and what are you waiting on before the one after it?
+- Across Day 1 and Claim Set Up, what are you least sure about, and what would help you feel sure?
 
 **Skill Scale — self-rate 1–5**
 
@@ -2191,54 +2191,54 @@ The standard knowledge-check split, with one Day-1-specific addition above the q
 
 **Auto-graded share of the day's Knowledge Check** (16 questions):
 
-1. Once the claim is set up, the Case Plan is typically filed within:  
-   7 days · **✓ 30–60 days, depending on the state** · 6 months · After Maximum Medical Improvement  
-   *Often 30–60 days depending on the state. Docket the date.*
-2. John Doe's date of loss is 02/06/2026 and his first treatment is 02/20/2026. The gap is:  
+1. After the claim is set up, when is the Case Plan usually filed?  
+   Within 7 days · **✓ Within 30–60 days, by state** · Within 6 months · After Maximum Medical Improvement  
+   *It is often filed within 30–60 days, depending on the state. Put that date on the docket.*
+2. John Doe's date of loss is 02/06/2026. He first treated on 02/20/2026. How long is the gap?  
    7 days · 10 days · **✓ 14 days** · 20 days  
-   *14 days, and it goes in the plan's risks band with its consequences.*
+   *From 02/06/2026 to 02/20/2026 is 14 days. Record it in the plan's risks band, with its consequences.*
 3. Under the Golden Rule of US claim set-up, what belongs in a treatment note?  
-   “This will help the case.” · **✓ Factual, clinical observations only** · The attorney's valuation · Settlement strategy  
-   *Coordinate, don't commingle: the medical track and the legal track never cross.*
-4. Atty. Thorne returns the Case Plan with comments. What do you do?  
-   Execute the parts he didn't comment on · **✓ Address every comment, then re-route; never part-execute** · Quietly edit the approved version · Wait for the next plan  
-   *A returned plan is normal: address every comment and re-route it.*
-5. A material fact changes after the Case Plan is approved. The plan is now:  
-   Still approved · **✓ Superseded: re-route it** · Deleted · Approved until the demand  
-   *A plan approved on a false picture is not approved; the earlier approval no longer covers the new picture.*
-6. In the Action Plan Editor, where do an action item's owner and date go?  
-   **✓ In the item's own fields** · In a sentence in the item · In the risks band · In a separate email  
-   *Put each action item's owner and date in their own fields, not in a sentence.*
+   Comments like “This will help the case.” · **✓ Factual, clinical observations only** · The attorney's valuation of the case · The settlement strategy for the case  
+   *Coordinate, don't commingle: the medical track and the legal track never cross. A treatment note holds clinical facts only, never value or strategy.*
+4. Atty. Thorne sends the Case Plan back with comments. What do you do?  
+   Start on the parts he didn't comment on · **✓ Address every comment, then re-route the plan** · Quietly edit the version he approved · Wait and fix it in the next plan  
+   *A returned plan is normal. Address every comment and re-route it, and don't carry out only part of it in the meantime.*
+5. A key fact changes after the Case Plan is approved. What is the plan's status now?  
+   It is still approved · **✓ It is superseded, so you re-route it** · It is deleted from the file · It stays approved until the demand  
+   *The approval was given on the old picture, so it doesn't cover the new one. Treat the plan as superseded and re-route it.*
+6. In the Action Plan Editor, where do you put an action item's owner and date?  
+   **✓ In the item's own fields** · In a sentence inside the item · In the risks band · In a separate email  
+   *Each action item has its own fields for owner and date. Put them there, not in a sentence.*
 7. What does the gap flag in the Case Plan's risks band record?  
-   **✓ The gap's dates and length, and that John Doe's own documented explanation is still to be gathered** · How much the gap will lower the value of the case · The Case Manager's guess at why John Doe waited · The arguments the Case Manager will make to defend the gap  
-   *Facts only: 14 days, 02/06/2026 to 02/20/2026, explanation pending. What the gap means for the claim is Atty. Thorne's to assess; the Case Manager never interprets or defends it.*
-8. Besides the initial 14-day gap, what must the gap flag set up?  
-   Nothing more · **✓ A watch for any later break in care** · A demand date · A call to the adjuster  
-   *Record the initial gap and set a watch for any later break in care; document each break the same way: its dates, then the client's own explanation and the records that support it.*
-9. What belongs in the Pre-Morbid Status part of John Doe's assessment?  
-   **✓ His prior injuries, treatment and claims, with dates and providers, and a request for those records** · The Case Manager's view on whether an old injury was aggravated by the crash · Only the care he receives after 02/06/2026 · Nothing, unless a carrier raises a prior injury  
-   *The baseline separates a pre-existing condition from an accident injury. The Case Manager records it as facts and requests the records; whether anything was aggravated is the provider's opinion and Atty. Thorne's argument.*
-10. Which goal could the Case Manager draft for the provider to confirm?  
-   “Reduce John Doe's pain.” · “Get John Doe back to normal soon.” · **✓ “John Doe works full 8-hour shifts at Northgate by the 12-week review, on a measure the provider confirms.”** · “Keep John Doe in treatment until the case settles.”  
-   *It is Specific (a full shift), Measurable (the provider's measure), Relevant (his work and the injury claimed) and Time-bound (a dated review). The provider confirms it is Achievable and sets the measure; the Case Manager only drafts it.*
-11. On the Standard Treatment Map, the acute phase is days 1–14 from the date of loss. What is the Case Manager's focus in it?  
+   **✓ The gap's dates and length, and that his own explanation is still to be gathered** · How much the gap will lower the value of the case · Your guess at why John Doe waited to get treatment · The arguments you will make to defend the gap  
+   *Facts only: 14 days, 02/06/2026 to 02/20/2026, explanation pending. What the gap means for the claim is Atty. Thorne's to judge; you never interpret or defend it.*
+8. Besides the first 14-day gap, what else must the gap flag set up?  
+   Nothing else is needed · **✓ A watch for any later break in care** · A date for the demand · A call to the adjuster about the gap  
+   *Record the first gap and watch for any later break in care. Document each break the same way: its dates, then the client's own explanation and the records that support it.*
+9. What goes in the Pre-Morbid Status (health before the crash) part of John Doe's assessment?  
+   **✓ His prior injuries, treatment and claims, with dates, providers and a records request** · Your view on whether the crash made an old injury worse · Only the care he receives after 02/06/2026 · Nothing, unless a carrier raises a prior injury  
+   *This baseline separates a pre-existing condition from a crash injury. You record the facts and request the records. Whether anything was aggravated is the provider's opinion and Atty. Thorne's argument.*
+10. Which goal could you draft for the provider to confirm?  
+   “Reduce John Doe's pain as much as possible.” · “Get John Doe back to his normal life soon.” · **✓ “John Doe works full 8-hour shifts at Northgate by the 12-week review, on a measure the provider confirms.”** · “Keep John Doe in treatment until the case settles.”  
+   *It is Specific (full shifts), Measurable (the provider's measure), Relevant (his job and injury) and Time-bound (a dated review). The provider confirms it is Achievable; you only draft it.*
+11. On the Standard Treatment Map, the acute phase is days 1–14 from the date of loss. What is your focus then?  
    Monitoring range-of-motion gains · **✓ Establishing causation and PIP coverage** · Identifying barriers to return to work · Determining Maximum Medical Improvement  
-   *Acute: causation and PIP. Functional gains are the sub-acute focus, return-to-work barriers the restorative, and MMI the maintenance phase.*
-12. At week 6 of care a client shows no gain in range of motion or pain score. What does the Case Manager do?  
-   Tell the client to see a specialist · Wait for the adjuster's decision on more sessions · **✓ Name the variance, ask the provider what is planned, and record the answer** · Tell the client the stall will lower his claim  
-   *The 6-Week Rule says course-correct now, not after a denial. Any change in care is the provider's decision; the Case Manager asks, records question, answer and date, and reports the facts to Atty. Thorne.*
-13. A client's PT notes show 14 sessions with no change in range of motion or pain, and no specialist or imaging has been suggested. What does the Case Manager do?  
-   Tell the client to stop PT and see an orthopedist · **✓ Log it as a red flag, ask the provider's office whether a referral is being considered, and report it to Atty. Thorne** · Wait for the adjuster to deny further visits · Nothing: the Case Manager tracks attendance only  
-   *Over 12 sessions with no gain and no referral is a PT red flag. The Case Manager reports the facts and asks the question; the referral is the provider's decision.*
-14. On a check-in, a client says the clinic is a waste of his time and he is thinking of quitting. Which response is motivational interviewing?  
+   *In the acute phase, the focus is causation and PIP. Functional gains come in sub-acute, return-to-work barriers in restorative, and Maximum Medical Improvement in maintenance.*
+12. At week 6 of care, a client shows no gain in range of motion or pain score. What do you do?  
+   Tell the client to see a specialist · Wait for the adjuster to decide on more sessions · **✓ Name the variance, ask the provider the plan, record the answer** · Tell the client the stall will lower his claim  
+   *The 6-Week Rule says correct course now, not after a denial. Any change in care is the provider's decision. Ask, record question, answer and date, and report the facts to Atty. Thorne.*
+13. PT notes show 14 sessions with no gain, and no specialist or imaging suggested. What do you do?  
+   Tell the client to stop PT and see an orthopedist · **✓ Log a red flag, ask about a referral, report to Atty. Thorne** · Wait for the adjuster to deny more visits · Nothing, because you only track attendance  
+   *More than 12 sessions with no gain and no referral is a PT red flag. Report the facts and ask the question; the referral itself is the provider's decision.*
+14. A client says the clinic wastes his time and he may quit. Which reply is motivational interviewing?  
    “If you quit, it will hurt your case.” · **✓ “It sounds like that clinic isn't a good fit for you. Let's look at why.”** · “You have to go; the doctor ordered it.” · “Fine, I'll cancel your appointments.”  
-   *Rolling with resistance: don't argue, pivot to his reason and take it to the provider. What quitting means for the claim is Atty. Thorne's to explain.*
-15. On a Florida PIP file, who can make the Emergency Medical Condition (EMC) determination that opens the full $10,000 medical benefit?  
-   Any treating provider, including a chiropractor · **✓ An MD or DO, a dentist, a physician assistant or an advanced practice registered nurse** · The Case Manager, from the intake call · The PIP adjuster  
-   *Under Fla. Stat. § 627.736(1)(a), only an MD, DO, dentist, PA or APRN can determine an EMC. A chiropractor may give initial care but cannot make the finding; without it, medical benefits stop at $2,500.*
-16. John Doe's PIP claim is under Harbor Point's $10,000 PIP in Riverton. How does the EMC rule apply to it?  
-   **✓ Dr. Sarah Spine's Emergency Medical Condition finding in Riverton General's emergency department on 02/20/2026 opened the full $10,000** · He lost PIP medical benefits because he first treated on day 14 · It does not apply: Riverton is an add-on PIP state, not a no-fault one · Riverton Spine & Rehab's chiropractic evaluation made the EMC finding  
-   *Riverton uses the EMC rule: without a qualifying provider's finding, PIP medical benefits stop at $2,500. Dr. Sarah Spine, the emergency physician, documented the EMC on 02/20/2026, so the full $10,000 paid the emergency department and EMS bills. Riverton has no 14-day condition, and a chiropractor cannot make the finding.*
+   *This is rolling with resistance: don't argue, turn to his reason, and take it to the provider. What quitting means for his claim is Atty. Thorne's to explain.*
+15. On a Florida PIP file, who can make the Emergency Medical Condition (EMC) finding that opens the full $10,000?  
+   Any treating provider, including a chiropractor · **✓ An MD or DO, dentist, physician assistant or advanced practice registered nurse** · The Case Manager, based on the intake call · The PIP adjuster handling the claim  
+   *Under Fla. Stat. § 627.736(1)(a), only an MD, DO, dentist, PA or APRN can find an EMC. A chiropractor may give first care but can't make it. Without it, medical benefits stop at $2,500.*
+16. John Doe's PIP is Harbor Point's $10,000 policy in Riverton. How does the EMC rule apply to him?  
+   **✓ Dr. Sarah Spine's EMC finding on 02/20/2026 opened the full $10,000** · He lost PIP medical benefits by first treating on day 14 · It doesn't apply, because Riverton is an add-on PIP state · Riverton Spine & Rehab's chiropractic evaluation made the EMC finding  
+   *Riverton uses the EMC rule. Dr. Sarah Spine, the emergency physician, documented the EMC on 02/20/2026, so the full $10,000 opened. There is no 14-day condition, and a chiropractor cannot make the finding.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 

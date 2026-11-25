@@ -218,8 +218,8 @@
   "d1m1-kc": {
     "image": "knowledge-check",
     "questions": [
-      "Name the **seven stages** in order. What does the CM own at Intake & Case Opening?",
-      "John Doe asks his case's **worth**, and if waiting hurt it. Your exact words, and what you log?",
+      "Name the **seven stages** in order. What does the Case Manager own at Intake & Case Opening?",
+      "John Doe asks **what his case is worth** and if waiting hurt it. What do you say?",
       "What must happen **before the matter is created** in the CMS, and on whose names?"
     ]
   },
@@ -354,9 +354,9 @@
   "d1m2-kc": {
     "image": "escalation-alert",
     "questions": [
-      "Set out all **six No Contact Protocol steps** in order, with each step's required action.",
-      "State the protocol's **three purposes**. Which one protects the firm rather than the client?",
-      "A colleague calls **three voicemails to one mobile** an exhausted ladder. What's wrong; what should the log show?"
+      "List the **six No Contact Protocol steps** in order. What must you do at each?",
+      "What are the protocol's **three purposes**? Which one protects the firm, not the client?",
+      "A colleague says **three voicemails** exhaust the ladder. What is wrong, and what should the log show?"
     ]
   },
   "d1m3-l1": {
@@ -500,9 +500,9 @@
   "d1m3-kc": {
     "image": "knowledge-check",
     "questions": [
-      "List the firm's **standing instructions** for a new client, and the harm each prevents.",
-      "Name two PD items that **feed John Doe's claim** and two that stay Margaret's, and why.",
-      "John asks if Margaret's rental can be his: **what do the records show**, and what do you coordinate?"
+      "List the firm's **standing instructions** for a new client. What harm does each prevent?",
+      "Name two Property Damage items that **support John Doe's claim**, and two that stay Margaret Doe's. Why?",
+      "John Doe asks to use Margaret Doe's rental. **What do the records show**, and what do you coordinate?"
     ]
   },
   "d1m4-l1": {
@@ -617,9 +617,9 @@
   "d1m4-kc": {
     "image": "knowledge-check",
     "questions": [
-      "Set out the **five bands** of the Case Plan and what belongs in each, including the three pillars.",
-      "Why has **an adverse fact buried** in a plan's body not really been disclosed to counsel?",
-      "State John Doe's coverage as the plan should: layers, limits, total, **order of operations**, projection status."
+      "Name the Case Plan's **five bands**. What belongs in each, including the three pillars?",
+      "Why is **an adverse fact buried** in a plan's body not really disclosed to counsel?",
+      "How should John Doe's coverage appear: layers, limits, total, **order of operations**, projection?"
     ]
   },
   "d1m1-upl": {

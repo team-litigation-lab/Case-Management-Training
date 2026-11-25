@@ -214,9 +214,9 @@
   "d3m1-kc": {
     "image": "knowledge-check",
     "questions": [
-      "State the BI demand's terms, how it was served, and **the date its window closed**. Show your count.",
-      "Name **the five elements** of an answerable Time-Limited Demand, with this file's examples. Who decides bad faith?",
-      "Keystone calls the MRI degenerative, citing the 14-day gap. **Which documents answer each**, and where?"
+      "How was the BI demand served, on what terms, and **when did its window close**?",
+      "What are **the five elements** of an answerable Time-Limited Demand (with examples), and who decides bad faith?",
+      "Keystone cites a degenerative MRI and the 14-day gap. **Which documents answer each**, and where?"
     ]
   },
   "d3m2-l1": {
@@ -423,9 +423,9 @@
   "d3m2-kc": {
     "image": "knowledge-check",
     "questions": [
-      "**Math-check Keystone's $3,500**: fee, costs, unreduced liens, net. What does it show, and who tells John Doe?",
-      "Dana Whitfield cites the 14-Day Gap and a degenerative MRI. Answer both: **four documents** and the radiologist's words.",
-      "Add-on PIP: what do its $10,000, **exhausted in 48 hours and non-subrogated**, mean for valuation? And in no-fault?"
+      "What does **the math check on $3,500** show (fee, costs, liens, net), and who tells John Doe?",
+      "How do you answer the 14-Day Gap and degenerative MRI with **four documents** and the radiologist's words?",
+      "What does the **$10,000 non-subrogated add-on PIP** mean for valuation, and what changes under no-fault?"
     ]
   },
   "d3m3-l1": {
@@ -605,9 +605,9 @@
   "d3m3-kc": {
     "image": "knowledge-check",
     "questions": [
-      "**Statutory, contractual or none?** Peach State, Riverton Spine & Rehab, PIP, Medicare/Medicaid, prior attorney. Rank liens by reducibility.",
-      "Peach State is a **fully insured group plan**. Why does that matter to reducing $1,860.00, and who decides?",
-      "Show the math, $1,860.00 to $1,240.00, and **name the doctrine**. How does beating the 14-Day Gap support it?"
+      "Is each claim **statutory, contractual or none**, and how do the liens rank by reducibility?",
+      "Why does a **fully insured group plan** matter to reducing $1,860.00, and who decides?",
+      "What math and **which doctrine** take $1,860.00 to $1,240.00, and how does beating the 14-Day Gap help?"
     ]
   },
   "d3m4-l1": {
@@ -767,9 +767,9 @@
   "d3m4-kc": {
     "image": "knowledge-check",
     "questions": [
-      "Take $40,000.00 to $20,359.92 **stream by stream**: fee, costs, liens. Why the 25% / 75% split?",
-      "Name **the four document sets** needed before archive, the file's item for each, and the retention period.",
-      "The Trust Ledger reads $0.00 after 10/22/2026. **Which records prove it**, and what would a leftover balance mean?"
+      "How does $40,000.00 become $20,359.92 **stream by stream**, and why the 25% / 75% split?",
+      "What are **the four document sets** needed before archiving, and how long is the file kept?",
+      "The Trust Ledger reads $0.00. **Which records prove it**, and what would a leftover balance mean?"
     ]
   },
   "d3m1-pkg": {

@@ -872,9 +872,9 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 #### 2 · Slide Body — Knowledge verification
 
-1. State the terms of the BI demand to Keystone, how it was served, and the date its window closed. Show how you counted the deadline.
-2. Name the five elements that make a Time-Limited Demand one a carrier must answer, with this file's example of each. Who decides whether a refusal is bad faith?
-3. Keystone calls John Doe's MRI degenerative and points to the 14-day gap. Which documents answer each point, and where in the package do they go?
+1. Describe the BI demand to Keystone: its terms and how it was served. Then give the date its window closed, and show how you counted.
+2. What five elements make a carrier have to answer a Time-Limited Demand, with this file's example of each? Who decides whether a refusal is bad faith?
+3. Keystone calls John Doe's MRI degenerative and points to the 14-day gap. Which documents answer each point, and where do they go in the package?
 
 **Best practices & pitfalls**
 
@@ -885,9 +885,9 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, what you learned serving John Doe's demands: the principles that make a demand hold, not the clicks.
-- Articulate your strategy: with both UM drafts on Atty. Thorne's desk on 08/31/2026, what is your next action on this file, and why is it the right one rather than something else?
-- Identify the one thing in this module you are least confident about (the deadline count, consent and substitution, add-on vs offset, the release), and what you would need in order to be confident.
+- In your own words, what did you learn about making John Doe's demands hold? Focus on the principles, not the clicks.
+- Both UM drafts are on Atty. Thorne's desk on 08/31/2026. What would you do next on this file, and why?
+- What part are you least sure about (the deadline count, consent and substitution, add-on vs. offset, the release), and what would help?
 
 **Skill Scale — self-rate 1–5**
 
@@ -904,42 +904,42 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **Auto-graded share of the day's Knowledge Check** (12 questions):
 
-1. Dana Whitfield acknowledged the emailed BI demand in writing on 07/22/2026. Its 30-day acceptance window closes on:  
+1. Dana Whitfield confirmed in writing on 07/22/2026 that she received the emailed BI demand. When does its 30-day window close?  
    08/19/2026 · **✓ 08/21/2026** · 08/22/2026 · 08/20/2026  
-   *The window runs 30 days from her written acknowledgement of receipt: 07/22/2026 + 30 = 08/21/2026, a Friday. 08/19/2026 counts from the 07/20 send date (the wrong trigger), 08/22/2026 adds a calendar month, and 08/20/2026 counts the day of receipt as day one.*
-2. Which of these would let Keystone refuse the Time-Limited Demand safely?  
-   A window of 30 days from receipt · A release limited to Robert Smith and Keystone · **✓ A demand for $42,984.00, the full Specials** · Service by email to Dana Whitfield, with her written acknowledgement of receipt  
-   *Keystone's BI limit is $10,000. A demand above the limit is one Keystone cannot accept within its policy, so refusing it generally sets nothing up (confirm the governing rule). The other three are what make the demand hold.*
-3. Why can John Doe's file still reach the full $20,000 Host UM limit after Keystone pays $10,000?  
-   **✓ Harbor Point confirmed in writing (03/02/2026) that its UM is add-on, so the BI payment does not reduce it** · UM limits are never reduced by a BI payment · PIP's $10,000 covers the BI offset · Cardinal State pays whatever Harbor Point deducts  
-   *Add-on UM is not reduced by the BI payment. Under an offset form the $10,000 BI would come off the $20,000 limit, leaving $10,000. Offset rules vary by state and policy, which is why the carrier's written confirmation is the source.*
-4. When must Harbor Point's and Cardinal State's consents to settle be in writing?  
+   *The 30 days count from her written acknowledgement, 07/22/2026, so the window closes 08/21/2026, a Friday. 08/19 counts from the 07/20 send date, 08/22 adds a month, and 08/20 counts receipt day as day one.*
+2. Which demand term would let Keystone safely refuse the Time-Limited Demand?  
+   A window of 30 days from receipt · A release limited to Robert Smith and Keystone · **✓ A demand for $42,984.00, the full Specials** · Service by email to Dana Whitfield, with written acknowledgement of receipt  
+   *Keystone's BI limit is $10,000. It cannot accept a demand above its limit, so refusing it generally sets nothing up (confirm the governing rule). The other three terms are what make the demand hold.*
+3. Keystone pays its $10,000. Why can John Doe's file still reach the full $20,000 Host UM limit?  
+   **✓ Harbor Point confirmed in writing (03/02/2026) that its UM is add-on** · UM limits are never reduced by a BI payment · PIP's $10,000 covers the BI offset · Cardinal State pays whatever Harbor Point deducts  
+   *Add-on UM is not reduced by the BI payment. Under an offset policy, the $10,000 would come off the $20,000, leaving $10,000. Offset rules vary, so the carrier's written confirmation is your source.*
+4. When must you have Harbor Point's and Cardinal State's consents to settle in writing?  
    Only if a UM carrier asks for one · Before Keystone's check clears the trust account · Within 30 days after the BI release is signed · **✓ Before John Doe signs Keystone's release**  
-   *Releasing Robert Smith without the UM carriers' written consent can impair their subrogation rights and cost John Doe the UM coverage. On this file: consents 08/24 and 08/26/2026, Limited Release signed 08/28/2026.*
-5. The Relative UM demand to Cardinal State (Teresa Okafor, CS-26-20355) goes out 08/31/2026 framed as excess. What must its package show?  
-   **✓ Damages above the $30,000 already reached through the $10,000 BI and the $20,000 Host UM** · Damages above the $10,000 BI only, the same showing as Harbor Point's package · Only that John Doe is a resident relative under Margaret Doe's policy (03/09/2026) · A cross-reference to Harbor Point's package, since the two claims share one file  
-   *Relative UM is excess: Cardinal State answers only above the $30,000 from BI and Host UM, up to $10,000. Each carrier gets its own complete package with the exhaustion proof on page one; the damages figure itself is Atty. Thorne's valuation.*
-6. How is the BI Time-Limited Demand served?  
-   By email, with the deadline docketed from the 07/20/2026 send date · **✓ By email to Dana Whitfield from the Email Workspace, logged, with her written acknowledgement of receipt requested** · Regular mail · By phone to Dana Whitfield  
-   *The letter says the 30 days run from her written acknowledgement of receipt. Email it with the Demand Package attached, log it, and docket from her acknowledgement (07/22/2026), never from the send date.*
+   *Releasing Robert Smith without the UM carriers' written consent can harm their subrogation rights and cost John Doe his UM coverage. On this file: consents 08/24 and 08/26/2026, Limited Release signed 08/28/2026.*
+5. The Relative UM demand to Cardinal State goes out 08/31/2026 as excess. What must its package show?  
+   **✓ Damages above the $30,000 reached through the BI and Host UM** · Damages above the $10,000 BI only, as in Harbor Point's package · Only that John Doe is a resident relative under Margaret Doe's policy · A cross-reference to Harbor Point's package, since both claims share one file  
+   *Relative UM is excess: Cardinal State pays only above the $30,000 from BI and Host UM, up to $10,000. Each carrier gets its own full package, exhaustion proof on page one. The damages figure is Atty. Thorne's valuation.*
+6. How do you serve the BI Time-Limited Demand?  
+   By email, with the deadline docketed from the 07/20/2026 send date · **✓ By logged email to Dana Whitfield, asking for written acknowledgement of receipt** · By regular mail to Keystone's claims office · By phone call to Dana Whitfield  
+   *The letter says the 30 days run from her written acknowledgement of receipt. Email it from the Email Workspace with the Demand Package, log it, and docket from her acknowledgement (07/22/2026), never the send date.*
 7. Under the BI demand's terms, who is released?  
-   Everyone, both UM carriers included · **✓ Robert Smith and Keystone only, for the BI claim only** · Keystone only · Robert Smith, Keystone and Harbor Point  
-   *A Limited Release: Smith and Keystone, the BI claim only. The Civic's PD claim stays open.*
-8. What does the demand lead causation with?  
-   **✓ The 03/13/2026 MRI: a C5-C6 herniation with no significant degenerative change at the adjacent levels** · The police citation · John Doe's own statement · The Property Damage photos  
-   *That MRI line answers “degenerative”. The gap is answered first, with records made at the time.*
+   Everyone, both UM carriers included · **✓ Robert Smith and Keystone, for the BI claim only** · Keystone only, for every claim · Robert Smith, Keystone and Harbor Point  
+   *It is a Limited Release: Robert Smith and Keystone, for the BI claim only. The Civic's Property Damage claim stays open.*
+8. What does the demand lead with to prove the crash caused the injury?  
+   **✓ The 03/13/2026 MRI: C5-C6 herniation, no significant degenerative change at adjacent levels** · The police citation · John Doe's own statement about the crash · The Property Damage photos of the vehicles  
+   *That MRI line answers the “degenerative” argument directly. The gap is answered first, with records made at the time.*
 9. When may the UM demands go out?  
-   With the BI demand · **✓ Once Keystone's $10,000 tender is documented and the Limited Release is signed** · Any time after the LORs · Before the BI demand, to pressure Keystone  
-   *BI exhaustion first: notice of both UM claims went out 02/17/2026 with the letters of representation, but the demands wait. They went out 08/31/2026.*
+   Together with the BI demand, as one package · **✓ Once Keystone's $10,000 tender is documented and the Limited Release is signed** · Any time after the letters of representation go out · Before the BI demand, to put pressure on Keystone  
+   *BI exhaustion comes first. Notice of both UM claims went out 02/17/2026 with the letters of representation, but the demands wait. They went out 08/31/2026.*
 10. Keystone's 08/14 draft release frees “all other persons, firms, corporations and insurers.” What do you do?  
-   Send it to John Doe to sign · **✓ Flag it to Atty. Thorne: it would release both UM carriers** · Sign it for the firm · Ignore the wording  
-   *Limit the release to Robert Smith and Keystone, and to the BI claim. The Limited Release was signed 08/28/2026.*
-11. Building John Doe's Host UM package for Harbor Point, which documents prove the threshold?  
-   A DMV suspension letter for Robert Smith · **✓ Harbor Point's coverage proof plus Keystone's exhaustion proof: its tender, Dec Page, Smith's affidavit and the signed Limited Release** · A Police Report noting a phantom vehicle · John Doe's own auto Dec Page  
-   *Smith was insured, so the UM claim rests on exhausting Keystone's $10,000, proven by the tender, Keystone's Dec Page, Smith's affidavit and the Limited Release, plus Harbor Point's own coverage proof. Proof of uninsured status (a DMV suspension, a phantom vehicle) belongs to a truly uninsured claim. John Doe owns no car and has no auto policy.*
-12. Which line belongs in the Human Story the Case Manager drafts for Atty. Thorne's review?  
-   “John's life was devastated, and he may never work again.” · “His claim is worth at least the $10,000 limit.” · **✓ “He missed five shifts at Northgate (02/09–02/13) citing neck pain, and at MMI still has intermittent right-arm paresthesia.”** · “Future injections of $3,400–$6,800 are added to his Specials.”  
-   *The Human Story says only what John Doe's words and the records support, in facts and dates. An embellished line costs the story its credibility, value is Atty. Thorne's, and future care belongs in the narrative, never in the Specials total.*
+   Send it to John Doe to sign, so the check comes sooner · **✓ Flag it to Atty. Thorne: it would release both UM carriers** · Sign it for the firm, since the amount is right · Leave the wording alone, since it is standard language  
+   *That wording would release Harbor Point and Cardinal State too. The release must be limited to Robert Smith and Keystone, for the BI claim. The Limited Release was signed 08/28/2026.*
+11. You are building John Doe's Host UM package for Harbor Point. Which documents prove the threshold?  
+   A DMV suspension letter for Robert Smith · **✓ Harbor Point's coverage proof plus Keystone's exhaustion proof** · A Police Report noting a phantom vehicle · John Doe's own auto Dec Page  
+   *Smith was insured, so the claim rests on exhausting Keystone's $10,000: its tender, Dec Page, Smith's affidavit and the Limited Release, plus Harbor Point's coverage proof. DMV or phantom-vehicle proof is for uninsured claims; John Doe has no auto policy.*
+12. You are drafting the Human Story for Atty. Thorne's review. Which line belongs in it?  
+   “John's life was devastated, and he may never be able to work again.” · “His claim is worth at least the $10,000 limit.” · **✓ “He missed five shifts at Northgate (02/09–02/13) for neck pain and, at MMI, has intermittent right-arm paresthesia.”** · “Future injections of $3,400–$6,800 are added to his Specials.”  
+   *The Human Story says only what John Doe's words and the records support, in facts and dates. Overstatement costs credibility, value is Atty. Thorne's, and future care goes in the narrative, never in the Specials.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -978,9 +978,9 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Keystone offered $3,500 on 08/05/2026. Run the math check: fee, costs, unreduced liens and John Doe's net. What does the result tell Atty. Thorne, and who tells John Doe?
-2. Dana Whitfield says the 14-Day Gap proves the crash didn't hurt John Doe and the MRI is degenerative. Answer both from the file, naming four documents and quoting the radiologist.
-3. Explain what the $10,000 add-on PIP, exhausted in 48 hours and non-subrogated, means for the valuation baseline, and what would change in a no-fault state.
+1. Do the math check on Keystone's $3,500 offer of 08/05/2026: fee, costs, unreduced liens and net. What does it tell Atty. Thorne, and who tells John Doe?
+2. Dana Whitfield says the 14-Day Gap proves the crash didn't hurt John Doe and the MRI is degenerative. Answer both using four documents and the radiologist's words.
+3. John Doe's $10,000 add-on PIP was used up in 48 hours and is non-subrogated. What does that mean for valuation, and what would change in a no-fault state?
 
 **Best practices & pitfalls**
 
@@ -991,9 +991,9 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, what you learned negotiating John Doe's file: the principles, not the clicks.
-- Articulate your strategy: if a carrier's offer landed on this file today, what is your next action, and why is it the right next action rather than a counter?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, what did you learn about negotiating John Doe's file? Focus on the principles, not the clicks.
+- If a carrier's offer arrived on this file today, what would you do next, and why that instead of a counter?
+- What part of this module are you least sure about, and what would help you feel sure?
 
 **Skill Scale — self-rate 1–5**
 
@@ -1010,45 +1010,45 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **Auto-graded share of the day's Knowledge Check** (13 questions):
 
-1. Keystone offers $3,500 on 08/05/2026. On unreduced liens of $7,965.00, what does John Doe net after the one-third fee and $486.75 in costs?  
-   $2,333.33 · $3,013.25 · **✓ $0.00: the $1,846.58 left cannot cover the liens** · $1,846.58  
-   *$3,500 – $1,166.67 fee – $486.75 costs = $1,846.58, against $7,965.00 of liens. The offer nets John Doe nothing. That is the math check Atty. Thorne needs before he conveys the offer.*
-2. Dana Whitfield calls John Doe's MRI degenerative. Which answer comes straight from the file?  
+1. Keystone offers $3,500 on 08/05/2026. Liens are $7,965.00, unreduced. After the one-third fee and $486.75 in costs, what does John Doe net?  
+   $2,333.33 · $3,013.25 · **✓ $0.00** · $1,846.58  
+   *$3,500 minus the $1,166.67 fee and $486.75 costs leaves $1,846.58, against $7,965.00 of liens. John Doe nets nothing. Atty. Thorne needs this math check before he conveys the offer.*
+2. Dana Whitfield says John Doe's MRI is degenerative. Which answer comes straight from the file?  
    **✓ Dr. Helen Park's read: “no significant degenerative change at the adjacent levels.”** · “John Doe has never had chiropractic care of any kind.” · “Some degeneration is normal at 34, so it doesn't matter.” · “If you drop that argument, we can come down from limits.”  
    *The radiologist's own sentence answers it. John Doe did have chiropractic care (three 2021 low-back visits, resolved), and only Atty. Thorne can move off the Limits Demand.*
-3. Harbor Point offers $8,000 on the Host UM claim, arguing “BI already compensated him.” Which document answers that?  
-   Keystone's Declaration Page of 03/20/2026 · Cardinal State's Coverage Letter of 03/09/2026 · Peach State's reimbursement notice · **✓ Harbor Point's own letter of 03/02/2026: its UM is add-on (excess), not reduced by the BI payment**  
-   *On a reduction policy Keystone's $10,000 would come off the $20,000 limit. Harbor Point confirmed in writing that its UM is add-on, so the BI payment does not shrink the $20,000 limit; whether damages fill that room is shown with the medical proof.*
+3. Harbor Point offers $8,000 on the Host UM claim, saying “BI already compensated him.” Which document answers that?  
+   Keystone's Declaration Page of 03/20/2026 · Cardinal State's Coverage Letter of 03/09/2026 · Peach State's reimbursement notice · **✓ Harbor Point's own letter of 03/02/2026 confirming its UM is add-on**  
+   *Harbor Point confirmed in writing that its UM is add-on, so Keystone's $10,000 does not shrink its $20,000 limit. Whether the damages fill that room is shown with the medical proof.*
 4. Cardinal State tenders its $10,000 Relative UM limits on 10/06/2026. Who accepts it?  
-   The Case Manager, because it is the full limit · **✓ John Doe, on his informed decision, conveyed through Atty. Thorne** · Atty. Thorne alone, without troubling the client · Harbor Point, as the primary UM carrier  
-   *Settlement is the client's decision. Atty. Thorne advises him and conveys it; the Case Manager logs the decision and drafts the acceptance email for Atty. Thorne to approve.*
-5. Before the first call with Dana Whitfield, the battle map sets John Doe's net floor. With $7,965.00 in unreduced liens, $486.75 in costs and the one-third fee, what gross does he need just to reach $0.00 net?  
+   The Case Manager, because it is the full limit · **✓ John Doe, by his informed decision, conveyed through Atty. Thorne** · Atty. Thorne alone, without troubling the client · Harbor Point, as the primary UM carrier  
+   *Settling is the client's decision. Atty. Thorne advises John Doe and conveys it. You log the decision and draft the acceptance email for Atty. Thorne to approve.*
+5. Liens are $7,965.00 unreduced, costs are $486.75, and the fee is one-third. What gross does John Doe need just to net $0.00?  
    $8,451.75 · **✓ $12,677.63** · $10,000.00 · $42,984.00  
-   *Liens + costs = $7,965.00 + $486.75 = $8,451.75; × 1.5 for the one-third fee = $12,677.63 gross. That is above Keystone's $10,000 limit, which is why every UM layer and lien reduction matters. $8,451.75 forgets the fee; $42,984.00 is the Specials.*
-6. Keystone tenders its $10,000 BI limits on 08/12/2026. Standing alone, after the one-third fee and $486.75 in costs, what does that money do against $7,965.00 of unreduced liens?  
-   Leaves John Doe $6,666.67 to be paid out now · **✓ Leaves $6,179.92 against $7,965.00: shared pro rata, $1,443.15 and $4,736.77, John Doe nets $0.00** · Pays both liens in full and leaves John Doe $2,035.00 · Leaves $4,553.73 for John Doe as soon as the check arrives  
-   *$10,000.00 – $3,333.33 – $486.75 = $6,179.92, a $1,785.08 shortfall against $7,965.00. Shared pro rata, Peach State takes $1,443.15 and Riverton Spine & Rehab $4,736.77. $4,553.73 is only a projection on Atty. Thorne's 25% allocation, and it assumes the UM layers are still to come.*
-7. Keystone's $10,000 is tendered on 08/12/2026. What does the Case Manager do with the BI settlement Net Sheet?  
-   Call John Doe and tell him his projected BI net · Enter the hoped-for lien reductions so the net looks right · **✓ Lay it before Atty. Thorne, projections labelled, flagging that the BI money cannot be paid out alone and is held in trust until the liens resolve** · Disburse the fee now and hold only the liens' share  
-   *The CM computes, labels and routes the facts. The allocation method, any lien strategy and everything said to John Doe about value are Atty. Thorne's, and a reduction goes on the sheet only once agreed in writing.*
-8. On 10/06/2026 both UM layers are resolved ($30,000.00) and no lien reduction is agreed: Peach State asserts $1,860.00 and Riverton Spine & Rehab stands at $6,105.00 audited. With the 33⅓% fee and $486.75 in costs, what does Stream 2 project to John Doe?  
+   *Liens plus costs are $8,451.75. Times 1.5 for the one-third fee, that is $12,677.63 gross, above Keystone's $10,000 limit. So every UM layer and lien reduction matters. $8,451.75 forgets the fee.*
+6. Keystone tenders its $10,000 BI limits on 08/12/2026. After the one-third fee and $486.75 costs, what does it do against $7,965.00 of liens?  
+   Leaves John Doe $6,666.67 to be paid out now · **✓ Leaves $6,179.92, shared pro rata by the liens; John Doe nets $0.00** · Pays both liens in full and leaves John Doe $2,035.00 · Leaves $4,553.73 for John Doe as soon as the check arrives  
+   *$10,000.00 minus $3,333.33 and $486.75 is $6,179.92, short of $7,965.00. Pro rata, Peach State gets $1,443.15 and Riverton Spine & Rehab $4,736.77. $4,553.73 is only a projection that assumes the UM layers still come.*
+7. Keystone tenders $10,000 on 08/12/2026. What do you do with the BI settlement Net Sheet?  
+   Call John Doe and tell him his projected BI net · Enter the hoped-for lien reductions so the net looks right · **✓ Give it to Atty. Thorne, projections labeled, flagging the BI money stays in trust** · Pay out the fee now and hold only the liens' share in trust  
+   *You compute, label and route the facts. The allocation method, lien strategy and anything said to John Doe about value are Atty. Thorne's. A reduction goes on the sheet only once agreed in writing.*
+8. UM pays $30,000.00. Liens stay unreduced: Peach State $1,860.00, Riverton Spine & Rehab $6,105.00. With the one-third fee and $486.75 costs, what does Stream 2 project?  
    **✓ $13,661.19** · $15,269.94 · $11,548.25 · $13,522.44  
-   *$30,000.00 – $10,000.00 fee – $365.06 costs (75%) – $1,395.00 – $4,578.75 (liens at 75%) = $13,661.19. $15,269.94 assumes reductions nobody has agreed to; $11,548.25 charges all costs and liens to the UM stream; $13,522.44 uses Riverton's billed $6,290.00, duplicate included.*
-9. John Doe calls on 10/07/2026: “So I'm getting about $13,600 from the UM money?” What does the Case Manager say?  
-   “Yes, $13,661.19, to the cent.” · “More than that: the liens always come down, so expect around $15,000.” · **✓ “The sheet is a projection: some figures are still moving. Atty. Thorne will go through it with you,” and the call is logged and routed to him.** · “Less than that: the BI money has to cover the fee first.”  
-   *The figure is a projection with the liens unreduced, and explaining it to John Doe is Atty. Thorne's. The CM quotes no net, predicts no reduction and routes the call.*
-10. Keystone's 08/14/2026 cover letter holds its check until each UM carrier's consent and subrogation waiver arrives. Which carriers do you ask?  
-   **✓ Harbor Point and Cardinal State: John Doe's Host UM and Relative UM layers** · Harbor Point, Cardinal State and Bluewater Auto · Bluewater Auto only, because it insures the Doe household's car · None: Keystone asks the UM carriers itself  
-   *Harbor Point ($20,000) and Cardinal State ($10,000) are the UM layers; both were asked 08/13 and answered 08/24 and 08/26/2026. Bluewater is Margaret's Civic policy with UM rejected in writing (03/14/2024): there is no UM layer to waive.*
-11. Auditing Keystone's draft release, which clause do you call “pull”?  
-   The $10,000.00 consideration · **✓ The confidentiality clause: no term of the demand, and it would bar proof of exhaustion to the UM carriers** · The non-admission of liability · The notary block  
-   *Confidentiality was never a term of the demand, and the UM carriers need the release as proof of exhaustion. The consideration, non-admission and notary block match the demand and are kept; the decision on every amendment is Atty. Thorne's.*
-12. Dana Whitfield asks whether Mr. Doe can sign Keystone's standard form now, with the changes in a side letter. What do you do?  
-   Agree, if she confirms the side letter by email · Send John Doe the form so the check is not delayed · **✓ Tell her nothing goes to the client for signature but the release Atty. Thorne approves, and route her email to him the same day** · Tell her the catch-all clause is unenforceable anyway  
-   *Release wording and the timing of signature are Atty. Thorne's. The Case Manager neither agrees nor argues the law; the request is logged and routed the same day.*
-13. At the 08/28/2026 signing session John Doe asks, “What am I giving up by signing paragraph 3?” What does the Case Manager say?  
-   “Nothing important; it's standard.” · “It means you can't come back for more money later.” · **✓ “Atty. Thorne will go through every paragraph with you before you sign; I'll make sure you have that time.”** · “Sign now and ask him later.”  
-   *Explaining a clause is legal advice. The Case Manager confirms the logistics (ID, notary, initials, original) and makes sure Atty. Thorne goes through the release with John Doe before he signs.*
+   *$30,000.00 minus the $10,000.00 fee, 75% of costs ($365.06) and 75% of each lien ($1,395.00, $4,578.75) is $13,661.19. The others assume unagreed reductions, charge everything to UM, or use Riverton's billed $6,290.00.*
+9. John Doe calls on 10/07/2026: “So I'm getting about $13,600 from the UM money?” What do you say?  
+   “Yes, $13,661.19, to the cent.” · “More than that: liens always come down, so expect about $15,000.” · **✓ “It's a projection, and some figures are still moving. Atty. Thorne will go through it with you.”** · “Less than that: the BI money has to cover the fee first.”  
+   *The figure is a projection with the liens unreduced, and explaining it is Atty. Thorne's job. You quote no net, predict no reduction, and log and route the call to him.*
+10. Keystone holds its check until each UM carrier sends consent and a subrogation waiver. Which carriers do you ask?  
+   **✓ Harbor Point and Cardinal State, John Doe's Host UM and Relative UM** · Harbor Point, Cardinal State and Bluewater Auto · Bluewater Auto only, because it insures the Doe household's car · None, because Keystone asks the UM carriers itself  
+   *Harbor Point ($20,000) and Cardinal State ($10,000) are the UM layers. Asked 08/13, they answered 08/24 and 08/26/2026. Bluewater's Civic policy rejected UM in writing (03/14/2024), so there is nothing to waive.*
+11. You are auditing Keystone's draft release. Which clause do you mark “pull”?  
+   The $10,000.00 consideration, the amount being paid · **✓ The confidentiality clause, which was never a demand term** · The non-admission of liability clause · The notary block on the signature page  
+   *Confidentiality was never a term of the demand, and the UM carriers need the release as proof of exhaustion. The other clauses match the demand and stay. Every amendment is Atty. Thorne's decision.*
+12. Dana Whitfield asks if John Doe can sign Keystone's standard form now, with the changes in a side letter. What do you do?  
+   Agree, if she confirms the side letter by email · Send John Doe the form so the check is not delayed · **✓ Say only the release Atty. Thorne approves goes to the client; route her email the same day** · Tell her the catch-all clause is unenforceable anyway  
+   *Release wording and when to sign are Atty. Thorne's decisions. You neither agree nor argue the law. You log the request and route it to him the same day.*
+13. At the 08/28/2026 signing, John Doe asks, “What am I giving up by signing paragraph 3?” What do you say?  
+   “Nothing important; it's standard language.” · “It means you can't come back for more money later.” · **✓ “Atty. Thorne will go through every paragraph with you before you sign.”** · “Sign now, and you can ask him about it later.”  
+   *Explaining a clause is legal advice. You handle the logistics (ID, notary, initials, original) and make sure Atty. Thorne goes through the release with John Doe before he signs.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1087,9 +1087,9 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Classify each claim against John Doe's $40,000 (Peach State, Riverton Spine & Rehab, Harbor Point PIP and MedPay, Medicare/Medicaid, a prior attorney) as statutory, contractual or none, and rank the liens by reducibility.
-2. Peach State is a fully insured group plan. Explain why that matters to reducing its $1,860.00 claim, and who decides what follows from it.
-3. Show the math that takes Peach State from $1,860.00 to $1,240.00, name the doctrine behind it, and explain how beating the 14-Day Gap defense with the MRI supports it.
+1. Is each claim against John Doe's $40,000 statutory, contractual or none: Peach State, Riverton Spine & Rehab, Harbor Point PIP and MedPay, Medicare/Medicaid, a prior attorney? Then rank the liens by reducibility.
+2. Peach State is a fully insured group plan. Why does that matter when reducing its $1,860.00 claim, and who decides what follows?
+3. Show the math that takes Peach State from $1,860.00 to $1,240.00 and name the doctrine. How does beating the 14-Day Gap defense with the MRI support it?
 
 **Best practices & pitfalls**
 
@@ -1100,9 +1100,9 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, what you learned about reducing the liens on John Doe's file: the principles, not the clicks.
-- Articulate your strategy: with both liens resolved, what is the next action before the 10/22/2026 disbursement, and why is it the right one?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, what did you learn about reducing the liens on John Doe's file? Focus on the principles, not the clicks.
+- Both liens are resolved. What would you do next before the 10/22/2026 disbursement, and why?
+- What part of this module are you least sure about, and what would help you feel sure?
 
 **Skill Scale — self-rate 1–5**
 
@@ -1119,21 +1119,21 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **Auto-graded share of the day's Knowledge Check** (5 questions):
 
-1. Why can Peach State's $1,860.00 claim be argued down further than a self-funded ERISA plan's usually can?  
-   Health Plans have no reimbursement right against an injury recovery · It paid at a contract rate, so it has no lien at all · **✓ It is a fully insured plan, so state law, not ERISA preemption, generally governs its reduction** · PIP paid first, so the plan's claim is waived  
-   *A self-funded ERISA plan answers to federal law and its own terms and is very hard to reduce. A fully insured plan is generally subject to state insurance law, where made-whole and common-fund arguments can apply. Which to argue is Atty. Thorne's call.*
-2. Riverton Spine & Rehab's LOP ledger shows $6,290.00. Before asking for any reduction, the Case Manager:  
-   **✓ Audits the ledger against the visit records and has the 05/04/2026 duplicate corrected to $6,105.00** · Asks for 50% off the $6,290.00 in the interest of global resolution · Tells John Doe the bill is inflated and he need not pay it · Pays the full balance from trust to keep the provider relationship  
-   *Corrections first, reductions second. 34 lines × $185.00 = $6,290.00, but the records show 33 visits; the reduction is negotiated from the audited $6,105.00, never from an inflated bill.*
-3. Had only the $10,000 BI been recovered, $6,179.92 would be left after fee and costs. Shared pro rata, Riverton Spine & Rehab's $6,105.00 lien would receive:  
+1. Why can Peach State's $1,860.00 claim usually be argued down more than a self-funded ERISA plan's claim?  
+   Health Plans have no reimbursement right against an injury recovery · It paid at a contract rate, so it has no lien at all · **✓ It is a fully insured plan, so state law generally governs its reduction** · PIP paid first, so the plan's claim is waived  
+   *A self-funded ERISA plan follows federal law and its own terms, so it is very hard to reduce. A fully insured plan generally follows state law, where made-whole and common-fund arguments can apply. Atty. Thorne picks the argument.*
+2. Riverton Spine & Rehab's LOP ledger shows $6,290.00. What do you do before asking for any reduction?  
+   **✓ Audit the ledger against the visit records and correct the 05/04/2026 duplicate** · Ask for 50% off the $6,290.00 in the interest of global resolution · Tell John Doe the bill is inflated and he need not pay it · Pay the full balance from trust to keep the provider relationship  
+   *Fix the errors first, then reduce. 34 lines × $185.00 = $6,290.00, but the records show 33 visits. You negotiate from the audited $6,105.00, never from an inflated bill.*
+3. Suppose only the $10,000 BI was recovered, leaving $6,179.92 after fee and costs. Shared pro rata, what would Riverton Spine & Rehab's $6,105.00 lien get?  
    $6,105.00 · $4,580.00 · $1,443.15 · **✓ $4,736.77**  
-   *Riverton holds $6,105.00 of the $7,965.00 in audited liens (about 76.65%), so it takes $6,179.92 × $6,105.00 ÷ $7,965.00 = $4,736.77; Peach State takes $6,179.92 × $1,860.00 ÷ $7,965.00 = $1,443.15. John Doe would net nothing, which is why reductions matter.*
-4. Riverton Spine & Rehab's billing manager agrees on a call to accept $4,580.00. The reduction is final when:  
-   The call ends with a verbal yes · **✓ Atty. Thorne approves it and the provider's signed Payoff Letter accepts $4,580.00 as full and final satisfaction** · The Case Manager logs the call in Case Notes · John Doe agrees to the figure  
-   *A verbal reduction is not a reduction. No Payoff Letter, no payment: the letter must state full and final satisfaction, and the compromise needs Atty. Thorne's approval.*
-5. Peach State paid $1,860.00 on Crescent Pain & Spine's $3,400.00 bill for the 05/15/2026 injection. Building the lien inventory, who can pursue John Doe for the other $1,540.00?  
-   Crescent Pain & Spine, as an unpaid provider balance · Peach State, as part of its reimbursement claim · Harbor Point, through PIP · **✓ Nobody: Crescent took Peach State's contract rate and cannot balance-bill, so the $1,540.00 is recorded as not owed**  
-   *The lien is what the plan paid, not what was billed: Peach State asserts $1,860.00. Crescent's $1,540.00 write-off ($3,400.00 – $1,860.00) is a contract-rate adjustment, recorded as not owed. Harbor Point's PIP and MedPay have no reimbursement right (03/02/2026).*
+   *Riverton holds $6,105.00 of the $7,965.00 in liens (about 76.65%): $6,179.92 × $6,105.00 ÷ $7,965.00 = $4,736.77. Peach State would take $1,443.15. John Doe would net nothing, which is why reductions matter.*
+4. On a call, Riverton Spine & Rehab's billing manager agrees to accept $4,580.00. When is the reduction final?  
+   When the billing manager gives a clear verbal yes on the call · **✓ When Atty. Thorne approves and a signed Payoff Letter accepts $4,580.00 as full and final** · When you log the call and the figure in Case Notes · When John Doe agrees to the $4,580.00 figure  
+   *A verbal reduction is not a reduction. No Payoff Letter, no payment: the letter must say full and final satisfaction, and Atty. Thorne must approve the compromise.*
+5. Peach State paid $1,860.00 on Crescent Pain & Spine's $3,400.00 bill for the 05/15/2026 injection. Who can pursue John Doe for the other $1,540.00?  
+   Crescent Pain & Spine, as an unpaid provider balance · Peach State, as part of its reimbursement claim · Harbor Point, through its PIP coverage · **✓ Nobody: Crescent took Peach State's contract rate and cannot balance-bill**  
+   *The lien is what the plan paid, not what was billed: Peach State asserts $1,860.00. Crescent's $1,540.00 is a contract-rate write-off, recorded as not owed. Harbor Point's PIP and MedPay have no reimbursement right (03/02/2026).*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 

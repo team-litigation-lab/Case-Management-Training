@@ -169,9 +169,9 @@
   "d2m1-kc": {
     "image": "knowledge-check",
     "questions": [
-      "Name every coverage, whose it is and what it pays. Which **three are the $40,000 stack**?",
-      "Give each layer of the **Policy Stack** you built in the CMS: carrier, claim, limit, party, order.",
-      "Name the **five letters** sent 02/17/2026: for each, the insured named and how it was addressed."
+      "What coverages are on the file, and which **three form the $40,000 stack**?",
+      "For each **Policy Stack layer**, what are the carrier, claim number, limit, party and order?",
+      "Which **five letters** went out on 02/17/2026, whom did each name, and how was each addressed?"
     ]
   },
   "d2m2-l1": {
@@ -374,9 +374,9 @@
   "d2m2-kc": {
     "image": "knowledge-check",
     "questions": [
-      "Read Peach State's 06/03/2026 EOB line by line. What does **each amount** mean for the file?",
-      "Crescent bills John Doe $1,540.00 on 07/01/2026. **What do you do**, and what do you tell him?",
-      "Using **the Payer Order**, explain Riverton's LOP and Summit's decline, and what you may tell each provider."
+      "What does **each amount** on Peach State's 06/03/2026 EOB mean, and where does it go?",
+      "Crescent asks John Doe for $1,540.00. **What do you do**, and what do you tell him?",
+      "Using **the Payer Order**, why did Riverton get an LOP but not Summit? What may you tell each?"
     ]
   },
   "d2m3-l1": {
@@ -569,10 +569,10 @@
   "d2m3-kc": {
     "image": "knowledge-check",
     "questions": [
-      "Name the **four reasons** for the 14-day gap and, beside each, its corroborating document and date.",
-      "Rewrite “Was it because you had no car?” **without suggesting the reason**. What does the leading version cost?",
-      "“Is this gap going to wreck my case?” Give **your exact answer**, then what you do next.",
-      "Fault is proved. What else must the file prove, with **which document**, and whose part is what?"
+      "What are the **four gap reasons**, and which dated document supports each?",
+      "Rewrite “Was it because you had no car?” **without suggesting the reason**. What does leading cost?",
+      "“Is this gap going to wreck my case?” What is **your exact answer**, and what next?",
+      "Fault is proved. What else must the file prove, **with which document**, and what is your part?"
     ]
   },
   "d2m4-l1": {
@@ -687,9 +687,9 @@
   "d2m4-kc": {
     "image": "knowledge-check",
     "questions": [
-      "Total the specials: show the **Riverton Spine & Rehab correction**, the medical total, wage arithmetic and final figure.",
-      "Who **determines MMI**, when was John Doe's, and why must the demand wait? Where does $3,400–$6,800 go?",
-      "Name **the four audit objectives** and one finding each produced on this file."
+      "Total the Specials: what are the **Riverton Spine & Rehab correction**, medical total, wages and final figure?",
+      "Who **decided John Doe's MMI**, and when? Why wait, and where does future medical go?",
+      "What are **the four audit objectives**, and one finding each on this file?"
     ]
   },
   "d2m2-lop": {

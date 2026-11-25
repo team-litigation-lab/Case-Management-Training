@@ -962,8 +962,8 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Take John Doe's $40,000.00 to his $20,359.92 net, stream by stream. What does each stream carry for fee, costs and liens, and why is the split 25% / 75%?
-2. Name the four document sets that must be in the file before it is archived, the item on John Doe's file that satisfies each, and how long the closed file is kept.
+1. Take John Doe's $40,000.00 to his $20,359.92 net, stream by stream: fee, costs and liens. Why is the split 25% / 75%?
+2. What four document sets must be in the file before it is archived, with the item that satisfies each? How long is the closed file kept?
 3. The Trust Ledger reads $0.00 after the 10/22/2026 disbursement. Which records prove it, and what would a balance left in trust tell you?
 
 **Best practices & pitfalls**
@@ -981,9 +981,9 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, what you learned closing John Doe's file: the principles behind the Net Sheet, the release audit and the Trust Ledger, not the clicks.
-- Articulate your strategy: the ledger is at $0.00 on 10/22/2026. What is your next action before the 10/30/2026 closing memo, and why is it the right next action rather than something else?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, what did you learn about closing John Doe's file: the Net Sheet, the release audit and the Trust Ledger?
+- The ledger is at $0.00 on 10/22/2026. What would you do next before the 10/30/2026 closing memo, and why?
+- What part of this module are you least sure about, and what would help you feel sure?
 
 **Skill Scale — self-rate 1–5**
 
@@ -1001,32 +1001,32 @@ Split layout. Upper half: the knowledge-check panel on the warm cream card with 
 **Auto-graded share of the day's Knowledge Check** (9 questions):
 
 1. Keystone's 08/14 draft release covered Robert Smith, Keystone and “all other persons, firms, corporations and insurers.” What was the danger?  
-   It left out the non-admission-of-liability clause · **✓ It would also have released Harbor Point and Cardinal State: $30,000 of the stack** · It had no notary block · It released only the bodily-injury claim  
-   *Harbor Point and Cardinal State are insurers. The catch-all line would have released both UM claims; flagged to Atty. Thorne, it was revised to a Limited Release of Robert Smith and Keystone, signed 08/28/2026.*
-2. Which of these is a payable line on John Doe's Lien Tracker?  
+   It left out the non-admission-of-liability clause · **✓ It would also release Harbor Point and Cardinal State, $30,000 of coverage** · It had no notary block for John Doe's signature · It released only the bodily-injury claim  
+   *Harbor Point and Cardinal State are insurers, so the catch-all line would have released both UM claims. Flagged to Atty. Thorne, it became a Limited Release of Robert Smith and Keystone, signed 08/28/2026.*
+2. Which one is a payable line on John Doe's Lien Tracker?  
    Harbor Point PIP, $10,000.00 · Crescent Pain & Spine's written-off balance · **✓ Riverton Spine & Rehab, $4,580.00** · Riverton Spine & Rehab's duplicate 05/04/2026 visit  
-   *PIP and MedPay have no reimbursement right (Harbor Point, 03/02/2026); Crescent and the PIP-paid hospital and EMS wrote off their balances and cannot balance-bill; the duplicate was audited out. Only the reduced liens are paid: Riverton Spine & Rehab $4,580.00 and Peach State $1,240.00.*
+   *Only the reduced liens are paid: Riverton Spine & Rehab $4,580.00 and Peach State $1,240.00. PIP has no reimbursement right, written-off balances cannot be balance-billed, and the duplicate was audited out.*
 3. When was the first trust check cut on John Doe's settlement, and why not earlier?  
-   09/04/2026, when Keystone's check arrived · 10/13/2026, when the last check arrived · 10/30/2026, with the closing memo · **✓ After the last funds cleared (10/20) and John Doe signed the Settlement Statement (10/21): disbursement 10/22/2026**  
-   *Nothing is disbursed against uncleared funds or before the client has signed the statement. All three checks had cleared by 10/20 (the last, Cardinal State's, deposited 10/13), John Doe signed 10/21, and Atty. Thorne signed the checks 10/22.*
+   09/04/2026, when Keystone's check arrived · 10/13/2026, when the last check arrived · 10/30/2026, with the closing memo · **✓ 10/22/2026, after funds cleared (10/20) and John Doe signed (10/21)**  
+   *Nothing is paid out against uncleared funds or before the client signs the Settlement Statement. All three checks cleared by 10/20, John Doe signed 10/21, and Atty. Thorne signed the checks 10/22.*
 4. How are the $486.75 in case costs handled on John Doe's Net Sheet?  
-   **✓ Receipted, then split pro rata 25% / 75%: $121.69 BI and $365.06 UM** · Charged in full to each stream · Absorbed by the firm because no suit was filed · Taken out of the lienholders' payments  
-   *Every cost needs a receipt and is charged once. This file allocates costs to the streams pro rata to gross: 25% of $486.75 = $121.69 on BI, and the remaining $365.06 on UM.*
-5. The Net Sheet shows John Doe netting $20,359.92. Lakeside Orthopedics noted possible repeat ESIs ($3,400–$6,800) ahead. Before John Doe signs, the Case Manager:  
-   Holds $6,800.00 of his net in trust to cover the injections · Tells John Doe the net is enough to cover future care · **✓ Flags it to Atty. Thorne: the settlement is full and final and no carrier pays more, so he has that conversation with John Doe** · Adds the injections to Peach State's lien so the plan pays them later  
-   *The CM builds and explains the arithmetic but never says whether the net is enough. Future medical was narrated, never in the Specials; with a full and final settlement nothing more comes from Keystone, Harbor Point or Cardinal State. The flag goes to Atty. Thorne.*
-6. John Doe's Trust Ledger reads $0.00 after the 10/22/2026 disbursement. When can the file be marked Archived?  
-   Now: a zero balance means every payee was paid · Once Atty. Thorne has signed the five checks · **✓ Once all four document sets are verified present: money trail, proof of delivery, compliance and identity, and the closing memo** · Once the 7-year retention period has run  
-   *$0.00 starts the close; it does not finish it. The file is archived only when an outsider could trace every dollar from it: confirmation numbers and the three-way zero-balance proof, the lien satisfactions and John Doe's signed receipt, his payer disclosure and a current W-9, and the closing memo of 10/30/2026.*
-7. After the closing letter, a statement arrives asking John Doe for a balance on his accident treatment. He calls, upset. What does the Case Manager do?  
-   Tells him the file is closed, so it is not the firm's problem · Tells him he owes it and should pay it to protect his credit · **✓ Verifies the bill against the ledger, EOBs and Payoff Letters, routes it to Atty. Thorne the same day, and tells John Doe what is being done and when he will hear back** · Pays it from the trust account to keep him satisfied  
-   *Verify, classify (a lien we missed, or a bill nobody owes), route the same day, and keep John Doe informed. The release's indemnity clause makes a missed lien serious, but whether he owes the bill, and who answers for it, is Atty. Thorne's call; the trust account is at $0.00 and holds nothing to pay it from.*
-8. On 10/14/2026 Vance & Kettering claims a charging lien and asks the case manager to confirm a fee split by 10/16. What does the Case Manager do?  
-   Confirm a smaller split to keep the 10/22 disbursement on time · **✓ Log the notice, route it to Atty. Thorne the same day, send nothing to the firm, and hold the disputed amount on his instruction** · Email Vance & Kettering that the lien is invalid · Ignore it, because John Doe never hired them  
-   *Validity, any response and any fee division are Atty. Thorne's. The Case Manager logs, routes, holds what he says to hold ($6,666.67), and builds the factual record.*
-9. Which finding belongs in the Case Manager's evidentiary packet on the asserted lien?  
-   “The lien is void and unenforceable.” · **✓ “The 07/27/2026 agreement is signed only by Margaret Doe; John Doe's line is blank, and the firm's record shows 0.6 hours with her.”** · “Mr. Vance is entitled to quantum meruit for 0.6 hours.” · “John Doe should sue his mother's lawyer.”  
-   *The packet states facts tied to documents: the signer, the dates against the 02/09/2026 engagement, the work actually done. What those facts mean, quantum meruit included, is Atty. Thorne's call.*
+   **✓ Receipted, then split pro rata: $121.69 BI and $365.06 UM** · Charged in full to both the BI and UM streams · Absorbed by the firm, because no suit was filed · Taken out of the lienholders' payments instead  
+   *Every cost needs a receipt and is charged once. On this file, costs follow gross pro rata: 25% of $486.75 is $121.69 on BI, and the remaining $365.06 goes on UM.*
+5. John Doe's net is $20,359.92. Lakeside Orthopedics noted possible repeat injections (ESIs, $3,400–$6,800). What do you do before he signs?  
+   Hold $6,800.00 of his net in trust to cover the injections · Tell John Doe the net is enough to cover future care · **✓ Flag it to Atty. Thorne so he discusses it with John Doe** · Add the injections to Peach State's lien so the plan pays later  
+   *You build and explain the arithmetic, but never say whether the net is enough. The settlement is full and final, so no carrier pays more. Atty. Thorne has that conversation with John Doe.*
+6. The Trust Ledger reads $0.00 after the 10/22/2026 disbursement. When can the file be marked Archived?  
+   Now, because a zero balance means every payee was paid · Once Atty. Thorne has signed the five checks · **✓ Once all four document sets are verified present in the file** · Once the 7-year retention period has run  
+   *$0.00 starts the close; it does not finish it. Archive only when an outsider could trace every dollar: money trail, proof of delivery, compliance and identity, and the 10/30/2026 closing memo.*
+7. After the closing letter, a statement asks John Doe to pay a balance for his accident treatment. He calls, upset. What do you do?  
+   Tell him the file is closed, so it is not the firm's problem · Tell him he owes it and should pay to protect his credit · **✓ Verify the bill, route it to Atty. Thorne the same day, and update John Doe** · Pay it from the trust account to keep him satisfied  
+   *Check the bill against the ledger, EOBs and Payoff Letters, route it the same day, and tell John Doe when he will hear back. Whether he owes it is Atty. Thorne's call, and trust holds $0.00.*
+8. On 10/14/2026 Vance & Kettering claims a charging lien and asks you to confirm a fee split by 10/16. What do you do?  
+   Confirm a smaller split to keep the 10/22 disbursement on time · **✓ Log it, route it to Atty. Thorne the same day, and send them nothing** · Email Vance & Kettering that their lien is invalid · Ignore it, because John Doe never hired them  
+   *Whether the lien is valid, any reply and any fee division are Atty. Thorne's. You log, route, hold what he says to hold ($6,666.67), and build the factual record.*
+9. Which finding belongs in your evidentiary packet (the fact record) on the asserted lien?  
+   “The lien is void and unenforceable.” · **✓ “The 07/27/2026 agreement is signed only by Margaret Doe; John Doe's line is blank.”** · “Mr. Vance is entitled to quantum meruit for 0.6 hours.” · “John Doe should sue his mother's lawyer.”  
+   *The packet states facts tied to documents: who signed, the dates against the 02/09/2026 engagement, the work actually done. What those facts mean, quantum meruit included, is Atty. Thorne's call.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1065,9 +1065,9 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Defendant's discovery to John Doe was served on his counsel, Atty. Thorne, by U.S. mail on 12/01/2026, and the SOL is 02/06/2028, a Sunday. Compute his response date step by step; give the SOL's internal hard date and internal filing cutoff with the arithmetic; explain which way a count moves off a weekend going forward and which way going backward, using that response date and the brief for the 06/22/2027 hearing; and state what can happen to a Request for Admission left unanswered.
-2. Harbor Point’s UM negotiation has reached impasse. Name the two resolution routes a UM/UIM dispute can take, say what decides which one governs, and explain where an Insurance Bad Faith action sits in relation to them. Then say why the Bluewater Auto policy on Margaret Doe’s Civic is not a route on this file.
-3. Place mediation and arbitration on the timeline: name what puts each of them before a filing and what puts each of them after one, then say where John Doe's two sessions landed and why. Finish with the sentence you would say to him to explain non-binding, and the sentence for binding.
+1. Discovery was mailed 12/01/2026; the SOL is Sunday 02/06/2028. Work out the response date, hard date and filing cutoff, showing each weekend move. What happens to an unanswered Request for Admission?
+2. At impasse with Harbor Point, what two routes can a UM dispute take, and what decides which governs? Where does Insurance Bad Faith fit, and why isn't Bluewater Auto a route?
+3. What puts mediation or arbitration before a filing, and what puts it after? Where did John Doe's two sessions land, and how would you explain non-binding and binding to him?
 
 **Best practices & pitfalls**
 
@@ -1078,9 +1078,9 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 **Case Manager Self-Summary**
 
-- Summarize what you learned about hard rules and the two forums on this file: the principles, not the clicks.
-- Articulate your strategy: it is 04/05/2027 and the arbitration has just been invoked. What is your next action, and why that one before anything else?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, what did you learn about the hard calendar rules and the two forums? Focus on the ideas, not the clicks.
+- It is 04/05/2027 and arbitration has just been invoked. What would you do first, and why that before anything else?
+- What part of this module are you least sure about, and what would help you feel sure?
 
 **Skill Scale — self-rate 1–5**
 
@@ -1100,48 +1100,48 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 **Auto-graded share of the day's Knowledge Check** (14 questions):
 
-1. Defendant's discovery to John Doe was served on his counsel, Atty. Thorne, by U.S. mail on 12/01/2026. As configured for this training file, his responses are due:  
+1. The defense mailed discovery to John Doe's lawyer, Atty. Thorne, on 12/01/2026. On this file's rules, when are John Doe's responses due?  
    12/31/2026 · 01/03/2027 · **✓ 01/04/2027** · 01/13/2027  
-   *Exclude the trigger day: 30 days → 12/31/2026; add 3 for mail → 01/03/2027, a Sunday; counting forward, it moves to Monday 01/04/2027. 01/13/2027 is when Robert Smith's responses to our e-served discovery are due.*
-2. The SOL on John Doe's file is 02/06/2028, a Sunday. The firm's internal filing cutoff is:  
+   *Skip the trigger day: 30 days is 12/31/2026. Add 3 for mail: 01/03/2027, a Sunday. Counting forward, move to Monday, 01/04/2027. 01/13/2027 is when Robert Smith's responses to our discovery are due.*
+2. The SOL on John Doe's file is 02/06/2028, a Sunday. What is the firm's internal filing cutoff?  
    **✓ 11/05/2027 (Fri)** · 11/08/2027 (Mon) · 02/04/2028 (Fri) · 11/06/2027 (Sat)  
-   *The internal hard date is 02/04/2028, the Friday before the Sunday. Ninety days before it is 11/06/2027, a Saturday; counting backward moves to the earlier business day, 11/05/2027. 11/08/2027 is what you get by counting from the Sunday or rolling forward.*
-3. The arbitration brief for the 06/22/2027 hearing is due 10 days before. Ten days before is Saturday 06/12/2027. You docket:  
+   *The internal hard date is 02/04/2028, the Friday before. Ninety days earlier is Saturday 11/06/2027. Counting backward, you move to the earlier business day: 11/05/2027. Rolling forward gives the wrong date, 11/08.*
+3. The arbitration brief is due 10 days before the 06/22/2027 hearing. That is Saturday 06/12/2027. What date do you calendar?  
    06/14/2027 (Mon) · 06/12/2027 (Sat) · **✓ 06/11/2027 (Fri)** · 06/02/2027 (Wed)  
-   *A backward count that lands on a weekend moves to the earlier business day. Rolling it forward to 06/14 files the brief late; 06/02 is the exhibit exchange.*
-4. At the 06/22/2027 hearing, Laura Whitcomb, Esq. asks you directly about a Riverton Spine & Rehab bill. You:  
-   Answer briefly: you audited that bill and know it best · Stay silent and wait for Atty. Thorne to notice · Offer to email her the audit after the hearing · **✓ Say you are the Case Manager providing administrative assistance, defer to Atty. Thorne on the record, and hand him the document**  
-   *Speaking to the merits before the arbitrator is the unauthorized practice of law, even when your answer is right. Defer politely and put the document in counsel's hands.*
-5. The Scheduling Order says mediation is to be “completed by 03/31/2027.” The re-keyed calendar shows “Mediation session 03/31/2027.” The correct fix is:  
-   Leave it: the order names the date · **✓ Re-enter it as a deadline, “completed by 03/31/2027”, with a task to collect 3–4 windows from Atty. Thorne, John Doe and opposing counsel before the mediator's office is contacted** · Call Hon. Carla Benton's office and book 03/31/2027 · Roll it forward to 04/01/2027 to leave time for the session  
-   *Read each verb in the order: “completed by” sets when the session must be over, not when it is held. Windows are gathered from every party before the neutral hears from you; the session was held 03/18/2027, inside the deadline.*
-6. Harbor Point offers $8,000 against its $20,000 Host UM limit and will not move. Before anything is calendared, the Case Manager:  
-   Drafts a civil complaint against Harbor Point, the way the BI claim would have gone to suit · **✓ Reads the governing state law and Harbor Point’s own dispute-resolution clause, quotes the clause to Atty. Thorne and asks which route governs** · Files a Demand for Arbitration, since UM policies normally require arbitration · Tells Marcus Bell the offer is unreasonable and that bad faith is being considered  
-   *The route out of a UM impasse is read off the governing state law and the policy the claim is made under, never chosen by reflex or by habit. The clause goes to Atty. Thorne quoted, not interpreted, and the decision is his.*
-7. Which of these is a first-party claim on John Doe’s file?  
+   *When a backward count lands on a weekend, move to the earlier business day, Friday 06/11. Rolling forward to 06/14 files the brief late, and 06/02 is the exhibit exchange.*
+4. At the 06/22/2027 hearing, Laura Whitcomb, Esq. asks you about a Riverton Spine & Rehab bill. What do you do?  
+   Answer briefly, since you audited that bill and know it best · Stay silent and wait for Atty. Thorne to notice · Offer to email her the audit after the hearing · **✓ Say you are the Case Manager, defer to Atty. Thorne, and hand him the document**  
+   *Speaking about the merits to the arbitrator is the unauthorized practice of law, even if your answer is right. Politely defer to Atty. Thorne and put the document in his hands.*
+5. The Scheduling Order says mediation must be “completed by 03/31/2027.” The calendar shows “Mediation session 03/31/2027.” How do you fix it?  
+   Leave it, because the order names that date · **✓ Make it a “completed by 03/31/2027” deadline; collect date windows from all sides first** · Call Hon. Carla Benton's office and book the session for 03/31/2027 · Move it forward to 04/01/2027 to leave time for the session  
+   *Read each verb: “completed by” means the session must be over by then. Collect 3–4 windows from Atty. Thorne, John Doe and opposing counsel before contacting the mediator. The session was held 03/18/2027.*
+6. Harbor Point offers $8,000 against its $20,000 Host UM limit and won't move. What do you do before anything is calendared?  
+   Draft a civil complaint against Harbor Point, as the BI claim went to suit · **✓ Check state law and the policy clause; ask Atty. Thorne which route governs** · File a Demand for Arbitration, since UM policies usually require arbitration · Tell Marcus Bell the offer is unreasonable and bad faith is being considered  
+   *The way out of a UM impasse comes from the governing state law and the policy itself, never from habit. Quote the clause to Atty. Thorne without interpreting it; the decision is his.*
+7. Which claim on John Doe's file is a first-party claim?  
    The BI claim against Keystone Mutual for Robert Smith · The Keystone PD claim on the Civic · **✓ The Host UM claim against Harbor Point** · The Peach State Health Plan reimbursement claim  
-   *A first-party claim is made against coverage John Doe himself can call on as an insured, though he has no auto policy of his own: Host UM (Harbor Point, Kevin Alvarez’s policy, as an occupant of his Escape) and Relative UM (Cardinal State, Margaret Doe’s policy, as a resident relative). Keystone’s BI and PD claims are third-party claims against the at-fault driver’s carrier.*
-8. An Insurance Bad Faith lawsuit differs from the UM claim itself because:  
-   It is heard by the same arbitrator at the same hearing · It replaces the UM claim once arbitration is demanded · **✓ It is a separate court action for the carrier’s unreasonable handling, and can reach beyond the UM policy limit** · It is the Case Manager’s to initiate once an offer is clearly too low  
-   *Bad faith sits off the UM dispute’s fork: a separate suit about how the carrier handled the claim, which is why it can reach above the limits. You record the handling dates as facts; whether the conduct is actionable is Atty. Thorne’s opinion alone.*
-9. John Doe asks when mediation and arbitration happen in a personal injury case. The accurate answer is:  
-   Only after a lawsuit is filed · Only before a lawsuit is filed, as part of the demand · **✓ Either before filing or after it, depending on the process, the court's local rules and how the negotiations go** · Only when the trial date has already been set  
-   *Neither forum has one fixed place on the timeline. Pre-litigation mediation follows completed treatment and the demand when both sides want to avoid court costs; most personal injury mediations are post-filing and many are court-ordered during discovery. Arbitration comes before filing when a signed clause compels it, and after filing when the parties agree to leave the court system.*
-10. Harbor Point and Cardinal State dispute damages and the file goes to binding arbitration on 06/22/2027. Laura Whitcomb, Esq. issues her award. In plain words to John Doe, that award is:  
-   A recommendation either side may accept or reject · Non-binding until he signs it, as at mediation · **✓ Final and enforceable like a court order, with court review on narrow grounds only** · Automatically reheard by a jury if he disagrees  
-   *Binding means the decision is final and enforced like a court order; courts review it on narrow grounds only (some policies or statutes allow a trial de novo — confirm the governing rule). Mediation is the non-binding one: both sides must agree and nobody is forced to settle. What the award means for his recovery is Atty. Thorne's to explain, not yours.*
-11. The Notice of Mediation sets John Doe's session for 03/18/2027 (Thu); the statement and binder are due 7 days before, and the binder QC runs 7 days before that. You calendar:  
+   *A first-party claim uses coverage John Doe can call on as an insured himself: Host UM with Harbor Point (as a passenger in Kevin Alvarez's Escape) and Relative UM. Keystone's BI and PD claims are third-party.*
+8. How is an Insurance Bad Faith lawsuit different from the UM claim itself?  
+   It is heard by the same arbitrator at the same hearing · It replaces the UM claim once arbitration is demanded · **✓ It is a separate lawsuit over unreasonable handling, and can go above the UM limit** · The Case Manager starts it once an offer is clearly too low  
+   *Bad faith is a separate suit about how the carrier handled the claim, so it can reach above the limits. You record the handling dates as facts; whether it is actionable is Atty. Thorne's call alone.*
+9. John Doe asks when mediation and arbitration happen in a personal injury case. What is the accurate answer?  
+   Only after a lawsuit is filed · Only before a lawsuit is filed, as part of the demand · **✓ Before or after filing, depending on the process, local rules and negotiations** · Only once the trial date has been set  
+   *Neither has a fixed place. Mediation can come before filing, but most happen after it, often court-ordered during discovery. Arbitration comes before filing if a signed clause requires it, or after filing if both sides agree.*
+10. Harbor Point and Cardinal State dispute damages, so the file goes to binding arbitration on 06/22/2027. In plain words, what is Laura Whitcomb, Esq.'s award?  
+   A recommendation either side may accept or reject · Not binding until John Doe signs it, as at mediation · **✓ Final and enforced like a court order; courts review it only narrowly** · Automatically reheard by a jury if John Doe disagrees  
+   *Binding means final and enforced like a court order, with narrow court review (some policies allow a new trial: confirm the rule). Mediation is the non-binding one. What it means for his recovery is Atty. Thorne's to explain.*
+11. The mediation is Thursday 03/18/2027. The statement and binder are due 7 days before, and binder QC (quality check) 7 days before that. What do you calendar?  
    **✓ Statement and binder 03/11/2027 (Thu); binder QC 03/04/2027 (Thu)** · Statement and binder 03/24/2027 (Wed); binder QC 03/17/2027 (Wed) · Statement and binder 03/31/2027 (Wed); binder QC 03/24/2027 (Wed) · Statement and binder 03/12/2027 (Fri); binder QC 03/05/2027 (Fri)  
-   *Count back from the session, its trigger: 03/18 − 7 = 03/11/2027, a Thursday, so no roll; 03/11 − 7 = 03/04/2027. Counting forward from the session puts the binder after it, and 03/31/2027 is the order's completion deadline, not a binder date.*
-12. While calendaring the 03/18/2027 mediation, you note that Harbor Point's and Cardinal State's policies each require their written consent before any settlement with Keystone. What do you do?  
-   Nothing until the session: consent only matters if Keystone actually tenders · Write to both UM carriers today asking them to pre-approve any BI settlement · **✓ Flag the requirement to Atty. Thorne with the 30-day consent window, and let him decide whether and when the carriers are notified** · Tell John Doe he cannot accept a BI offer at mediation without the carriers' approval  
-   *A BI release signed without the UM carriers' written consent can forfeit the $30,000 behind it. The CM puts the requirement and the arithmetic in front of Atty. Thorne; contacting the carriers and explaining the consequence to John Doe are his calls.*
-13. Certified records for the Arbitration Binder must be in hand when binder QC opens on 05/17/2027 (Mon), and custodians are given 14 days to respond. What is the last day to send the requests?  
+   *Count back from the session: 03/18 minus 7 is Thursday 03/11/2027, so no weekend move, and 03/11 minus 7 is 03/04/2027. Counting forward puts the binder after the session; 03/31/2027 is the order's completion deadline.*
+12. Harbor Point's and Cardinal State's policies each require their written consent before any settlement with Keystone. What do you do?  
+   Nothing yet: consent matters only if Keystone actually tenders · Write to both UM carriers today to pre-approve any BI settlement · **✓ Flag it to Atty. Thorne with the 30-day consent window; he decides on notice** · Tell John Doe he can't accept a BI offer without the carriers' approval  
+   *A BI release signed without the UM carriers' written consent can forfeit the $30,000 behind it. You put the rule and the dates in front of Atty. Thorne. Contacting the carriers and explaining it to John Doe are his calls.*
+13. Certified records must be in hand when binder QC opens Monday 05/17/2027. Record custodians get 14 days to respond. What is the last day to send requests?  
    **✓ 05/03/2027 (Mon)** · 05/19/2027 (Wed) · 05/31/2027 (Mon) · 06/02/2027 (Wed), the exhibit exchange  
-   *Count a lead time back from the internal step that needs the item: 05/17/2027 − 14 days = 05/03/2027, a Monday. Counting from the 06/02/2027 exchange leaves no time to sort, QC and route the set to Atty. Thorne, and a request sent later arrives after the binder is being built.*
-14. On 04/26/2027 the master calendar still shows No. 26-CV-04417's discovery close (05/28/2027), pretrial conference (08/12/2027) and trial calendar (09/13/2027). Robert Smith was dismissed after the 03/18/2027 mediation. What does the Case Manager do?  
-   Delete all three entries, because the suit is over · Leave them as they are and say nothing · **✓ Keep them, mark them “Robert Smith dismissed: confirm vacated”, and ask Atty. Thorne in writing which stay live** · Call the court clerk and ask for the dates to be vacated  
-   *What the dismissal did to the court's schedule is a legal question for Atty. Thorne. Deleting guesses at the answer; leaving the entries unmarked has the team chasing dates that may not exist. Keep, mark and ask; the SOL hard date 02/04/2028 and the 11/05/2027 cutoff stay unchanged.*
+   *Count the lead time back from the step that needs the records: 05/17/2027 minus 14 days is Monday 05/03/2027. Counting from the 06/02/2027 exchange leaves no time to sort, check and route the set to Atty. Thorne.*
+14. On 04/26/2027, the calendar still shows No. 26-CV-04417's discovery, pretrial and trial dates. Robert Smith was dismissed after the 03/18/2027 mediation. What do you do?  
+   Delete all three entries, because the suit is over · Leave them as they are and say nothing · **✓ Keep them marked “Robert Smith dismissed: confirm vacated” and ask Atty. Thorne in writing** · Call the court clerk and ask for the dates to be vacated  
+   *What the dismissal did to the court's schedule is a legal question for Atty. Thorne. Deleting guesses the answer; leaving them unmarked sends the team chasing dates. The 02/04/2028 hard date and 11/05/2027 cutoff don't change.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1181,9 +1181,9 @@ The standard knowledge-check split: the question panel on the warm cream card wi
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Name the six sections of John Doe's Mediation Binder in order, with one document from this file that belongs in each.
-2. What does the master index record for every exhibit, and why is the CMS index, not the printed binder, the one source of truth?
-3. The 11/12/2026 answer pleads that John Doe was unbelted. Which section tells you that defense is in play, and which exhibits answer it?
+1. Name the six sections of John Doe's Mediation Binder in order. Give one document from this file for each.
+2. What does the master index record for each exhibit? Why is the CMS index, not the printed binder, the one source of truth?
+3. The 11/12/2026 answer says John Doe was not wearing a seat belt. Which section shows that defense is in play, and which exhibits answer it?
 
 **Best practices & pitfalls**
 
@@ -1194,9 +1194,9 @@ The standard knowledge-check split: the question panel on the warm cream card wi
 
 **Case Manager Self-Summary**
 
-- Summarize what you learned about building a binder an attorney can work from at speed: the principles, not the clicks.
-- Articulate your strategy: the exchange set is with Atty. Thorne for approval. What is your next action, and why is it the right one rather than something else?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, what did you learn about building a binder an attorney can use quickly? Focus on the ideas, not the clicks.
+- The exchange set is with Atty. Thorne for approval. What would you do next, and why that and not something else?
+- What part of this module are you least sure about, and what would help you feel sure?
 
 **Skill Scale — self-rate 1–5**
 
@@ -1213,30 +1213,30 @@ The standard knowledge-check split: the question panel on the warm cream card wi
 
 **Auto-graded share of the day's Knowledge Check** (8 questions):
 
-1. The 11/12/2026 answer pleads that John Doe was unbelted. Which exhibits in Section 4 of the Mediation Binder answer it?  
-   **✓ The event data recorder (belt buckled) and the EMS Run Report** · The MRI read and Dr. Reyes's Causation Letter · The Police Report's citation and Ruth Calloway's statement · The Northgate Attendance Record and the 02/07/2026 pharmacy receipt  
-   *The Escape's event data recorder shows the front-passenger belt buckled, and the EMS report records a “restrained front-seat passenger”. Ruth Calloway, the doorbell video and the report answer the out-of-turn allegation; the MRI and the Causation Letter answer causation.*
-2. After the 06/02/2027 exhibit exchange, a certified record you requested finally arrives. What is the right indexing move?  
-   Send it straight to the arbitrator so it still counts · Slip it into Tab 4 behind the MRI without a number · Renumber the set in date order and re-send the index to both carriers · **✓ Give it the next exhibit number and Bates range, and route it to Atty. Thorne**  
-   *Exhibit numbers are never reshuffled once a set is in other hands, and the CMS master index changes first. An exhibit not exchanged on time may be excluded, so offering it late is Atty. Thorne's decision under the forum's rules.*
-3. Why does Tab 5 of the Arbitration Binder include John Doe's 2021 chiropractic records, which the carriers could use against him?  
-   Records we include cannot be used by the other side · **✓ So the arbitrator meets them in context: a different region, resolved, paired with the MRI** · Every medical record a client has ever had must be exchanged · To record the Case Manager's written opinion that the prior low-back visits are irrelevant  
-   *The prior medical shield answers the “pre-existing degenerative” argument before it is made: three low-back visits (not neck) that resolved, no prior neck complaint, paired with the MRI's “no significant degenerative change at the adjacent levels” and the Causation Letter. What is argued from it is Atty. Thorne's call.*
-4. The pre-demand audit left the billed-or-paid choice on Crescent Pain & Spine's $3,400.00 bill to Atty. Thorne; Peach State paid $1,860.00 at its contract rate. Building the Mediation Binder, what does the audited Lien Sheet show?  
-   Crescent $3,400.00 and Peach State $1,860.00 · Crescent $1,540.00 and Peach State $1,860.00 · **✓ Peach State's $1,860.00 reimbursement claim only: Crescent wrote off the rest and cannot balance-bill** · Nothing: the bill is already counted in the Specials  
-   *Cross-reference every provider balance against what the plan already paid (its EOB). Peach State's contract payment satisfied the bill and Crescent wrote off the other $1,540.00 (the $3,400.00 bill less the $1,860.00 paid), so Crescent holds no lien; listing both counts one bill twice against John Doe's recovery.*
-5. Sorting the unsorted folder for the 06/22/2027 Arbitration Binder, you find the 09/08/2026 impasse memo to Atty. Thorne. Where does it go?  
-   **✓ Flagged for Atty. Thorne's privilege and exchange decision, and kept out of the exchange set** · Tab 6, because it explains the negotiation history · Tab 1 with the submissions, since it shows BI was not paid · Tab 2 with the arbitration pleadings  
-   *An internal memo in an exchanged set cannot be unsent. The CM flags; Atty. Thorne decides what is withheld as privileged and what is exchanged. The BI exhaustion threshold is proved with executed documents: Keystone's tender, the UM consents, the Limited Release and Robert Smith's dismissal.*
-6. Building Tab 5's side-by-side comparison, which line belongs in the Case Manager's work product?  
-   “The 2021 condition was not degenerative, so the herniation is new.” · **✓ “2021: three chiropractic visits (05/04–05/18/2021) for low-back stiffness, resolved. MRI 03/13/2026, Dr. Helen Park: ‘no significant degenerative change at the adjacent levels’.”** · “The collision aggravated John Doe's prior back condition.” · “John Doe is an eggshell plaintiff and recovers in full.”  
-   *The Case Manager states dated facts in the records' own words. Whether the injury is new, degenerative or an aggravation is a medical opinion or Atty. Thorne's argument, and the eggshell rule is his to argue under the governing law.*
-7. On a typical file, the consistency audit finds one provider's intake form that contradicts the rest of the client's prior history. What does the Case Manager do?  
-   Correct the form so it matches the other records · Leave the form out of the Arbitration Binder · Ask the client to sign a corrected form · **✓ Flag it to Atty. Thorne with the conflicting records attached, and change nothing**  
-   *A mismatch is a credibility question only counsel can decide how to handle. Altering, dropping or re-signing a record could look like concealment; the Case Manager flags it, dated, with both records attached.*
-8. Dr. Reyes's 06/12/2026 note says John Doe may need one or two repeat injections within 24 months at $3,400 each. Where does that go in the demand?  
-   Into the Specials, as $6,800.00 · **✓ Into the prognosis narrative, with its source, and not into the Specials** · Nowhere, since it has not happened · Into the Specials at the average, $5,100.00  
-   *The Specials are what was billed and audited, $42,984.00. Future care is part of the damages story, quoted from Dr. Reyes's note in the narrative; how it is argued is Atty. Thorne's call.*
+1. The 11/12/2026 answer says John Doe was not wearing his seat belt. Which Section 4 exhibits in the Mediation Binder answer that?  
+   **✓ The event data recorder and the EMS Run Report** · The MRI read and Dr. Reyes's Causation Letter · The Police Report's citation and Ruth Calloway's statement · The Northgate Attendance Record and the 02/07/2026 pharmacy receipt  
+   *The Escape's event data recorder shows the front-passenger belt buckled, and the Run Report records a “restrained front-seat passenger.” The Police Report and Ruth Calloway answer the turn allegation; the MRI and Causation Letter answer causation.*
+2. A certified record you requested arrives after the 06/02/2027 exhibit exchange. How do you index it?  
+   Send it straight to the arbitrator so it still counts · Slip it into Tab 4 behind the MRI without a number · Renumber the set by date and re-send the index to both carriers · **✓ Give it the next exhibit number and Bates range; route it to Atty. Thorne**  
+   *Once a set is in other hands, exhibit numbers never change, and the CMS master index is updated first. A late exhibit may be excluded, so offering it is Atty. Thorne's decision.*
+3. Tab 5 of the Arbitration Binder holds John Doe's 2021 chiropractic records, which the carriers could use against him. Why include them?  
+   Records we include can't be used by the other side · **✓ So the arbitrator sees them in context: different area, resolved, next to the MRI** · Every medical record a client ever had must be exchanged · To record the Case Manager's opinion that the old visits don't matter  
+   *This answers the “pre-existing degenerative” argument before it is made: three low-back visits, not neck, that resolved, shown next to the MRI and the Causation Letter. What is argued from it is Atty. Thorne's call.*
+4. Crescent Pain & Spine billed $3,400.00. Peach State paid $1,860.00 at its contract rate. What does the audited Lien Sheet show?  
+   Crescent $3,400.00 and Peach State $1,860.00 · Crescent $1,540.00 and Peach State $1,860.00 · **✓ Peach State $1,860.00 only; Crescent wrote off the rest** · Nothing, since the bill is already counted in the Specials  
+   *Check every provider balance against what the plan already paid (its EOB). Peach State's payment satisfied the bill, and Crescent wrote off the other $1,540.00 and can't balance-bill. Listing both counts one bill twice.*
+5. Sorting files for the 06/22/2027 Arbitration Binder, you find the 09/08/2026 impasse memo to Atty. Thorne. Where does it go?  
+   **✓ Flag it for Atty. Thorne's privilege decision; keep it out of the exchange** · Tab 6, because it explains the negotiation history · Tab 1 with the submissions, since it shows BI was not paid · Tab 2, filed with the arbitration pleadings  
+   *Once an internal memo is exchanged, it can't be unsent. You flag it; Atty. Thorne decides what is privileged. BI exhaustion is proved with signed documents: Keystone's tender, the UM consents, the Limited Release and the dismissal.*
+6. For Tab 5's side-by-side comparison, which line belongs in your work product?  
+   “The 2021 condition was not degenerative, so the herniation is new.” · **✓ “05/04–05/18/2021: three chiropractic visits, low-back stiffness, resolved. MRI 03/13/2026: ‘no significant degenerative change at the adjacent levels’.”** · “The collision aggravated John Doe's prior low-back condition.” · “John Doe is an eggshell plaintiff, so he recovers in full.”  
+   *You state dated facts in the records' own words. Whether the injury is new, degenerative or aggravated is a medical opinion or Atty. Thorne's argument, and so is the eggshell rule.*
+7. On a typical file, one provider's intake form contradicts the client's other prior history. What do you do?  
+   Correct the form so it matches the other records · Leave the form out of the Arbitration Binder · Ask the client to sign a corrected form · **✓ Flag it to Atty. Thorne with both records attached; change nothing**  
+   *A mismatch is a credibility question, and only counsel decides how to handle it. Changing, dropping or re-signing a record can look like hiding something. Flag it, dated, with both records attached.*
+8. Dr. Reyes's 06/12/2026 note says John Doe may need one or two more injections within 24 months, $3,400 each. Where does that go in the demand?  
+   Into the Specials, as $6,800.00 · **✓ Into the prognosis narrative, with its source, not the Specials** · Nowhere, because it hasn't happened yet · Into the Specials at the average, $5,100.00  
+   *The Specials are only what was billed and audited: $42,984.00. Future care belongs in the damages story, quoted from Dr. Reyes's note. How it is argued is Atty. Thorne's call.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 
@@ -1275,9 +1275,9 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 #### 2 · Slide Body — Knowledge verification
 
-1. Name the three bottleneck families and give this file's example of each, with the hard date it threatened.
-2. Walk the 48-Hour Mandate on the Keystone record: each follow-up, the escalation to the claims supervisor and the hand-off to Atty. Thorne, with every date.
-3. Keystone's representative must be able to pay the $10,000 limits at the 03/18/2027 mediation. If they arrive without that authority, what failed earlier, and what countermeasure should have been in place, on what date?
+1. Name the three bottleneck families. For each, give this file's example and the hard date it threatened.
+2. Walk through the 48-Hour Mandate on the Keystone record. Give the date of each follow-up, the escalation to the supervisor, and the hand-off to Atty. Thorne.
+3. Keystone's representative arrives at the 03/18/2027 mediation without authority to pay the $10,000 limits. What failed earlier? What countermeasure should have been in place, and when?
 
 **Best practices & pitfalls**
 
@@ -1288,9 +1288,9 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 **Case Manager Self-Summary**
 
-- Summarize, in your own words, what you learned about seeing a bottleneck before it bites: the principles, not the clicks.
-- Articulate your strategy: on 05/24/2027, with five problems open, what is your first action, and why that one rather than the easiest?
-- Identify the one thing in this module you are least confident about, and what you would need in order to be confident.
+- In your own words, what did you learn about spotting a bottleneck before it causes harm? Focus on the ideas, not the clicks.
+- It is 05/24/2027 and five problems are open. What would you do first, and why that one rather than the easiest?
+- What part of this module are you least sure about, and what would help you feel sure?
 
 **Skill Scale — self-rate 1–5**
 
@@ -1307,21 +1307,21 @@ The standard knowledge-check split: cream question panel above, navy CM Self-Sum
 
 **Auto-graded share of the day's Knowledge Check** (5 questions):
 
-1. Keystone left the follow-ups of 08/24 and 08/31/2026 unanswered. Under the 48-Hour Mandate, when did the written escalation to Keystone's claims supervisor go out?  
+1. Keystone did not answer the 08/24 and 08/31/2026 follow-ups. Under the 48-Hour Mandate, when did the written escalation to its supervisor go out?  
    08/26/2026 · **✓ 09/02/2026** · 09/04/2026 · 09/08/2026  
-   *48 hours after the second unanswered follow-up (08/31): 09/02. The supervisor's silence through 09/04 moved the file to Atty. Thorne, and the impasse memo reached him 09/08.*
-2. Keystone's attendee with settlement authority for the 03/18/2027 mediation is still unconfirmed. On what date does the 10-day red flag fire for the session?  
+   *The escalation goes out 48 hours after the second unanswered follow-up (08/31), so 09/02. The supervisor stayed silent through 09/04, so the file went to Atty. Thorne, and the impasse memo reached him 09/08.*
+2. Keystone hasn't confirmed who will attend the 03/18/2027 mediation with settlement authority. When does the 10-day red flag fire?  
    03/01/2027 · **✓ 03/08/2027** · 03/11/2027 · 03/16/2027  
-   *Ten days before 03/18/2027 is 03/08/2027. 03/01 is the red flag for the 03/11 binder, and 03/16 is the 48-hour audit. The flag goes to Atty. Thorne so he can raise it with defense counsel.*
+   *Ten days before 03/18/2027 is 03/08/2027. 03/01 is the red flag for the 03/11 binder, and 03/16 is the 48-hour audit. The flag goes to Atty. Thorne to raise with defense counsel.*
 3. John Doe's UM arbitration is binding. Which bottleneck is hardest to recover from?  
    **✓ An exhibit excluded because it was missing or unreadable** · Cardinal State confirming the exchange method a week late · A binder tab out of order, caught at the 48-hour audit · A hearing-room change made by the arbitrator's office  
-   *There is no second hearing. An excluded exhibit is gone for good; the other three can be fixed before 06/22/2027.*
-4. Which of these does NOT belong in a bottleneck report to Atty. Thorne?  
+   *Binding means there is no second hearing. An excluded exhibit is gone for good, while the other three can be fixed before 06/22/2027.*
+4. Which item should be left out of a bottleneck report to Atty. Thorne?  
    The date the blocker started · The hard date it threatens · What was tried, rung by rung, with dates · **✓ Your view of what the claim is worth if it isn't fixed**  
-   *The five fields are the blocker, the date it started, the hard date it threatens, what was tried, and the ask. Value is Atty. Thorne's call and never goes in a Case Manager's report.*
-5. On 05/24/2027, Riverton Spine & Rehab's refreshed ledger (05/21) restores the 05/04/2026 duplicate: $6,290.00 against the audited $6,105.00. With exhibits exchanged 06/02/2027, the Case Manager:  
-   Escalates it to Atty. Thorne at Rung 3 before anything else · Exchanges $6,290.00, since it is the provider's latest figure · Holds the whole exhibit exchange until Riverton issues a corrected ledger · **✓ Fixes it at Rung 1 the same day: returns the audit to Riverton's billing office and keeps $6,105.00 in the set with the duplicate documented, so medical Specials stay $41,400.00**  
-   *Rung 1 problems are solved at Rung 1; the items needing Atty. Thorne's decision (Crescent's certification, Dr. Reyes's declaration, Cardinal State's silence) go to him first. An unverified $6,290.00 invites the carriers to doubt every other number, and holding the exchange for one record is the pitfall.*
+   *The report has five fields: the blocker, when it started, the hard date it threatens, what was tried, and the ask. Claim value is Atty. Thorne's call, so it never goes in your report.*
+5. On 05/24/2027, Riverton's new ledger brings back the 05/04/2026 duplicate: $6,290.00 instead of the audited $6,105.00. Exhibits are exchanged 06/02/2027. What do you do?  
+   Escalate it to Atty. Thorne at Rung 3 before anything else · Exchange $6,290.00, since it is the provider's latest figure · Hold the whole exhibit exchange until Riverton sends a corrected ledger · **✓ Fix it at Rung 1 today: return the audit to Riverton and keep $6,105.00**  
+   *Solve a Rung 1 problem at Rung 1: keep $6,105.00 with the duplicate documented, so medical Specials stay $41,400.00. Atty. Thorne's time goes to items only he can decide. Holding the exchange for one record is the trap.*
 
 #### 4 · Assessment Criteria (AI + Trainer Rubric)
 

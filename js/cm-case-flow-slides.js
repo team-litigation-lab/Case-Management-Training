@@ -409,8 +409,8 @@ window.CM_CF_SLIDES = {
  "d1m1-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Name the **seven stages** in order. What does the CM own at Intake & Case Opening?",
-   "John Doe asks his case's **worth**, and if waiting hurt it. Your exact words, and what you log?",
+   "Name the **seven stages** in order. What does the Case Manager own at Intake & Case Opening?",
+   "John Doe asks **what his case is worth** and if waiting hurt it. What do you say?",
    "What must happen **before the matter is created** in the CMS, and on whose names?"
   ]
  },
@@ -699,9 +699,9 @@ window.CM_CF_SLIDES = {
  "d1m2-kc": {
   "image": "escalation-alert",
   "questions": [
-   "Set out all **six No Contact Protocol steps** in order, with each step's required action.",
-   "State the protocol's **three purposes**. Which one protects the firm rather than the client?",
-   "A colleague calls **three voicemails to one mobile** an exhausted ladder. What's wrong; what should the log show?"
+   "List the **six No Contact Protocol steps** in order. What must you do at each?",
+   "What are the protocol's **three purposes**? Which one protects the firm, not the client?",
+   "A colleague says **three voicemails** exhaust the ladder. What is wrong, and what should the log show?"
   ]
  },
  "d1m3-l1": {
@@ -968,9 +968,9 @@ window.CM_CF_SLIDES = {
  "d1m3-kc": {
   "image": "knowledge-check",
   "questions": [
-   "List the firm's **standing instructions** for a new client, and the harm each prevents.",
-   "Name two PD items that **feed John Doe's claim** and two that stay Margaret's, and why.",
-   "John asks if Margaret's rental can be his: **what do the records show**, and what do you coordinate?"
+   "List the firm's **standing instructions** for a new client. What harm does each prevent?",
+   "Name two Property Damage items that **support John Doe's claim**, and two that stay Margaret Doe's. Why?",
+   "John Doe asks to use Margaret Doe's rental. **What do the records show**, and what do you coordinate?"
   ]
  },
  "d1m4-l1": {
@@ -1788,9 +1788,9 @@ window.CM_CF_SLIDES = {
  "d1m4-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Set out the **five bands** of the Case Plan and what belongs in each, including the three pillars.",
-   "Why has **an adverse fact buried** in a plan's body not really been disclosed to counsel?",
-   "State John Doe's coverage as the plan should: layers, limits, total, **order of operations**, projection status."
+   "Name the Case Plan's **five bands**. What belongs in each, including the three pillars?",
+   "Why is **an adverse fact buried** in a plan's body not really disclosed to counsel?",
+   "How should John Doe's coverage appear: layers, limits, total, **order of operations**, projection?"
   ]
  },
  "d2m1-l1": {
@@ -2389,9 +2389,9 @@ window.CM_CF_SLIDES = {
  "d2m1-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Name every coverage, whose it is and what it pays. Which **three are the $40,000 stack**?",
-   "Give each layer of the **Policy Stack** you built in the CMS: carrier, claim, limit, party, order.",
-   "Name the **five letters** sent 02/17/2026: for each, the insured named and how it was addressed."
+   "What coverages are on the file, and which **three form the $40,000 stack**?",
+   "For each **Policy Stack layer**, what are the carrier, claim number, limit, party and order?",
+   "Which **five letters** went out on 02/17/2026, whom did each name, and how was each addressed?"
   ]
  },
  "d2m1-cov": {
@@ -3500,9 +3500,9 @@ window.CM_CF_SLIDES = {
  "d2m2-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Read Peach State's 06/03/2026 EOB line by line. What does **each amount** mean for the file?",
-   "Crescent bills John Doe $1,540.00 on 07/01/2026. **What do you do**, and what do you tell him?",
-   "Using **the Payer Order**, explain Riverton's LOP and Summit's decline, and what you may tell each provider."
+   "What does **each amount** on Peach State's 06/03/2026 EOB mean, and where does it go?",
+   "Crescent asks John Doe for $1,540.00. **What do you do**, and what do you tell him?",
+   "Using **the Payer Order**, why did Riverton get an LOP but not Summit? What may you tell each?"
   ]
  },
  "d2m3-l1": {
@@ -3913,10 +3913,10 @@ window.CM_CF_SLIDES = {
  "d2m3-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Name the **four reasons** for the 14-day gap and, beside each, its corroborating document and date.",
-   "Rewrite “Was it because you had no car?” **without suggesting the reason**. What does the leading version cost?",
-   "“Is this gap going to wreck my case?” Give **your exact answer**, then what you do next.",
-   "Fault is proved. What else must the file prove, with **which document**, and whose part is what?"
+   "What are the **four gap reasons**, and which dated document supports each?",
+   "Rewrite “Was it because you had no car?” **without suggesting the reason**. What does leading cost?",
+   "“Is this gap going to wreck my case?” What is **your exact answer**, and what next?",
+   "Fault is proved. What else must the file prove, **with which document**, and what is your part?"
   ]
  },
  "d2m4-l1": {
@@ -4221,9 +4221,9 @@ window.CM_CF_SLIDES = {
  "d2m4-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Total the specials: show the **Riverton Spine & Rehab correction**, the medical total, wage arithmetic and final figure.",
-   "Who **determines MMI**, when was John Doe's, and why must the demand wait? Where does $3,400–$6,800 go?",
-   "Name **the four audit objectives** and one finding each produced on this file."
+   "Total the Specials: what are the **Riverton Spine & Rehab correction**, medical total, wages and final figure?",
+   "Who **decided John Doe's MMI**, and when? Why wait, and where does future medical go?",
+   "What are **the four audit objectives**, and one finding each on this file?"
   ]
  },
  "d3m1-l1": {
@@ -4759,9 +4759,9 @@ window.CM_CF_SLIDES = {
  "d3m1-kc": {
   "image": "knowledge-check",
   "questions": [
-   "State the BI demand's terms, how it was served, and **the date its window closed**. Show your count.",
-   "Name **the five elements** of an answerable Time-Limited Demand, with this file's examples. Who decides bad faith?",
-   "Keystone calls the MRI degenerative, citing the 14-day gap. **Which documents answer each**, and where?"
+   "How was the BI demand served, on what terms, and **when did its window close**?",
+   "What are **the five elements** of an answerable Time-Limited Demand (with examples), and who decides bad faith?",
+   "Keystone cites a degenerative MRI and the 14-day gap. **Which documents answer each**, and where?"
   ]
  },
  "d3m2-l1": {
@@ -5196,9 +5196,9 @@ window.CM_CF_SLIDES = {
  "d3m2-kc": {
   "image": "knowledge-check",
   "questions": [
-   "**Math-check Keystone's $3,500**: fee, costs, unreduced liens, net. What does it show, and who tells John Doe?",
-   "Dana Whitfield cites the 14-Day Gap and a degenerative MRI. Answer both: **four documents** and the radiologist's words.",
-   "Add-on PIP: what do its $10,000, **exhausted in 48 hours and non-subrogated**, mean for valuation? And in no-fault?"
+   "What does **the math check on $3,500** show (fee, costs, liens, net), and who tells John Doe?",
+   "How do you answer the 14-Day Gap and degenerative MRI with **four documents** and the radiologist's words?",
+   "What does the **$10,000 non-subrogated add-on PIP** mean for valuation, and what changes under no-fault?"
   ]
  },
  "d3m3-l1": {
@@ -5578,9 +5578,9 @@ window.CM_CF_SLIDES = {
  "d3m3-kc": {
   "image": "knowledge-check",
   "questions": [
-   "**Statutory, contractual or none?** Peach State, Riverton Spine & Rehab, PIP, Medicare/Medicaid, prior attorney. Rank liens by reducibility.",
-   "Peach State is a **fully insured group plan**. Why does that matter to reducing $1,860.00, and who decides?",
-   "Show the math, $1,860.00 to $1,240.00, and **name the doctrine**. How does beating the 14-Day Gap support it?"
+   "Is each claim **statutory, contractual or none**, and how do the liens rank by reducibility?",
+   "Why does a **fully insured group plan** matter to reducing $1,860.00, and who decides?",
+   "What math and **which doctrine** take $1,860.00 to $1,240.00, and how does beating the 14-Day Gap help?"
   ]
  },
  "d3m4-l1": {
@@ -6034,9 +6034,9 @@ window.CM_CF_SLIDES = {
  "d3m4-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Take $40,000.00 to $20,359.92 **stream by stream**: fee, costs, liens. Why the 25% / 75% split?",
-   "Name **the four document sets** needed before archive, the file's item for each, and the retention period.",
-   "The Trust Ledger reads $0.00 after 10/22/2026. **Which records prove it**, and what would a leftover balance mean?"
+   "How does $40,000.00 become $20,359.92 **stream by stream**, and why the 25% / 75% split?",
+   "What are **the four document sets** needed before archiving, and how long is the file kept?",
+   "The Trust Ledger reads $0.00. **Which records prove it**, and what would a leftover balance mean?"
   ]
  },
  "d4m1-l1": {
@@ -6312,9 +6312,9 @@ window.CM_CF_SLIDES = {
  "d4m1-kc": {
   "image": "knowledge-check",
   "questions": [
-   "What is the same as Track A, what changes 08/12/2026, and why does **one $10,000 carrier freeze $40,000**?",
-   "List John Doe's impasse triggers by 09/04/2026, each with **its date and proof**.",
-   "08/12: Keystone calls $3,500 “final”. Using **the “Never” rule**, what's next, and what needs Atty. Thorne's authority?"
+   "From 08/12/2026, what stays the same, what changes, and why does **one $10,000 carrier** freeze $40,000?",
+   "What were John Doe's impasse triggers by 09/04/2026, with **each date and its proof**?",
+   "Keystone calls $3,500 “final.” Under **the “Never” rule**, what comes next, and what needs Atty. Thorne's authority?"
   ]
  },
  "d4m2-l1": {
@@ -6800,9 +6800,9 @@ window.CM_CF_SLIDES = {
  "d4m2-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Discovery mailed 12/01/2026, SOL 02/06/2028: compute **each date with its arithmetic**, both weekend directions, and the RFA risk.",
-   "Name the two UM resolution routes, what decides which governs, and where **bad faith** sits.",
-   "Place each forum **before or after filing**, say where John Doe's landed, then define non-binding and binding."
+   "Discovery mailed 12/01/2026, SOL 02/06/2028: find **the three dates**. What does an unanswered Request for Admission risk?",
+   "What are the two UM routes, what decides which governs, and where does **Insurance Bad Faith** fit?",
+   "Where did John Doe's sessions fall, **before or after filing**, and what do binding and non-binding mean?"
   ]
  },
  "d4m3-l1": {
@@ -7315,9 +7315,9 @@ window.CM_CF_SLIDES = {
  "d4m3-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Name the six Mediation Binder sections **in order**, with one document from this file for each.",
-   "What does the master index record per exhibit, and why does it **outrank the printed binder**?",
-   "The 11/12/2026 answer pleads John Doe was unbelted. Which section shows it, and **which exhibits answer it**?"
+   "What are the six Mediation Binder sections **in order**, with one document from this file for each?",
+   "What does the index record per exhibit, and why does the CMS index **outrank the printed binder**?",
+   "The answer says John Doe was unbelted. Which section shows it, and **which exhibits answer it**?"
   ]
  },
  "d4m4-l1": {
@@ -7553,9 +7553,9 @@ window.CM_CF_SLIDES = {
  "d4m4-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Name **the three bottleneck families**, with this file's example of each and the hard date threatened.",
-   "Walk **the 48-Hour Mandate** on Keystone: follow-ups, the escalation, the hand-off to Atty. Thorne, every date.",
-   "Keystone's representative arrives 03/18/2027 **without authority to pay $10,000**. What failed earlier, and what countermeasure, when?"
+   "What are **the three bottleneck families**, with this file's example and hard date for each?",
+   "What are the dates for **the 48-Hour Mandate** on Keystone: follow-ups, escalation and hand-off to Atty. Thorne?",
+   "Keystone arrives 03/18/2027 **without authority to pay $10,000**. What failed, and what countermeasure was due when?"
   ]
  },
  "d5m1-l1": {
@@ -7872,9 +7872,9 @@ window.CM_CF_SLIDES = {
  "d5m1-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Discovery mailed 12/01/2026: compute the **response date**. What changes for e-service, and why confirm the court's rule?",
-   "Name the Answer's **three defenses** and the file evidence you would pull for Atty. Thorne against each.",
-   "File the affidavit, 12/01/2026 RFAs and Scheduling Order: **where, under what names**? What happens to the order's dates?"
+   "Discovery mailed 12/01/2026: what is the **response date**, what changes for e-service, and why check the court's rule?",
+   "Name the Answer's **three defenses**. What file evidence would you pull for Atty. Thorne against each?",
+   "Where do the affidavit, RFAs and Scheduling Order go, **under what names**, and what happens to its dates?"
   ]
  },
  "d5m2-l1": {
@@ -7953,9 +7953,9 @@ window.CM_CF_SLIDES = {
  "d5m2-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Keystone's release covers **“all claims”**: why must it never reach John Doe, and what do you do?",
-   "Sort Keystone's final PD position: **which items reach John's settlement**, and which stay Margaret's?",
-   "Which PD documents **already serve John's case**, and what must match on both files?"
+   "Keystone's release covers **“all claims”**. Why must it never reach John Doe, and what do you do?",
+   "Keystone's final PD position: **which items reach John's settlement**, and which stay with Margaret?",
+   "Which PD documents **already help John's case**, and what must match on both files?"
   ]
  },
  "d5m3-l1": {
@@ -8199,9 +8199,9 @@ window.CM_CF_SLIDES = {
  "d5m3-kc": {
   "image": "knowledge-check",
   "questions": [
-   "List the **landmines the audit must surface** before 02/04/2027, with the record that documents each.",
-   "Set out **the 02/17/2027 day-before checklist**: who you confirm with, what, the exhibit set and backup contact.",
-   "Name **the four defense question categories**. Which do clients underreport most, and where's that risk here?"
+   "Which **landmines must the audit find** before 02/04/2027, and which record documents each?",
+   "On **the 02/17/2027 day-before checklist**, who do you confirm with, and what, including exhibits and backup contact?",
+   "Name **the four defense question categories**. Which do clients underreport most, and where is that risk here?"
   ]
  },
  "d5m4-l1": {
@@ -8441,9 +8441,9 @@ window.CM_CF_SLIDES = {
  "d5m4-kc": {
   "image": "knowledge-check",
   "questions": [
-   "List the **Recovery Stack in order**, limits and total; name three coverages outside it, then the Payer Order.",
-   "When did **the 07/20/2026 demand's window** close? Why? Track A: what must UM carriers give before BI release?",
-   "Track A: $40,000.00 **nets $20,359.92**. Name each deduction's figure and how costs and liens split by stream."
+   "What is **the Recovery Stack order**, its limits and total, three coverages outside it, and the Payer Order?",
+   "When and why did **the 07/20/2026 demand's window** close, and what must UM carriers give before BI release?",
+   "Track A: $40,000.00 **nets $20,359.92**. What is each deduction, and how do costs and liens split by stream?"
   ]
  },
  "d5m5-l1": {
@@ -8595,9 +8595,9 @@ window.CM_CF_SLIDES = {
  "d5m5-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Take the award to **$14,713.75**: every deduction, its figure and its source.",
+   "Walk the award down to **$14,713.75**: what is every deduction, its figure and its source?",
    "Why is the fee **40% on this file**, which document says so, and who confirms it?",
-   "Peach State: $1,240.00 on Track A, $1,116.00 on Track B. **Show both reductions**."
+   "Peach State: $1,240.00 (Track A), $1,116.00 (Track B). How was each worked out, and **why do they differ**?"
   ]
  },
  "d5m6-l1": {
@@ -8719,9 +8719,9 @@ window.CM_CF_SLIDES = {
  "d5m6-kc": {
   "image": "knowledge-check",
   "questions": [
-   "Name **the two things you confirm** before any Withdrawal Letter goes out, and why.",
+   "What are **the two things you confirm** before any Withdrawal Letter goes out, and why?",
    "What goes in Denise's letter but **not in Granite Shield's or Brookside's**, and why?",
-   "Before Denise's status becomes Dropped, what must be true, and **what proof stays**?"
+   "Before Denise's status becomes Dropped, what must be true, and **what proof stays in the file**?"
   ]
  }
 };
