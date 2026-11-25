@@ -62,7 +62,7 @@ function askCms(msg, replyKind, transfer){
   // the CMS beside the lesson, or else a CMS tab this course opened (🧰 Tools → New tab)
   const f = cmsFrame(), tab = (window.__cmsTabs || []).filter(w=>w && !w.closed).pop();
   const target = (f && f.contentWindow) || tab;
-  if(!target) return Promise.resolve({ok:false, error:"The CMS isn't open beside this lesson. Press 🗂 Open LSH CaseWorks, sign in if it asks, and open your own case."});
+  if(!target) return Promise.resolve({ok:false, error:"LSH CaseWorks isn't open beside this lesson. Press 🗂 Open LSH CaseWorks, sign in if it asks, and open your own case."});
   const id = rid();
   return new Promise(res=>{
     const on = (e)=>{ if(e.data && e.data.lsh === replyKind && e.data.id === id){ window.removeEventListener("message", on); res(e.data); } };
