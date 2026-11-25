@@ -1,5 +1,5 @@
 /* ============================================================
-   LSH Case Management Track — the Training Tools hub (CMS, Docket, Records), the tool frame,
+   LSH Case Management Training — the Training Tools hub (CMS, Docket, Records), the tool frame,
    🛠 LSH Sims, 📚 LSH Atlas and the Calendar Conflict Resolver.
    Loaded after the main portal script: anything assigned to window
    here replaces the portal function of the same name.

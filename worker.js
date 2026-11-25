@@ -1,5 +1,5 @@
 /**
- * LSH Case Management Track — Cloudflare Worker (secured)
+ * LSH Case Management Training — Cloudflare Worker (secured)
  *
  * Same engine as the EA/PA portal worker. All storage lives in the shared
  * LSH_KV namespace under a "cm:" key prefix, so the CM and EA/PA portals can

@@ -1,5 +1,5 @@
 /* ============================================================
-   🛡 The Admin screen in sections, the Legal VA Foundational Track way (its js/lsh-program.js groupTabs).
+   🛡 The Admin screen in sections, the Foundational Training way (its js/lsh-program.js groupTabs).
 
    A row of section pills; under it, the open section's tabs; then a navy banner (.ft-banner) heading the
    section's content. Every admin tab keeps its own render function and its setAdminTab('<id>') button: this
@@ -47,7 +47,7 @@
   // the base strip's plain labels, given the icons Foundational's tabs have (only when the text is still the plain one)
   const RELABEL = {sop: ["SOP Reference", "📋 SOP Reference"],
     studio: ["Content Studio", "✏️ Content Studio"], tfeedback: ["Trainee Feedback", "💬 Trainee Feedback"]};
-  const KICKER = "Legal Support Help · Case Management Track";
+  const KICKER = "Legal Support Help · Case Management Training";
 
   // 🏅 Scorecard opens ONE page, 🏅 Scorecards (js/cm-scorecard.js, with the old 📋 Batch Sheet folded in, js/cm-batch-sheet.js):
   // the Admin screen lands on it, and the old Batch Sheet tab (audit) opens it too
@@ -187,7 +187,7 @@
 
   const css = document.createElement("style"); css.id = "cm-admin-shell";
   css.textContent = `
-/* Legal VA Foundational Track's admin sections (js/lsh-program.js, js/ft-admin-tidy.js), in this course's navy and orange */
+/* Foundational Training's admin sections (js/lsh-program.js, js/ft-admin-tidy.js), in this course's navy and orange */
 .cmsh-screen{background:#FFFFFF;border-radius:16px;padding:20px 24px 26px;box-shadow:0 10px 30px rgba(14,18,40,.28);color:#141A2E;}
 .admin-tabs.cmsh-tabs{display:block !important;border-bottom:1px solid var(--line,#DDE1EC);margin-bottom:18px;white-space:normal;overflow:visible;}
 .cmsh-secs{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;margin-bottom:8px;padding:2px 2px 4px;}

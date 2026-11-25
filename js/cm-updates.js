@@ -1,5 +1,5 @@
 /* ============================================================
-   LSH Case Management Track — portal features from the EA/PA update pack "z",
+   LSH Case Management Training — portal features from the EA/PA update pack "z",
    adapted for the CM course (build/cm-updates: sections 6–8 are EA/PA-only labs
    and are left out; CM overrides at the end).
    Loaded by index.html right after the main script. Everything here
@@ -948,7 +948,7 @@ if(PV_IS_AUDIENCE){
   window.updateIsSafe = function(){ return false; };      // never reload itself for an update mid-class (the console offers Update now)
   const app = document.getElementById("app"); if(app) app.innerHTML = "";
   const root = document.createElement("div"); root.id = "audienceRoot";
-  root.innerHTML = `<div class="aud-wait"><b>LSH Case Management Track</b>Waiting for the presenter…</div>`;
+  root.innerHTML = `<div class="aud-wait"><b>LSH Case Management Training</b>Waiting for the presenter…</div>`;
   document.body.appendChild(root);
   // arrow keys pressed in the slides window (or while the live copy holds focus) drive the presentation
   document.addEventListener("keydown", (e)=>{
@@ -1298,7 +1298,7 @@ function sopRunOfShow(dRaw){
 function sopProgramFlow(){
   const days = DAYS.map(d=>{ const tl = relatedTools(d.id); return `<tr><td><b>Day ${cmDayN(d.id)}</b></td><td>${esc(d.title)}</td><td>${d.lessons.length}</td><td>${tl.length?tl.map(t=>esc(t.title)).join("<br>"):"—"}</td><td><button class="btn btn-ghost btn-sm" onclick="setSopDay(${d.id})">Run of show →</button></td></tr>`; }).join("");
   return `
-    <section class="card sopf"><div class="sopx-kicker">Trainer reference · The whole program</div><h2 style="font-family:'Fraunces',Georgia,serif;color:var(--navy);font-size:26px;margin:4px 0 8px;">How to facilitate the LSH Case Management Track</h2>
+    <section class="card sopf"><div class="sopx-kicker">Trainer reference · The whole program</div><h2 style="font-family:'Fraunces',Georgia,serif;color:var(--navy);font-size:26px;margin:4px 0 8px;">How to facilitate the LSH Case Management Training</h2>
       <p style="font-size:14.5px;line-height:1.6;margin:0;max-width:85ch;">Five live sessions, one realistic case file (John Doe VS Robert Smith), one rhythm every day: <b>teach → check → practise → debrief → assess → follow up</b>. This page is the big picture; open any day for its minute-by-minute run of show.</p></section>
     <div class="sopf-grid">
       <section class="card sopf-card"><h3>1 · Before the program</h3><ol>

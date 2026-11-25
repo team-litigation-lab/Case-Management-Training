@@ -10,7 +10,7 @@ const NAME = "OPERATIONAL_CONFLICT_RESOLUTION_INTAKE_PLANNING_TREATMENT";
 const src = path.join(__dirname, NAME + ".html");
 const out = path.join(ROOT, "documents/handouts", NAME + ".pdf");
 const footer = `<div style="width:100%;font:7.5px Arial,sans-serif;color:#555;padding:0 0.75in;text-align:center;">
-  LSH Case Management Track · Training handout · page <span class="pageNumber"></span> of <span class="totalPages"></span></div>`;
+  LSH Case Management Training · Training handout · page <span class="pageNumber"></span> of <span class="totalPages"></span></div>`;
 
 (async () => {
   const browser = await chromium.launch(process.env.CHROMIUM_PATH ? {executablePath: process.env.CHROMIUM_PATH} : {});

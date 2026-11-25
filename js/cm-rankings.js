@@ -238,10 +238,10 @@ function pageHtml(){
     <span class="rk-share"><select aria-label="Link expires after" onchange="cmRankings.days(this.value)">${[[7, "7 days"], [30, "30 days"], [90, "90 days"], [0, "No expiry"]].map(([v, t]) => `<option value="${v}" ${+L.days === v ? "selected" : ""}>${t}</option>`).join("")}</select><button type="button" onclick="cmRankings.share()">🔗 Share link</button></span>`;
   if(L.linksFor !== cur.label){ L.linksFor = cur.label; L.links = null; loadLinks(); }
   return banner(cur.label, tools) + `${L.msg ? `<p class="rk-msg" role="status">${E(L.msg)}</p>` : ""}${linksHtml()}
-    <div class="rk-wrap">${cur.ok ? "" : `<p class="rk-note">Collecting the latest grades… the table fills in as they come.</p>`}${tableHtml(cur.snap, {ids: cur.ids, over: cur.over}, `Legal Support Help · Case Management Track · ${cur.snap.date} · confidential`)}</div>
+    <div class="rk-wrap">${cur.ok ? "" : `<p class="rk-note">Collecting the latest grades… the table fills in as they come.</p>`}${tableHtml(cur.snap, {ids: cur.ids, over: cur.over}, `Legal Support Help · Case Management Training · ${cur.snap.date} · confidential`)}</div>
     <p class="rk-note rk-tool">Click a Strength, Challenges, Red Flag or Endorsement cell to edit it; ↺ Regenerate puts the generated text back. Ranked by the Overall (the 100-point model). The toolbar and these notes are not in the image.</p>`;
 }
-const banner = (label, tools) => `<div class="ft-banner cmsh-banner rk-banner"><div><p class="ft-banner-k">Legal Support Help · Case Management Track</p><h2>🏆 Rankings &amp; Progress Report</h2>
+const banner = (label, tools) => `<div class="ft-banner cmsh-banner rk-banner"><div><p class="ft-banner-k">Legal Support Help · Case Management Training</p><h2>🏆 Rankings &amp; Progress Report</h2>
   <p class="ft-banner-sub">${label ? `Batch <b>${E(label)}</b> · ` : ""}🏅 Scorecard · Admin</p></div>${tools ? `<div class="ft-banner-ctl rk-bar">${tools}</div>` : ""}</div>`;
 
 /* ---------- the trainer's edits: rankings:<batch> ---------- */
