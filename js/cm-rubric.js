@@ -155,7 +155,7 @@ function pageHtml(opts){
     <li><b>The rubric profile</b> on each trainee card: every grading system's average, placed in the dimensions it feeds (● above), so each dimension shows how all of the trainee's graded work reads against it.</li>
     <li><b>The trainer score:</b> the trainer scores each dimension in points on a day's review (👥 Trainee Audit → the trainee → ✍ Write feedback). Once sent it counts in that day's dimensions, in 📐 Trainer Rubric, and a breach it marks fails the safety gate.</li></ol>`;
   const back = opts.back ? `<button type="button" onclick="${opts.back}">← Back to My Performance</button>` : "";
-  return `<div class="scx-page scx-wide rbp-page"><div class="ft-banner scx-banner"><div><p class="ft-banner-k">Legal Support Help · Case Management Track</p><h2>📐 Feedback Rubric</h2>
+  return `<div class="scx-page scx-wide rbp-page"><div class="ft-banner scx-banner"><div><p class="ft-banner-k">Legal Support Help · Case Management Training</p><h2>📐 Feedback Rubric</h2>
       <p class="ft-banner-sub">One rubric for every graded piece of work: four dimensions, four tiers, the safety gate${trainer() ? " · the trainer's feedback composer scores with it" : ""}</p></div>
       <div class="ft-banner-ctl"><span class="gs-menu">${back}<button type="button" onclick="window.print()">🖨 Print</button></span></div></div>
     <div class="card rbp-card">

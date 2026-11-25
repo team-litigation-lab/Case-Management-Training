@@ -7,7 +7,7 @@ window.CM_DECK_SLIDES = {
  "d1m1-role": [
   {
    "page": 1,
-   "title": "Case Management Track — Day 1",
+   "title": "Case Management Training — Day 1",
    "img": "/decks/day1/01.webp",
    "notes": "Welcome to Day 1 of Case Management Training with Legal Support Help. All week we work one file, John Doe versus Robert Smith, a passenger injury from a collision on February 6th, 2026. Today we open that file. We look at what a Case Manager actually owns, how a case moves from the first call to resolution, and how you keep it clean, compliant and on time. Keep John's file in mind as we go, because every idea on these slides lands on it."
   },
@@ -319,7 +319,7 @@ window.CM_DECK_SLIDES = {
  "d2m4-l1": [
   {
    "page": 1,
-   "title": "Case Management Track — Day 2",
+   "title": "Case Management Training — Day 2",
    "img": "/decks/day2/01.webp",
    "notes": "Welcome to Day 2 of Case Management Training. Yesterday we opened John Doe versus Robert Smith and carried it through intake and treatment, including the fourteen-day gap and the near-drop in April. Today we follow that same file to the money. We audit it before anything leaves the office, we build and serve the Bodily Injury demand to Keystone, we work the negotiation, and we close the BI settlement properly. Keep John's file open in your mind, because every lesson today lands on it."
   },
@@ -685,7 +685,7 @@ window.CM_DECK_SLIDES = {
  "d4m2-l2": [
   {
    "page": 1,
-   "title": "Case Management Track — Day 4",
+   "title": "Case Management Training — Day 4",
    "img": "/decks/day4/01.webp",
    "notes": "Welcome to Day 4 of Case Management Training with Legal Support Help. We'll keep using our sample case, John Doe versus Robert Smith, the same file you're working on in the platform. Today we take the other road from the demand. Keystone held at three thousand five hundred dollars, and our Time-Limited Demand lapsed on August 21st, 2026. Because Keystone's ten thousand dollar Bodily Injury limit was never paid, the whole forty thousand dollar recovery stack sat frozen behind it, and Attorney Thorne authorized suit. So what happens when two sides still can't agree? First comes mediation, where everyone works toward a compromise. Then, if that isn't enough, arbitration, where someone else makes the call. You'll see how your scheduling, your binders and your eye for detail decide how ready the attorney is when it counts. Let's dive in."
   },
@@ -879,7 +879,7 @@ window.CM_DECK_SLIDES = {
  "d5m1-l1": [
   {
    "page": 1,
-   "title": "Case Management Track — Day 5",
+   "title": "Case Management Training — Day 5",
    "img": "/decks/day5/01.webp",
    "notes": "Welcome to Day 5 of Case Management Training with Legal Support Help. Up to now, most of our work has happened outside the courthouse. Today the case goes inside it. When a claim can't be resolved through negotiation, it becomes a lawsuit, and your job changes in some important ways. Deadlines get stricter, documents become evidence, and the client needs more support than ever. Our sample case is still John Doe versus Robert Smith, the same file you're working on in the platform. Today we follow its litigation road, the one where Keystone wouldn't move and we filed suit. We'll walk through litigation step by step, spend real time on getting John ready for his deposition, and build out your toolkit of documents and deadlines. Then we'll look at how property damage is valued, using Margaret Doe's Civic. Let's get started."
   },
@@ -1139,14 +1139,14 @@ window.CM_DECK_SLIDES = {
 };
 window.CM_DAY_VIDEOS = {
  "11": {
-  "title": "Case Management Track — Day 1",
+  "title": "Case Management Training — Day 1",
   "src": "/decks/day1/day1-narrated.mp4",
   "captions": "/decks/day1/day1-narrated.vtt",
   "chapters": [
    {
     "t": 0,
     "page": 1,
-    "title": "Case Management Track — Day 1"
+    "title": "Case Management Training — Day 1"
    },
    {
     "t": 32.8,
@@ -1396,14 +1396,14 @@ window.CM_DAY_VIDEOS = {
   ]
  },
  "12": {
-  "title": "Case Management Track — Day 2",
+  "title": "Case Management Training — Day 2",
   "src": "/decks/day2/day2-narrated.mp4",
   "captions": "/decks/day2/day2-narrated.vtt",
   "chapters": [
    {
     "t": 0,
     "page": 1,
-    "title": "Case Management Track — Day 2"
+    "title": "Case Management Training — Day 2"
    },
    {
     "t": 35,
@@ -1598,7 +1598,7 @@ window.CM_DAY_VIDEOS = {
   ]
  },
  "13": {
-  "title": "Case Management Track — Day 3",
+  "title": "Case Management Training — Day 3",
   "src": "/decks/day3/day3-narrated.mp4",
   "captions": "/decks/day3/day3-narrated.vtt",
   "chapters": [
@@ -1700,14 +1700,14 @@ window.CM_DAY_VIDEOS = {
   ]
  },
  "14": {
-  "title": "Case Management Track — Day 4",
+  "title": "Case Management Training — Day 4",
   "src": "/decks/day4/day4-narrated.mp4",
   "captions": "/decks/day4/day4-narrated.vtt",
   "chapters": [
    {
     "t": 0,
     "page": 1,
-    "title": "Case Management Track — Day 4"
+    "title": "Case Management Training — Day 4"
    },
    {
     "t": 54.3,
@@ -1862,14 +1862,14 @@ window.CM_DAY_VIDEOS = {
   ]
  },
  "15": {
-  "title": "Case Management Track — Day 5",
+  "title": "Case Management Training — Day 5",
   "src": "/decks/day5/day5-narrated.mp4",
   "captions": "/decks/day5/day5-narrated.vtt",
   "chapters": [
    {
     "t": 0,
     "page": 1,
-    "title": "Case Management Track — Day 5"
+    "title": "Case Management Training — Day 5"
    },
    {
     "t": 54.1,

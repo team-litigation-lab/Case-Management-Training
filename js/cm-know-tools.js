@@ -1,4 +1,4 @@
-/* 🧰 Know Your Tools (as in Legal VA Foundational Track): every tool the Case Flow uses, one at a time, before Day 1's work.
+/* 🧰 Know Your Tools (as in Foundational Training): every tool the Case Flow uses, one at a time, before Day 1's work.
    • Its own page (#/knowtools), drawn like a deck slide: the tools on the left; the picked one's purpose, where it is,
      when the course uses it and a button that opens it; ← / → step through them; the last ends with ✅ End of Module.
    • A card on the dashboard, above the days.

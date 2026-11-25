@@ -1,4 +1,4 @@
-/* 🏅 The Scorecard, set up the way Legal VA Foundational Track's is (its js/lsh-program.js): every grading system's graded
+/* 🏅 The Scorecard, set up the way Foundational Training's is (its js/lsh-program.js): every grading system's graded
    items, each system's average, and the overall, the average of the systems that have a score, so each counts the same.
    Foundational's task trackers and monitoring sheets have no place here; these are this course's own grading systems:
      ✍️ Knowledge Checks      each Case Flow day's quiz (70% passes)
@@ -552,11 +552,11 @@ function detailSheet(sc, who){
 }
 // the page's header, as Foundational's (ftBanner): a navy band, the kicker, the title, the batch, the sheet's buttons in it
 function sheetTop(title, sub, controls, right){
-  return `<div class="ft-banner scx-banner"><div><p class="ft-banner-k">Legal Support Help · Case Management Track</p><h2>🏅 ${E(title)}</h2>${sub ? `<p class="ft-banner-sub">${sub}</p>` : ""}</div>
+  return `<div class="ft-banner scx-banner"><div><p class="ft-banner-k">Legal Support Help · Case Management Training</p><h2>🏅 ${E(title)}</h2>${sub ? `<p class="ft-banner-sub">${sub}</p>` : ""}</div>
     ${right ? `<div class="ft-banner-right">${right}</div>` : ""}<div class="ft-banner-ctl"><span class="gs-menu">${controls}</span></div></div>`;
 }
 
-/* ---------- the trainee card, in Legal VA Foundational Track's batch-sheet format (its js/ft-batch-sheet.js perTraineeHtml), the
+/* ---------- the trainee card, in Foundational Training's batch-sheet format (its js/ft-batch-sheet.js perTraineeHtml), the
    standard format for all scorecards: the name and the pills (Overall · Daily compliance) in a navy band, the
    🎯 Focus on box, then tables of label · value · how. Here: the 100-point model, the Day scores (each day's evidence
    by dimension, its Daily compliance and its critical items), and the grading systems behind it under a toggle. ---------- */
@@ -823,7 +823,7 @@ window.cmScorecard = {
 
 const css = document.createElement("style"); css.id = "cm-scorecard";
 css.textContent = `
-/* Legal VA Foundational Track's Batch Sheet, the standard for scorecards (its js/ft-overall.js and js/ft-batch-sheet.js): the navy
+/* Foundational Training's Batch Sheet, the standard for scorecards (its js/ft-overall.js and js/ft-batch-sheet.js): the navy
    banner, Google Sheets' grid, and its contrast — bold dark text, bigger type, visible gridlines, tinted scores */
 .scx-page{max-width:none;margin:0 auto;padding:4px 0 24px;}
 .ft-banner{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap;padding:16px 18px;border-radius:12px;background:linear-gradient(135deg,#1E2340,#33406B);color:#fff;margin:0 0 12px;}
