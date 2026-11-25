@@ -75,12 +75,12 @@
     }
   },
   "d1m2-l1": {
-    "lead": "The No Contact Protocol is a **formal due-diligence record**: it tracks silence, proves the firm tried, and protects it from liability.",
+    "lead": "The No Contact Protocol is **a formal record of effort**. It tracks a silent client, proves the firm tried, and protects the firm from liability.",
     "concepts": [
-      {"term": "Intake Bottlenecks", "text": "Points where work slows, stalls or turns inconsistent; **a silent client** is one, delaying case progression"},
-      {"term": "Due Diligence", "text": "Proof the firm made reasonable, documented efforts to reach the client: **the record that justifies** whatever comes next", "more": ["Log every attempt as you make it: **date, time, channel, outcome**", "An unlogged attempt did not happen", "Escalate by channel, not volume: two voicemails on one number clears the phone rung only", "Step 3: notify Atty. Thorne, document it, assess the SOL and any hearing dates"]},
-      {"term": "Approved Channels", "text": "The contact methods the client and firm agreed at intake; **only approved channels** count as a valid attempt", "more": ["The ladder: 2+ phone attempts → email and text → emergency contact → certified mail or letter", "Step 1 confirms every earlier attempt used **an approved channel**", "Give the client an easy way back: a call window, a text, an upload link"]},
-      {"term": "Emergency Contact", "text": "A second person, collected at intake, who can **still reach the client** after they go quiet"}
+      {"term": "Intake Bottlenecks", "text": "Places where work slows or stalls. **A silent client** is one: the case cannot move forward"},
+      {"term": "Due Diligence", "text": "Proof the firm made reasonable, logged efforts to reach the client: **the record that supports** what comes next", "more": ["Log every attempt as you make it: **date, time, channel, outcome**", "An unlogged attempt did not happen", "Change channels: two voicemails on one number only completes the phone step", "Step 3: tell Atty. Thorne, log it, and check the SOL and any hearing dates"]},
+      {"term": "Approved Channels", "text": "The contact methods agreed with the client at intake. **Only approved channels** count as a real attempt", "more": ["The ladder: 2+ calls → email and text → emergency contact → certified mail or letter", "Step 1 checks that every earlier attempt used **an approved channel**", "Give the client an easy way to reply: a call window, a text, an upload link"]},
+      {"term": "Emergency Contact", "text": "A second person, named at intake, who can **still reach the client** when they go quiet"}
     ],
     "pages": ["D1#11", "D1#9"],
     "framework": {
@@ -88,14 +88,14 @@
       "kind": "table",
       "head": ["Bottleneck", "How it shows up"],
       "rows": [
-        ["Incomplete Client Information", "Missing contact details or incident facts; no supporting documents"],
-        ["Delayed Client Follow-Up", "**Unanswered clarification requests**, missed verification calls, slow documents"],
-        ["Conflict Check Delays", "System backlog, incomplete entries, unclear opposing party information"],
-        ["Intake Form Errors", "Incorrect dates, inconsistent statements, missing signatures, misfiled records"],
-        ["Case Eligibility Uncertainty", "Ambiguous facts of loss or liability needing attorney review"],
-        ["Communication Gaps", "Incomplete intake packets; miscommunication between departments"]
+        ["Incomplete Client Information", "Missing contact details, incident facts or supporting documents"],
+        ["Delayed Client Follow-Up", "**Unanswered questions**, missed verification calls, documents sent late"],
+        ["Conflict Check Delays", "System backlog, incomplete entries, unclear facts about the opposing party"],
+        ["Intake Form Errors", "Wrong dates, statements that don't match, missing signatures, misfiled records"],
+        ["Case Eligibility Uncertainty", "Unclear facts of loss or liability that the attorney must review"],
+        ["Communication Gaps", "Incomplete intake packets; departments misunderstanding each other"]
       ],
-      "note": "A silent client is Delayed Client Follow-Up: the No Contact Protocol clears it, one logged attempt at a time."
+      "note": "A silent client is a Delayed Client Follow-Up. The No Contact Protocol clears it, one logged attempt at a time."
     }
   },
   "d1m2-l2": {
@@ -129,12 +129,12 @@
     "pages": ["D1#44", "D1#28"]
   },
   "d1m3-l2": {
-    "lead": "Property Damage is **the owner's separate claim**; for a passenger's injury case it is evidence of the impact, and sometimes a date that reaches care.",
+    "lead": "Property Damage is **the car owner's own claim**. For a passenger's injury case, it is evidence of the impact, and sometimes a date that affects care.",
     "concepts": [
-      {"term": "Whose Claim It Is", "text": "PD follows the vehicle: **the owner's claim**, outside the $40,000 stack: it neither adds to nor reduces his recovery"},
-      {"term": "PD as Evidence", "text": "Photos, estimates and supplements show the force: **proof of impact severity** for the injury claim"},
-      {"term": "Coordinate, Don't Handle", "text": "Where an owner's PD date reaches the client's care, **calendar it and plan around it**"},
-      {"term": "Refer the Owner's Claim", "text": "Questions on the owner's rental, Loss of Use or value **go to the attorney**, logged the same day"}
+      {"term": "Whose Claim It Is", "text": "PD belongs to the car's owner. It sits **outside the $40,000 stack**: it does not change his recovery"},
+      {"term": "PD as Evidence", "text": "Photos, estimates and supplements show how hard the cars hit: **evidence for the injury claim**"},
+      {"term": "Coordinate, Don't Handle", "text": "When an owner's PD date affects the client's care, **calendar it and plan around it**"},
+      {"term": "Refer the Owner's Claim", "text": "Questions about the owner's rental, Loss of Use or car value **go to the attorney**, logged the same day"}
     ],
     "pages": ["D2#6"],
     "framework": {
@@ -142,13 +142,13 @@
       "kind": "table",
       "head": ["Case phase", "What the PD shows", "How it strengthens BI"],
       "rows": [
-        ["Intake", "Tow from the scene, airbags, crush photos", "Flags a serious injury early; **preserve the evidence**"],
-        ["Treatment", "Major structural impact, frame or pillar damage", "The force matches the injuries the providers record"],
+        ["Intake", "Tow from the scene, airbags, crush photos", "Signals a serious injury early; **preserve the evidence**"],
+        ["Treatment", "Major structural damage to the frame or pillars", "Shows the force matches the injuries providers record"],
         ["Demand", "Estimates, supplementals, repair cost, photos", "**Answers the low-impact defense** before it is raised"],
-        ["Negotiation", "The same photos and repair figures, on file", "Keeps the injury claim from being called minor"],
+        ["Negotiation", "The same photos and repair figures, on file", "Stops the injury claim from being called minor"],
         ["Litigation", "Preserved vehicle, photos, repair records", "Physical proof for experts and trial"]
       ],
-      "note": "The PD claim stays the owner's; its severity is **physical evidence** for the injury claim in every phase."
+      "note": "The PD claim stays the owner's. Its severity is **physical evidence** for the injury claim in every phase."
     }
   },
   "d1m4-l1": {
@@ -173,12 +173,12 @@
     }
   },
   "d1m4-l2": {
-    "lead": "A Case Plan is a **living, approved document**: drafted in structure, reviewed by counsel, then run.",
+    "lead": "A Case Plan is **a living, approved document**: you draft it in set sections, counsel reviews it, then you run it.",
     "concepts": [
-      {"term": "Section Templates", "text": "One structure for every plan, so reviewers can **scan it fast** and nothing is missed", "more": ["Five bands: snapshot & acceptance → coverage, liability, projection → Triple-Check → Three-Pillar Plan → risks", "Owner and date in **their own fields**, not in a sentence", "Adverse facts stated plainly in the risks band: a buried risk hasn't been disclosed"]},
-      {"term": "The Review Loop", "text": "Draft, route, review, approve, execute; **a return is normal**, a step back into drafting, not a failure", "more": ["Draft: edit freely; execute nothing that commits the firm externally", "Routed: keep preparing internally; don't act on the plan's positions", "Returned: address **every comment**, then re-route; never part-execute", "Approved: execute against this version and record it as the operative plan", "Superseded: a material fact changed after approval, so re-route"]},
-      {"term": "Pre-Confirmation Stage", "text": "A conclusion still awaiting its proof; when the proof arrives and differs, **the plan is re-routed**"},
-      {"term": "The Audit Trail", "text": "The CMS keeps every version unaltered, so **each approval is provable**, and every note is discoverable", "more": ["Never edit a record in a way that breaks the trail", "Keep treatment notes factual and clinical; strategy stays in the legal track", "Never “this will help the case” in a treatment note"]}
+      {"term": "Section Templates", "text": "One structure for every plan, so reviewers can **read it fast** and nothing is missed", "more": ["Five bands: snapshot & acceptance → coverage, liability, projection → Triple-Check → Three-Pillar Plan → risks", "Owner and date go in **their own fields**, not in a sentence", "State facts that hurt the case plainly in the risks band: a buried risk is not disclosed"]},
+      {"term": "The Review Loop", "text": "Draft, route, review, approve, run. **A returned plan is normal**: it goes back to drafting, not a failure", "more": ["Draft: edit freely; don't act on anything that commits the firm externally", "Routed: keep preparing inside the firm; don't act on the plan yet", "Returned: fix **every comment**, then route it again; never run part of it", "Approved: work from this version and record it as the plan in use", "Superseded: a key fact changed after approval, so route it again"]},
+      {"term": "Pre-Confirmation Stage", "text": "A conclusion still waiting for its proof. If the proof arrives and differs, **route the plan again**"},
+      {"term": "The Audit Trail", "text": "The CMS keeps every version unchanged, so **each approval is provable**. The defense can see every note", "more": ["Never edit a record in a way that breaks the trail", "Keep treatment notes factual and clinical; strategy stays in the legal track", "Never write “this will help the case” in a treatment note"]}
     ],
     "pages": ["D1#25"],
     "framework": {
@@ -186,12 +186,12 @@
       "kind": "table",
       "head": ["Requirement", "What the plan tracks"],
       "rows": [
-        ["Electronic Record Integrity", "A CMS that keeps an **unalterable audit trail** of every version"],
-        ["State-Specific Timelines", "Carrier-mandated deadlines, such as an early IME in no-fault states"],
+        ["Electronic Record Integrity", "A CMS that keeps **an unchangeable record** of every version"],
+        ["State-Specific Timelines", "Carrier deadlines, such as an early IME in no-fault states"],
         ["Letter of Protection (LOP)", "Providers treating under an LOP, so no bill arrives as a surprise"],
-        ["The Golden Rule", "Medical plan and legal claim as parallel tracks: coordinate, don't commingle"]
+        ["The Golden Rule", "Medical and legal tracks run side by side: coordinate, don't mix"]
       ],
-      "note": "The file is discoverable in litigation: write every plan note as if defense counsel will read it."
+      "note": "The file can be seen in a lawsuit: write every plan note as if defense counsel will read it."
     }
   },
   "d1m1-upl": {

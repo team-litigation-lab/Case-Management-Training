@@ -287,9 +287,9 @@ function rubricHtml(r){   // the grading weights stay with the scoring (the Know
   if(!r) return "";
   const rows = list => list.map(([dim, pts, crit]) => [`${pts}%`, dim, crit]);
   return `<details class="cf-rubric"><summary>Assessment criteria — AI ${sum(r.ai)}% + Trainer ${sum(r.trainer)}%</summary>
-    <div class="cf-rubric-h">🤖 Automated AI grading · ${sum(r.ai)}%</div>${table(["Weight", "Dimension", "What is graded"], rows(r.ai))}
+    <div class="cf-rubric-h">Automated grading · ${sum(r.ai)}%</div>${table(["Weight", "Dimension", "What is graded"], rows(r.ai))}
     <div class="cf-rubric-h">🧑‍🏫 Trainer assessment · ${sum(r.trainer)}%</div>${table(["Weight", "Dimension", "What is assessed"], rows(r.trainer))}
-    <p class="cf-formula">Composite = AI × 0.60 + Trainer × 0.40</p>
+    <p class="cf-formula">Composite = Automated × 0.60 + Trainer × 0.40</p>
     ${renderCallout({type: "warning", label: "UPL is a gate, not a weighting", text: "Giving the client legal advice fails the block's UPL criterion whatever the composite score."})}
   </details>`;
 }
@@ -384,14 +384,15 @@ function composite(m){
 function scoreHtml(modId){
   const m = rec(modId), s = composite(m);
   const pill = (label, v, note) => `<div class="cf-score"><b>${v == null ? "—" : v + "%"}</b><span>${E(label)}</span>${note ? `<small>${E(note)}</small>` : ""}</div>`;
-  const ai = m.ai ? `<div class="cf-ai"><b>AI evaluation · ${E(m.ai.score)}% ${m.ai.tier ? "· " + E(m.ai.tier) : ""}</b>
+  const ai = m.ai ? `<div class="cf-ai"><b>Evaluation · ${E(m.ai.score)}% ${m.ai.tier ? "· " + E(m.ai.tier) : ""}</b>
       ${m.ai.summary ? `<p class="cf-ai-coach">💬 ${E(m.ai.summary)}</p>` : ""}
       ${(m.ai.strengths || []).length ? `<p>✓ ${(m.ai.strengths || []).map(E).join(" · ")}</p>` : ""}
-      ${(m.ai.gaps || []).length ? `<ul class="cf-ai-gaps">${(m.ai.gaps || []).map(g => `<li>${typeof feedbackItemHtml === "function" ? feedbackItemHtml(g) : E(g)}</li>`).join("")}</ul>` : ""}</div>` : "";
+      ${(m.ai.gaps || []).length ? `<ul class="cf-ai-gaps">${(m.ai.gaps || []).map(g => `<li>${typeof feedbackItemHtml === "function" ? feedbackItemHtml(g) : E(g)}</li>`).join("")}</ul>` : ""}
+      ${(m.ai.better || []).length ? `<p class="cf-ai-coach">💡 What you could have done better</p><ul class="cf-ai-gaps">${m.ai.better.map(x => `<li>${E(x)}</li>`).join("")}</ul>` : ""}</div>` : "";
   return `<div class="cf-scores">
       ${pill("Automated (60%)", s.a, m.quiz ? `Quiz ${m.quiz.correct}/${m.quiz.total}${m.ai ? " · written answers" : ""}` : (m.ai ? "Written answers" : "Pass the day's Knowledge Check and submit below"))}
       ${pill("Trainer (40%)", s.t, s.t == null ? "Pending your trainer's review" : (m.trainer.comment || ""))}
-      ${pill("Composite", s.c, s.c == null ? "Shown once both channels are in" : "AI × 0.60 + Trainer × 0.40")}
+      ${pill("Composite", s.c, s.c == null ? "Shown once both channels are in" : "Automated × 0.60 + Trainer × 0.40")}
     </div>${ai}`;
 }
 
@@ -612,7 +613,7 @@ const titleCase = t => String(t || "").split(/(\s+|—|–|\/)/).map((w, i, a) =
 const leadSplit = t => { const m = String(t || "").match(/^\*\*([^*]+?[.!?:])\*\*\s+(.+)$/); return m ? [m[1], m[2]] : null; };
 const hl = t => E(t).replace(/\*\*(.+?)\*\*/g, '<mark class="cfx-hl">$1</mark>');
 /* The answers (an activity's checkpoints, and the **marked** parts of its checks) open once the trainee has finished the activity
-   (graded by the AI Grader, or revealed on a record from before it); the trainer always sees them, except on the shared slides window. */
+   (graded by the grader, or revealed on a record from before it); the trainer always sees them, except on the shared slides window. */
 const inAudience = () => typeof document !== "undefined" && !!document.body && document.body.classList.contains("audience-mode");
 let justRevealed = null;   // the block whose answers were just revealed: they animate from blurred to clear once
 const answersOpen = id => (isTrainer() && !inAudience()) || !!((REC.revealed || {})[id]);
@@ -960,7 +961,7 @@ function slideBody(view, l, d){
         <ol class="cfx-points cfx-steps${c.steps.length > 4 ? " cfx-steps-long" : ""}">${c.steps.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>
         <div class="cfx-task-foot">${window.CMSbTask ? CMSbTask.launch(b.id) : ""}${menu ? `<details class="cfx-tools-menu" data-tools="${b.id}"${TOOLS_OPEN[b.id] ? " open" : ""} ontoggle="cmCaseFlow.toolsOpen('${b.id}',this.open)"><summary>🧰 Tools ▾</summary><div class="cfx-task-acts cfx-tools-pop">${menu}</div></details>` : ""}
           <button type="button" class="btn cfx-grade-go" onclick="cmCaseFlow.mode('${b.id}','check')" title="Hand in what you did: it is scored and you see what to improve">Submit →</button></div></div>`; }
-    case "check":   // 🤖 the AI Grader (js/cm-ai-grader.js) in place of the old self-tick list, then the reference of the work
+    case "check":   // 🤖 the grader (js/cm-ai-grader.js) in place of the old self-tick list, then the reference of the work
       return modeBack(b, "check") + (window.CMAIGrader ? CMAIGrader.view(b.id) : `<p class="cf-note">Loading…</p>`) + workLog(b, !!(window.CMAIGrader && CMAIGrader.showing && CMAIGrader.showing(b.id)));
     case "questions": case "questions2": {   // each question with its answer box; answers save as they're typed
       const from = view === "questions2" ? KC_PER : 0, m = rec(mod.id), last = from + KC_PER >= c.questions.length;
@@ -1032,7 +1033,7 @@ const WHAT = {lesson: "Lesson", activity: "Practice Lab", check: "Knowledge Chec
 const TITLE_LONG = 72;
 function card(l, i, d, part){
   const {day, mod, block: b, k, phase} = l.cf, vs = viewsOf(b), p = Math.min(Math.max(part || 1, 1), vs.length), view = vs[p - 1] === "task" && MODE[b.id] ? MODE[b.id] : vs[p - 1];
-  noteReached(b, view === "check" ? vs.length + 1 : p);   // an activity is worked through once its Submit (the AI Grader) is opened
+  noteReached(b, view === "check" ? vs.length + 1 : p);   // an activity is worked through once its Submit (the grader) is opened
   const onNavy = view === "case";   // a Skill Building opener sits on the slide itself, like the deck's
   /* No hidden leftovers: the view pill, the dots, the kicker, the 📖 Additional Reference row and the title ribbon above
      the card were all hidden by CSS (the band under the title says the view; 📖 Reference is on the band), so they are
@@ -2599,7 +2600,7 @@ function workLog(b, graded){
     <button type="button" class="btn btn-navy btn-sm" onclick="cmCaseFlow.logWork('${b.id}','${main}')">Log it</button>
     <span class="cfx-log-ok" id="cflogok_${b.id}">${w.at ? `✓ Logged ${E(new Date(w.at).toLocaleDateString())}` : ""}</span></div>`;
 }
-window.cmCaseFlow.record = () => REC;   // the trainee's Case Flow record, read by the AI Grader (js/cm-ai-grader.js) to fill in what was done
+window.cmCaseFlow.record = () => REC;   // the trainee's Case Flow record, read by the grader (js/cm-ai-grader.js) to fill in what was done
 window.cmCaseFlow.logWork = function(blockId, tool){
   const el = document.getElementById("cflog_" + blockId);
   // nothing typed on a CMS step: the case open in the CMS (js/cm-cms-case.js)
@@ -2962,8 +2963,8 @@ function named(s, k){
 /* ---------- Presenter view: the speaker notes, as this course's slide scripts ---------- */
 window.SLIDE_SCRIPTS = window.SLIDE_SCRIPTS || {};
 window.cmCaseFlow = window.cmCaseFlow || {}; window.cmCaseFlow.viewsOf = b => viewsOf(b); window.cmCaseFlow.drawnViewsOf = b => viewsOf(b, true);
-// a block's slide by its view (Your Task's Submit to AI Grader goes straight to the AI Grader, past Your Case)
-// (a view the block no longer draws as a slide of its own: the AI Grader or the audit opens on its Your Task slide, MODE;
+// a block's slide by its view (Your Task's Submit to AI Grader goes straight to the grader, past Your Case)
+// (a view the block no longer draws as a slide of its own: the grader or the audit opens on its Your Task slide, MODE;
 // any other goes to the block's first slide)
 window.cmCaseFlow.toView = function(blockId, view){
   const d = typeof DAYS !== "undefined" ? DAYS.find(x => x.id === state.dayId) : null; if(!d || typeof buildDaySlides !== "function") return nextSlide();
@@ -2976,7 +2977,7 @@ window.cmCaseFlow.toView = function(blockId, view){
   if(mode){ MODE[blockId] = mode; } else delete MODE[blockId];
   if(typeof render === "function") render();
 };
-// Your Task's Submit (the AI Grader) and a side exercise's audit, on the same slide; "" back to the steps
+// Your Task's Submit (the grader) and a side exercise's audit, on the same slide; "" back to the steps
 window.cmCaseFlow.mode = function(blockId, view){
   if(view) MODE[blockId] = view; else delete MODE[blockId];
   if(typeof render === "function") render();
@@ -3104,7 +3105,7 @@ if(typeof window.sopRunOfShow === "function"){
     if(sc.loop){
       const dl = sc.labs.find(p => p.drive);
       if(dl) add(sc.drive, {title: "📁 Required: Backup File Maintenance", do: [
-        `Required every day, straight after the ${sc.build ? "build" : "Skill Building"}: <b>${E(dl.acts[0].cf.block.title)}</b>. Your Task, then Your Case: trainees bring their Backup Drive up to the firm's standard (📂 My Backup Drive, ✓ Check my drive), log it in CMS → Notes → Case Notes and submit it to the AI Grader; the Drive itself is graded too.`,
+        `Required every day, straight after the ${sc.build ? "build" : "Skill Building"}: <b>${E(dl.acts[0].cf.block.title)}</b>. Your Task, then Your Case: trainees bring their Backup Drive up to the firm's standard (📂 My Backup Drive, ✓ Check my drive), log it in CMS → Notes → Case Notes and submit it to the grader; the Drive itself is graded too.`,
         `Nobody moves on to the Action Plan with ✓ Check my drive still showing a missing folder.`],
         say: `“Before the Action Plan: the backup. Every day, no exceptions. Bring your drive up to the standard and run the check until it's clean.”`,
         watch: "A trainee whose Drive isn't linked yet: get it linked now (📂 My Backup Drive), or the Progress Log flags it."});
@@ -3126,7 +3127,7 @@ if(typeof window.sopRunOfShow === "function"){
       say: next ? `“That's Case Flow Day ${n}. Tomorrow we pick John Doe's file up at ${E(String(next.title).replace(/^Case Flow Day \d+ · /, ""))}. Before you go, hit Feedback and tell me one thing that worked today and one thing that didn't.”`
         : `“That's the file, start to finish. You've carried John Doe's case from intake to the end. Before you go, hit Feedback and tell me one thing that worked this week and one thing that didn't.”`});
     add(20, {pre: true, title: "After the session", do: [
-      `<b>Trainee Audit → View Detail</b>: review each trainee's Case Flow Day ${n} Learning Checks with the AI review, add the 40% trainer score and your comment, and send their Day-by-Day Feedback.`,
+      `<b>Trainee Audit → View Detail</b>: review each trainee's Case Flow Day ${n} Learning Checks with the review, add the 40% trainer score and your comment, and send their Day-by-Day Feedback.`,
       `Look at the CMS Case IDs and references they logged: open one or two in the CMS and check the work is really there.`,
       `Read today's Trainee Feedback and note one thing to change tomorrow.`]});
     const start = sopStartMin(), live = steps.filter(x => !x.pre), liveMins = live.reduce((a, x) => a + (x.to - x.from), 0);
@@ -3357,7 +3358,7 @@ if(typeof submitQuiz === "function"){
 
 /* ---------- the Knowledge Check page: ① the quiz, ② each Case Phase's Learning Check & Self-Summary ----------
    The Learning Checks aren't slides any more: the day's Knowledge Check is the quiz, then each module's written
-   questions, Self-Summary and Skill Scale. One Submit scores the quiz and sends every module to the AI reviewer
+   questions, Self-Summary and Skill Scale. One Submit scores the quiz and sends every module to the reviewer
    against its rubric, automatically (no separate "Submit for review"); the results fit one screen. */
 // The bonus round is ONE takeaway for the whole day (saves time): a short summary of the day, written against and
 // graded with the day's last Knowledge Check block, which stands for the day.
@@ -3394,7 +3395,7 @@ function kcChip(modId){   // a module's scores, compact, for the results
   const v = x => x == null ? "—" : x + "%";
   return `<span>Automated <b>${v(s.a)}</b></span><span>Trainer <b>${v(s.t)}</b></span><span>Composite <b>${v(s.c)}</b></span>${m.ai ? "" : `<em id="cfkc_rv_${modId}">${state.cfReviewing && state.cfReviewing[modId] ? "Reviewing…" : "Review pending"}</em>`}`;
 }
-/* The bonus round is graded: each takeaway by the AI reviewer against its module's rubric. Their average is the day's
+/* The bonus round is graded: each takeaway by the reviewer against its module's rubric. Their average is the day's
    takeaway score, kept on the day's record beside the quiz (state.progress[day].takeaway), so it shows on the results,
    the trainer's Day-by-Day and the trainee's evidence; the quiz alone still decides the 70% pass. */
 function takeawayScore(d){
@@ -3427,7 +3428,7 @@ function scoreSummary(){
 }
 function takeawayHtml(d){
   const t = takeawayScore(d), busy = kcMods(d).some(({mod}) => state.cfReviewing && state.cfReviewing[mod.id]);
-  return `<b>${t.pct == null ? "—" : t.pct + "%"}</b><span>Takeaways</span><small>${t.pct == null ? (busy ? "Grading…" : "Graded after you submit") : `AI-graded · ${t.graded} of ${t.n}${busy ? " · grading…" : ""}`}</small>`;
+  return `<b>${t.pct == null ? "—" : t.pct + "%"}</b><span>Takeaways</span><small>${t.pct == null ? (busy ? "Grading…" : "Graded after you submit") : `Graded · ${t.graded} of ${t.n}${busy ? " · grading…" : ""}`}</small>`;
 }
 function cfResult(d){
   const {lastScore, lastCorrect, lastTotal, lastPassed} = state;
@@ -3867,7 +3868,7 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
     if(auto && modMissing(b, modId)) return;
     if(modMissing(b, modId)){ if(typeof toast === "function") toast(`${b.title}: ${modMissing(b, modId)} first.`); return; }
     m.savedAt = new Date().toISOString(); await persist();
-    if(typeof runRubricEvaluation !== "function"){ status(modId, "Saved. The AI reviewer isn't available here; your trainer will review it."); return; }
+    if(typeof runRubricEvaluation !== "function"){ status(modId, "Saved. The reviewer isn't available here; your trainer will review it."); return; }
     status(modId, "Reviewing…");
     const c = CF.case, day = CF.days.find(x => x.id === dayId);
     const label = `Day ${dayId} · Case Flow Day ${d.cf.n} · ${b.title} — CM Self-Summary`;   // "Day <id>" files it under this day, by its id
@@ -3885,11 +3886,11 @@ window.cmCaseFlow = Object.assign(window.cmCaseFlow || {}, {
     try{
       const rep = await runRubricEvaluation(label, ctx, text, notes);
       m.ai = {score: Math.round(rep.totalScore), tier: rep.gradeTier || "", summary: String(rep.summary || "").slice(0, 600), strengths: (rep.strengths || []).slice(0, 3),
-              gaps: (rep.blindspots || []).slice(0, 3), growth: (rep.growthSuggestions || []).slice(0, 2), at: new Date().toISOString(), sig: kcSig(b, m)};
+              gaps: (rep.blindspots || []).slice(0, 3), better: (rep.better || []).slice(0, 3), growth: (rep.growthSuggestions || []).slice(0, 2), at: new Date().toISOString(), sig: kcSig(b, m)};
       await persist();
       status(modId, "Reviewed");
     }catch(e){
-      status(modId, e && e.invalidInput ? (e.message || "Add more detail and try again.") : `Saved. The AI review didn't complete${window.cmWhyNotGraded ? ": " + cmWhyNotGraded(e) : ""}. Your trainer still sees your answers, and the review is tried again the next time you open the course.`);
+      status(modId, e && e.invalidInput ? (e.message || "Add more detail and try again.") : `Saved. The review didn't complete${window.cmWhyNotGraded ? ": " + cmWhyNotGraded(e) : ""}. Your trainer still sees your answers, and the review is tried again the next time you open the course.`);
     }
     const res = document.getElementById(`cfss_res_${modId}`); if(res) res.innerHTML = scoreHtml(modId);
   }
@@ -3902,7 +3903,7 @@ if(typeof window.downloadQuizResultPdf === "function"){
     const d = cfDay(dayId), mk = window.buildAndSavePdf;
     if(!d || typeof mk !== "function") return __pdf.apply(this, arguments);
     const t = takeawayScore(d);
-    const add = ["Takeaways (bonus round, AI-graded against each module's rubric): " + (t.pct == null ? "not graded yet" : `${t.pct}% average (${t.graded} of ${t.n} graded)`)]
+    const add = ["Takeaways (bonus round, graded against each module's rubric): " + (t.pct == null ? "not graded yet" : `${t.pct}% average (${t.graded} of ${t.n} graded)`)]
       .concat(kcMods(d).map(({b, mod}) => { const a = rec(mod.id).ai; return `   ${b.title}: ${a && typeof a.score === "number" ? a.score + "%" + (a.tier ? " — " + a.tier : "") : "not graded yet"}`; }));
     window.buildAndSavePdf = function(title, sub, lines){ if(Array.isArray(lines)) lines.splice(1, 0, ...add); return mk.apply(this, arguments); };
     try{ return await __pdf.apply(this, arguments); }finally{ window.buildAndSavePdf = mk; }
@@ -3925,7 +3926,7 @@ if(typeof window.evidenceText === "function"){
   const __ev = window.evidenceText;
   window.evidenceText = function(ev){
     const t = __ev.apply(this, arguments);
-    return ev && ev.dp && typeof ev.dp.takeaway === "number" ? `${t}\nKnowledge Check takeaways (bonus round, AI-graded against each module's rubric): ${ev.dp.takeaway}% average.` : t;
+    return ev && ev.dp && typeof ev.dp.takeaway === "number" ? `${t}\nKnowledge Check takeaways (bonus round, graded against each module's rubric): ${ev.dp.takeaway}% average.` : t;
   };
 }
 
@@ -4056,7 +4057,7 @@ function trainerPanel(rec){
     const c = composite(Object.assign({}, r, {trainer: t}));
     const answered = (r.answers || []).some(a => String(a || "").trim());
     return `<details class="cf-tr"><summary><b>Case Flow Day ${n} · ${phase.lead === "Case Phase" ? `Case Phase ${phase.n}` : E(phase.lead)}</b> ${E(b.title)}
-        <span class="cf-tr-chips">${r.quiz ? `<span class="fb-chip sent">Quiz ${E(r.quiz.pct)}%</span>` : ""}${r.ai ? `<span class="fb-chip sent">AI ${E(r.ai.score)}%</span>` : ""}${typeof t.score === "number" ? `<span class="fb-chip sent">Trainer ${E(t.score)}%</span>` : (answered ? `<span class="fb-chip draft">To score</span>` : `<span class="fb-chip none">No summary yet</span>`)}${c.c != null ? `<span class="fb-chip sent">Composite ${E(c.c)}%</span>` : ""}</span></summary>
+        <span class="cf-tr-chips">${r.quiz ? `<span class="fb-chip sent">Quiz ${E(r.quiz.pct)}%</span>` : ""}${r.ai ? `<span class="fb-chip sent">Automated ${E(r.ai.score)}%</span>` : ""}${typeof t.score === "number" ? `<span class="fb-chip sent">Trainer ${E(t.score)}%</span>` : (answered ? `<span class="fb-chip draft">To score</span>` : `<span class="fb-chip none">No summary yet</span>`)}${c.c != null ? `<span class="fb-chip sent">Composite ${E(c.c)}%</span>` : ""}</span></summary>
       ${answered ? `<div class="fb-evidence">${(r.kc || []).some(Boolean) ? b.check.questions.map((q, j) => `<div><b>KC ${j + 1}. ${E(q)}</b><br>${E((r.kc || [])[j] || "—")}</div>`).join("") : ""}${b.check.summary.map((q, j) => `<div><b>${E(q)}</b><br>${E((r.answers || [])[j] || "—")}</div>`).join("")}
         <div><b>Self-ratings:</b> ${b.check.scale.map((x, j) => `${E(x)}: ${E((r.scale || [])[j] || "—")}`).join(" · ")}</div></div>` : ""}
       ${workLogged(mine, m)}${netLogged(work.snap || {}, m)}
@@ -4067,7 +4068,7 @@ function trainerPanel(rec){
     </details>`;
   }).join("");
   return `<div class="fb-admin cf-tr-wrap"><div class="sidebar-section-lbl" style="padding-left:0;">Case Flow — trainer assessment (40%)</div>
-    <p class="cf-note">The trainee's quiz share and AI review make the automated 60%. Your score here makes the 40%; the composite appears on their Knowledge Check once both are in.</p>${caseYearNote(mine)}${rows}</div>`;
+    <p class="cf-note">The trainee's quiz share and the written review make the automated 60%. Your score here makes the 40%; the composite appears on their Knowledge Check once both are in.</p>${caseYearNote(mine)}${rows}</div>`;
 }
 window.cmCaseFlow.trainerSave = async function(id, modId){
   const sid = cssId(id), work = (state.traineeWork || {})[id];

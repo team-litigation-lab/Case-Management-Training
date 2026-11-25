@@ -267,17 +267,17 @@
   },
   "d5m4-l1": {
     "image": "binder-exhibits",
-    "hook": "Fault can reduce or bar recovery; **answer each allegation with evidence** that can come in.",
+    "hook": "Fault can cut or end recovery; answer each defense with **evidence the court allows**.",
     "points": [
-      "Don't rest liability on **report RPD-26-018842**",
-      "“Unbelted” is answered twice: **the EDR and EMS report**",
-      "Failure to mitigate: **the A-C-T record** answers the 19 days",
-      "Every item needs source, **authenticating witness and custody**"
+      "Don't rest liability on **report RPD-26-018842** alone",
+      "**Two records** answer “unbelted”: the car's EDR and the EMS report",
+      "Failure to mitigate (the 19-day break): **the A-C-T record** answers it",
+      "Each item: its source, **who can authenticate it**, its chain of custody"
     ],
-    "upl": "Gather, authenticate and index; never tell John his share of fault",
+    "upl": "Gather, authenticate and index evidence. Never tell John his share of fault",
     "dos": [
       "Answer each allegation **with a document**, not an argument",
-      "Read **the damage pattern** with the video and witness"
+      "Read **the damage pattern** alongside the video and the witness"
     ],
     "donts": [
       "Telling John he **“can't be blamed”** as a passenger",
@@ -370,16 +370,16 @@
   },
   "d5m6-l1": {
     "image": "policy-letter",
-    "hook": "Atty. Thorne **decides the drop**; you close it out so the file proves it.",
+    "hook": "Atty. Thorne **decides to drop a case**; you close it out and keep the proof.",
     "points": [
-      "**No note, no letter**: confirm Pending Drop and the client told",
-      "Only the client's letter carries **the reason and next step**",
-      "Client: preferred method plus **Certified Mail**; others by email or fax",
-      "Log, follow up, then **switch to Dropped**; keep the proof"
+      "**No note, no letter**: confirm Pending Drop and that the client knows",
+      "Only the client's letter gives **the reason and next step**",
+      "Client: preferred method and **Certified Mail**. Others: email or fax",
+      "Log and follow up, then **switch to Dropped**; keep the proof"
     ],
-    "upl": "Atty. Thorne decides and explains; **never call a case worthless**.",
+    "upl": "Atty. Thorne decides and explains the drop. **Never call a case worthless**.",
     "dos": [
-      "Check **the gate** before you open the template",
+      "Check **the gate** (Pending Drop, client told) before the template",
       "Send the client's letter **two ways**, one with proof"
     ],
     "donts": [
@@ -388,9 +388,9 @@
       "Telling the client **the case is worthless**"
     ],
     "redFlag": {
-      "see": "A carrier's disengagement letter saying **she stopped treating**",
-      "costs": "Only the client's letter carries the reason, in Atty. Thorne's words: this one is a defect",
-      "do": "Strip the reason from carrier and provider letters; **send the client's as approved**",
+      "see": "A carrier's Withdrawal Letter saying **she stopped treating**",
+      "costs": "Only the client's letter gives the reason, in Atty. Thorne's words. This letter is a defect.",
+      "do": "Remove the reason from carrier and provider letters; **send the client's as approved**",
       "owner": "Atty. Thorne"
     }
   },
@@ -427,16 +427,16 @@
   },
   "d5m5-l1": {
     "image": "money-ledger",
-    "hook": "Same $40,000.00 gross; **suit changes the net** to $14,713.75.",
-    "points": ["Suit filed 09/24/2026: **the 40% tier**, $16,000.00", "Receipt **every litigation cost**: $3,895.25 in all", "Reduce liens **at the fee actually charged**", "Net: **$14,713.75**, routed before John Doe signs"],
-    "upl": "Explain the arithmetic; whether suing was worth it is Atty. Thorne's.",
+    "hook": "The gross is the same $40,000.00, but **the lawsuit lowers John's net** to $14,713.75.",
+    "points": ["Suit was filed 09/24/2026, so the fee is **the 40% tier**: $16,000.00", "Keep **a receipt for every litigation cost**: $3,895.25 in all", "Reduce each lien using **the fee actually charged** (40%)", "John's net is **$14,713.75**; route it before he signs"],
+    "upl": "You explain the math. Whether suing was worth it is Atty. Thorne's call.",
     "dos": [
       "Show John **the 40% tier** in his retainer",
       "Attach **a receipt** to every cost"
     ],
     "donts": [
-      "Carrying **Track A's 33⅓%** into this file",
-      "Disbursing **before the liens resolve**"
+      "Using **Track A's 33⅓% fee** on this file",
+      "Paying out **before the liens are resolved**"
     ]
   },
   "d5m5-a1": {

@@ -422,80 +422,80 @@ window.CM_CF_SLIDES = {
    "steps": [
     {
      "label": "Internal review",
-     "text": "Case status, live deadlines, last contact, channels used"
+     "text": "Check case status, live deadlines, last contact and channels used"
     },
     {
      "label": "Contact attempts",
-     "text": "Phone twice, email and text, emergency contact, **certified mail**"
+     "text": "Call twice, then email and text, the emergency contact, **certified mail**"
     },
     {
      "label": "Log every attempt",
-     "text": "Date, time, channel and outcome, in the CMS"
+     "text": "Log the date, time, channel and outcome in the CMS"
     },
     {
      "label": "Team notification",
-     "text": "Escalate to Atty. Thorne with **the deadline impact**"
+     "text": "Tell Atty. Thorne and show **the deadline impact**"
     }
    ]
   },
-  "hook": "A client you can't reach **still has deadlines**; the protocol proves the firm did its part.",
+  "hook": "A client who goes quiet **still has deadlines**, and the protocol proves the firm tried.",
   "points": [
-   "Step 1: review status, deadlines and last contact **before you call**",
-   "Step 2: **2+ phone attempts**, email and text, emergency contact, certified mail",
-   "Escalate **by channel, not by volume**; log every attempt as made",
-   "Step 3: notify the attorney and **assess SOL and hearing dates**"
+   "Step 1: check status, deadlines and last contact **before you call**",
+   "Step 2: **2+ calls**, then email, text, emergency contact, certified mail",
+   "Move to **a new channel** instead of repeating one; log every attempt",
+   "Step 3: tell Atty. Thorne; check **the SOL (filing deadline)** and hearings"
   ],
-  "upl": "Say what the firm needs, by when; never advise on rights or threaten withdrawal",
+  "upl": "Say what the firm needs, by when. Never advise on rights or mention withdrawal.",
   "dos": [
-   "Set a **follow-up reminder** as each request goes out",
-   "Offer **an easy way to respond**: call, text, upload link"
+   "Set **a follow-up reminder** when each request goes out",
+   "Offer **an easy reply**: a call, text or upload link"
   ],
   "donts": [
-   "Letting a file sit **without logging attempts**",
-   "Blaming the client for **process gaps**"
+   "Leaving a file waiting **without logging attempts**",
+   "Blaming the client for **delays the process caused**"
   ],
   "ruleEx": {
-   "rule": "Escalate **by channel, not by volume**: every attempt logged with date, time, channel and outcome",
-   "exception": "The emergency contact gets **a message, never the case**: 'Please have John call us by 02/18/2026.'",
-   "onFile": "Margaret Doe reached 02/16/2026, 11:05 a.m.; no case details shared",
-   "confirm": "Atty. Thorne decides what follows Step 3"
+   "rule": "Change channels; don't just repeat one. **Log every attempt** with date, time, channel and outcome.",
+   "exception": "The emergency contact gets **a message, never case details**: 'Please have John call us by 02/18/2026.'",
+   "onFile": "Margaret Doe was reached on 02/16/2026 at 11:05 a.m.; no case details were shared",
+   "confirm": "Atty. Thorne decides what happens after Step 3"
   },
   "redFlag": {
    "spoken": true,
-   "see": "Voicemails left **02/11 and 02/13** that never reached Case Notes",
-   "costs": "An unlogged attempt did not happen: the ladder can't show the attempts were made",
+   "see": "Voicemails left **02/11 and 02/13** were never logged in Case Notes",
+   "costs": "An unlogged attempt did not happen, so the file can't prove the firm tried",
    "do": "Log each attempt now **with date, time, channel and outcome**",
    "owner": "Case Manager"
   },
   "theory": {
-   "lead": "The No Contact Protocol is a **formal due-diligence record**: it tracks silence, proves the firm tried, and protects it from liability.",
+   "lead": "The No Contact Protocol is **a formal record of effort**. It tracks a silent client, proves the firm tried, and protects the firm from liability.",
    "concepts": [
     {
      "term": "Intake Bottlenecks",
-     "text": "Points where work slows, stalls or turns inconsistent; **a silent client** is one, delaying case progression"
+     "text": "Places where work slows or stalls. **A silent client** is one: the case cannot move forward"
     },
     {
      "term": "Due Diligence",
-     "text": "Proof the firm made reasonable, documented efforts to reach the client: **the record that justifies** whatever comes next",
+     "text": "Proof the firm made reasonable, logged efforts to reach the client: **the record that supports** what comes next",
      "more": [
       "Log every attempt as you make it: **date, time, channel, outcome**",
       "An unlogged attempt did not happen",
-      "Escalate by channel, not volume: two voicemails on one number clears the phone rung only",
-      "Step 3: notify Atty. Thorne, document it, assess the SOL and any hearing dates"
+      "Change channels: two voicemails on one number only completes the phone step",
+      "Step 3: tell Atty. Thorne, log it, and check the SOL and any hearing dates"
      ]
     },
     {
      "term": "Approved Channels",
-     "text": "The contact methods the client and firm agreed at intake; **only approved channels** count as a valid attempt",
+     "text": "The contact methods agreed with the client at intake. **Only approved channels** count as a real attempt",
      "more": [
-      "The ladder: 2+ phone attempts → email and text → emergency contact → certified mail or letter",
-      "Step 1 confirms every earlier attempt used **an approved channel**",
-      "Give the client an easy way back: a call window, a text, an upload link"
+      "The ladder: 2+ calls → email and text → emergency contact → certified mail or letter",
+      "Step 1 checks that every earlier attempt used **an approved channel**",
+      "Give the client an easy way to reply: a call window, a text, an upload link"
      ]
     },
     {
      "term": "Emergency Contact",
-     "text": "A second person, collected at intake, who can **still reach the client** after they go quiet"
+     "text": "A second person, named at intake, who can **still reach the client** when they go quiet"
     }
    ],
    "pages": [
@@ -512,30 +512,30 @@ window.CM_CF_SLIDES = {
     "rows": [
      [
       "Incomplete Client Information",
-      "Missing contact details or incident facts; no supporting documents"
+      "Missing contact details, incident facts or supporting documents"
      ],
      [
       "Delayed Client Follow-Up",
-      "**Unanswered clarification requests**, missed verification calls, slow documents"
+      "**Unanswered questions**, missed verification calls, documents sent late"
      ],
      [
       "Conflict Check Delays",
-      "System backlog, incomplete entries, unclear opposing party information"
+      "System backlog, incomplete entries, unclear facts about the opposing party"
      ],
      [
       "Intake Form Errors",
-      "Incorrect dates, inconsistent statements, missing signatures, misfiled records"
+      "Wrong dates, statements that don't match, missing signatures, misfiled records"
      ],
      [
       "Case Eligibility Uncertainty",
-      "Ambiguous facts of loss or liability needing attorney review"
+      "Unclear facts of loss or liability that the attorney must review"
      ],
      [
       "Communication Gaps",
-      "Incomplete intake packets; miscommunication between departments"
+      "Incomplete intake packets; departments misunderstanding each other"
      ]
     ],
-    "note": "A silent client is Delayed Client Follow-Up: the No Contact Protocol clears it, one logged attempt at a time."
+    "note": "A silent client is a Delayed Client Follow-Up. The No Contact Protocol clears it, one logged attempt at a time."
    }
   }
  },
@@ -826,14 +826,14 @@ window.CM_CF_SLIDES = {
  },
  "d1m3-l2": {
   "image": "property-damage",
-  "hook": "The Civic is Margaret's claim; for John Doe, PD is **evidence of the impact**.",
+  "hook": "The Civic is Margaret's claim; for John Doe, its damage is **evidence of the impact**.",
   "points": [
-   "Read **the Police Report's units** first: who rode, who owns",
-   "Photos, estimate and supplement **feed the BI claim** as evidence",
-   "Rental, Loss of Use, Diminished Value **stay on Margaret's claim**",
-   "The rental's last day reaches his care: **calendar and coordinate**"
+   "Start with **the Police Report**: who rode and who owns each car",
+   "Photos, estimates and supplements are **evidence for John's injury claim**",
+   "Her rental, Loss of Use and Diminished Value **stay on Margaret's claim**",
+   "The rental ends his rides to care: **calendar that date**"
   ],
-  "upl": "Sort and refer; never advise Margaret Doe or **value her PD claim**",
+  "upl": "Sort the facts and refer. Never advise Margaret Doe or **value her PD claim**",
   "dos": [
    "Ask of every PD fact: **does it touch our case**?",
    "Index photos and estimates **the day they arrive**"
@@ -843,36 +843,36 @@ window.CM_CF_SLIDES = {
    "Treating Property Damage as **“just the car”**"
   ],
   "ruleEx": {
-   "rule": "**PD follows the vehicle**: the Civic (Bluewater BWA-209-66184) is Margaret Doe's; John owns no car",
-   "exception": "A PD date that reaches his care goes on John's calendar: **the rental's last covered day**",
-   "onFile": "The rental ends 03/19/2026; his rides are planned before it",
-   "confirm": "Margaret's PD claim is referred to Atty. Thorne"
+   "rule": "**PD belongs to the car's owner**. The Civic (Bluewater BWA-209-66184) is Margaret Doe's. John owns no car.",
+   "exception": "One PD date reaches his care and goes on John's calendar: **the rental's last covered day**",
+   "onFile": "The rental ends 03/19/2026; his rides are planned before then",
+   "confirm": "Margaret's PD claim goes to Atty. Thorne"
   },
   "redFlag": {
    "spoken": true,
    "see": "A rental, PD or Loss of Use claim **opened in John Doe's name**",
-   "costs": "John has no PD claim: Margaret Doe's Civic claim (KM-26-440871-PD) tangles with his BI file",
+   "costs": "John has no PD claim. Mixing in Margaret Doe's Civic claim (KM-26-440871-PD) confuses his BI file",
    "do": "Keep PD under Margaret Doe; **refer her claim** to Atty. Thorne",
    "owner": "Atty. Thorne"
   },
   "theory": {
-   "lead": "Property Damage is **the owner's separate claim**; for a passenger's injury case it is evidence of the impact, and sometimes a date that reaches care.",
+   "lead": "Property Damage is **the car owner's own claim**. For a passenger's injury case, it is evidence of the impact, and sometimes a date that affects care.",
    "concepts": [
     {
      "term": "Whose Claim It Is",
-     "text": "PD follows the vehicle: **the owner's claim**, outside the $40,000 stack: it neither adds to nor reduces his recovery"
+     "text": "PD belongs to the car's owner. It sits **outside the $40,000 stack**: it does not change his recovery"
     },
     {
      "term": "PD as Evidence",
-     "text": "Photos, estimates and supplements show the force: **proof of impact severity** for the injury claim"
+     "text": "Photos, estimates and supplements show how hard the cars hit: **evidence for the injury claim**"
     },
     {
      "term": "Coordinate, Don't Handle",
-     "text": "Where an owner's PD date reaches the client's care, **calendar it and plan around it**"
+     "text": "When an owner's PD date affects the client's care, **calendar it and plan around it**"
     },
     {
      "term": "Refer the Owner's Claim",
-     "text": "Questions on the owner's rental, Loss of Use or value **go to the attorney**, logged the same day"
+     "text": "Questions about the owner's rental, Loss of Use or car value **go to the attorney**, logged the same day"
     }
    ],
    "pages": [
@@ -890,12 +890,12 @@ window.CM_CF_SLIDES = {
      [
       "Intake",
       "Tow from the scene, airbags, crush photos",
-      "Flags a serious injury early; **preserve the evidence**"
+      "Signals a serious injury early; **preserve the evidence**"
      ],
      [
       "Treatment",
-      "Major structural impact, frame or pillar damage",
-      "The force matches the injuries the providers record"
+      "Major structural damage to the frame or pillars",
+      "Shows the force matches the injuries providers record"
      ],
      [
       "Demand",
@@ -905,7 +905,7 @@ window.CM_CF_SLIDES = {
      [
       "Negotiation",
       "The same photos and repair figures, on file",
-      "Keeps the injury claim from being called minor"
+      "Stops the injury claim from being called minor"
      ],
      [
       "Litigation",
@@ -913,7 +913,7 @@ window.CM_CF_SLIDES = {
       "Physical proof for experts and trial"
      ]
     ],
-    "note": "The PD claim stays the owner's; its severity is **physical evidence** for the injury claim in every phase."
+    "note": "The PD claim stays the owner's. Its severity is **physical evidence** for the injury claim in every phase."
    }
   }
  },
@@ -1663,68 +1663,68 @@ window.CM_CF_SLIDES = {
  },
  "d1m4-l2": {
   "image": "strategy-session",
-  "hook": "Routing isn't overhead: it's where **operational work becomes authorized work**.",
+  "hook": "Routing is not extra work: it turns your draft into **work counsel has approved**.",
   "points": [
-   "Draft in **the section templates**; owner and date in their own fields",
-   "**Route for review** before committing the firm's position externally",
-   "Address every comment and re-route; run on **the approved version**",
-   "Re-route when **a material fact changes**"
+   "Use **the section templates**; owner and date get their own fields",
+   "**Route the plan for review** before it commits the firm externally",
+   "Answer every comment, re-route, and work from **the approved version**",
+   "Route it again when **a key fact changes**"
   ],
-  "upl": "Legal strategy is counsel's: review comments needing legal judgment go to Atty. Thorne",
+  "upl": "Legal strategy is counsel's. Comments that need legal judgment go to Atty. Thorne",
   "dos": [
    "Assume **defense counsel reads every note**",
    "Keep medical notes **factual and clinical**"
   ],
   "donts": [
-   "Edits that **break the audit trail**",
+   "Editing records in ways that **break the audit trail**",
    "Writing **“this will help the case”** in a treatment note"
   ],
   "ruleEx": {
-   "rule": "**The file runs against the approved version** of the plan",
-   "exception": "When a material fact changes, **the plan is superseded** and routed again",
+   "rule": "**Run the file on the approved plan**, not the latest draft",
+   "exception": "When a key fact changes, **the old plan is replaced** and routed again",
    "confirm": "Atty. Thorne approves each version"
   },
   "redFlag": {
    "spoken": true,
-   "see": "**'This will help the case'** in a treatment note, or a partly addressed plan run",
-   "costs": "Every note is discoverable, and an unapproved plan runs the file off course",
-   "do": "Write facts only; **execute nothing** until Atty. Thorne approves the version",
+   "see": "**'This will help the case'** in a treatment note, or a plan run before every comment is fixed",
+   "costs": "Every note can be read by the defense, and an unapproved plan sends the file off course",
+   "do": "Write facts only; **act on nothing** until Atty. Thorne approves the version",
    "owner": "Atty. Thorne"
   },
   "theory": {
-   "lead": "A Case Plan is a **living, approved document**: drafted in structure, reviewed by counsel, then run.",
+   "lead": "A Case Plan is **a living, approved document**: you draft it in set sections, counsel reviews it, then you run it.",
    "concepts": [
     {
      "term": "Section Templates",
-     "text": "One structure for every plan, so reviewers can **scan it fast** and nothing is missed",
+     "text": "One structure for every plan, so reviewers can **read it fast** and nothing is missed",
      "more": [
       "Five bands: snapshot & acceptance → coverage, liability, projection → Triple-Check → Three-Pillar Plan → risks",
-      "Owner and date in **their own fields**, not in a sentence",
-      "Adverse facts stated plainly in the risks band: a buried risk hasn't been disclosed"
+      "Owner and date go in **their own fields**, not in a sentence",
+      "State facts that hurt the case plainly in the risks band: a buried risk is not disclosed"
      ]
     },
     {
      "term": "The Review Loop",
-     "text": "Draft, route, review, approve, execute; **a return is normal**, a step back into drafting, not a failure",
+     "text": "Draft, route, review, approve, run. **A returned plan is normal**: it goes back to drafting, not a failure",
      "more": [
-      "Draft: edit freely; execute nothing that commits the firm externally",
-      "Routed: keep preparing internally; don't act on the plan's positions",
-      "Returned: address **every comment**, then re-route; never part-execute",
-      "Approved: execute against this version and record it as the operative plan",
-      "Superseded: a material fact changed after approval, so re-route"
+      "Draft: edit freely; don't act on anything that commits the firm externally",
+      "Routed: keep preparing inside the firm; don't act on the plan yet",
+      "Returned: fix **every comment**, then route it again; never run part of it",
+      "Approved: work from this version and record it as the plan in use",
+      "Superseded: a key fact changed after approval, so route it again"
      ]
     },
     {
      "term": "Pre-Confirmation Stage",
-     "text": "A conclusion still awaiting its proof; when the proof arrives and differs, **the plan is re-routed**"
+     "text": "A conclusion still waiting for its proof. If the proof arrives and differs, **route the plan again**"
     },
     {
      "term": "The Audit Trail",
-     "text": "The CMS keeps every version unaltered, so **each approval is provable**, and every note is discoverable",
+     "text": "The CMS keeps every version unchanged, so **each approval is provable**. The defense can see every note",
      "more": [
       "Never edit a record in a way that breaks the trail",
       "Keep treatment notes factual and clinical; strategy stays in the legal track",
-      "Never “this will help the case” in a treatment note"
+      "Never write “this will help the case” in a treatment note"
      ]
     }
    ],
@@ -1741,11 +1741,11 @@ window.CM_CF_SLIDES = {
     "rows": [
      [
       "Electronic Record Integrity",
-      "A CMS that keeps an **unalterable audit trail** of every version"
+      "A CMS that keeps **an unchangeable record** of every version"
      ],
      [
       "State-Specific Timelines",
-      "Carrier-mandated deadlines, such as an early IME in no-fault states"
+      "Carrier deadlines, such as an early IME in no-fault states"
      ],
      [
       "Letter of Protection (LOP)",
@@ -1753,10 +1753,10 @@ window.CM_CF_SLIDES = {
      ],
      [
       "The Golden Rule",
-      "Medical plan and legal claim as parallel tracks: coordinate, don't commingle"
+      "Medical and legal tracks run side by side: coordinate, don't mix"
      ]
     ],
-    "note": "The file is discoverable in litigation: write every plan note as if defense counsel will read it."
+    "note": "The file can be seen in a lawsuit: write every plan note as if defense counsel will read it."
    }
   }
  },
@@ -1800,109 +1800,109 @@ window.CM_CF_SLIDES = {
    "steps": [
     {
      "label": "Draft on template",
-     "text": "One LOR per carrier, **each naming its own insured**"
+     "text": "One letter per carrier, **each naming its own insured**"
     },
     {
      "label": "Request and preserve",
-     "text": "Limits, Dec Pages, photos, video and vehicle data"
+     "text": "Ask for limits, Dec Pages, photos, video and vehicle data"
     },
     {
      "label": "Protect the client",
-     "text": "Third-party letter: his name only, nothing more"
+     "text": "The other driver's carrier gets **his name only**"
     },
     {
      "label": "Send and log",
-     "text": "Each carrier's preferred method; Atty. Thorne signs"
+     "text": "Atty. Thorne signs; send each the way its carrier prefers"
     },
     {
      "label": "Follow up",
-     "text": "No acknowledgement by **the third business day**: call"
+     "text": "No acknowledgement by **the third business day**? Call"
     }
    ]
   },
-  "hook": "The LOR moves every carrier onto the firm; one wrong letter risks **$30,000 of UM coverage**.",
-  "whyLine": "One wrong Letter of Representation risks **$30,000 of UM coverage**.",
+  "hook": "The LOR sends every carrier to the firm; one wrong letter risks **$30,000 of UM coverage**.",
+  "whyLine": "One wrong Letter of Representation can risk **$30,000 of UM coverage**.",
   "points": [
-   "Name the **right insured** on each: Robert Smith, Kevin Alvarez, Margaret Doe",
-   "Notify **all three stack carriers** now: late notice hands them a defense",
-   "**Notice, not demand**: no UM payment request before the documented BI tender",
-   "Keystone gets **John Doe's name only**: no phone, address, birth date, employer"
+   "Each letter names **its own insured**: Robert Smith, Kevin Alvarez, Margaret Doe",
+   "Notify **all three stack carriers** now; late notice gives them a defense",
+   "**Notice only**: no UM payment request until the BI tender is documented",
+   "Give Keystone **his name only**: no phone, address, birth date, employer"
   ],
   "upl": "You draft and send; Atty. Thorne signs. Never value the claim or argue fault.",
   "dos": [
    "Confirm **claim number and adjuster** on every claim call",
-   "Keep claim-opening facts **general and verifiable**",
-   "Treat other coverage as **a question for Atty. Thorne**"
+   "When opening a claim, give **general, checkable facts**",
+   "A carrier mentions other coverage? **Ask Atty. Thorne**"
   ],
   "donts": [
-   "A UM letter that **reads as a demand**",
-   "The client's **phone, address or birth date** to Keystone",
-   "A **guessed adjuster name** for Cardinal State"
+   "Writing a UM letter that **reads like a demand**",
+   "Giving Keystone his **phone, address or birth date**",
+   "Guessing an **adjuster's name** for Cardinal State"
   ],
   "redFlag": {
    "tight": true,
    "see": "A UM notice letter that **asks for payment** before any BI tender",
-   "costs": "Notice is not demand: a premature UM demand puts $30,000 of the stack at risk",
-   "do": "Send notice only; **payment requests wait** for the documented BI tender",
+   "costs": "Asking too early can put $30,000 of UM coverage at risk",
+   "do": "Send notice only; **ask for payment** after the BI tender is documented",
    "owner": "Atty. Thorne"
   },
   "theory": {
-   "lead": "Claim set-up is coverage determination: finding **which policies apply** and what limits and exclusions they carry. The LOR puts the firm on each one.",
+   "lead": "Setting up a claim means finding **which policies apply**, their limits and their exclusions. The LOR puts the firm on each one.",
    "concepts": [
     {
      "term": "Letter of Representation",
-     "text": "The firm's formal notice that it represents the client: **it moves all contact** off the client and onto the firm",
+     "text": "The firm's notice that it represents the client: **all contact now goes** to the firm, not him",
      "more": [
       "Names the client, the date of loss, the claim number and **the carrier's insured**",
-      "The insured differs: Robert Smith (Keystone), Kevin Alvarez (Harbor Point), Margaret Doe (Cardinal State)",
-      "States he was injured, a Demand Package will follow, all contact goes to the firm",
-      "Requests limits, additional coverage, every Declaration Page and preservation",
-      "Atty. Thorne signs; you send by the preferred method and log delivery"
+      "Each carrier has its own insured: Robert Smith (Keystone), Kevin Alvarez (Harbor Point), Margaret Doe (Cardinal State)",
+      "Says he was injured, a Demand Package will follow, and all contact goes to the firm",
+      "Asks for the limits, any other coverage, every Declaration Page, and that evidence is kept",
+      "Atty. Thorne signs; you send it the carrier's preferred way and log delivery"
      ]
     },
     {
      "term": "Coverage Determination",
-     "text": "Four questions: is coverage valid, what type applies, what are the limits, any exclusions? **Every LOR request** chases an answer"
+     "text": "Four questions: Is it valid? What type? What limits? Any exclusions? **Each LOR request** seeks an answer"
     },
     {
      "term": "Liability Assessment",
-     "text": "Who is legally responsible, and how far: **clear, shared or disputed**. Atty. Thorne weighs it; you secure the proof"
+     "text": "Who is legally at fault, and how much: **clear, shared or disputed**. Atty. Thorne weighs it; you secure the proof"
     },
     {
      "term": "First- and Third-Party Claims",
-     "text": "Third-party: the other driver's carrier, adverse to the client. First-party: policies covering him. **Each letter differs accordingly**"
+     "text": "Third-party: the other driver's carrier, on the other side. First-party: policies that cover him. **Each letter is different**"
     },
     {
      "term": "Information Protection",
-     "text": "The adverse carrier learns only what it must: **anything you give it** can be used against the client",
+     "text": "The other side's carrier gets only what it must: **anything you give it** can be used against him",
      "more": [
       "Keystone gets John Doe's **name only**",
       "Never his phone, address, date of birth or employer",
-      "First-party carriers, Harbor Point and Cardinal State, may verify his details",
-      "Nothing more than needed: anything written now is quoted back later"
+      "First-party carriers, Harbor Point and Cardinal State, may check his details",
+      "Write only what is needed: anything you write now is quoted back later"
      ]
     },
     {
      "term": "Notice vs. Demand",
-     "text": "Notice preserves the claim; a demand asks for payment. **UM notice comes early**; demand follows a documented BI tender",
+     "text": "Notice keeps the claim alive; a demand asks for money. **Send UM notice early**; demand after a documented BI tender",
      "more": [
-      "All three stack carriers noticed on 02/17/2026",
-      "UM policies carry notice conditions: **late notice hands a defense** to the carrier",
+      "All three stack carriers got notice on 02/17/2026",
+      "UM policies require notice: **late notice gives the carrier a defense**",
       "No UM letter asks for payment before the BI tender is documented"
      ]
     },
     {
      "term": "Preservation Request",
-     "text": "Asks the carrier to keep photos, statements, video, the vehicle and its event data: **liability proof that can vanish**"
+     "text": "Asks the carrier to keep photos, statements, video, the vehicle and its event data: **proof of fault that can disappear**"
     },
     {
      "term": "Acknowledgement",
-     "text": "The carrier's written receipt of the LOR, sometimes stating coverage and limit: **the first written answer** you log",
+     "text": "The carrier's written reply confirming it got the LOR, sometimes with coverage and limit: **the first answer** you log",
      "more": [
       "Expected within 24–48 hours of the LOR",
       "None by the **third business day**: follow up",
-      "On this file: letters out 02/17/2026, follow-up dated 02/20/2026",
-      "Keystone may hold written limits until a written request with authorizations Atty. Thorne approves"
+      "On this file: letters sent 02/17/2026; follow-up set for 02/20/2026",
+      "Keystone may not confirm limits in writing until it gets a written request with authorizations Atty. Thorne approves"
      ]
     }
    ],
@@ -2139,7 +2139,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "label": "Find the affiant",
-     "text": "The person with **personal knowledge**"
+     "text": "The person who **knows it first-hand**"
     },
     {
      "label": "Request and docket",
@@ -2147,64 +2147,64 @@ window.CM_CF_SLIDES = {
     },
     {
      "label": "Check it",
-     "text": "Affiant, numbers, dates, **jurat and seal**"
+     "text": "Signer, numbers, dates, **jurat and seal**"
     },
     {
      "label": "File it",
-     "text": "Where it will be **relied on**"
+     "text": "Where it will be **used**"
     }
    ]
   },
-  "hook": "A fact the file relies on is proven by **the person who knows it**, under oath.",
+  "hook": "A key fact is proven when **the person who knows it** swears to it.",
   "points": [
-   "Smith swears **no other insurance**: the condition for the limit",
-   "John's **residency** keeps Relative UM; sworn if a carrier asks",
-   "Custodian affidavits put **the bills into evidence**",
-   "Check **every jurat**: names, numbers, the notary's seal"
+   "Smith swears **no other insurance**: needed to settle at the limit",
+   "John's **home with Margaret** keeps Relative UM; he swears it if asked",
+   "The records custodian's affidavit gets **the bills into evidence**",
+   "Check **every jurat** (the sworn ending): names, numbers, notary's seal"
   ],
-  "upl": "Request, track and check; **never swear, sign or notarize** for anyone",
+  "upl": "You request, track and check; **never swear, sign or notarize** for anyone",
   "dos": [
-   "Ask for the **custodian affidavit** with every records request",
+   "Ask for the **custodian's affidavit** in every records request",
    "Check every **jurat and seal** before filing"
   ],
   "donts": [
    "Accepting an **unsworn statement** as proof",
-   "Writing **an affiant's words** for them"
+   "Writing **the signer's words** for them"
   ],
   "redFlag": {
    "see": "An **unsigned or un-notarized** 'affidavit' in the file",
-   "costs": "It is only an assertion, not sworn proof of the fact it claims",
-   "do": "Return it for signature and jurat; **never sign, notarize or reword** it",
+   "costs": "It is only a claim, not sworn proof of the fact",
+   "do": "Send it back to be signed and sworn; **never sign, notarize or reword** it",
    "owner": "Case Manager"
   },
   "theory": {
-   "lead": "An affidavit turns a fact into **proof**: sworn, on personal knowledge, by the person who knows it.",
+   "lead": "An affidavit turns a fact into **proof**: the person who knows it swears to it under oath.",
    "concepts": [
     {
      "term": "The Affidavit",
-     "text": "Facts sworn under oath before a notary, ending in a **jurat**; a false one is perjury.",
+     "text": "Facts sworn under oath before a notary, ending in a **jurat**; a false one is perjury, a crime.",
      "more": [
-      "Made on the signer's **own personal knowledge**",
-      "Jurat: “sworn to and subscribed before me”",
+      "The signer swears to what they **know first-hand**",
+      "Jurat: the closing line, “sworn to and subscribed before me”",
       "An acknowledgment only confirms **who signed**",
       "Check the notary's name, commission and seal"
      ]
     },
     {
      "term": "Coverage Affidavits",
-     "text": "Smith's **no other insurance**; John's residency and no owned vehicle, if asked.",
+     "text": "Smith swears **no other insurance**; John swears where he lives and that he owns no car, if asked.",
      "more": [
-      "Smith sworn **08/10/2026**: Keystone is all there is",
+      "Smith swore on **08/10/2026**: Keystone is his only coverage",
       "Harbor Point and Cardinal State read it before consenting",
       "Relative UM: John lives with Margaret, owns **no car**",
-      "Cardinal State confirmed in writing 03/09/2026"
+      "Cardinal State confirmed coverage in writing on 03/09/2026"
      ]
     },
     {
      "term": "Damages Affidavits",
-     "text": "Records and billing **custodian** affidavits; Northgate's wage verification.",
+     "text": "The **records custodian** swears the bills are true copies; Northgate's letter verifies wages.",
      "more": [
-      "Custodian: true copies, kept in the **regular course**",
+      "Custodian: true copies, kept in the **regular course** of business",
       "Lets bills into evidence without calling each provider",
       "Ask for it **with every** certified records request",
       "Northgate's letter proves $1,584.00 in wages"
@@ -2212,12 +2212,12 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "Court Affidavits",
-     "text": "The **affidavit of service** proves Smith was served and starts his answer clock.",
+     "text": "The **affidavit of service** proves Smith was served, which starts his time to answer.",
      "more": [
       "Sworn by **the process server**",
       "Filed with the court 10/16/2026",
       "The UM waivers' acknowledgments make them **court-ready**",
-      "Every one checked before it is filed"
+      "Check every one before it is filed"
      ]
     }
    ],
@@ -2287,9 +2287,9 @@ window.CM_CF_SLIDES = {
   "hook": "**The first line is the decision**; the facts come after it.",
   "points": [
    "Open with **the decision and its deadline**",
-   "Then why, then **the facts with their sources**",
-   "Give **every option** and what follows from each",
-   "**One note, one decision**, logged the same day"
+   "Next, why; then **the facts and their sources**",
+   "Give **every option** and what happens after each",
+   "**One note, one decision**; log it the same day"
   ],
   "upl": "You frame the decision; **Atty. Thorne makes it**",
   "dos": [
@@ -2299,8 +2299,8 @@ window.CM_CF_SLIDES = {
   ],
   "donts": [
    "**Telling the story first**, the question last",
-   "A subject line of **“Update”**",
-   "Leaving out **the option you dislike**"
+   "Writing **“Update”** as the subject line",
+   "Leaving out **the option you don't recommend**"
   ],
   "milestones": {
    "title": "Decision-First, in five lines",
@@ -2308,7 +2308,7 @@ window.CM_CF_SLIDES = {
     {
      "label": "Decision + deadline",
      "chip": "03/12/2026",
-     "done": "First line and subject: **decline Summit's LOP request**"
+     "done": "First line and subject: **approve declining Summit's LOP**"
     },
     {
      "label": "Why",
@@ -2321,11 +2321,11 @@ window.CM_CF_SLIDES = {
     },
     {
      "label": "Options",
-     "done": "If yes, if no: **what you'll do** after each"
+     "done": "Say **what you'll do** if yes and if no"
     },
     {
      "label": "Log",
-     "done": "The note and his answer logged **the same day**"
+     "done": "Log the note and his answer **the same day**"
     }
    ]
   },
@@ -2337,7 +2337,7 @@ window.CM_CF_SLIDES = {
    "owner": "Case Manager"
   },
   "theory": {
-   "lead": "The Case Manager is **the central router** of information; a note to the attorney must make his decision quick and clear.",
+   "lead": "The Case Manager is **the hub** all information passes through; a note to the attorney must make his decision quick and clear.",
    "concepts": [
     {
      "term": "The Legal Loop",
@@ -2537,23 +2537,23 @@ window.CM_CF_SLIDES = {
  },
  "d2m2-l1": {
   "image": "treatment-plan",
-  "hook": "An LOP **out of Payer Order** turns a payable bill into a lien on his net.",
+  "hook": "An LOP **out of Payer Order** turns a payable bill into a lien on his take-home.",
   "points": [
    "Run the Payer Order: **PIP → MedPay → Peach State → LOP**",
-   "Use an LOP **only where earlier payers can't**",
-   "Atty. Thorne sets LOP terms; **never promise payment** amounts, reductions or dates",
-   "Decline an LOP **an earlier payer makes needless**"
+   "Use an LOP **only when earlier payers can't pay**",
+   "Atty. Thorne sets the terms; **never promise** an amount, reduction or date",
+   "If an earlier payer can pay, **decline the LOP**"
   ],
-  "upl": "You prepare and route LOPs; never set terms, sign, promise payment or explain liability.",
+  "upl": "Prepare and route LOPs; never set terms, sign, promise payment or explain his liability",
   "dos": [
    "Ask **“Is the plan working?”** at every contact",
-   "Tell John Doe **which payer handles which bill**",
-   "Reconcile **conflicting provider statements** at once"
+   "Tell John Doe **which payer pays which bill**",
+   "Resolve **provider notes that disagree** at once"
   ],
   "donts": [
-   "An LOP **before checking PIP, MedPay** and Peach State",
+   "Issuing an LOP **before checking PIP, MedPay** and Peach State",
    "Telling a provider **“paid in full at settlement”**",
-   "Mission creep: taking on **every problem John Doe raises**"
+   "Taking on **every problem John Doe raises**"
   ],
   "redFlag": {
    "see": "A provider wants your word they'll be **paid in full** at settlement",
@@ -2562,15 +2562,15 @@ window.CM_CF_SLIDES = {
    "owner": "Atty. Thorne"
   },
   "theory": {
-   "lead": "Once the claim is set up, the Case Plan runs on **three pillars**: clinical care, functional status and subrogation management, which sets who pays.",
+   "lead": "After claim set-up, the Case Plan stands on **three pillars**: clinical care, daily function, and subrogation management, which sets who pays.",
    "concepts": [
     {
      "term": "Payer Order",
-     "text": "The default sequence: MedPay or PIP first, health insurance next, an LOP last. **Order keeps liens down**"
+     "text": "The usual order: MedPay or PIP first, health insurance next, an LOP last. **The right order keeps liens down**"
     },
     {
      "term": "MedPay vs. PIP",
-     "text": "First-party coverage for Medical Bills regardless of fault, up to its limit; **unlike PIP, no wages**",
+     "text": "Coverage that pays Medical Bills whoever was at fault, up to its limit; **unlike PIP, it pays no wages**",
      "more": [
       "John Doe's PIP: **$10,000 at Harbor Point**, as a passenger in the Escape, with $5,000 of MedPay behind it",
       "PIP paid the ER and EMS, $10,000.00, in one go; MedPay then paid in date order: $685.00, $640.00, $2,395.00, $640.00, $640.00",
@@ -2584,9 +2584,9 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "Letter of Protection",
-     "text": "The client's signed agreement that a provider is paid from any recovery: **a consensual lien** on his net",
+     "text": "The client's signed agreement that a provider is paid from any recovery: **a lien he agrees to**",
      "more": [
-      "Only for care earlier payers can't carry: Riverton Spine & Rehab is out of network",
+      "Only for care earlier payers can't cover: Riverton Spine & Rehab is out of network",
       "Summit Imaging's 03/11/2026 request declined: **MedPay pays first**",
       "Terms, template and signature are Atty. Thorne's; you prepare, route and transmit",
       "Never promise a provider an amount, a reduction or a date"
@@ -2598,7 +2598,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "Monitoring Progress",
-     "text": "Evaluating clinical and functional outcomes, not checking boxes: **ask about the plan**, not just “How are you?”",
+     "text": "Check how care and daily function improve, not ticking boxes: **ask about the plan**, not just “How are you?”",
      "more": [
       "Facilitation: transport, paperwork, scheduling",
       "Coordination: every provider on one plan",
@@ -2608,7 +2608,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "Crisis Intervention",
-     "text": "Stepping in when care is denied or stalled by bureaucracy: **adjust the plan** to the immediate issue first"
+     "text": "Step in when care is denied or stuck in paperwork: **fix the urgent problem** first"
     },
     {
      "term": "Medication Red Flags",
@@ -2625,7 +2625,7 @@ window.CM_CF_SLIDES = {
     "steps": [
      {
       "label": "Identify the payers",
-      "text": "Primary payer determination: list every source and its default order; primacy is Atty. Thorne's call"
+      "text": "List every payer and its usual order; who pays first is Atty. Thorne's call"
      },
      {
       "label": "MedPay or PIP",
@@ -2637,7 +2637,7 @@ window.CM_CF_SLIDES = {
      },
      {
       "label": "Letter of Protection",
-      "text": "Last rung, for care earlier payers can't carry: paid from any recovery, on Atty. Thorne's terms"
+      "text": "Last step, for care earlier payers can't cover: paid from any recovery, on Atty. Thorne's terms"
      }
     ],
     "note": "On this file: Harbor Point PIP, then Harbor Point MedPay, then Peach State, then an LOP; providers bill whom they bill"
@@ -2646,34 +2646,34 @@ window.CM_CF_SLIDES = {
  },
  "d2m2-eob": {
   "image": "money-ledger",
-  "hook": "Every bill's story is in **the EOB and the PIP ledger**: read them before you answer",
+  "hook": "Before you answer about a bill, read **the EOB and the PIP ledger**",
   "points": [
-   "Read billed, allowed, **write-off, paid**, member share, in order",
-   "Member responsibility is **the most a provider may bill**",
-   "A plan's lien starts at **what it paid**, never billed",
-   "PIP paid $10,000.00 on 03/04/2026; MedPay **$5,000.00 in five checks**, exhausted 06/26/2026"
+   "Read the lines in order: billed, allowed, **write-off, paid**, member share",
+   "Member responsibility is **the most an in-network provider may bill**",
+   "A plan's lien starts at **what it paid**, never what was billed",
+   "PIP paid $10,000.00 on 03/04/2026; MedPay paid **$5,000.00, used up 06/26/2026**"
   ],
-  "upl": "Read and report what payers paid; whether a balance is owed is Atty. Thorne's",
+  "upl": "Report what payers paid; whether he owes a balance is Atty. Thorne's call",
   "dos": [
    "Read every EOB to **the member-responsibility line**",
    "Keep billed and paid **on the same CMS line**",
    "Tell John Doe **what you are doing** about a bill"
   ],
   "donts": [
-   "A lien logged **at the billed amount**",
-   "A contractual write-off treated as **the client's debt**",
-   "A bill sent to MedPay **after 06/26/2026**"
+   "Logging a lien **at the billed amount**",
+   "Treating a write-off as **money the client owes**",
+   "Sending a bill to MedPay **after 06/26/2026**"
   ],
   "ruleEx": {
    "rule": "A plan's reimbursement claim is **what it paid, never what was billed**",
-   "exception": "Crescent's 07/01/2026 statement for $1,540.00 is **a balance bill**: route it to Atty. Thorne the same day",
+   "exception": "Crescent's 07/01/2026 bill to John for $1,540.00 is **a balance bill**: send it to Atty. Thorne that day",
    "onFile": "Peach State EOB 06/03/2026: billed $3,400.00, plan paid $1,860.00",
    "confirm": "Atty. Thorne handles the balance bill"
   },
   "redFlag": {
    "spoken": true,
    "see": "A lien logged **at the billed amount**, or a bill sent to MedPay after 06/26/2026",
-   "costs": "The lien is overstated by the contractual adjustment, or the bill goes to an exhausted payer",
+   "costs": "The lien is too high by the write-off, or the bill goes to a payer with nothing left",
    "do": "Log the plan-paid **$1,860.00**; check PIP's balance before routing any bill",
    "owner": "Case Manager"
   },
@@ -2686,14 +2686,14 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "Billed vs. Allowed",
-     "text": "Billed is the provider's charge; allowed is the plan's fee schedule. **The gap is written off** in network"
+     "text": "Billed is the provider's charge; allowed is what the plan's fee schedule permits. In network, **the difference is written off**"
     },
     {
      "term": "Remark Codes",
      "text": "Short codes that explain each line: CO-45 is the fee-schedule write-off, AC1 **flags a possible accident**",
      "more": [
-      "CO-45: charge above the in-network fee schedule; the difference is the provider's",
-      "AC1: possibly accident-related, which attaches the plan's reimbursement right",
+      "CO-45: the charge was above the in-network fee schedule; the provider absorbs the difference",
+      "AC1: possibly accident-related; this gives the plan a right to be paid back",
       "AC1 also brings the plan's accident questionnaire",
       "Route it to Atty. Thorne **before John Doe returns it**"
      ]
@@ -2726,7 +2726,7 @@ window.CM_CF_SLIDES = {
       "PIP $10,000.00 exhausted 03/04/2026; MedPay $5,000.00 **exhausted 06/26/2026**",
       "Later bills come back with a notice of exhaustion",
       "The firm's PIP Log (RS71) tracks each check and the limit remaining",
-      "Pitfall: sending a bill to PIP after exhaustion"
+      "Pitfall: sending a bill to PIP after it is used up"
      ]
     },
     {
@@ -2799,23 +2799,23 @@ window.CM_CF_SLIDES = {
  },
  "d2m2-lop": {
   "image": "client-call",
-  "hook": "An LOP gets John Doe treated now, paid **from the settlement**.",
+  "hook": "An LOP lets John Doe get treated now; the provider is paid **from the settlement**.",
   "points": [
-   "An LOP is **a promise against the recovery**, not insurance",
+   "An LOP is **a promise to pay from the recovery**, not insurance",
    "Sign it **before the first visit**, then file it",
-   "Track the balance: **ledger every 30 days**",
-   "Referrals: **options and logistics**, never which care"
+   "Track the balance: **get the ledger every 30 days**",
+   "Referrals: give **options and logistics**, never pick his care"
   ],
   "upl": "Give the options and book **his choice**; never recommend a provider",
   "document": {
    "name": "Letter of Protection",
    "doc": "RS13",
-   "definition": "The firm's signed promise that a provider's **reasonable charges are paid** from any recovery, so treatment starts now; not insurance.",
-   "purpose": "Lets care continue when no payer applies: the provider **defers collection** in exchange for payment protected from the settlement, judgment or verdict.",
-   "evidence": "Fixes the lien: Riverton Spine & Rehab's charges come from the recovery, and it shows **John Doe stays responsible** whether or not there is one.",
+   "definition": "The firm's signed promise that a provider's **reasonable charges are paid** from any recovery, so care starts now. It is not insurance.",
+   "purpose": "Keeps care going when no payer applies: the provider **waits to be paid**, and its payment is protected from the settlement, judgment or verdict.",
+   "evidence": "Sets the lien: Riverton Spine & Rehab is paid from the recovery, and **John Doe stays responsible** whether or not there is one.",
    "handling": [
     "Check **every payer first**; Atty. Thorne approves the LOP",
-    "Signed **before the first visit**: Riverton's 02/23/2026, first visit 02/24",
+    "Sign **before the first visit**: Riverton's on 02/23/2026, first visit 02/24",
     "File it; request **the itemized ledger** every 30 days",
     "What it means for his recovery is **Atty. Thorne's to explain**"
    ]
@@ -2823,16 +2823,16 @@ window.CM_CF_SLIDES = {
   "dos": [
    "Check **every payer** before an LOP",
    "Give **options with facts**; he chooses",
-   "Disclose **any firm relationship**"
+   "Disclose **any firm relationship** with a provider"
   ],
   "donts": [
    "Saying one provider is **better for the case**",
-   "Calling the LOP bill **free**",
-   "Letting the balance **surprise the Net Sheet**"
+   "Calling LOP care **free**; he still owes the balance",
+   "Letting the LOP balance **surprise the Net Sheet**"
   ],
   "ruleEx": {
    "rule": "Offer **options and logistics**: providers near him that take an LOP, with hours and distance; he chooses, you book",
-   "exception": "**Never which care**: not 'they write great reports' or 'chiropractic will make your case worth more'",
+   "exception": "**Never choose his care**: never 'they write great reports' or 'chiropractic will make your case worth more'",
    "onFile": "Crescent Pain & Spine is in network with Peach State",
    "confirm": "Atty. Thorne sets the LOP's terms"
   },
@@ -2881,14 +2881,14 @@ window.CM_CF_SLIDES = {
  },
  "d2m2-cost": {
   "image": "money-ledger",
-  "hook": "Every trip to treatment costs the client: **only a logged cost** reaches the demand.",
+  "hook": "Treatment costs the client money; **only a logged cost** can reach the demand.",
   "points": [
-   "Out-of-pocket costs are **Specials**, each with its receipt",
+   "Out-of-pocket costs are **Specials** (money damages); each needs a receipt",
    "Log every trip: **date, provider, round-trip miles**",
-   "Mileage rate: **the governing state's rules**, confirmed by counsel",
-   "Rental past the cutoff is **the owner's out-of-pocket** cost"
+   "The mileage rate follows **the governing state's rules**; Atty. Thorne confirms it",
+   "A rental the carrier didn't pay is **the owner's cost**"
   ],
-  "upl": "Log the costs; **never promise repayment**: the claim is Atty. Thorne's",
+  "upl": "Log the costs; **never promise repayment**; what's claimed is Atty. Thorne's",
   "dos": [
    "Start the trip log **at the first visit**",
    "File each receipt **the day it arrives**"
@@ -2900,7 +2900,7 @@ window.CM_CF_SLIDES = {
   "ruleEx": {
    "rule": "**Enter each cost the day its receipt arrives**: no receipt, no claim",
    "exception": "**Check the payers first** and record who paid, so nothing is claimed twice",
-   "onFile": "Keystone paid Margaret's rental, $1,260.00: her PD claim, not John's Specials",
+   "onFile": "Keystone paid Margaret's rental, $1,260.00: part of her Property Damage claim, not John's Specials",
    "confirm": "Atty. Thorne decides what the demand claims"
   },
   "redFlag": {
@@ -2911,7 +2911,7 @@ window.CM_CF_SLIDES = {
    "owner": "Atty. Thorne"
   },
   "theory": {
-   "lead": "Treatment costs the client money no provider bill shows: **documented when it happens**, it can reach the demand.",
+   "lead": "Treatment costs the client money that no provider's bill shows; **logged when it happens**, it can reach the demand.",
    "concepts": [
     {
      "term": "Out-of-Pocket Costs",
@@ -3517,7 +3517,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "label": "Open on the record",
-     "text": "Date, participants, your role, his consent, privacy"
+     "text": "Say the date, who's on, your role; get consent; check privacy"
     },
     {
      "label": "Ask open, follow his words",
@@ -3529,36 +3529,36 @@ window.CM_CF_SLIDES = {
     },
     {
      "label": "Read it back",
-     "text": "He corrects your summary; opinion questions routed"
+     "text": "Read your summary; he corrects it; route opinion questions"
     },
     {
      "label": "Record and task",
-     "text": "His words as given; a dated task per document"
+     "text": "Write his exact words; a dated task per document"
     }
    ]
   },
   "hook": "The gap explanation that holds up is **John Doe's own**, backed by documents.",
   "points": [
-   "Investigate, don't advocate: write **questions only**, never expected answers",
-   "Funnel: **open first**, closed questions last, one at a time",
-   "**Never lead**: a suggested reason gets agreement, not information",
-   "Record **only with his spoken consent**; protect privilege"
+   "Find facts, don't take sides: plan **questions only**, not expected answers",
+   "Ask **open questions first**, closed ones last, one at a time",
+   "**Never lead**: if you suggest a reason, he just agrees",
+   "Record **only with his spoken yes**; keep it private to protect privilege"
   ],
   "upl": "Never say what the gap does to his case; route that to Atty. Thorne.",
   "dos": [
-   "**Ask open**, follow his words, close last",
-   "Paraphrase back and **let him correct you**",
+   "**Ask open questions**, follow his words, close last",
+   "Repeat it back and **let him correct you**",
    "**Prevent the next gap** now; it's cheaper than explaining it"
   ],
   "donts": [
-   "A question that **names the reason** you expect",
-   "Reassuring or alarming him: **both are case opinions**",
+   "Asking a question that **names the reason** you expect",
+   "Reassuring or alarming him: **both are opinions on his case**",
    "**Blaming the client** for the gap"
   ],
   "ruleEx": {
    "rule": "John's recorded account **to his own firm**, with consent, stays inside the firm",
    "exception": "**Keystone asks for a Recorded Statement**: he declines and refers it to the firm",
-   "onFile": "Harbor Point or Cardinal State requests fall under cooperation clauses",
+   "onFile": "A Harbor Point or Cardinal State request is different: their policies may require cooperation",
    "confirm": "Atty. Thorne handles first-party carrier requests"
   },
   "redFlag": {
@@ -3569,15 +3569,15 @@ window.CM_CF_SLIDES = {
    "owner": "Case Manager"
   },
   "theory": {
-   "lead": "The Golden Rule: coordinate, don't commingle. The medical plan and the legal claim are **two parallel tracks** that never cross-contaminate, even in a gap interview.",
+   "lead": "The Golden Rule: coordinate, don't commingle. The medical plan and the legal claim are **two separate tracks** that never mix, even in a gap interview.",
    "concepts": [
     {
      "term": "Case Manager Neutrality",
-     "text": "Legal opinions in medical or call notes let the defense **impeach your neutrality**; record facts, never conclusions"
+     "text": "A legal opinion in your notes lets the defense **attack your neutrality**; write facts, never conclusions"
     },
     {
      "term": "Gaps as Legal Danger",
-     "text": "Under A-C-T, a gap in care is **a legal danger**, not medical: it routes to Atty. Thorne",
+     "text": "Under A-C-T, a gap in care is **a legal danger**, not a medical one: it goes to Atty. Thorne",
      "more": [
       "After each reason, ask **what shows it in writing**",
       "A work schedule, a doctor's availability note, a travel log, a text or a receipt",
@@ -3587,7 +3587,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "Active Listening",
-     "text": "Reflect and paraphrase his words, then summarize: he **feels heard and corrects** what you got wrong",
+     "text": "Repeat his words back, then sum up: he **feels heard and corrects** what you got wrong",
      "more": [
       "Funnel: **broad open questions first**, then follow-ups on his own words",
       "Closed questions last, only to pin a date, a name or a document",
@@ -3597,7 +3597,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "Attorney-Client Privilege",
-     "text": "Confidential firm-client communication is privileged; **a third person** in the conversation can put that protection at risk",
+     "text": "Private talk between the firm and its client is privileged; **a third person** on the call can risk that",
      "more": [
       "Record only with consent: date, who is on the call, **his spoken yes**",
       "Confirm he can talk privately",
@@ -3802,31 +3802,31 @@ window.CM_CF_SLIDES = {
  },
  "d2m3-cause": {
   "image": "medical-visit",
-  "hook": "Proving negligence is **only half the battle**: prove the collision caused the harm.",
+  "hook": "Fault is **only half the case**: you also need proof the crash caused the harm.",
   "points": [
-   "Fault proves negligence; **causation and damages** must be proved too",
-   "A medical professional writes it, to **reasonable medical probability**",
-   "Atty. Thorne requests it; you **assemble, track and check**",
-   "Check it against the file: **date of loss, level, visits**"
+   "Fault proves negligence; **causation and damages** need proof too",
+   "A medical professional writes it; the standard is **more likely than not**",
+   "Atty. Thorne requests it; you **gather records, track and check**",
+   "Check it against the file: **date of loss, injury level, visits**"
   ],
   "upl": "You request, track, check and file; **never draft or coach** the opinion",
   "document": {
    "name": "Causation Letter",
    "doc": "RS19",
-   "definition": "A formal letter: a **medical professional's opinion** linking the accident to the specific injuries, from a treating physician, surgeon or independent medical expert.",
-   "purpose": "Proves the half negligence can't: that the defendant's conduct **directly caused** the specific harm, medical expenses and ongoing limitations claimed.",
-   "evidence": "Its opinions, held more likely than not, tie the C5-C6 herniation to 02/06/2026 and **answer the 14-Day Gap** and 2021 visits.",
+   "definition": "A formal letter in which a **medical professional** links the accident to the specific injuries: a treating doctor, surgeon or independent medical expert.",
+   "purpose": "Proves what fault alone can't: that the defendant's conduct **directly caused** the harm, the medical expenses and the ongoing limitations claimed.",
+   "evidence": "Its opinions, more likely than not, tie the C5-C6 herniation to 02/06/2026 and **answer the 14-Day Gap** and the 2021 visits.",
    "handling": [
-    "Atty. Thorne requests it; you **assemble the record set** and docket follow-up",
+    "Atty. Thorne requests it; you **gather the records** and set follow-up",
     "On arrival, **check it against the file**: date of loss, level, visits",
     "File it under Medical; **cite it** on the Gap Explanation Record",
     "**Never draft or coach** the opinion; what it means stays Atty. Thorne's"
    ]
   },
   "dos": [
-   "Send the doctor **the complete record set**, priors included",
+   "Send the doctor **all the records**, older ones included",
    "Read the letter **against the file** the day it arrives",
-   "Check every injury claimed has **a medical link**"
+   "Make sure every injury claimed has **a medical link**"
   ],
   "donts": [
    "Suggesting or **shaping the doctor's words**",
@@ -3840,7 +3840,7 @@ window.CM_CF_SLIDES = {
    "owner": "Atty. Thorne"
   },
   "theory": {
-   "lead": "Negligence is **only half the battle**: a personal injury claim must also prove causation and damages, and a Causation Letter is medicine's proof of the link.",
+   "lead": "Negligence is **only half the case**: an injury claim must also prove causation and damages, and a Causation Letter is the medical proof of the link.",
    "concepts": [
     {
      "term": "The Two Halves",
@@ -3871,7 +3871,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "Aggravation and Prior Conditions",
-     "text": "A prior injury in the same region makes it an aggravation question; John Doe's 2021 care was **a different region**.",
+     "text": "Prior injury to the same area raises aggravation, an old problem made worse; John's 2021 care treated **his low back**.",
      "more": [
       "Birch Avenue Chiropractic, 2021: three low-back visits, resolved; no prior neck complaint",
       "Dr. Reyes: the 2021 care is unrelated and **has no bearing** on the cervical injury",
@@ -6041,36 +6041,36 @@ window.CM_CF_SLIDES = {
  },
  "d4m1-l1": {
   "image": "insurance-stack",
-  "hook": "One $10,000 carrier now holds **the whole $40,000 stack**; prove the impasse with dates.",
+  "hook": "One $10,000 carrier blocks **all $40,000 of coverage**, so prove the impasse with dates.",
   "points": [
-   "Document impasse on **its triggers**, not frustration; Atty. Thorne calls it",
-   "Work the dispute path first; litigation only when **nothing moves the carrier**",
-   "Never **bid against yourself**; any new number is Atty. Thorne's",
-   "Filing is counsel's decision; **its inputs are yours** to verify"
+   "Impasse needs **dated triggers**, not frustration; Atty. Thorne decides",
+   "A lawsuit comes last: only when **nothing else moves the carrier**",
+   "Never **lower your own number**; any new number is Atty. Thorne's",
+   "Atty. Thorne decides to file; **you check the facts** behind it"
   ],
-  "upl": "Document the impasse and ask; never recommend suit or value the claim.",
+  "upl": "Record the impasse and ask Atty. Thorne; never recommend suit or value the claim.",
   "dos": [
-   "Date every contact **the day it happens**",
-   "Ask for the carrier's reasons and evidence **in writing**",
-   "Escalate a silent adjuster **to the supervisor** first"
+   "Log every contact **the day it happens**",
+   "Ask the carrier to put reasons and evidence **in writing**",
+   "If the adjuster goes silent, **go to the supervisor**"
   ],
   "donts": [
-   "Treating silence as negotiation and **waiting another month**",
-   "Sending a UM demand **before BI is exhausted**",
-   "Telling John Doe it “will have to go **to court**”"
+   "Waiting **another month** because the carrier is silent",
+   "Sending a UM demand before **the BI limit is exhausted**",
+   "Telling John Doe the case “will go **to court**”"
   ],
   "redFlag": {
-   "see": "Frustration with Keystone **called 'impasse'** without its dated triggers",
-   "costs": "Impasse is proved by five dated triggers; whether to sue is Atty. Thorne's call",
-   "do": "Log each trigger with date and proof; **send Keystone no new number**",
+   "see": "Calling Keystone's delay **an impasse** with no dated triggers logged",
+   "costs": "Without the five dated triggers, impasse is not proved; Atty. Thorne decides on suit",
+   "do": "Log each trigger with its date and proof; **offer Keystone no new number**",
    "owner": "Atty. Thorne"
   },
   "theory": {
-   "lead": "An impasse is **a stall the record proves**: the carrier holds its number after every rebuttal, follow-up and escalation, and the file reaches the litigation fork.",
+   "lead": "An impasse is **a stall the record proves**. The carrier keeps its number after every rebuttal, follow-up and escalation. Now the file may go to court.",
    "concepts": [
     {
      "term": "The Stall",
-     "text": "An adjuster's delay line, such as “waiting on authority”, meant to **wear you down**; log it, never accept it",
+     "text": "A delay excuse, like “waiting on authority”, meant to **wear you down**. Log it; never accept it",
      "more": [
       "Log each stall the day it happens, with its date and proof, in Case Notes",
       "Never accept “that's all I have” as final: every adjuster has **a supervisor**",
@@ -6080,7 +6080,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "The Rebuttal",
-     "text": "Each stall gets a factual answer and a firm reply date; **a rebuttal left unanswered** becomes evidence of impasse",
+     "text": "Answer each stall with facts and a firm reply date. **An unanswered rebuttal** becomes proof of impasse",
      "more": [
       "Keystone's grounds: the 14-Day Gap and a “degenerative” MRI",
       "The 08/06 rebuttal answered both; the 08/12 “final” answered **none of it**",
@@ -6090,7 +6090,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "Reasons in Writing",
-     "text": "Ask the carrier to state **its reasons in writing**; a named ground can be rebutted, a vague one cannot"
+     "text": "Ask the carrier for **its reasons in writing**. You can answer a named reason, not a vague one"
     },
     {
      "term": "The Four Elements",
@@ -6159,37 +6159,37 @@ window.CM_CF_SLIDES = {
  },
  "d4m1-l2": {
   "image": "legal-filing",
-  "hook": "Once suit is authorized, **a court clock** replaces the adjuster's: status, fields, folders, calendar change together.",
-  "whyLine": "Once suit is authorized, **a court clock** replaces the adjuster's.",
+  "hook": "Once suit is authorized, **the court sets the deadlines**: change status, fields, folders and calendar together.",
+  "whyLine": "Once suit is authorized, **the court sets the deadlines**, not the adjuster.",
   "points": [
-   "Change status only on **Atty. Thorne's dated authorization** to sue",
-   "Fill court fields from the record; **never guess a number**",
-   "Notify the UM carriers **as each policy requires**: no figure",
-   "Seed the Litigation Calendar **the day status changes**"
+   "Change status to Litigation only with **Atty. Thorne's dated authorization**",
+   "Fill court fields from the record; **never guess the case number**",
+   "Notify UM carriers **as each policy requires**; give no dollar figure",
+   "Set up the Litigation Calendar **the day status changes**"
   ],
-  "upl": "Tell John Doe what happens next; what it means is Atty. Thorne's.",
+  "upl": "Tell John Doe the next steps; Atty. Thorne explains what they mean.",
   "dos": [
-   "Change status, fields, folders and calendar **in one sitting**",
-   "Audit deadlines and exhibits; **don't just track** them",
-   "Tailor the binder **to the neutral**"
+   "Update status, fields, folders and calendar **at the same time**",
+   "Check each deadline and exhibit; **don't just track** them",
+   "Build the binder **for the mediator or arbitrator**"
   ],
   "donts": [
-   "Leaving “scan001.pdf” **in a litigation folder**",
+   "Leaving a file named “scan001.pdf” **in a litigation folder**",
    "Treating mediation and arbitration **as the same thing**",
-   "Assuming an arbitration error **can be appealed**"
+   "Assuming an arbitration mistake **can be appealed**"
   ],
   "redFlag": {
-   "see": "A **pre-litigation habit** left in a court file",
-   "costs": "It costs a deadline: status, fields, folders and calendar must change together",
-   "do": "Change all four **in one sitting**, citing Atty. Thorne's 09/09/2026 authorization",
+   "see": "**Old pre-suit habits** still running in a court file",
+   "costs": "A court deadline can be missed if status, fields, folders and calendar don't change together",
+   "do": "Change all four **at the same time**; cite Atty. Thorne's 09/09/2026 authorization",
    "owner": "Case Manager"
   },
   "theory": {
-   "lead": "Filing the Complaint **formally initiates the lawsuit**: the file moves from negotiation to court procedure, and later to a neutral the parties select or a court appoints.",
+   "lead": "Filing the Complaint **officially starts the lawsuit**. The file moves from negotiation to court steps, and later to a neutral the parties pick or a court appoints.",
    "concepts": [
     {
      "term": "The Complaint",
-     "text": "Counsel drafts the legal arguments; the Case Manager **verifies the factual foundation** beneath them",
+     "text": "Atty. Thorne writes the legal arguments; the Case Manager **checks the facts** under them",
      "more": [
       "Filed 09/24/2026 in the State Court of Riverton County, against Robert Smith",
       "Saved as Complaint_Filed_Stamped.pdf in 01_PLEADINGS, never scan001.pdf",
@@ -6203,7 +6203,7 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "Pre-Filing Verification",
-     "text": "The Statute Date, the defendant's **exact legal name** and a business's Registered Agent, confirmed before counsel signs",
+     "text": "Before Atty. Thorne signs, confirm the Statute Date, the defendant's **exact legal name** and a business's Registered Agent",
      "more": [
       "SOL 02/06/2028 falls on a Sunday: internal hard date 02/04/2028",
       "Internal filing cutoff 11/05/2027; the firm never relies on a weekend roll-forward",
@@ -6319,55 +6319,55 @@ window.CM_CF_SLIDES = {
  },
  "d4m2-l1": {
   "image": "clock-deadline",
-  "hook": "From 09/24/2026 the dates are set by rule, and **one mis-counted day** can end a claim.",
+  "hook": "From 09/24/2026 the law sets the dates, and **one miscounted day** can end a claim.",
   "points": [
-   "Count the court's way: **exclude the trigger day**, include the last",
-   "Served by mail? **Add 3 days**; e-service adds nothing",
-   "Forward counts roll later; **backward counts roll earlier**",
-   "Docket the SOL to **internal dates**: 02/04/2028 and 11/05/2027"
+   "**Skip the trigger day**; count the last day",
+   "Mail service: **add 3 days**; e-service adds none",
+   "Weekend? Count forward: later. **Count backward: earlier**",
+   "Calendar **internal dates** before the SOL: 02/04/2028, 11/05/2027"
   ],
-  "upl": "You compute, docket and flag; which rule governs, and extensions, are Atty. Thorne's.",
+  "upl": "You count, calendar and flag dates; Atty. Thorne decides the rule and extensions.",
   "document": {
    "name": "The Complaint",
    "doc": "RS51",
-   "definition": "The pleading that **starts the lawsuit**: caption, jurisdiction, facts, causes of action and prayer for relief, drafted and signed by Atty. Thorne.",
-   "purpose": "Filed before the SOL, it **preserves the claim** and puts negligence and negligence per se against Robert Smith before the court.",
-   "evidence": "Filed 09/24/2026 as No. 26-CV-04417, it fixes what is pleaded: **bodily-injury damages only**, $41,400.00 medical and $1,584.00 wages; no Property Damage.",
+   "definition": "The court paper that **starts the lawsuit**, drafted and signed by Atty. Thorne: caption, jurisdiction, facts, causes of action, prayer for relief.",
+   "purpose": "Filed before the SOL, it **keeps the claim alive**. It brings the negligence and negligence per se claims against Robert Smith.",
+   "evidence": "Filed 09/24/2026 as No. 26-CV-04417, it sets what is claimed: **bodily-injury damages only**, $41,400.00 medical and $1,584.00 wages; no Property Damage.",
    "handling": [
-    "Before signature, **verify the filing date** against the SOL",
-    "Confirm Robert Smith's **exact legal name** from an independent record",
-    "File **the stamped copy** in 01_PLEADINGS as Complaint_Filed_Stamped.pdf",
-    "Use the filed Complaint, **never the pre-filing draft**"
+    "**Check the filing date** against the SOL before signing",
+    "Confirm Robert Smith's **exact legal name** from a separate record",
+    "File **the stamped copy** in 01_PLEADINGS: Complaint_Filed_Stamped.pdf",
+    "Work from the filed Complaint, **never the draft**"
    ]
   },
   "dos": [
-   "Record **trigger, rule and arithmetic** on every entry",
-   "Calendar **the conservative date**, and flag it"
+   "On every entry, write **the trigger, rule and math**",
+   "Unsure? Calendar **the earlier date**; flag it"
   ],
   "donts": [
    "Counting **the trigger day** as day one",
-   "Rolling a backward deadline **forward to Monday**",
-   "Relying on **the SOL's weekend roll-forward**"
+   "Moving a backward deadline **forward to Monday**",
+   "Relying on a weekend SOL **moving to Monday**"
   ],
   "ruleEx": {
-   "rule": "**Exclude the trigger day, include the last**: served 10/14/2026 + 30 → answer 11/13/2026",
-   "exception": "A **backward count moves earlier**: arbitration brief 06/12/2027 (Sat) → 06/11/2027",
-   "onFile": "Discovery mailed 12/01/2026 + 30 + 3 → 01/04/2027",
+   "rule": "**Skip the trigger day**: served 10/14/2026 + 30 days → answer due 11/13/2026",
+   "exception": "A **backward count moves earlier**: brief day 06/12/2027 (Sat) → due 06/11/2027",
+   "onFile": "Mailed 12/01/2026: 30 + 3 mail days → 01/04/2027",
    "confirm": "Atty. Thorne confirms the governing court rule"
   },
   "redFlag": {
    "spoken": true,
-   "see": "**15 RFAs** docketed inside the general discovery entry",
-   "costs": "Unanswered RFAs may be deemed admitted",
+   "see": "**15 RFAs** (Requests for Admission) lumped into discovery",
+   "costs": "Unanswered RFAs may count as admitted",
    "do": "Give them **their own calendar entry** and alerts; tell Atty. Thorne",
    "owner": "Atty. Thorne"
   },
   "theory": {
-   "lead": "Litigation is **governed by rigid procedures**: once suit is filed, statute, rule and order set the dates, and documents shift from administrative tracking to evidence.",
+   "lead": "Litigation **follows strict procedures**. Once suit is filed, statute, court rule and order set the dates, and your documents become evidence.",
    "concepts": [
     {
      "term": "Documents Become Evidence",
-     "text": "After filing, a missing or misfiled page is no longer clerical: it **can jeopardize a trial**"
+     "text": "After filing, a missing or misfiled page is not a small office error: it **can hurt a trial**"
     },
     {
      "term": "Weekly Court Processes",
@@ -6469,38 +6469,38 @@ window.CM_CF_SLIDES = {
  },
  "d4m2-um": {
   "image": "coverage-check",
-  "hook": "A UM claim is made against **our own client's insurance**, not the other driver's.",
+  "hook": "A UM claim is made on **our client's own coverage**, not the other driver's.",
   "points": [
-   "Third party: Keystone. **First party: Harbor Point and Cardinal State**",
-   "The route is **read off the clause**, never chosen",
-   "Mandatory arbitration: file a **Demand for Arbitration**, not a complaint",
-   "Bad faith is **a separate suit**, above the policy limit"
+   "Keystone is third party; Harbor Point and Cardinal State are **first party**",
+   "The clause and state law **set the route**; nobody picks it",
+   "If arbitration is required, file a **Demand for Arbitration**, not a lawsuit",
+   "Bad faith is **a separate lawsuit** that can go above the limit"
   ],
-  "upl": "Read the clause, route it to Atty. Thorne; never call an offer unreasonable.",
+  "upl": "Read the clause and send it to Atty. Thorne; never call an offer unreasonable.",
   "dos": [
-   "Say **first party or third party** before anything else",
-   "Quote the clause; **a paraphrase is interpretation**"
+   "First, say if it is **first party or third party**",
+   "Quote the clause word for word; **retelling it is interpreting**"
   ],
   "donts": [
-   "**Filing suit** where the policy sends it to arbitration",
-   "Reading Harbor Point's clause **onto Cardinal State**",
+   "**Filing a lawsuit** when the policy requires arbitration",
+   "Applying Harbor Point's clause **to Cardinal State**",
    "Telling John Doe the carrier is **acting in bad faith**"
   ],
   "ruleEx": {
-   "rule": "**Read each layer's clause**: Harbor Point's UM arbitration clause → Demand for Arbitration; Cardinal State joins",
-   "exception": "Where a state **bars mandatory arbitration** or allows an opt-out, the route is suit",
-   "onFile": "Consolidated before Laura Whitcomb, Esq., 06/22/2027",
-   "confirm": "Atty. Thorne analyzes the route"
+   "rule": "**Read each policy's own clause**: Harbor Point's requires arbitration, so the firm files a Demand for Arbitration; Cardinal State joins",
+   "exception": "If state law **bars mandatory arbitration** or lets the insured opt out, the route is a lawsuit",
+   "onFile": "Both heard together before Laura Whitcomb, Esq., on 06/22/2027",
+   "confirm": "Atty. Thorne decides the route"
   },
   "redFlag": {
    "spoken": true,
-   "see": "The UM route **docketed off the tort SOL**",
-   "costs": "A route carries its own clock, and the wrong date misses it",
-   "do": "Docket only from **Atty. Thorne's written answer**",
+   "see": "A UM deadline **based on the injury-claim SOL**",
+   "costs": "Each route has its own deadline, and the wrong date can miss it",
+   "do": "Calendar only from **Atty. Thorne's written answer**",
    "owner": "Atty. Thorne"
   },
   "theory": {
-   "lead": "A UM/UIM claim is a **first-party claim** under coverage that protects the client, so the impasse route is set by that contract and the state's law.",
+   "lead": "A UM/UIM claim is a **first-party claim**: it is made on coverage that protects the client. So that policy and state law set the route at impasse.",
    "concepts": [
     {
      "term": "First-Party Claim",
@@ -8206,59 +8206,59 @@ window.CM_CF_SLIDES = {
  },
  "d5m4-l1": {
   "image": "binder-exhibits",
-  "hook": "Fault can reduce or bar recovery; **answer each allegation with evidence** that can come in.",
+  "hook": "Fault can cut or end recovery; answer each defense with **evidence the court allows**.",
   "points": [
-   "Don't rest liability on **report RPD-26-018842**",
-   "“Unbelted” is answered twice: **the EDR and EMS report**",
-   "Failure to mitigate: **the A-C-T record** answers the 19 days",
-   "Every item needs source, **authenticating witness and custody**"
+   "Don't rest liability on **report RPD-26-018842** alone",
+   "**Two records** answer “unbelted”: the car's EDR and the EMS report",
+   "Failure to mitigate (the 19-day break): **the A-C-T record** answers it",
+   "Each item: its source, **who can authenticate it**, its chain of custody"
   ],
-  "upl": "Gather, authenticate and index; never tell John his share of fault",
+  "upl": "Gather, authenticate and index evidence. Never tell John his share of fault",
   "dos": [
    "Answer each allegation **with a document**, not an argument",
-   "Read **the damage pattern** with the video and witness"
+   "Read **the damage pattern** alongside the video and the witness"
   ],
   "donts": [
    "Telling John he **“can't be blamed”** as a passenger",
    "Adding **Kevin Alvarez's policy** to the stack"
   ],
   "theory": {
-   "lead": "Comparative negligence **apportions fault** between the parties; the share charged to the injured person can reduce, or bar, what they recover.",
+   "lead": "Comparative negligence **splits fault** between the parties. The injured person's share can reduce, or bar, what they recover.",
    "concepts": [
     {
      "term": "Three Fault Regimes",
-     "text": "Pure, modified and contributory treat one fault finding differently: **the governing rule**, not the percentage alone, decides reduce or bar",
+     "text": "Pure, modified and contributory treat the same fault finding differently. **The governing rule** decides: reduce or bar",
      "more": [
-      "Pure: damages fall by John's share, however large",
-      "Modified: damages fall, but recovery is barred at 50% in some states, 51% in others",
-      "Contributory, in a handful of jurisdictions: **any fault bars recovery**",
+      "Pure: damages drop by John's share, however large",
+      "Modified: damages drop, but recovery is barred at 50% in some states, 51% in others",
+      "Contributory, in a handful of places: **any fault bars recovery**",
       "John at 20%: recovers 80% everywhere except contributory",
-      "Confirm the governing rule; telling John his share of fault is never yours"
+      "Confirm the governing rule; never tell John his share of fault"
      ]
     },
     {
      "term": "Liability Status",
-     "text": "Liability is accepted, partial or denied; recording **its status and source** shows Atty. Thorne what remains contested"
+     "text": "Liability is accepted, partial or denied. Record **its status and source** so Atty. Thorne sees what is still disputed"
     },
     {
      "term": "Fault Versus Mitigation",
-     "text": "Comparative fault concerns the crash; failure to mitigate concerns later care and **trims only avoidable damages**",
+     "text": "Fault is about the crash. Failure to mitigate is about later care and **cuts only avoidable damages**",
      "more": [
-      "Failure to mitigate targets 19 days without visits, 04/02 → 04/21/2026",
-      "The record answers: the A-C-T follow-up and **a documented clinical cause**",
-      "Attendance resumed 04/21 and 04/23",
+      "Failure to mitigate points to 19 days without visits, 04/02 → 04/21/2026",
+      "The record answers it: the A-C-T follow-up and **a documented clinical cause**",
+      "Visits resumed 04/21 and 04/23",
       "Burden: **generally the defense's**; confirm the rule"
      ]
     },
     {
      "term": "The Counter-Package",
-     "text": "An index answering each pleaded allegation with **evidence that can come in**, built for Atty. Thorne's analysis",
+     "text": "An index that answers each allegation with **evidence the court can admit**, for Atty. Thorne's analysis",
      "more": [
       "One allegation, one row",
-      "Every item: its source, who can authenticate it, **its chain of custody**",
-      "Doorbell video: preservation asked 02/17/2026, copy secured 02/19/2026, native file unaltered, every transfer logged",
-      "Don't rest liability on report RPD-26-018842: its admissibility varies by state",
-      "No foundation, or a holder won't produce: flag it for a Subpoena Duces Tecum"
+      "Each item: its source, who can authenticate it, **its chain of custody**",
+      "Doorbell video: preservation requested 02/17/2026; copy secured 02/19/2026; original file unchanged; every transfer logged",
+      "Don't rest liability on report RPD-26-018842: states differ on whether it is allowed",
+      "If no one can authenticate it, or a holder won't hand it over, flag it for a Subpoena Duces Tecum"
      ]
     }
    ],
@@ -8448,28 +8448,28 @@ window.CM_CF_SLIDES = {
  },
  "d5m5-l1": {
   "image": "money-ledger",
-  "hook": "Same $40,000.00 gross; **suit changes the net** to $14,713.75.",
+  "hook": "The gross is the same $40,000.00, but **the lawsuit lowers John's net** to $14,713.75.",
   "points": [
-   "Suit filed 09/24/2026: **the 40% tier**, $16,000.00",
-   "Receipt **every litigation cost**: $3,895.25 in all",
-   "Reduce liens **at the fee actually charged**",
-   "Net: **$14,713.75**, routed before John Doe signs"
+   "Suit was filed 09/24/2026, so the fee is **the 40% tier**: $16,000.00",
+   "Keep **a receipt for every litigation cost**: $3,895.25 in all",
+   "Reduce each lien using **the fee actually charged** (40%)",
+   "John's net is **$14,713.75**; route it before he signs"
   ],
-  "upl": "Explain the arithmetic; whether suing was worth it is Atty. Thorne's.",
+  "upl": "You explain the math. Whether suing was worth it is Atty. Thorne's call.",
   "dos": [
    "Show John **the 40% tier** in his retainer",
    "Attach **a receipt** to every cost"
   ],
   "donts": [
-   "Carrying **Track A's 33⅓%** into this file",
-   "Disbursing **before the liens resolve**"
+   "Using **Track A's 33⅓% fee** on this file",
+   "Paying out **before the liens are resolved**"
   ],
   "theory": {
    "lead": "The Net Sheet is **the ultimate transparency tool**: it shows the client where every dollar came from and where it goes.",
    "concepts": [
     {
      "term": "The Common Fund Doctrine",
-     "text": "The attorney's work and costs created the fund, so lienholders contribute **their proportional share** of fees and costs",
+     "text": "The firm's work and costs built the fund, so lienholders pay **their proportional share** of fees and costs",
      "more": [
       "The reduction follows **the fee actually charged**: 40% on this file",
       "Peach State: 40% of $1,860.00 is $744.00, accepted at $1,116.00 on 07/14/2027",
@@ -8479,16 +8479,16 @@ window.CM_CF_SLIDES = {
     },
     {
      "term": "The Double-Dipping Trap",
-     "text": "Carriers audit the file, so the sheet traces **every dollar to its source**, never mixing funds"
+     "text": "Carriers audit the file, so the sheet traces **every dollar to its source** and never mixes funds"
     },
     {
      "term": "Fee Structure Transparency",
-     "text": "Fees can differ by stream and stage; tracking **each stream's fee separately** keeps the ledger accurate and explainable",
+     "text": "Fees can differ by stream and stage. Track **each stream's fee separately** so the ledger stays right and explainable",
      "more": [
       "Suit filed 09/24/2026, so **the 40% tier** applies: $16,000.00 on $40,000.00",
       "Atty. Thorne confirms each stream's fee from the retainer before the Net Sheet is drafted",
       "Show John the tier in his own retainer",
-      "Track A, settled before suit, charged 33⅓%: never carry it into this file"
+      "Track A settled before suit at 33⅓%: never carry it into this file"
      ]
     },
     {
@@ -8602,16 +8602,16 @@ window.CM_CF_SLIDES = {
  },
  "d5m6-l1": {
   "image": "policy-letter",
-  "hook": "Atty. Thorne **decides the drop**; you close it out so the file proves it.",
+  "hook": "Atty. Thorne **decides to drop a case**; you close it out and keep the proof.",
   "points": [
-   "**No note, no letter**: confirm Pending Drop and the client told",
-   "Only the client's letter carries **the reason and next step**",
-   "Client: preferred method plus **Certified Mail**; others by email or fax",
-   "Log, follow up, then **switch to Dropped**; keep the proof"
+   "**No note, no letter**: confirm Pending Drop and that the client knows",
+   "Only the client's letter gives **the reason and next step**",
+   "Client: preferred method and **Certified Mail**. Others: email or fax",
+   "Log and follow up, then **switch to Dropped**; keep the proof"
   ],
-  "upl": "Atty. Thorne decides and explains; **never call a case worthless**.",
+  "upl": "Atty. Thorne decides and explains the drop. **Never call a case worthless**.",
   "dos": [
-   "Check **the gate** before you open the template",
+   "Check **the gate** (Pending Drop, client told) before the template",
    "Send the client's letter **two ways**, one with proof"
   ],
   "donts": [
@@ -8620,32 +8620,32 @@ window.CM_CF_SLIDES = {
    "Telling the client **the case is worthless**"
   ],
   "redFlag": {
-   "see": "A carrier's disengagement letter saying **she stopped treating**",
-   "costs": "Only the client's letter carries the reason, in Atty. Thorne's words: this one is a defect",
-   "do": "Strip the reason from carrier and provider letters; **send the client's as approved**",
+   "see": "A carrier's Withdrawal Letter saying **she stopped treating**",
+   "costs": "Only the client's letter gives the reason, in Atty. Thorne's words. This letter is a defect.",
+   "do": "Remove the reason from carrier and provider letters; **send the client's as approved**",
    "owner": "Atty. Thorne"
   },
   "theory": {
-   "lead": "A Dropped Case is a claim **discontinued before resolution**: documented, closed out and proved, so the client is informed and the firm is protected.",
+   "lead": "A Dropped Case is a claim **ended before it resolves**. You document, close out and prove it, so the client knows and the firm is protected.",
    "concepts": [
     {
      "term": "Why cases are dropped",
-     "text": "Unresponsive client, no liability, no coverage, unfinished treatment such as **no Health Plan**, or conflicting information",
+     "text": "Silent client, no liability, no coverage, care cut short by **no Health Plan**, or conflicting information",
      "more": [
       "Whether any reason ends a case is **Atty. Thorne's decision**",
-      "An unresponsive client arrives here only through the No Contact Protocol and its Final Warning Letter",
-      "Then Atty. Thorne chooses a Notice of Withdrawal or, in a filed suit, a Motion to Withdraw"
+      "A silent client gets here only through the No Contact Protocol and its Final Warning Letter",
+      "Then Atty. Thorne chooses a Notice of Withdrawal or, if suit is filed, a Motion to Withdraw"
      ]
     },
     {
      "term": "The Withdrawal Letter",
-     "text": "A formal notice that **the attorney-client relationship has ended**, directing the client to seek other counsel",
+     "text": "A formal notice that **the attorney-client relationship has ended**; it tells the client to find other counsel",
      "more": [
-      "One for the client and for every carrier and provider on the file",
-      "From the firm's template, over Atty. Thorne's signature",
-      "Each carries the date, client name, date of loss and claim number",
+      "One for the client and one for every carrier and provider on the file",
+      "From the firm's template, signed by Atty. Thorne",
+      "Each shows the date, client name, date of loss and claim number",
       "Saved in Word and PDF",
-      "Only the client's carries **the reason**, in Atty. Thorne's words, and the next step he approves"
+      "Only the client's gives **the reason**, in Atty. Thorne's words, and the next step he approves"
      ]
     },
     {
@@ -8657,8 +8657,8 @@ window.CM_CF_SLIDES = {
      "text": "Certified Mail receipts, dispatch logs and saved letters **protect the firm** if the drop is questioned later",
      "more": [
       "Log each dispatch: party, method and date",
-      "Follow up the return receipt, the carrier's acknowledgement, the fax confirmation",
-      "A time-sensitive party gets a call",
+      "Follow up on the return receipt, the carrier's acknowledgement and the fax confirmation",
+      "Call any time-sensitive party",
       "Then switch the status to Dropped; **keep the proof**: letters, receipts, logs, Atty. Thorne's note"
      ]
     }
@@ -8675,12 +8675,12 @@ window.CM_CF_SLIDES = {
     "rows": [
      [
       "Client",
-      "Date, DOL, the reason, and to seek other counsel",
+      "Date, date of loss, the reason, and to seek other counsel",
       "Preferred method plus **Certified Mail**"
      ],
      [
       "Carrier",
-      "Date, client, DOL, claim number; representation ended",
+      "Date, client, date of loss, claim number; representation ended",
       "Email or fax, per the CRM"
      ],
      [

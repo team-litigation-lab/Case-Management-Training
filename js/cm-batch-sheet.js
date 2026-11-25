@@ -209,7 +209,7 @@ function recentTable(ppl){
    📅 DAY BY DAY and 🏅 SCORE CARD, as Foundational's (its dayDeliverables / scoreCardTable): each Case Flow day's graded
    deliverables, a trainee at a time, with 🧾 why it was scored that way, ⭐ what they did best and 🔧 what to improve.
    A day's deliverables: ✍️ its Knowledge Check, 🧩 its modules' Learning Checks, 🧪 its Skill Activities
-   (the AI Grader's and the work log's) and 📞 graded calls, 📝 its Action Plan, 📂 its Backup Drive grade (the latest of the
+   (the grader's and the work log's) and 📞 graded calls, 📝 its Action Plan, 📂 its Backup Drive grade (the latest of the
    saved and the Worker's nightly grade), 🗂 the CMS file and 💬 the trainer's feedback on it. 📝 / 🧪 / 📝 / 📂 are
    js/cm-scorecard.js dayItems, the same items and averages as the trainee's card and 🏅 Scores.
    ============================================================ */
@@ -243,7 +243,7 @@ function dayParts(r, d){
     best: [], improve: ((quiz && quiz.missed) || []).slice(0, 4).map(q => "Missed: " + clip(q, 160))});
   else if(dev != null) out.push({grp: "kc", name: "✍️ Knowledge Check", pct: null, status: `Unconfirmed: ${dev}% on the trainee's device only`, why: `${dev}% is on the trainee's device but not on their record, so it isn't counted. 🛠 Account Repair can restore it.`, best: [], improve: []});
   else out.push({grp: "kc", name: "✍️ Knowledge Check", pct: null, status: "Not taken", why: "", best: [], improve: []});
-  // 🧩 the modules' Learning Checks (AI × 0.60 + trainer × 0.40)
+  // 🧩 the modules' Learning Checks (Automated × 0.60 + trainer × 0.40)
   const names = modNames();
   Object.entries(S && S.lcMods ? S.lcMods(cfd.modules, ctx.fb) : cfd.modules || {}).forEach(([id, s]) => { const c = num(s.c != null ? s.c : s.a);
     out.push({grp: "lc", name: `🧩 Learning Check: ${names[id] || id}`, pct: c, status: s.c != null ? "Scored" : "Awaiting the trainer's 40%",
@@ -253,13 +253,13 @@ function dayParts(r, d){
   const I = S && S.dayItems ? S.dayItems(ctx, d) : {sa: [], call: [], ap: [], bd: []};
   const subsOf = x => Object.entries(x.subs || {}).map(([k, v]) => `${k} ${v}%`).join(", ");
   I.sa.forEach(x => out.push({grp: "sa", name: `🧪 ${clip(shown(String(x.name).replace(/^Day \d+: /, "")), 90)}`, pct: num(x.pct), status: x.tier || "",
-    why: [x.tier, subsOf(x) ? "rubric: " + subsOf(x) : "", x.from === "the AI Grader" ? `AI Grader${x.tries ? ` · attempt ${x.tries}` : ""}` : "", x.at ? "graded " + dTime(x.at) : ""].filter(Boolean).join(" · "),
+    why: [x.tier, subsOf(x) ? "rubric: " + subsOf(x) : "", x.from === "the grader" ? `Graded${x.tries ? ` · attempt ${x.tries}` : ""}` : "", x.at ? "graded " + dTime(x.at) : ""].filter(Boolean).join(" · "),
     best: (x.best || []).map(y => clip(y, 200)), improve: (x.improve || []).map(y => clip(y, 200))}));
   I.call.forEach(x => out.push({grp: "call", name: `📞 ${clip(shown(x.name), 90)}`, pct: num(x.pct), status: x.tier || "",
     why: [x.tier, subsOf(x) ? "rubric: " + subsOf(x) : "", x.at ? "graded " + dTime(x.at) : ""].filter(Boolean).join(" · "), best: (x.best || []).map(y => clip(y, 200)), improve: (x.improve || []).map(y => clip(y, 200))}));
   I.ap.forEach(x => out.push({grp: "ap", name: `📝 Action Plan: ${clip(String(x.name).replace(/^Day \d+: /, ""), 80)}`, pct: num(x.pct), status: x.pct >= 70 ? "Handed in" : "Steps missing",
     why: `${x.note || ""}: the plan checked against the steps it must hold.`, best: (x.best || []).map(y => clip(y, 200)), improve: (x.improve || []).map(y => clip(y, 200))}));
-  // 🧪 a Skill Activity handed in to the AI Grader whose grading didn't come back (js/cm-ai-grader.js keeps the reason, failed)
+  // 🧪 a Skill Activity handed in to the grader whose grading didn't come back (js/cm-ai-grader.js keeps the reason, failed)
   // and that has no grade yet: listed, so a blank isn't read as work not done (it counts in no average until it is graded)
   const aig = ((data["cf-ai-grades"] || {}).blocks) || {}, CFD = window.CM_CASE_FLOW || {};
   if(Object.values(aig).some(g => g && g.failed && typeof g.score !== "number")){
@@ -269,8 +269,8 @@ function dayParts(r, d){
     Object.entries(aig).forEach(([id, g]) => {
       if(!g || !g.failed || typeof g.score === "number" || Number(dayOf[id]) !== Number(n)) return;
       out.push({grp: "sa", name: `🧪 ${clip(shown(title[id] || id), 90)}`, pct: null, status: "Handed in, not graded",
-        why: `The AI grading didn't come back: ${g.failed.why || "no answer"}${g.failed.at ? ` (${dTime(g.failed.at)})` : ""}${g.failed.detail ? `. ${clip(g.failed.detail, 160)}` : ""}`,
-        best: [], improve: ["Submit it again from the activity's AI Grader slide: an attempt that isn't graded uses none of the 3."]});
+        why: `The grading didn't come back: ${g.failed.why || "no answer"}${g.failed.at ? ` (${dTime(g.failed.at)})` : ""}${g.failed.detail ? `. ${clip(g.failed.detail, 160)}` : ""}`,
+        best: [], improve: ["Submit it again from the activity's Submit slide: an attempt that isn't graded uses none of the 3."]});
     });
   }
   // 📂 Backup Drive: exactly the items the day score and the Overall count (js/cm-scorecard.js SOURCES bd, the latest of the
@@ -283,7 +283,7 @@ function dayParts(r, d){
     if(x.missing){ out.push({grp: "bd", name: bdName, pct: 0, status: "Not done",
       why: (!rep || !rep.connected ? "No Backup Drive linked yet" : n === 1 ? "The firm's folders haven't been graded yet" : "No grade of this day yet, saved or from the Worker's nightly read of the drive") + ": counts 0, as the day is passed and the Backup Drive is required every day",
       best: [], improve: [!rep || !rep.connected ? "Link the Google Drive folder (🔗 Link my Google Drive, Day 1's Backup File Maintenance)." : n === 1 ? "Build the firm's folders and submit them." : "Open the Backup Drive so the day's grade is saved, and file the day's documents in the CMS so their copies land in their folders."]}); return; }
-    if(written){ out.push({grp: "bd", name: x.name.replace(/^Day \d+: /, ""), pct: num(x.pct), status: trainer ? "Trainer's grade" : x.pct >= 70 ? "Passed" : "Below 70%", why: x.note || "AI-graded written work, read from the trainee's Backup Drive", best: [], improve: []}); return; }
+    if(written){ out.push({grp: "bd", name: x.name.replace(/^Day \d+: /, ""), pct: num(x.pct), status: trainer ? "Trainer's grade" : x.pct >= 70 ? "Passed" : "Below 70%", why: x.note || "Graded written work, read from the trainee's Backup Drive", best: [], improve: []}); return; }
     const g = x.g && typeof x.g === "object" ? x.g : {};
     const dims = g.dims && !Array.isArray(g.dims) ? Object.entries(DIMW).filter(([k]) => typeof g.dims[k] === "number").map(([k, w]) => `${w} ${g.dims[k]}%`).join(" · ") : "";
     // 🏷 the day's File names row (names: {got, max, wrong}) leads the list when it cost points, so the cause is named
@@ -308,11 +308,11 @@ const dayAvg = xs => avgOf(xs.map(x => x.pct));
 const SC_COLS = [["kc", "✍️ Knowledge Check"], ["lc", "🧩 Learning Checks"], ["sa,call", "🧪 Activities & calls"], ["ap", "📝 Action Plan"], ["bd", "📂 Backup Drive"], ["cmsf", "🗂 CMS file"], ["fb", "📐 Trainer rubric"]];
 // what each column measures: the Score Card's note (the owner's "table that specifies what the metrics were")
 const SC_WHAT = {kc: "the day's Knowledge Check, its best score (70% passes the day)",
-  lc: "each module's Learning Check: the AI review × 0.60 + the trainer's score × 0.40 (the AI half until the trainer scores it).",
-  "sa,call": "each Skill Activity graded by the AI Grader and each graded call of the day, the latest attempt of each, averaged",
+  lc: "each module's Learning Check: the review × 0.60 + the trainer's score × 0.40 (the automated half until the trainer scores it).",
+  "sa,call": "each Skill Activity graded by the grader and each graded call of the day, the latest attempt of each, averaged",
   ap: "each action plan written in the day's Notes & Action Plan: the share of the steps it must hold",
   bd: "Day 1's folders, then each day's Backup File Maintenance, graded from the trainee's Drive (the latest of the saved and the Worker's nightly grade, a trainer's grade winning; a passed day with none counts 0)",
-  cmsf: "John Doe's file in the CMS, graded against what a correct file holds by that day (a CMS activity with nothing ticked on Check Your Work takes its AI Grader grade here; the day score counts that grade once, under 🧪)",
+  cmsf: "John Doe's file in the CMS, graded against what a correct file holds by that day (a CMS activity with nothing ticked on Check Your Work takes its graded score here; the day score counts that grade once, under 🧪)",
   fb: "the trainer's 📐 rubric score on the day's sent review"};
 const scNote = () => "What each column measures: " + SC_COLS.map(([g, l]) => `${l}: ${SC_WHAT[g] || ""}`).join(". ") + ". Day score: the 100-point model's score for the day (the four dimensions, 25/25/30/20), the same as the trainee's card. 💬 Remarks: the rating on the trainer's sent review. Hover a cell for the items it averages.";
 function scoreCardTable(ppl, day){
@@ -400,7 +400,7 @@ function kcTable(ppl){
 // (🏅 My Scores' own record, myRec, carries the trainee's Portal and Call Simulator bests in its __extra)
 function ctxFor(r){ if(r && r.__ctx) return r.__ctx; const x = B.extra[r.id] || (r && r.__extra) || {}; return {rec: r, cf: r.caseFlow || {days: {}}, data: dataOf(r), callsim: x.callsim, sim: x.sim, fb: fbRecOf(r)}; }
 const cnt = (v, f, cls) => ({v: v == null ? "" : String(v), f: f || "", cls: "gs-num " + (cls || "")});
-// 🧪 the AI Grader's attempts of a trainee (cf-ai-grades): any at all, and whether the newest one failed (with its reason)
+// 🧪 the grader's attempts of a trainee (cf-ai-grades): any at all, and whether the newest one failed (with its reason)
 function aiState(r){
   const bl = ((dataOf(r)["cf-ai-grades"] || {}).blocks) || {}, ev = [];
   Object.values(bl).forEach(g => { if(!g) return; if(typeof g.score === "number") ev.push({at: String(g.at || ""), ok: true});
@@ -428,11 +428,11 @@ const EXTRA = {
     return [cnt(`${p} / ${n}`, `${p} of ${n} days passed (70%)`, p === n ? "gs-hi" : ""), cnt(a, `${a} Knowledge Check attempts in all`)]; }},
   lc: {head: ["Trainer-scored", "Awaiting trainer"], cells: (r, c, items) => { const w = items.filter(i => i.auto).length;
     return [cnt(`${items.length - w} / ${items.length}`, "Learning Checks with the trainer's 40% in"), cnt(w || "", `${w} awaiting the trainer's 40%`, w ? "gs-mid" : "")]; }},
-  // (each Skill Activity's latest attempt, once: js/cm-scorecard.js skillActs, the work log's and the AI Grader's with its
+  // (each Skill Activity's latest attempt, once: js/cm-scorecard.js skillActs, the work log's and the grader's with its
   // rubric parts, js/cm-ai-grader.js subs)
   sa: {head: ["Accuracy", "Presence", "Risk", "Efficiency"], cells: (r, c) => { let xs = []; try{ xs = (window.cmScorecard && cmScorecard.skillActs ? cmScorecard.skillActs(c) : []).filter(x => x && x.subs); }catch(e){ xs = []; }
     if(!xs.length){ const graded = (() => { try{ return (cmScorecard.skillActs(c) || []).length; }catch(e){ return 0; } })();
-      const w = graded ? "no rubric parts kept" : whyNone(r, "sa"); return [{v: w, f: graded ? "Graded before the AI Grader kept the rubric's four parts: only its total" : w, cls: "gs-num bs-why"}].concat([0, 0, 0].map(() => ({v: "—", f: w, cls: "gs-num"}))); }
+      const w = graded ? "no rubric parts kept" : whyNone(r, "sa"); return [{v: w, f: graded ? "Graded before the grader kept the rubric's four parts: only its total" : w, cls: "gs-num bs-why"}].concat([0, 0, 0].map(() => ({v: "—", f: w, cls: "gs-num"}))); }
     return ["accuracy", "presence", "risk", "efficiency"].map(k => { const a = avgOf(xs.map(x => x.subs[k])); return {v: pct(a), f: a == null ? "" : `Average ${k} across ${xs.length} graded Skill Activit${xs.length === 1 ? "y" : "ies"} (the latest attempt of each) = ${a}%`, cls: "gs-num " + tone(a)}; }); }},
   cms: {head: ["Filed", "First time right"], cells: (r, c) => { const xs = Object.values(c.data["doc-filing"] || {}).filter(x => x && x.attempts > 0), f = xs.filter(x => x.filed).length, ft = xs.filter(x => x.filed && x.attempts === 1).length;
     return [cnt(`${f} / ${xs.length}`, `${f} of ${xs.length} documents filed`), cnt(ft, `${ft} filed right on the first attempt`)]; }},
@@ -496,7 +496,7 @@ const kcLine = x => x.kc != null ? `${dayLabel(x.d)}: best ${x.kc}% of ${x.tries
 // the columns by kind of work: each the average of cmScorecard.compute's graded items of its grading systems
 const KINDS = [
   ["✍️ Knowledge Checks %", ["kc"], "each day's Knowledge Check, its best score (70% passes the day)", "best Knowledge Check per day"],
-  ["🧪 Practical activities %", ["sa", "cc"], "the Skill Activities (the AI Grader) and the graded calls on John Doe's file, the latest attempt of each", "Skill Activities and calls"],
+  ["🧪 Practical activities %", ["sa", "cc"], "the Skill Activities (the grader) and the graded calls on John Doe's file, the latest attempt of each", "Skill Activities and calls"],
   ["📂 Backup Drive %", ["bd"], "Day 1's folders and each day's Backup File Maintenance, graded from the trainee's Drive", "folders and Backup File Maintenance"],
   ["🗂 CMS file %", ["cms"], "John Doe's case file in the CMS, against what a correct file holds by that day", "the CMS file against a correct one"],
   ["📝 Action Plan %", ["ap"], "each action plan: the share of the steps it must hold", "the steps each plan holds"]];
@@ -646,7 +646,7 @@ async function loadMine(){
   try{ MY.setup = await storeGet("drive-setup"); MY.grades = await storeGet("drive-grades"); }catch(e){}
   MY.loaded = true; MY.loading = false; if(state.view === "dashboard") render();
 }
-// what this device saved (index.html's mem): the Case Flow record (the action plans' grades) and the AI Grader's
+// what this device saved (index.html's mem): the Case Flow record (the action plans' grades) and the grader's
 const memOf = k => { try{ return typeof mem !== "undefined" && mem[k] && typeof mem[k] === "object" ? mem[k] : null; }catch(e){ return null; } };
 function myRec(){
   // 🛡 the same records as 🏅 My Performance (js/cm-scorecard.js myCtx): the cloud record, then this device's store, then

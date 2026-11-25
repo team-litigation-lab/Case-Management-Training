@@ -107,62 +107,62 @@
     }
   },
   "d2m1-l1": {
-    "lead": "Claim set-up is coverage determination: finding **which policies apply** and what limits and exclusions they carry. The LOR puts the firm on each one.",
+    "lead": "Setting up a claim means finding **which policies apply**, their limits and their exclusions. The LOR puts the firm on each one.",
     "concepts": [
       {
         "term": "Letter of Representation",
-        "text": "The firm's formal notice that it represents the client: **it moves all contact** off the client and onto the firm",
+        "text": "The firm's notice that it represents the client: **all contact now goes** to the firm, not him",
         "more": [
           "Names the client, the date of loss, the claim number and **the carrier's insured**",
-          "The insured differs: Robert Smith (Keystone), Kevin Alvarez (Harbor Point), Margaret Doe (Cardinal State)",
-          "States he was injured, a Demand Package will follow, all contact goes to the firm",
-          "Requests limits, additional coverage, every Declaration Page and preservation",
-          "Atty. Thorne signs; you send by the preferred method and log delivery"
+          "Each carrier has its own insured: Robert Smith (Keystone), Kevin Alvarez (Harbor Point), Margaret Doe (Cardinal State)",
+          "Says he was injured, a Demand Package will follow, and all contact goes to the firm",
+          "Asks for the limits, any other coverage, every Declaration Page, and that evidence is kept",
+          "Atty. Thorne signs; you send it the carrier's preferred way and log delivery"
         ]
       },
       {
         "term": "Coverage Determination",
-        "text": "Four questions: is coverage valid, what type applies, what are the limits, any exclusions? **Every LOR request** chases an answer"
+        "text": "Four questions: Is it valid? What type? What limits? Any exclusions? **Each LOR request** seeks an answer"
       },
       {
         "term": "Liability Assessment",
-        "text": "Who is legally responsible, and how far: **clear, shared or disputed**. Atty. Thorne weighs it; you secure the proof"
+        "text": "Who is legally at fault, and how much: **clear, shared or disputed**. Atty. Thorne weighs it; you secure the proof"
       },
       {
         "term": "First- and Third-Party Claims",
-        "text": "Third-party: the other driver's carrier, adverse to the client. First-party: policies covering him. **Each letter differs accordingly**"
+        "text": "Third-party: the other driver's carrier, on the other side. First-party: policies that cover him. **Each letter is different**"
       },
       {
         "term": "Information Protection",
-        "text": "The adverse carrier learns only what it must: **anything you give it** can be used against the client",
+        "text": "The other side's carrier gets only what it must: **anything you give it** can be used against him",
         "more": [
           "Keystone gets John Doe's **name only**",
           "Never his phone, address, date of birth or employer",
-          "First-party carriers, Harbor Point and Cardinal State, may verify his details",
-          "Nothing more than needed: anything written now is quoted back later"
+          "First-party carriers, Harbor Point and Cardinal State, may check his details",
+          "Write only what is needed: anything you write now is quoted back later"
         ]
       },
       {
         "term": "Notice vs. Demand",
-        "text": "Notice preserves the claim; a demand asks for payment. **UM notice comes early**; demand follows a documented BI tender",
+        "text": "Notice keeps the claim alive; a demand asks for money. **Send UM notice early**; demand after a documented BI tender",
         "more": [
-          "All three stack carriers noticed on 02/17/2026",
-          "UM policies carry notice conditions: **late notice hands a defense** to the carrier",
+          "All three stack carriers got notice on 02/17/2026",
+          "UM policies require notice: **late notice gives the carrier a defense**",
           "No UM letter asks for payment before the BI tender is documented"
         ]
       },
       {
         "term": "Preservation Request",
-        "text": "Asks the carrier to keep photos, statements, video, the vehicle and its event data: **liability proof that can vanish**"
+        "text": "Asks the carrier to keep photos, statements, video, the vehicle and its event data: **proof of fault that can disappear**"
       },
       {
         "term": "Acknowledgement",
-        "text": "The carrier's written receipt of the LOR, sometimes stating coverage and limit: **the first written answer** you log",
+        "text": "The carrier's written reply confirming it got the LOR, sometimes with coverage and limit: **the first answer** you log",
         "more": [
           "Expected within 24–48 hours of the LOR",
           "None by the **third business day**: follow up",
-          "On this file: letters out 02/17/2026, follow-up dated 02/20/2026",
-          "Keystone may hold written limits until a written request with authorizations Atty. Thorne approves"
+          "On this file: letters sent 02/17/2026; follow-up set for 02/20/2026",
+          "Keystone may not confirm limits in writing until it gets a written request with authorizations Atty. Thorne approves"
         ]
       }
     ],
@@ -308,15 +308,15 @@
     }
   },
   "d2m2-l1": {
-    "lead": "Once the claim is set up, the Case Plan runs on **three pillars**: clinical care, functional status and subrogation management, which sets who pays.",
+    "lead": "After claim set-up, the Case Plan stands on **three pillars**: clinical care, daily function, and subrogation management, which sets who pays.",
     "concepts": [
       {
         "term": "Payer Order",
-        "text": "The default sequence: MedPay or PIP first, health insurance next, an LOP last. **Order keeps liens down**"
+        "text": "The usual order: MedPay or PIP first, health insurance next, an LOP last. **The right order keeps liens down**"
       },
       {
         "term": "MedPay vs. PIP",
-        "text": "First-party coverage for Medical Bills regardless of fault, up to its limit; **unlike PIP, no wages**",
+        "text": "Coverage that pays Medical Bills whoever was at fault, up to its limit; **unlike PIP, it pays no wages**",
         "more": [
           "John Doe's PIP: **$10,000 at Harbor Point**, as a passenger in the Escape, with $5,000 of MedPay behind it",
           "PIP paid the ER and EMS, $10,000.00, in one go; MedPay then paid in date order: $685.00, $640.00, $2,395.00, $640.00, $640.00",
@@ -330,9 +330,9 @@
       },
       {
         "term": "Letter of Protection",
-        "text": "The client's signed agreement that a provider is paid from any recovery: **a consensual lien** on his net",
+        "text": "The client's signed agreement that a provider is paid from any recovery: **a lien he agrees to**",
         "more": [
-          "Only for care earlier payers can't carry: Riverton Spine & Rehab is out of network",
+          "Only for care earlier payers can't cover: Riverton Spine & Rehab is out of network",
           "Summit Imaging's 03/11/2026 request declined: **MedPay pays first**",
           "Terms, template and signature are Atty. Thorne's; you prepare, route and transmit",
           "Never promise a provider an amount, a reduction or a date"
@@ -344,7 +344,7 @@
       },
       {
         "term": "Monitoring Progress",
-        "text": "Evaluating clinical and functional outcomes, not checking boxes: **ask about the plan**, not just “How are you?”",
+        "text": "Check how care and daily function improve, not ticking boxes: **ask about the plan**, not just “How are you?”",
         "more": [
           "Facilitation: transport, paperwork, scheduling",
           "Coordination: every provider on one plan",
@@ -354,7 +354,7 @@
       },
       {
         "term": "Crisis Intervention",
-        "text": "Stepping in when care is denied or stalled by bureaucracy: **adjust the plan** to the immediate issue first"
+        "text": "Step in when care is denied or stuck in paperwork: **fix the urgent problem** first"
       },
       {
         "term": "Medication Red Flags",
@@ -371,7 +371,7 @@
       "steps": [
         {
           "label": "Identify the payers",
-          "text": "Primary payer determination: list every source and its default order; primacy is Atty. Thorne's call"
+          "text": "List every payer and its usual order; who pays first is Atty. Thorne's call"
         },
         {
           "label": "MedPay or PIP",
@@ -383,7 +383,7 @@
         },
         {
           "label": "Letter of Protection",
-          "text": "Last rung, for care earlier payers can't carry: paid from any recovery, on Atty. Thorne's terms"
+          "text": "Last step, for care earlier payers can't cover: paid from any recovery, on Atty. Thorne's terms"
         }
       ],
       "note": "On this file: Harbor Point PIP, then Harbor Point MedPay, then Peach State, then an LOP; providers bill whom they bill"
@@ -398,14 +398,14 @@
       },
       {
         "term": "Billed vs. Allowed",
-        "text": "Billed is the provider's charge; allowed is the plan's fee schedule. **The gap is written off** in network"
+        "text": "Billed is the provider's charge; allowed is what the plan's fee schedule permits. In network, **the difference is written off**"
       },
       {
         "term": "Remark Codes",
         "text": "Short codes that explain each line: CO-45 is the fee-schedule write-off, AC1 **flags a possible accident**",
         "more": [
-          "CO-45: charge above the in-network fee schedule; the difference is the provider's",
-          "AC1: possibly accident-related, which attaches the plan's reimbursement right",
+          "CO-45: the charge was above the in-network fee schedule; the provider absorbs the difference",
+          "AC1: possibly accident-related; this gives the plan a right to be paid back",
           "AC1 also brings the plan's accident questionnaire",
           "Route it to Atty. Thorne **before John Doe returns it**"
         ]
@@ -438,7 +438,7 @@
           "PIP $10,000.00 exhausted 03/04/2026; MedPay $5,000.00 **exhausted 06/26/2026**",
           "Later bills come back with a notice of exhaustion",
           "The firm's PIP Log (RS71) tracks each check and the limit remaining",
-          "Pitfall: sending a bill to PIP after exhaustion"
+          "Pitfall: sending a bill to PIP after it is used up"
         ]
       },
       {
@@ -585,15 +585,15 @@
     }
   },
   "d2m3-l1": {
-    "lead": "The Golden Rule: coordinate, don't commingle. The medical plan and the legal claim are **two parallel tracks** that never cross-contaminate, even in a gap interview.",
+    "lead": "The Golden Rule: coordinate, don't commingle. The medical plan and the legal claim are **two separate tracks** that never mix, even in a gap interview.",
     "concepts": [
       {
         "term": "Case Manager Neutrality",
-        "text": "Legal opinions in medical or call notes let the defense **impeach your neutrality**; record facts, never conclusions"
+        "text": "A legal opinion in your notes lets the defense **attack your neutrality**; write facts, never conclusions"
       },
       {
         "term": "Gaps as Legal Danger",
-        "text": "Under A-C-T, a gap in care is **a legal danger**, not medical: it routes to Atty. Thorne",
+        "text": "Under A-C-T, a gap in care is **a legal danger**, not a medical one: it goes to Atty. Thorne",
         "more": [
           "After each reason, ask **what shows it in writing**",
           "A work schedule, a doctor's availability note, a travel log, a text or a receipt",
@@ -603,7 +603,7 @@
       },
       {
         "term": "Active Listening",
-        "text": "Reflect and paraphrase his words, then summarize: he **feels heard and corrects** what you got wrong",
+        "text": "Repeat his words back, then sum up: he **feels heard and corrects** what you got wrong",
         "more": [
           "Funnel: **broad open questions first**, then follow-ups on his own words",
           "Closed questions last, only to pin a date, a name or a document",
@@ -613,7 +613,7 @@
       },
       {
         "term": "Attorney-Client Privilege",
-        "text": "Confidential firm-client communication is privileged; **a third person** in the conversation can put that protection at risk",
+        "text": "Private talk between the firm and its client is privileged; **a third person** on the call can risk that",
         "more": [
           "Record only with consent: date, who is on the call, **his spoken yes**",
           "Confirm he can talk privately",
@@ -758,7 +758,7 @@
     }
   },
   "d2m3-cause": {
-    "lead": "Negligence is **only half the battle**: a personal injury claim must also prove causation and damages, and a Causation Letter is medicine's proof of the link.",
+    "lead": "Negligence is **only half the case**: an injury claim must also prove causation and damages, and a Causation Letter is the medical proof of the link.",
     "concepts": [
       {
         "term": "The Two Halves",
@@ -789,7 +789,7 @@
       },
       {
         "term": "Aggravation and Prior Conditions",
-        "text": "A prior injury in the same region makes it an aggravation question; John Doe's 2021 care was **a different region**.",
+        "text": "Prior injury to the same area raises aggravation, an old problem made worse; John's 2021 care treated **his low back**.",
         "more": [
           "Birch Avenue Chiropractic, 2021: three low-back visits, resolved; no prior neck complaint",
           "Dr. Reyes: the 2021 care is unrelated and **has no bearing** on the cervical injury",
@@ -1004,7 +1004,7 @@
     "pages": []
   },
   "d2m2-cost": {
-    "lead": "Treatment costs the client money no provider bill shows: **documented when it happens**, it can reach the demand.",
+    "lead": "Treatment costs the client money that no provider's bill shows; **logged when it happens**, it can reach the demand.",
     "concepts": [
       {
         "term": "Out-of-Pocket Costs",
@@ -1160,7 +1160,7 @@
     ]
   },
   "d2m1-first": {
-    "lead": "The Case Manager is **the central router** of information; a note to the attorney must make his decision quick and clear.",
+    "lead": "The Case Manager is **the hub** all information passes through; a note to the attorney must make his decision quick and clear.",
     "concepts": [
       {
         "term": "The Legal Loop",
@@ -1185,33 +1185,33 @@
     ]
   },
   "d2m1-afd": {
-    "lead": "An affidavit turns a fact into **proof**: sworn, on personal knowledge, by the person who knows it.",
+    "lead": "An affidavit turns a fact into **proof**: the person who knows it swears to it under oath.",
     "concepts": [
       {
         "term": "The Affidavit",
-        "text": "Facts sworn under oath before a notary, ending in a **jurat**; a false one is perjury.",
+        "text": "Facts sworn under oath before a notary, ending in a **jurat**; a false one is perjury, a crime.",
         "more": [
-          "Made on the signer's **own personal knowledge**",
-          "Jurat: “sworn to and subscribed before me”",
+          "The signer swears to what they **know first-hand**",
+          "Jurat: the closing line, “sworn to and subscribed before me”",
           "An acknowledgment only confirms **who signed**",
           "Check the notary's name, commission and seal"
         ]
       },
       {
         "term": "Coverage Affidavits",
-        "text": "Smith's **no other insurance**; John's residency and no owned vehicle, if asked.",
+        "text": "Smith swears **no other insurance**; John swears where he lives and that he owns no car, if asked.",
         "more": [
-          "Smith sworn **08/10/2026**: Keystone is all there is",
+          "Smith swore on **08/10/2026**: Keystone is his only coverage",
           "Harbor Point and Cardinal State read it before consenting",
           "Relative UM: John lives with Margaret, owns **no car**",
-          "Cardinal State confirmed in writing 03/09/2026"
+          "Cardinal State confirmed coverage in writing on 03/09/2026"
         ]
       },
       {
         "term": "Damages Affidavits",
-        "text": "Records and billing **custodian** affidavits; Northgate's wage verification.",
+        "text": "The **records custodian** swears the bills are true copies; Northgate's letter verifies wages.",
         "more": [
-          "Custodian: true copies, kept in the **regular course**",
+          "Custodian: true copies, kept in the **regular course** of business",
           "Lets bills into evidence without calling each provider",
           "Ask for it **with every** certified records request",
           "Northgate's letter proves $1,584.00 in wages"
@@ -1219,12 +1219,12 @@
       },
       {
         "term": "Court Affidavits",
-        "text": "The **affidavit of service** proves Smith was served and starts his answer clock.",
+        "text": "The **affidavit of service** proves Smith was served, which starts his time to answer.",
         "more": [
           "Sworn by **the process server**",
           "Filed with the court 10/16/2026",
           "The UM waivers' acknowledgments make them **court-ready**",
-          "Every one checked before it is filed"
+          "Check every one before it is filed"
         ]
       }
     ],

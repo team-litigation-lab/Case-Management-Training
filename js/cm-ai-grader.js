@@ -1,5 +1,5 @@
 /* ============================================================
-   🤖 The AI Grader: every Skill Building activity is handed in and scored here
+   🤖 The grader: every Skill Building activity is handed in and scored here
 
    It takes the place of the old Check Your Work slide (self-ticks over blurred answers): the activity's last slide
    (view "check", labelled AI Grader in js/cm-case-flow.js) holds a box with what the trainee did, already filled in
@@ -17,7 +17,7 @@
    left, or when the trainee chooses 🔑 I'm done (after which no more attempts), so it can't be copied into a resubmission.
 
    Saved in the trainee's own record, "cf-ai-grades" (registered here as a personal key, so it syncs with their progress):
-     {v:1, blocks:{<blockId>:{draft, score, tier, subs, summary, strengths, gaps, growth, at, tries, done, failed}}, calls:{<blockId>:{at, text}}}
+     {v:1, blocks:{<blockId>:{draft, score, tier, subs, summary, strengths, gaps, better, growth, at, tries, done, failed}}, calls:{<blockId>:{at, text}}}
    failed: {at, why, detail} is a grading that didn't come back (why in plain words, detail as the service said it), kept so the
    trainer's 📅 Day by Day lists the activity as handed in, not graded (js/cm-batch-sheet.js); it uses none of the attempts and
    is cleared when the activity is graded.
@@ -45,13 +45,13 @@ const plain = t => String(t || "").replace(/\*\*/g, "");
 // <the Worker's or the Portal AI gateway's message>"); also used by the takeaway reviews (window.cmWhyNotGraded)
 function whyNotGraded(e){
   const st = e && e.status, m = String((e && e.message) || "");
-  return /timed out|took too long/i.test(m) ? "the AI took too long to answer"
-    : st === 413 || /is too long/i.test(m) ? "the submission is longer than the AI takes at once"
-    : st === 429 || /budget|rate limit|busy|share of today/i.test(m) ? "the shared AI budget is busy or used up for now, so try again later"
+  return /timed out|took too long/i.test(m) ? "the grader took too long to answer"
+    : st === 413 || /is too long/i.test(m) ? "the submission is longer than the grader takes at once"
+    : st === 429 || /budget|rate limit|busy|share of today/i.test(m) ? "the shared grading budget is busy or used up for now, so try again later"
     : st === 401 && /sign-in required/i.test(m) ? "your session has expired: reload the page and sign in again"
-    : /not allowed|refused|unauthori[sz]ed|forbidden|api key|AI_GATEWAY|no AI key|not configured/i.test(m) ? "the site's AI connection was refused: tell your trainer"
-    : (e && e.name === "SyntaxError") || /JSON|Unexpected (token|end)|Unterminated/i.test(m) ? "the AI's answer came back incomplete"
-    : "the AI couldn't be reached";
+    : /not allowed|refused|unauthori[sz]ed|forbidden|api key|AI_GATEWAY|no AI key|not configured/i.test(m) ? "the site's grading connection was refused: tell your trainer"
+    : (e && e.name === "SyntaxError") || /JSON|Unexpected (token|end)|Unterminated/i.test(m) ? "the grade came back incomplete"
+    : "the grader couldn't be reached";
 }
 window.cmWhyNotGraded = whyNotGraded;
 const CF = () => window.CM_CASE_FLOW || {days: []};
@@ -140,7 +140,7 @@ function evidenceLines(id){
 }
 
 /* ---------- the slide ---------- */
-/* one challenge, "what happened → why it matters → how to fix it" (the AI's feedback rule, index.html HUMAN_FEEDBACK),
+/* one challenge, "what happened → why it matters → how to fix it" (the grader's feedback rule, index.html HUMAN_FEEDBACK),
    as three labelled lines; an older "what is wrong → how to correct it" as two; plain text as it is */
 function gapHtml(x){
   const p = String(x || "").split(/\s+→\s+/).map(t => t.trim()).filter(Boolean);
@@ -157,6 +157,7 @@ function resultHtml(id, r){
         ${r.summary ? `<p class="aig-coach"><b>💬 Your coach's note</b>${E(r.summary)}</p>` : ""}
         ${(r.strengths || []).length ? `<h4>✅ What you did well</h4>${list(r.strengths, "aig-good")}` : ""}
         ${(r.gaps || []).length ? `<h4>🎯 What to work on next</h4>${list(r.gaps, "aig-next", gapHtml)}` : ""}
+        ${(r.better || []).length ? `<h4>💡 What you could have done better</h4>${list(r.better, "aig-better")}` : ""}
         ${(r.growth || []).length ? `<h4>🌱 Try this next time</h4>${list(r.growth, "aig-grow")}` : ""}
       </div>
       <div class="aig-row"><small>Graded ${E(new Date(r.at).toLocaleString())} · attempt ${E(r.tries)} of ${MAX_TRIES}. Your trainer sees this score on your Scorecard.</small>
@@ -296,7 +297,7 @@ window.CMAIGrader = {
       const part = (v, max) => Number.isFinite(Number(v)) ? Math.max(0, Math.min(100, Math.round(100 * Number(v) / max))) : null;
       const subs = {accuracy: part(rep.accuracyScore, 35), presence: part(rep.presenceScore, 30), risk: part(rep.riskScore, 20), efficiency: part(rep.efficiencyScore, 15)};
       Object.assign(r, {score: Math.round(rep.totalScore), tier: rep.gradeTier || "", summary: String(rep.summary || "").slice(0, 600), strengths: (rep.strengths || []).slice(0, 3),
-        gaps: (rep.blindspots || []).slice(0, 3), growth: (rep.growthSuggestions || []).slice(0, 2), at: new Date().toISOString(), tries: (r.tries || 0) + 1});
+        gaps: (rep.blindspots || []).slice(0, 3), better: (rep.better || []).slice(0, 3), growth: (rep.growthSuggestions || []).slice(0, 2), at: new Date().toISOString(), tries: (r.tries || 0) + 1});
       if(Object.values(subs).every(v => v != null)) r.subs = subs; else delete r.subs;
       delete r.failed;
       busy[id] = false; editing[id] = false;

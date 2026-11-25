@@ -8151,6 +8151,7 @@ const HUMAN_FEEDBACK = `HOW TO WRITE THE FEEDBACK. Write it the way a kind, expe
 - Be specific: point at what they actually did, wrote or said, or what is missing. Quote a few of their words where it helps. Nothing generic.
 - "strengths": up to 3 things they really did well, each with why it helps the client or the file.
 - "blindspots": up to 3 challenges, most important first. Each is ONE string in three parts joined by " → ": what happened (what you did or missed, in plain words) → why it matters (the real effect on this file, the client or the firm) → how to fix it (the exact steps: where in the CMS or which document, and what the corrected entry or words should say). Example: "Your correction note doesn't say which document proved each fix → Atty. Thorne can't trust a change he can't trace back to a source → In CMS → Case Notes, add the source after each fix, like: 'Date of birth corrected to 08/14/1991 (signed retainer)'." Never just point out a fault without the fix.
+- "better": 1 to 3 sentences looking back at the whole piece of work: what a strong Case Manager would have done differently on this exact task, and how that would have helped the client or the file. Start each with "You could have". This is about the approach, not a repeat of the fixes.
 - "growthSuggestions": 1 or 2 small, doable things to practise next time, one sentence each.
 - "summary": 2 or 3 sentences spoken straight to them: how it went overall, the single biggest challenge in plain words, and the first thing to do about it. Warm and honest: encouraging, but never vague or falsely positive.
 - Frame every gap as "not yet", never as a verdict on the person. No lecturing, no exclamation marks.`;
@@ -8193,6 +8194,7 @@ Return ONLY a JSON object with this exact shape, no other text:
   "summary": "<2-3 warm, plain sentences to the trainee: how it went, the biggest challenge, what to do first>",
   "strengths": ["...", "..."],
   "blindspots": ["<what happened> → <why it matters> → <how to fix it: the exact steps>", "..."],
+  "better": ["You could have ...", "..."],
   "growthSuggestions": ["...", "..."]
 }`;
   const raw = await callAIJson(prompt, 900, undefined, "grading");
@@ -8207,6 +8209,7 @@ Return ONLY a JSON object with this exact shape, no other text:
     summary: typeof raw.summary === "string" ? raw.summary.trim().slice(0, 600) : "",
     strengths: Array.isArray(raw.strengths) ? raw.strengths : [],
     blindspots: Array.isArray(raw.blindspots) ? raw.blindspots : [],
+    better: Array.isArray(raw.better) ? raw.better.filter(x => typeof x === "string" && x.trim()).slice(0, 3) : [],
     growthSuggestions: Array.isArray(raw.growthSuggestions) ? raw.growthSuggestions : []
   };
 }
@@ -8313,6 +8316,7 @@ Return ONLY a JSON object with this exact shape, no other text:
   "summary": "<2-3 warm, plain sentences to the trainee: how it went, the biggest challenge, what to do first>",
   "strengths": ["...", "..."],
   "blindspots": ["<what happened> → <why it matters> → <how to fix it: the exact steps>", "..."],
+  "better": ["You could have ...", "..."],
   "growthSuggestions": ["...", "..."]
 }`;
   const raw = await callAIJson(prompt, 900, undefined, "grading");
@@ -8327,6 +8331,7 @@ Return ONLY a JSON object with this exact shape, no other text:
     summary: typeof raw.summary === "string" ? raw.summary.trim().slice(0, 600) : "",
     strengths: Array.isArray(raw.strengths) ? raw.strengths : [],
     blindspots: Array.isArray(raw.blindspots) ? raw.blindspots : [],
+    better: Array.isArray(raw.better) ? raw.better.filter(x => typeof x === "string" && x.trim()).slice(0, 3) : [],
     growthSuggestions: Array.isArray(raw.growthSuggestions) ? raw.growthSuggestions : []
   };
 }
@@ -8371,6 +8376,11 @@ function renderRoleplayEvaluationReport(report){
         <b>What to work on, and how to fix it</b>
         <ul>${report.blindspots.map(s=>`<li class="fb-item">${feedbackItemHtml(s)}</li>`).join("")}</ul>
       </div>` : ""}
+      ${(report.better || []).length ? `
+      <div class="eval-section eval-better">
+        <b>What you could have done better</b>
+        <ul>${report.better.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
+      </div>` : ""}
       ${report.growthSuggestions.length ? `
       <div class="eval-section">
         <b>Try this next time</b>
@@ -8409,6 +8419,11 @@ function renderEvaluationReport(report, dayId){
       <div class="eval-section">
         <b>What to work on, and how to fix it</b>
         <ul>${report.blindspots.map(s=>`<li class="fb-item">${feedbackItemHtml(s)}</li>`).join("")}</ul>
+      </div>` : ""}
+      ${(report.better || []).length ? `
+      <div class="eval-section eval-better">
+        <b>What you could have done better</b>
+        <ul>${report.better.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
       </div>` : ""}
       ${report.growthSuggestions.length ? `
       <div class="eval-section">
@@ -8449,6 +8464,11 @@ async function downloadEvaluationReportPdf(){
   if(report.blindspots.length){
     lines.push("What to work on, and how to fix it:");
     report.blindspots.forEach(s=>lines.push("   • "+String(s).split(/\s+→\s+/).join(" — ")));
+    lines.push("---");
+  }
+  if((report.better || []).length){
+    lines.push("What you could have done better:");
+    report.better.forEach(s=>lines.push("   • "+s));
     lines.push("---");
   }
   if(report.growthSuggestions.length){
@@ -9186,8 +9206,8 @@ function initFinancial(body){
     <div id="attnDetailResult" style="margin-top:14px;"></div>
     ${trainerInline() ? `
     <div class="trainer-checkpoint" style="margin-top:16px;">
-      <div class="tc-tag">🧑‍🏫 Trainer Cue — AI-Graded, Answer Key Reference</div>
-      <p>This is now graded automatically against the planted errors below — the AI is given this exact list as its answer key, so scoring should be reliable. It's still worth spot-checking a few submissions, since cross-document accuracy checking is a nuanced skill.</p>
+      <div class="tc-tag">🧑‍🏫 Trainer Cue — Auto-Graded, Answer Key Reference</div>
+      <p>This is now graded automatically against the planted errors below — the grader is given this exact list as its answer key, so scoring should be reliable. It's still worth spot-checking a few submissions, since cross-document accuracy checking is a nuanced skill.</p>
       <p><b>The planted errors are:</b></p>
       <ul style="margin:8px 0 0;padding-left:20px;">
         ${ATTENTION_TO_DETAIL_ANSWERS.map(a=>`<li style="font-size:12.8px;margin-bottom:6px;">${esc(a)}</li>`).join("")}
@@ -10142,6 +10162,7 @@ Return ONLY a JSON object with this exact shape, no other text:
   "summary": "<2-3 warm, plain sentences to the trainee: how it went, the biggest challenge, what to do first>",
   "strengths": ["...", "..."],
   "blindspots": ["<what happened> → <why it matters> → <how to fix it: the exact steps>", "..."],
+  "better": ["You could have ...", "..."],
   "growthSuggestions": ["...", "..."]
 }`;
   const raw = await callAIJson(prompt, 900, undefined, "grading");
@@ -10156,6 +10177,7 @@ Return ONLY a JSON object with this exact shape, no other text:
     summary: typeof raw.summary === "string" ? raw.summary.trim().slice(0, 600) : "",
     strengths: Array.isArray(raw.strengths) ? raw.strengths : [],
     blindspots: Array.isArray(raw.blindspots) ? raw.blindspots : [],
+    better: Array.isArray(raw.better) ? raw.better.filter(x => typeof x === "string" && x.trim()).slice(0, 3) : [],
     growthSuggestions: Array.isArray(raw.growthSuggestions) ? raw.growthSuggestions : []
   };
 }
@@ -10188,6 +10210,11 @@ function renderIntakeCallEvaluationReport(report){
       <div class="eval-section">
         <b>What to work on, and how to fix it</b>
         <ul>${report.blindspots.map(s=>`<li class="fb-item">${feedbackItemHtml(s)}</li>`).join("")}</ul>
+      </div>` : ""}
+      ${(report.better || []).length ? `
+      <div class="eval-section eval-better">
+        <b>What you could have done better</b>
+        <ul>${report.better.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
       </div>` : ""}
       ${report.growthSuggestions.length ? `
       <div class="eval-section">
@@ -11882,7 +11909,7 @@ async function requestMoreLabAttempts(dayId){
 window.requestMoreLabAttempts = requestMoreLabAttempts;
 async function generateAiReview(traineeId){
   const btnWrap = document.getElementById("aiReviewWrap-"+traineeId);
-  if(btnWrap) btnWrap.innerHTML = `<div class="ai-loading">Generating AI review…</div>`;
+  if(btnWrap) btnWrap.innerHTML = `<div class="ai-loading">Generating the review…</div>`;
   const rec = await sharedGet("trainee:"+traineeId);
   if(!rec) return;
   const dp = rec.dayProgress||{};
@@ -12681,7 +12708,7 @@ async function endSurpriseTaskFromAdmin(){
 window.endSurpriseTaskFromAdmin = endSurpriseTaskFromAdmin;
 function renderAiReviewBlock(rec){
   const r = rec.aiReview;
-  const btnLabel = r ? "Regenerate AI Review" : "Generate AI Review";
+  const btnLabel = r ? "Regenerate Review" : "Generate Review";
   return `
     ${r ? `
       <div style="font-size:12.5px;color:var(--ink-soft);margin-bottom:8px;">Generated ${fmtDate(r.generatedAt)} from Day scores and Skill Builders results.</div>
@@ -12699,7 +12726,7 @@ function renderAiReviewBlock(rec){
         <div><b style="font-size:12.5px;color:var(--navy);">Red Flag</b><p style="font-size:12.5px;margin:4px 0 0;">${esc(r.redFlag)}</p></div>
         <div><b style="font-size:12.5px;color:var(--navy);">Endorsement</b><p style="font-size:12.5px;margin:4px 0 0;font-weight:600;color:var(--navy);">${esc(r.endorsement)}</p></div>
       </div>
-    ` : `<p style="font-size:12.5px;color:var(--ink-soft);margin:0 0 10px;">No AI review generated yet.</p>`}
+    ` : `<p style="font-size:12.5px;color:var(--ink-soft);margin:0 0 10px;">No review generated yet.</p>`}
     <button class="btn btn-sm btn-navy" style="margin-top:10px;" onclick="generateAiReview('${esc(rec.id)}')">${btnLabel}</button>
   `;
 }
@@ -13898,8 +13925,9 @@ Do not evaluate filing or security awareness — those are scored separately and
       prompt
     );
     e.reportCard = report;
-    e.report = `<b>Strengths</b><ul>${report.strengths.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>` +
+    e.report = `${report.summary ? `<p><b>💬 Your coach's note:</b> ${esc(report.summary)}</p>` : ""}<b>What you did well</b><ul>${report.strengths.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>` +
       (report.blindspots.length ? `<b>What to work on, and how to fix it</b><ul>${report.blindspots.map(s=>`<li class="fb-item">${feedbackItemHtml(s)}</li>`).join("")}</ul>` : "") +
+      ((report.better || []).length ? `<b>What you could have done better</b><ul>${report.better.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>` : "") +
       (report.growthSuggestions.length ? `<b>Try this next time</b><ul>${report.growthSuggestions.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>` : "");
     rubricScore = report.totalScore;
   }catch(err){
@@ -15941,6 +15969,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-takeaway-catchup.js"></script>
 <!-- 🧠 Think it through: a Canva page's example worked on John Doe's own file, AI graded (beside the 💡 Tip; after cm-lesson-tips.js) -->
 <script src="/js/cm-think-through.js"></script>
+<!-- 🧑‍🏫 Trainer notes on graded activities: the trainer's own feedback beside the automated grade (after cm-ai-grader.js) -->
+<script src="/js/cm-trainer-notes.js"></script>
 <script src="/js/lsh-topbar.js"></script>
 <script src="/js/lsh-one-screen.js"></script>
 </body>

@@ -40,50 +40,50 @@
       "steps": [
         {
           "label": "Draft on template",
-          "text": "One LOR per carrier, **each naming its own insured**"
+          "text": "One letter per carrier, **each naming its own insured**"
         },
         {
           "label": "Request and preserve",
-          "text": "Limits, Dec Pages, photos, video and vehicle data"
+          "text": "Ask for limits, Dec Pages, photos, video and vehicle data"
         },
         {
           "label": "Protect the client",
-          "text": "Third-party letter: his name only, nothing more"
+          "text": "The other driver's carrier gets **his name only**"
         },
         {
           "label": "Send and log",
-          "text": "Each carrier's preferred method; Atty. Thorne signs"
+          "text": "Atty. Thorne signs; send each the way its carrier prefers"
         },
         {
           "label": "Follow up",
-          "text": "No acknowledgement by **the third business day**: call"
+          "text": "No acknowledgement by **the third business day**? Call"
         }
       ]
     },
-    "hook": "The LOR moves every carrier onto the firm; one wrong letter risks **$30,000 of UM coverage**.",
-    "whyLine": "One wrong Letter of Representation risks **$30,000 of UM coverage**.",
+    "hook": "The LOR sends every carrier to the firm; one wrong letter risks **$30,000 of UM coverage**.",
+    "whyLine": "One wrong Letter of Representation can risk **$30,000 of UM coverage**.",
     "points": [
-      "Name the **right insured** on each: Robert Smith, Kevin Alvarez, Margaret Doe",
-      "Notify **all three stack carriers** now: late notice hands them a defense",
-      "**Notice, not demand**: no UM payment request before the documented BI tender",
-      "Keystone gets **John Doe's name only**: no phone, address, birth date, employer"
+      "Each letter names **its own insured**: Robert Smith, Kevin Alvarez, Margaret Doe",
+      "Notify **all three stack carriers** now; late notice gives them a defense",
+      "**Notice only**: no UM payment request until the BI tender is documented",
+      "Give Keystone **his name only**: no phone, address, birth date, employer"
     ],
     "upl": "You draft and send; Atty. Thorne signs. Never value the claim or argue fault.",
     "dos": [
       "Confirm **claim number and adjuster** on every claim call",
-      "Keep claim-opening facts **general and verifiable**",
-      "Treat other coverage as **a question for Atty. Thorne**"
+      "When opening a claim, give **general, checkable facts**",
+      "A carrier mentions other coverage? **Ask Atty. Thorne**"
     ],
     "donts": [
-      "A UM letter that **reads as a demand**",
-      "The client's **phone, address or birth date** to Keystone",
-      "A **guessed adjuster name** for Cardinal State"
+      "Writing a UM letter that **reads like a demand**",
+      "Giving Keystone his **phone, address or birth date**",
+      "Guessing an **adjuster's name** for Cardinal State"
     ],
     "redFlag": {
       "tight": true,
       "see": "A UM notice letter that **asks for payment** before any BI tender",
-      "costs": "Notice is not demand: a premature UM demand puts $30,000 of the stack at risk",
-      "do": "Send notice only; **payment requests wait** for the documented BI tender",
+      "costs": "Asking too early can put $30,000 of UM coverage at risk",
+      "do": "Send notice only; **ask for payment** after the BI tender is documented",
       "owner": "Atty. Thorne"
     }
   },
@@ -176,23 +176,23 @@
   },
   "d2m2-l1": {
     "image": "treatment-plan",
-    "hook": "An LOP **out of Payer Order** turns a payable bill into a lien on his net.",
+    "hook": "An LOP **out of Payer Order** turns a payable bill into a lien on his take-home.",
     "points": [
       "Run the Payer Order: **PIP → MedPay → Peach State → LOP**",
-      "Use an LOP **only where earlier payers can't**",
-      "Atty. Thorne sets LOP terms; **never promise payment** amounts, reductions or dates",
-      "Decline an LOP **an earlier payer makes needless**"
+      "Use an LOP **only when earlier payers can't pay**",
+      "Atty. Thorne sets the terms; **never promise** an amount, reduction or date",
+      "If an earlier payer can pay, **decline the LOP**"
     ],
-    "upl": "You prepare and route LOPs; never set terms, sign, promise payment or explain liability.",
+    "upl": "Prepare and route LOPs; never set terms, sign, promise payment or explain his liability",
     "dos": [
       "Ask **“Is the plan working?”** at every contact",
-      "Tell John Doe **which payer handles which bill**",
-      "Reconcile **conflicting provider statements** at once"
+      "Tell John Doe **which payer pays which bill**",
+      "Resolve **provider notes that disagree** at once"
     ],
     "donts": [
-      "An LOP **before checking PIP, MedPay** and Peach State",
+      "Issuing an LOP **before checking PIP, MedPay** and Peach State",
       "Telling a provider **“paid in full at settlement”**",
-      "Mission creep: taking on **every problem John Doe raises**"
+      "Taking on **every problem John Doe raises**"
     ],
     "redFlag": {
       "see": "A provider wants your word they'll be **paid in full** at settlement",
@@ -203,34 +203,34 @@
   },
   "d2m2-eob": {
     "image": "money-ledger",
-    "hook": "Every bill's story is in **the EOB and the PIP ledger**: read them before you answer",
+    "hook": "Before you answer about a bill, read **the EOB and the PIP ledger**",
     "points": [
-      "Read billed, allowed, **write-off, paid**, member share, in order",
-      "Member responsibility is **the most a provider may bill**",
-      "A plan's lien starts at **what it paid**, never billed",
-      "PIP paid $10,000.00 on 03/04/2026; MedPay **$5,000.00 in five checks**, exhausted 06/26/2026"
+      "Read the lines in order: billed, allowed, **write-off, paid**, member share",
+      "Member responsibility is **the most an in-network provider may bill**",
+      "A plan's lien starts at **what it paid**, never what was billed",
+      "PIP paid $10,000.00 on 03/04/2026; MedPay paid **$5,000.00, used up 06/26/2026**"
     ],
-    "upl": "Read and report what payers paid; whether a balance is owed is Atty. Thorne's",
+    "upl": "Report what payers paid; whether he owes a balance is Atty. Thorne's call",
     "dos": [
       "Read every EOB to **the member-responsibility line**",
       "Keep billed and paid **on the same CMS line**",
       "Tell John Doe **what you are doing** about a bill"
     ],
     "donts": [
-      "A lien logged **at the billed amount**",
-      "A contractual write-off treated as **the client's debt**",
-      "A bill sent to MedPay **after 06/26/2026**"
+      "Logging a lien **at the billed amount**",
+      "Treating a write-off as **money the client owes**",
+      "Sending a bill to MedPay **after 06/26/2026**"
     ],
     "ruleEx": {
       "rule": "A plan's reimbursement claim is **what it paid, never what was billed**",
-      "exception": "Crescent's 07/01/2026 statement for $1,540.00 is **a balance bill**: route it to Atty. Thorne the same day",
+      "exception": "Crescent's 07/01/2026 bill to John for $1,540.00 is **a balance bill**: send it to Atty. Thorne that day",
       "onFile": "Peach State EOB 06/03/2026: billed $3,400.00, plan paid $1,860.00",
       "confirm": "Atty. Thorne handles the balance bill"
     },
     "redFlag": {
       "spoken": true,
       "see": "A lien logged **at the billed amount**, or a bill sent to MedPay after 06/26/2026",
-      "costs": "The lien is overstated by the contractual adjustment, or the bill goes to an exhausted payer",
+      "costs": "The lien is too high by the write-off, or the bill goes to a payer with nothing left",
       "do": "Log the plan-paid **$1,860.00**; check PIP's balance before routing any bill",
       "owner": "Case Manager"
     }
@@ -391,7 +391,7 @@
         },
         {
           "label": "Open on the record",
-          "text": "Date, participants, your role, his consent, privacy"
+          "text": "Say the date, who's on, your role; get consent; check privacy"
         },
         {
           "label": "Ask open, follow his words",
@@ -403,36 +403,36 @@
         },
         {
           "label": "Read it back",
-          "text": "He corrects your summary; opinion questions routed"
+          "text": "Read your summary; he corrects it; route opinion questions"
         },
         {
           "label": "Record and task",
-          "text": "His words as given; a dated task per document"
+          "text": "Write his exact words; a dated task per document"
         }
       ]
     },
     "hook": "The gap explanation that holds up is **John Doe's own**, backed by documents.",
     "points": [
-      "Investigate, don't advocate: write **questions only**, never expected answers",
-      "Funnel: **open first**, closed questions last, one at a time",
-      "**Never lead**: a suggested reason gets agreement, not information",
-      "Record **only with his spoken consent**; protect privilege"
+      "Find facts, don't take sides: plan **questions only**, not expected answers",
+      "Ask **open questions first**, closed ones last, one at a time",
+      "**Never lead**: if you suggest a reason, he just agrees",
+      "Record **only with his spoken yes**; keep it private to protect privilege"
     ],
     "upl": "Never say what the gap does to his case; route that to Atty. Thorne.",
     "dos": [
-      "**Ask open**, follow his words, close last",
-      "Paraphrase back and **let him correct you**",
+      "**Ask open questions**, follow his words, close last",
+      "Repeat it back and **let him correct you**",
       "**Prevent the next gap** now; it's cheaper than explaining it"
     ],
     "donts": [
-      "A question that **names the reason** you expect",
-      "Reassuring or alarming him: **both are case opinions**",
+      "Asking a question that **names the reason** you expect",
+      "Reassuring or alarming him: **both are opinions on his case**",
       "**Blaming the client** for the gap"
     ],
     "ruleEx": {
       "rule": "John's recorded account **to his own firm**, with consent, stays inside the firm",
       "exception": "**Keystone asks for a Recorded Statement**: he declines and refers it to the firm",
-      "onFile": "Harbor Point or Cardinal State requests fall under cooperation clauses",
+      "onFile": "A Harbor Point or Cardinal State request is different: their policies may require cooperation",
       "confirm": "Atty. Thorne handles first-party carrier requests"
     },
     "redFlag": {
@@ -503,31 +503,31 @@
   },
   "d2m3-cause": {
     "image": "medical-visit",
-    "hook": "Proving negligence is **only half the battle**: prove the collision caused the harm.",
+    "hook": "Fault is **only half the case**: you also need proof the crash caused the harm.",
     "points": [
-      "Fault proves negligence; **causation and damages** must be proved too",
-      "A medical professional writes it, to **reasonable medical probability**",
-      "Atty. Thorne requests it; you **assemble, track and check**",
-      "Check it against the file: **date of loss, level, visits**"
+      "Fault proves negligence; **causation and damages** need proof too",
+      "A medical professional writes it; the standard is **more likely than not**",
+      "Atty. Thorne requests it; you **gather records, track and check**",
+      "Check it against the file: **date of loss, injury level, visits**"
     ],
     "upl": "You request, track, check and file; **never draft or coach** the opinion",
     "document": {
       "name": "Causation Letter",
       "doc": "RS19",
-      "definition": "A formal letter: a **medical professional's opinion** linking the accident to the specific injuries, from a treating physician, surgeon or independent medical expert.",
-      "purpose": "Proves the half negligence can't: that the defendant's conduct **directly caused** the specific harm, medical expenses and ongoing limitations claimed.",
-      "evidence": "Its opinions, held more likely than not, tie the C5-C6 herniation to 02/06/2026 and **answer the 14-Day Gap** and 2021 visits.",
+      "definition": "A formal letter in which a **medical professional** links the accident to the specific injuries: a treating doctor, surgeon or independent medical expert.",
+      "purpose": "Proves what fault alone can't: that the defendant's conduct **directly caused** the harm, the medical expenses and the ongoing limitations claimed.",
+      "evidence": "Its opinions, more likely than not, tie the C5-C6 herniation to 02/06/2026 and **answer the 14-Day Gap** and the 2021 visits.",
       "handling": [
-        "Atty. Thorne requests it; you **assemble the record set** and docket follow-up",
+        "Atty. Thorne requests it; you **gather the records** and set follow-up",
         "On arrival, **check it against the file**: date of loss, level, visits",
         "File it under Medical; **cite it** on the Gap Explanation Record",
         "**Never draft or coach** the opinion; what it means stays Atty. Thorne's"
       ]
     },
     "dos": [
-      "Send the doctor **the complete record set**, priors included",
+      "Send the doctor **all the records**, older ones included",
       "Read the letter **against the file** the day it arrives",
-      "Check every injury claimed has **a medical link**"
+      "Make sure every injury claimed has **a medical link**"
     ],
     "donts": [
       "Suggesting or **shaping the doctor's words**",
@@ -694,23 +694,23 @@
   },
   "d2m2-lop": {
     "image": "client-call",
-    "hook": "An LOP gets John Doe treated now, paid **from the settlement**.",
+    "hook": "An LOP lets John Doe get treated now; the provider is paid **from the settlement**.",
     "points": [
-      "An LOP is **a promise against the recovery**, not insurance",
+      "An LOP is **a promise to pay from the recovery**, not insurance",
       "Sign it **before the first visit**, then file it",
-      "Track the balance: **ledger every 30 days**",
-      "Referrals: **options and logistics**, never which care"
+      "Track the balance: **get the ledger every 30 days**",
+      "Referrals: give **options and logistics**, never pick his care"
     ],
     "upl": "Give the options and book **his choice**; never recommend a provider",
     "document": {
       "name": "Letter of Protection",
       "doc": "RS13",
-      "definition": "The firm's signed promise that a provider's **reasonable charges are paid** from any recovery, so treatment starts now; not insurance.",
-      "purpose": "Lets care continue when no payer applies: the provider **defers collection** in exchange for payment protected from the settlement, judgment or verdict.",
-      "evidence": "Fixes the lien: Riverton Spine & Rehab's charges come from the recovery, and it shows **John Doe stays responsible** whether or not there is one.",
+      "definition": "The firm's signed promise that a provider's **reasonable charges are paid** from any recovery, so care starts now. It is not insurance.",
+      "purpose": "Keeps care going when no payer applies: the provider **waits to be paid**, and its payment is protected from the settlement, judgment or verdict.",
+      "evidence": "Sets the lien: Riverton Spine & Rehab is paid from the recovery, and **John Doe stays responsible** whether or not there is one.",
       "handling": [
         "Check **every payer first**; Atty. Thorne approves the LOP",
-        "Signed **before the first visit**: Riverton's 02/23/2026, first visit 02/24",
+        "Sign **before the first visit**: Riverton's on 02/23/2026, first visit 02/24",
         "File it; request **the itemized ledger** every 30 days",
         "What it means for his recovery is **Atty. Thorne's to explain**"
       ]
@@ -718,16 +718,16 @@
     "dos": [
       "Check **every payer** before an LOP",
       "Give **options with facts**; he chooses",
-      "Disclose **any firm relationship**"
+      "Disclose **any firm relationship** with a provider"
     ],
     "donts": [
       "Saying one provider is **better for the case**",
-      "Calling the LOP bill **free**",
-      "Letting the balance **surprise the Net Sheet**"
+      "Calling LOP care **free**; he still owes the balance",
+      "Letting the LOP balance **surprise the Net Sheet**"
     ],
     "ruleEx": {
       "rule": "Offer **options and logistics**: providers near him that take an LOP, with hours and distance; he chooses, you book",
-      "exception": "**Never which care**: not 'they write great reports' or 'chiropractic will make your case worth more'",
+      "exception": "**Never choose his care**: never 'they write great reports' or 'chiropractic will make your case worth more'",
       "onFile": "Crescent Pain & Spine is in network with Peach State",
       "confirm": "Atty. Thorne sets the LOP's terms"
     },
@@ -741,14 +741,14 @@
   },
   "d2m2-cost": {
     "image": "money-ledger",
-    "hook": "Every trip to treatment costs the client: **only a logged cost** reaches the demand.",
+    "hook": "Treatment costs the client money; **only a logged cost** can reach the demand.",
     "points": [
-      "Out-of-pocket costs are **Specials**, each with its receipt",
+      "Out-of-pocket costs are **Specials** (money damages); each needs a receipt",
       "Log every trip: **date, provider, round-trip miles**",
-      "Mileage rate: **the governing state's rules**, confirmed by counsel",
-      "Rental past the cutoff is **the owner's out-of-pocket** cost"
+      "The mileage rate follows **the governing state's rules**; Atty. Thorne confirms it",
+      "A rental the carrier didn't pay is **the owner's cost**"
     ],
-    "upl": "Log the costs; **never promise repayment**: the claim is Atty. Thorne's",
+    "upl": "Log the costs; **never promise repayment**; what's claimed is Atty. Thorne's",
     "dos": [
       "Start the trip log **at the first visit**",
       "File each receipt **the day it arrives**"
@@ -760,7 +760,7 @@
     "ruleEx": {
       "rule": "**Enter each cost the day its receipt arrives**: no receipt, no claim",
       "exception": "**Check the payers first** and record who paid, so nothing is claimed twice",
-      "onFile": "Keystone paid Margaret's rental, $1,260.00: her PD claim, not John's Specials",
+      "onFile": "Keystone paid Margaret's rental, $1,260.00: part of her Property Damage claim, not John's Specials",
       "confirm": "Atty. Thorne decides what the demand claims"
     },
     "redFlag": {
@@ -892,9 +892,9 @@
     "hook": "**The first line is the decision**; the facts come after it.",
     "points": [
       "Open with **the decision and its deadline**",
-      "Then why, then **the facts with their sources**",
-      "Give **every option** and what follows from each",
-      "**One note, one decision**, logged the same day"
+      "Next, why; then **the facts and their sources**",
+      "Give **every option** and what happens after each",
+      "**One note, one decision**; log it the same day"
     ],
     "upl": "You frame the decision; **Atty. Thorne makes it**",
     "dos": [
@@ -904,17 +904,17 @@
     ],
     "donts": [
       "**Telling the story first**, the question last",
-      "A subject line of **“Update”**",
-      "Leaving out **the option you dislike**"
+      "Writing **“Update”** as the subject line",
+      "Leaving out **the option you don't recommend**"
     ],
     "milestones": {
       "title": "Decision-First, in five lines",
       "steps": [
-        {"label": "Decision + deadline", "chip": "03/12/2026", "done": "First line and subject: **decline Summit's LOP request**"},
+        {"label": "Decision + deadline", "chip": "03/12/2026", "done": "First line and subject: **approve declining Summit's LOP**"},
         {"label": "Why", "done": "One rule or fact: **MedPay applies first**, $3,675.00 left"},
         {"label": "Facts", "chip": "03/11/2026", "done": "Each with source and date: **Summit's request**; the MRI, $2,395.00"},
-        {"label": "Options", "done": "If yes, if no: **what you'll do** after each"},
-        {"label": "Log", "done": "The note and his answer logged **the same day**"}
+        {"label": "Options", "done": "Say **what you'll do** if yes and if no"},
+        {"label": "Log", "done": "Log the note and his answer **the same day**"}
       ]
     },
     "redFlag": {
@@ -937,7 +937,7 @@
         },
         {
           "label": "Find the affiant",
-          "text": "The person with **personal knowledge**"
+          "text": "The person who **knows it first-hand**"
         },
         {
           "label": "Request and docket",
@@ -945,34 +945,34 @@
         },
         {
           "label": "Check it",
-          "text": "Affiant, numbers, dates, **jurat and seal**"
+          "text": "Signer, numbers, dates, **jurat and seal**"
         },
         {
           "label": "File it",
-          "text": "Where it will be **relied on**"
+          "text": "Where it will be **used**"
         }
       ]
     },
-    "hook": "A fact the file relies on is proven by **the person who knows it**, under oath.",
+    "hook": "A key fact is proven when **the person who knows it** swears to it.",
     "points": [
-      "Smith swears **no other insurance**: the condition for the limit",
-      "John's **residency** keeps Relative UM; sworn if a carrier asks",
-      "Custodian affidavits put **the bills into evidence**",
-      "Check **every jurat**: names, numbers, the notary's seal"
+      "Smith swears **no other insurance**: needed to settle at the limit",
+      "John's **home with Margaret** keeps Relative UM; he swears it if asked",
+      "The records custodian's affidavit gets **the bills into evidence**",
+      "Check **every jurat** (the sworn ending): names, numbers, notary's seal"
     ],
-    "upl": "Request, track and check; **never swear, sign or notarize** for anyone",
+    "upl": "You request, track and check; **never swear, sign or notarize** for anyone",
     "dos": [
-      "Ask for the **custodian affidavit** with every records request",
+      "Ask for the **custodian's affidavit** in every records request",
       "Check every **jurat and seal** before filing"
     ],
     "donts": [
       "Accepting an **unsworn statement** as proof",
-      "Writing **an affiant's words** for them"
+      "Writing **the signer's words** for them"
     ],
     "redFlag": {
       "see": "An **unsigned or un-notarized** 'affidavit' in the file",
-      "costs": "It is only an assertion, not sworn proof of the fact it claims",
-      "do": "Return it for signature and jurat; **never sign, notarize or reword** it",
+      "costs": "It is only a claim, not sworn proof of the fact",
+      "do": "Send it back to be signed and sworn; **never sign, notarize or reword** it",
       "owner": "Case Manager"
     }
   },

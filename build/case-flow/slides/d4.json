@@ -1,28 +1,28 @@
 {
   "d4m1-l1": {
     "image": "insurance-stack",
-    "hook": "One $10,000 carrier now holds **the whole $40,000 stack**; prove the impasse with dates.",
+    "hook": "One $10,000 carrier blocks **all $40,000 of coverage**, so prove the impasse with dates.",
     "points": [
-      "Document impasse on **its triggers**, not frustration; Atty. Thorne calls it",
-      "Work the dispute path first; litigation only when **nothing moves the carrier**",
-      "Never **bid against yourself**; any new number is Atty. Thorne's",
-      "Filing is counsel's decision; **its inputs are yours** to verify"
+      "Impasse needs **dated triggers**, not frustration; Atty. Thorne decides",
+      "A lawsuit comes last: only when **nothing else moves the carrier**",
+      "Never **lower your own number**; any new number is Atty. Thorne's",
+      "Atty. Thorne decides to file; **you check the facts** behind it"
     ],
-    "upl": "Document the impasse and ask; never recommend suit or value the claim.",
+    "upl": "Record the impasse and ask Atty. Thorne; never recommend suit or value the claim.",
     "dos": [
-      "Date every contact **the day it happens**",
-      "Ask for the carrier's reasons and evidence **in writing**",
-      "Escalate a silent adjuster **to the supervisor** first"
+      "Log every contact **the day it happens**",
+      "Ask the carrier to put reasons and evidence **in writing**",
+      "If the adjuster goes silent, **go to the supervisor**"
     ],
     "donts": [
-      "Treating silence as negotiation and **waiting another month**",
-      "Sending a UM demand **before BI is exhausted**",
-      "Telling John Doe it “will have to go **to court**”"
+      "Waiting **another month** because the carrier is silent",
+      "Sending a UM demand before **the BI limit is exhausted**",
+      "Telling John Doe the case “will go **to court**”"
     ],
     "redFlag": {
-      "see": "Frustration with Keystone **called 'impasse'** without its dated triggers",
-      "costs": "Impasse is proved by five dated triggers; whether to sue is Atty. Thorne's call",
-      "do": "Log each trigger with date and proof; **send Keystone no new number**",
+      "see": "Calling Keystone's delay **an impasse** with no dated triggers logged",
+      "costs": "Without the five dated triggers, impasse is not proved; Atty. Thorne decides on suit",
+      "do": "Log each trigger with its date and proof; **offer Keystone no new number**",
       "owner": "Atty. Thorne"
     }
   },
@@ -53,29 +53,29 @@
   },
   "d4m1-l2": {
     "image": "legal-filing",
-    "hook": "Once suit is authorized, **a court clock** replaces the adjuster's: status, fields, folders, calendar change together.",
-    "whyLine": "Once suit is authorized, **a court clock** replaces the adjuster's.",
+    "hook": "Once suit is authorized, **the court sets the deadlines**: change status, fields, folders and calendar together.",
+    "whyLine": "Once suit is authorized, **the court sets the deadlines**, not the adjuster.",
     "points": [
-      "Change status only on **Atty. Thorne's dated authorization** to sue",
-      "Fill court fields from the record; **never guess a number**",
-      "Notify the UM carriers **as each policy requires**: no figure",
-      "Seed the Litigation Calendar **the day status changes**"
+      "Change status to Litigation only with **Atty. Thorne's dated authorization**",
+      "Fill court fields from the record; **never guess the case number**",
+      "Notify UM carriers **as each policy requires**; give no dollar figure",
+      "Set up the Litigation Calendar **the day status changes**"
     ],
-    "upl": "Tell John Doe what happens next; what it means is Atty. Thorne's.",
+    "upl": "Tell John Doe the next steps; Atty. Thorne explains what they mean.",
     "dos": [
-      "Change status, fields, folders and calendar **in one sitting**",
-      "Audit deadlines and exhibits; **don't just track** them",
-      "Tailor the binder **to the neutral**"
+      "Update status, fields, folders and calendar **at the same time**",
+      "Check each deadline and exhibit; **don't just track** them",
+      "Build the binder **for the mediator or arbitrator**"
     ],
     "donts": [
-      "Leaving “scan001.pdf” **in a litigation folder**",
+      "Leaving a file named “scan001.pdf” **in a litigation folder**",
       "Treating mediation and arbitration **as the same thing**",
-      "Assuming an arbitration error **can be appealed**"
+      "Assuming an arbitration mistake **can be appealed**"
     ],
     "redFlag": {
-      "see": "A **pre-litigation habit** left in a court file",
-      "costs": "It costs a deadline: status, fields, folders and calendar must change together",
-      "do": "Change all four **in one sitting**, citing Atty. Thorne's 09/09/2026 authorization",
+      "see": "**Old pre-suit habits** still running in a court file",
+      "costs": "A court deadline can be missed if status, fields, folders and calendar don't change together",
+      "do": "Change all four **at the same time**; cite Atty. Thorne's 09/09/2026 authorization",
       "owner": "Case Manager"
     }
   },
@@ -114,80 +114,80 @@
   },
   "d4m2-l1": {
     "image": "clock-deadline",
-    "hook": "From 09/24/2026 the dates are set by rule, and **one mis-counted day** can end a claim.",
+    "hook": "From 09/24/2026 the law sets the dates, and **one miscounted day** can end a claim.",
     "points": [
-      "Count the court's way: **exclude the trigger day**, include the last",
-      "Served by mail? **Add 3 days**; e-service adds nothing",
-      "Forward counts roll later; **backward counts roll earlier**",
-      "Docket the SOL to **internal dates**: 02/04/2028 and 11/05/2027"
+      "**Skip the trigger day**; count the last day",
+      "Mail service: **add 3 days**; e-service adds none",
+      "Weekend? Count forward: later. **Count backward: earlier**",
+      "Calendar **internal dates** before the SOL: 02/04/2028, 11/05/2027"
     ],
-    "upl": "You compute, docket and flag; which rule governs, and extensions, are Atty. Thorne's.",
+    "upl": "You count, calendar and flag dates; Atty. Thorne decides the rule and extensions.",
     "document": {
       "name": "The Complaint",
       "doc": "RS51",
-      "definition": "The pleading that **starts the lawsuit**: caption, jurisdiction, facts, causes of action and prayer for relief, drafted and signed by Atty. Thorne.",
-      "purpose": "Filed before the SOL, it **preserves the claim** and puts negligence and negligence per se against Robert Smith before the court.",
-      "evidence": "Filed 09/24/2026 as No. 26-CV-04417, it fixes what is pleaded: **bodily-injury damages only**, $41,400.00 medical and $1,584.00 wages; no Property Damage.",
+      "definition": "The court paper that **starts the lawsuit**, drafted and signed by Atty. Thorne: caption, jurisdiction, facts, causes of action, prayer for relief.",
+      "purpose": "Filed before the SOL, it **keeps the claim alive**. It brings the negligence and negligence per se claims against Robert Smith.",
+      "evidence": "Filed 09/24/2026 as No. 26-CV-04417, it sets what is claimed: **bodily-injury damages only**, $41,400.00 medical and $1,584.00 wages; no Property Damage.",
       "handling": [
-        "Before signature, **verify the filing date** against the SOL",
-        "Confirm Robert Smith's **exact legal name** from an independent record",
-        "File **the stamped copy** in 01_PLEADINGS as Complaint_Filed_Stamped.pdf",
-        "Use the filed Complaint, **never the pre-filing draft**"
+        "**Check the filing date** against the SOL before signing",
+        "Confirm Robert Smith's **exact legal name** from a separate record",
+        "File **the stamped copy** in 01_PLEADINGS: Complaint_Filed_Stamped.pdf",
+        "Work from the filed Complaint, **never the draft**"
       ]
     },
     "dos": [
-      "Record **trigger, rule and arithmetic** on every entry",
-      "Calendar **the conservative date**, and flag it"
+      "On every entry, write **the trigger, rule and math**",
+      "Unsure? Calendar **the earlier date**; flag it"
     ],
     "donts": [
       "Counting **the trigger day** as day one",
-      "Rolling a backward deadline **forward to Monday**",
-      "Relying on **the SOL's weekend roll-forward**"
+      "Moving a backward deadline **forward to Monday**",
+      "Relying on a weekend SOL **moving to Monday**"
     ],
     "ruleEx": {
-      "rule": "**Exclude the trigger day, include the last**: served 10/14/2026 + 30 → answer 11/13/2026",
-      "exception": "A **backward count moves earlier**: arbitration brief 06/12/2027 (Sat) → 06/11/2027",
-      "onFile": "Discovery mailed 12/01/2026 + 30 + 3 → 01/04/2027",
+      "rule": "**Skip the trigger day**: served 10/14/2026 + 30 days → answer due 11/13/2026",
+      "exception": "A **backward count moves earlier**: brief day 06/12/2027 (Sat) → due 06/11/2027",
+      "onFile": "Mailed 12/01/2026: 30 + 3 mail days → 01/04/2027",
       "confirm": "Atty. Thorne confirms the governing court rule"
     },
     "redFlag": {
       "spoken": true,
-      "see": "**15 RFAs** docketed inside the general discovery entry",
-      "costs": "Unanswered RFAs may be deemed admitted",
+      "see": "**15 RFAs** (Requests for Admission) lumped into discovery",
+      "costs": "Unanswered RFAs may count as admitted",
       "do": "Give them **their own calendar entry** and alerts; tell Atty. Thorne",
       "owner": "Atty. Thorne"
     }
   },
   "d4m2-um": {
     "image": "coverage-check",
-    "hook": "A UM claim is made against **our own client's insurance**, not the other driver's.",
+    "hook": "A UM claim is made on **our client's own coverage**, not the other driver's.",
     "points": [
-      "Third party: Keystone. **First party: Harbor Point and Cardinal State**",
-      "The route is **read off the clause**, never chosen",
-      "Mandatory arbitration: file a **Demand for Arbitration**, not a complaint",
-      "Bad faith is **a separate suit**, above the policy limit"
+      "Keystone is third party; Harbor Point and Cardinal State are **first party**",
+      "The clause and state law **set the route**; nobody picks it",
+      "If arbitration is required, file a **Demand for Arbitration**, not a lawsuit",
+      "Bad faith is **a separate lawsuit** that can go above the limit"
     ],
-    "upl": "Read the clause, route it to Atty. Thorne; never call an offer unreasonable.",
+    "upl": "Read the clause and send it to Atty. Thorne; never call an offer unreasonable.",
     "dos": [
-      "Say **first party or third party** before anything else",
-      "Quote the clause; **a paraphrase is interpretation**"
+      "First, say if it is **first party or third party**",
+      "Quote the clause word for word; **retelling it is interpreting**"
     ],
     "donts": [
-      "**Filing suit** where the policy sends it to arbitration",
-      "Reading Harbor Point's clause **onto Cardinal State**",
+      "**Filing a lawsuit** when the policy requires arbitration",
+      "Applying Harbor Point's clause **to Cardinal State**",
       "Telling John Doe the carrier is **acting in bad faith**"
     ],
     "ruleEx": {
-      "rule": "**Read each layer's clause**: Harbor Point's UM arbitration clause → Demand for Arbitration; Cardinal State joins",
-      "exception": "Where a state **bars mandatory arbitration** or allows an opt-out, the route is suit",
-      "onFile": "Consolidated before Laura Whitcomb, Esq., 06/22/2027",
-      "confirm": "Atty. Thorne analyzes the route"
+      "rule": "**Read each policy's own clause**: Harbor Point's requires arbitration, so the firm files a Demand for Arbitration; Cardinal State joins",
+      "exception": "If state law **bars mandatory arbitration** or lets the insured opt out, the route is a lawsuit",
+      "onFile": "Both heard together before Laura Whitcomb, Esq., on 06/22/2027",
+      "confirm": "Atty. Thorne decides the route"
     },
     "redFlag": {
       "spoken": true,
-      "see": "The UM route **docketed off the tort SOL**",
-      "costs": "A route carries its own clock, and the wrong date misses it",
-      "do": "Docket only from **Atty. Thorne's written answer**",
+      "see": "A UM deadline **based on the injury-claim SOL**",
+      "costs": "Each route has its own deadline, and the wrong date can miss it",
+      "do": "Calendar only from **Atty. Thorne's written answer**",
       "owner": "Atty. Thorne"
     }
   },
