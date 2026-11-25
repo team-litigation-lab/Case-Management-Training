@@ -1,5 +1,5 @@
 {
-  "title": "Case Management Training — Day 1",
+  "title": "Case Management Track — Day 1",
   "deck": "Revised Case Management Training Day 1 (Canva, 50 pages, in two parts: 1-18 and 19-50)",
   "voice": "the trainer's own voice, spoken by Chatterbox Turbo from voice/sample.wav (make_video.py --turbo)",
   "day": 11,
@@ -186,7 +186,7 @@
   "slides": [
     {
       "page": 1,
-      "title": "Case Management Training — Day 1",
+      "title": "Case Management Track — Day 1",
       "notes": "Welcome to Day 1 of Case Management Training with Legal Support Help. All week we work one file, John Doe versus Robert Smith, a passenger injury from a collision on February 6th, 2026. Today we open that file. We look at what a Case Manager actually owns, how a case moves from the first call to resolution, and how you keep it clean, compliant and on time. Keep John's file in mind as we go, because every idea on these slides lands on it."
     },
     {

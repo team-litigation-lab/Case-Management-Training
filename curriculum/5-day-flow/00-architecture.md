@@ -1,7 +1,7 @@
 # 5-Day Legal Case Management Flow — Architecture & Continuity Spine
 
 **Focus case:** *John Doe v. Robert Smith* · **Lead Counsel:** Attorney Elijah Thorne
-**Course:** LSH Case Management Training (5-Day). The Case Flow is the course; the earlier *John Doe v. Apex Delivery Services* days are archived (kept as they were, off the trainees' dashboard).
+**Course:** LSH Case Management Track (5-Day). The Case Flow is the course; the earlier *John Doe v. Apex Delivery Services* days are archived (kept as they were, off the trainees' dashboard).
 **Status:** the spec every Case Flow block conforms to. All five days are written: 20 modules, 100 blocks.
 
 | File | What it is |

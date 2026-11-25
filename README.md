@@ -1,4 +1,4 @@
-# LSH Case Management Training (5-Day)
+# LSH Case Management Track (5-Day)
 
 ## 🔐 Sign in on the Main Portal only
 
@@ -372,9 +372,9 @@ A firm keeps a backup drive of every case document in one folder structure every
 - **Day 1's slide** (Backup File Maintenance, *Your Case*) is this task: the four steps (connect, build by hand, ✓ Check my drive, file in the CMS), each ticked as the trainee's own drive gets there, beside the firm's standard as the Worker keeps it (`/api/drive` action `standard`, open to a presenter too).
 - **Test:** `.github/scripts/cm-drive.cjs` (no browser needed) checks the structure is a tree with a rule for every folder, that every one of the case file's folders has a home on the drive, that Google is reached through the service account and only inside the linked folder, that the Day 1 grading passes the firm's own structure while refusing a missing, misspelled, invented or misordered folder, and that both grades reach the trainee's account. `.github/scripts/drive-connect.cjs` (no browser; Google answered by the test) checks the linking itself: `/version`, an unticked Drive box, a missing refresh token, a full sign-in with its tokens kept sealed, a link Google takes back, and the structure for the slide. `.github/scripts/drive-grades.cjs` plays a trainee through Days 2–5 against an in-memory Google Drive, half right then right, and checks each day's grade follows the drive; it also keeps the grader's documents and folders the same as the course's.
 
-## 🏅 The Scorecard (as in Foundational Training)
+## 🏅 The Scorecard (as in Legal VA Foundational Track)
 
-Set up like Foundational Training's Scorecard, without its task trackers and monitoring sheets (`js/cm-scorecard.js`).
+Set up like Legal VA Foundational Track's Scorecard, without its task trackers and monitoring sheets (`js/cm-scorecard.js`).
 Every grading system lists its graded items; a system's score is the average of its items, and the overall is the average
 of the systems that have a score, so each counts the same. The systems: ✍️ Knowledge Checks (each Case Flow day), 🧩
 Learning Checks (each module's composite, AI × 0.60 + trainer × 0.40, the automated half until the trainer scores it), 📝

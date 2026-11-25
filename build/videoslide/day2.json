@@ -1,5 +1,5 @@
 {
-  "title": "Case Management Training — Day 2",
+  "title": "Case Management Track — Day 2",
   "deck": "Revised Case Management Training Day 2 (Canva, 44 pages; the Skill Building pages 11, 12, 20, 32 and 43 are left out of the video)",
   "voice": "the trainer's own voice, spoken by Chatterbox Turbo from voice/sample.wav (make_video.py --turbo)",
   "day": 12,
@@ -137,7 +137,7 @@
   "slides": [
     {
       "page": 1,
-      "title": "Case Management Training — Day 2",
+      "title": "Case Management Track — Day 2",
       "notes": "Welcome to Day 2 of Case Management Training. Yesterday we opened John Doe versus Robert Smith and carried it through intake and treatment, including the fourteen-day gap and the near-drop in April. Today we follow that same file to the money. We audit it before anything leaves the office, we build and serve the Bodily Injury demand to Keystone, we work the negotiation, and we close the BI settlement properly. Keep John's file open in your mind, because every lesson today lands on it."
     },
     {

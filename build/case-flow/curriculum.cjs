@@ -411,7 +411,7 @@ function traceMd(){
   const n = s => rows.filter(r => r.status === s).length;
   const lsh = [...new Set(CF.days.flatMap(d => d.modules.flatMap(m => m.blocks.flatMap(b => b.sources.filter(s => !/^D\d#\d+$/.test(s))))))];
   const L = ["# Theory Traceability Map", "",
-    "Every topic of the existing *Case Management Training (5-Day)* course, and where its theory lives in the 5-Day Legal Case Management Flow. The theory is relocated into the new flow, not removed: a topic is **BUILT** once a block cites it, and **SCHEDULED** while the day it is planned for is still to be written. A topic that is neither would fail `build/case-flow/curriculum.cjs`, so nothing can be dropped silently.", "",
+    "Every topic of the existing *Case Management Track (5-Day)* course, and where its theory lives in the 5-Day Legal Case Management Flow. The theory is relocated into the new flow, not removed: a topic is **BUILT** once a block cites it, and **SCHEDULED** while the day it is planned for is still to be written. A topic that is neither would fail `build/case-flow/curriculum.cjs`, so nothing can be dropped silently.", "",
     "> Generated from `js/cm-case-flow-data.js` (block `sources` and the `plan`) against `build/day1.js`–`day5.js`. Do not edit by hand.", "",
     `**${rows.length} topics** · ✅ ${n("✅ BUILT")} built · 🗓 ${n("🗓 SCHEDULED")} scheduled · ❌ 0 unplaced · Case Flow days written: ${[...built].sort().join(", ")} of 5`, ""];
   for(let d = 1; d <= 5; d++){

@@ -1,4 +1,4 @@
-/* 🎬 A day's narrated video (as Foundational Training's ▶ Video Presentation on the lesson card): the day's Canva deck,
+/* 🎬 A day's narrated video (as Legal VA Foundational Track's ▶ Video Presentation on the lesson card): the day's Canva deck,
    read slide by slide by the narrator (build/videoslide makes it; js/cm-deck-slides.js lists it as CM_DAY_VIDEOS).
    • The day card shows ▶ Video (the Video Presentation) once the video is unlocked, 🔒 Video until then. A trainer always sees ▶.
    • settings:openvideos = {all: [dayIds], batches: {"<batch key>": [dayIds]}}: everyone reads it (worker.js PUBLIC_READ),
