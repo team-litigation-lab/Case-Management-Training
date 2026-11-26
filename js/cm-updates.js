@@ -973,6 +973,7 @@ if(PV_IS_AUDIENCE){
   };
   // `force`: the window changed size, so lay the slide out again
   let early = null;   // a "show" that came before js/cm-case-flow.js filled DAYS (the presenter answers our hello at once): drawn when the page has loaded
+  let drawnEarly = false;   // a slide drawn before the page finished loading: the add-on scripts after js/cm-case-flow.js (js/cm-drive.js draws Day 1's Backup Drive slide) hadn't run, so it is drawn again once they have
   const show = (m, force)=>{
     const d = DAYS.find(x=>x.id===m.dayId); if(!d){ if(document.readyState === "loading") early = m; return; }
     // The slide on screen is never drawn again for the same step (the console re-drawing, its live
@@ -992,7 +993,7 @@ if(PV_IS_AUDIENCE){
     state.slidePage = m.page; state.slidePageKey = d.id+":"+m.slide; state.slideDir = "next";
     state.stageInnerOnly = true;
     root.innerHTML = `<div class="lesson-stage" id="lessonStage">${renderDaySlideshow(d)}</div>`;
-    state.stageInnerOnly = false;
+    state.stageInnerOnly = false; drawnEarly = document.readyState === "loading";
     decorateCallouts(root);
     paginateLessonSlide();
     report(d, m.slide);
@@ -1004,7 +1005,7 @@ if(PV_IS_AUDIENCE){
       if(m.type==="end") root.innerHTML = `<div class="aud-wait"><b>Thanks for joining</b>The presentation has ended.</div>`;
     });
     PV.ch.postMessage({type:"hello"});
-    document.addEventListener("DOMContentLoaded", ()=>{ const m = early; early = null; if(m && !last) show(m); });
+    document.addEventListener("DOMContentLoaded", ()=>{ const m = early; early = null; if(m && !last) show(m); else if(last && drawnEarly) show(last, true); });
   }
   let rt = null;
   const reshow = ()=>{ clearTimeout(rt); rt = setTimeout(()=>{ if(last) show(last, true); }, 200); };
