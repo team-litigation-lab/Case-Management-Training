@@ -150,7 +150,7 @@ lesson's existing slides, so no slide is added and no timing changes. Take every
   down, with nothing beside it covered.
 
 **Activity** (`kind: "activity"`): **one slide**, Your Task (the owner: practice slides as minimal as they can be):
-📂 Your Case (`situation`, in a line or two) at the top, the numbered `steps`, then three buttons: 🚀 Launch LSH CaseWorks & Google
+📂 Your Case (`situation`, in a line or two) at the top, the numbered `steps`, then three buttons: 🚀 Launch LSH CaseWorX & Google
 Drive, 🧰 Tools ▾ (the live call, the service confirmation, the Notes & Action Plan, the Action Plan Editor, 📁 Source
 Files, the lesson it practises with its 💡 Tip, a trainer's ⚡ Inject) and Submit →, which turns the slide into the 🤖 AI
 Grader. Only the day's Skill Building keeps a second slide, its document audit, and Day 1's Backup File Maintenance its
@@ -162,7 +162,7 @@ trainer's talking points (js/cm-case-flow.js `actViews`).
 - `steps` — the task (from `act.prompt`) as one numbered block of **full, plain sentences, ≤ 32 words each**, in order,
   each ending in a full stop and saying where it is done ("In CMS → Case Notes, …", "In Google Drive, …"). No
   shorthand ("X of Y"). At most one highlight. Day 1 is fully guided (**4–6 steps**); later days give less (Days 2–3:
-  **3–5**; Days 4–5: **3–4**). The slide has one 🚀 Launch LSH CaseWorks & Google Drive button, not a link per step.
+  **3–5**; Days 4–5: **3–4**). The slide has one 🚀 Launch LSH CaseWorX & Google Drive button, not a link per step.
 - `side` (optional, `true`) — a short side skill builder: its `situation` opens with the assumption it rests on
   ("Assuming the No Contact Protocol has been maxed, …") and it has **2–3 steps**, usually "Log it in the CMS: …".
 - `deliver` — the expected output (`act.output`) in **≤ 14 words**; shown as 📤 What to hand in in 📖 Reference.

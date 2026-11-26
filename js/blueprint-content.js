@@ -14,7 +14,7 @@ window.LSH_BLUEPRINT = {
       { icon: '👋', title: 'Welcome to the program', points: [
           'Five days to work like a confident, organized Case Manager — the 5-Day Legal Case Management Flow, built around one realistic file, John Doe VS Robert Smith, from intake to deposition.',
           'Learn: short lessons, each followed straight away by a Skill Activity on the live file.',
-          'Practice: hands-on Skill Activities, live calls and 🗂 LSH CaseWorks.',
+          'Practice: hands-on Skill Activities, live calls and 🗂 LSH CaseWorX.',
           'Prove: a Knowledge Check each day — and a certificate at the end.',
           "You'll need Chrome or Edge on a computer, a headset with a microphone for the live calls, and a stable connection."],
         where: 'The portal opens from the LSH Training Portal; your dashboard is where you land.',

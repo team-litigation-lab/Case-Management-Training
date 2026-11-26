@@ -39,7 +39,7 @@
    copy of a filed document. Until GDRIVE_SA_EMAIL and GDRIVE_SA_KEY are set on the Worker, the card is still
    there (🔗 Link my Google Drive) and says linking isn't switched on yet, ask your trainer; nothing else is blocked.
    A page the Worker doesn't take for a trainee (DRIVE_NOT_A_TRAINEE) is told to sign in as a trainee instead.
-   CMDrive.show() opens the panel from anywhere; CMDrive.launch() (🚀 Launch LSH CaseWorks & Google Drive, js/cm-sb-task.js) opens the linked
+   CMDrive.show() opens the panel from anywhere; CMDrive.launch() (🚀 Launch LSH CaseWorX & Google Drive, js/cm-sb-task.js) opens the linked
    Drive at the trainee's case folder in a new tab, or the panel when nothing is linked yet. Once linked, the card and
    the panel link to 📁 the Drive (LSH Case Backups) and 📁 the case folder (01 Clients/Doe-John); a trainer opens the
    same from 🔗 Trainee Drives (js/cm-drive-admin.js).
@@ -826,7 +826,7 @@ css.textContent = `
 .drv-nm-jump:hover,.drv-nm-jump:focus-visible{background:#C0392B;color:#fff;outline:none;}
 .drv-nm-jump.drv-nm-top{margin-left:auto;align-self:center;padding:4px 10px;white-space:normal;text-align:left;}
 body:has(#cmDriveHost) #toast{z-index:9600;}   /* what is said while the panel is open (names to fix, after ✓ Check my drive) is said over it, not behind it */
-/* the panel sits over the CMS frame (#cm-toolframe 9000, the lifted #app 9001: js/cm-skillbuilders.js): 🚀 Launch LSH CaseWorks & Google Drive
+/* the panel sits over the CMS frame (#cm-toolframe 9000, the lifted #app 9001: js/cm-skillbuilders.js): 🚀 Launch LSH CaseWorX & Google Drive
    opens the CMS, then this panel for a trainee with no linked Drive; a modal (.cfx-modal 9999) still opens over it */
 .drv-foot{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:12px 20px;border-top:1px solid var(--line,#E3E6EF);background:#F8F9FC;}
 .drv-btn{border:1px solid var(--line,#E3E6EF);background:#fff;color:var(--navy,#1B2240);border-radius:8px;padding:7px 12px;font:inherit;font-size:12px;font-weight:800;cursor:pointer;text-decoration:none;}

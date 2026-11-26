@@ -1,4 +1,4 @@
-// @check browser — 🎯 Your Task on a Skill Building activity: one column, steps in full sentences, one foot bar (🚀 Launch LSH CaseWorks & Google Drive · 🧰 Tools ▾ with 📁 Source Files · Submit →; no per-step tool pills, no floating CMS · Drive card), the rules in 📖 Reference
+// @check browser — 🎯 Your Task on a Skill Building activity: one column, steps in full sentences, one foot bar (🚀 Launch LSH CaseWorX & Google Drive · 🧰 Tools ▾ with 📁 Source Files · Submit →; no per-step tool pills, no floating CMS · Drive card), the rules in 📖 Reference
 // js/cm-sb-task.js and the Your Task slide in js/cm-case-flow.js. On Day 3's Backup File Maintenance (d3-drive) and Day 1's
 // the Case Plan (d1m4-a2; the PD sort it used was cut with the extra tasks): no Purpose/Principle sidebar, no 🏷 naming bar or _DRAFT/_SUPERSEDED labels and no
 // points badge on the slide; no ↗ pills beside the steps and no #cm-sb-dock card; the steps are the owner's five sentences;
@@ -54,7 +54,7 @@ const D3 = [
     if (s.naming) fail(`${id}: the naming convention (bar, _DRAFT/_SUPERSEDED labels or points) is still on the slide`);
     if (s.deliver) fail(`${id}: the old 📤 Deliver box is still on the slide`);
     if (s.dock) fail(`${id}: the floating CMS · Drive card (#cm-sb-dock) is still on the page`);
-    if (s.launch !== 1 || !s.launchTop) fail(`${id}: want one 🚀 Launch LSH CaseWorks & Google Drive button in the foot bar, found ${s.launch}`);
+    if (s.launch !== 1 || !s.launchTop) fail(`${id}: want one 🚀 Launch LSH CaseWorX & Google Drive button in the foot bar, found ${s.launch}`);
     if (!s.tools) fail(`${id}: the foot bar has no 🧰 Tools ▾ menu (the task's other tools and its Source Files)`);
     if (s.pts) fail(`${id}: a point counter shows before anything is submitted`);
     if (!s.foot || !/Submit →/.test(s.footText) || /AI Grader/.test(s.footText)) fail(`${id}: the foot bar should end in Submit → (never "AI Grader"): "${s.footText}"`);
@@ -113,5 +113,5 @@ const D3 = [
 
   await browser.close();
   if (failures.length) { console.log('✗ Your Task slide:\n  ' + failures.join('\n  ')); process.exit(1); }
-  console.log('Your Task slide: one column, steps in full sentences, the rules in Reference, one foot bar: Launch LSH CaseWorks & Google Drive, Tools (with the Source Files) and Submit, which opens the AI Grader on the slide.');
+  console.log('Your Task slide: one column, steps in full sentences, the rules in Reference, one foot bar: Launch LSH CaseWorX & Google Drive, Tools (with the Source Files) and Submit, which opens the AI Grader on the slide.');
 })().catch(e => { console.log('✗ ' + (e && e.stack || e)); process.exit(1); });

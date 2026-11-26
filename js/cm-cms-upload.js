@@ -127,7 +127,7 @@ function panel(id){
       <span class="dfl-conv">Open your client's case file, file it under the right tab, and name it
         <code>&lt;Case ID&gt;_&lt;Last-First&gt;_&lt;Type&gt;_&lt;YYYY-MM-DD&gt;.&lt;ext&gt;</code> — the type is the tab you file it under.</span></div>
     ${caseOpen() ? `<div class="dfl-case">Filing into <b>${esc(caseOpen())}</b>, the case open in the CMS.</div>`
-      : `<div class="dfl-need">Open your client's case file in the CMS first: <button type="button" class="btn btn-ghost btn-sm" onclick="openTool('cms','split')">🗂 Open LSH CaseWorks</button></div>`}
+      : `<div class="dfl-need">Open your client's case file in the CMS first: <button type="button" class="btn btn-ghost btn-sm" onclick="openTool('cms','split')">🗂 Open LSH CaseWorX</button></div>`}
     ${rowHTML(id)}</div>`;
 }
 function rowHTML(id){
@@ -156,7 +156,7 @@ async function upload(id, btn){
   const r = log()[id] = Object.assign({attempts: 0, title: d.title}, recOf(id));
 
   if(!caseOpen()){
-    say(`<div class="dfl-bad"><b>Not uploaded.</b><ul><li>No case is open in the CMS. Press 🗂 Open LSH CaseWorks, then open your client's case file (or save it, so it is given its Case ID).</li></ul></div>`);
+    say(`<div class="dfl-bad"><b>Not uploaded.</b><ul><li>No case is open in the CMS. Press 🗂 Open LSH CaseWorX, then open your client's case file (or save it, so it is given its Case ID).</li></ul></div>`);
     return;
   }
   if(!tab){ say(`<div class="dfl-bad"><b>Not uploaded.</b><ul><li>Choose the CMS tab you would file this document under.</li></ul></div>`); return; }
