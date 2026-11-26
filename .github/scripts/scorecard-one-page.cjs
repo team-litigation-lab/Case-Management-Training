@@ -4,7 +4,7 @@
 // feedbackHtml and csvTables. Three trainees' records are put on the server (one with graded work, one with a little, one
 // with nothing), and the page is read as the trainer sees it:
 //   1. Admin lands on 🏅 Scorecard → 🏅 Scorecards; the page has exactly two parts, in order: the 🏅 Scores table, then the
-//      cards (each with 💬 Feedback on practical activities); no other table (Knowledge Checks, Grading systems, Lessons,
+//      cards (each with 💬 Feedback on Practical Activities); no other table (Knowledge Checks, Grading systems, Lessons,
 //      Recent progress, Score Card, Detailed Scores) and no 📋 Batch Sheet tab;
 //   2. 🏅 Scores: Day 1 … Day 5 and every kind of work as columns; each row's Overall is cmScorecard.overall of that trainee's
 //      records; sorted by the Overall, nothing scored last; Registered is "date · batch"; a day's cell holds its score, its
@@ -65,7 +65,7 @@ const BATCH = 'B111526', ANN = 'ann-one--b111526', BEN = 'ben-one--b111526', CY 
     if (L.tab !== 'scorecards') fail(`Admin should land on 🏅 Scorecards: ${L.tab}`);
     if (JSON.stringify(L.parts) !== JSON.stringify(['scx-scores', 'bs-pts scx-pad'])) fail(`the page should be exactly two parts, 🏅 Scores then the cards: ${JSON.stringify(L.parts)}`);
     if (L.heads.length !== 1 || !/^🏅 Scores/.test(L.heads[0])) fail(`no table but 🏅 Scores on the page: ${JSON.stringify(L.heads)}`);
-    if (!L.fbs.length || L.fbs.some(x => !x)) fail(`every card should carry its 💬 Feedback on practical activities: ${JSON.stringify(L.fbs)}`);
+    if (!L.fbs.length || L.fbs.some(x => !x)) fail(`every card should carry its 💬 Feedback on Practical Activities: ${JSON.stringify(L.fbs)}`);
     if (L.tabs.some(x => /Batch Sheet/.test(x))) fail(`the 📋 Batch Sheet tab should be gone: ${JSON.stringify(L.tabs)}`);
     if (/Grading systems: every record|Recent progress|Detailed Scores|More detail|📚 Lessons/.test(L.text)) fail('the page still shows a table folded into 🏅 Scores (Grading systems, Recent progress, Detailed Scores, Lessons, More detail)');
 
@@ -164,7 +164,7 @@ const BATCH = 'B111526', ANN = 'ann-one--b111526', BEN = 'ben-one--b111526', CY 
     if (!file) fail('⬇ Download gave no file');
     else {
         const T = CSV.parse(file), titles = T.map(x => x.title), by = t => T.find(x => x.title === t);
-        const order = ['🏅 Scores', '✍️ Knowledge Checks', '📚 Lessons', '🧮 Grading systems: every record', '🕒 Recent progress', '💬 Feedback on practical activities'];
+        const order = ['🏅 Scores', '✍️ Knowledge Checks', '📚 Lessons', '🧮 Grading systems: every record', '🕒 Recent progress', '💬 Feedback on Practical Activities'];
         if (JSON.stringify(titles.slice(0, order.length)) !== JSON.stringify(order)) fail(`⬇ Download should start with 🏅 Scores, then the folded tables in order: ${JSON.stringify(titles)}`);
         const sc = by('🏅 Scores'); if (sc && JSON.stringify(sc.head) !== JSON.stringify(H)) fail(`⬇ Download's 🏅 Scores should be the table on the page: ${JSON.stringify(sc.head)}`);
         const ac = CSV.cellOf(sc, 'Overall %', 'Ann One'); if (ac.v !== (S.ov['Ann One'] + '%')) fail(`⬇ Download's Overall for Ann One: ${ac.err || ac.v}`);
@@ -181,7 +181,7 @@ const BATCH = 'B111526', ANN = 'ann-one--b111526', BEN = 'ben-one--b111526', CY 
             const cy = sys.rows.find(x => x[0] === 'Cy None'); if (!cy || cy[si] !== 'not graded yet') fail(`Cy's 🧪 Skill Activities should say "not graded yet": ${cy && cy[si]}`); }
         const rec = (by('🕒 Recent progress') || { rows: [] }).rows.map(r => r.join(' | ')).join('\n');
         if (!/Ann One \| Day 1 \| Knowledge Check \| Day 1 · attempt 1 \| 40%/.test(rec) || !/Backup File Maintenance \| Case Flow Day 2 · passed \| 88%/.test(rec)) fail(`🕒 Recent progress should list each attempt and the Backup Drive with their scores: ${rec.slice(0, 600)}`);
-        const fb = (by('💬 Feedback on practical activities') || { rows: [] }).rows.find(r => r[0] === 'Ann One' && r[2].includes(seed.act));
+        const fb = (by('💬 Feedback on Practical Activities') || { rows: [] }).rows.find(r => r[0] === 'Ann One' && r[2].includes(seed.act));
         // (Trainee · Day · Activity · Status · did well · to improve · why · could have been done better · red flag · Score)
         if (!fb || fb[9] !== '72%' || !/Logged every channel/.test(fb[4]) || !/callback window/.test(fb[5]) || !/A date not set or missed/.test(fb[8])) fail(`⬇ Download's feedback should carry the activity's did well, to improve, red flag and score: ${JSON.stringify(fb)}`);
     }
