@@ -124,7 +124,7 @@ function skillActs(c){
     const m = /Case Flow Day (\d) · (.+?) — Skill Building\s*$/.exec(e.label || ""), day = labDayOf(e), k = labKey(e);
     if(!lines[k] || String(e.at || "") >= String(lines[k].at || "")) lines[k] = e;
     keep(k, {name: m ? m[2].trim() : (typeof dayText === "function" ? dayText(e.label || e.toolId || "Skill Activity") : (e.label || e.toolId || "Skill Activity")),
-      day, pct: num(e.score), at: e.at || "", tier: e.tier || "", subs: e.subs || null, best: e.strengths || [], improve: (e.gaps || []).concat(e.growth || []), from: "work log"}); });
+      day, pct: num(e.score), at: e.at || "", tier: e.tier || "", subs: e.subs || null, best: e.strengths || [], improve: (e.gaps || []).concat(e.growth || []), growth: e.growth || [], from: "work log"}); });
   Object.entries((((c.data || {})["cf-ai-grades"]) || {}).blocks || {}).forEach(([id, r]) => { if(!r || !fin(r.score)) return;
     const f = blockOf(id), t = f && f.b && f.b.title ? String(f.b.title).trim() : id, day = (f && f.n) || taughtOf(id);
     const k = day ? `${day}|${titleKey(t)}` : "aig|" + id;
@@ -134,7 +134,7 @@ function skillActs(c){
     const logged = !!w && (!(ta > 0) || !(wa > 0) || (Math.round(w.score) === Math.round(r.score) && Math.abs(ta - wa) < 15 * 60e3));
     // (its rubric parts, js/cm-ai-grader.js subs: Accuracy, Presence, Risk, Efficiency as shares of their maximums)
     const subs = r.subs && ["accuracy", "presence", "risk", "efficiency"].every(x => fin(r.subs[x])) ? {accuracy: num(r.subs.accuracy), presence: num(r.subs.presence), risk: num(r.subs.risk), efficiency: num(r.subs.efficiency)} : null;
-    keep(k, {name: t, id, day, logged, pct: num(r.score), at: r.at || "", tier: r.tier || "", subs, best: r.strengths || [], improve: (r.gaps || []).concat(r.growth || []),
+    keep(k, {name: t, id, day, logged, pct: num(r.score), at: r.at || "", tier: r.tier || "", subs, best: r.strengths || [], improve: (r.gaps || []).concat(r.growth || []), growth: r.growth || [],
       tries: r.tries || 0, from: "the grader"}); });
   return Object.values(seen);
 }
@@ -257,6 +257,8 @@ const SOURCES = [
    each), 📝 Action Plan and 📂 Backup Drive (a passed day with no Backup Drive grade is one item at 0, as the model counts it) */
 const srcItems = (c, id) => { const s = SOURCES.find(x => x.id === id); try{ return ((s && s.items(c)) || []).filter(x => x && x.pct != null); }catch(e){ return []; } };
 const dayOfItem = x => x.day != null ? +x.day : (m => m ? +m[1] : null)(/^Day (\d)/.exec(x.name || ""));
+// (each graded item keeps the grader's growth suggestions as growth too: "improve" still holds gaps and growth, as every
+// table reads it; js/cm-batch-sheet.js fbCols puts growth under 💡 What could have been done better)
 function dayItems(c, d){
   const n = d.cf.n, of = id => srcItems(c, id).filter(x => dayOfItem(x) === n);
   const bd = of("bd").filter(x => !x.unconfirmed);
@@ -264,7 +266,7 @@ function dayItems(c, d){
   const latest = {}; ((c.data || {})["work-log"] || []).forEach(w => { if(!w || w.kind !== "roleplay" || !fin(w.score) || Number(w.dayId) !== Number(d.id)) return;
     const k = w.label || w.toolId || "Call"; if(!latest[k] || String(w.at || "") > String(latest[k].at || "")) latest[k] = w; });
   const call = Object.values(latest).map(w => ({name: String(w.label || "Call").replace(/^Roleplay — /, ""), day: n, pct: num(w.score), at: w.at || "", tier: w.tier || "", subs: w.subs || null,
-    best: w.strengths || [], improve: (w.gaps || []).concat(w.growth || [])}));
+    best: w.strengths || [], improve: (w.gaps || []).concat(w.growth || []), growth: w.growth || []}));
   return {sa: of("sa"), call, ap: of("ap"), bd};
 }
 const avgPct = xs => { const v = xs.map(x => x.pct).filter(fin); return v.length ? Math.round(v.reduce((a, b) => a + b, 0) / v.length) : null; };

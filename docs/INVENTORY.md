@@ -245,7 +245,7 @@ None.
 | `vm-answer-keys.cjs` | voicemail answer keys grade a correct answer right: the number as heard, a "no" not taken for a "yes", audit kinds |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
-## Browser checks (92)
+## Browser checks (93)
 
 | Check | What it covers |
 |---|---|
@@ -301,6 +301,7 @@ None.
 | `links.cjs` | Every link and button resolves: on every Case Flow slide, its 📖 Reference panel and the 🧪 Practice page, an in-app route exists, a /decks/ /documents/ /js/ file is served (200), a button's onclick calls a function that exists, and no href="#" is a dead end (an external link, Canva or Google, is a well-formed URL) |
 | `litigation-note.cjs` | The Litigation note ("Case Managers handling Litigation and Pre-Litigation are sometimes different individuals…"): word for word at the start of the Litigation section and on every handoff step, a pop-up there once for a trainee, and the slides still fit |
 | `micro-frameworks.cjs` | Micro-frameworks on the lessons (Milestone Steps, Rule vs. Exception, one CM Red Flag a slide with its owner; type ≥ 16px; no Trigger ➔ Task ➔ Tool ➔ Checkpoint cards or table and the word "Trigger" on no slide, title or 📖 Additional Reference; no Milestone Steps slide) and Why It Matters as the opening of a drawn lesson's one slide |
+| `my-scores-detail.cjs` | 🏅 My Scores' day detail (the trainee's dashboard) is the standard "why this score" table: Activity · Score · 🧾 Why this score · ⭐ What you did great · ❌ What was wrong · 💡 What could have been done better · 🚩 Red flag, with the Knowledge Check's questions right and missed, the grader's growth under 💡, and no blank cell |
 | `net-sheet-lines.cjs` | 📊 Net Sheet saves and lines: a stale pane never writes over a newer tie-out, a provider's line is the one its Provider Name names, a missing line never ties out |
 | `net-sheet.cjs` | 📊 the LSH Net Sheet ties out when filled from the case file: providers found by name in any row, a Non-Medical Provider Ledger (Riverton Drug, paid by John, owes nothing), costs typed as sums, and every miss says how to fix it |
 | `no-page-errors.cjs` | No page errors (every page and Admin tab, every slide and Knowledge Check, Presenter view; trainee and trainer, 1366x768) |

@@ -243,7 +243,7 @@ function dayParts(r, d){
   const tries = (rp.history || []).length || rp.kcAttempts || (kc != null ? 1 : 0);
   if(kc != null || tries) out.push({grp: "kc", name: "✍️ Knowledge Check", pct: kc, status: kc == null ? "Not taken" : passed ? "Passed" : "Not passed yet",
     why: kc == null ? "" : `${kc}% best of ${tries} attempt${tries === 1 ? "" : "s"}${quiz && quiz.total ? ` · last attempt ${quiz.correct}/${quiz.total} correct` : ""}. 70% passes the day.${rp.kcUnverified ? " Restored from the trainee's device." : ""}`,
-    best: [], improve: ((quiz && quiz.missed) || []).slice(0, 4).map(q => "Missed: " + clip(q, 160))});
+    best: [], improve: ((quiz && quiz.missed) || []).slice(0, 4).map(q => "Missed: " + clip(q, 160)), right: quiz && quiz.total ? quiz.correct : null, total: quiz && quiz.total ? quiz.total : null});
   else if(dev != null) out.push({grp: "kc", name: "✍️ Knowledge Check", pct: null, status: `Unconfirmed: ${dev}% on the trainee's device only`, why: `${dev}% is on the trainee's device but not on their record, so it isn't counted. 🛠 Account Repair can restore it.`, best: [], improve: []});
   else out.push({grp: "kc", name: "✍️ Knowledge Check", pct: null, status: "Not taken", why: "", best: [], improve: []});
   // 🧩 the modules' Learning Checks (Automated × 0.60 + trainer × 0.40)
@@ -257,9 +257,9 @@ function dayParts(r, d){
   const subsOf = x => Object.entries(x.subs || {}).map(([k, v]) => `${k} ${v}%`).join(", ");
   I.sa.forEach(x => out.push({grp: "sa", name: `🧪 ${clip(shown(String(x.name).replace(/^Day \d+: /, "")), 90)}`, pct: num(x.pct), status: x.tier || "",
     why: [x.tier, subsOf(x) ? "rubric: " + subsOf(x) : "", x.from === "the grader" ? `Graded${x.tries ? ` · attempt ${x.tries}` : ""}` : "", x.at ? "graded " + dTime(x.at) : ""].filter(Boolean).join(" · "),
-    best: (x.best || []).map(y => clip(y, 200)), improve: (x.improve || []).map(y => clip(y, 200))}));
+    best: (x.best || []).map(y => clip(y, 200)), improve: (x.improve || []).map(y => clip(y, 200)), growth: (x.growth || []).map(y => clip(y, 200))}));
   I.call.forEach(x => out.push({grp: "call", name: `📞 ${clip(shown(x.name), 90)}`, pct: num(x.pct), status: x.tier || "",
-    why: [x.tier, subsOf(x) ? "rubric: " + subsOf(x) : "", x.at ? "graded " + dTime(x.at) : ""].filter(Boolean).join(" · "), best: (x.best || []).map(y => clip(y, 200)), improve: (x.improve || []).map(y => clip(y, 200))}));
+    why: [x.tier, subsOf(x) ? "rubric: " + subsOf(x) : "", x.at ? "graded " + dTime(x.at) : ""].filter(Boolean).join(" · "), best: (x.best || []).map(y => clip(y, 200)), improve: (x.improve || []).map(y => clip(y, 200)), growth: (x.growth || []).map(y => clip(y, 200))}));
   I.ap.forEach(x => out.push({grp: "ap", name: `📝 Action Plan: ${clip(String(x.name).replace(/^Day \d+: /, ""), 80)}`, pct: num(x.pct), status: x.pct >= 70 ? "Handed in" : "Steps missing",
     why: `${x.note || ""}: the plan checked against the steps it must hold.`, best: (x.best || []).map(y => clip(y, 200)), improve: (x.improve || []).map(y => clip(y, 200))}));
   // 🧪 a Skill Activity handed in to the grader whose grading didn't come back (js/cm-ai-grader.js keeps the reason, failed)
@@ -580,7 +580,7 @@ function cxOf(r){ try{ const s = ((window.cmScorecard || {}).sources || []).find
 const said = (xs, none) => xs && xs.length ? xs.map(x => E(String(x).replace(/\s+$/, ""))).join(" · ") : `<i>${none}</i>`;
 /* the grader's "to improve" notes split in two: the finding (before its →) and the fix (after it); a note that is only advice
    ("Practice…", "Build…", "Before…") is a fix */
-const ADVICE = /^(practice|build|before|try|next time|keep|always|start|make|write|use|re-?do|redo)\b/i;
+const ADVICE = /^(practice|build|before|try|next time|keep|always|start|make|write|use|re-?do|redo|submit|link|open|put|confirm|re-?read|fill|ask|schedule|send|add)\b/i;
 function splitImprove(xs){
   const fix = [], better = [];
   (xs || []).forEach(t => { t = String(t || "").trim(); if(!t) return; const i = t.indexOf("→");
@@ -614,22 +614,43 @@ const lis = (xs, none) => xs && xs.length ? `<ul>${xs.map(x => `<li>${E(String(x
    so, rather than left blank. The page and ⬇ Download both read it. */
 const passMark = () => ((window.cmScorecard || {}).model || {}).PASS || 80;
 const pillTone = p => { const M = (window.cmScorecard || {}).model; return p == null ? "" : M && M.mtone ? M.mtone(p) : tone(p); };
+// 💡 when the row names what was wrong but no fix was noted: the fix that follows from the kind of item (never a made-up specific)
+const BETTER_IF_WRONG = {cmsf: "Fill in each entry listed under What was wrong, then re-check the file in the CMS.",
+  ap: "Add each missing step to the action plan, then hand it in again.",
+  bd: "Fix each point listed under What was wrong on the Backup Drive, so the next grade records it.",
+  lc: "Ask your trainer which points were missed, then review the module and its slides.",
+  kc: "Re-read the slides on the questions missed, then retake the Knowledge Check."};
 function fbCols(y){
-  const sp = splitImprove(y.improve), P = passMark(), p = y.pct, noted = (y.best || []).length || (y.improve || []).length;
+  const g = y.grp, kc = g === "kc", P = kc ? 70 : passMark(), p = y.pct;
+  // (the grader's growth suggestions are 💡; "improve" also holds them, so they're taken out of ❌)
+  const grow = (y.growth || []).map(t => String(t || "").trim()).filter(Boolean), gs = new Set(grow);
+  const sp = splitImprove((y.improve || []).filter(t => !gs.has(String(t || "").trim())));
+  const noted = (y.best || []).length || (y.improve || []).length || grow.length;
   // (the grader's reason, a bullet per part; "attempt 2" and a bare date stay with the part they qualify)
   const why = String(y.why || "").split(/\s+·\s+/).map(t => t.trim()).filter(Boolean)
     .reduce((xs, t) => { if(xs.length && /^(attempt \d|[A-Z][a-z]{2} \d{1,2}, )/.test(t)) xs[xs.length - 1] += " · " + t; else xs.push(t); return xs; }, []);
-  if(p == null) why.push("Not scored yet, so it isn't in the score.");
-  else why.push(p >= P ? `${P}% passes: this passes.` : `Below the ${P}% pass mark.`);
-  const great = (y.best || []).slice(), wrong = sp.fix.slice(), better = sp.better.slice();
-  if(!noted && p != null){
+  if(p == null) why.push(g === "fb" ? "The trainer's review of the day, with no rubric score." : kc && /Unconfirmed/.test(y.status || "") ? "Not counted until it is on the trainee's record." : "Not scored yet, so it isn't in the score.");
+  else if(!(kc && /\d+% passes/.test(y.why || ""))) why.push(p >= P ? `${P}% passes: this passes.` : `Below the ${P}% pass mark.`);
+  const great = (y.best || []).slice(), wrong = sp.fix.slice(), better = [];
+  grow.concat(sp.better).forEach(t => { if(!better.includes(t)) better.push(t); });
+  if(kc){
+    if(p != null && y.total) great.push(`${y.right} of ${y.total} questions right on the last attempt.`);
+    else if(p != null && p >= P) great.push(`Passed at ${p}%.`);
+    if(p != null && p < 100 && !wrong.length) wrong.push(`${100 - p}% of the questions answered wrong (which ones wasn't recorded for this attempt).`);
+    if(p == null && /Not taken/.test(y.status || "")) better.push("Finish the day's slides, then take its Knowledge Check (70% passes the day).");
+  } else if(!noted && p != null){
     if(p >= P) great.push(`Passed at ${p}%.`);
     if(p < 100) wrong.push(`${100 - p}% of the points were lost. Which items were missed wasn't recorded for this activity.`);
+    if(p < 100 && !BETTER_IF_WRONG[g]) better.push("Run it again: the next run records what to fix.");
   }
+  if(!wrong.length && p === 0 && /^Not done/.test(y.status || "")) wrong.push("Not done, so it scored 0%.");
+  if(wrong.length && !better.length) better.push(BETTER_IF_WRONG[g] || "Work on each point under What was wrong, then try it again.");
   const none = p == null ? "—" : "Nothing noted.";
-  return {why, great, wrong, better, flags: redFlags(y),
+  // (a Knowledge Check question missed is a gap in what was learned, not a risk to the client: no 🚩)
+  return {why, great, wrong, better, flags: kc ? [] : redFlags(y),
     none: {great: none, wrong: p == null ? "—" : p >= 100 ? "Nothing — full marks." : "Nothing noted.", better: p == null ? "—" : p >= 100 ? "Keep the same approach." : "Nothing noted."}};
 }
+const FB_HEAD = ["Activity", "Score", "🧾 Why this score", "⭐ What you did great", "❌ What was wrong", "💡 What could have been done better", "🚩 Red flag"].map(h => `<th>${h}</th>`).join("");
 function fbRowHtml(y){
   const c = fbCols(y), cms = /CMS case file/i.test(y.name || "");
   return `<tr class="bs-fb-it"><th scope="row" class="bs-fb-act"><span class="bs-fb-n">${E(y.name)}</span>${y.status ? `<small>${E(y.status)}</small>` : ""}</th>
@@ -649,7 +670,7 @@ function feedbackHtml(x, top){
     ${top || ""}<p class="bs-fb-note">Each practical activity of the day, as its grader marked it: the score, why it scored that way, what was done great, what was wrong, what could have been done better, and any 🚩 red flag (and why it is one).</p>
     ${L.map(d => { const xs = practOf(r, d, cx), sc = xs.filter(y => y.pct != null), a = dayAvg(sc), k = r.id + "|" + d.id, open = !!B.fbOpen[k];
       return `<details class="bs-fb-day" data-day="${d.cf.n}"${open ? " open" : ""} ontoggle="cmBatchSheet.fbOpen('${E(k)}', this.open)"><summary><b>${dayLabel(d)}</b><span>${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</span><em class="${tone(a)}">${xs.length ? `${xs.length} activit${xs.length === 1 ? "y" : "ies"}${a != null ? ` · avg ${a}%` : ""}` : "Nothing yet"}</em></summary>
-        ${xs.length ? `<div class="bs-fb-wrap"><table class="bs-fb-t"><thead><tr><th>Activity</th><th>Score</th><th>🧾 Why this score</th><th>⭐ What you did great</th><th>❌ What was wrong</th><th>💡 What could have been done better</th><th>🚩 Red flag</th></tr></thead>
+        ${xs.length ? `<div class="bs-fb-wrap"><table class="bs-fb-t"><thead><tr>${FB_HEAD}</tr></thead>
           <tbody>${xs.map(fbRowHtml).join("")}</tbody></table></div>` : `<p class="bs-none">No practical activity on this day yet.</p>`}</details>`; }).join("")}</section>`;
 }
 function feedbackTable(recs){
@@ -757,11 +778,10 @@ function myScoreCardHtml(){
   const cols = SC_COLS.filter(([g]) => per.some(xs => xs.some(x => g.split(",").includes(x.grp) && x.pct != null)));
   const cell = (xs, g) => { const gs = g.split(","), its = xs.filter(x => gs.includes(x.grp) && x.pct != null), a = avgOf(its.map(x => x.pct));
     return `<td class="${tone(a)}" title="${E(its.map(x => `${x.name.replace(/^\S+\s/, "")} ${x.pct}%`).join(" · "))}">${a == null ? "" : a + "%"}</td>`; };
-  const li = (h, xs, cls) => xs.length ? `<div class="bs-ctx ${cls}"><b>${h}</b><ul>${xs.map(x => `<li>${E(x)}</li>`).join("")}</ul></div>` : "";
   const open = L.find(d => d.id === MY.open);
   return `<section class="card my-sc"><div class="my-sc-h"><h2>🏅 My Scores <span>day by day</span></h2>
       <span class="my-sc-all ${tone(all)}">${all == null ? "Nothing scored yet" : `Overall ${all}%`}</span></div>
-    <p class="my-sc-sub">Only your own scores, the same ones your trainer sees. Click a day for each graded item: why it scored that way, what you did best and what to improve.</p>
+    <p class="my-sc-sub">Only your own scores, the same ones your trainer sees. Click a day for each graded item: its score, why it scored that way, what you did great, what was wrong and what could have been done better.</p>
     <div class="my-sc-wrap"><table class="my-sc-t"><thead><tr><th>Day</th>${cols.map(([, l]) => `<th>${E(l)}</th>`).join("")}<th>Day score</th><th>💬 Trainer</th></tr></thead><tbody>
       ${L.map((d, i) => { const f = fbOf(r, d);
         return `<tr class="${MY.open === d.id ? "on" : ""}" onclick="cmBatchSheet.myOpen(${d.id})"><td class="my-sc-day"><b>${dayLabel(d)}</b><span>${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</span></td>
@@ -769,9 +789,8 @@ function myScoreCardHtml(){
           <td class="${f ? ratingTone(f.rating) : ""}">${f ? E(f.rating || "Sent") : ""}</td></tr>`; }).join("")}
     </tbody></table></div>
     ${open ? (() => { const xs = per[L.indexOf(open)];
-      return `<div class="my-sc-detail"><h3>${dayLabel(open)} · ${E(String(open.title).replace(/^Case Flow Day \d+ · /, ""))}</h3>${xs.length ? xs.map(x => { const rich = x.pct != null || x.best.length || x.improve.length;
-        return `<div class="bs-ds-it"><div class="bs-ds-h"><span>${E(x.name)}</span><small>${E(x.status || "")}</small><b class="${x.pct != null ? tone(x.pct) : ratingTone(x.grp === "fb" ? x.status : "")}">${x.pct != null ? x.pct + "%" : "—"}</b></div>
-          ${rich || x.why ? `<div class="bs-ctx bs-why"><b>🧾 Why this score</b><p>${E(x.why || "—")}</p></div>` : ""}${li("⭐ What you did best", x.best, "bs-best")}${li("🔧 What to improve", x.improve, "bs-imp")}</div>`; }).join("") : `<p class="bs-none">Nothing graded on this day yet.</p>`}</div>`; })() : ""}
+      return `<div class="my-sc-detail"><h3>${dayLabel(open)} · ${E(String(open.title).replace(/^Case Flow Day \d+ · /, ""))}</h3>${xs.length ? `<div class="bs-fb-wrap"><table class="bs-fb-t"><thead><tr>${FB_HEAD}</tr></thead>
+        <tbody>${xs.map(fbRowHtml).join("")}</tbody></table></div>` : `<p class="bs-none">Nothing graded on this day yet.</p>`}</div>`; })() : ""}
   </section>`;
 }
 if(typeof window.renderDashboard === "function" || typeof renderDashboard === "function"){
