@@ -1347,7 +1347,7 @@ function sopProgramFlow(){
         <tr><td>See the portal as a trainee does</td><td>Top bar → <b>👁 Trainee view</b></td></tr>
         <tr><td>See the planted errors in each case document</td><td><b>📁 Documents</b> signed in as admin (red 🔑 trainer key under each file)</td></tr>
         <tr><td>Check a trainee's file work in the CMS</td><td><b>🧰 Tools</b> → 🗂 LSH CaseWorX (trainees log their Case ID in each Skill Builder)</td></tr>
-        <tr><td>Run extra call, email or calendar practice</td><td><b>🛠 LSH Sims</b> (the LSH Training Portal's shared simulators, opened for CM)</td></tr>
+        <tr><td>Run extra call, email or calendar practice</td><td><b>🛠 LSH Elev8</b> (the LSH Training Portal's shared simulators, opened for CM)</td></tr>
       </tbody></table></section>
     <section class="card sopf-card" style="margin-top:14px;"><h3>The ${DAYS.length} days</h3>
       <table class="log-table sopx-table sopf-map"><thead><tr><th>Day</th><th>Title</th><th>Topics</th><th>Skill Builders</th><th></th></tr></thead><tbody>${days}</tbody></table></section>`;

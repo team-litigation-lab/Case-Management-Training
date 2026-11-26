@@ -1,6 +1,6 @@
 /* ============================================================
    LSH Case Management Training — the Training Tools hub (CMS, Docket, Records), the tool frame,
-   🛠 LSH Sims, 📚 LSH Atlas and the Calendar Conflict Resolver.
+   🛠 LSH Elev8, 📚 LSH Atlas and the Calendar Conflict Resolver.
    Loaded after the main portal script: anything assigned to window
    here replaces the portal function of the same name.
    ============================================================ */
@@ -167,7 +167,7 @@ const CM_TOOL_DEFAULTS = [
   // signed in (→ /api/launch?tool=ringchannel&to=calls), &program=CM says the course the call counts in, and &line= and
   // &mode=graded the line and its graded call. It opens in its own tab (the Portal's sign-in cookie, like the
   // Calendaring Simulators), and a graded call is reported to the Portal's /api/call-results, so it still counts here.
-  {id:"calls", icon:"📞", name:"Call Sim (☎ LSH Voice)", short:"Call Sim", status:"live",
+  {id:"calls", icon:"📞", name:"Call Sim (☎ LSH CommX)", short:"Call Sim", status:"live",
    url:"https://cm-training-activity.pages.dev/simulators/call.html", portalSim:true,
    desc:"Live practice calls on the training phone, spoken aloud: the phone rings on the line the step names, you answer with a headset and use its own keys (mute, hold, transfer) and 🔎 Case lookup. Each call ends with the note it requires, and both are scored on the line's Mock Calls Metrics. Take a graded call, practice with an 🤖 AI caller, or answer a trainer-led mock call on the same phone.",
    evidence:"Score", idHint:"Score (e.g. 82%)"},
@@ -321,7 +321,7 @@ function placeFrame(){
 function paintShell(){
   const t = cmTool(currentFrame);
   const pg = panes[currentFrame];
-  frameShell.querySelector(".cm-tf-name").textContent = pg ? `${pg.icon} ${pg.name}` : t ? `${t.icon} ${t.name.replace(/ \((LSH Training Portal|LSH CMS|☎ LSH Ring Channel|☎ LSH Voice)\)$/,"")}` : "";
+  frameShell.querySelector(".cm-tf-name").textContent = pg ? `${pg.icon} ${pg.name}` : t ? `${t.icon} ${t.name.replace(/ \((LSH Training Portal|LSH CMS|☎ LSH Ring Channel|☎ LSH CommX)\)$/,"")}` : "";
   const sb = frameShell.querySelector(".cm-tf-split-btn"); if(sb) sb.setAttribute("aria-pressed", document.body.classList.contains("cm-tf-split") ? "true" : "false");
   Object.entries(frames).forEach(([id,f])=>{ f.style.display = id===currentFrame ? "block" : "none"; });
 }
@@ -560,15 +560,15 @@ window.renderCallSimulator = function(){
   const calls = cmTool("calls"), mail = cmTool("email"), replies = cmTool("replies"), cal = cmTool("calendaring"), rec = cmTool("records"), ef = cmTool("efiling");
   const lines = [["☎","Reception & Front Desk","5 calls"],["📥","Intake Calls","5 calls"],["🤝","Client Communication","5 calls"],["⚖","Attorney Reporting","5 calls"],["🛡","Adjusters & Carriers","4 calls"],["🏥","Providers & Records","3 calls"]];
   const card = (t, extra)=> `<div class="card cm-tool${t.live?"":" soon"}">
-      <div class="cm-tool-h"><span class="cm-tool-ic">${t.icon}</span><div><b>${E(t.name.replace(/ \((LSH Training Portal|LSH CMS)\)$/,""))}</b><div><span class="cm-badge ${t.live?"live":"soon"}">${t.live?(t.cmsHosted?"● Live in 🗂 LSH CaseWorX":t.id==="calls"?"● Live on ☎ LSH Voice":"● Live on the LSH Training Portal"):"Coming soon"}</span></div></div></div>
+      <div class="cm-tool-h"><span class="cm-tool-ic">${t.icon}</span><div><b>${E(t.name.replace(/ \((LSH Training Portal|LSH CMS)\)$/,""))}</b><div><span class="cm-badge ${t.live?"live":"soon"}">${t.live?(t.cmsHosted?"● Live in 🗂 LSH CaseWorX":t.id==="calls"?"● Live on ☎ LSH CommX":"● Live on the LSH Training Portal"):"Coming soon"}</span></div></div></div>
       <p>${E(t.desc)}</p>${extra||""}
       ${t.live?`<div class="cm-tool-act"><button class="btn btn-primary btn-sm" onclick="openTool('${t.id}')">Open here</button><button class="btn btn-ghost btn-sm" onclick="openTool('${t.id}','tab')">New tab ↗</button></div>`:""}
     </div>`;
-  return `<p class="eyebrow">LSH Sims</p>
-    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🛠 LSH Sims</h1>
+  return `<p class="eyebrow">LSH Elev8</p>
+    <h1 style="color:var(--navy);font-size:26px;margin:6px 0 8px">🛠 LSH Elev8</h1>
     <p style="color:var(--ink-soft);font-size:14px;max-width:80ch;margin:0 0 16px">The <b>Call Sim</b> is in 🗂 LSH CaseWorX (it opens already signed in, on the Case Management lines; pick a line below for its graded calls). Email, calendar, docketing, medical records and court e-filing practice live on the <b>LSH Training Portal</b>, shared by every program. They open here already set to <b>Case Management</b> and carrying your name and batch, so your scores reach your trainer. On calls the caller speaks: answer by voice (Chrome or Edge, allow the microphone) or by typing. Most calls end with the note the call requires, graded with the call.</p>
     <div class="cm-tools">${card(calls, `<div class="cl-lines-mini">${lines.map(([i,l,n])=>`<span role="button" tabindex="0" style="cursor:pointer" title="Open this line's graded calls" onclick="openTool('calls',null,'line=${encodeURIComponent(l)}&mode=graded')">${i} ${E(l)} · ${n}</span>`).join("")}</div>`)}${card(mail)}${card(replies)}${card(cal, state.isAdmin ? `<p style="font-size:12.5px;margin:6px 0 0"><button class="btn btn-navy btn-sm" onclick="openTool('calendaring','tab','view=scores')">📊 Calendar Scores (Litigation Week) ↗</button> Grade and give feedback there; scores also show on the Portal's Progress page under this program.</p>` : "")}${card(rec)}${card(ef)}</div>
-    <div class="card" style="padding:14px 18px;font-size:12.8px;color:var(--ink-soft)">Want more? Live Roleplay (🔥) has every call on John Doe VS Robert Smith, and the Calendar Conflict Resolver (Case Flow Day 4) has the John Doe docket and the Court's Scheduling Order.${state.isAdmin?` <b>Admin:</b> results appear on the Training Portal's LSH Sims page when you're signed in there as admin. Addresses are set in 🧰 Tools.`:""}</div>`;
+    <div class="card" style="padding:14px 18px;font-size:12.8px;color:var(--ink-soft)">Want more? Live Roleplay (🔥) has every call on John Doe VS Robert Smith, and the Calendar Conflict Resolver (Case Flow Day 4) has the John Doe docket and the Court's Scheduling Order.${state.isAdmin?` <b>Admin:</b> results appear on the Training Portal's LSH Elev8 page when you're signed in there as admin. Addresses are set in 🧰 Tools.`:""}</div>`;
 };
 window.saveToolSettings = async function(){
   const out = {};

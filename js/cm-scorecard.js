@@ -224,7 +224,7 @@ const SOURCES = [
     items: c => Object.entries(c.rec.practiceProgress || {}).filter(([, v]) => v && typeof v.bestScore === "number" && v.bestScore > 0).map(([id, v]) => {
       const t = (typeof PRACTICE_TOOLS !== "undefined" ? PRACTICE_TOOLS : []).find(x => x.id === id);
       return {name: t ? t.title : id, pct: num(v.bestScore), note: `${v.runs || 1} attempt${(v.runs || 1) === 1 ? "" : "s"}`}; })},
-  {id: "gc", icon: "🎯", label: "Graded Calls", about: "The best graded call on each Call Sim line (☎ LSH Voice).", dims: ["pc", "cd"], how: "Scored by the Call Sim on the Training Portal: the call itself and the note you write after it. Your best call on each line counts.",
+  {id: "gc", icon: "🎯", label: "Graded Calls", about: "The best graded call on each Call Sim line (☎ LSH CommX).", dims: ["pc", "cd"], how: "Scored by the Call Sim on the Training Portal: the call itself and the note you write after it. Your best call on each line counts.",
     // a trainer's note on a line (js/cm-trainer-notes.js: feedback:<id>.activities["gc:<line key>"]) and, under the pass mark, what to do next
     items: c => Object.entries((c.callsim && c.callsim.best) || {}).filter(([, b]) => b && typeof b.score === "number").map(([k, b]) => {
       const n = (((c.fb || {}).activities) || {})["gc:" + k], p = num(b.score);

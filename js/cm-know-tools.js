@@ -14,7 +14,7 @@ const TOOLS = [
     where: "🧰 Tools → LSH CaseWorX, the Practice Lab slide of each day, or 🗂 on any step that's worked in it. It opens beside the slide and keeps its session.",
     when: "Every day. Day 1 you open the matter; after that every activity ends in LSH CaseWorX, and its Submit slide logs your CMS Case ID.",
     tip: "If it isn't in LSH CaseWorX, it didn't happen."},
-  {id: "call", icon: "☎", name: "LSH Voice™ (the Call Sim)", daily: true,
+  {id: "call", icon: "☎", name: "LSH CommX™ (the Call Sim)", daily: true,
     what: "The training phone. Live calls with John Doe, Margaret Doe, the adjusters, providers' billing offices, defense counsel's paralegal and Atty. Thorne, voiced and graded.",
     where: "📞 Take the call on a Your Task slide, 🧰 Tools → Call Sim, or the ring that comes in when your trainer injects a call.",
     when: "Every day's live calls, and any time your trainer rings you. Answer it: a missed call counts.",
