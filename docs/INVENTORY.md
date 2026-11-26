@@ -223,7 +223,7 @@ None.
 | `vm-answer-keys.cjs` | voicemail answer keys grade a correct answer right: the number as heard, a "no" not taken for a "yes", audit kinds |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
-## Browser checks (89)
+## Browser checks (90)
 
 | Check | What it covers |
 |---|---|
@@ -286,6 +286,7 @@ None.
 | `one-screen.cjs` | Every page fits one screen (the window never scrolls; a long page scrolls inside its body) |
 | `open-lessons.cjs` | 🔓 Open Lessons (the trainer opens a Case Flow day for a batch or one trainee; the trainee sees it; a trainee can't write it) |
 | `practice-tools.cjs` | One tools access per Practice Lab session (not on every activity row) |
+| `presenter-late-addon.cjs` | Presenter view on a slow connection: a slide drawn by an add-on script (Day 1's Backup Drive slide, js/cm-drive.js) is right in the slides window even when the presenter's slide arrives before that script has loaded |
 | `presenter-slow-load.cjs` | Presenter view on a slow connection: the slides window shows the presenter's slide even when the presenter answers before the page has finished loading |
 | `presenter.cjs` | Presenter view (the slides window shared in Meet never flickers) |
 | `progress-log.cjs` | 📒 My Progress Log on the trainee's dashboard (a dated log of what they did and how it went; ⚠ Needs fixing; no deck utilization) |
