@@ -1,28 +1,28 @@
 /* ============================================================
-   🎬 THE CASE DEBRIEF: the Case Profile's third tab (after 👋 Meet John Doe and 🗺 File Map)
+   🎬 THE CASE DEBRIEF: on Case Flow Day 5, and only there
    A narrated debrief of John Doe VS Robert Smith once the five days are done: the money trail, the traps planted in
    the documents, the mistakes files make and whose decision each one is, so a trainee finds what went wrong in their
    own file and fixes it at the source.
+   · It is on Case Flow Day 5's card, beside ▶ Video: 🎬 Case Debrief opens it in a viewer over the page (✕ or Esc
+     closes it). It is not on the Case Profile, nor on any other day.
    · The deck is build/debrief/debrief.json, drawn by build/debrief/render.cjs (decks/debrief/NN.webp) and recorded by
      build/videoslide/make_video.py (decks/debrief/debrief-narrated.mp4 and its .vtt); build/videoslide/deck-slides.cjs
      lists it in js/cm-deck-slides.js as CM_DEBRIEF_VIDEO, one chapter per slide.
    · 🔒 for a trainee until Case Flow Day 5 is complete (its Knowledge Check passed: state.progress[day].done, the
-     day's ✓); the locked tab says why and when it opens, and gives nothing away. A trainer, and a trainer's 👁 Trainee
-     view, always sees it.
+     day's ✓): the card says "🔒 Case Debrief", and the viewer says why and when it opens, giving nothing away. A
+     trainer, and a trainer's 👁 Trainee view, always has it open.
    · The player, as the day videos' (js/cm-day-video.js): the captions in a strip under the picture (CC), speed 0.75× to
      2×, ⏪ / ⏩ 10 s, ⛶ Full screen, the slides beside it as chapters, and the trainee's place kept (personal key
      "case-debrief": "Resumed at m:ss · Start over"). The <video> outlives the page's redraws, so a redraw never stops
      it, and the portal doesn't reload itself for an update while it plays.
-   · Until the video is recorded (no start times in debrief.json), the tab steps through the slides and their script.
-   · With this tab in it, a trainer's row of tabs is set a little tighter, so the Case Profile | Documents switch stays on
-     its line on a laptop (a second line would push the tabs' text below the screen).
-   Loads after js/cm-case-profile.js (it adds to cmCaseFlow.profileExt.tabs) and js/cm-deck-slides.js.
+   · Until the video is recorded (no start times in debrief.json), the viewer steps through the slides and their script.
+   Loads after js/cm-day-card-format.js and js/lsh-card-frame.js (its button goes under ▶ Video in the card's grid) and
+   js/cm-deck-slides.js.
    ============================================================ */
 (function(){
 "use strict";
 const V = window.CM_DEBRIEF_VIDEO;
-const X = window.cmCaseFlow && window.cmCaseFlow.profileExt;
-if(!V || !Array.isArray(V.chapters) || !V.chapters.length || !X || !Array.isArray(X.tabs) || typeof state === "undefined") return;
+if(!V || !Array.isArray(V.chapters) || !V.chapters.length || typeof state === "undefined") return;
 const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
 const PREF = "case-debrief", RATES = [0.75, 1, 1.25, 1.5, 1.75, 2], CH = V.chapters;
 if(typeof registerPersonalKeys === "function") registerPersonalKeys([PREF]);
@@ -61,10 +61,8 @@ function keepPlace(force){
   if(force || Date.now() - lastCloud > 60000) saveCloud(); else if(Date.now() - lastLocal > 5000) saveLocal();
 }
 
-/* ---------- the tab ---------- */
-const tabEl = () => document.querySelector(".cf-file-page .cdb-tab");
-const back = () => state.cfReturn && state.cfReturn.view === "day"
-  ? `<button type="button" class="btn btn-primary btn-sm cpx-back" onclick="cmCaseFlow.back()">← Back to Case Flow Day ${E(state.cfReturn.n)}</button>` : "";
+/* ---------- the viewer's content ---------- */
+const tabEl = () => document.querySelector("#cdb-ov .cdb-tab");
 function lockedHtml(){
   const g = gate(), n = gateN(), p = progOf(g);
   const open = typeof dayUnlocked === "function" && g ? dayUnlocked(g.id) : false;
@@ -75,9 +73,9 @@ function lockedHtml(){
     : reached ? `You're on Case Flow Day ${E(reached.cf.n)} of ${cfDays().length}.` : "";
   return `<div class="cpx-tab cdb-tab cdb-locked" data-cpx="debrief">
     <section class="cdb-lock"><div class="cdb-lock-ic" aria-hidden="true">🔒</div><div>
-      <h3>🎬 The Case Debrief opens when you finish Case Flow Day ${E(n)} ${back()}</h3>
+      <h3>🎬 The Case Debrief opens when you finish Case Flow Day ${E(n)}</h3>
       <p><b>Why it's locked.</b> It's a narrated debrief of John Doe's whole file: the money trail, the traps planted in the documents, and the mistakes files make. It gives away the answers to every day's work, so it waits until your own file is done.</p>
-      <p><b>When it opens.</b> Right here, as soon as Case Flow Day ${E(n)} is marked complete ✓ (its Knowledge Check passed at 70%).${where ? ` ${where}` : ""}</p>
+      <p><b>When it opens.</b> Here, on Case Flow Day ${E(n)}'s card, as soon as the day is marked complete ✓ (its Knowledge Check passed at 70%).${where ? ` ${where}` : ""}</p>
       <p class="cdb-lock-then"><b>Then:</b> open your CMS file, Net Sheet and Lien Tracker beside it and compare them, figure by figure.</p>
     </div></section></div>`;
 }
@@ -86,7 +84,7 @@ const list = () => `<nav class="cdb-side" aria-label="The debrief's slides"><h4>
 const sub = () => trainer() ? `Trainees: 🔒 until Case Flow Day ${gateN()} is complete` : "John Doe VS Robert Smith";
 function videoHtml(){
   return `<div class="cpx-tab cdb-tab cdb-video-mode" data-cpx="debrief">
-    <div class="cdb-bar"><h3>🎬 Case Debrief <span>${E(sub())}</span></h3>${back()}
+    <div class="cdb-bar"><h3>🎬 Case Debrief <span>${E(sub())}</span></h3>
       <span class="cdb-resume" hidden>Resumed at <b></b> · <button type="button" onclick="cmCaseDebrief.startOver()">↺ Start over</button></span>
       <button type="button" class="cdb-ctl" onclick="cmCaseDebrief.skip(-10)" title="Back 10 seconds" aria-label="Back 10 seconds">⏪ 10s</button>
       <button type="button" class="cdb-ctl" onclick="cmCaseDebrief.skip(10)" title="Forward 10 seconds" aria-label="Forward 10 seconds">10s ⏩</button>
@@ -97,7 +95,7 @@ function videoHtml(){
 }
 function slidesHtml(){
   return `<div class="cpx-tab cdb-tab cdb-slides-mode" data-cpx="debrief">
-    <div class="cdb-bar"><h3>🎬 Case Debrief <span>${E(sub())}</span></h3>${back()}
+    <div class="cdb-bar"><h3>🎬 Case Debrief <span>${E(sub())}</span></h3>
       <span class="cdb-wait">🎙 The narrated video is on its way: step through the slides and their script</span>
       <button type="button" class="cdb-ctl" onclick="cmCaseDebrief.go(-1)" aria-label="Previous slide">‹ Previous</button>
       <span class="cdb-count" aria-live="polite"></span>
@@ -106,13 +104,41 @@ function slidesHtml(){
     <div class="cdb-main"><div class="cdb-stage"><figure class="cdb-pic" title="Click for the next slide (← and → step too)" onclick="cmCaseDebrief.go(1)"><img alt=""></figure><div class="cdb-script"></div></div>${list()}</div></div>`;
 }
 function tabHtml(){ const m = mode(); return m === "locked" ? lockedHtml() : m === "video" ? videoHtml() : slidesHtml(); }
-X.tabs.push({
-  id: "debrief",
-  get label(){ return isOpen() ? "🎬 Case Debrief" : "🎬 Case Debrief 🔒"; },
-  get title(){ return isOpen() ? "The Case Debrief: the whole file talked through, its money trail, its traps and the mistakes to look for in your own file"
-    : `The Case Debrief opens when you finish Case Flow Day ${gateN()}`; },
-  html: tabHtml
-});
+
+/* ---------- on Case Flow Day 5's card: 🎬 Case Debrief (🔒 for a trainee until the day is complete) ---------- */
+const isGateDay = d => { const g = gate(); return !!(d && g && d.id === g.id); };
+if(typeof moduleCard === "function"){
+  const __card = moduleCard;
+  moduleCard = window.moduleCard = function(d){
+    const html = __card.apply(this, arguments);
+    if(!isGateDay(d)) return html;
+    const on = isOpen();
+    const btn = `<button type="button" class="btn btn-ghost btn-sm cm-dcf-video cdb-btn${on ? "" : " cdb-btn-locked"}" onclick="event.stopPropagation(); cmCaseDebrief.open()"
+      title="${on ? "The Case Debrief: the whole file talked through, its money trail, its traps and the mistakes to look for in your own file" : `The Case Debrief opens when you finish Case Flow Day ${gateN()}`}">${on ? "🎬 Case Debrief" : "🔒 Case Debrief"}</button>`;
+    // right under ▶ Video, in the card's grid (js/cm-day-card-format.js and js/lsh-card-frame.js have laid the card out by now)
+    const t = document.createElement("template"); t.innerHTML = String(html).trim();
+    const card = t.content.firstElementChild; if(!card) return html;
+    const vid = card.querySelector(".cm-dv-btn, .cm-dcf-video");
+    if(vid) vid.insertAdjacentHTML("afterend", btn); else (card.querySelector(".mc-grid") || card).insertAdjacentHTML("beforeend", btn);
+    return card.outerHTML;
+  };
+}
+/* the viewer, over the page */
+function open(){
+  close(true);
+  const o = document.createElement("div");
+  o.id = "cdb-ov"; o.className = "overlay cdb-ov"; o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", "Case Debrief");
+  o.innerHTML = `<div class="cdb-ov-box"><button type="button" class="cdb-x" onclick="cmCaseDebrief.close()" aria-label="Close the Case Debrief">✕</button>${tabHtml()}</div>`;
+  o.addEventListener("mousedown", ev => { if(ev.target === o) close(); });
+  document.body.appendChild(o);
+  cur = -1; mount();
+}
+function close(quiet){
+  const o = document.getElementById("cdb-ov"); if(!o) return;
+  if(player){ try{ player.pause(); }catch(e){} keepPlace(true); }
+  if(fsEl()){ const f = document.exitFullscreen || document.webkitExitFullscreen; if(f){ try{ const p = f.call(document); if(p && p.catch) p.catch(() => {}); }catch(e){} } }
+  o.remove();
+}
 
 /* ---------- the player: one <video>, kept across the page's redraws ---------- */
 let player = null, cur = -1, resumed = null, nativeFs = false;
@@ -251,10 +277,11 @@ function onFs(){
 }
 document.addEventListener("fullscreenchange", onFs); document.addEventListener("webkitfullscreenchange", onFs);
 document.addEventListener("keydown", ev => {
-  // Esc leaves our full screen (as the day videos' viewer does), wherever the browser hands the key to the page
+  // Esc leaves our full screen (as the day videos' viewer does), wherever the browser hands the key to the page; out of it, Esc closes the viewer
   if(ev.key === "Escape" && fsEl() && tabEl() && tabEl().contains(fsEl())){ ev.preventDefault(); fullscreen(); return; }
+  if(ev.key === "Escape" && document.getElementById("cdb-ov")){ ev.preventDefault(); close(); return; }
   // ← / → step through the slides while the slides are on screen (not while typing)
-  if(mode() !== "slides" || !tabEl() || document.querySelector(".overlay") || ev.altKey || ev.ctrlKey || ev.metaKey) return;
+  if(mode() !== "slides" || !tabEl() || document.querySelector(".overlay:not(.cdb-ov)") || ev.altKey || ev.ctrlKey || ev.metaKey) return;
   const at = ev.target, typing = at && at.closest && at.closest("input, textarea, select, [contenteditable]");
   if(typing || (ev.key !== "ArrowLeft" && ev.key !== "ArrowRight")) return;
   ev.preventDefault(); go(ev.key === "ArrowLeft" ? -1 : 1);
@@ -267,20 +294,20 @@ if(typeof window.updateIsSafe === "function"){
   window.updateIsSafe = function(){ if(player && player.isConnected && !player.paused && !player.ended) return false; return __safe.apply(this, arguments); };
 }
 
-window.cmCaseDebrief = {isOpen, mode, gate, seek, go, skip, setRate, setCc, startOver, fullscreen, showCc, mount, PREF, RATES,
+window.cmCaseDebrief = {isOpen, mode, gate, open, close, seek, go, skip, setRate, setCc, startOver, fullscreen, showCc, mount, PREF, RATES,
   prefs: () => prefs, player: () => player};
 
 /* ---------- the look: the course's navy and orange, type bold and 16px or more ---------- */
 if(!document.getElementById("cdb-css")){
   const st = document.createElement("style"); st.id = "cdb-css";
   st.textContent = `
-.cf-file-page:has(.cdb-tab) .cpx-facts, .cf-file-page:has(.cdb-tab) .cf-note{display:none;}   /* the tab takes the room the header's chips and note had */
-/* a trainer's row of tabs (the fact tabs too) keeps the Case Profile | Documents switch on its line with this tab in it:
-   a line more would push every tab's text below the screen on a laptop */
-.cf-file-tabs:has(> .cf-file-tab.key){gap:4px;}
-.cf-file-tabs:has(> .cf-file-tab.key) > .cf-file-tab{padding-left:8px;padding-right:8px;}
-.cf-file-tabs:has(> .cf-file-tab.key) .cf-file-switch button{padding-left:10px;padding-right:10px;}
-.cf-file-page .cpx-tab.cdb-tab{display:flex;flex-direction:column;gap:10px;padding:10px 14px;font-size:16px;overflow:hidden;}
+/* the viewer: the whole window, less a margin; ✕ in its corner */
+.cdb-ov{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(15,19,38,.72);}
+.cdb-ov-box{position:relative;width:min(1600px,100%);height:min(940px,100%);display:flex;flex-direction:column;background:#F7F8FB;border-radius:16px;box-shadow:0 18px 48px rgba(0,0,0,.4);overflow:hidden;}
+.cdb-x{position:absolute;top:10px;right:12px;z-index:2;width:40px;height:40px;border:2px solid #1E2340;border-radius:50%;background:#fff;color:#1E2340;font:800 18px/1 'Inter',sans-serif;cursor:pointer;}
+.cdb-x:hover,.cdb-x:focus-visible{background:#DB8437;border-color:#DB8437;color:#fff;outline:none;}
+.cdb-ov .cdb-tab{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;gap:10px;padding:12px 64px 14px 16px;font-size:16px;overflow:hidden;}
+.cdb-btn-locked{opacity:.85;}
 .cdb-tab, .cdb-tab *{font-weight:700;}
 .cdb-bar{flex:none;display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;min-width:0;}
 .cdb-bar h3{flex:1 1 auto;min-width:0;margin:0;display:flex;align-items:baseline;gap:10px;font:800 20px/1.2 'Fraunces',serif;color:#1E2340;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
@@ -334,7 +361,8 @@ button.cdb-ctl:disabled{opacity:.45;cursor:default;background:#fff;border-color:
 .cdb-lock .cdb-lock-then{margin:0;padding-top:.45em;border-top:1px solid #F0D2B4;}
 @media (max-width:1500px){ .cdb-bar h3 span{display:none;} }
 @media (max-width:900px){
-  .cf-file-page .cpx-tab.cdb-tab{overflow:auto;}
+  .cdb-ov{padding:0;} .cdb-ov-box{border-radius:0;height:100%;}
+  .cdb-ov .cdb-tab{overflow:auto;padding-right:16px;padding-top:58px;}
   .cdb-main{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;}
   .cdb-vslot,.cdb-pic{flex:none;aspect-ratio:16/9;}
   .cdb-side{max-height:300px;}
