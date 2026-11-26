@@ -33,21 +33,21 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 **Module 5 — Litigation & Property Damage**
 
 1. *Lesson* — Litigation: Pleadings, Discovery & File Maintenance (condensed)
-2. *Lesson* — Signs of Impasse & Filing Criteria (condensed)
-3. *Lesson* — From Pre-Lit to Litigation & ADR (condensed)
-4. *Lesson* — Trial Preparation & Litigation KPIs (condensed)
-5. *Lesson* — Subpoenas: Third-Party Subpoenas & Duces Tecum (condensed)
-6. *Lesson* — Property Damage in Litigation (condensed)
-7. *Lesson* — Deposition Prep: Preparing the Client (condensed)
-8. *Lesson* — Testifying: the Silent Traps, the Golden Rules & Objections (condensed)
-9. *Lesson* — Comparative Negligence & the Liability Counter-Package (condensed)
-10. *Lesson* — The Process Server & the Evading Defendant (condensed)
+2. *Lesson* — Trial Preparation & Litigation KPIs (condensed)
+3. *Lesson* — Subpoenas: Third-Party Subpoenas & Duces Tecum (condensed)
+4. *Lesson* — Property Damage in Litigation (condensed)
+5. *Lesson* — Deposition Prep: Preparing the Client (condensed)
+6. *Lesson* — Testifying: the Silent Traps, the Golden Rules & Objections (condensed)
+7. *Lesson* — The Process Server & the Evading Defendant (condensed)
+8. *Lesson* — Signs of Impasse & Filing Criteria (condensed)
+9. *Lesson* — From Pre-Lit to Litigation & ADR (condensed)
+10. *Lesson* — Comparative Negligence & the Liability Counter-Package (condensed)
 11. *Lesson* — Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund (condensed)
 12. *Lesson* — Dropped Cases: the Case Manager's Close-Out (condensed)
-13. *Skill Activity* — Pleadings & Discovery Log Maintenance (practises: Litigation: Pleadings, Discovery & File Maintenance) — *side*
-14. *Skill Activity* — Virtual Deposition Prep Roleplay (practises: Deposition Prep: Preparing the Client) — *side*
-15. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch (practises: The Process Server & the Evading Defendant) — *side*
-16. *Skill Activity* — Backup File Maintenance: the Final Audit and the Close-Out (practises: Final Case Reconciliation: the Net Sheet, the Closing Memo & Retention) — **Required: Backup File Maintenance**
+13. *Skill Activity* — Backup File Maintenance: the Final Audit and the Close-Out (practises: Final Case Reconciliation: the Net Sheet, the Closing Memo & Retention) — **Required: Backup File Maintenance**
+14. *Skill Activity* — Pleadings & Discovery Log Maintenance (practises: Litigation: Pleadings, Discovery & File Maintenance) — *side*
+15. *Skill Activity* — Virtual Deposition Prep Roleplay (practises: Deposition Prep: Preparing the Client) — *side*
+16. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch (practises: The Process Server & the Evading Defendant) — *side*
 17. *Knowledge Check* — Litigation Fork Transition Check
 18. *Knowledge Check* — Litigation Support Assessment
 19. *Knowledge Check* — PD Transition Check
@@ -142,156 +142,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.2 Signs of Impasse & Filing Criteria
-
-> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Litigation Fork Transition Check (`d4m1`)  
-> **Topic:** Where Track B leaves Track A, and when a stall becomes an impasse  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D4#1` Welcome to Day 4: When Pre-Suit Negotiations Stall · `D2#29` Settlement Negotiations: The “Never” Rule · LSH Claims Specialist: liability denial and disputes — the dispute path to litigation; duty, breach, causation and damages; ask for the denial's reasons and evidence in writing · Newly authored: the five impasse triggers, each proved from the file
-
-#### 1 · Visual Layout Description
-
-A fork diagram fills the upper two-thirds. From the left, a single navy trunk labeled SAME FILE · 08/05/2026 · $3,500 OFFER runs to a split point. The upper branch, grayed back, reads TRACK A · DAY 3 — TENDER → UM OPENS. The lower branch, in orange, carries six mono-pill stations — 08/12 “FINAL” · 08/21 LAPSE · 08/24 · 08/31 · 09/02 ESCALATION · 09/04 SILENCE — ending at a navy card: IMPASSE MEMO 09/08 → ATTY. THORNE DECIDES. Below, three cream stack rungs ($10,000 · $20,000 · $10,000) sit behind a red padlock on the BI rung, captioned “$40,000 frozen behind a $10,000 carrier.” The padlock is the argument.
-
-#### 2 · Slide Body — Tell Them
-
-*Why:* Track B is the same file from 08/05/2026, but Keystone won't move off the 14-Day Gap. Because BI must be exhausted before UM opens, one $10,000 carrier now holds the whole $40,000 stack. The Case Manager is the engine room: prove the impasse with dates and put a decision-ready record in front of Atty. Thorne.
-
-1. Track B is the same file, back at 08/05/2026. On Track A Keystone tendered and the file settled. Here Keystone holds at $3,500, calls it “final” on 08/12 and lets the demand lapse 08/21.
-2. When pre-suit negotiation stalls, the file moves to formal dispute resolution: litigation, mediation (non-binding; attendance may be ordered, agreement never is) or arbitration (trial-like, usually binding). ADR is often faster, more private and cheaper.
-3. Work the dispute path first: evidence assembled, negotiation re-engaged with new findings, the adjuster's supervisor escalated. Litigation comes only when none of it moves the carrier.
-4. Document impasse on its triggers, not on frustration (the table below); whether the file is at impasse is Atty. Thorne's call. By 09/04/2026 all five are on this file.
-5. Name the carrier's ground. Keystone's $3,500 rests on the 14-Day Gap and a “degenerative” MRI; the 08/06 rebuttal answered both; the 08/12 “final” answered none of it.
-6. Hold the line while you test it (the “Never” rule): never bid against yourself, never apologize for a Limits Demand, never accept “that's all I have” as final. Every adjuster has a supervisor; the 09/02 escalation was that test. Any new number is Atty. Thorne's.
-7. Know what a BI impasse costs. As this file's policies are configured, Host UM pays only after BI is exhausted (paid or tendered at limits), Relative UM behind it: $40,000 frozen behind a $10,000 carrier. Exhaustion rules vary by policy and jurisdiction; Atty. Thorne confirms the governing rule.
-8. Filing is counsel's decision; its inputs are yours to verify. Liability: RPD-26-018842, Ruth Calloway, the doorbell video. Causation: the MRI, the Causation Letter, the EMS report. Damages: $42,984.00 in Specials. Time: SOL 02/06/2028, internal cutoff 11/05/2027.
-9. Record the lapse; don't interpret it. Proof of delivery (the sent email and Dana Whitfield's written acknowledgement, 07/22) and the 08/21 lapse may bear on Robert Smith's exposure above his limits: Atty. Thorne's analysis, never yours to raise with Keystone or John Doe.
-
-> ⚠️ **UPL boundary.** You may document the impasse, report dates and figures, and ask Atty. Thorne for a decision. You may not recommend suit, value the claim, assess Robert Smith's exposure above his limits, or tell John Doe whether to take $3,500.
-
-> ⚠️ **UPL boundary.** If Keystone calls with a new number, take it down, confirm nothing, and route it to Atty. Thorne the same day. Every letter to Keystone after 08/21/2026 uses wording he approved; it can affect the lapse he is analyzing.
-
-#### 2 · Slide Body — Show Them
-
-*The five signs of impasse, and where each sits on John Doe's file*
-
-| Sign of impasse | On this file | Proof |
-|---|---|---|
-| Same offer, no new reason | $3,500 on 08/05; “final” on 08/12 | Case Notes |
-| Objection kept after rebuttal | The gap and a “degenerative” MRI, answered 08/06 | Rebuttal and delivery proof |
-| Demand deadline passed | Time-Limited Demand lapsed 08/21/2026 | Written acknowledgement (07/22); calendar |
-| Follow-ups unanswered | 08/24 and 08/31 | Sent emails; log |
-| Escalation ignored | Claims supervisor 09/02; nothing by 09/04 | Escalation email; log |
-
-**Best practices & pitfalls**
-
-- Date every contact the day it happens; an impasse is proved by the record, not by memory.
-- Ask the carrier for its reasons and the evidence it relies on, in writing. A position you can quote is one counsel can use.
-- Escalate a silent adjuster to the supervisor before you call impasse.
-- ⚠️ Pitfall: treating silence as negotiation and waiting another month.
-- ⚠️ Pitfall: sending a UM demand before BI is exhausted. The UM claims are open and noticed; only the demand waits.
-- ⚠️ Pitfall: telling John Doe the case “will have to go to court.”
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Trigger identification | All five impasse triggers named, each with its date between 08/05 and 09/04/2026 |
-| 🤖 AI | **20%** | Frozen stack | BI → Host UM → Relative UM; $30,000 of UM closed until BI is exhausted; $40,000 total |
-| 🤖 AI | **10%** | Filing inputs | Liability, causation, damages and time each tied to a document on the file |
-| 🤖 AI | **10%** | Clock | SOL 02/06/2028 and internal cutoff 11/05/2027 stated correctly |
-| 🧑‍🏫 Trainer | **15%** | “Never” rule judgment | Holds the demand without bidding against itself, and escalates instead of accepting “final” |
-| 🧑‍🏫 Trainer | **25%** | UPL boundary | Documents and asks: no recommendation to sue, no value, no excess-exposure opinion, nothing to John Doe on the offer |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Open with the fork itself: “Same file, same 08/05/2026 offer. On Track A Keystone tendered. Here it doesn't.” Then point at the padlock: one carrier with a $10,000 limit is holding $40,000.
-- Ask the room: “Keystone hasn't said no. It has said nothing. When does silence become an impasse, and who decides that it has?” Expect “the Case Manager”; correct it. The Case Manager documents; Atty. Thorne decides.
-- Watch for trainees who want to “just demand the UM limits” while BI stalls. It is Day 1's order-of-operations error in new clothes: a UM demand before BI is exhausted risks the stack.
-- The legal nuance: the 08/21 lapse may matter to Robert Smith's exposure above his limits. Say that it may, and that it is Atty. Thorne's analysis. A trainee who writes it into a memo or says it to John Doe has crossed the line.
-
----
-
-### 5.1.3 From Pre-Lit to Litigation & ADR
-
-> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Litigation Fork Transition Check (`d4m1`)  
-> **Topic:** Status, court fields, litigation folders, the Litigation Calendar and the neutral  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D5#31` Litigation File Architecture · `D4#1` Welcome to Day 4: When Pre-Suit Negotiations Stall · `D4#2` Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background · `D4#3` Introducing the Neutral: Assignment & Selection Workflows · `D4#4` Introducing the Neutral: Extent of Decision-Making Power · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · LSH Claims Specialist: Letter for Preservation of Evidence · Newly authored: a UM notice is not a demand; status, fields, folders and calendar changed together
-
-#### 1 · Visual Layout Description
-
-A before-and-after split. Left panel, muted gray, titled PRE-LIT FILE: a claim folder, an adjuster-response clock and a 33⅓% chip. A thick orange → crosses the center, labeled STATUS → LITIGATION · ON COUNSEL'S AUTHORITY. Right panel, crisp navy on white, titled LITIGATION / ADR FILE: a directory tree with five numbered mono-pill sub-folders 01–05; a court-fields card with CIVIL ACTION NO. as a dashed PENDING pill; a calendar strip with a small 48-HR AUDIT flag before each hard date; a 40% chip tagged ON FILING. Beneath, two neutral cards: MEDIATOR · NO POWER TO DECIDE in cream, ARBITRATOR · BINDING in navy with a red FINAL seal.
-
-#### 2 · Slide Body — Tell Them
-
-*Why:* Once Atty. Thorne authorizes suit, a court clock replaces the adjuster's. Status, court fields, folders and calendar change together, or a pre-lit file keeps pre-lit habits while court deadlines run. Later the file meets two neutrals with very different power.
-
-1. Status changes to Litigation only on Atty. Thorne's dated authorization to sue, and cites it. The fee tier follows the filing, not the status: 33⅓% pre-suit, 40% once suit is filed, per the retainer.
-2. Open the court fields and fill them only from the record: court, civil action number, filing date, defense counsel, service status. Until the Complaint is filed the number reads “Pending”; never guess one.
-3. Name every PDF to the convention (Complaint_Filed_Stamped.pdf, never scan001.pdf). File each incoming litigation document within 48 hours, but docket its deadlines and alert Atty. Thorne the day it arrives (an RFA, the hour it arrives).
-4. Seed the Litigation Calendar the day status changes: counsel's filing target, SOL 02/06/2028 (internal hard date 02/04/2028, cutoff 11/05/2027), 48-hour audits before hard dates. Ask Atty. Thorne each UM policy's suit or arbitration deadline and any duty to notify the carrier of suit; docket only from his answer.
-5. Notify the UM carriers as their policies require and Atty. Thorne directs: the impasse and the intended suit, in writing, with proof of delivery. A notice is not a UM demand and carries no figure.
-6. Preserve before you plead. Keep the doorbell video copy unaltered; what others hold (Margaret Doe's camera account, the Escape's event data recorder) gets a written preservation request Atty. Thorne signs.
-
-> ⚠️ **UPL boundary.** You may change fields, build folders, calendar dates, and draft notices and preservation letters for Atty. Thorne's approval. You may tell John Doe what happens next procedurally (dates, logistics, what to bring). What it means for his claim, his fee or the outcome is Atty. Thorne's to explain. Send no notice he has not approved. At mediation or arbitration you run logistics and exhibits; you never speak for John Doe, argue or negotiate.
-
-#### 2 · Slide Body — Show Them
-
-*The two neutrals this file will meet later, and how they differ*
-
-|  | Mediator | Arbitrator |
-|---|---|---|
-| Background | Retired judge or PI trial lawyer: negotiation, liens, valuation | Retired judge or senior trial lawyer: evidence, liability, causation |
-| How chosen | Mutual pick from panel resumes or the court roster | By the policy or a stipulation; often an AAA/JAMS strike list |
-| Power | None: cannot force a deal, rule or order payment | Private judge: binding award, no appeal on the merits |
-| Binder emphasis | Valuation and settlement history | Admissible evidence, right the first time |
-| On this file, later | Hon. Carla Benton (Ret.), court-ordered, 03/18/2027 | Laura Whitcomb, Esq., UM claims, 06/22/2027 |
-
-**Best practices & pitfalls**
-
-- Change status, fields, folders and calendar in one sitting, as soon as the authorization is on file.
-- Audit, don't just track: in litigation and ADR a missed deadline or a grayscale exhibit can get evidence excluded or cost leverage.
-- Tailor the binder to the neutral: valuation for a mediator, evidence for an arbitrator.
-- Expectations are Atty. Thorne's to set: mediation can end without a deal; arbitration ends in a binding number. You tell John Doe what happens next procedurally, never what it means for his claim, fee or outcome.
-- ⚠️ Pitfall: “scan001.pdf” in a litigation folder.
-- ⚠️ Pitfall: treating mediation and arbitration as the same thing.
-- ⚠️ Pitfall: missing a strike deadline and accepting a default appointment.
-- ⚠️ Pitfall: assuming an arbitration error can be appealed.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **15%** | Folder structure | Master directory and all five sub-folders named exactly |
-| 🤖 AI | **15%** | Field discipline | Status change cites the dated authorization; court set; case number “Pending”, not guessed |
-| 🤖 AI | **15%** | Calendar | SOL, internal hard date, cutoff and 48-hour audits seeded |
-| 🤖 AI | **15%** | Neutral distinctions | Mediator vs arbitrator: background, selection and power each stated correctly |
-| 🧑‍🏫 Trainer | **20%** | Transition judgment | Changes made together, on counsel's authority; fee tier tied to filing; pre-suit record preserved |
-| 🧑‍🏫 Trainer | **20%** | UPL boundary | No fee or suit explanation to John Doe; no unapproved notice; no advocacy at ADR |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Open on the dashed PENDING pill. Ask what goes in the case-number field on 09/10/2026. Anything but “Pending” is a guess, and a guessed number ends up on a pleading.
-- Ask: “Which moves John Doe to the 40% tier: the status change or the filing?” The retainer says filing. A trainee who records 40% from the status date has changed his fee two weeks early.
-- Spend real time on the neutrals; trainees conflate them. Put the legacy question: can Atty. Thorne appeal an award that is short because of a math error? No appeal on the merits; at most a narrow motion to correct an evident miscalculation, on a short deadline. Prep is right the first time.
-- Tie forward: the folders and calendar built here are what the rest of the litigation fork audits and litigates from.
-
----
-
-### 5.1.4 Trial Preparation & Litigation KPIs
+### 5.1.2 Trial Preparation & Litigation KPIs
 
 > **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Trial preparation checklists & tracking litigation KPIs  
@@ -364,7 +215,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.5 Subpoenas: Third-Party Subpoenas & Duces Tecum
+### 5.1.3 Subpoenas: Third-Party Subpoenas & Duces Tecum
 
 > **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Commanding evidence from outside the suit: in order, narrow and on time  
@@ -440,7 +291,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.6 Property Damage in Litigation
+### 5.1.4 Property Damage in Litigation
 
 > **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with PD Transition Check (`d5m2`)  
 > **Topic:** Which Property Damage outcomes reach John Doe's settlement, and which stay on Margaret Doe's file  
@@ -509,7 +360,7 @@ Verified in PD Transition Check (taught on Case Flow Day 5) and that day's auto-
 
 ---
 
-### 5.1.7 Deposition Prep: Preparing the Client
+### 5.1.5 Deposition Prep: Preparing the Client
 
 > **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The audit, the three pillars, and the room John testifies from  
@@ -584,7 +435,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.8 Testifying: the Silent Traps, the Golden Rules & Objections
+### 5.1.6 Testifying: the Silent Traps, the Golden Rules & Objections
 
 > **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** The four categories, the seven Golden Rules, and what an objection means  
@@ -659,79 +510,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.9 Comparative Negligence & the Liability Counter-Package
-
-> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Final Comprehensive Knowledge Check (`d5m4`)  
-> **Topic:** Three allegations in the 11/12/2026 Answer, and the evidence that answers each  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** LSH Claims Specialist: liability determination — accepted, partial, denied; written confirmation; pure and modified comparative negligence · LSH Claims Specialist: liability disputes — strengthening the evidence, damage patterns, the post-suit pivot to causation and damages · Newly authored: seatbelt-evidence and citation admissibility as state-variable questions; authentication and chain of custody in the counter-package
-
-#### 1 · Visual Layout Description
-
-Two zones. Left 60%: the four-row regime table on a cream card, regime names in navy, the two outcome columns headed by mono pills JOHN 20% and JOHN 50%; every “Barred” cell is filled danger red, so the eye finds the cliff before reading a label. Right 40%: three stacked danger-bordered allegation cards with orange numbered badges, ① OUT OF TURN ② UNBELTED ③ FAILED TO MITIGATE, each with a navy → to its answering evidence as mono pills: RPD-26-018842 · CALLOWAY · VIDEO; EDR BUCKLED · EMS “RESTRAINED”; A-C-T 04/08 → 04/23. A slim orange strip along the foot reads STACK STAYS $40,000. The argument: every point of fault costs John money, and each point already has its answer in the file.
-
-#### 2 · Slide Body — Tell Them
-
-*Why:* After suit, the defense argued fault and mitigation: the car he rode in and his seatbelt (comparative fault), his missed visits (failure to mitigate). Fault can reduce or bar recovery; mitigation cuts only the damages the missed care caused. The counter-package answers each from this file, with evidence that can come in.
-
-1. Comparative negligence apportions fault. Pure: damages fall by John's share, however large. Modified: they fall, but recovery is barred once his share reaches 50% in some states or 51% in others. Contributory, in a handful of jurisdictions: any fault bars recovery. Confirm the governing rule.
-2. Record where liability stands, with its source: accepted, partial or denied, each carrier's position kept in writing since claim set-up (Liability Investigation). Keystone accepted PD liability on 02/17/2026 and argued causation before suit; the Answer now pleads comparative fault. Its weight is Atty. Thorne's call.
-3. Allegation 1, “the Escape entered the all-way stop out of turn,” targets Kevin Alvarez's driving, not John's. Whether a driver's fault can be charged to a passenger, or apportioned to a non-party, is Atty. Thorne's analysis. Your job is the evidence.
-4. Never add anything to the stack because the defense blames Kevin Alvarez. Whether his alleged fault touches coverage is a coverage question for Atty. Thorne; the file's verified stack stays $40,000, BI → Host UM → Relative UM.
-5. Allegation 2, “John was unbelted,” is answered twice: the Escape's event data recorder shows the front-passenger belt buckled, and the EMS Run Report reads “restrained front-seat passenger.” Seatbelt evidence is barred in some states and limited in others: confirm the governing rule.
-6. Defense 3, failure to mitigate, is not crash fault: if proved, it trims only damages reasonable care would have avoided. It targets 19 days without visits (04/02 → 04/21/2026). The record answers: a documented clinical cause (crash-related anxiety: Dr. Reyes's 04/20 note, the 06/10 counseling summary) and the firm's A-C-T follow-up from 04/08, care resumed 04/21 and 04/23. Burden: generally the defense's; confirm.
-7. Evidence counts only if it can come in. For every item record its source, who can authenticate it and its chain of custody. The doorbell video: Margaret Doe's camera, preservation asked 02/17/2026, copy secured 02/19/2026, the native file unaltered, every transfer logged.
-8. Don't rest liability on report RPD-26-018842: whether Smith's citation, or his plea or payment of it, is admissible varies by state. Ruth Calloway, the video and the point of impact (the Escape's front passenger door) carry it; the EDR's 11 mph corroborates.
-9. The Answer also pleads causation (the 14-Day Gap; the “degenerative” MRI). The Gap Record joins the package in deposition prep: the four reasons, the EMS neck complaint, Dr. Reyes's 06/19/2026 letter.
-
-> ⚠️ **UPL boundary.** You may gather, authenticate and index the evidence against each allegation, and tell John what the Answer says. You may not tell John his share of fault, whether seatbelt evidence comes in, or what Kevin Alvarez's fault means for coverage. Those are Atty. Thorne's.
-
-#### 2 · Slide Body — Show Them
-
-*One finding, four outcomes: confirm the governing rule*
-
-| Regime | John 20% at fault | John 50% at fault |
-|---|---|---|
-| Pure comparative | Recovers 80% | Recovers 50% |
-| Modified, 50% bar | Recovers 80% | Barred |
-| Modified, 51% bar | Recovers 80% | Recovers 50% |
-| Contributory | Barred | Barred |
-
-**Best practices & pitfalls**
-
-- Answer each allegation with a document, not an argument: the record speaks, counsel argues.
-- Keep the liability position recorded as the claims team does: accepted, partial or denied, with date and source.
-- Use the damage pattern: point of impact and direction of travel, read with the video and the witness.
-- ⚠️ Pitfall: building the package on the citation alone.
-- ⚠️ Pitfall: telling John he “can't be blamed” because he was a passenger.
-- ⚠️ Pitfall: adding Kevin Alvarez's policy to the stack because the defense blames him.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Regime accuracy | Pure, modified (50% and 51% bars) and contributory stated correctly, with “confirm the governing rule” |
-| 🤖 AI | **25%** | Allegation mapping | All three allegations matched to the file's evidence: citation, Calloway, video, EDR, EMS report, A-C-T record |
-| 🤖 AI | **15%** | Foundation | Source, authenticating witness and chain of custody named for each item; video dates 02/17 and 02/19/2026 |
-| 🧑‍🏫 Trainer | **20%** | Legal nuance | Sees that allegation 1 targets the driver, and that seatbelt and citation evidence are admissibility questions |
-| 🧑‍🏫 Trainer | **20%** | UPL boundary | No fault share, admissibility or coverage opinion offered; Kevin Alvarez's coverage routed to Atty. Thorne |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Open with the Answer itself. Read its three allegations aloud, then ask which one is not about John at all. The out-of-turn allegation is about Kevin Alvarez's driving.
-- Put the table to the room: “If a jury finds John 20% at fault, what does he recover under each regime? And at 50%?” Make them say “Barred” out loud for the modified 50% row.
-- Watch for trainees who win the seatbelt point by argument. The EDR and the EMS report win it; the Case Manager's job is to make sure both can come in.
-- Legal nuance: the carpool may tempt the defense to tie Kevin Alvarez's driving to John; whether any theory lets it is Atty. Thorne's analysis. Seatbelt and citation admissibility vary by state. And whatever the defense says about Kevin, the stack stays $40,000.
-
----
-
-### 5.1.10 The Process Server & the Evading Defendant
+### 5.1.7 The Process Server & the Evading Defendant
 
 > **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Finding the defendant who moved and the client who went quiet  
@@ -802,6 +581,227 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 - Ask the room: “Three attempts failed at 118 Larkspur Ln. Why is a fourth at 6:00 a.m. the wrong move?” Because the neighbor said he moved: vary the hours only once you have the right address.
 - Watch for trainees who reuse Day 1's letter unchanged. In suit, the letter goes over Atty. Thorne's signature, withdrawal needs the court's leave, and the deposition date sets the pace.
 - Legal nuance: service deadlines, alternative-service rules and subpoena notice periods all vary by court. Teach the sequence, and say “confirm the governing rule” every time.
+
+---
+
+### 5.1.8 Signs of Impasse & Filing Criteria
+
+> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Litigation Fork Transition Check (`d4m1`)  
+> **Topic:** Where Track B leaves Track A, and when a stall becomes an impasse  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D4#1` Welcome to Day 4: When Pre-Suit Negotiations Stall · `D2#29` Settlement Negotiations: The “Never” Rule · LSH Claims Specialist: liability denial and disputes — the dispute path to litigation; duty, breach, causation and damages; ask for the denial's reasons and evidence in writing · Newly authored: the five impasse triggers, each proved from the file
+
+#### 1 · Visual Layout Description
+
+A fork diagram fills the upper two-thirds. From the left, a single navy trunk labeled SAME FILE · 08/05/2026 · $3,500 OFFER runs to a split point. The upper branch, grayed back, reads TRACK A · DAY 3 — TENDER → UM OPENS. The lower branch, in orange, carries six mono-pill stations — 08/12 “FINAL” · 08/21 LAPSE · 08/24 · 08/31 · 09/02 ESCALATION · 09/04 SILENCE — ending at a navy card: IMPASSE MEMO 09/08 → ATTY. THORNE DECIDES. Below, three cream stack rungs ($10,000 · $20,000 · $10,000) sit behind a red padlock on the BI rung, captioned “$40,000 frozen behind a $10,000 carrier.” The padlock is the argument.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Track B is the same file from 08/05/2026, but Keystone won't move off the 14-Day Gap. Because BI must be exhausted before UM opens, one $10,000 carrier now holds the whole $40,000 stack. The Case Manager is the engine room: prove the impasse with dates and put a decision-ready record in front of Atty. Thorne.
+
+1. Track B is the same file, back at 08/05/2026. On Track A Keystone tendered and the file settled. Here Keystone holds at $3,500, calls it “final” on 08/12 and lets the demand lapse 08/21.
+2. When pre-suit negotiation stalls, the file moves to formal dispute resolution: litigation, mediation (non-binding; attendance may be ordered, agreement never is) or arbitration (trial-like, usually binding). ADR is often faster, more private and cheaper.
+3. Work the dispute path first: evidence assembled, negotiation re-engaged with new findings, the adjuster's supervisor escalated. Litigation comes only when none of it moves the carrier.
+4. Document impasse on its triggers, not on frustration (the table below); whether the file is at impasse is Atty. Thorne's call. By 09/04/2026 all five are on this file.
+5. Name the carrier's ground. Keystone's $3,500 rests on the 14-Day Gap and a “degenerative” MRI; the 08/06 rebuttal answered both; the 08/12 “final” answered none of it.
+6. Hold the line while you test it (the “Never” rule): never bid against yourself, never apologize for a Limits Demand, never accept “that's all I have” as final. Every adjuster has a supervisor; the 09/02 escalation was that test. Any new number is Atty. Thorne's.
+7. Know what a BI impasse costs. As this file's policies are configured, Host UM pays only after BI is exhausted (paid or tendered at limits), Relative UM behind it: $40,000 frozen behind a $10,000 carrier. Exhaustion rules vary by policy and jurisdiction; Atty. Thorne confirms the governing rule.
+8. Filing is counsel's decision; its inputs are yours to verify. Liability: RPD-26-018842, Ruth Calloway, the doorbell video. Causation: the MRI, the Causation Letter, the EMS report. Damages: $42,984.00 in Specials. Time: SOL 02/06/2028, internal cutoff 11/05/2027.
+9. Record the lapse; don't interpret it. Proof of delivery (the sent email and Dana Whitfield's written acknowledgement, 07/22) and the 08/21 lapse may bear on Robert Smith's exposure above his limits: Atty. Thorne's analysis, never yours to raise with Keystone or John Doe.
+
+> ⚠️ **UPL boundary.** You may document the impasse, report dates and figures, and ask Atty. Thorne for a decision. You may not recommend suit, value the claim, assess Robert Smith's exposure above his limits, or tell John Doe whether to take $3,500.
+
+> ⚠️ **UPL boundary.** If Keystone calls with a new number, take it down, confirm nothing, and route it to Atty. Thorne the same day. Every letter to Keystone after 08/21/2026 uses wording he approved; it can affect the lapse he is analyzing.
+
+#### 2 · Slide Body — Show Them
+
+*The five signs of impasse, and where each sits on John Doe's file*
+
+| Sign of impasse | On this file | Proof |
+|---|---|---|
+| Same offer, no new reason | $3,500 on 08/05; “final” on 08/12 | Case Notes |
+| Objection kept after rebuttal | The gap and a “degenerative” MRI, answered 08/06 | Rebuttal and delivery proof |
+| Demand deadline passed | Time-Limited Demand lapsed 08/21/2026 | Written acknowledgement (07/22); calendar |
+| Follow-ups unanswered | 08/24 and 08/31 | Sent emails; log |
+| Escalation ignored | Claims supervisor 09/02; nothing by 09/04 | Escalation email; log |
+
+**Best practices & pitfalls**
+
+- Date every contact the day it happens; an impasse is proved by the record, not by memory.
+- Ask the carrier for its reasons and the evidence it relies on, in writing. A position you can quote is one counsel can use.
+- Escalate a silent adjuster to the supervisor before you call impasse.
+- ⚠️ Pitfall: treating silence as negotiation and waiting another month.
+- ⚠️ Pitfall: sending a UM demand before BI is exhausted. The UM claims are open and noticed; only the demand waits.
+- ⚠️ Pitfall: telling John Doe the case “will have to go to court.”
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Trigger identification | All five impasse triggers named, each with its date between 08/05 and 09/04/2026 |
+| 🤖 AI | **20%** | Frozen stack | BI → Host UM → Relative UM; $30,000 of UM closed until BI is exhausted; $40,000 total |
+| 🤖 AI | **10%** | Filing inputs | Liability, causation, damages and time each tied to a document on the file |
+| 🤖 AI | **10%** | Clock | SOL 02/06/2028 and internal cutoff 11/05/2027 stated correctly |
+| 🧑‍🏫 Trainer | **15%** | “Never” rule judgment | Holds the demand without bidding against itself, and escalates instead of accepting “final” |
+| 🧑‍🏫 Trainer | **25%** | UPL boundary | Documents and asks: no recommendation to sue, no value, no excess-exposure opinion, nothing to John Doe on the offer |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Open with the fork itself: “Same file, same 08/05/2026 offer. On Track A Keystone tendered. Here it doesn't.” Then point at the padlock: one carrier with a $10,000 limit is holding $40,000.
+- Ask the room: “Keystone hasn't said no. It has said nothing. When does silence become an impasse, and who decides that it has?” Expect “the Case Manager”; correct it. The Case Manager documents; Atty. Thorne decides.
+- Watch for trainees who want to “just demand the UM limits” while BI stalls. It is Day 1's order-of-operations error in new clothes: a UM demand before BI is exhausted risks the stack.
+- The legal nuance: the 08/21 lapse may matter to Robert Smith's exposure above his limits. Say that it may, and that it is Atty. Thorne's analysis. A trainee who writes it into a memo or says it to John Doe has crossed the line.
+
+---
+
+### 5.1.9 From Pre-Lit to Litigation & ADR
+
+> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Litigation Fork Transition Check (`d4m1`)  
+> **Topic:** Status, court fields, litigation folders, the Litigation Calendar and the neutral  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D5#31` Litigation File Architecture · `D4#1` Welcome to Day 4: When Pre-Suit Negotiations Stall · `D4#2` Introducing the Neutral: Mediator vs. Arbitrator — Expertise & Background · `D4#3` Introducing the Neutral: Assignment & Selection Workflows · `D4#4` Introducing the Neutral: Extent of Decision-Making Power · `D4#31` Case Manager Operational Countermeasures: The 48-Hour Mandate · LSH Claims Specialist: Letter for Preservation of Evidence · Newly authored: a UM notice is not a demand; status, fields, folders and calendar changed together
+
+#### 1 · Visual Layout Description
+
+A before-and-after split. Left panel, muted gray, titled PRE-LIT FILE: a claim folder, an adjuster-response clock and a 33⅓% chip. A thick orange → crosses the center, labeled STATUS → LITIGATION · ON COUNSEL'S AUTHORITY. Right panel, crisp navy on white, titled LITIGATION / ADR FILE: a directory tree with five numbered mono-pill sub-folders 01–05; a court-fields card with CIVIL ACTION NO. as a dashed PENDING pill; a calendar strip with a small 48-HR AUDIT flag before each hard date; a 40% chip tagged ON FILING. Beneath, two neutral cards: MEDIATOR · NO POWER TO DECIDE in cream, ARBITRATOR · BINDING in navy with a red FINAL seal.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* Once Atty. Thorne authorizes suit, a court clock replaces the adjuster's. Status, court fields, folders and calendar change together, or a pre-lit file keeps pre-lit habits while court deadlines run. Later the file meets two neutrals with very different power.
+
+1. Status changes to Litigation only on Atty. Thorne's dated authorization to sue, and cites it. The fee tier follows the filing, not the status: 33⅓% pre-suit, 40% once suit is filed, per the retainer.
+2. Open the court fields and fill them only from the record: court, civil action number, filing date, defense counsel, service status. Until the Complaint is filed the number reads “Pending”; never guess one.
+3. Name every PDF to the convention (Complaint_Filed_Stamped.pdf, never scan001.pdf). File each incoming litigation document within 48 hours, but docket its deadlines and alert Atty. Thorne the day it arrives (an RFA, the hour it arrives).
+4. Seed the Litigation Calendar the day status changes: counsel's filing target, SOL 02/06/2028 (internal hard date 02/04/2028, cutoff 11/05/2027), 48-hour audits before hard dates. Ask Atty. Thorne each UM policy's suit or arbitration deadline and any duty to notify the carrier of suit; docket only from his answer.
+5. Notify the UM carriers as their policies require and Atty. Thorne directs: the impasse and the intended suit, in writing, with proof of delivery. A notice is not a UM demand and carries no figure.
+6. Preserve before you plead. Keep the doorbell video copy unaltered; what others hold (Margaret Doe's camera account, the Escape's event data recorder) gets a written preservation request Atty. Thorne signs.
+
+> ⚠️ **UPL boundary.** You may change fields, build folders, calendar dates, and draft notices and preservation letters for Atty. Thorne's approval. You may tell John Doe what happens next procedurally (dates, logistics, what to bring). What it means for his claim, his fee or the outcome is Atty. Thorne's to explain. Send no notice he has not approved. At mediation or arbitration you run logistics and exhibits; you never speak for John Doe, argue or negotiate.
+
+#### 2 · Slide Body — Show Them
+
+*The two neutrals this file will meet later, and how they differ*
+
+|  | Mediator | Arbitrator |
+|---|---|---|
+| Background | Retired judge or PI trial lawyer: negotiation, liens, valuation | Retired judge or senior trial lawyer: evidence, liability, causation |
+| How chosen | Mutual pick from panel resumes or the court roster | By the policy or a stipulation; often an AAA/JAMS strike list |
+| Power | None: cannot force a deal, rule or order payment | Private judge: binding award, no appeal on the merits |
+| Binder emphasis | Valuation and settlement history | Admissible evidence, right the first time |
+| On this file, later | Hon. Carla Benton (Ret.), court-ordered, 03/18/2027 | Laura Whitcomb, Esq., UM claims, 06/22/2027 |
+
+**Best practices & pitfalls**
+
+- Change status, fields, folders and calendar in one sitting, as soon as the authorization is on file.
+- Audit, don't just track: in litigation and ADR a missed deadline or a grayscale exhibit can get evidence excluded or cost leverage.
+- Tailor the binder to the neutral: valuation for a mediator, evidence for an arbitrator.
+- Expectations are Atty. Thorne's to set: mediation can end without a deal; arbitration ends in a binding number. You tell John Doe what happens next procedurally, never what it means for his claim, fee or outcome.
+- ⚠️ Pitfall: “scan001.pdf” in a litigation folder.
+- ⚠️ Pitfall: treating mediation and arbitration as the same thing.
+- ⚠️ Pitfall: missing a strike deadline and accepting a default appointment.
+- ⚠️ Pitfall: assuming an arbitration error can be appealed.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Litigation Fork Transition Check (taught on Case Flow Day 5) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **15%** | Folder structure | Master directory and all five sub-folders named exactly |
+| 🤖 AI | **15%** | Field discipline | Status change cites the dated authorization; court set; case number “Pending”, not guessed |
+| 🤖 AI | **15%** | Calendar | SOL, internal hard date, cutoff and 48-hour audits seeded |
+| 🤖 AI | **15%** | Neutral distinctions | Mediator vs arbitrator: background, selection and power each stated correctly |
+| 🧑‍🏫 Trainer | **20%** | Transition judgment | Changes made together, on counsel's authority; fee tier tied to filing; pre-suit record preserved |
+| 🧑‍🏫 Trainer | **20%** | UPL boundary | No fee or suit explanation to John Doe; no unapproved notice; no advocacy at ADR |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Open on the dashed PENDING pill. Ask what goes in the case-number field on 09/10/2026. Anything but “Pending” is a guess, and a guessed number ends up on a pleading.
+- Ask: “Which moves John Doe to the 40% tier: the status change or the filing?” The retainer says filing. A trainee who records 40% from the status date has changed his fee two weeks early.
+- Spend real time on the neutrals; trainees conflate them. Put the legacy question: can Atty. Thorne appeal an award that is short because of a math error? No appeal on the merits; at most a narrow motion to correct an evident miscalculation, on a short deadline. Prep is right the first time.
+- Tie forward: the folders and calendar built here are what the rest of the litigation fork audits and litigates from.
+
+---
+
+### 5.1.10 Comparative Negligence & the Liability Counter-Package
+
+> **Lesson** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage (condensed) · scored with Final Comprehensive Knowledge Check (`d5m4`)  
+> **Topic:** Three allegations in the 11/12/2026 Answer, and the evidence that answers each  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** LSH Claims Specialist: liability determination — accepted, partial, denied; written confirmation; pure and modified comparative negligence · LSH Claims Specialist: liability disputes — strengthening the evidence, damage patterns, the post-suit pivot to causation and damages · Newly authored: seatbelt-evidence and citation admissibility as state-variable questions; authentication and chain of custody in the counter-package
+
+#### 1 · Visual Layout Description
+
+Two zones. Left 60%: the four-row regime table on a cream card, regime names in navy, the two outcome columns headed by mono pills JOHN 20% and JOHN 50%; every “Barred” cell is filled danger red, so the eye finds the cliff before reading a label. Right 40%: three stacked danger-bordered allegation cards with orange numbered badges, ① OUT OF TURN ② UNBELTED ③ FAILED TO MITIGATE, each with a navy → to its answering evidence as mono pills: RPD-26-018842 · CALLOWAY · VIDEO; EDR BUCKLED · EMS “RESTRAINED”; A-C-T 04/08 → 04/23. A slim orange strip along the foot reads STACK STAYS $40,000. The argument: every point of fault costs John money, and each point already has its answer in the file.
+
+#### 2 · Slide Body — Tell Them
+
+*Why:* After suit, the defense argued fault and mitigation: the car he rode in and his seatbelt (comparative fault), his missed visits (failure to mitigate). Fault can reduce or bar recovery; mitigation cuts only the damages the missed care caused. The counter-package answers each from this file, with evidence that can come in.
+
+1. Comparative negligence apportions fault. Pure: damages fall by John's share, however large. Modified: they fall, but recovery is barred once his share reaches 50% in some states or 51% in others. Contributory, in a handful of jurisdictions: any fault bars recovery. Confirm the governing rule.
+2. Record where liability stands, with its source: accepted, partial or denied, each carrier's position kept in writing since claim set-up (Liability Investigation). Keystone accepted PD liability on 02/17/2026 and argued causation before suit; the Answer now pleads comparative fault. Its weight is Atty. Thorne's call.
+3. Allegation 1, “the Escape entered the all-way stop out of turn,” targets Kevin Alvarez's driving, not John's. Whether a driver's fault can be charged to a passenger, or apportioned to a non-party, is Atty. Thorne's analysis. Your job is the evidence.
+4. Never add anything to the stack because the defense blames Kevin Alvarez. Whether his alleged fault touches coverage is a coverage question for Atty. Thorne; the file's verified stack stays $40,000, BI → Host UM → Relative UM.
+5. Allegation 2, “John was unbelted,” is answered twice: the Escape's event data recorder shows the front-passenger belt buckled, and the EMS Run Report reads “restrained front-seat passenger.” Seatbelt evidence is barred in some states and limited in others: confirm the governing rule.
+6. Defense 3, failure to mitigate, is not crash fault: if proved, it trims only damages reasonable care would have avoided. It targets 19 days without visits (04/02 → 04/21/2026). The record answers: a documented clinical cause (crash-related anxiety: Dr. Reyes's 04/20 note, the 06/10 counseling summary) and the firm's A-C-T follow-up from 04/08, care resumed 04/21 and 04/23. Burden: generally the defense's; confirm.
+7. Evidence counts only if it can come in. For every item record its source, who can authenticate it and its chain of custody. The doorbell video: Margaret Doe's camera, preservation asked 02/17/2026, copy secured 02/19/2026, the native file unaltered, every transfer logged.
+8. Don't rest liability on report RPD-26-018842: whether Smith's citation, or his plea or payment of it, is admissible varies by state. Ruth Calloway, the video and the point of impact (the Escape's front passenger door) carry it; the EDR's 11 mph corroborates.
+9. The Answer also pleads causation (the 14-Day Gap; the “degenerative” MRI). The Gap Record joins the package in deposition prep: the four reasons, the EMS neck complaint, Dr. Reyes's 06/19/2026 letter.
+
+> ⚠️ **UPL boundary.** You may gather, authenticate and index the evidence against each allegation, and tell John what the Answer says. You may not tell John his share of fault, whether seatbelt evidence comes in, or what Kevin Alvarez's fault means for coverage. Those are Atty. Thorne's.
+
+#### 2 · Slide Body — Show Them
+
+*One finding, four outcomes: confirm the governing rule*
+
+| Regime | John 20% at fault | John 50% at fault |
+|---|---|---|
+| Pure comparative | Recovers 80% | Recovers 50% |
+| Modified, 50% bar | Recovers 80% | Barred |
+| Modified, 51% bar | Recovers 80% | Recovers 50% |
+| Contributory | Barred | Barred |
+
+**Best practices & pitfalls**
+
+- Answer each allegation with a document, not an argument: the record speaks, counsel argues.
+- Keep the liability position recorded as the claims team does: accepted, partial or denied, with date and source.
+- Use the damage pattern: point of impact and direction of travel, read with the video and the witness.
+- ⚠️ Pitfall: building the package on the citation alone.
+- ⚠️ Pitfall: telling John he “can't be blamed” because he was a passenger.
+- ⚠️ Pitfall: adding Kevin Alvarez's policy to the stack because the defense blames him.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Regime accuracy | Pure, modified (50% and 51% bars) and contributory stated correctly, with “confirm the governing rule” |
+| 🤖 AI | **25%** | Allegation mapping | All three allegations matched to the file's evidence: citation, Calloway, video, EDR, EMS report, A-C-T record |
+| 🤖 AI | **15%** | Foundation | Source, authenticating witness and chain of custody named for each item; video dates 02/17 and 02/19/2026 |
+| 🧑‍🏫 Trainer | **20%** | Legal nuance | Sees that allegation 1 targets the driver, and that seatbelt and citation evidence are admissibility questions |
+| 🧑‍🏫 Trainer | **20%** | UPL boundary | No fault share, admissibility or coverage opinion offered; Kevin Alvarez's coverage routed to Atty. Thorne |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Open with the Answer itself. Read its three allegations aloud, then ask which one is not about John at all. The out-of-turn allegation is about Kevin Alvarez's driving.
+- Put the table to the room: “If a jury finds John 20% at fault, what does he recover under each regime? And at 50%?” Make them say “Barred” out loud for the modified 50% row.
+- Watch for trainees who win the seatbelt point by argument. The EDR and the EMS report win it; the Case Manager's job is to make sure both can come in.
+- Legal nuance: the carpool may tempt the defense to tie Kevin Alvarez's driving to John; whether any theory lets it is Atty. Thorne's analysis. Seatbelt and citation admissibility vary by state. And whatever the defense says about Kevin, the stack stays $40,000.
 
 ---
 
@@ -946,7 +946,70 @@ Verified in Dropped Case Close-Out Check (taught on Case Flow Day 5) and that da
 
 ---
 
-### 5.1.13 Pleadings & Discovery Log Maintenance
+### 5.1.13 Backup File Maintenance: the Final Audit and the Close-Out
+
+> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Track B Close-Out Check (`d5m5`)  
+> **Topic:** Skill Activity — back up the litigation file, run the final audit and prepare the case for Closed Files  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · `D3#28` Skill Building: The “Doe v. Apex” Final Net Challenge · LSH firm standard: backup drive folder hierarchy
+
+#### 1 · Visual Layout Description
+
+The Doe-John folder tree with every folder ticked green and 09 Litigation & ADR opened: the Complaint, the affidavit of service, the Answer, the Scheduling Order, the mediation term sheet and both binders. Beside it a closing checklist card with every line ticked, ending ATTY. THORNE SIGN-OFF. A dashed orange arrow runs from Doe-John to 04 Closed Files, labeled AFTER SIGN-OFF, THE FIRM'S WAY.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** 07/30/2027, 3:00 p.m. The award was disbursed today: John Doe signed the Settlement Statement on 07/29/2027 and every lien is paid on its Payoff Letter. The litigation file is on the CMS: the Complaint (filed 09/24/2026), the service of process and affidavit of service, Atty. Grant Mercer's Answer (11/12/2026), the Scheduling Order (12/10/2026), the mediated settlement term sheet (03/18/2027) and the Mediation and Arbitration Binders as delivered. Atty. Thorne will sign off the close once the file is complete, on the CMS and on the backup.
+
+**Execution prompt.** File the litigation and ADR documents from 📁 Work From in the CMS, so each lands in 09 Litigation & ADR on your Backup Drive (in the CMS they stay in the five litigation folders, 01_PLEADINGS to 05_SUBPOENAS; the drive keeps all of them in 09 Litigation & ADR). Then run the final backup audit: open 📂 My Backup Drive, run ✓ Check my drive, and confirm the count of backed-up documents equals the documents filed in the CMS across all nine folders, with every superseded version labeled and no draft left unlabeled. Then write the closing checklist in Case Notes for Atty. Thorne's sign-off, built on Final Case Reconciliation (Day 3 deck p15–p19): every folder complete; the money trail (the Settlement Statement, the Trust Ledger at a zero balance) and proof of delivery (every lien's Payoff Letter) on the drive; the retention date, 7 years from closing; the closing letter sent and backed up; the last drive check clean; and the close-out step the firm takes after sign-off: the whole Doe-John folder moves, unchanged inside, under 04 Closed Files, with the closing date logged. Do not move the folder in your training drive; the course checks it where it is.
+
+| | |
+|---|---|
+| **Tool / interface** | Backup Drive · CMS → Doc Hub · CMS → Notes → Case Notes |
+| **Expected output** | The litigation and ADR documents backed up in 09 Litigation & ADR, a final audit with every filed document on the drive and a clean check, and a closing checklist in Case Notes ready for Atty. Thorne's sign-off. |
+
+**Verification checkpoints**
+
+- [ ] The Complaint, the service papers, the Answer, the Scheduling Order and the mediation term sheet in 09 Litigation & ADR
+- [ ] The final count: every document filed in the CMS backed up in its folder
+- [ ] Superseded versions labeled and drafts marked as drafts across all nine folders
+- [ ] ✓ Check my drive run with no folder missing
+- [ ] The closing checklist in Case Notes, naming the reconciliation sets (the money trail at a zero balance, proof of delivery, the retention date 7 years from closing) and ending with Atty. Thorne's sign-off and the move to 04 Closed Files
+- [ ] The client folder left in place in the training drive
+
+**Best practices & pitfalls**
+
+- Close the backup the way you opened it: by the standard, checked, with nothing left in a folder of its own making.
+- A file is closed when the attorney signs off, not when the money goes out.
+- ⚠️ Pitfall: moving the client folder before sign-off, then filing a late document into a case nobody can find.
+- ⚠️ Pitfall: unlabeled drafts in a closed file; a reader years later can't tell which complaint was filed.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **16%** | Litigation file backed up | Litigation and ADR documents in 09 Litigation & ADR |
+| 🤖 AI | **20%** | Final audit | Backed up equals filed across every folder; superseded and draft versions labeled; drive check clean |
+| 🤖 AI | **12%** | Closing checklist | Every closing line in Case Notes, ending with sign-off and the move to 04 Closed Files |
+| 🤖 AI | **12%** | File names | Every file on the drive named by the firm's naming convention, labels included, from intake to award |
+| 🧑‍🏫 Trainer | **25%** | Close-out judgment | Knows the folder moves only after Atty. Thorne's sign-off, and why |
+| 🧑‍🏫 Trainer | **15%** | Findability | Finds any named document from intake to award on the drive in seconds |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- This is the last backup job of the course. Call out a Day 1 document (the HIPAA authorization) and a Day 5 one (the Answer); time how long each takes to open.
+- Ask: “Why not move it to Closed Files today?” Because a late document, a lien refund or a client call can still arrive, and the file stays open until Atty. Thorne signs off.
+- Show the trainer report in the Trainee Audit: Proficient means built, nothing missing and every filed document backed up.
+
+---
+
+### 5.1.14 Pleadings & Discovery Log Maintenance
 
 > **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Litigation Support Assessment (`d5m1`)  
 > **Topic:** Skill Activity 1 — repair the log before it costs the case  
@@ -1018,7 +1081,7 @@ Verified in Litigation Support Assessment (taught on Case Flow Day 5) and that d
 
 ---
 
-### 5.1.14 Virtual Deposition Prep Roleplay
+### 5.1.15 Virtual Deposition Prep Roleplay
 
 > **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Deposition Readiness Audit (`d5m3`)  
 > **Topic:** Skill Activity 1 — client injury & 14-Day Gap defense: your segment, his substance  
@@ -1099,7 +1162,7 @@ Verified in Deposition Readiness Audit (taught on Case Flow Day 5) and that day'
 
 ---
 
-### 5.1.15 Skip-Tracing Execution & Certified Notice Dispatch
+### 5.1.16 Skip-Tracing Execution & Certified Notice Dispatch
 
 > **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Final Comprehensive Knowledge Check (`d5m4`)  
 > **Topic:** Skill Activity 2 — find the defendant, reach the client, prove both  
@@ -1168,69 +1231,6 @@ Verified in Final Comprehensive Knowledge Check (taught on Case Flow Day 5) and 
 - Ask the room: “John and Smith both have no working contact point. Why does Smith get a Skip-Trace and John does not?” Day 1's gate: ladder exhausted, letter sent, deadline passed. John was reached on 02/03/2027, the response date, so the deadline never expired; and his address is known, only his phone changed.
 - Check every response date against 02/04/2027. A 14-day window from 01/22 lands on 02/05, after the first prep session: the deposition forces the short end of the window.
 - UPL gate: no withdrawal language from the Case Manager, in the notice or anywhere else, and Margaret hears only “please have John call us.”
-
----
-
-### 5.1.16 Backup File Maintenance: the Final Audit and the Close-Out
-
-> **Skill Activity** · Day 5 — Litigation & Property Damage · Module 5: Litigation & Property Damage · scored with Track B Close-Out Check (`d5m5`)  
-> **Topic:** Skill Activity — back up the litigation file, run the final audit and prepare the case for Closed Files  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · `D3#28` Skill Building: The “Doe v. Apex” Final Net Challenge · LSH firm standard: backup drive folder hierarchy
-
-#### 1 · Visual Layout Description
-
-The Doe-John folder tree with every folder ticked green and 09 Litigation & ADR opened: the Complaint, the affidavit of service, the Answer, the Scheduling Order, the mediation term sheet and both binders. Beside it a closing checklist card with every line ticked, ending ATTY. THORNE SIGN-OFF. A dashed orange arrow runs from Doe-John to 04 Closed Files, labeled AFTER SIGN-OFF, THE FIRM'S WAY.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** 07/30/2027, 3:00 p.m. The award was disbursed today: John Doe signed the Settlement Statement on 07/29/2027 and every lien is paid on its Payoff Letter. The litigation file is on the CMS: the Complaint (filed 09/24/2026), the service of process and affidavit of service, Atty. Grant Mercer's Answer (11/12/2026), the Scheduling Order (12/10/2026), the mediated settlement term sheet (03/18/2027) and the Mediation and Arbitration Binders as delivered. Atty. Thorne will sign off the close once the file is complete, on the CMS and on the backup.
-
-**Execution prompt.** File the litigation and ADR documents from 📁 Work From in the CMS, so each lands in 09 Litigation & ADR on your Backup Drive (in the CMS they stay in the five litigation folders, 01_PLEADINGS to 05_SUBPOENAS; the drive keeps all of them in 09 Litigation & ADR). Then run the final backup audit: open 📂 My Backup Drive, run ✓ Check my drive, and confirm the count of backed-up documents equals the documents filed in the CMS across all nine folders, with every superseded version labeled and no draft left unlabeled. Then write the closing checklist in Case Notes for Atty. Thorne's sign-off, built on Final Case Reconciliation (Day 3 deck p15–p19): every folder complete; the money trail (the Settlement Statement, the Trust Ledger at a zero balance) and proof of delivery (every lien's Payoff Letter) on the drive; the retention date, 7 years from closing; the closing letter sent and backed up; the last drive check clean; and the close-out step the firm takes after sign-off: the whole Doe-John folder moves, unchanged inside, under 04 Closed Files, with the closing date logged. Do not move the folder in your training drive; the course checks it where it is.
-
-| | |
-|---|---|
-| **Tool / interface** | Backup Drive · CMS → Doc Hub · CMS → Notes → Case Notes |
-| **Expected output** | The litigation and ADR documents backed up in 09 Litigation & ADR, a final audit with every filed document on the drive and a clean check, and a closing checklist in Case Notes ready for Atty. Thorne's sign-off. |
-
-**Verification checkpoints**
-
-- [ ] The Complaint, the service papers, the Answer, the Scheduling Order and the mediation term sheet in 09 Litigation & ADR
-- [ ] The final count: every document filed in the CMS backed up in its folder
-- [ ] Superseded versions labeled and drafts marked as drafts across all nine folders
-- [ ] ✓ Check my drive run with no folder missing
-- [ ] The closing checklist in Case Notes, naming the reconciliation sets (the money trail at a zero balance, proof of delivery, the retention date 7 years from closing) and ending with Atty. Thorne's sign-off and the move to 04 Closed Files
-- [ ] The client folder left in place in the training drive
-
-**Best practices & pitfalls**
-
-- Close the backup the way you opened it: by the standard, checked, with nothing left in a folder of its own making.
-- A file is closed when the attorney signs off, not when the money goes out.
-- ⚠️ Pitfall: moving the client folder before sign-off, then filing a late document into a case nobody can find.
-- ⚠️ Pitfall: unlabeled drafts in a closed file; a reader years later can't tell which complaint was filed.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Track B Close-Out Check (taught on Case Flow Day 5) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **16%** | Litigation file backed up | Litigation and ADR documents in 09 Litigation & ADR |
-| 🤖 AI | **20%** | Final audit | Backed up equals filed across every folder; superseded and draft versions labeled; drive check clean |
-| 🤖 AI | **12%** | Closing checklist | Every closing line in Case Notes, ending with sign-off and the move to 04 Closed Files |
-| 🤖 AI | **12%** | File names | Every file on the drive named by the firm's naming convention, labels included, from intake to award |
-| 🧑‍🏫 Trainer | **25%** | Close-out judgment | Knows the folder moves only after Atty. Thorne's sign-off, and why |
-| 🧑‍🏫 Trainer | **15%** | Findability | Finds any named document from intake to award on the drive in seconds |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- This is the last backup job of the course. Call out a Day 1 document (the HIPAA authorization) and a Day 5 one (the Answer); time how long each takes to open.
-- Ask: “Why not move it to Closed Files today?” Because a late document, a lien refund or a client call can still arrive, and the file stays open until Atty. Thorne signs off.
-- Show the trainer report in the Trainee Audit: Proficient means built, nothing missing and every filed document backed up.
 
 ---
 

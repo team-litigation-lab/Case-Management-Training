@@ -826,14 +826,14 @@ window.CM_CF_SLIDES = {
  },
  "d1m3-l2": {
   "image": "property-damage",
-  "hook": "The Civic is Margaret's claim; for John Doe, its damage is **evidence of the impact**.",
+  "hook": "Property Damage is the car owner's claim; for John, it only **proves the impact**.",
   "points": [
-   "Start with **the Police Report**: who rode and who owns each car",
-   "Photos, estimates and supplements are **evidence for John's injury claim**",
-   "Her rental, Loss of Use and Diminished Value **stay on Margaret's claim**",
-   "The rental ends his rides to care: **calendar that date**"
+   "**Who owns the car?** The Police Report shows it is Margaret's Civic",
+   "**Crash photos and Repair Estimates** show how hard John was hit",
+   "**Rental, Loss of Use, Diminished Value**: Margaret's to claim, not John's",
+   "**When her rental ends**, John's rides to treatment end: calendar it"
   ],
-  "upl": "Sort the facts and refer. Never advise Margaret Doe or **value her PD claim**",
+  "upl": "Give Margaret the how-to's only. Never advise her or **value her PD claim**",
   "dos": [
    "Ask of every PD fact: **does it touch our case**?",
    "Index photos and estimates **the day they arrive**"
@@ -843,17 +843,17 @@ window.CM_CF_SLIDES = {
    "Treating Property Damage as **“just the car”**"
   ],
   "ruleEx": {
-   "rule": "**PD belongs to the car's owner**. The Civic (Bluewater BWA-209-66184) is Margaret Doe's. John owns no car.",
-   "exception": "One PD date reaches his care and goes on John's calendar: **the rental's last covered day**",
-   "onFile": "The rental ends 03/19/2026; his rides are planned before then",
-   "confirm": "Margaret's PD claim goes to Atty. Thorne"
+   "rule": "**Property Damage belongs to whoever owns the car.** The Civic (Bluewater BWA-209-66184) is Margaret Doe's. John owns no car.",
+   "exception": "**One PD date affects John's care**: the rental's last covered day, because it ends his rides to treatment",
+   "onFile": "Margaret's rental, from her PD adjuster, ends 03/19/2026: plan John's rides before then",
+   "confirm": "Atty. Thorne: we don't represent Margaret's PD"
   },
   "redFlag": {
    "spoken": true,
    "see": "A rental, PD or Loss of Use claim **opened in John Doe's name**",
    "costs": "John has no PD claim. Mixing in Margaret Doe's Civic claim (KM-26-440871-PD) confuses his BI file",
-   "do": "Keep PD under Margaret Doe; **refer her claim** to Atty. Thorne",
-   "owner": "Atty. Thorne"
+   "do": "Keep PD on Margaret's own claim; give her **the how-to's** only",
+   "owner": "Case Manager"
   },
   "theory": {
    "lead": "Property Damage is **the car owner's own claim**. For a passenger's injury case, it is evidence of the impact, and sometimes a date that affects care.",

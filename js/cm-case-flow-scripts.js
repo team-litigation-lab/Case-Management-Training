@@ -201,14 +201,14 @@ window.CM_CF_SCRIPTS = {
    "say": "• Intake: a tow from the scene and crush photos flag a serious injury early; keep them\n• Treatment: structural damage matches the injuries providers record\n• Demand: estimates and supplements answer the low-impact fender-bender argument\n• Negotiation and litigation: photos keep the injury from being called minor and support experts\n• Rental, Loss of Use and the repair argument never appear in John Doe's column"
   },
   "rules": {
-   "say": "• Read the Police Report unit boxes first: who rode in which car, who owns which car\n• Index photos, Repair Estimate, supplements and the tow on John's file as evidence\n• Margaret's rental, Loss of Use, Diminished Value and repair negotiation: leave on her claim, refer\n• Keystone accepted PD liability on 02/17/2026: record the fact; its meaning is Atty. Thorne's\n• If a car call turns to John's neck, it stops and comes to us\n• Red flag: a rental, PD or Loss of Use claim opened in John's name; keep PD under Margaret Doe, refer her claim"
+   "say": "• Read the Police Report unit boxes first: who rode in which car, who owns which car\n• Index photos, Repair Estimate, supplements and the tow on John's file as evidence\n• Margaret's rental, Loss of Use, Diminished Value and repair negotiation: her own stand-alone PD claim; we give her the how-to's only\n• Keystone accepted PD liability on 02/17/2026: record the fact; its meaning is Atty. Thorne's\n• If a car call turns to John's neck, it stops and comes to us\n• Red flag: a rental, PD or Loss of Use claim opened in John's name; keep PD on Margaret's own claim, with her PD adjuster"
   },
   "model": {
-   "say": "• Walk the six-row sort table\n• Point-of-impact photos, Repair Estimate and supplements: evidence of force, on John's file\n• Police Report units: cite in the Case Note for who rode and who owns\n• Margaret's rental: hers, but its last covered day removes John's ride to treatment; calendar it, plan rides\n• Loss of Use, Diminished Value, repair argument: Margaret's, referred, never negotiated",
+   "say": "• Walk the six-row sort table\n• Point-of-impact photos, Repair Estimate and supplements: evidence of force, on John's file\n• Police Report units: cite in the Case Note for who rode and who owns\n• Margaret's rental: hers, from her PD adjuster, but its last covered day removes John's ride to treatment; calendar it, plan rides\n• Loss of Use, Diminished Value, repair argument: Margaret's own claim, never negotiated by us",
    "ask": "Why is the rental row partly ours and partly Margaret's?"
   },
   "dodont": {
-   "say": "• Do: ask of every PD fact whether it touches our case\n• Do: index photos and estimates the day they arrive, e.g. the Escape's crushed front passenger door\n• Don't: open a rental claim in John's name; the Civic's claim and rental are Margaret's\n• Don't: treat PD as just the car; keep repair photos where the demand can use them\n• Red flag: never open a rental, PD or Loss of Use claim in John Doe's name\n• He doesn't own a car; the Civic is Margaret's, and her claim gets referred to Atty. Thorne",
+   "say": "• Do: ask of every PD fact whether it touches our case\n• Do: index photos and estimates the day they arrive, e.g. the Escape's crushed front passenger door\n• Don't: open a rental claim in John's name; the Civic's claim and rental are Margaret's\n• Don't: treat PD as just the car; keep repair photos where the demand can use them\n• Red flag: never open a rental, PD or Loss of Use claim in John Doe's name\n• He doesn't own a car; the Civic is Margaret's; we don't represent her: she runs her own PD claim",
    "ask": "Does Property Damage touch John Doe's case, and how?"
   }
  },
@@ -1786,7 +1786,7 @@ window.CM_CF_SCRIPTS = {
     "say": "• Step 2 of the loop: John Doe's Case Profile, The Case So Far\n• Track A settled at $40,000 gross; the liens and the provider balance still to resolve\n• Then straight into the Skill Building: the final Net Sheet"
    },
    "lab": {
-    "say": "• Practice Lab: 4 short skill activities, each one an assumption and one entry to log in the CMS\n• The two lien reductions, the prior-attorney lien, the BI-alone Net Sheet\n• About 26 minutes: time for all 4, about six minutes each; then the Ready check"
+    "say": "• Practice Lab: 4 short skill activities, each one an assumption and one entry to log in the CMS\n• The two lien reductions, the prior-attorney lien, the BI-alone Net Sheet\n• About 28 minutes: time for all 4, about six minutes each; then the Ready check"
    },
    "plan": {
     "say": "• Step 4: update the Action Plan: each lien's status, the Net Sheet and the disbursement date\n• A lighter touch today: the trainees write it, you spot-check two plans"
