@@ -227,7 +227,13 @@ if(!document.getElementById("cpx-css")){
 .cpx-s-list li{display:flex;gap:10px;align-items:flex-start;border:1.5px solid #DDE1EA;border-left:5px solid #DB8437;background:#fff;border-radius:10px;padding:12px 14px;font:700 clamp(17px,2.4vh,22px)/1.35 'Inter',sans-serif;color:#1E2340;}
 .cpx-s-list li::before, .cpx-list li::before, .cpx-ladder li::before, .cpx-track > li::before{content:none !important;display:none !important;}
 .cpx-s-go{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.cpx-s-go .cpx-s-btn{font:800 clamp(18px,2.6vh,24px) 'Inter',sans-serif;padding:14px 26px;background:#DB8437 !important;border-color:#DB8437 !important;color:#fff !important;}
+.cpx-s-go .cpx-s-btn{font:800 clamp(18px,2.6vh,24px) 'Inter',sans-serif;padding:14px 26px;background:linear-gradient(135deg,#2A3160 0%,#1E2340 55%,#161A33 100%) !important;border:2px solid #DB8437 !important;color:#fff !important;
+  position:relative;isolation:isolate;overflow:hidden;box-shadow:0 10px 22px -12px rgba(30,35,64,.8) !important;}
+/* the navy button's grid: thin lines that run from orange into white (the gradient seen through a grid-shaped mask) */
+.cpx-s-go .cpx-s-btn::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.55;background:linear-gradient(90deg,#DB8437 0%,#F3B77F 45%,#fff 100%);
+  -webkit-mask:repeating-linear-gradient(90deg,#000 0 1px,transparent 1px 18px),repeating-linear-gradient(0deg,#000 0 1px,transparent 1px 18px);
+  mask:repeating-linear-gradient(90deg,#000 0 1px,transparent 1px 18px),repeating-linear-gradient(0deg,#000 0 1px,transparent 1px 18px);}
+.cpx-s-go .cpx-s-btn:hover{background:linear-gradient(135deg,#353D75 0%,#262C52 55%,#1E2340 100%) !important;}
 .cpx-s-go span{font:700 17px 'Inter',sans-serif;color:#4A5068;}`;
   document.head.appendChild(st);
 }
