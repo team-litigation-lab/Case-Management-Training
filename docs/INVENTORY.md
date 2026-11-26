@@ -131,10 +131,11 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/ai-check` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/share/get` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/report.html` · `/version`
 
-## Node checks (70)
+## Node checks (71)
 
 | Check | What it covers |
 |---|---|
+| `account-merge-finish.cjs` | 👥 a merge finishes by itself: once its redirect has settled, the Worker's hourly run removes the other account (the trainer's page usually does it first), only while the merge still keeps the same account |
 | `account-repair.cjs` | 👥 An account merge on the Worker (/api/account-merge): a dry run changes nothing; a confirmed merge keeps the id the current Portal name opens, unions each day's attempts, moves every per-id key, backs everything up and deletes nothing it didn't copy |
 | `activity-deck-align.cjs` | Every Skill Activity practises what its deck lesson teaches: it uses that lesson's deck terms, names no method, order or step the Canva decks contradict, and dates no lesson to the wrong day |
 | `admin-kc-keep.cjs` | An admin write of a stale trainee record keeps a Knowledge Check attempt stored after it was read (keepKcStored), and the trainer's own change still lands |
