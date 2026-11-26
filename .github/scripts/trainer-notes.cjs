@@ -103,6 +103,20 @@ const failures = []; const fail = (m) => failures.push(m);
   const labels = await page.evaluate(() => typeof renderRoleplayEvaluationReport === 'function' ? renderRoleplayEvaluationReport({ totalScore: 70, gradeTier: 'Proficient', blufScore: 20, riskPrivilegeScore: 20, composureScore: 15, actProtocolScore: 15, summary: 'ok', strengths: [], blindspots: [], better: ['You could have confirmed the date.'], growthSuggestions: [] }) : '');
   if (!/Bottom line first/.test(labels) || /BLUF Adherence/.test(labels) || !/What you could have done better/.test(labels)) fail('the call debrief should name its scores plainly and say what could have been done better');
 
+  // 🎯 Graded Calls: the trainer's panel lists each Call Sim line taken; the Scorecard's line carries the note and, under 80%, a next step
+  const gc = await page.evaluate(async () => {
+    const id = state.traineeId, rec = { id, name: 'Tina' }, g0 = window.sharedGet;
+    window.sharedGet = async (k) => k === 'callsim:' + id ? { best: { 'line:intake': { line: 'Intake line', score: 72, calls: 2 } } } : g0(k);
+    state.isAdmin = true; state.traineeWork[id] = { snap: {}, feedback: { days: {} } };
+    renderFeedbackAdmin(rec); await new Promise(r => setTimeout(r, 300));
+    const html = renderFeedbackAdmin(rec); state.isAdmin = false; window.sharedGet = g0;
+    const src = (cmScorecard.sources || []).find(s => s.id === 'gc');
+    const items = src ? src.items({ rec: {}, data: {}, callsim: { best: { 'line:intake': { line: 'Intake line', score: 72, calls: 2 } } }, fb: { activities: { 'gc:line:intake': { comment: 'Slow down on the intake questions.' } } } }) : [];
+    return { listed: /Graded Calls \(Call Sim\): your feedback/.test(html) && /Intake line/.test(html) && /Best 72%/.test(html), note: (items[0] || {}).note || '' };
+  });
+  if (!gc.listed) fail('the trainer\'s panel should list each Call Sim line the trainee took, with its best score and a box');
+  if (!/Your trainer: "Slow down on the intake questions\."/.test(gc.note) || !/What you could have done better/.test(gc.note)) fail(`a graded call line under 80% should carry the trainer's note and what to do better: "${gc.note}"`);
+
   await browser.close();
   if (failures.length) { console.log(`${failures.length} problem(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
   console.log('🧑‍🏫 Trainer notes: the grade has a coach\'s note and "What you could have done better" with no AI label; a trainer\'s note is saved to the trainee\'s feedback record from the composer, removed when emptied, and shown to the trainee under the grade.');

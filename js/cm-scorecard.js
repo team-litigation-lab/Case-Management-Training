@@ -224,9 +224,13 @@ const SOURCES = [
     items: c => Object.entries(c.rec.practiceProgress || {}).filter(([, v]) => v && typeof v.bestScore === "number" && v.bestScore > 0).map(([id, v]) => {
       const t = (typeof PRACTICE_TOOLS !== "undefined" ? PRACTICE_TOOLS : []).find(x => x.id === id);
       return {name: t ? t.title : id, pct: num(v.bestScore), note: `${v.runs || 1} attempt${(v.runs || 1) === 1 ? "" : "s"}`}; })},
-  {id: "gc", icon: "🎯", label: "Graded Calls", about: "The best graded call on each Call Sim line (☎ LSH Voice).", dims: ["pc", "cd"], how: "The line's Mock Calls Metrics (the call and its required note), reported by the Portal: the best call.",
-    items: c => Object.entries((c.callsim && c.callsim.best) || {}).filter(([, b]) => b && typeof b.score === "number").map(([k, b]) => ({
-      name: b.line || k.replace(/^line:/, ""), pct: num(b.score), note: `${b.calls || 1} call${(b.calls || 1) === 1 ? "" : "s"}`}))},
+  {id: "gc", icon: "🎯", label: "Graded Calls", about: "The best graded call on each Call Sim line (☎ LSH Voice).", dims: ["pc", "cd"], how: "Scored by the Call Sim on the Training Portal: the call itself and the note you write after it. Your best call on each line counts.",
+    // a trainer's note on a line (js/cm-trainer-notes.js: feedback:<id>.activities["gc:<line key>"]) and, under the pass mark, what to do next
+    items: c => Object.entries((c.callsim && c.callsim.best) || {}).filter(([, b]) => b && typeof b.score === "number").map(([k, b]) => {
+      const n = (((c.fb || {}).activities) || {})["gc:" + k], p = num(b.score);
+      return {name: b.line || k.replace(/^line:/, ""), pct: p, note: [`${b.calls || 1} call${(b.calls || 1) === 1 ? "" : "s"}, best counts`,
+        p != null && p < 80 ? "What you could have done better: read this line's debrief in the Call Sim, practise the one thing it says to change, then take the line again" : "",
+        n && n.comment ? `🧑‍🏫 Your trainer: "${String(n.comment).slice(0, 300)}"` : ""].filter(Boolean).join(" · ")}; })},
   {id: "cc", icon: "📞", label: "Case Calls", about: "Each graded call on John Doe's file (Live Calls and the calls the trainer rings in), its best score; an injected call that was missed counts 0.", dims: ["pc", "na", "cd"], how: "The call rubric: BLUF, Risk & Privilege, Composure, A-C-T (25 each); a missed injected call 0.",
     items: c => { const best = {}, cf = c.data["case-flow"] || {};
       (c.data.roleplayHistory || []).filter(h => h && h.categoryId === "caseflow" && typeof h.score === "number").forEach(h => {

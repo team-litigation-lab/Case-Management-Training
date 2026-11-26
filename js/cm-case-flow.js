@@ -1861,6 +1861,23 @@ const svNameFor = (e) => {
 function svStep(n, label, state, body){
   return `<div class="sv-step sv-${state}"><div class="sv-h"><span class="sv-n">${state === "done" ? "✓" : n}</span><b>${E(label)}</b></div>${body ? `<div class="sv-b">${body}</div>` : ""}</div>`;
 }
+/* ✉️ the Email Simulator's refusal, the same on every email (the service email, a records request, a Notes & Action Plan
+   email): what to take out and why, what to add and how, then what could have been done better, in plain words */
+function emailRefusal({short, take, add, who, kind}){
+  const w = kind || "email";
+  const lead = short ? `It's too short to do the job yet. Write a sentence or two for each point in the list above.`
+    : `${who ? E(who) : "They"} would have to write back to ask for what's missing. Fix the point${(take || []).length + (add || []).length === 1 ? "" : "s"} below and press Send again.`;
+  const better = short ? `You could have covered each point in the list above, one at a time, before pressing Send.`
+    : (take || []).length ? `You could have read your draft once more for anything that isn't yours to share, before pressing Send.`
+    : `You could have checked your draft against the list above, one point at a time, before pressing Send.`;
+  return `<div class="sv-fb"><b>Not sent yet.</b> ${lead}`
+    + ((take || []).length ? `<p class="sv-fb-h">⛔ Take this out of your ${w}:</p><ul>${take.map(x => `<li>${x.label ? `<b>${E(x.label)}.</b> ` : ""}${E(x.why)}</li>`).join("")}</ul>` : "")
+    + ((add || []).length ? `<p class="sv-fb-h">✏️ Add this:</p><ul>${add.map(x => `<li><b>${E(x.label)}.</b> ${E(x.hint)}</li>`).join("")}</ul>` : "")
+    + `<p class="sv-fb-better"><b>What you could have done better:</b> ${better}</p></div>`;
+}
+/* the list a draft is checked against, shown before it is written: what it must say, and what it must leave out */
+const emailList = (req, forbid) => `<p class="sv-req-h">Your email must:</p><ul class="sv-req">${req.map(q => `<li>${E(q.label)}</li>`).join("")}</ul>`
+  + ((forbid || []).length ? `<p class="sv-req-h">Leave out:</p><ul class="sv-req sv-req-no">${forbid.map(f => `<li>${E(f.label || f.why)}</li>`).join("")}</ul>` : "");
 function svWorkspace(blockId){
   const e = serviceOf(blockId), r = svRec(blockId), a = auditOf(blockId), L = svLabels(e);
   const sent = !!r.sent, chose = r.choice != null, right = chose && !!(e.press.choices[r.choice] || {}).ok;
@@ -1870,7 +1887,7 @@ function svWorkspace(blockId){
     : `<p class="sv-brief">${hl(e.brief)}</p>
       <div class="sv-eh"><b>To</b> ${E(e.to)}<br><b>Cc</b> ${E(e.cc || "—")}<br><b>Subject</b> ${E(e.subject)}<br><b>Attachment</b> ${E(e.attachment)}</div>
       <textarea class="sv-write" id="svw_${E(blockId)}" rows="9" placeholder="Write the email as you would send it." aria-label="${E(L.aria)}">${E(r.body || "")}</textarea>
-      <ul class="sv-req">${e.required.map(q => `<li>${E(q.label)}</li>`).join("")}</ul>
+      ${emailList(e.required, e.forbid)}
       <div class="sv-row"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.svSend('${blockId}')">${E(L.send)}</button>
         <span class="sv-msg" id="svm_${E(blockId)}" aria-live="polite">${r.tries ? `Not sent yet — ${r.tries} attempt${r.tries === 1 ? "" : "s"}.` : ""}</span></div>`;
   const reply = sent ? `<div class="sv-eh"><b>From</b> ${E(e.reply.from)}<br><b>Sent</b> ${E(e.reply.date)}, ${E(e.reply.time)}<br><b>Subject</b> ${E(e.reply.subject)}</div><pre class="sv-body">${E(e.reply.body)}</pre>
@@ -1923,13 +1940,13 @@ window.cmCaseFlow.svSend = function(blockId){
   const msg = document.getElementById("svm_" + blockId);
   if(text.split(/\s+/).filter(Boolean).length < 40){
     r.tries++; persist();
-    if(msg) msg.innerHTML = `<b>Not sent.</b> An email this short cannot do the job. Work through the list above.`;
+    if(msg) msg.innerHTML = emailRefusal({short: true});
     return;
   }
   const missing = e.required.filter(q => !q.match.every(p => { try{ return new RegExp(p, "i").test(text); }catch(err){ return true; } }));
   if(missing.length){
     r.tries++; persist();
-    if(msg) msg.innerHTML = `<b>Not sent.</b> ${E(svLabels(e).who)} can answer this without giving you what you need:<ul>${missing.map(q => `<li>${E(q.label)} — ${E(q.hint)}</li>`).join("")}</ul>`;
+    if(msg) msg.innerHTML = emailRefusal({add: missing, who: svLabels(e).who});
     return;
   }
   r.sent = new Date().toISOString(); persist();
@@ -2123,7 +2140,7 @@ function amCard(blockId, a, r, q, i){
     : `<p class="sv-brief">${hl(q.brief)}</p>
       <div class="sv-eh"><b>To</b> ${E(q.to)}<br><b>Cc</b> ${E(q.cc)}<br><b>Subject</b> ${E(q.subject)}<br><b>Attachment</b> ${E(q.attachment)}</div>
       <textarea class="sv-write" id="amw_${E(blockId)}_${E(q.doc)}" rows="9" placeholder="Write the request as you would send it." aria-label="Your request to the provider">${E(x.body || "")}</textarea>
-      <ul class="sv-req">${q.required.map(z => `<li>${E(z.label)}</li>`).join("")}</ul>
+      ${emailList(q.required, q.forbidden)}
       <div class="sv-row"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.amSend('${blockId}','${q.doc}')">Send the request</button>
         <span class="sv-msg" id="amm_${E(blockId)}_${E(q.doc)}" aria-live="polite">${x.tries ? `Not sent yet — ${x.tries} attempt${x.tries === 1 ? "" : "s"} refused.` : ""}</span></div>`;
   const reply = sent ? `<div class="sv-eh"><b>From</b> ${E(q.reply.from)}<br><b>Sent</b> ${E(q.reply.date)}, ${E(q.reply.time)}<br><b>Subject</b> ${E(q.reply.subject)}${copy ? `<br><b>Attachment</b> ${E(copy.title)}` : ""}</div><pre class="sv-body">${E(q.reply.body)}</pre>
@@ -2154,6 +2171,8 @@ function amFeedback(blockId, q, x, copy, filedRec){
     <p>${tries === 0 ? "Sent first time: it gave the provider everything it needed and asked for nothing it shouldn't." : `Sent on attempt ${tries + 1}. ${tries} refused before it, each for the reason below; that is what a provider would have bounced back or used against the file.`}</p>
     <ul class="am-did">${did}${refused}${filing}${choice}</ul>
     <p><b>What this protects:</b> ${hl(q.protects)}</p>
+    ${tries ? `<p><b>What you could have done better:</b> you could have checked the draft against the list, point by point, before the first Send: ${tries === 1 ? "one refusal" : tries + " refusals"} is ${tries === 1 ? "a round trip" : "round trips"} a provider makes you wait on.</p>` : ""}
+    ${choice && !(q.next.choices[x.choice] || {}).ok ? `<p><b>What you could have done better on the next step:</b> pick the move that keeps the decision with Atty. Thorne and the proof on the file; the reason is beside your choice above.</p>` : ""}
     <details><summary>The firm's model request, to read yours against</summary><pre class="sv-body">${E(q.model)}</pre></details></div>`;
 }
 window.cmCaseFlow.amend = function(blockId){
@@ -2192,12 +2211,12 @@ window.cmCaseFlow.amSend = function(blockId, docId){
   x.body = text.slice(0, 4000);
   const msg = document.getElementById(`amm_${blockId}_${docId}`), who = String(q.to).split(/[,<]/)[0].trim();
   const refuse = (entry, html) => { x.tries++; x.log.push(entry); persist(); if(msg) msg.innerHTML = html; };
-  if(text.split(/\s+/).filter(Boolean).length < 40){ refuse({short: true, missing: [], tripped: []}, `<b>Not sent.</b> A request this short cannot do the job. Work through the list above.`); return; }
+  if(text.split(/\s+/).filter(Boolean).length < 40){ refuse({short: true, missing: [], tripped: []}, emailRefusal({short: true, kind: "request"})); return; }
   const tripped = (q.forbidden || []).filter(z => amTrips(z, text));
   const missing = q.required.filter(z => !amTest(z, text));
   if(tripped.length || missing.length){
     refuse({missing: missing.map(z => z.id), tripped: tripped.map(z => z.id)},
-      `<b>Not sent.</b>${tripped.length ? `<ul>${tripped.map(z => `<li><b>${E(z.label)}.</b> ${E(z.why)}</li>`).join("")}</ul>` : ""}${missing.length ? `${who} can't act on this as written:<ul>${missing.map(z => `<li>${E(z.label)} — ${E(z.hint)}</li>`).join("")}</ul>` : ""}`);
+      emailRefusal({take: tripped, add: missing, who, kind: "request"}));
     return;
   }
   x.sent = new Date().toISOString(); persist();
@@ -2269,7 +2288,7 @@ function npEmail(blockId, e, open){
   if(!open) return `<p class="sv-note">${E(e.why)}</p>`;
   return `<p class="sv-note">${E(e.why)}</p><p class="sv-brief">${hl(e.brief)}</p>${head}
     <textarea class="sv-write" id="npm_${E(blockId)}_${E(e.id)}" rows="7" placeholder="Write the email as you would send it." aria-label="${E(e.title)}" oninput="cmCaseFlow.npDraft('${blockId}','m:${e.id}',this.value)">${E(m.body || "")}</textarea>
-    <ul class="sv-req">${e.required.map(q => `<li>${E(q.label)}</li>`).join("")}</ul>
+    ${emailList(e.required, e.forbid)}
     <div class="sv-row"><button type="button" class="btn btn-orange" onclick="cmCaseFlow.npSend('${blockId}','${e.id}')">✉ Send</button>
       <span class="sv-msg" id="npmm_${E(blockId)}_${E(e.id)}" aria-live="polite">${m.tries ? `Not sent yet — ${m.tries} attempt${m.tries === 1 ? "" : "s"}.` : ""}</span></div>`;
 }
@@ -2396,12 +2415,10 @@ window.cmCaseFlow.npSend = function(blockId, id){
   if(!e || m.sent || !r.planAt) return;
   const el = document.getElementById(`npm_${blockId}_${id}`), msg = document.getElementById(`npmm_${blockId}_${id}`), text = ((el && el.value) || m.body || "").trim();
   m.body = text.slice(0, 4000);
-  const no = html => { m.tries++; persist(); if(msg) msg.innerHTML = `<b>Not sent.</b> ${html}`; };
-  if(npWords(text) < 35) return no("An email this short cannot do the job. Work through the list above.");
-  const bad = (e.forbid || []).filter(x => npHit([x.match], text));
-  if(bad.length) return no(`<ul>${bad.map(x => `<li>${E(x.why)}</li>`).join("")}</ul>`);
-  const missing = e.required.filter(q => !npHit(q.match, text));
-  if(missing.length) return no(`It leaves out:<ul>${missing.map(q => `<li>${E(q.label)} — ${E(q.hint)}</li>`).join("")}</ul>`);
+  const no = html => { m.tries++; persist(); if(msg) msg.innerHTML = html; };
+  if(npWords(text) < 35) return no(emailRefusal({short: true}));
+  const bad = (e.forbid || []).filter(x => npHit([x.match], text)), missing = e.required.filter(q => !npHit(q.match, text));
+  if(bad.length || missing.length) return no(emailRefusal({take: bad, add: missing, who: String(e.to || "").split(/[,<]/)[0].trim()}));
   m.sent = new Date().toISOString(); persist();
   if(typeof toast === "function") toast("Sent. The reply is in the thread.");
   npRepaint(blockId);
@@ -5801,6 +5818,8 @@ main.cm-admin-main, main:has(.cm-admin-screen){max-width:min(2200px,97vw);paddin
 .cf-ai p{margin:4px 0 0;}
 .cf-call-plan{font-size:13px;line-height:1.45;} .cf-call-plan > b{display:block;margin:10px 0 4px;color:var(--navy);font-size:13px;} .cf-call-plan > b:first-child{margin-top:0;font-size:14px;}
 .cf-call-plan ol,.cf-call-plan ul{margin:0;padding-left:18px;} .cf-call-plan li{margin:0 0 4px;} .cf-call-plan p{margin:0;} .cf-cp-who{margin:4px 0 0 !important;} .cf-cp-end{margin-top:10px !important;color:var(--ink-soft);}
+.sv-req-h{margin:8px 0 2px;font-weight:800;color:var(--navy);} .sv-req-no li{color:#8A2A1A;}
+.sv-fb{display:block;margin-top:6px;line-height:1.45;} .sv-fb ul{margin:2px 0 6px;padding-left:18px;} .sv-fb-h{margin:8px 0 2px;font-weight:800;} .sv-fb-better{margin:6px 0 0;}
 .cf-ai-gaps{margin:6px 0 0;padding-left:18px;} .cf-ai-gaps li{margin:0 0 6px;} .cf-ai-coach{font-weight:700;}
 .cf-dash{margin-top:22px;}
 @media(min-width:1001px){
