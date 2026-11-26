@@ -113,5 +113,5 @@ const D3 = [
 
   await browser.close();
   if (failures.length) { console.log('✗ Your Task slide:\n  ' + failures.join('\n  ')); process.exit(1); }
-  console.log('Your Task slide: one column, steps in full sentences, the rules in Reference, one instruction card, one foot bar: Launch LSH CaseWorX & Google Drive and Submit, which opens the AI Grader on the slide; the task's tools (with the Source Files) in Reference.');
+  console.log('Your Task slide: one column, steps in full sentences, the rules in Reference, one instruction card, one foot bar: Launch LSH CaseWorX & Google Drive and Submit, which opens the AI Grader on the slide; the tools of the task (with the Source Files) in Reference.');
 })().catch(e => { console.log('✗ ' + (e && e.stack || e)); process.exit(1); });
