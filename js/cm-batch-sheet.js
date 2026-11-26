@@ -10,7 +10,7 @@
                         and the 📚 Lessons text), ✍️ Knowledge Checks (hover: each day's best, attempts and pass, what the
                         ✍️ Knowledge Checks table showed), 🧪 Practical activities, 📂 Backup Drive, 🗂 CMS file,
                         📝 Action Plan, Overall %, Result (the takeaways are not scored); sorted by Overall, nothing scored last
-     feedbackHtml(row)  in the trainee's card: 💬 Feedback on practical activities, Day 1 … Day 5 collapsible, each activity
+     feedbackHtml(row)  in the trainee's card: 💬 Feedback on Practical Activities, Day 1 … Day 5 collapsible, each activity
                         (Skill Activities and calls, Backup File Maintenance, Action Plans, the CMS file, the case
                         exercises) with its score, ⭐ what they did well, 🔧 what to improve and 🧾 why, as text
      csvTables(rows)    ⬇ Download: the 🏅 Scores table first, then ✍️ Knowledge Checks, 📚 Lessons, 🧮 Grading systems,
@@ -612,10 +612,11 @@ function fbRowHtml(y){
     <td class="bs-flag">${fl.length ? fl.map(f => `<p><b>🚩 ${E(f.why)}</b><q>${E(f.quote)}</q></p>`).join("") : "<i>None</i>"}</td>
     <td class="bs-fb-sc"><b class="${tone(y.pct)}">${y.pct != null ? y.pct + "%" : "—"}</b></td></tr>`;
 }
-function feedbackHtml(x){
-  const r = recOf(x), L = cfDaysL(), cx = cxOf(r); if(!r || !L.length) return "";
-  return `<section class="bs-fb" id="bs-fb-${E(String(r.id).replace(/[^A-Za-z0-9_-]/g, "_"))}"><h4>💬 Feedback on practical activities</h4>
-    <p class="bs-fb-note">Each practical activity of the day, as its grader marked it: what they did well, what to improve, why, what could have been done better, any 🚩 red flag (and why it is one), and the score.</p>
+// top: HTML put first in the section (js/cm-scorecard.js gives its 🎯 Focus on table, so a trainer's card has one place for what to work on)
+function feedbackHtml(x, top){
+  const r = recOf(x), L = cfDaysL(), cx = cxOf(r); if(!r || !L.length) return top || "";
+  return `<section class="bs-fb" id="bs-fb-${E(String(r.id).replace(/[^A-Za-z0-9_-]/g, "_"))}"><h4>💬 Feedback on Practical Activities</h4>
+    ${top || ""}<p class="bs-fb-note">Each practical activity of the day, as its grader marked it: what they did well, what to improve, why, what could have been done better, any 🚩 red flag (and why it is one), and the score.</p>
     ${L.map(d => { const xs = practOf(r, d, cx), sc = xs.filter(y => y.pct != null), a = dayAvg(sc), k = r.id + "|" + d.id, open = !!B.fbOpen[k];
       return `<details class="bs-fb-day" data-day="${d.cf.n}"${open ? " open" : ""} ontoggle="cmBatchSheet.fbOpen('${E(k)}', this.open)"><summary><b>${dayLabel(d)}</b><span>${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</span><em class="${tone(a)}">${xs.length ? `${xs.length} activit${xs.length === 1 ? "y" : "ies"}${a != null ? ` · avg ${a}%` : ""}` : "Nothing yet"}</em></summary>
         ${xs.length ? `<div class="bs-fb-wrap"><table class="bs-fb-t"><thead><tr><th>Activity</th><th>⭐ What they did well</th><th>🔧 What to improve</th><th>🧾 Why</th><th>💡 What could have been done better</th><th>🚩 Red flag</th><th>Score</th></tr></thead>
@@ -624,7 +625,7 @@ function feedbackHtml(x){
 function feedbackTable(recs){
   const rows = []; recs.forEach(r => { const cx = cxOf(r); cfDaysL().forEach(d => practOf(r, d, cx).forEach(y => { const sp = splitImprove(y.improve);
     rows.push([nameOf(r), dayLabel(d), y.name, y.status || "", (y.best || []).join(" · "), sp.fix.join(" · "), y.why || "", sp.better.join(" · "), redFlags(y).map(f => `${f.why} (“${f.quote}”)`).join(" · "), pct(y.pct)].map(v => ({v}))); })); });
-  return {id: "feedback", title: "💬 Feedback on practical activities", head: ["Trainee", "Day", "Activity", "Status", "⭐ What they did well", "🔧 What to improve", "🧾 Why", "💡 What could have been done better", "🚩 Red flag", "Score"], rows};
+  return {id: "feedback", title: "💬 Feedback on Practical Activities", head: ["Trainee", "Day", "Activity", "Status", "⭐ What they did well", "🔧 What to improve", "🧾 Why", "💡 What could have been done better", "🚩 Red flag", "Score"], rows};
 }
 // everyone registered in the batch shown (waiting for approval and archived too, not rejected, not merged away): 📚 Lessons and
 // 🕒 Recent progress list them all, with the records the Scorecard read for the ones it scores
@@ -766,9 +767,9 @@ css.textContent = `
 /* headers wrap between words only (main's overflow-wrap:anywhere broke "Knowledg-e"); a column is as wide as its words */
 .scx-card .gs th, .scx-card .gs td{overflow-wrap:normal !important;word-break:normal !important;hyphens:none;}
 .scx-card .gs-head th{min-width:96px;max-width:180px;font-size:14.5px;white-space:normal;}
-/* 💬 Feedback on practical activities, in the trainee's card */
+/* 💬 Feedback on Practical Activities, in the trainee's card */
 .bs-fb{margin:14px 0 4px;padding:12px 14px;border:2px solid #1E2340;border-radius:12px;background:#F7F8FB;}
-.bs-fb > h4{margin:0 0 4px;font:800 18px Arial,sans-serif;color:#1E2340;} .bs-fb-note{margin:0 0 8px;font:600 15px/1.4 Arial,sans-serif;color:#2E3450;}
+.bs-fb > h4{margin:-12px -14px 10px;padding:11px 16px;font:800 20px Arial,sans-serif;color:#fff;background:#1E2340;border-bottom:4px solid #DB8437;border-radius:10px 10px 0 0;letter-spacing:.01em;}   /* a navy band, white type: it stands out in the card */ .bs-fb-note{margin:0 0 8px;font:600 15px/1.4 Arial,sans-serif;color:#2E3450;}
 .bs-fb-day{border:1px solid #C9CEDD;border-radius:10px;background:#fff;margin-top:8px;} .bs-fb-day > summary{cursor:pointer;padding:10px 14px;display:flex;gap:10px;align-items:center;font:800 16px Arial,sans-serif;color:#141A2E;}
 .bs-fb-day > summary span{flex:1;font-weight:700;color:#2E3450;} .bs-fb-day > summary em{font-style:normal;font-weight:800;padding:2px 10px;border-radius:999px;background:#EEF0F6;}
 .bs-fb-day > summary em.gs-hi, .bs-fb-h b.gs-hi{background:#E6F4EA;color:#0B5D1E;} .bs-fb-day > summary em.gs-mid, .bs-fb-h b.gs-mid{background:#FFF4E0;color:#7A4B00;} .bs-fb-day > summary em.gs-lo, .bs-fb-h b.gs-lo{background:#FDE8E8;color:#A50E0E;}
