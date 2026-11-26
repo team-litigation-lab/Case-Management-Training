@@ -415,11 +415,14 @@ function aiState(r){
 // looks down", the 🤖 AI check (js/cm-ai-check.js) is asked once, quietly, and the page drawn again with its answer:
 // true = it answers (the gateway, or this site's own keys while the gateway refuses), false = it doesn't, null = not known yet
 const aiNow = () => { const c = window.cmAiCheck, r = c && c.state && c.state.res; return r ? !!(r.ok || r.fallback) : null; };
+// (the latest kept check first, the Worker's own every 2 hours: a fresh one is run only when none is kept or it is old)
 let aiAsked = false;
 function askAi(){
   const c = window.cmAiCheck; if(aiAsked || !c || typeof c.run !== "function" || (c.state && c.state.busy)) return;
   aiAsked = true;
-  Promise.resolve().then(() => c.run()).then(() => { if(typeof render === "function") render(); }).catch(() => {});
+  const fresh = r => r && r.at && Date.now() - Date.parse(r.at) < 150 * 60000;
+  Promise.resolve().then(() => typeof c.latest === "function" ? c.latest() : null).then(r => fresh(r) ? r : c.run())
+    .then(() => { if(typeof render === "function") render(); }).catch(() => {});
 }
 // what an empty cell says instead of nothing: why this trainee has no grade there
 const whyNone = (r, id) => { if(id === "sa" || id === "pa"){ const a = aiState(r); return a.failed ? `grading failed: ${a.why}` : "not graded yet"; } return "not done yet"; };
