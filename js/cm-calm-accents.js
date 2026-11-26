@@ -38,6 +38,21 @@ html body .cpx-s-go .cpx-s-btn.cpx-s-btn{border:1px solid rgba(201,162,122,.6) !
 /* 📄 the document strip and its "On John Doe's file" button */
 html body .cfx.cfx .cfx-docline{border-color:rgba(201,162,122,.55) !important;background:#FBF8F3 !important;}
 html body .cfx.cfx .cfx-docline-f{background:${NAVY} !important;color:#fff !important;border-color:${NAVY} !important;box-shadow:none !important;}
+/* the day's Training Agenda, even: three equal columns read across, each Part's label the full width above its cards,
+   every card the same height (a day's lessons now run decks first, then the extras: Part 1 has more rows than before,
+   and three across keeps it on one screen at full size) */
+html body .cfx-agenda .cfx-ag-list.cfx-ag-two{grid-template-columns:repeat(3,minmax(0,1fr)) !important;grid-template-rows:none !important;grid-auto-flow:row !important;grid-auto-rows:auto !important;gap:6px 12px !important;align-items:stretch !important;}
+html body .cfx-agenda .cfx-ag-list.cfx-ag-two > li{grid-column:auto !important;grid-row:auto !important;height:100%;box-sizing:border-box;}
+html body .cfx-agenda .cfx-ag-list.cfx-ag-two > li.cfx-ag-label{grid-column:1 / -1 !important;grid-row:auto !important;min-height:0;height:auto;align-self:end;}
+html body .cfx-agenda .cfx-ag-list.cfx-ag-two > li:not(.cfx-ag-label){padding-top:6px !important;padding-bottom:6px !important;}
+html body #lessonSlideWrap .cfx-agenda .cfx-ag-side p{line-height:1.3 !important;}
+/* Part 2 (the daily loop and the Knowledge Check): its label is the first cell of its own row, beside its cards */
+html body .cfx-agenda .cfx-ag-list.cfx-ag-two > li.cfx-ag-label ~ li.cfx-ag-label{grid-column:1 / 2 !important;align-self:stretch;flex-direction:column;justify-content:center;align-items:flex-start;gap:2px;border-bottom:0 !important;border-left:3px solid #C9A27A !important;padding:4px 10px !important;}
+html body #lessonSlideWrap .cfx-agenda .cfx-ag-list.cfx-ag-two > li:not(.cfx-ag-label){padding-top:2px !important;padding-bottom:2px !important;}
+/* the dashboard's day cards: a bigger title (the day's theme in its pill) */
+html body .dash-main .module-card.mc-clean.mc-clean .module-theme{font-size:19px !important;font-weight:800 !important;line-height:1.25 !important;}
+@container (min-height:180px){ html body .dash-main .module-card.mc-clean.mc-clean .module-theme{font-size:21px !important;} }
+@container (max-width:280px){ html body .dash-main .module-card.mc-clean.mc-clean .module-theme{font-size:16px !important;} }
 /* the Exception: a softer sand */
 html body .cfx .cfx-rx .cfx-rx-exc{background:#FAF5EE !important;}
 html body #lessonSlideWrap .cfx .cfx-split-rx > .cfx-rx .cfx-rx-exc{border-left-color:${SAND} !important;}
