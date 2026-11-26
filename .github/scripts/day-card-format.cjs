@@ -3,6 +3,7 @@
 //   row 1  Start · Continue · Review              full width
 //   row 2  👁 Review Score | 🔁 Retake             side by side
 //   row 3  ▶ Video (🔒 Video until unlocked; "🔒 Video · coming soon" for a day with no video yet), full width and bigger
+//   row 4  on Case Flow Day 5 only: 🎬 Case Debrief (🔒 Case Debrief until Day 5 is complete), full width
 // and no ✓ Finish Training (the Knowledge Check opens from the day's last slide). Checked for a trainee, on a day not begun,
 // a day passed and a day with no video, at 1366×768 and 1920×1080, with the cards inside the page's width.
 // Usage: node .github/scripts/day-card-format.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
@@ -40,8 +41,11 @@ const failures = []; const fail = (m) => failures.push(m);
     const checkCards = (cards, when) => {
         cards.forEach(c => {
             if (c.missing) return fail(`${when}: no card for day ${c.id}`);
-            const [start, score, retake, video] = c.labels;
-            if (c.labels.length !== 4) return fail(`${when}, Case Flow Day ${c.n}: the card should have 4 buttons (Start, Review Score, Retake, Video): ${JSON.stringify(c.labels)}`);
+            const [start, score, retake, video, debrief] = c.labels;
+            // Case Flow Day 5 alone has a fifth row: 🎬 Case Debrief (🔒 until the day is complete), full width under ▶ Video (js/cm-case-debrief.js)
+            const want = c.n === 5 ? 5 : 4;
+            if (c.labels.length !== want) return fail(`${when}, Case Flow Day ${c.n}: the card should have ${want} buttons (Start, Review Score, Retake, Video${want === 5 ? ', Case Debrief' : ''}): ${JSON.stringify(c.labels)}`);
+            if (want === 5 && (!/Case Debrief/.test(debrief) || !(c.tops[4] > c.tops[3]) || Math.abs(c.widths[4] - c.gw) > 2)) fail(`${when}, Day 5: 🎬 Case Debrief should be the last row, full width, under ▶ Video: ${JSON.stringify(c.labels)} tops ${JSON.stringify(c.tops)} widths ${JSON.stringify(c.widths)}`);
             if (!/^(Start|Continue|Review|🔒 Start)$/.test(start)) fail(`${when}, Day ${c.n}: the first button should be Start, Continue or Review: "${start}"`);
             if (!/👁 Review Score/.test(score) || !/🔁 Retake/.test(retake)) fail(`${when}, Day ${c.n}: the second row should be 👁 Review Score | 🔁 Retake: ${JSON.stringify(c.labels)}`);
             if (!/Video/.test(video)) fail(`${when}, Day ${c.n}: the last button should be the Video: "${video}"`);
