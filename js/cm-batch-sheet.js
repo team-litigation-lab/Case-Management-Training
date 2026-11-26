@@ -540,7 +540,8 @@ function scoresSheet(rows){
   const ai = per.map(p => aiState(p.r)).filter(a => a.any), down = ai.length > 0 && ai.every(a => a.failed);
   const now = down ? aiNow() : null, waiting = ai.filter(a => a.failed).length;
   if(down && now === null) askAi();
-  const T = {id: "scores", title: "🏅 Scores", order: per.map(p => p.x),
+  // (on screen, for room: no row numbers, and Registered and Days passed only in ⬇ Download and the trainee's card)
+  const T = {id: "scores", title: "🏅 Scores", order: per.map(p => p.x), noRowNums: true, screenHide: ["Registered", "Days passed"],
     warn: down && now === false ? `AI grading looks down: every trainee's latest Skill Activity grading failed (${ai[0].why}). Run 🤖 the AI check (⚡ Run now) to see why.` : "",
     info: down && now === true ? `🤖 AI grading works again (the AI check passed). ${waiting} trainee${waiting === 1 ? "'s" : "s'"} last grading failed while it was down: each is graded again by itself the next time that trainee opens the course.` : "",
     none: none.length ? `No results yet: ${none.map(k => k[0].replace(/ %$/, "")).join(", ")}.` : "",
@@ -618,7 +619,9 @@ function fbRowHtml(y){
 // top: HTML put first in the section (js/cm-scorecard.js gives its 🎯 Focus on table, so a trainer's card has one place for what to work on)
 function feedbackHtml(x, top){
   const r = recOf(x), L = cfDaysL(), cx = cxOf(r); if(!r || !L.length) return top || "";
-  return `<section class="bs-fb" id="bs-fb-${E(String(r.id).replace(/[^A-Za-z0-9_-]/g, "_"))}"><h4>💬 Feedback on Practical Activities</h4>
+  // (📤 Send progress, js/cm-send-progress.js: from the feedback's header too, as from the 🏅 Scores row; a trainer's only)
+  const sp = window.cmSendProgress && state.isAdmin && !state.adminPreview ? `<button type="button" class="sp-row" aria-label="Send ${E(nameOf(r))} their progress" title="📤 Send ${E(nameOf(r))} their progress" onclick="event.stopPropagation();cmSendProgress.open('${E(String(r.id).replace(/\\/g, "\\\\").replace(/'/g, "\\'"))}')"></button>` : "";
+  return `<section class="bs-fb" id="bs-fb-${E(String(r.id).replace(/[^A-Za-z0-9_-]/g, "_"))}"><h4>💬 Feedback on Practical Activities${sp}</h4>
     ${top || ""}<p class="bs-fb-note">Each practical activity of the day, as its grader marked it: what they did well, what to improve, why, what could have been done better, any 🚩 red flag (and why it is one), and the score.</p>
     ${L.map(d => { const xs = practOf(r, d, cx), sc = xs.filter(y => y.pct != null), a = dayAvg(sc), k = r.id + "|" + d.id, open = !!B.fbOpen[k];
       return `<details class="bs-fb-day" data-day="${d.cf.n}"${open ? " open" : ""} ontoggle="cmBatchSheet.fbOpen('${E(k)}', this.open)"><summary><b>${dayLabel(d)}</b><span>${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</span><em class="${tone(a)}">${xs.length ? `${xs.length} activit${xs.length === 1 ? "y" : "ies"}${a != null ? ` · avg ${a}%` : ""}` : "Nothing yet"}</em></summary>

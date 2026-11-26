@@ -179,7 +179,7 @@ const pctOf = (t) => { const m = /(\d+)%/.exec(String(t || '')); return m ? +m[1
         if (scores.hs.some(h => /Random/.test(h))) fail(`🏅 Scores should have no Random Tasks column: ${JSON.stringify(scores.hs)}`);
         // (🧪 Practical activities: the Skill Activities and the case calls, none here, so the Skill Activities' 68%)
         const COL = { '📝 Takeaways': '📝 Takeaways %', '🧪 Skill Activities': '🧪 Practical activities %', '📝 Action Plan': '📝 Action Plan %', '📂 Backup Drive': '📂 Backup Drive %' };
-        for (const [h, v] of Object.entries(SYS)) { const i = scores.hs.indexOf(COL[h]); const got = i < 1 ? null : pctOf(scores.cells[i - 1]); if (got !== v) fail(`🏅 Scores · ${COL[h]}: ${got} (should be ${v})`); }
+        for (const [h, v] of Object.entries(SYS)) { const i = scores.hs.indexOf(COL[h]); const got = i < 0 ? null : pctOf(scores.cells[i]); if (got !== v) fail(`🏅 Scores · ${COL[h]}: ${got} (should be ${v})`); }
     }
     const recent = (T.find(x => x.title === '🕒 Recent progress') || { rows: [] }).rows.map(r => r.join(' ')).join('\n');
     if (!/Random task resolved/.test(recent)) fail('🕒 Recent progress (⬇ Download) should still list the random task');

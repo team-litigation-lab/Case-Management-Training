@@ -497,13 +497,14 @@ const letter = i => { let t = ""; i++; while(i > 0){ const m = (i - 1) % 26; t =
 const tone = p => p == null ? "" : p >= 85 ? "gs-hi" : p >= 70 ? "gs-mid" : "gs-lo";
 const pcell = (p, f, extra) => ({v: pctTxt(p) === "—" ? "" : pctTxt(p), f, cls: "gs-num " + tone(p) + (extra ? " " + extra : "")});
 function sheetHtml(T){
-  const n = T.head.length;
+  // (T.screenHide: columns kept in ⬇ Download but not drawn on screen; T.noRowNums: no row numbers — both for more room)
+  const keep = T.head.map((h, i) => i).filter(i => !(T.screenHide || []).includes(T.head[i])), n = keep.length, rn = !T.noRowNums;
   return `<section class="bs-sec" id="scx-${T.id}"><h3 class="bs-h">${E(T.title)} <span>${T.rows.length} row${T.rows.length === 1 ? "" : "s"}</span></h3>${T.note ? `<p class="bs-note">${E(T.note)}</p>` : ""}${T.warn ? `<p class="bs-warn" role="alert">⚠ ${E(T.warn)}${window.cmRunNow ? `<button type="button" onclick="cmRunNow.run('ai')">🤖 Run the AI check</button>` : ""}</p>` : ""}${T.info ? `<p class="bs-info" role="status">${E(T.info)}</p>` : ""}
-    <div class="gs-wrap"><table class="gs" role="grid"><thead>
-      <tr class="gs-letters"><th class="gs-corner"></th>${T.head.map((h, i) => `<th class="${i === 0 ? "gs-frz" : ""}">${letter(i)}</th>`).join("")}</tr>
-      <tr class="gs-head"><th class="gs-rn">1</th>${T.head.map((h, i) => `<th class="${i === 0 ? "gs-frz" : ""}">${E(h)}</th>`).join("")}</tr></thead>
-      <tbody>${T.rows.map((r, ri) => `<tr${T.rowCls && T.rowCls[ri] ? ` class="${T.rowCls[ri]}"` : ""}${T.onRow && T.onRow[ri] ? ` onclick="${T.onRow[ri]}"` : ""}><th class="gs-rn">${ri + 2}</th>${r.map((c, ci) => `<td tabindex="0" class="${c.cls || ""}${ci === 0 ? " gs-frz" : ""}"${c.f ? ` title="${E(c.f)}"` : ""}>${c.html != null ? c.html : E(c.v)}</td>`).join("")}</tr>`).join("")}
-      ${T.rows.length ? "" : `<tr class="gs-empty"><th class="gs-rn">2</th><td colspan="${n}" class="bs-none">${E(T.empty || "Nothing yet.")}</td></tr>`}</tbody></table></div>${T.foot ? `<p class="bs-note bs-foot">${E(T.foot)}</p>` : ""}${T.none ? `<p class="bs-none-line">${E(T.none)}</p>` : ""}</section>`;
+    <div class="gs-wrap"><table class="gs${rn ? "" : " gs-norn"}" role="grid"><thead>
+      <tr class="gs-letters">${rn ? `<th class="gs-corner"></th>` : ""}${keep.map((i, k) => `<th class="${k === 0 ? "gs-frz" : ""}">${letter(k)}</th>`).join("")}</tr>
+      <tr class="gs-head">${rn ? `<th class="gs-rn">1</th>` : ""}${keep.map((i, k) => `<th class="${k === 0 ? "gs-frz" : ""}">${E(T.head[i])}</th>`).join("")}</tr></thead>
+      <tbody>${T.rows.map((r, ri) => `<tr${T.rowCls && T.rowCls[ri] ? ` class="${T.rowCls[ri]}"` : ""}${T.onRow && T.onRow[ri] ? ` onclick="${T.onRow[ri]}"` : ""}>${rn ? `<th class="gs-rn">${ri + 2}</th>` : ""}${keep.map((ci, k) => { const c = r[ci] || {}; return `<td tabindex="0" class="${c.cls || ""}${k === 0 ? " gs-frz" : ""}"${c.f ? ` title="${E(c.f)}"` : ""}>${c.html != null ? c.html : E(c.v)}</td>`; }).join("")}</tr>`).join("")}
+      ${T.rows.length ? "" : `<tr class="gs-empty">${rn ? `<th class="gs-rn">2</th>` : ""}<td colspan="${n}" class="bs-none">${E(T.empty || "Nothing yet.")}</td></tr>`}</tbody></table></div>${T.foot ? `<p class="bs-note bs-foot">${E(T.foot)}</p>` : ""}${T.none ? `<p class="bs-none-line">${E(T.none)}</p>` : ""}</section>`;
 }
 // 🏅 Scores, as shown: a short row per trainee, easy to read: the days passed, each Case Flow day's score, the Knowledge
 // Checks, the AI-graded activities, the Total (the 100-point model's Final) and the Result. Hover a cell for how it's made.
@@ -747,9 +748,36 @@ function renderMine(){
   loadMine(MINE.id !== state.traineeId);
   const loaded = MINE.id === state.traineeId, name = state.traineeName || "Me";
   const r = rowOf(state.traineeId, name, state.traineeBatch, myCtx());
-  return `<div class="scx-page scx-wide">${sheetTop("My Performance", `${E(name)}${state.traineeBatch ? ` · Batch <b>${E(batchOf(state.traineeBatch))}</b>` : ""}`, `${window.cmRubric ? `<button onclick="state.scxRubric=true;render()">📐 Feedback Rubric</button>` : ""}<button onclick="window.print()">🖨 Print</button>`, loaded ? `<span>${E(MODEL.STATUS[r.m.status])}</span><span>${r.sc.done} / ${r.sc.total} days passed</span>` : "")}
+  // (what the trainer's 🏅 Scorecard shows of this trainee, and only this trainee: the ✅ passing score, their row of 🏅 Scores,
+  // their card with its 💬 feedback on practical activities, and 📊 the batch's progress as the trainer last shared it)
+  const mineTop = loaded ? passHtml(r) + myScoresHtml(r) : "";
+  const mineFb = loaded && window.cmBatchSheet && cmBatchSheet.feedbackHtml ? `<div class="scx-pad">${cmBatchSheet.feedbackHtml(r)}</div>` : "";
+  const mineBatch = loaded && window.cmRankShare ? cmRankShare.traineeHtml() : "";
+  return `<div class="scx-page scx-wide">${sheetTop("My Scorecard", `${E(name)}${state.traineeBatch ? ` · Batch <b>${E(batchOf(state.traineeBatch))}</b>` : ""}`, `${window.cmRubric ? `<button onclick="state.scxRubric=true;render()">📐 Feedback Rubric</button>` : ""}<button onclick="window.print()">🖨 Print</button>`, loaded ? `<span>${E(MODEL.STATUS[r.m.status])}</span><span>${r.sc.done} / ${r.sc.total} days passed</span>` : "")}
     <div class="card gs-card scx-card">
-    ${loaded ? `<div class="bs-pts">${cardHtml(r, true)}</div>` : `<p class="bs-none scx-pad">Collecting your grades…</p>`}</div></div>`;
+    ${mineTop}${loaded ? `<div class="bs-pts">${cardHtml(r, true)}</div>${mineFb}` : `<p class="bs-none scx-pad">Collecting your grades…</p>`}${mineBatch}</div></div>`;
+}
+/* ✅ the passing score: the Overall on a bar with the pass mark (MODEL.PASS) drawn on it, then each day's score against it */
+function passHtml(r){
+  const P = MODEL.PASS, m = r.m || MODEL.compute(r.c), v = m.overall, pctW = x => Math.max(0, Math.min(100, x == null ? 0 : x));
+  const st = m.status, ok = st === "pass", msg = v == null ? "Nothing scored yet: your Overall appears with your first graded work."
+    : ok ? `You're above the passing score: ${v}% (pass is ${P}%).` : st === "gate" ? `Your Overall is ${v}%, but a safety-gate item was missed: a pass needs every critical item right as well as ${P}%.`
+    : v >= P ? `${v}%: at the passing score; the pass is confirmed once every critical item has been checked.` : `${v}%: ${P - v} point${P - v === 1 ? "" : "s"} to go to the passing score of ${P}%.`;
+  const days = (m.days || []).filter(x => x.S != null);
+  return `<section class="scx-pass scx-pad" aria-label="Passing score">
+    <div class="scx-pass-h"><b>✅ Passing score: ${P}%</b><span class="scx-pass-st ${ok ? "gs-hi" : v == null ? "" : "gs-lo"}">${E(MODEL.STATUS[st] || "")}</span></div>
+    <div class="scx-bar" role="img" aria-label="Your Overall ${v == null ? "not scored yet" : v + "%"}, the passing score ${P}%">
+      <div class="scx-bar-fill ${MODEL.mtone(v)}" style="width:${pctW(v)}%"></div><div class="scx-bar-pass" style="left:${P}%"><span>Pass ${P}%</span></div>
+      ${v == null ? "" : `<div class="scx-bar-me" style="left:${pctW(v)}%"><span>You ${v}%</span></div>`}</div>
+    <p class="scx-pass-msg">${E(msg)}</p>
+    ${days.length ? `<div class="scx-pass-days">${days.map(x => `<span class="${x.S >= P ? "gs-hi" : "gs-lo"}">Day ${E(x.n)} <b>${x.S}%</b> ${x.S >= P ? "✓" : "below " + P + "%"}</span>`).join("")}</div>` : ""}
+  </section>`;
+}
+/* 🏅 their row of the trainer's 🏅 Scores table: the same columns and cells, this trainee only */
+function myScoresHtml(r){
+  if(!window.cmBatchSheet || !cmBatchSheet.scoresSheet) return "";
+  try{ const T = Object.assign({}, cmBatchSheet.scoresSheet([r]), {title: "🏅 My Scores", note: "Your row of your trainer's 🏅 Scores table. Hover a day for each thing you did that day, with its score.", onRow: null, warn: "", info: ""});
+    return `<div class="scx-pad">${sheetHtml(T)}</div>`; }catch(e){ return ""; }
 }
 
 /* ---------- 🏅 Scorecards: every approved trainee's card, for the trainer ---------- */
@@ -829,7 +857,13 @@ function csv(only){
 }
 
 /* ---------- the page, its address and its top-bar button ---------- */
-window.renderScorecardPage = () => isAdmin() ? renderAll() : isTrainee() ? renderMine() : (typeof renderDashboard === "function" ? renderDashboard() : "");
+// (👁 a trainer's Trainee view opens the trainee's own page, not the Dashboard with its day cards: a preview has no trainee's
+// records, so it shows what a trainee sees there)
+function renderPreview(){
+  return `<div class="scx-page scx-wide">${sheetTop("My Scorecard", "👁 Trainee view: a preview", "")}
+    <div class="card gs-card scx-card"><div class="scx-pad"><p class="bs-note">This is a trainee's 🏅 Scorecard. Each trainee sees only their own: ✅ the passing score (80%) with their Overall and each day against it, 🏅 My Scores (their row of your 🏅 Scores table), their card with 💬 Feedback on Practical Activities, and 📊 My Batch's Progress (their rank and each day beside the batch average, as the Rankings &amp; Progress Report last shared it). A preview has no trainee's records, so there is nothing to score here.</p></div></div></div>`;
+}
+window.renderScorecardPage = () => isAdmin() ? renderAll() : isTrainee() ? renderMine() : state.adminPreview ? renderPreview() : (typeof renderDashboard === "function" ? renderDashboard() : "");
 window.addEventListener("focus", () => { if(isTrainee() && state.view === "scorecard") loadMine(); });
 window.cmScorecard = {
   batch(b){ ALL.batch = b || ""; ALL.pick = ""; ALL.only = ""; render(); },
@@ -858,6 +892,21 @@ window.cmScorecard = {
 
 const css = document.createElement("style"); css.id = "cm-scorecard";
 css.textContent = `
+/* ✅ the trainee's passing score (renderMine passHtml) */
+.scx-pass{margin:4px 0 12px;}
+.scx-pass-h{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;font:800 18px Arial,sans-serif;color:#1E2340;}
+.scx-pass-st{padding:3px 12px;border-radius:999px;background:#EEF0F6;font:800 15px Arial,sans-serif;}
+.scx-pass-st.gs-hi{background:#E6F4EA;color:#0B5D1E;} .scx-pass-st.gs-lo{background:#FCE8E6;color:#A50E0E;}
+.scx-bar{position:relative;height:26px;margin:30px 0 8px;background:#EEF0F6;border-radius:13px;border:1px solid #C9CEDD;}
+.scx-bar-fill{position:absolute;left:0;top:0;bottom:0;border-radius:13px;background:#9AA3B5;}
+.scx-bar-fill.gs-hi{background:#1d7a46;} .scx-bar-fill.gs-mid{background:#DB8437;} .scx-bar-fill.gs-lo{background:#B42318;}
+.scx-bar-pass{position:absolute;top:-8px;bottom:-8px;width:0;border-left:3px dashed #1E2340;}
+.scx-bar-pass span,.scx-bar-me span{position:absolute;top:-24px;transform:translateX(-50%);white-space:nowrap;font:800 14px Arial,sans-serif;color:#1E2340;}
+.scx-bar-me{position:absolute;top:0;bottom:0;width:0;}
+.scx-bar-me span{top:30px;color:#2E3450;}
+.scx-pass-msg{margin:22px 0 6px;font:700 16px Arial,sans-serif;color:#2E3450;}
+.scx-pass-days{display:flex;flex-wrap:wrap;gap:8px;} .scx-pass-days span{padding:4px 10px;border-radius:8px;font:700 15px Arial,sans-serif;background:#F1F3F4;}
+.scx-pass-days span.gs-hi{background:#E6F4EA;color:#0B5D1E;} .scx-pass-days span.gs-lo{background:#FCE8E6;color:#A50E0E;}
 /* Foundational Training's Batch Sheet, the standard for scorecards (its js/ft-overall.js and js/ft-batch-sheet.js): the navy
    banner, Google Sheets' grid, and its contrast — bold dark text, bigger type, visible gridlines, tinted scores */
 .scx-page{max-width:none;margin:0 auto;padding:4px 0 24px;}
@@ -886,6 +935,7 @@ css.textContent = `
 .scx-card .gs-corner,.scx-card .gs-rn{position:sticky;left:0;z-index:4;background:#F8F9FA !important;color:#5F6368;font-weight:400 !important;font-size:12px;text-align:center;width:40px;min-width:40px !important;}
 .scx-card thead .gs-corner,.scx-card thead .gs-rn{z-index:5;}
 .scx-card .gs .gs-frz{position:sticky;left:41px;z-index:2;background:#fff;box-shadow:2px 0 0 #9AA3B5;}
+.scx-card .gs.gs-norn .gs-frz{left:0;}
 .scx-card .gs-letters .gs-frz,.scx-card .gs-head .gs-frz{z-index:4;background:#F8F9FA;}
 .scx-card .gs td{font-weight:700;color:#141A2E;} .scx-card .gs td.gs-name{font-weight:800;min-width:200px;}
 .scx-card td.gs-batch{font:700 14px 'IBM Plex Mono',monospace;color:#2E3450;}
@@ -937,7 +987,7 @@ css.textContent = `
 .bs-pt-t th,.bs-pt-t td{border:1px solid #9AA3B5;padding:8px 10px;text-align:left;vertical-align:top;}
 .bs-pt-t col.bs-pt-c1{width:240px;} .bs-pt-t col.bs-pt-c2{width:132px;}
 .bs-pt-sec th{background:#1E2340;color:#fff;font:800 17px 'Poppins','Inter',Arial,sans-serif;}
-.bs-pt-m{font-weight:800;color:#1E2340;} .bs-pt-w{display:inline-block;margin-left:4px;padding:0 7px;border-radius:999px;background:#FDF0E4;color:#A4470F;font-size:14px;font-weight:800;}
+.bs-pt-m{font-weight:800;color:#1E2340;} .bs-pt-s-model td.bs-pt-m{text-align:center;vertical-align:middle;}   /* (🏅 The 100-point model: each dimension centred in its cell) */ .bs-pt-w{display:inline-block;margin-left:4px;padding:0 7px;border-radius:999px;background:#FDF0E4;color:#A4470F;font-size:14px;font-weight:800;}
 .bs-pt-mult{display:block;margin-top:3px;font:600 14px 'Inter',Arial,sans-serif;color:#475569;}
 .bs-pt-v{font-weight:800;font-size:18.5px;} .bs-pt-v.gs-hi{background:#E6F4EA;color:#0B5D1E;} .bs-pt-v.gs-mid{background:#FFF4E0;color:#7A4B00;} .bs-pt-v.gs-lo{background:#FDE8E8;color:#A50E0E;}
 .bs-pt .gs-na{color:#5F6368 !important;background:#F1F3F4 !important;}

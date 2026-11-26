@@ -41,7 +41,7 @@ const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
         const td = tr && tr.querySelector('td'); return td ? { text: td.textContent, btn: !!td.querySelector('button.sp-row'), ov: [...tr.querySelectorAll('td')].map(x => x.textContent) } : null; });
     if (!row || !row.btn) fail('the trainee\'s row of 🏅 Scores should have its 📤'); else if (!/^Sam Send\w*$/.test(row.text)) fail(`the name cell should still read just the name: "${row.text}"`);
     const ovTable = await page.evaluate(() => { const s = document.querySelector('.cmsh-screen #scx-scores'), hs = [...s.querySelectorAll('.gs-head th')].map(t => t.textContent.trim()), i = hs.indexOf('Overall %');
-        const tr = [...s.querySelectorAll('tbody tr')].find(x => /Sam Send/.test(x.querySelector('td').textContent)); return tr.querySelectorAll('td')[i - 1].textContent; });
+        const tr = [...s.querySelectorAll('tbody tr')].find(x => /Sam Send/.test(x.querySelector('td').textContent)); return tr.querySelectorAll('td')[i].textContent; });
     const clear = () => page.evaluate(() => { const o = document.getElementById('ktLogin'); if (o) o.remove(); });
     await clear(); await page.click(`#bs-pt-${dom} .sp-go`);
     await page.waitForSelector('#spRoot .sp-panel', { timeout: 5000 }).catch(() => fail('📤 Send progress opened no panel'));

@@ -239,7 +239,7 @@ const DRAFTING_SUBVIEWS = ["lor","hipaa","medprov"];
 window.EXTRA_ROUTE_VIEWS = ["casedocs", "drafting", "scorecard", "knowtools"].concat(DRAFTING_SUBVIEWS);
 // Page names for the "← Back to …" button, matching this top bar.
 window.EXTRA_ROUTE_LABELS = {clientprofile:"Case Profile", casedocs:"Documents", practice:"Practice", notes:"Notes",
-  drafting:"Drafting Tools", handouts:"LSH Atlas", scorecard:"My Performance", lor:"Drafting Tools", hipaa:"Drafting Tools", medprov:"Drafting Tools"};
+  drafting:"Drafting Tools", handouts:"LSH Atlas", scorecard:"My Scorecard", lor:"Drafting Tools", hipaa:"Drafting Tools", medprov:"Drafting Tools"};
 function renderTopbar(){   // trainees never see an admin sign-in (🛡 Admin is for admins only): admins come in from the Portal (?admin=1)
   let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case Profile"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["notes","Notes"],["handouts","📚 LSH Atlas"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
   if(state.isAdmin){
@@ -251,7 +251,7 @@ function renderTopbar(){   // trainees never see an admin sign-in (🛡 Admin is
   }
   // 🏅 the Scorecard (js/cm-scorecard.js): a trainee's own grades, or every trainee's for a trainer
   // (a trainer's 🏅 Scorecards are the 📋 Batch Sheet's 🏅 Scores now: Admin → 📋 Batch Sheet, js/cm-batch-sheet.js)
-  if(typeof renderScorecardPage === "function" && (state.traineeId || state.adminPreview) && (!state.isAdmin || state.adminPreview)) views.push(["scorecard", "🏅 My Performance"]);
+  if(typeof renderScorecardPage === "function" && (state.traineeId || state.adminPreview) && (!state.isAdmin || state.adminPreview)) views.push(["scorecard", "🏅 Scorecard"]);
   return `
   ${state.adminPreview ? `<div class="view-mode-strip">👁 <b>Trainee view</b> — you're seeing the portal as a trainee sees it (every day unlocked for preview). <button type="button" onclick="setAdminViewMode('admin')">Switch back to Admin view</button></div>` : ""}
   <div class="topbar ${state.mobileNavOpen?'nav-open':''}">

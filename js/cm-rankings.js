@@ -119,6 +119,10 @@ const CRIT = () => (SC() && SC().model && SC().model.CRIT) || [];
 const batchPct = (x, far) => { if(x.pct == null) return null; if(!far) return x.pct;
   const ds = (x.dayS || []).filter(d => d.n <= far), w = ds.reduce((t, d) => t + d.mult, 0);
   return w ? Math.round(ds.reduce((t, d) => t + (d.S == null ? 0 : d.S * d.mult), 0) / w) : x.pct; };
+// each safety-gate item, said in general terms (the Red Flag)
+const GATE = {upl: "gave the client legal advice, which only the attorney may do", priv: "shared privileged or private client information",
+  date: "a hard date was missed or not set", trust: "client trust money was mishandled"};
+const andList = xs => xs.length > 1 ? xs.slice(0, -1).join(", ") + " and " + xs[xs.length - 1] : xs[0] || "";
 function finish(rows){
   const far = Math.max(0, ...rows.map(x => x.until));
   rows.forEach(x => {
@@ -126,10 +130,13 @@ function finish(rows){
     x.scoredDays = (x.dayS || []).filter(d => d.S != null && (!far || d.n <= far)).length; x.far = far;
     x.behind = far >= 2 && far - x.until >= 2;
     const flags = [];
-    if(x.breaches.length) flags.push(`⛔ Safety gate breached: ${x.breaches.slice(0, 2).map(b => `${(CRIT().find(k => k.id === b.id) || {}).label || "critical item"} (Day ${b.day}${b.name ? ", " + itemName(b.name) : ""})`).join("; ")}.`);
+    // (a general statement of each risk — no day, activity or quote: those are on the trainee's 🏅 Scorecard. Worked out
+    // from the record as it is now, so a flag the trainee repairs is gone the next time the report is drawn)
+    if(x.breaches.length){ const ids = [...new Set(x.breaches.map(b => b.id))];
+      flags.push(`⛔ Safety gate breached: ${andList(ids.map(id => GATE[id] || "a critical item was missed"))}.`); }
     if(!x.items) flags.push("No graded output yet: nothing handed in to grade.");
-    if(x.behind) flags.push(`Far behind the batch: ${x.until ? `until Day ${x.until}` : "not started"} while the batch reached Day ${far}.`);
-    x.redflag = flags.length ? flags.join(" ") : `None. ${x.status === "pass" ? "Every critical item assessed so far was met." : x.passed ? `Keeping pace with the batch (${x.passed} day${x.passed === 1 ? "" : "s"} passed).` : "Engaged and keeping pace with the batch."}`;
+    if(x.behind) flags.push("Far behind the batch's pace.");
+    x.redflag = flags.length ? flags.join(" ") : `None. ${x.status === "pass" ? "Every critical item assessed so far was met." : "Keeping pace with the batch."}`;
     const e = endorse(x); x.tier = e.tier; x.endorsement = e.text;
   });
   rows.sort((a, b) => (b.pct == null ? -1 : b.pct) - (a.pct == null ? -1 : a.pct) || a.name.localeCompare(b.name));
@@ -217,7 +224,10 @@ function current(){
   const rows = gen.map(x => { const o = edits[x.id] || {}; over[x.id] = {};
     const r = {rank: String(x.rank), name: x.name, overall: x.pct == null ? "—" : x.pct + "%", result: (RESULT[x.status] || "") + (x.pct != null && x.far && x.scoredDays < x.far ? ` · ${x.overallPct}% on the ${x.scoredDays} day${x.scoredDays === 1 ? "" : "s"} scored, of ${x.far}` : ""), attrs: x.attrs.map(a => ({label: a.label, stars: a.stars})),
       tier: x.tier, progress: x.until ? `Until Day ${x.until}` : "Not started", passed: `Days passed ${x.passed}/${cfDays().length}`};
-    FIELDS.forEach(f => { const v = typeof o[f] === "string" && o[f].trim() ? o[f] : null; r[f] = v != null ? v : x[f]; if(v != null && v !== x[f]) over[x.id][f] = true; });
+    // (a Red Flag a trainer wrote gives way by itself once the trainee has repaired it: the generated one is "None." again)
+    FIELDS.forEach(f => { let v = typeof o[f] === "string" && o[f].trim() ? o[f] : null;
+      if(f === "redflag" && v != null && /^None\./.test(x.redflag) && !/^None\./.test(v.trim())) v = null;
+      r[f] = v != null ? v : x[f]; if(v != null && v !== x[f]) over[x.id][f] = true; });
     return r; });
   return {ok, label, slug: s, gen, ids: gen.map(x => x.id), over,
     snap: {title: `TRAINEE RANKINGS & PROGRESS REPORT – ${label.toUpperCase()} – CM TRAINING`, batch: label, date: today(), rows}};
