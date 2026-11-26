@@ -117,6 +117,20 @@ const failures = []; const fail = (m) => failures.push(m);
   if (!gc.listed) fail('the trainer\'s panel should list each Call Sim line the trainee took, with its best score and a box');
   if (!/Your trainer: "Slow down on the intake questions\."/.test(gc.note) || !/What you could have done better/.test(gc.note)) fail(`a graded call line under 80% should carry the trainer's note and what to do better: "${gc.note}"`);
 
+  // 🧰 Portal Simulators: the trainer's panel lists each simulator run; the Scorecard's line carries the note and, under 80%, a next step
+  const ps = await page.evaluate(async () => {
+    const id = state.traineeId, rec = { id, name: 'Tina' }, g0 = window.sharedGet;
+    window.sharedGet = async (k) => k === 'simresults:' + id ? { best: { 'Court E-Filing': { score: 64, count: 3 } } } : k === 'callsim:' + id ? { best: {} } : g0(k);
+    state.isAdmin = true; state.traineeWork[id] = { snap: {}, feedback: { days: {} } };
+    renderFeedbackAdmin(rec); await new Promise(r => setTimeout(r, 300));
+    const html = renderFeedbackAdmin(rec); state.isAdmin = false; window.sharedGet = g0;
+    const src = (cmScorecard.sources || []).find(s => s.id === 'ps');
+    const items = src ? src.items({ rec: {}, data: {}, sim: { best: { 'Court E-Filing': { score: 64, count: 3 } } }, fb: { activities: { 'ps:Court E-Filing': { comment: 'Check the case number before you file.' } } } }) : [];
+    return { listed: /Portal Simulators: your feedback/.test(html) && /Court E-Filing/.test(html) && /Best 64%/.test(html), note: (items[0] || {}).note || '' };
+  });
+  if (!ps.listed) fail('the trainer\'s panel should list each Portal simulator the trainee ran, with its best score and a box');
+  if (!/Your trainer: "Check the case number before you file\."/.test(ps.note) || !/What you could have done better/.test(ps.note)) fail(`a Portal simulator under 80% should carry the trainer's note and what to do better: "${ps.note}"`);
+
   await browser.close();
   if (failures.length) { console.log(`${failures.length} problem(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
   console.log('🧑‍🏫 Trainer notes: the grade has a coach\'s note and "What you could have done better" with no AI label; a trainer\'s note is saved to the trainee\'s feedback record from the composer, removed when emptied, and shown to the trainee under the grade.');
