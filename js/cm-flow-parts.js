@@ -177,7 +177,7 @@ css.textContent = `
 .rmx-topics > li.rmx-part:first-child{margin-top:2px;}
 .rmx-topics > li.rmx-part b{font:800 13px/1.3 'Inter',sans-serif;letter-spacing:.02em;}
 .rmx-topics > li.rmx-part span{font:600 12px/1.3 'Inter',sans-serif;color:#F4C89A;}
-.rmx-topics > li.rmx-part-activity{background:#DB8437;} .rmx-topics > li.rmx-part-activity span{color:#fff;}
+.rmx-topics > li.rmx-part-activity{background:#2563EB;} .rmx-topics > li.rmx-part-activity span{color:#fff;}
 .rmx-topics > li.rmx-part-check{background:#EEF0F6;color:#1E2340;} .rmx-topics > li.rmx-part-check span{color:#4A5170;}
 .rmx-topics .dl-rm-tag{margin-left:6px;padding:1px 6px;border-radius:6px;background:#EEF0F6;color:#4A5170;font:700 11px/1.3 'Inter',sans-serif;white-space:nowrap;}
 .rmx-topics .dl-rm-tag.dl-rm-main{background:#DB8437;color:#fff;}
@@ -194,7 +194,7 @@ css.textContent = `
 /* the slide picker: the same labels */
 .sm-groups .sm-part{margin:2px 0 8px;padding:6px 10px;border-radius:8px;background:#1E2340;color:#fff;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;break-after:avoid;}
 .sm-groups .sm-part b{font:800 15px/1.3 var(--font-ui,'Inter',sans-serif);} .sm-groups .sm-part span{font:600 13px/1.3 var(--font-ui,'Inter',sans-serif);color:#F4C89A;}
-.sm-groups .sm-part-lab{background:#DB8437;} .sm-groups .sm-part-lab span{color:#fff;}
+.sm-groups .sm-part-lab{background:#2563EB;} .sm-groups .sm-part-lab span{color:#fff;}
 .sm-groups .sm-part-kc{background:#EEF0F6;color:#1E2340;} .sm-groups .sm-part-kc span{color:#4A5170;}
 /* the Training Agenda: Part 1 · Lessons in the first two columns, Part 2 · Practice Lab and the Knowledge Check in the third */
 .cfx-agenda .cfx-ag-list.cfx-ag-two{gap:6px 12px;}
