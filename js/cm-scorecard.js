@@ -793,14 +793,17 @@ const FRESH_MS = 60000;
 // records than keys, is a failed read: the rows already shown and state.adminData (the Admin screen's, Open Lessons' and
 // the Batch Sheet's copy) stay as they were; state.adminData is only ever set from a complete read. A background reload
 // that changed nothing doesn't redraw, and one that did keeps every open <details> open.
+// a read that never answers is given up on (LOAD_MS), and a load still running after STUCK_MS is started again
+const LOAD_MS = 45000, STUCK_MS = 60000;
+const inTime = (p, ms, why) => Promise.race([p, new Promise((res, rej) => setTimeout(() => rej(new Error(why || "timed out")), ms))]);
 async function loadAll(){
-  ALL.loading = true; ALL.at = Date.now();
+  ALL.loading = true; ALL.at = Date.now(); ALL.failed = false;
   const had = ALL.rows, bg = !!(had && had.length);
   let rows = null;
   try{
     let people = null;
     try{
-      const keys = await sharedList("trainee:"), got = keys.length ? await sharedGetMany(keys) : [];
+      const keys = await inTime(sharedList("trainee:"), LOAD_MS, "list"), got = keys.length ? await inTime(sharedGetMany(keys), LOAD_MS, "records") : [];
       const recs = (got || []).filter(Boolean);
       if(keys.length && recs.length === keys.length){ people = recs; state.adminData = recs; }
       else if(!bg && !keys.length && !(state.adminData || []).length) people = [];   // nobody yet
@@ -809,10 +812,10 @@ async function loadAll(){
     if(!people) throw new Error("no records");
     // (the one rule of every score table, js/cm-merged-away.js: approved, not rejected, not archived, not merged into another
     // live account, so a merge waiting to finish isn't a second card)
-    const MA = window.cmMergedAway; if(MA){ try{ await MA.ready(); }catch(e){} }
+    const MA = window.cmMergedAway; if(MA){ try{ await inTime(MA.ready(), 15000, "merges"); }catch(e){} }
     people = MA ? MA.scored(people) : people.filter(r => r && r.approved === true && !r.rejected && !r.archived);
     const want = []; people.forEach(r => want.push("progress:" + r.id, "callsim:" + r.id, "simresults:" + r.id, "feedback:" + r.id));
-    const vals = await sharedGetMany(want);
+    const vals = await inTime(sharedGetMany(want), LOAD_MS * 2, "grades");
     // a failed get-many answers null for every key of its 100-key request, as if none were there: in a background reload, a
     // request that read nothing where the last read found something failed, so the rows shown stay
     if(bg && (!Array.isArray(vals) || vals.length !== want.length)) throw new Error("short read");
@@ -824,10 +827,17 @@ async function loadAll(){
   ALL.loading = false;
   // what the page would show for these rows (the sheet and the cards)
   const sig = rs => { try{ return sheetHtml(scoresSheet(rs, false)) + rs.map(r => cardHtml(r, false)).join(""); }catch(e){ return String(Math.random()); } };
-  if(!rows){ if(!had) ALL.rows = []; else return; }   // a failed background read: what is shown stays
+  if(!rows){ if(!had){ ALL.failed = true; redrawPage(); } return; }   // a first read that failed: said so, with ↻ Try again; a failed background read: what is shown stays
   else if(had && sig(rows) === sig(had)){ ALL.rows = rows; return; }   // nothing changed: no redraw
   else ALL.rows = rows;
-  if((state.view === "scorecard" || (state.view === "admin" && state.adminTab === "scorecards")) && typeof render === "function" && !(typeof isTyping === "function" && isTyping())){
+  // redrawn wherever the page is showing: #/scorecard, or Admin's 🏅 Scorecards, which is also where Admin opens (no
+  // adminTab yet, or an old tab name such as "audit": js/cm-admin-shell.js tabOf) and where "Collecting…" may be on screen
+  redrawPage();
+}
+function redrawPage(){
+  const onPage = state.view === "scorecard" || (state.view === "admin" && (!state.adminTab || ["scorecards", "audit", "batchsheet"].includes(state.adminTab)))
+    || !!document.querySelector(".scx-page");
+  if(onPage && typeof render === "function" && !(typeof isTyping === "function" && isTyping())){
     const open = [...document.querySelectorAll(".scx-page details[open] > summary")].map(s => s.textContent);
     render();
     if(open.length) document.querySelectorAll(".scx-page details > summary").forEach(s => { if(open.includes(s.textContent)) s.parentElement.open = true; });
@@ -837,6 +847,8 @@ const batchOf = b => typeof batchShow === "function" ? (batchShow(b) || b) : typ
 const shownRows = () => (ALL.rows || []).filter(r => !ALL.batch || batchOf(r.batch) === ALL.batch);
 function renderAll(){
   if(ALL.rows && !ALL.loading && Date.now() - ALL.at > FRESH_MS && !(typeof isTyping === "function" && isTyping())) loadAll();   // in the background: the rows shown stay until the fresh ones come
+  if(ALL.loading && Date.now() - ALL.at > STUCK_MS) ALL.loading = false;   // a load that never finished: start it again
+  if(!ALL.rows && ALL.failed && !ALL.loading) return `<div class="scx-page scx-wide"><div class="card gs-card scx-card"><p class="bs-none scx-pad">The grades couldn't be collected just now (the connection didn't answer). <button type="button" class="btn btn-navy btn-sm" onclick="cmScorecard.refresh()">↻ Try again</button></p></div></div>`;
   if(!ALL.rows){ if(!ALL.loading) loadAll(); return `<div class="scx-page scx-wide"><div class="card gs-card scx-card"><p class="bs-none scx-pad">Collecting every trainee's grades…</p></div></div>`; }
   const batches = [...new Set(ALL.rows.map(r => batchOf(r.batch)).filter(Boolean))].sort();
   const rows = shownRows(), passed = rows.filter(r => r.m.pass).length;
@@ -872,7 +884,7 @@ window.addEventListener("focus", () => { if(isTrainee() && state.view === "score
 window.cmScorecard = {
   batch(b){ ALL.batch = b || ""; ALL.pick = ""; ALL.only = ""; render(); },
   only(id){ ALL.only = id || ""; ALL.pick = id || ""; render(); },
-  refresh(){ ALL.rows = null; state.adminData = null; render(); },
+  refresh(){ ALL.rows = null; ALL.failed = false; state.adminData = null; render(); },
   // something the cards read changed (e.g. the Drive reports came in): read again in the background, keeping the cards
   // on screen until the fresh ones come (clearing them blanked the trainer's page mid-read)
   invalidate(){ if(ALL.rows) ALL.at = 0; else ALL.rows = null; },

@@ -4,6 +4,7 @@
      On a shorter card (a laptop, or Day 5 with its 🎬 Case Debrief row) the icon goes and the theme stays, in its pill.
    · ▶ Video keeps its cream fill but loses the orange bar down its left edge: that bar met the card's orange frame
      at the bottom corner and the two overlapped.
+   · The line along the top of every day card is the LSH orange (it alternated slate and orange).
    · 👁 Review Score and 🔁 Retake are centred in their cells, clear of the frame on the left.
    Styles only, added once the page has loaded so they come after the card files' own. */
 (function(){
@@ -19,6 +20,8 @@ ${C} .module-theme{display:block !important;width:fit-content !important;max-wid
 @container (min-height:180px){ ${C} .module-theme{font-size:20px !important;padding:6px 18px !important;} }
 @container (max-height:132px){ ${C} .module-icon{display:none !important;} ${C} .module-theme{margin-top:0 !important;font-size:16px !important;} }   /* a short card keeps the theme, in its pill, not the icon */
 ${C} .module-theme::after{content:none !important;display:none !important;}
+/* the line along the top of every day card in one colour, the LSH orange (lsh-dashboard.js alternates slate and orange) */
+${C} .module-head{border-top:4px solid #DB8437 !important;}
 ${C}.mc-dcf .mc-grid.mc-grid > button.cm-dcf-video{box-shadow:none !important;}
 ${C}.mc-dcf .mc-grid.mc-grid > button.cm-dcf-score,${C}.mc-dcf .mc-grid.mc-grid > button.cm-dcf-retake{text-align:center !important;justify-content:center !important;padding-left:10px !important;padding-right:10px !important;}
 `;
