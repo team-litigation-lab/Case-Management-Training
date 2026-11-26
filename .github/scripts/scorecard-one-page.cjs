@@ -77,8 +77,11 @@ const BATCH = 'B111526', ANN = 'ann-one--b111526', BEN = 'ben-one--b111526', CY 
             const o = cmScorecard.overall({ rec, cf: rec.caseFlow || { days: {} }, data: (prog && prog.data) || {}, callsim, sim, fb: fb || {} }); ov[rec.name] = o ? o.pct : null; }
         return { hs, rows, ov, foot: (sec.querySelector('.bs-foot') || {}).textContent || '', none: (sec.querySelector('.bs-none-line') || {}).textContent || '', warn: !!sec.querySelector('.bs-warn') };
     }, [ANN, BEN, CY, DEE]);
-    const H = S.hs.slice(1), at = h => H.indexOf(h);
-    ['Trainee', 'Batch', 'Registered', 'Days passed', 'Day 1 %', 'Day 2 %', 'Day 3 %', 'Day 4 %', 'Day 5 %', '✍️ Knowledge Checks %', '🧪 Practical activities %', '📂 Backup Drive %', 'Overall %', 'Result']
+    // (no row numbers on screen: the first header is the Trainee's)
+    const H = S.hs, at = h => H.indexOf(h);
+    // (Registered and Days passed: only in ⬇ Download, for room on screen)
+    if (at('Registered') >= 0 || at('Days passed') >= 0) fail(`🏅 Scores on screen should have no Registered or Days passed column: ${JSON.stringify(H)}`);
+    ['Trainee', 'Batch', 'Day 1 %', 'Day 2 %', 'Day 3 %', 'Day 4 %', 'Day 5 %', '✍️ Knowledge Checks %', '🧪 Practical activities %', '📂 Backup Drive %', 'Overall %', 'Result']
         .forEach(h => { if (at(h) < 0) fail(`🏅 Scores has no "${h}" column: ${JSON.stringify(H)}`); });
     // the takeaways are not scored; a column nobody in view has a result in is left out and named under the table
     if (H.some(h => /Takeaway/.test(h))) fail(`🏅 Scores should have no Takeaways column (the takeaways are not scored): ${JSON.stringify(H)}`);
@@ -95,8 +98,7 @@ const BATCH = 'B111526', ANN = 'ann-one--b111526', BEN = 'ben-one--b111526', CY 
     S.rows.forEach(r => { const v = r[at('Overall %')].t, want = S.ov[r[0].t]; if ((want == null ? '' : want + '%') !== v) fail(`${r[0].t}'s Overall should be cmScorecard.overall (${want}): ${v}`); });
     const ann = S.rows.find(r => r[0].t === 'Ann One') || [];
     if (ann.length) {
-        const bl = await page.evaluate((b) => typeof batchShow === 'function' ? (batchShow(b) || b) : b, BATCH), reg = ann[at('Registered')].t;
-        if (!/^[A-Z][a-z]{2} \d{1,2}, .+ · /.test(reg) || !reg.endsWith(' · ' + bl)) fail(`Registered should be "date · batch" (${bl}): ${reg}`);
+        // (Registered is in ⬇ Download, not on screen)
         const d1 = ann[at('Day 1 %')];
         // (the score, then the day's slides and work as a small label | value table)
         if (!/^\d+% /.test(d1.t) || !/Slides \d+\/\d+|Slides ✓/.test(d1.t) || !/KC 90%/.test(d1.t) || !/Activities 1 · avg 72%/.test(d1.t) || !/Drive 100%/.test(d1.t) || (seed.doc && !/Docs filed 1 \(1 first time\)/.test(d1.t)))
@@ -166,7 +168,8 @@ const BATCH = 'B111526', ANN = 'ann-one--b111526', BEN = 'ben-one--b111526', CY 
         const T = CSV.parse(file), titles = T.map(x => x.title), by = t => T.find(x => x.title === t);
         const order = ['🏅 Scores', '✍️ Knowledge Checks', '📚 Lessons', '🧮 Grading systems: every record', '🕒 Recent progress', '💬 Feedback on Practical Activities'];
         if (JSON.stringify(titles.slice(0, order.length)) !== JSON.stringify(order)) fail(`⬇ Download should start with 🏅 Scores, then the folded tables in order: ${JSON.stringify(titles)}`);
-        const sc = by('🏅 Scores'); if (sc && JSON.stringify(sc.head) !== JSON.stringify(H)) fail(`⬇ Download's 🏅 Scores should be the table on the page: ${JSON.stringify(sc.head)}`);
+        // (the page's columns, with Registered and Days passed, which only the download carries)
+        const sc = by('🏅 Scores'); if (sc && JSON.stringify(sc.head.filter(h => h !== 'Registered' && h !== 'Days passed')) !== JSON.stringify(H) || (sc && !(sc.head.includes('Registered') && sc.head.includes('Days passed')))) fail(`⬇ Download's 🏅 Scores should be the table on the page, plus Registered and Days passed: ${JSON.stringify(sc && sc.head)}`);
         const ac = CSV.cellOf(sc, 'Overall %', 'Ann One'); if (ac.v !== (S.ov['Ann One'] + '%')) fail(`⬇ Download's Overall for Ann One: ${ac.err || ac.v}`);
         const kc = by('✍️ Knowledge Checks'); if (!kc || kc.head.filter(h => /^Day \d\./.test(h)).length !== 5) fail(`✍️ Knowledge Checks should have a column per Case Flow day: ${JSON.stringify(kc && kc.head)}`);
         const sys = by('🧮 Grading systems: every record'), nSys = await page.evaluate(() => cmScorecard.sources.length);

@@ -417,7 +417,8 @@ const ADMIN_OWNED_TRAINEE_FIELDS = PROTECTED_TRAINEE_FIELDS.concat(IDENTITY_TRAI
 // writes them (traineeWrite refuses keys it doesn't know).
 function canRead(tok, key) {
   if (tok.role === "a") return true;
-  return OWN(tok.id).includes(key) || key === `callsim:${tok.id}` || key === `labreview:${tok.id}` || key === `simresults:${tok.id}` || key.startsWith(`actup:${tok.id}:`) || PUBLIC_READ.some((re) => re.test(key));
+  // (rankshare:<id>: their own row of the trainer's Rankings & Progress Report, js/cm-rank-share.js; trainers write it, traineeWrite refuses it)
+  return OWN(tok.id).includes(key) || key === `callsim:${tok.id}` || key === `labreview:${tok.id}` || key === `simresults:${tok.id}` || key === `rankshare:${tok.id}` || key.startsWith(`actup:${tok.id}:`) || PUBLIC_READ.some((re) => re.test(key));
 }
 // What a trainee reads of their own records leaves out what is for trainers only: the private trainer note on each day's
 // feedback (the trainer's Feedback panel calls it "Private trainer note (not shown to trainee)").

@@ -90,7 +90,8 @@ const pctOf = (t) => { const m = /(\d+)%/.exec(String(t || '')); return m ? +m[1
         if (i < 1) return { err: `${sel} has no "${head}" column: ${JSON.stringify(hs)}` };
         const tr = [...sec.querySelectorAll('tbody tr')].find(r => { const n = r.querySelector('td'); return n && n.textContent.includes(name); });
         if (!tr) return { err: `${sel} has no row for ${name}` };
-        const td = tr.querySelectorAll('td')[i - 1] || {}; return { v: td.textContent || '', tip: td.title || '' };
+        // (no row-number column: a header's place is its cell's place)
+        const td = tr.querySelectorAll('td')[i] || {}; return { v: td.textContent || '', tip: td.title || '' };
     }, [sel, head, nm]);
     const scRow = await cell('#scx-scores', 'Overall %');
     if (scRow.err) fail('🏅 Scores: ' + scRow.err); else seen['Scorecards · 🏅 Scores row'] = pctOf(scRow.v);

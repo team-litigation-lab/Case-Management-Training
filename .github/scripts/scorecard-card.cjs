@@ -121,7 +121,9 @@ const tag = String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
     if (!all.who.includes(id)) fail('the 🔎 pick should list the trainee');
     // 🏅 Scores on screen is the one table (the owner: "all the scores consolidated in one table"): each day's score, a column
     // per kind of work, the Overall and the Result; no column per grading system; ⬇ Download keeps every column (checked below)
-    ['Trainee', 'Batch', 'Registered', 'Days passed', 'Day 1 %', 'Day 2 %', 'Day 3 %', 'Day 4 %', 'Day 5 %', '✍️ Knowledge Checks %', 'Overall %', 'Result'].forEach(h => { if (!all.head.includes(h)) fail(`🏅 Scores should have a "${h}" column: ${JSON.stringify(all.head)}`); });
+    // (no row numbers, Registered or Days passed on screen, for room: ⬇ Download keeps them)
+    if (all.head.some(h => /^(1|Registered|Days passed)$/.test(h))) fail(`🏅 Scores on screen should have no row numbers, Registered or Days passed: ${JSON.stringify(all.head)}`);
+    ['Trainee', 'Batch', 'Day 1 %', 'Day 2 %', 'Day 3 %', 'Day 4 %', 'Day 5 %', '✍️ Knowledge Checks %', 'Overall %', 'Result'].forEach(h => { if (!all.head.includes(h)) fail(`🏅 Scores should have a "${h}" column: ${JSON.stringify(all.head)}`); });
     if (all.head.some(h => /Takeaway/.test(h))) fail(`🏅 Scores should have no Takeaways column (not scored): ${JSON.stringify(all.head)}`);
     if (all.head.length > 17) fail(`🏅 Scores on screen should keep to its 16 columns at most (${all.head.length - 1}): ${JSON.stringify(all.head)}`);
     if (all.head.some(h => /Graded Calls|Case Calls|Net Sheet|Portal Simulators|Grading systems average|Final %/.test(h))) fail(`🏅 Scores on screen should have no column per grading system or model part (those are in ⬇ Download): ${JSON.stringify(all.head)}`);

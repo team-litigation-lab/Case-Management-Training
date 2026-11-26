@@ -537,7 +537,8 @@ function scoresSheet(rows){
   const ai = per.map(p => aiState(p.r)).filter(a => a.any), down = ai.length > 0 && ai.every(a => a.failed);
   const now = down ? aiNow() : null, waiting = ai.filter(a => a.failed).length;
   if(down && now === null) askAi();
-  const T = {id: "scores", title: "🏅 Scores", order: per.map(p => p.x),
+  // (on screen, for room: no row numbers, and Registered and Days passed only in ⬇ Download and the trainee's card)
+  const T = {id: "scores", title: "🏅 Scores", order: per.map(p => p.x), noRowNums: true, screenHide: ["Registered", "Days passed"],
     warn: down && now === false ? `AI grading looks down: every trainee's latest Skill Activity grading failed (${ai[0].why}). Run 🤖 the AI check (⚡ Run now) to see why.` : "",
     info: down && now === true ? `🤖 AI grading works again (the AI check passed). ${waiting} trainee${waiting === 1 ? "'s" : "s'"} last grading failed while it was down: each is graded again by itself the next time that trainee opens the course.` : "",
     none: none.length ? `No results yet: ${none.map(k => k[0].replace(/ %$/, "")).join(", ")}.` : "",
