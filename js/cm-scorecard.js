@@ -29,8 +29,8 @@
    • Trainee: 🏅 My Performance (#/scorecard), their own card; their grading systems under a toggle.
    • Trainer: 🏅 Scorecards (the same address, and Admin → 🏅 Scorecard, the one scores page, with the old 📋 Batch Sheet folded
      in by js/cm-batch-sheet.js): 🏅 Scores (a row per approved trainee, by batch: the days with their slides and work, a column
-     per kind of work, the Overall and the Result), then every trainee's card (🔎 picks one) with its 💬 Feedback on practical
-     activities; a row of 🏅 Scores scrolls to its card. ⬇ Download starts with 🏅 Scores and carries every table the page
+     per kind of work, the Overall and the Result), then every trainee's card (🔎 picks one) with its 💬 Feedback on Practical
+     Activities; a row of 🏅 Scores scrolls to its card. ⬇ Download starts with 🏅 Scores and carries every table the page
      folds in; ⬇ Scores only is 🏅 Scores alone; ⚡ Run now (js/cm-run-now.js) holds the manual triggers.
    It only reads: trainee:<id> (its caseFlow summary, dayProgress and practiceProgress), progress:<id> (case-flow,
    work-log, cf-ai-grades, doc-filing, net-sheet, case-folder, drive-setup), callsim:<id>, simresults:<id> and feedback:<id>
@@ -596,16 +596,21 @@ function gateWhy(x, k){
   const happened = String(x.note || "").replace(/^Breach:\s*/, "");
   return `<span class="bs-gate-why">${happened ? `<span><b>What happened:</b> ${E(happened.charAt(0).toUpperCase() + happened.slice(1))}.</span>` : ""}${k.why ? `<span><b>Why it's a safety gate:</b> ${E(k.why)}</span>` : ""}${k.better ? `<span><b>What you could have done better:</b> ${E(k.better)}</span>` : ""}</span>`;
 }
+/* 🎯 Focus on, as a table: every safety-gate breach first, then the scores below the pass mark (lowest first), one row each:
+   the item, its day, the dimension (or "safety gate"), its score and what to do about it. In a trainer's view of a card it is
+   the first thing in 💬 Feedback on Practical Activities (js/cm-batch-sheet.js feedbackHtml), not a box of its own. */
 function focusHtml(m){
   const P = MODEL.PASS, clip = (t, n) => (t = String(t || "").replace(/\s+/g, " ").trim()).length > n ? t.slice(0, n - 1) + "…" : t;
   const dimOf = id => MODEL.DIMS.find(k => k.id === id);
-  const li = x => `<li><b>${E(clip(x.name, 90))}</b> <span class="bs-in-s">Day ${x.day} · ${E(dimOf(x.dim).label)} · ${x.pct}%</span>${x.note ? ` — ${E(clip(x.note, 180))}` : ""}</li>`;
+  const row = (cls, item, day, area, score, tone, detail) => `<tr class="${cls}"><th scope="row" class="bs-fo-i">${item}</th><td class="bs-fo-d">${day}</td><td class="bs-fo-a">${area}</td><td class="bs-fo-s"><b class="bs-sbox ${tone}">${score}</b></td><td class="bs-fo-x">${detail}</td></tr>`;
+  const li = x => row("bs-fo-lo", E(clip(x.name, 90)), `Day ${x.day}`, E(dimOf(x.dim).label), `${x.pct}%`, "gs-lo", x.note ? E(clip(x.note, 180)) : "<i>—</i>");
   const gate = m.gate.breaches.map(x => { const k = MODEL.CRIT.find(c => c.id === x.id) || {};
-    return `<li><b>⛔ ${E(clip(x.name, 110))}</b> <span class="bs-in-s">Day ${x.day} · safety gate · ${E(k.label || "")}</span>${gateWhy(x, k)}</li>`; });
+    return row("bs-fo-gate", `⛔ ${E(clip(x.name, 110))}`, `Day ${x.day}`, `Safety gate · ${E(k.label || "")}`, "Breach", "gs-lo", gateWhy(x, k)); });
   if(!m.items.length && !gate.length) return "";
   const low = m.items.filter(x => x.pct < P).sort((a, b) => a.pct - b.pct), up = m.items.filter(x => x.pct >= P && x.pct < 90).sort((a, b) => a.pct - b.pct);
-  if(gate.length || low.length) return `<div class="bs-in bs-in-lo"><b>🎯 Focus on</b> (below the pass mark of ${P}%${gate.length ? ", and every safety-gate breach" : ""}):<ul>${gate.slice(0, 4).join("")}${low.slice(0, 4).map(li).join("")}</ul>${low.length > 4 ? `<small>and ${low.length - 4} more below ${P}% in the Day scores.</small>` : ""}</div>`;
-  if(up.length) return `<div class="bs-in bs-in-ok"><b>✓ Above the pass mark on every score.</b> To move up to Exemplary (90%+):<ul>${up.slice(0, 3).map(li).join("")}</ul></div>`;
+  const table = (rows, more) => `<div class="bs-fo-wrap"><table class="bs-fo-t"><thead><tr><th>Item</th><th>Day</th><th>Area</th><th>Score</th><th>What happened · what to do</th></tr></thead><tbody>${rows}</tbody></table></div>${more ? `<small>${more}</small>` : ""}`;
+  if(gate.length || low.length) return `<div class="bs-in bs-in-lo"><b>🎯 Focus on</b> (below the pass mark of ${P}%${gate.length ? ", and every safety-gate breach" : ""}):${table(gate.slice(0, 4).join("") + low.slice(0, 4).map(li).join(""), low.length > 4 ? `and ${low.length - 4} more below ${P}% in the Day scores.` : "")}</div>`;
+  if(up.length) return `<div class="bs-in bs-in-ok"><b>✓ Above the pass mark on every score.</b> To move up to Exemplary (90%+):${table(up.slice(0, 3).map(x => row("", E(clip(x.name, 90)), `Day ${x.day}`, E(dimOf(x.dim).label), `${x.pct}%`, "gs-mid", x.note ? E(clip(x.note, 180)) : "<i>—</i>")).join(""), "")}</div>`;
   return `<div class="bs-in bs-in-hi"><b>🎉 Exemplary:</b> every score so far is 90% or more (${m.items.length} scored). Keep it up!</div>`;
 }
 function modelTable(m){
@@ -679,12 +684,13 @@ function cardHtml(r, me){
     comp: m.comp == null ? "No day reached yet" : `Daily compliance (a sub-score, not the Overall): the average of ${m.compDays} day${m.compDays === 1 ? "" : "s"}' deliverables done (Knowledge Check passed, the Backup Drive graded) = ${m.comp}%`};
   const pills = [["Overall", m.overall, why.overall], ["Daily compliance", m.comp, why.comp]];
   const rtone = m.status === "pass" ? "gs-hi" : m.status === "pending" ? "gs-mid" : m.status === "none" ? "" : "gs-lo";
+  const inFb = !me && !!(window.cmBatchSheet && cmBatchSheet.feedbackHtml);   // a trainer's view: 🎯 Focus on opens 💬 Feedback on Practical Activities
   return `<div class="bs-pt${!me && ALL.pick === r.id ? " bs-pt-on" : ""}" id="bs-pt-${domId(r.id)}" data-id="${E(r.id)}">
     <div class="bs-pt-h"><b class="bs-pt-name">${E(r.name)}</b>${!me && r.batch ? `<i>${E(batchOf(r.batch))}</i>` : ""}
       ${pills.map(([l, v, f]) => `<span class="bs-pt-k ${MODEL.mtone(v)}" title="${E(f)}">${E(l)} <b>${mpct(v)}</b></span>`).join("")}
       <span class="bs-pt-k bs-pt-r ${rtone}" title="Pass = Final ≥ ${MODEL.PASS}% and the safety gate at 100%">${m.tier ? E(m.tier.label) + " · " : ""}<b>${E(MODEL.STATUS[m.status])}</b></span></div>
-    ${focusHtml(m)}
-    <div class="bs-pt-wrap">${daysTable(m, r.c)}${!me && window.cmSendProgress ? cmSendProgress.cardHtml(r) : ""}${!me && window.cmBatchSheet && cmBatchSheet.feedbackHtml ? cmBatchSheet.feedbackHtml(r) : ""}
+    ${inFb ? "" : focusHtml(m)}
+    <div class="bs-pt-wrap">${daysTable(m, r.c)}${!me && window.cmSendProgress ? cmSendProgress.cardHtml(r) : ""}${inFb ? cmBatchSheet.feedbackHtml(r, focusHtml(m)) : ""}
       <details class="bs-pt-src bs-pt-how"><summary>▸ How this is scored (the 100-point model, the CMS case file, every graded item)</summary>
         ${modelTable(m)}${window.cmCmsFile ? cmCmsFile.html(cmCmsFile.compute(r.c), me) : ""}${window.cmRubric ? profileTable(r.sc) : ""}
         ${sheetHtml(Object.assign(detailSheet(r.sc, me ? "" : r.name), {id: "detail-" + domId(r.id)}))}
@@ -916,6 +922,15 @@ css.textContent = `
 .bs-pt-k.gs-lo{background:#FDE8E8;border-color:#D93025;} .bs-pt-k.gs-lo b{color:#A50E0E;}
 .bs-pt .bs-in{margin:10px 12px;padding:10px 14px;border-radius:10px;font:500 15.5px/1.5 'Inter',Arial,sans-serif;color:#1E2340;} .bs-in ul{margin:6px 0 0;padding-left:20px;} .bs-in li{margin:3px 0;}
 .bs-in-s{color:#475569;font-weight:700;font-size:14px;} .bs-in small{font-size:14px;color:#3C4043;}
+/* 🎯 Focus on as a table */
+.bs-fo-wrap{overflow-x:auto;margin-top:8px;border:1px solid #F0C9C9;border-radius:8px;background:#fff;} .bs-in-ok .bs-fo-wrap{border-color:#F5D49A;}
+.bs-fo-t{width:100%;border-collapse:collapse;font:600 14.5px/1.45 'Inter',Arial,sans-serif;color:#2E3450;}
+.bs-fo-t thead th{background:#262B45;color:#fff;font:800 14px Arial,sans-serif;text-align:left;padding:7px 10px;border-bottom:2px solid #DB8437;white-space:nowrap;}
+.bs-fo-t td,.bs-fo-t tbody th{padding:7px 10px;border-top:1px solid #EEE3E3;vertical-align:top;text-align:left;}
+.bs-fo-t .bs-fo-i{font:800 15px Arial,sans-serif;color:#141A2E;min-width:200px;max-width:320px;} .bs-fo-t .bs-fo-d,.bs-fo-t .bs-fo-s{white-space:nowrap;}
+.bs-fo-t .bs-fo-a{min-width:140px;color:#475569;font-weight:700;} .bs-fo-t .bs-fo-x{min-width:280px;}
+.bs-fo-t tr.bs-fo-gate th,.bs-fo-t tr.bs-fo-gate td{background:#FFF4F4;} .bs-fo-t .bs-gate-why{margin:0;}
+.bs-fb > .bs-in{margin:6px 0 10px;}
 .bs-in-lo{background:#FDECEC;border:1px solid #F5B5B5;} .bs-in-ok{background:#FFF7E6;border:1px solid #F5D49A;} .bs-in-hi{background:#E8F6EC;border:1px solid #A7DDB6;}
 .bs-pt-wrap{overflow-x:auto;padding:4px 10px 12px;}
 .bs-pt-t{border-collapse:collapse;width:100%;table-layout:fixed;font:16.5px/1.45 'Inter',Arial,sans-serif;color:#1F2433;} .bs-pt-t + .bs-pt-t{margin-top:14px;}
