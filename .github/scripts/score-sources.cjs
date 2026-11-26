@@ -161,7 +161,7 @@ const pctOf = (t) => { const m = /(\d+)%/.exec(String(t || '')); return m ? +m[1
         fail(`the note under 🏅 Scores should say what each column measures: ${foot}`);
     await page.evaluate((id) => cmScorecard.only(id), id); await page.waitForTimeout(500);
     const detail = await page.evaluate((d) => { const c = document.querySelector('.cmsh-screen #bs-fb-' + d); if (!c) return null;
-        return [...c.querySelectorAll('details.bs-fb-day')].map(day => [(day.querySelector('summary b') || {}).textContent || '', [...day.querySelectorAll('.bs-fb-it')].map(it => [(it.querySelector('.bs-fb-h span') || {}).textContent || '', (it.querySelector('.bs-fb-h b') || {}).textContent || ''])]); }, dom);
+        return [...c.querySelectorAll('details.bs-fb-day')].map(day => [(day.querySelector('summary b') || {}).textContent || '', [...day.querySelectorAll('.bs-fb-it')].map(it => [(it.querySelector('.bs-fb-n') || {}).textContent || '', (it.querySelector('.bs-fb-sc b') || {}).textContent || ''])]); }, dom);
     if (!detail) fail('the trainee\'s card has no 💬 Feedback on practical activities');
     else {
         const ITEM = { sa: /^🧪 /, ap: /^📝 Action Plan/, bd: /^📂 Backup/ };

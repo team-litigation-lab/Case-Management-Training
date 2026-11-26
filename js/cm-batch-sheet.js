@@ -504,15 +504,25 @@ const KINDS = [
   ["📝 Action Plan %", ["ap"], "each action plan: the share of the steps it must hold", "the steps each plan holds"]];
 const PRACT = new Set(["sa", "call", "bd", "ap", "cmsf"]);
 // a day's work in one line: "KC 90% · 3 activities avg 78% · 12 docs filed (9 first time) · Drive 85%"
-function daySummary(r, d, parts){
+// (the day's work as [label, value] pairs: the Day % cell shows them as a small table, the ⬇ Download as one line)
+function dayBits(r, d, parts){
   const n = d.cf.n, out = [], dd = docDay(), sc = g => parts.filter(x => g.includes(x.grp) && x.pct != null);
-  const kc = sc(["kc"])[0]; if(kc) out.push(`KC ${kc.pct}%`);
-  const a = sc(["sa", "call"]); if(a.length) out.push(`${a.length} activit${a.length === 1 ? "y" : "ies"} avg ${dayAvg(a)}%`);
+  const kc = sc(["kc"])[0]; if(kc) out.push(["KC", `${kc.pct}%`, `KC ${kc.pct}%`, kc.pct]);
+  const a = sc(["sa", "call"]); if(a.length) out.push(["Activities", `${a.length} · avg ${dayAvg(a)}%`, `${a.length} activit${a.length === 1 ? "y" : "ies"} avg ${dayAvg(a)}%`, dayAvg(a)]);
   const docs = Object.entries(dataOf(r)["doc-filing"] || {}).filter(([id, x]) => x && x.attempts > 0 && dd[id] === n).map(([, x]) => x);
-  if(docs.length){ const f = docs.filter(x => x.filed), ft = f.filter(x => x.attempts === 1).length; out.push(`${f.length} doc${f.length === 1 ? "" : "s"} filed (${ft} first time)${docs.length > f.length ? `, ${docs.length - f.length} refused` : ""}`); }
-  const ap = sc(["ap"]); if(ap.length) out.push(`Plan ${dayAvg(ap)}%`);
-  const bd = sc(["bd"]); if(bd.length) out.push(`Drive ${dayAvg(bd)}%`);
-  return out.join(" · ");
+  if(docs.length){ const f = docs.filter(x => x.filed), ft = f.filter(x => x.attempts === 1).length, rf = docs.length - f.length;
+    out.push(["Docs filed", `${f.length} (${ft} first time)${rf ? ` · ${rf} refused` : ""}`, `${f.length} doc${f.length === 1 ? "" : "s"} filed (${ft} first time)${rf ? `, ${rf} refused` : ""}`, null]); }
+  const ap = sc(["ap"]); if(ap.length) out.push(["Plan", `${dayAvg(ap)}%`, `Plan ${dayAvg(ap)}%`, dayAvg(ap)]);
+  const bd = sc(["bd"]); if(bd.length) out.push(["Drive", `${dayAvg(bd)}%`, `Drive ${dayAvg(bd)}%`, dayAvg(bd)]);
+  return out;
+}
+function daySummary(r, d, parts){ return dayBits(r, d, parts).map(b => b[2]).join(" · "); }
+// the Day % cell: the day's score, then its slides and work as a small table (label | value)
+function dayCellHtml(v, s, bits){
+  const slides = s.line ? [["Slides", s.line.replace(/^Slides\s*/, "") || "—", null]] : [];
+  const rows = slides.concat(bits.map(b => [b[0], b[1], b[3]]));
+  // (a grid, not a nested <table>: the sheet's rows and cells stay the sheet's own)
+  return `<b>${v == null ? "—" : v + "%"}</b>${rows.length ? `<span class="bs-dc-t" role="table">${rows.map(([l, x]) => `<span class="bs-dc-r" role="row"><span class="bs-dc-l" role="rowheader">${E(l)}</span><span class="bs-dc-v" role="cell">${E(x)}</span></span>`).join("")}</span>` : ""}`;
 }
 // 🏅 Scores: one row per trainee (the Scorecard's rows), sorted by the Overall, nothing scored last
 function scoresSheet(rows){
@@ -540,10 +550,10 @@ function scoresSheet(rows){
       return [{v: nameOf(r), f: nameOf(r), cls: "gs-name", html: window.cmSendProgress && state.isAdmin ? `${E(nameOf(r))}<button type="button" class="sp-row" aria-label="Send ${E(nameOf(r))} their progress" title="📤 Send ${E(nameOf(r))} their progress" onclick="event.stopPropagation();cmSendProgress.open('${E(String(r.id).replace(/\\/g, "\\\\").replace(/'/g, "\\'"))}')"></button>` : null}, {v: bt, f: r.batch || "", cls: "gs-batch"},
         {v: [reg ? dTime(r.registeredAt) : "", bt].filter(Boolean).join(" · "), f: reg ? `Registered ${reg.toLocaleString()}${bt ? " in " + bt : ""}` : "Registration date not recorded", cls: "bs-reg"},
         {v: sc ? `${sc.done} / ${sc.total}` : "", f: sc ? `${sc.done} of the ${sc.total} Case Flow days passed (70% on the Knowledge Check passes a day)` : "", cls: "gs-num"}]
-        .concat(L.map(d => { const v = dayS(r, d), parts = dayParts(r, d), s = slidesOf(r, d), sum = daySummary(r, d, parts), ev = evs.filter(e => e.n === d.cf.n);
+        .concat(L.map(d => { const v = dayS(r, d), parts = dayParts(r, d), s = slidesOf(r, d), bits = dayBits(r, d, parts), sum = bits.map(b => b[2]).join(" · "), ev = evs.filter(e => e.n === d.cf.n);
           const f = [daySTip(r, d), lessonText(r, d)].concat(ev.length ? ["Newest first:"].concat(ev.slice(0, 30).map(e => `${dTime(e.at)} · ${e.what} · ${e.detail}${e.score != null ? " · " + e.score + "%" : ""}`), ev.length > 30 ? [`and ${ev.length - 30} more (⬇ Download has every one)`] : []) : ["Nothing done on this day yet."]).join("\n");
           return {v: pct(v), csv: [pct(v) || "—", s.line, sum].filter(Boolean).join(" · "), f, cls: "gs-num bs-dc " + tone(v),
-            html: `<b>${v == null ? "—" : v + "%"}</b>${s.line ? `<small class="bs-sl">${E(s.line)}</small>` : ""}${sum ? `<small class="bs-sum">${E(sum)}</small>` : ""}`}; }),
+            html: dayCellHtml(v, s, bits)}; }),
           K.map(([l, ids]) => { const k = kindAvg(sc, ids), first = ids[0] === "kc";
             const f = first ? ["Each day's Knowledge Check (the best score kept):"].concat(L.map(d => kcLine(kcOf(r, d)))).join("\n")
               : k.a == null ? `${l.replace(/ %$/, "")}: nothing graded yet` : `${l.replace(/ %$/, "")}: the average of ${k.xs.length} = ${k.a}%\n` + k.xs.slice(0, 20).map(x => `${x.name} ${x.pct}%`).join("\n");
@@ -562,20 +572,59 @@ function practOf(r, d, cx){
 }
 function cxOf(r){ try{ const s = ((window.cmScorecard || {}).sources || []).find(x => x.id === "cx"); return s ? (s.items(ctxFor(r)) || []).filter(i => i && i.pct != null) : []; }catch(e){ return []; } }
 const said = (xs, none) => xs && xs.length ? xs.map(x => E(String(x).replace(/\s+$/, ""))).join(" · ") : `<i>${none}</i>`;
+/* the grader's "to improve" notes split in two: the finding (before its →) and the fix (after it); a note that is only advice
+   ("Practice…", "Build…", "Before…") is a fix */
+const ADVICE = /^(practice|build|before|try|next time|keep|always|start|make|write|use|re-?do|redo)\b/i;
+function splitImprove(xs){
+  const fix = [], better = [];
+  (xs || []).forEach(t => { t = String(t || "").trim(); if(!t) return; const i = t.indexOf("→");
+    if(i > 0){ fix.push(t.slice(0, i).trim()); better.push(t.slice(i + 1).trim()); }
+    else if(ADVICE.test(t)) better.push(t); else fix.push(t); });
+  return {fix, better};
+}
+/* 🚩 a red flag: a finding that puts the client, the file or the firm at risk, named for why */
+// (each needs the problem itself — a mismatch, a disclosure, a date not set — not only the topic's name)
+const FLAGS = [
+  [/\b(wrong|mismatch\w*|different|doesn'?t match|does not match|instead of)\b[^.]*\b(case id|snapshot id|matter|client'?s? file)|\b(case id|snapshot id)\b[^.]*\b(but|wrong|mismatch\w*|doesn'?t match|does not match)\b|another client'?s/i, "Wrong file or Case ID: work filed on the wrong matter can't be found and can expose another client's file."],
+  [/\b(gave|giving|gives|offered|told \w+ (the|his|her|their) (case|claim) (is|was))\b[^.]*\b(legal advice|advice|opinion)|\bUPL\b|\bpredict\w* (an |the |his |her )?outcome|\boutcome predicted/i, "Legal advice or an outcome predicted: only the attorney may advise the client (unauthorized practice of law)."],
+  [/\b(shared|disclosed|exposed|sent|forwarded|leaked|waived|breach\w*)\b[^.]*\b(privilege\w*|HIPAA|confidential\w*|medical records?|PHI)\b|\b(privilege\w*|confidential\w*)\b[^.]*\b(shared|disclosed|exposed|waived|breach\w*)\b/i, "Privacy or privilege: client information shared or left unprotected."],
+  [/\b(was |were |is |are )?(never set|not set|not calendared|not docketed|missed|not on the calendar)\b|\bSOL\b[^.]*\b(wrong|missing|not)\b/i, "A date not set or missed: a missed deadline can cost the client the claim."],
+  [/\b(refused|not filed|(isn'?t|is not|not) on the drive|not backed up|never filed)\b/i, "A required document not filed or backed up: the file is incomplete and the work can't be found."]
+];
+function redFlags(y){
+  const out = [], seen = new Set();
+  // (the CMS case file's "to improve" is the list of entries the file lacks: one flag, the file incomplete, with the count)
+  if(/CMS case file/i.test(y.name || "")){ const n = (y.improve || []).length || Number((/(\d+) missing/.exec(y.status || "") || [])[1]) || 0;
+    return n ? [{why: "The client's file is incomplete: anyone who opens it works from missing facts and dates.", quote: `${n} required entr${n === 1 ? "y is" : "ies are"} missing from the CMS file`}] : []; }
+  // (a note that says the problem did NOT happen — "Nothing in the record gives legal advice" — is no flag)
+  (y.improve || []).concat(y.why ? [y.why] : []).forEach(t => { t = String(t || ""); if(/^\s*(nothing|no |none|never (gave|shared|disclosed))/i.test(t)) return; FLAGS.forEach(([re, why]) => {
+    if(seen.has(why) || !re.test(t)) return; seen.add(why); out.push({why, quote: clip(t.split("→")[0].trim(), 140)}); }); });
+  return out;
+}
+const lis = (xs, none) => xs && xs.length ? `<ul>${xs.map(x => `<li>${E(String(x).replace(/\s+$/, ""))}</li>`).join("")}</ul>` : `<i>${none}</i>`;
+function fbRowHtml(y){
+  const sp = splitImprove(y.improve), fl = redFlags(y), cms = /CMS case file/i.test(y.name || "");
+  return `<tr class="bs-fb-it"><th scope="row" class="bs-fb-act"><span class="bs-fb-n">${E(y.name)}</span>${y.status ? `<small>${E(y.status)}</small>` : ""}</th>
+    <td class="bs-best">${lis(y.best, "Nothing noted by the grader.")}</td>
+    <td class="bs-imp">${lis(sp.fix, "Nothing noted by the grader.")}${cms ? `<p class="bs-fb-see">📋 Every missing item is listed in the 🗂 CMS Case File table, under “What the file is missing”.</p>` : ""}</td>
+    <td class="bs-why">${y.why ? E(y.why) : "<i>No reason recorded.</i>"}</td>
+    <td class="bs-better">${lis(sp.better, "—")}</td>
+    <td class="bs-flag">${fl.length ? fl.map(f => `<p><b>🚩 ${E(f.why)}</b><q>${E(f.quote)}</q></p>`).join("") : "<i>None</i>"}</td>
+    <td class="bs-fb-sc"><b class="${tone(y.pct)}">${y.pct != null ? y.pct + "%" : "—"}</b></td></tr>`;
+}
 function feedbackHtml(x){
   const r = recOf(x), L = cfDaysL(), cx = cxOf(r); if(!r || !L.length) return "";
   return `<section class="bs-fb" id="bs-fb-${E(String(r.id).replace(/[^A-Za-z0-9_-]/g, "_"))}"><h4>💬 Feedback on practical activities</h4>
-    <p class="bs-fb-note">Each practical activity of the day, as its grader marked it: the score, what they did well, what to improve and why.</p>
+    <p class="bs-fb-note">Each practical activity of the day, as its grader marked it: what they did well, what to improve, why, what could have been done better, any 🚩 red flag (and why it is one), and the score.</p>
     ${L.map(d => { const xs = practOf(r, d, cx), sc = xs.filter(y => y.pct != null), a = dayAvg(sc), k = r.id + "|" + d.id, open = !!B.fbOpen[k];
       return `<details class="bs-fb-day" data-day="${d.cf.n}"${open ? " open" : ""} ontoggle="cmBatchSheet.fbOpen('${E(k)}', this.open)"><summary><b>${dayLabel(d)}</b><span>${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</span><em class="${tone(a)}">${xs.length ? `${xs.length} activit${xs.length === 1 ? "y" : "ies"}${a != null ? ` · avg ${a}%` : ""}` : "Nothing yet"}</em></summary>
-        ${xs.length ? xs.map(y => `<div class="bs-fb-it"><div class="bs-fb-h"><span>${E(y.name)}</span>${y.status ? `<small>${E(y.status)}</small>` : ""}<b class="${tone(y.pct)}">${y.pct != null ? "Score " + y.pct + "%" : "Not scored"}</b></div>
-          <p class="bs-fb-l bs-best"><b>⭐ What they did well:</b> ${said(y.best, "Nothing noted by the grader.")}</p>
-          <p class="bs-fb-l bs-imp"><b>🔧 What to improve:</b> ${said(y.improve, "Nothing noted by the grader.")}</p>
-          <p class="bs-fb-l bs-why"><b>🧾 Why:</b> ${y.why ? E(y.why) : "<i>No reason recorded.</i>"}</p></div>`).join("") : `<p class="bs-none">No practical activity on this day yet.</p>`}</details>`; }).join("")}</section>`;
+        ${xs.length ? `<div class="bs-fb-wrap"><table class="bs-fb-t"><thead><tr><th>Activity</th><th>⭐ What they did well</th><th>🔧 What to improve</th><th>🧾 Why</th><th>💡 What could have been done better</th><th>🚩 Red flag</th><th>Score</th></tr></thead>
+          <tbody>${xs.map(fbRowHtml).join("")}</tbody></table></div>` : `<p class="bs-none">No practical activity on this day yet.</p>`}</details>`; }).join("")}</section>`;
 }
 function feedbackTable(recs){
-  const rows = []; recs.forEach(r => { const cx = cxOf(r); cfDaysL().forEach(d => practOf(r, d, cx).forEach(y => rows.push([nameOf(r), dayLabel(d), y.name, pct(y.pct), y.status || "", (y.best || []).join(" · "), (y.improve || []).join(" · "), y.why || ""].map(v => ({v}))))); });
-  return {id: "feedback", title: "💬 Feedback on practical activities", head: ["Trainee", "Day", "Activity", "Score", "Status", "⭐ What they did well", "🔧 What to improve", "🧾 Why"], rows};
+  const rows = []; recs.forEach(r => { const cx = cxOf(r); cfDaysL().forEach(d => practOf(r, d, cx).forEach(y => { const sp = splitImprove(y.improve);
+    rows.push([nameOf(r), dayLabel(d), y.name, y.status || "", (y.best || []).join(" · "), sp.fix.join(" · "), y.why || "", sp.better.join(" · "), redFlags(y).map(f => `${f.why} (“${f.quote}”)`).join(" · "), pct(y.pct)].map(v => ({v}))); })); });
+  return {id: "feedback", title: "💬 Feedback on practical activities", head: ["Trainee", "Day", "Activity", "Status", "⭐ What they did well", "🔧 What to improve", "🧾 Why", "💡 What could have been done better", "🚩 Red flag", "Score"], rows};
 }
 // everyone registered in the batch shown (waiting for approval and archived too, not rejected, not merged away): 📚 Lessons and
 // 🕒 Recent progress list them all, with the records the Scorecard read for the ones it scores
@@ -728,6 +777,27 @@ css.textContent = `
 .bs-fb-l{margin:5px 0 0;font:600 15px/1.45 Arial,sans-serif;color:#2E3450;} .bs-fb-l > b{color:#141A2E;} .bs-fb-l i{color:#5F6368;}
 .bs-fb-l.bs-best > b{color:#0B5D1E;} .bs-fb-l.bs-imp > b{color:#A50E0E;}
 .bs-fb .bs-none{padding:10px 14px;margin:0;font:600 15px Arial,sans-serif;color:#5F6368;}
+/* the day's feedback as one table: an activity a row */
+.bs-fb-wrap{overflow-x:auto;border-top:1px solid #E3E6EF;}
+.bs-fb-t{width:100%;min-width:1100px;border-collapse:collapse;font:600 14px/1.45 Arial,sans-serif;color:#2E3450;}
+.bs-fb-t thead th{background:#262B45;color:#fff;font:800 14px Arial,sans-serif;text-align:left;padding:9px 10px;border-bottom:2px solid #DB8437;white-space:nowrap;}
+.bs-fb-t td,.bs-fb-t tbody th{padding:9px 10px;border-top:1px solid #E3E6EF;vertical-align:top;text-align:left;}
+.bs-fb-t tbody tr:nth-child(even) td,.bs-fb-t tbody tr:nth-child(even) th{background:#F8F9FC;}
+.bs-fb-t .bs-fb-act{font:800 15px Arial,sans-serif;color:#141A2E;min-width:170px;max-width:230px;}
+.bs-fb-t .bs-fb-act small{display:block;margin-top:3px;font:700 13px Arial,sans-serif;color:#5F6368;}
+.bs-fb-t ul{margin:0;padding-left:18px;} .bs-fb-t li{margin:0 0 4px;} .bs-fb-t i{color:#5F6368;}
+.bs-fb-t td.bs-best{min-width:180px;} .bs-fb-t td.bs-imp{min-width:200px;} .bs-fb-t td.bs-why{min-width:150px;color:#3E4560;} .bs-fb-t td.bs-better{min-width:200px;}
+.bs-fb-t td.bs-flag{min-width:200px;} .bs-fb-t td.bs-flag p{margin:0 0 6px;} .bs-fb-t td.bs-flag b{display:block;color:#A50E0E;}
+.bs-fb-t td.bs-flag q{display:block;margin-top:2px;color:#5F6368;font-weight:600;font-style:italic;}
+.bs-fb-t td.bs-fb-sc{white-space:nowrap;text-align:center;} .bs-fb-t td.bs-fb-sc b{display:inline-block;padding:3px 10px;border-radius:6px;background:#F1F3F4;font:800 15px Arial,sans-serif;}
+.bs-fb-t td.bs-fb-sc b.gs-hi{background:#E6F4EA;color:#0B5D1E;} .bs-fb-t td.bs-fb-sc b.gs-mid{background:#FFF4E0;color:#7A4B00;} .bs-fb-t td.bs-fb-sc b.gs-lo{background:#FCE8E6;color:#A50E0E;}
+.bs-fb-see{margin:6px 0 0;font:700 13.5px Arial,sans-serif;color:#46508A;}
+/* the Day % cell: the score, then the day's slides and work as a small table */
+.scx-card td.bs-dc .bs-dc-t{display:grid;grid-template-columns:auto 1fr;margin-top:4px;font:700 13.5px/1.3 Arial,sans-serif;border:1px solid rgba(46,52,80,.16);border-radius:6px;overflow:hidden;background:rgba(255,255,255,.55);}
+.scx-card td.bs-dc .bs-dc-r{display:contents;}
+.scx-card td.bs-dc .bs-dc-l{color:#5F6368;padding:3px 8px;white-space:nowrap;border-top:1px solid rgba(46,52,80,.12);}
+.scx-card td.bs-dc .bs-dc-v{color:#1E2340;padding:3px 8px 3px 0;border-top:1px solid rgba(46,52,80,.12);}
+.scx-card td.bs-dc .bs-dc-r:first-child > span{border-top:0;}
 .bs-ds-it{border-top:1px solid #E3E6EF;padding:10px 14px;} .bs-ds-h{display:flex;gap:10px;align-items:baseline;font:700 14.5px Arial,sans-serif;}
 .bs-ds-h span{flex:1;} .bs-ds-h small{color:#5F6368;font-weight:600;} .bs-ds-h b{min-width:54px;text-align:center;padding:2px 8px;border-radius:6px;background:#F1F3F4;}
 .bs-ds-h b.gs-hi{background:#E6F4EA;color:#0B5D1E;} .bs-ds-h b.gs-mid{background:#FFF4E0;color:#7A4B00;} .bs-ds-h b.gs-lo{background:#FDE8E8;color:#A50E0E;}

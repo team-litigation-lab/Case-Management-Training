@@ -135,7 +135,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/ai-check` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/share/get` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/report.html` · `/version`
 
-## Node checks (81)
+## Node checks (82)
 
 | Check | What it covers |
 |---|---|
@@ -177,6 +177,7 @@ None.
 | `drive-work-fair-grades.mjs` | A Backup Drive grade is the one the trainee earned: a cleared trainer override leaves the Scorecard's copy (and the trainer's page), every tab of a Google Sheet is read, a full stop or comma after a title doesn't stop a match, and half points aren't rounded up row by row |
 | `drive-work-sequence.cjs` | ✍ Where your written work goes names only activities still on the days, and work for a merged activity is graded as its main's |
 | `drive-work.cjs` | The trainee's written work on the Backup Drive is AI-graded nightly against its activity's rubric, and a trainer's override wins (in-memory Drive, stubbed AI) |
+| `feedback-red-flags.mjs` | the feedback table's 🚩 red flags name the real risks (a wrong Case ID, legal advice, a disclosure, a date not set, a document not filed), quote the finding, skip a note saying it didn't happen, and split "to improve" from "what could have been done better" |
 | `full-name-cert.cjs` | 🎓 The registered full name: a Portal sign-in whose full name is now just the first + last name clears the old fullName, and a trainee's own certificate record is issued in the name the certificate shows (as a trainer's issue is) |
 | `index-grade-keep.cjs` | Grades in index.html land where they belong: a Knowledge Check keeps the day's random-task scores, a JSON grade with a note after it still parses, a Case Flow call is logged on its own day, a task graded across its expiry isn't also missed, and deleting calendar blocks doesn't resolve conflicts |
 | `inventory.cjs` | The code inventory (docs/INVENTORY.md) is in step with the files: run node build/inventory.cjs after adding, removing or renaming one |
