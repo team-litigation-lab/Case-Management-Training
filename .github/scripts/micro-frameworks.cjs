@@ -160,7 +160,7 @@ const SPOKEN = {
           const own = x.querySelector('.cfx-rf-own'), txt = own ? own.textContent.replace(/^Owner:\s*/, '').trim() : '';
           if (!txt) out.push(`${where}: a CM Red Flag with no owner`);
           if (x.getAttribute('role') !== 'note' || x.getAttribute('aria-label') !== 'CM Red Flag' || !x.querySelector('svg')) out.push(`${where}: the CM Red Flag needs role="note", its label and its flag icon`);
-          if (x.querySelectorAll('dt').length !== 3) out.push(`${where}: the CM Red Flag wants You see / It costs / You do`);
+          if (x.querySelectorAll('dt:not(.cfx-rf-upl dt)').length !== 3) out.push(`${where}: the CM Red Flag wants You see / It costs / You do (and the slide's ⚖ UPL Line, js/cm-plain-pop.js, as its last row)`);
         });
         rx.forEach(x => { got.rx = (got.rx || 0) + 1; if (!x.querySelector('.cfx-rx-rule p') || !x.querySelector('.cfx-rx-exc p') || !x.querySelector('.cfx-rx-conf')) out.push(`${where}: Rule vs. Exception wants a rule, an exception and a Confirm line`); });
         ms.forEach(x => { got.ms = (got.ms || 0) + 1; const n = x.querySelectorAll('ol > li').length; if (n < 3 || n > 6) out.push(`${where}: a Milestone rail of ${n} steps (3–6)`); });

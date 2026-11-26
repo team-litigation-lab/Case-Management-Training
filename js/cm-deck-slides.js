@@ -308,12 +308,6 @@ window.CM_DECK_SLIDES = {
    "title": "Treatment Gaps: Case Manager Responsibilities",
    "img": "/decks/day1/47.webp",
    "notes": "Your responsibilities with treatment gaps are concrete. Monitor frequency and attendance. Follow up immediately after a missed visit. Explain to the client why steady treatment matters. Help with transportation, scheduling and referrals. Talk with providers about interruptions. And document every explanation and every follow-up. As best practice, keep the treatment timelines current, and escalate a long or unexplained gap to supervising staff or the attorney. On John's file, that work is visible. After the April missed-visit alert came the calls, texts, an email, a call to Margaret as the emergency contact, and then escalation to Atty. Thorne. John called back on April 17th, and with his consent, evening therapy visits were booked from April 21st. That record is what later protects the value of the case."
-  },
-  {
-   "page": 50,
-   "title": "Thank You!",
-   "img": "/decks/day1/50.webp",
-   "notes": "That completes Day 1. You've seen what a Case Manager owns, how to run a clean intake and acceptance decision, how to set up the claim and its coverage, and how to keep treatment on track. You've also seen John Doe versus Robert Smith from the first call to maximum medical improvement, with its two gaps clearly documented. Next, we take that file into the pre-demand audit and the demand. Thank you for your attention, and bring your questions to the next session."
   }
  ],
  "d2m4-l1": [
@@ -550,12 +544,6 @@ window.CM_DECK_SLIDES = {
    "title": "Finalized Settlement: Final Lien Mitigation",
    "img": "/decks/day2/42.webp",
    "notes": "The second set of closing tasks is final lien mitigation, the reduction. Call the billing department of every lienholder. The slide's script asks a provider to accept fifty percent as payment in full in the interest of a global resolution. That percentage is a general example, and every reduction needs Atty. Thorne's authority. On our file, Riverton Spine and Rehab's audited six thousand one hundred five dollars came down to four thousand five hundred eighty, and Peach State's one thousand eight hundred sixty came down to one thousand two hundred forty. Then update the ledger as each saving lands, so the client can see the net rising. The last item, Medicare finalization through the MSPRP portal, is general knowledge for Medicare files. John isn't a Medicare beneficiary, so on ours that step doesn't apply. The funds cleared October 20th, 2026, and the trust ledger went to zero after disbursement."
-  },
-  {
-   "page": 44,
-   "title": "Thank You!",
-   "img": "/decks/day2/44.webp",
-   "notes": "That brings us to the end of Day 2. Today we audited John Doe's file before the demand, served the Time-Limited Demand to Keystone, answered the three thousand five hundred dollar offer with evidence, and walked the BI settlement through the consents, the Limited Release and the net sheet. Review your notes tonight, because tomorrow we pick the file up at the demands and carry the settlement all the way to the UM layers. Thank you."
   }
  ],
  "d3m3-l1": [
@@ -674,12 +662,6 @@ window.CM_DECK_SLIDES = {
    "title": "Final Case Reconciliation: Retention Schedule",
    "img": "/decks/day3/19.webp",
    "notes": "The last piece of reconciliation is the retention and disposition schedule. Once a case closes, the paperwork doesn't just sit forever. It's organized under a retention policy, and each document type has its own timeline and its own end step. The slide's table is a general example. Financial records are kept 7 years as the standard and then digitally deleted. Eligibility documents are kept 3 to 5 years and then archived or moved off site. Correspondence is kept 3 years and then purged from the active server. Our training file follows the firm's schedule: the closed file is kept 7 years from closing, so don't apply the slide's shorter periods to John's file. Why does this matter to you? Because how you file things at closing decides whether the right documents can be found while they must be kept, and cleared out properly once they don't. Filing it right at closing is the final step in handling a case well."
-  },
-  {
-   "page": 20,
-   "title": "Thank You!",
-   "img": "/decks/day3/20.webp",
-   "notes": "That brings us to the end of Day 3. Today we learned how to protect the client's settlement through lien negotiations, using legal doctrines, billing audits, and a combined BI and UM net sheet. Then we followed that money through disbursement, from the workflow and the documentation packet to the final reconciliation that lets a case be archived. Review your notes on John Doe versus Robert Smith tonight, because these are the steps that make sure the client keeps every dollar they're entitled to. Thank you."
   }
  ],
  "d4m2-l2": [
@@ -868,12 +850,6 @@ window.CM_DECK_SLIDES = {
    "title": "Case Manager Operational Countermeasures",
    "img": "/decks/day4/35.webp",
    "notes": "So how do you stay ahead of all this? Two habits make a big difference. First, the 48-hour pre-session audit. Build in a mandatory file review 48 hours before any deadline to check the ledgers and confirm the binder is complete. On our file, that means auditing before the mediation binder goes to Judge Benton on March 11th, 2027, and before the arbitration brief on June 11th. That buffer gives you time to fix a problem instead of discovering it in the room. Second, reconcile liens early. Review the health insurance Explanation of Benefits, the EOBs, well in advance, so you can catch double-dipping hospital and provider liens. Crescent's injection, paid by Peach State at the contract rate, is exactly the kind of line that check protects. One habit protects the evidence, and the other protects the client's recovery."
-  },
-  {
-   "page": 36,
-   "title": "Thank You!",
-   "img": "/decks/day4/36.webp",
-   "notes": "That brings us to the end of Day 4. Today we met the neutrals and saw why a mediator and an arbitrator call for such different preparation. We built the mediation binder, and watched John Doe's mediation before Judge Benton end with Keystone tendering its limits under a Limited Release. Then we moved into a trial-ready mindset for arbitration, drew a clear line around what you can and can't do at a hearing, and built the six-section arbitration binder that carried John's UM claims to an award of twenty thousand dollars plus ten thousand dollars. Finally, we looked at the traps that stall these cases and the habits that prevent them. Take some time to review the John Doe versus Robert Smith file, because the precision you bring here protects the client's recovery. Thank you."
   }
  ],
  "d5m1-l1": [
@@ -1108,12 +1084,6 @@ window.CM_DECK_SLIDES = {
    "title": "The Process Server & Evading Defendant Protocol",
    "img": "/decks/day5/34.webp",
    "notes": "What happens when a defendant doesn't want to be found? It's common. Some people hide, stop answering the door, or even quit their jobs to avoid service. And if they aren't served by the court's deadline, the judge can dismiss the case for Want of Prosecution. Our file is the example. Allied Process Services tried Robert Smith at the address on the police report, 118 Larkspur Lane, on October 1st, 5th and 8th, 2026, and all three attempts failed. A neighbor said he had moved in August. So the protocol kicked in. Step one on the flowchart is a skip trace, a background search to find where someone actually lives now. TraceLine Investigations ran it on October 9th and found Smith at 4410 Quarry Ridge Court, Millbrook. Allied served him personally on October 14th, 2026. Because the skip trace worked, we never needed the later steps: varying the server's hours to early morning, evening and weekends, and finally asking the court to allow alternative service, like social media, posting on the door, or mail."
-  },
-  {
-   "page": 42,
-   "title": "Thank You!",
-   "img": "/decks/day5/42.webp",
-   "notes": "That brings us to the end of Day 5. Today we took John Doe's case into litigation. We saw how the rules change once suit is filed, how Robert Smith was found and served, and how the Answer turned into a liability dispute over the stop sign and the seatbelt. We prepared for John's deposition, including the stretch when he went missing, and built your toolkit of core documents, processes, and deadlines. Then we saw how the property damage on Margaret's Civic is valued. If there's one idea to take away, it's this: in litigation, the calendar is everything. Review your notes on John Doe versus Robert Smith, and thank you for your work today."
   }
  ],
  "d5m2-l1": [

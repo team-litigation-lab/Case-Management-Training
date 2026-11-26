@@ -3994,7 +3994,7 @@ function completionRibbonSvg(pct, done){
   </svg>`;
 }
 function brandMark(){
-  return `<img class="brand-mark brand-logo" src="/logo.svg" alt="Legal Support Help">`;
+  return `<img class="brand-mark brand-logo" src="/lsh-logo-dark.png" alt="Legal Support Help">`;
 }
 
 /* ---------- top bar ---------- */
@@ -16010,6 +16010,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-day-loop.js"></script>
 <!-- ✨ the lesson decks take the Portal's elevated look: the blue-gold frame, crisp titles, mono tags, navy buttons (design only, no slide content) -->
 <script src="/js/cm-deck-elite.js"></script>
+<!-- 🎨 calmer slides: navy carries the structure, the orange a small accent (after cm-deck-elite.js) -->
+<script src="/js/cm-calm-accents.js"></script>
 <!-- 🪪 the certificate shows the full name registered on the Portal (trainee:<id>.fullName, from the sign-in ticket's "full") -->
 <script src="/js/cm-full-name.js"></script>
 <!-- 🟡 the orange buttons go gold, as on the LSH Training Portal: a gold gradient with navy words (design only; borders, labels and the slides keep their orange) -->
@@ -16025,6 +16027,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-overall.js"></script>
 <!-- 📱 phones: the safety net (pictures and frames shrink to the screen, long words break, a wide table scrolls in its own box) -->
 <script src="/js/cm-phone-fit.js"></script>
+<!-- 📖 In plain English as a button beside 📖 Reference (a pop-up), and the UPL line as the CM Red Flag's last row -->
+<script src="/js/cm-plain-pop.js"></script>
 <!-- ☁ a saved copy that couldn't be read is never saved over: a notice with Try again, and the read retried until it loads -->
 <script src="/js/cm-restore-guard.js"></script>
 <!-- 🔥 the Roleplay hub and 🎲 Quick Practice serve only calls whose activity is still on a day (cut ones are taken out) -->
@@ -16032,6 +16036,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <!-- 🏆 Admin → 🏅 Scorecard → Rankings & Progress Report: the batch's ranking table to screenshot, edit and share (report.html) -->
 <script src="/js/cm-rankings.js"></script>
 <script src="/js/cm-rank-share.js"></script>
+<!-- 🗂 The Rules with a Rule vs. Exception: the points in one box, the Rule vs. Exception in another (after cm-lesson-spacing.js) -->
+<script src="/js/cm-rule-split-boxes.js"></script>
 <!-- ⚡ Run now: every manual trigger a trainer has, on the Admin header and the 🏅 Scorecard banner -->
 <script src="/js/cm-run-now.js"></script>
 <!-- 🧳 logging out wipes the device only after a confirmed save; otherwise its work is backed up (orphan:<id>:<ms>) -->
@@ -16052,6 +16058,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-takeaway-catchup.js"></script>
 <!-- 🧾 every activity's Your Task as one card (📂 Your Case, ✅ What to do, the steps, its tools in a row) and a bar of 🚀 Launch · Submit → (before cm-vm-transcribe.js) -->
 <script src="/js/cm-task-card.js"></script>
+<!-- ✨ Your Task quieter: no footer line, navy not orange, a soft card (after cm-task-card.js, before cm-vm-transcribe.js) -->
+<script src="/js/cm-task-elegant.js"></script>
 <!-- 🧠 Think it through: a Canva page's example worked on John Doe's own file, AI graded (beside the 💡 Tip; after cm-lesson-tips.js) -->
 <script src="/js/cm-think-through.js"></script>
 <!-- 🧑‍🏫 Trainer notes on graded activities: the trainer's own feedback beside the automated grade (after cm-ai-grader.js) -->
@@ -16059,9 +16067,14 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <!-- 🎙 a voicemail activity's Your Task: take it down in the 🎧 Listening Check (graded), then 📤 Submit opens the AI Grader (after cm-ai-grader.js and cm-day-loop.js) -->
 <script src="/js/cm-vm-transcribe.js"></script>
 <script src="/js/lsh-footer.js"></script>
+<script src="/js/lsh-hero-logo.js"></script>
 <script src="/js/lsh-topbar.js"></script>
 <!-- 🟨 lesson cards framed as on the LSH Academy Index: navy along the top fading to gold, on a white card (the same file in every LSH course; the buttons stay as they are) -->
 <script src="/js/lsh-academy-frame.js"></script>
 <script src="/js/lsh-one-screen.js"></script>
+<!-- 💡 Tips in place of 📖 Reference: the band's button, and its panel shorter (tools, hints, the naming guide); last, so it wraps cmCaseFlow.full outermost -->
+<script src="/js/cm-tips-button.js"></script>
+<!-- 📤 Submit for grading in CaseWorX's tool window, only when an activity's 🚀 Launch opened it; none on the slide (after cm-vm-transcribe.js) -->
+<script src="/js/cm-cms-submit.js"></script>
 </body>
 </html>

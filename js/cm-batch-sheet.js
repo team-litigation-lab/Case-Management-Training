@@ -12,7 +12,8 @@
                         📝 Action Plan, Overall %, Result (the takeaways are not scored); sorted by Overall, nothing scored last
      feedbackHtml(row)  in the trainee's card: 💬 Feedback on Practical Activities, Day 1 … Day 5 collapsible, each activity
                         (Skill Activities and calls, Backup File Maintenance, Action Plans, the CMS file, the case
-                        exercises) with its score, ⭐ what they did well, 🔧 what to improve and 🧾 why, as text
+                        exercises) in the standard "why this score" columns: Activity · Score · 🧾 Why this score ·
+                        ⭐ What you did great · ❌ What was wrong · 💡 What could have been done better · 🚩 Red flag
      csvTables(rows)    ⬇ Download: the 🏅 Scores table first, then ✍️ Knowledge Checks, 📚 Lessons, 🧮 Grading systems,
                         🕒 Recent progress (every event), every trainee's feedback on practical activities, the 100-point
                         model in full, 📅 Day 1–5: Detailed Scores (every score in one row per trainee: the Overall and
@@ -569,7 +570,8 @@ function scoresSheet(rows){
 }
 /* 💬 FEEDBACK ON PRACTICAL ACTIVITIES, in the trainee's card: Day 1 … Day 5, each practical activity graded that day (the Skill
    Activities and calls, the Backup Drive's folders and Backup File Maintenance, the Action Plans, the CMS file and the case
-   exercises) with its score, ⭐ what they did well, 🔧 what to improve and 🧾 why: the graders' own words (dayParts) */
+   exercises) with its score, 🧾 why this score, ⭐ what was done great, ❌ what was wrong, 💡 what could have been done better and
+   🚩 any red flag: the graders' own words (dayParts), laid out by fbCols */
 function practOf(r, d, cx){
   return dayParts(r, d).filter(x => PRACT.has(x.grp))
     .concat(cx.filter(i => Number(i.day) === Number(d.cf.n)).map(i => ({grp: "cx", name: `🔎 ${clip(i.name, 90)}`, pct: num(i.pct), status: "Case exercise", why: String(i.note || "").replace(/^Day \d+ · /, ""), best: [], improve: []})));
@@ -606,15 +608,37 @@ function redFlags(y){
   return out;
 }
 const lis = (xs, none) => xs && xs.length ? `<ul>${xs.map(x => `<li>${E(String(x).replace(/\s+$/, ""))}</li>`).join("")}</ul>` : `<i>${none}</i>`;
+/* one activity's row, in the standard "why this score" columns (the EA/PA course's scorecard): 🧾 why this score (the grader's
+   own reason, then the pass mark), ⭐ what you did great (best), ❌ what was wrong (the finding of "to improve"), 💡 what could
+   have been done better (its fix), and 🚩 any red flag. A score saved without notes is explained from what was saved, and says
+   so, rather than left blank. The page and ⬇ Download both read it. */
+const passMark = () => ((window.cmScorecard || {}).model || {}).PASS || 80;
+const pillTone = p => { const M = (window.cmScorecard || {}).model; return p == null ? "" : M && M.mtone ? M.mtone(p) : tone(p); };
+function fbCols(y){
+  const sp = splitImprove(y.improve), P = passMark(), p = y.pct, noted = (y.best || []).length || (y.improve || []).length;
+  // (the grader's reason, a bullet per part; "attempt 2" and a bare date stay with the part they qualify)
+  const why = String(y.why || "").split(/\s+·\s+/).map(t => t.trim()).filter(Boolean)
+    .reduce((xs, t) => { if(xs.length && /^(attempt \d|[A-Z][a-z]{2} \d{1,2}, )/.test(t)) xs[xs.length - 1] += " · " + t; else xs.push(t); return xs; }, []);
+  if(p == null) why.push("Not scored yet, so it isn't in the score.");
+  else why.push(p >= P ? `${P}% passes: this passes.` : `Below the ${P}% pass mark.`);
+  const great = (y.best || []).slice(), wrong = sp.fix.slice(), better = sp.better.slice();
+  if(!noted && p != null){
+    if(p >= P) great.push(`Passed at ${p}%.`);
+    if(p < 100) wrong.push(`${100 - p}% of the points were lost. Which items were missed wasn't recorded for this activity.`);
+  }
+  const none = p == null ? "—" : "Nothing noted.";
+  return {why, great, wrong, better, flags: redFlags(y),
+    none: {great: none, wrong: p == null ? "—" : p >= 100 ? "Nothing — full marks." : "Nothing noted.", better: p == null ? "—" : p >= 100 ? "Keep the same approach." : "Nothing noted."}};
+}
 function fbRowHtml(y){
-  const sp = splitImprove(y.improve), fl = redFlags(y), cms = /CMS case file/i.test(y.name || "");
+  const c = fbCols(y), cms = /CMS case file/i.test(y.name || "");
   return `<tr class="bs-fb-it"><th scope="row" class="bs-fb-act"><span class="bs-fb-n">${E(y.name)}</span>${y.status ? `<small>${E(y.status)}</small>` : ""}</th>
-    <td class="bs-best">${lis(y.best, "Nothing noted by the grader.")}</td>
-    <td class="bs-imp">${lis(sp.fix, "Nothing noted by the grader.")}${cms ? `<p class="bs-fb-see">📋 Every missing item is listed in the 🗂 CMS Case File table, under “What the file is missing”.</p>` : ""}</td>
-    <td class="bs-why">${y.why ? E(y.why) : "<i>No reason recorded.</i>"}</td>
-    <td class="bs-better">${lis(sp.better, "—")}</td>
-    <td class="bs-flag">${fl.length ? fl.map(f => `<p><b>🚩 ${E(f.why)}</b><q>${E(f.quote)}</q></p>`).join("") : "<i>None</i>"}</td>
-    <td class="bs-fb-sc"><b class="${tone(y.pct)}">${y.pct != null ? y.pct + "%" : "—"}</b></td></tr>`;
+    <td class="bs-fb-sc"><b class="${pillTone(y.pct)}">${y.pct != null ? y.pct + "%" : "—"}</b></td>
+    <td class="bs-why">${lis(c.why, "—")}</td>
+    <td class="bs-best">${lis(c.great, c.none.great)}</td>
+    <td class="bs-imp">${lis(c.wrong, c.none.wrong)}${cms ? `<p class="bs-fb-see">📋 Every missing item is listed in the 🗂 CMS Case File table, under “What the file is missing”.</p>` : ""}</td>
+    <td class="bs-better">${lis(c.better, c.none.better)}</td>
+    <td class="bs-flag">${c.flags.length ? c.flags.map(f => `<p><b>🚩 ${E(f.why)}</b><q>${E(f.quote)}</q></p>`).join("") : "<i>None</i>"}</td></tr>`;
 }
 // top: HTML put first in the section (js/cm-scorecard.js gives its 🎯 Focus on table, so a trainer's card has one place for what to work on)
 function feedbackHtml(x, top){
@@ -622,16 +646,16 @@ function feedbackHtml(x, top){
   // (📤 Send progress, js/cm-send-progress.js: from the feedback's header too, as from the 🏅 Scores row; a trainer's only)
   const sp = window.cmSendProgress && state.isAdmin && !state.adminPreview ? `<button type="button" class="sp-row" aria-label="Send ${E(nameOf(r))} their progress" title="📤 Send ${E(nameOf(r))} their progress" onclick="event.stopPropagation();cmSendProgress.open('${E(String(r.id).replace(/\\/g, "\\\\").replace(/'/g, "\\'"))}')"></button>` : "";
   return `<section class="bs-fb" id="bs-fb-${E(String(r.id).replace(/[^A-Za-z0-9_-]/g, "_"))}"><h4>💬 Feedback on Practical Activities${sp}</h4>
-    ${top || ""}<p class="bs-fb-note">Each practical activity of the day, as its grader marked it: what they did well, what to improve, why, what could have been done better, any 🚩 red flag (and why it is one), and the score.</p>
+    ${top || ""}<p class="bs-fb-note">Each practical activity of the day, as its grader marked it: the score, why it scored that way, what was done great, what was wrong, what could have been done better, and any 🚩 red flag (and why it is one).</p>
     ${L.map(d => { const xs = practOf(r, d, cx), sc = xs.filter(y => y.pct != null), a = dayAvg(sc), k = r.id + "|" + d.id, open = !!B.fbOpen[k];
       return `<details class="bs-fb-day" data-day="${d.cf.n}"${open ? " open" : ""} ontoggle="cmBatchSheet.fbOpen('${E(k)}', this.open)"><summary><b>${dayLabel(d)}</b><span>${E(String(d.title).replace(/^Case Flow Day \d+ · /, ""))}</span><em class="${tone(a)}">${xs.length ? `${xs.length} activit${xs.length === 1 ? "y" : "ies"}${a != null ? ` · avg ${a}%` : ""}` : "Nothing yet"}</em></summary>
-        ${xs.length ? `<div class="bs-fb-wrap"><table class="bs-fb-t"><thead><tr><th>Activity</th><th>⭐ What they did well</th><th>🔧 What to improve</th><th>🧾 Why</th><th>💡 What could have been done better</th><th>🚩 Red flag</th><th>Score</th></tr></thead>
+        ${xs.length ? `<div class="bs-fb-wrap"><table class="bs-fb-t"><thead><tr><th>Activity</th><th>Score</th><th>🧾 Why this score</th><th>⭐ What you did great</th><th>❌ What was wrong</th><th>💡 What could have been done better</th><th>🚩 Red flag</th></tr></thead>
           <tbody>${xs.map(fbRowHtml).join("")}</tbody></table></div>` : `<p class="bs-none">No practical activity on this day yet.</p>`}</details>`; }).join("")}</section>`;
 }
 function feedbackTable(recs){
-  const rows = []; recs.forEach(r => { const cx = cxOf(r); cfDaysL().forEach(d => practOf(r, d, cx).forEach(y => { const sp = splitImprove(y.improve);
-    rows.push([nameOf(r), dayLabel(d), y.name, y.status || "", (y.best || []).join(" · "), sp.fix.join(" · "), y.why || "", sp.better.join(" · "), redFlags(y).map(f => `${f.why} (“${f.quote}”)`).join(" · "), pct(y.pct)].map(v => ({v}))); })); });
-  return {id: "feedback", title: "💬 Feedback on Practical Activities", head: ["Trainee", "Day", "Activity", "Status", "⭐ What they did well", "🔧 What to improve", "🧾 Why", "💡 What could have been done better", "🚩 Red flag", "Score"], rows};
+  const rows = []; recs.forEach(r => { const cx = cxOf(r); cfDaysL().forEach(d => practOf(r, d, cx).forEach(y => { const c = fbCols(y), j = (xs, none) => xs.length ? xs.join(" · ") : none;
+    rows.push([nameOf(r), dayLabel(d), y.name, y.status || "", pct(y.pct), j(c.why, "—"), j(c.great, c.none.great), j(c.wrong, c.none.wrong), j(c.better, c.none.better), c.flags.map(f => `${f.why} (“${f.quote}”)`).join(" · ")].map(v => ({v}))); })); });
+  return {id: "feedback", title: "💬 Feedback on Practical Activities", head: ["Trainee", "Day", "Activity", "Status", "Score", "🧾 Why this score", "⭐ What you did great", "❌ What was wrong", "💡 What could have been done better", "🚩 Red flag"], rows};
 }
 // everyone registered in the batch shown (waiting for approval and archived too, not rejected, not merged away): 📚 Lessons and
 // 🕒 Recent progress list them all, with the records the Scorecard read for the ones it scores
@@ -787,16 +811,15 @@ css.textContent = `
 /* the day's feedback as one table: an activity a row */
 .bs-fb-wrap{overflow-x:auto;border-top:1px solid #E3E6EF;}
 .bs-fb-t{width:100%;min-width:1100px;border-collapse:collapse;font:600 14px/1.45 Arial,sans-serif;color:#2E3450;}
-.bs-fb-t thead th{background:#262B45;color:#fff;font:800 14px Arial,sans-serif;text-align:left;padding:9px 10px;border-bottom:2px solid #DB8437;white-space:nowrap;}
+.bs-fb-t thead th{background:#262B45 !important;color:#fff !important;font:800 14px Arial,sans-serif;text-align:left;padding:9px 10px;border-bottom:2px solid #DB8437 !important;white-space:nowrap;}
 .bs-fb-t td,.bs-fb-t tbody th{padding:9px 10px;border-top:1px solid #E3E6EF;vertical-align:top;text-align:left;}
-.bs-fb-t tbody tr:nth-child(even) td,.bs-fb-t tbody tr:nth-child(even) th{background:#F8F9FC;}
-.bs-fb-t .bs-fb-act{font:800 15px Arial,sans-serif;color:#141A2E;min-width:170px;max-width:230px;}
+.bs-fb-t .bs-fb-act{font:800 15px Arial,sans-serif;color:#141A2E !important;background:#fff !important;min-width:170px;max-width:230px;text-transform:none !important;letter-spacing:0 !important;box-shadow:none !important;}
 .bs-fb-t .bs-fb-act small{display:block;margin-top:3px;font:700 13px Arial,sans-serif;color:#5F6368;}
 .bs-fb-t ul{margin:0;padding-left:18px;} .bs-fb-t li{margin:0 0 4px;} .bs-fb-t i{color:#5F6368;}
-.bs-fb-t td.bs-best{min-width:180px;} .bs-fb-t td.bs-imp{min-width:200px;} .bs-fb-t td.bs-why{min-width:150px;color:#3E4560;} .bs-fb-t td.bs-better{min-width:200px;}
+.bs-fb-t td.bs-best{min-width:180px;background:#F1F9F3;} .bs-fb-t td.bs-imp{min-width:200px;background:#FDF3F0;} .bs-fb-t td.bs-why{min-width:180px;color:#3E4560;background:#F7F8FC;} .bs-fb-t td.bs-better{min-width:200px;background:#F2F4FB;}
 .bs-fb-t td.bs-flag{min-width:200px;} .bs-fb-t td.bs-flag p{margin:0 0 6px;} .bs-fb-t td.bs-flag b{display:block;color:#A50E0E;}
 .bs-fb-t td.bs-flag q{display:block;margin-top:2px;color:#5F6368;font-weight:600;font-style:italic;}
-.bs-fb-t td.bs-fb-sc{white-space:nowrap;text-align:center;} .bs-fb-t td.bs-fb-sc b{display:inline-block;padding:3px 10px;border-radius:6px;background:#F1F3F4;font:800 15px Arial,sans-serif;}
+.bs-fb-t td.bs-fb-sc{white-space:nowrap;text-align:center;width:72px;} .bs-fb-t td.bs-fb-sc b{display:inline-block;min-width:48px;padding:3px 10px;border-radius:999px;background:#F1F3F4;font:800 14px Arial,sans-serif;}
 .bs-fb-t td.bs-fb-sc b.gs-hi{background:#E6F4EA;color:#0B5D1E;} .bs-fb-t td.bs-fb-sc b.gs-mid{background:#FFF4E0;color:#7A4B00;} .bs-fb-t td.bs-fb-sc b.gs-lo{background:#FCE8E6;color:#A50E0E;}
 .bs-fb-see{margin:6px 0 0;font:700 13.5px Arial,sans-serif;color:#46508A;}
 /* the Day % cell: the score, then the day's slides and work as a small table */

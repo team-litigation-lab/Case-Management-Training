@@ -58,7 +58,7 @@ const D3 = [
     if (!s.tools) fail(`${id}: the task's other tools and its Source Files should be off the foot bar, kept for 📖 Reference (.cfx-tools-stash)`);
     if (!s.brief) fail(`${id}: 📂 Your Case and the steps should be one instruction card (.cfx-brief)`);
     if (s.pts) fail(`${id}: a point counter shows before anything is submitted`);
-    if (!s.foot || !/Submit →/.test(s.footText) || /AI Grader/.test(s.footText)) fail(`${id}: the foot bar should end in Submit → (never "AI Grader"): "${s.footText}"`);
+    if (!s.foot || /Submit/.test(s.footText) || /AI Grader/.test(s.footText)) fail(`${id}: the foot bar should hold 🚀 Launch and no Submit (it is in CaseWorX's window, js/cm-cms-submit.js) nor "AI Grader": "${s.footText}"`);
     if (!s.footInside) fail(`${id}: the foot bar is not on screen at 1366×768`);
     if (s.small.length) fail(`${id}: type under 16px bold: ${JSON.stringify(s.small)}`);
     if (s.steps.some(t => /\bX of Y\b/.test(t) || !/[.?!]$/.test(t))) fail(`${id}: every step should be a full sentence: ${JSON.stringify(s.steps)}`);
@@ -88,10 +88,16 @@ const D3 = [
       if (!l.opened.some(u => /^https:\/\/drive\.google\.com\//.test(u))) fail(`🚀 Launch did not open Google Drive in a new tab: ${JSON.stringify(l.opened)}`);
       await page.evaluate(() => { if (typeof closeToolFrame === 'function') closeToolFrame(); });
 
-      // Submit →: Your Task turns into the AI Grader, on the same slide
+      // 📤 Submit for grading, in the CaseWorX window an activity's 🚀 Launch opened (js/cm-cms-submit.js): the slide turns
+      // into the AI Grader beside it; CaseWorX opened any other way has no Submit
       await go(3, 'd3-drive', 'task'); await page.waitForTimeout(400);
-      await page.click('#app .cfx-grade-go'); await page.waitForTimeout(500);
-      if (!await page.evaluate(() => !!document.querySelector('#app .cf-card.cfx-check [data-aig]'))) fail('Submit to AI Grader → did not open the AI Grader on the slide');
+      await page.evaluate(() => cmCaseFlow.tool('cms', 'd3-drive')); await page.waitForTimeout(600);
+      if (!await page.$('#cm-toolframe .cm-tf-submit')) fail('the CaseWorX window an activity opened has no 📤 Submit for grading');
+      else { await page.click('#cm-toolframe .cm-tf-submit'); await page.waitForTimeout(600);
+        if (!await page.evaluate(() => !!document.querySelector('#app .cf-card.cfx-check [data-aig]'))) fail('📤 Submit for grading did not open the AI Grader on the slide'); }
+      await page.evaluate(() => { closeToolFrame(); openTool('cms', 'split'); }); await page.waitForTimeout(400);
+      if (await page.$('#cm-toolframe .cm-tf-submit')) fail('CaseWorX opened from the 🧰 Tools menu (no activity) shows 📤 Submit for grading');
+      await page.evaluate(() => { closeToolFrame(); cmCaseFlow.clearModes && cmCaseFlow.clearModes(); });
     } else {
       // 🚀 Launch, as a trainee with no linked Drive: the CMS beside the slide and the Backup Drive panel to link it
       await page.evaluate(() => { window.__opened = []; });
@@ -113,5 +119,5 @@ const D3 = [
 
   await browser.close();
   if (failures.length) { console.log('✗ Your Task slide:\n  ' + failures.join('\n  ')); process.exit(1); }
-  console.log('Your Task slide: one column, steps in full sentences, the rules in Reference, one instruction card, one foot bar: Launch LSH CaseWorX & Google Drive and Submit, which opens the AI Grader on the slide; the tools of the task (with the Source Files) in Reference.');
+  console.log('Your Task slide: one column, steps in full sentences, the rules in Reference, one instruction card, one foot bar: Launch LSH CaseWorX & Google Drive (📤 Submit for grading is in the CaseWorX window it opens, and opens the AI Grader on the slide); the tools of the task (with the Source Files) in Reference.');
 })().catch(e => { console.log('✗ ' + (e && e.stack || e)); process.exit(1); });

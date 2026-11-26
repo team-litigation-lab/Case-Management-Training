@@ -1,8 +1,8 @@
-// @check browser — 📖 Additional Reference opens in a panel over the slide, in the same window (no new tab), scrolls inside, and ✕ or Esc goes back
+// @check browser — 💡 Tips (once 📖 Additional Reference) opens in a panel over the slide, in the same window (no new tab), scrolls inside, carries its hints, and ✕ or Esc goes back
 // 📖 Additional Reference (js/cm-case-flow.js cmCaseFlow.full): the block's full text, embedded in the deck: a panel over
 // the slide it was opened from, by 📖 Reference in the block's title band. Checked on a lesson and an activity at 1366×768: no tab or window opens; the panel
 // sits inside the slide and inside the screen; its text scrolls inside it (the page never scrolls); it carries the
-// block's full text; ✕ Back to the slide and Esc close it, and moving to the next slide leaves no panel behind.
+// slide's 💡 Hints (js/cm-tips-button.js: the lesson's key points; an activity's tools too), not the full text; ✕ Back to the slide and Esc close it, and moving to the next slide leaves no panel behind.
 // Usage: node .github/scripts/reference-panel.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -32,13 +32,13 @@ const failures = []; const fail = (m) => failures.push(m);
                 const card = document.querySelector('.cf-card'), b = o.querySelector('.cfx-ref-b'), ro = o.getBoundingClientRect(), rc = card.getBoundingClientRect();
                 return { inCard: card.contains(o), inside: ro.top >= rc.top - 1 && ro.bottom <= rc.bottom + 1 && ro.bottom <= innerHeight + 1,
                     scrolls: b.scrollHeight > b.clientHeight ? getComputedStyle(b).overflowY : 'fits', pageScroll: document.scrollingElement.scrollHeight > innerHeight + 2,
-                    text: b.textContent.length, head: o.querySelector('.cfx-ref-h').textContent };
+                    text: b.textContent.length, hints: !!b.querySelector('.cfx-tips-hints li'), tools: !!b.querySelector('.cfx-ref-tools'), head: o.querySelector('.cfx-ref-h').textContent, btn: (document.querySelector('.cf-card .cfx-ref-open') || {}).textContent || '' };
             });
             const where = `${kind} (${at.title})`;
-            if (!r) { fail(`${where}: 📖 Additional Reference opened no panel`); continue; }
+            if (!r) { fail(`${where}: 💡 Tips opened no panel`); continue; }
             if (!r.inCard || !r.inside) fail(`${where}: the panel isn't over the slide, inside the screen: ${JSON.stringify(r)}`);
             if (r.scrolls !== 'fits' && r.scrolls !== 'auto' && r.scrolls !== 'scroll') fail(`${where}: the reference runs past the panel without scrolling inside it: ${JSON.stringify(r)}`);
-            if (r.text < 300 || !/Additional Reference/.test(r.head)) fail(`${where}: the panel doesn't carry the block's full text: ${JSON.stringify(r)}`);
+            if (!/💡 Tips/.test(r.head) || !/💡 Tips/.test(r.btn) || !r.hints || (kind === 'activity' && !r.tools) || r.text < 80) fail(`${where}: the 💡 Tips panel should carry the slide's hints${kind === 'activity' ? ' and the task\'s tools' : ''}, under 💡 Tips: ${JSON.stringify(r)}`);
             if (kind === 'lesson') { await page.click('.cfx-ref-x'); }
             else { await page.keyboard.press('Escape'); }
             await page.waitForTimeout(300);
@@ -51,6 +51,6 @@ const failures = []; const fail = (m) => failures.push(m);
         if (tabs) fail(`📖 Additional Reference opened ${tabs} new tab(s)/window(s): it should stay in the deck`);
     } catch (e) { fail(`the check stopped: ${e.message}`); }
     await browser.close();
-    if (failures.length) { console.error('📖 Additional Reference check FAILED:\n - ' + failures.join('\n - ')); process.exit(1); }
-    console.log('📖 Additional Reference opens over the slide in the same window (a lesson and an activity), scrolls inside, carries the full text, and closes with ✕, Esc or the next slide.');
+    if (failures.length) { console.error('💡 Tips check FAILED:\n - ' + failures.join('\n - ')); process.exit(1); }
+    console.log('💡 Tips opens over the slide in the same window (a lesson and an activity), scrolls inside, carries its hints (and an activity\'s tools), and closes with ✕, Esc or the next slide.');
 })();
