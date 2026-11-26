@@ -1999,6 +1999,41 @@ async function docFromR2(env, request, path) {
   }
 }
 
+/* 🤖 The AI check: one small grading, sent as a trainee's is → {ok, via, host, key, status, ms, model, error, claude}.
+   Run every 2 hours by the cron (scheduled) and by a trainer's 🤖 Run it now; each result is kept (cm:ai-check:last,
+   with the day's runs in cm:ai-check:day), so ⚙ Settings shows the latest without running it again. */
+const AI_CHECK_LAST = "ai-check:last", AI_CHECK_DAY = "ai-check:day";
+async function aiCheckRun(env) {
+  const via = gatewayOn(env) ? "gateway" : geminiKeyNames(env).length ? "gemini" : "none", cMark = claudeMark();
+  let host = ""; try { host = via === "gateway" ? new URL(String(env.PORTAL_URL || "https://cm-training-activity.pages.dev")).host : ""; } catch (e) { host = String(env.PORTAL_URL || ""); }
+  if (via === "none" && !claudeOn(env)) return ({ ok: false, via, error: "No AI is set up on this Worker: add ANTHROPIC_API_KEY (Claude), AI_GATEWAY_SECRET (the Portal's AI gateway) or GEMINI_API_KEY in Cloudflare." });
+  const t0 = Date.now(), mark = refusalMark();
+  const res = await callGemini(env, JSON.stringify({ model: "gemini", feature: "grading", max_tokens: 128, messages: [{ role: "user", content: 'A connection check from the Case Management course. Reply with only this JSON object: {"ok": true}' }] }), "ai-check");
+  const b = await res.json().catch(() => ({}));
+  const text = (((b.content || [])[0]) || {}).text || "";
+  // 🤖 Claude answered (worker-claude.js); or it failed, and what follows says what answered instead, with claude: {model, status, reason}
+  if (b.provider === "anthropic") return ({ ok: res.ok && !!text, via: "anthropic", status: res.status, ms: Date.now() - t0, model: b.model || "", error: text ? "" : "Claude gave no answer." });
+  const claude = claudeOn(env) ? Object.assign({ model: claudeModel(env) }, claudeFailure(cMark) || { reason: "no answer" }) : undefined;
+  const key = via === "gateway" ? await keyPrint(env.AI_GATEWAY_SECRET) : null, refusedNow = via === "gateway" ? lastRefusal(mark) : null;
+  if (refusedNow && res.ok && text) return ({ ok: false, via, host, key, fallback: true, status: refusedNow.status, ms: Date.now() - t0, model: b.model || "", error: `Portal AI gateway: Not allowed (${refusedNow.status}). Grading carries on with this site's own Gemini keys for now.`, claude });
+  return ({ ok: res.ok && !!text, via, host, key, status: res.status, ms: Date.now() - t0, model: b.model || "", error: res.ok && text ? "" : String((b.error && (b.error.message || b.error)) || b.error || "The AI gave no answer (" + res.status + ")."), claude });
+}
+async function aiCheckSave(env, r, by) {
+  const out = Object.assign({}, r, { at: new Date().toISOString(), by });
+  const kv = kvOf(env);
+  try {
+    await kv.put(AI_CHECK_LAST, JSON.stringify(out));
+    const day = out.at.slice(0, 10), prev = JSON.parse((await kv.get(AI_CHECK_DAY)) || "null");
+    const runs = prev && prev.day === day ? prev.runs : [];
+    runs.push({ at: out.at, ok: !!out.ok, by, via: out.via || "", error: String(out.error || "").slice(0, 200) });
+    await kv.put(AI_CHECK_DAY, JSON.stringify({ day, runs: runs.slice(-24) }));   // (a count to show: two runs at the same moment may keep one)
+  } catch (e) {}
+  return out;
+}
+async function aiCheckLatest(env) {
+  try { const kv = kvOf(env); return { last: JSON.parse((await kv.get(AI_CHECK_LAST)) || "null"), day: JSON.parse((await kv.get(AI_CHECK_DAY)) || "null") }; } catch (e) { return { last: null, day: null }; }
+}
+
 export default {
   async fetch(request, env) {
     const kv = kvOf(env);
@@ -2422,22 +2457,13 @@ export default {
 
       /* ---------- AI proxy (signed-in users only, so strangers can't spend your credits) ---------- */
       // (the path keeps its old name so pages already open in browsers keep working)
-      /* ---------- 🤖 the AI check (Admin → ⚙ Settings, js/cm-ai-check.js): one small grading, sent as a trainee's is ---------- */
+      /* ---------- 🤖 the AI check (Admin → ⚙ Settings, js/cm-ai-check.js): the latest result ({latest: true}), or run it now ---------- */
       if (path === "/api/ai-check") {
         if (tok.role !== "a") return json({ error: "Only a trainer can run the AI check." }, 403);
-        const via = gatewayOn(env) ? "gateway" : geminiKeyNames(env).length ? "gemini" : "none", cMark = claudeMark();
-        let host = ""; try { host = via === "gateway" ? new URL(String(env.PORTAL_URL || "https://cm-training-activity.pages.dev")).host : ""; } catch (e) { host = String(env.PORTAL_URL || ""); }
-        if (via === "none" && !claudeOn(env)) return json({ ok: false, via, error: "No AI is set up on this Worker: add ANTHROPIC_API_KEY (Claude), AI_GATEWAY_SECRET (the Portal's AI gateway) or GEMINI_API_KEY in Cloudflare." });
-        const t0 = Date.now(), mark = refusalMark();
-        const res = await callGemini(env, JSON.stringify({ model: "gemini", feature: "grading", max_tokens: 128, messages: [{ role: "user", content: 'A connection check from the Case Management course. Reply with only this JSON object: {"ok": true}' }] }), "ai-check");
-        const b = await res.json().catch(() => ({}));
-        const text = (((b.content || [])[0]) || {}).text || "";
-        // 🤖 Claude answered (worker-claude.js); or it failed, and what follows says what answered instead, with claude: {model, status, reason}
-        if (b.provider === "anthropic") return json({ ok: res.ok && !!text, via: "anthropic", status: res.status, ms: Date.now() - t0, model: b.model || "", error: text ? "" : "Claude gave no answer." });
-        const claude = claudeOn(env) ? Object.assign({ model: claudeModel(env) }, claudeFailure(cMark) || { reason: "no answer" }) : undefined;
-        const key = via === "gateway" ? await keyPrint(env.AI_GATEWAY_SECRET) : null, refusedNow = via === "gateway" ? lastRefusal(mark) : null;
-        if (refusedNow && res.ok && text) return json({ ok: false, via, host, key, fallback: true, status: refusedNow.status, ms: Date.now() - t0, model: b.model || "", error: `Portal AI gateway: Not allowed (${refusedNow.status}). Grading carries on with this site's own Gemini keys for now.`, claude });
-        return json({ ok: res.ok && !!text, via, host, key, status: res.status, ms: Date.now() - t0, model: b.model || "", error: res.ok && text ? "" : String((b.error && (b.error.message || b.error)) || b.error || "The AI gave no answer (" + res.status + ")."), claude });
+        const b = await request.json().catch(() => ({}));
+        if (b && b.latest) return json(await aiCheckLatest(env));
+        const r = await aiCheckSave(env, await aiCheckRun(env), "trainer");
+        return json(Object.assign({}, r, await aiCheckLatest(env)));
       }
       if (path === "/api/claude" || path === "/api/ai") {
         if (!geminiKeyNames(env).length && !gatewayOn(env) && !claudeOn(env)) return json({ error: "No AI key is configured on this Worker. Add GEMINI_API_KEY as a Secret in Cloudflare." }, 500);
@@ -2529,6 +2555,14 @@ export default {
   /* ✍ Every night (wrangler.json "triggers"): every linked Backup Drive graded, its written work by the AI (worker-drive-work.js);
      ⚡ the other hours, only the drives whose trainee did something since they were last looked at (driveWorkActive) */
   async scheduled(event, env, ctx) {
+    // 🤖 the AI check, by itself every 2 hours (the hourly cron's even UTC hours), so ⚙ Settings always holds a recent result.
+    // Only a real firing of the hourly cron (Cloudflare always sends its scheduledTime), and finished before the Drive work
+    // starts: its result reads the AI routes' refusals and failures as they stand (worker-ai-key.js, worker-claude.js), so
+    // a Drive grading's AI call made at the same time must not be taken for the check's.
+    const t = Number(event && event.scheduledTime);
+    if (String(event && event.cron) === "0 * * * *" && isFinite(t) && t > 0 && new Date(t).getUTCHours() % 2 === 0) {
+      try { await aiCheckSave(env, await aiCheckRun(env), "auto"); } catch (e) { console.error(e); }
+    }
     try { await (cronRun(event) === "active" ? driveWorkActive : driveWorkNightly)(env, driveWorkDeps()); } catch (e) { console.error(e); }   // the outcome is kept in cm:drivework-run / cm:drivework-active
   }
 };
