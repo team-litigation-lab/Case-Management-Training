@@ -240,9 +240,13 @@ const SOURCES = [
       Object.values(cf.injects || {}).filter(x => x && x.outcome === "missed" && !best["cf-" + x.blockId])
         .forEach(x => out.push({name: `${x.who}: injected call`, pct: 0, note: `Missed · ${fmt(x.at)}`}));
       return out; }},
-  {id: "ps", icon: "🧰", label: "Portal Simulators", about: "The best result on each other Training Portal simulator: Medical Records Requests, Court E-Filing, Demand Packets & Binders (the email and calendaring simulators have their own).", dims: ["pc", "na"], how: "The simulator's own grader, reported by the Portal: the best run.",
-    items: c => Object.entries((c.sim && c.sim.best) || {}).filter(([k, b]) => simKind(k) === "other" && b && typeof b.score === "number").map(([k, b]) => ({
-      name: k, pct: num(b.score), note: `${b.count || 1} run${(b.count || 1) === 1 ? "" : "s"}${b.at ? " · " + fmt(b.at) : ""}`}))},
+  {id: "ps", icon: "🧰", label: "Portal Simulators", about: "The best result on each other Training Portal simulator: Medical Records Requests, Court E-Filing, Demand Packets & Binders (the email and calendaring simulators have their own).", dims: ["pc", "na"], how: "Scored by each simulator on the Training Portal. Your best run on each one counts.",
+    // a trainer's note on a simulator (js/cm-trainer-notes.js: feedback:<id>.activities["ps:<simulator>"]) and, under the pass mark, what to do next
+    items: c => Object.entries((c.sim && c.sim.best) || {}).filter(([k, b]) => simKind(k) === "other" && b && typeof b.score === "number").map(([k, b]) => {
+      const n = (((c.fb || {}).activities) || {})["ps:" + k], p = num(b.score);
+      return {name: k, pct: p, note: [`${b.count || 1} run${(b.count || 1) === 1 ? "" : "s"}, best counts${b.at ? " · " + fmt(b.at) : ""}`,
+        p != null && p < 80 ? "What you could have done better: open this simulator's results on the Training Portal, fix the items it marked wrong, then run it again" : "",
+        n && n.comment ? `🧑‍🏫 Your trainer: "${String(n.comment).slice(0, 300)}"` : ""].filter(Boolean).join(" · ")}; })},
   {id: "tr", icon: "📐", label: "Trainer Rubric", about: "The trainer's rubric score on each day's sent review: a tier and points in each of the four dimensions (📐 Feedback Rubric).",
     dims: ["pc", "na", "cp", "cd"], how: "The trainer's points out of 100 (25 / 25 / 30 / 20) on the Feedback Rubric's tiers; a critical item marked breached fails the safety gate.",
     items: c => Object.entries(((c.fb || {}).days) || {}).filter(([, v]) => window.cmRubric && cmRubric.counts(v)).map(([d, v]) => { const t = cmRubric.total(v.rubric), x = cmRubric.tierOf(t);
@@ -843,7 +847,7 @@ window.cmScorecard = {
   // a row of 🏅 Scores: that trainee's card (shown if only another one was), scrolled to
   pick(id){ ALL.pick = id; ALL.only = id; render();
     setTimeout(() => { const d = document.getElementById("bs-pt-" + domId(id)); if(d) d.scrollIntoView({behavior: "smooth", block: "start"}); }, 30); },
-  csv, compute, sources: SOURCES, model: MODEL, kcBest, kcPassed, kcDevice, cfDay, lcMods, dayItems, skillActs, actionPlans,
+  csv, compute, sources: SOURCES, model: MODEL, simKind, kcBest, kcPassed, kcDevice, cfDay, lcMods, dayItems, skillActs, actionPlans,
   // ⭐ THE overall score, the one shared function: every surface that shows a trainee's Overall or a day's score calls it
   // (the trainee card, 🏅 Scores, the Batch Sheet's Scores, Score Card, Day by Day and cards, the trainee's My Scores)
   overall: c => { const m = MODEL.compute(c); return {pct: m.overall, comp: m.comp, status: m.status, why: overallTip(m),
