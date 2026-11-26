@@ -417,6 +417,7 @@ td.rk-end{font-weight:700;} td.rk-tier-hi{color:#17703A !important;} td.rk-tier-
 const css = document.createElement("style"); css.id = "cm-rankings";
 css.textContent = SHEET_CSS + `
 .rk-wrap{background:#FFFFFF;border-radius:10px;overflow:hidden;}
+@media (max-width:760px){ .rk-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;} .rk-wrap .rk-table{min-width:720px;} }   /* a phone: the table keeps its columns readable and scrolls sideways */
 .rk-banner .rk-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
 .rk-bar button,.rk-bar select,.rk-links button,.rk-pub-bar button{font:700 14px Arial,Helvetica,sans-serif;padding:7px 12px;border-radius:8px;border:1px solid #9CA3BD;background:#FFFFFF;color:#1E2340;cursor:pointer;}
 .rk-bar button:hover,.rk-links button:hover,.rk-pub-bar button:hover{border-color:#DB8437;}

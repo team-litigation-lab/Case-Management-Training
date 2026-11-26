@@ -4711,6 +4711,7 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx .cfx-docline-k{flex:none;font:800 18px/1.3 var(--font-ui);color:#1E2340;white-space:nowrap;}
 .cfx .cfx-docline-t{flex:1 1 auto;font:700 clamp(16px,2.2vh,20px)/1.25 var(--font-ui);color:#1E2340;text-align:left !important;}
 .cfx .cfx-docline-f{flex:none;font:800 16px/1.2 var(--font-ui);color:#1E2340;background:#DB8437;border-radius:999px;padding:5px 12px;text-decoration:none;white-space:nowrap;}
+@media (max-width:760px){ .cfx .cfx-docline{flex-wrap:wrap;gap:4px 10px;padding:6px 12px;} .cfx .cfx-docline-t{flex-basis:100%;} .cfx .cfx-docline-k{white-space:normal;} }   /* a phone: the document's name, its line under it, then On John Doe's file */
 /* a drawn lesson's one slide (The Rules, lean): the points, the box beside them and the UPL line closer together, so it holds its why line at full size */
 .cfx.cfx-lesson.cfx-rules .cfx-whyline,.cfx.cfx-lesson.cfx-rules .cfx-docline{margin-bottom:6px;}
 .cfx.cfx-lesson.cfx-rules .cfx-points{gap:8px;}
@@ -6004,7 +6005,8 @@ document.head.appendChild(st);
 .cfx-ex-list button{width:100%;text-align:left;display:flex;gap:10px;align-items:baseline;border:1.5px solid #DDE1EA;background:#fff;border-radius:10px;padding:8px 14px;font:700 18px/1.35 'Inter',sans-serif;color:#1E2340;cursor:pointer;}
 .cfx-ex-list button:hover{border-color:#DB8437;} .cfx-ex-list button span{font:700 15px 'IBM Plex Mono',monospace;color:#A4470F;flex:0 0 auto;}
 .cfx-ex-go{display:flex;justify-content:flex-end;} .cfx-ex-go .btn{font-size:17px;padding:12px 22px;}
-@media(max-width:900px){ .cfx-bd-case{grid-template-columns:1fr;grid-template-areas:'k' 'h' 'p' 'dl' 'b';} .cfx-bd-steps,.cfx-ex-list{grid-template-columns:1fr;} }`;
+@media(max-width:900px){ .cfx-bd-case{grid-template-columns:1fr;grid-template-areas:'k' 'h' 'p' 'dl' 'b';} .cfx-bd-steps,.cfx-ex-list{grid-template-columns:minmax(0,1fr);} }
+@media(max-width:760px){ .cfx-bd-steps li{grid-template-columns:minmax(0,1fr);gap:4px;padding:9px 12px;} .cfx-bd-steps .cfx-bd-t{flex-direction:row;align-items:baseline;gap:8px;} .cfx-bd-steps li .cm-cg-btn{max-width:100%;white-space:normal;} }   /* a phone: each step's time over its text, not beside it */`;
   document.head.appendChild(st);
 })();
 
@@ -6144,6 +6146,7 @@ body:not(.ft-fit) #lessonStage > .slide-nav{margin-top:8px !important;margin-bot
 .cfx-rf-i{display:inline-flex;}
 .cfx-rf-h b{font:800 17px var(--font-ui);letter-spacing:.08em;text-transform:uppercase;color:#7F1D1D;}
 .cfx-rf-own{margin-left:auto;font:800 17px var(--font-ui);background:#1E2340;color:#fff;border-radius:999px;padding:3px 14px;white-space:nowrap;}
+@media (max-width:760px){ .cfx-rf-h{flex-wrap:wrap;} .cfx-rf-own{margin-left:0;white-space:normal;} .cfx-rf-r{grid-template-columns:minmax(0,1fr);gap:0;} }   /* a phone: the owner under the flag, each label over its line */
 .cfx-rf dl{margin:0;display:flex;flex-direction:column;gap:2px;}
 .cfx-rf-r{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:baseline;}
 .cfx-rf dt{font:800 17px var(--font-ui);color:#B3261E;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;}

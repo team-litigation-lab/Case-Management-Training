@@ -81,6 +81,9 @@
 .cfx-deck > .cfx-ribbon.cfx-what > span{display:flex !important;align-items:center;justify-content:center;gap:12px;text-transform:none !important;letter-spacing:0 !important;padding-top:3px !important;padding-bottom:3px !important;}
 .cfx-what-k{font:800 16px/1.2 'Inter',sans-serif;font-style:normal;text-transform:uppercase;letter-spacing:.08em;background:#DB8437;color:#1E2340;border-radius:999px;padding:2px 12px;white-space:nowrap;}
 .cfx-what-v{font:800 clamp(18px,1.45vw,22px)/1.2 'Poppins','Inter',sans-serif;color:#fff;letter-spacing:.02em;}
+/* a phone: the band's label and title share a line only when the title has room, and 📖 Reference goes under them (side by
+   side, the title was squeezed to a word or a letter a line) */
+@media (max-width:760px){ .cfx-deck > .cfx-ribbon.cfx-ribbon-ref{flex-wrap:wrap !important;} .cfx-deck > .cfx-ribbon.cfx-ribbon-ref > span{flex:1 1 100% !important;} .cfx-deck > .cfx-ribbon.cfx-ribbon-ref > :not(span){flex:1 1 auto !important;} .cfx-deck > .cfx-ribbon.cfx-what > span{flex-wrap:wrap !important;gap:4px 10px !important;} .cfx-what-v{flex:1 1 150px;min-width:0;} }
 /* "Next up" gives the same title on two lines beside its label (it was cut after one), in the room the bar already has */
 #lessonStage > .slide-nav .nav-nextup{flex-direction:row;align-items:center;gap:10px;padding:3px 12px;}
 #lessonStage > .slide-nav .nav-nextup b{flex:0 0 auto;}

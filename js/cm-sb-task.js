@@ -141,7 +141,7 @@ body .cfx .cfx-task1 .cfx-docs-pop button,body .cfx .cfx-task1 .cfx-docs-pop a,b
 .cfx-guide-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:10px;}
 .cfx-guide-g b{display:block;font:800 16px var(--font-ui);color:#1E2340;}
 .cfx-guide-g p{margin:4px 0 0;font:600 16px/1.4 var(--font-ui);color:#141A2E;}
-@media (max-width:760px){ .cfx-task1 .cfx-task-foot{flex-wrap:wrap;} .cfx-task1 .cfx-grade-go{margin-left:0;width:100%;} .cfx-task1 .cfx-task-foot .cfx-of{margin-left:0;} .cfx-task1 .cfx-tools-pop{width:min(660px,92vw);} }
+@media (max-width:760px){ .cfx-task1 .cfx-yc{flex-wrap:wrap;gap:6px 10px;} .cfx-task1 .cfx-yc-t{flex:1 1 100%;min-width:0;} .cfx-task1 .cfx-task-acts .cfx-call{grid-template-columns:minmax(0,1fr);} .cfx-task1 .cfx-task-acts .cfx-call .btn{grid-column:1;grid-row:auto;justify-self:start;max-width:100%;white-space:normal;} .cfx-task1 .cfx-task-foot{flex-wrap:wrap;} .cfx-task1 .cfx-grade-go{margin-left:0;width:100%;} .cfx-task1 .cfx-task-foot .cfx-of{margin-left:0;} .cfx-task1 .cfx-tools-pop{width:min(660px,92vw);} }
 `;
 document.head.appendChild(css);
 /* the 🧰 Tools menu opens upward over the steps: on a slide the layout enlarges (cm-slide-layout.js zooms the task), a long
@@ -149,9 +149,16 @@ document.head.appendChild(css);
    could not be clicked. It is held inside the card: shorter, and it scrolls. */
 function fitTools(menu){
   const pop = menu && menu.open && menu.querySelector(".cfx-tools-pop"); if(!pop) return;
-  pop.style.maxHeight = "";
+  pop.style.maxHeight = ""; pop.style.left = ""; pop.style.width = "";
   const box = menu.closest(".cfx-body") || menu.closest(".cf-card"); if(!box) return;
-  const lim = box.getBoundingClientRect().top + 6, r = pop.getBoundingClientRect(), over = lim - r.top;
+  // and sideways: on a phone the menu, opening rightward from its button, ran past the card's right edge, which cut it off
+  const bx = box.getBoundingClientRect(), r0 = pop.getBoundingClientRect(), k = r0.width / (pop.offsetWidth || r0.width) || 1;
+  if(r0.width && r0.right > bx.right - 6){
+    const w = Math.min(r0.width, bx.width - 12);
+    if(w < r0.width) pop.style.width = Math.floor(w / k) + "px";
+    pop.style.left = Math.floor((bx.right - 6 - w - menu.getBoundingClientRect().left) / k) + "px";
+  }
+  const lim = bx.top + 6, r = pop.getBoundingClientRect(), over = lim - r.top;
   if(over <= 0 || !pop.offsetHeight) return;
   const ratio = r.height / pop.offsetHeight || 1;   // the enlarged slide's zoom
   pop.style.maxHeight = Math.max(120, Math.floor((r.height - over) / ratio)) + "px";
