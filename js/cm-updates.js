@@ -242,7 +242,7 @@ window.EXTRA_ROUTE_VIEWS = ["casedocs", "drafting", "scorecard", "knowtools"].co
 window.EXTRA_ROUTE_LABELS = {clientprofile:"Case Profile", casedocs:"Documents", practice:"Practice", notes:"Notes",
   drafting:"Drafting Tools", handouts:"LSH Atlas", scorecard:"My Scorecard", lor:"Drafting Tools", hipaa:"Drafting Tools", medprov:"Drafting Tools"};
 function renderTopbar(){   // trainees never see an admin sign-in (🛡 Admin is for admins only): admins come in from the Portal (?admin=1)
-  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case Profile"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["notes","Notes"],["handouts","📚 LSH Atlas"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
+  let views = [["dashboard","📚 Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case Profile"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["notes","🗒 Notes"],["handouts","📚 LSH Atlas"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
   if(state.isAdmin){
     // Admin is a trainer monitoring dashboard, not a trainee workspace — hide
     // the trainee-facing-only views that have no role here.
@@ -266,10 +266,11 @@ function renderTopbar(){   // trainees never see an admin sign-in (🛡 Admin is
         <div class="nav">
           ${views.map(([id,label])=>`<button class="${(state.view===id || (id==="practice" && PRACTICE_SUBVIEWS.includes(state.view)) || (id==="drafting" && DRAFTING_SUBVIEWS.includes(state.view)))?'active':''}" onclick="goto('${id}')">${label}${id==="tasks" && openTasksCount() ? `<span class="nav-badge">${openTasksCount()}</span>` : ""}${id==="activities" && typeof daUnreadCount==="function" && daUnreadCount() ? `<span class="nav-badge nav-badge-act">${daUnreadCount()}</span>` : ""}</button>${id==="practice" && window.cmToolsMenuHTML ? cmToolsMenuHTML() : ""}`).join("")}
           ${(state.traineeId && !state.isAdmin) ? `<button type="button" class="nav-focus" onclick="openFocusPanel()" title="My Focus — trainer feedback and what to work on next">🎯 Focus${focusNewCount()?`<span class="nav-badge">${focusNewCount()}</span>`:""}</button>` : ""}
+          ${/* the Foundational Training's order (js/lsh-program.js there): … 👁 Switch View · 🛡 Admin · 🎓 LSH Academy Index (js/portal-link.js) */""}
           ${state.adminPreview
-            ? `<button type="button" class="nav-viewswitch" onclick="setAdminViewMode('admin')" title="Return to the admin (trainer) view">🛡 Back to Admin view</button>`
-            : (state.isAdmin ? `<button class="${state.view==='admin'?'active':''}" onclick="openAdmin()">🛡 Admin</button>` : "")}
-          ${state.isAdmin ? `<button type="button" class="nav-viewswitch" onclick="setAdminViewMode('trainee')" title="See the portal exactly as a trainee does — no trainer tools or admin pages">👁 Trainee view</button>` : ""}
+            ? `<button type="button" class="nav-viewswitch" onclick="setAdminViewMode('admin')" title="Switch back to the trainer (admin) view">👁 Switch View</button>`
+            : (state.isAdmin ? `<button type="button" class="nav-viewswitch" onclick="setAdminViewMode('trainee')" title="See the portal exactly as a trainee does — no trainer tools or admin pages">👁 Switch View</button>` : "")}
+          ${state.isAdmin && !state.adminPreview ? `<button class="${state.view==='admin'?'active':''}" onclick="openAdmin()">🛡 Admin</button>` : ""}
         </div>
       </div>
     </div>
@@ -503,7 +504,7 @@ function setAdminViewMode(mode){
     try{ sessionStorage.setItem("lsh_admin_preview","1"); }catch(e){}
     const back = ["admin","orientation","facilitatorguide"].includes(state.view) ? "dashboard" : state.view;
     if(state.view==="day") render(); else goto(back);
-    toast("👁 Trainee view — this is what trainees see. Use “Back to Admin view” to return.");
+    toast("👁 Trainee view — this is what trainees see. Use 👁 Switch View to return.");
   }else{
     if(!state.adminPreview) return;
     state.adminPreview = false; state.isAdmin = true;
