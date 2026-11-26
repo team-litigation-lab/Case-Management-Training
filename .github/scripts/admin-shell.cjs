@@ -82,7 +82,7 @@ const SEED = [{ id: `pat-pend-${tag}--s`, name: `Pat Pend ${tag}`, batch: BATCH,
     if (await page.evaluate(() => state.adminTab) !== 'scorecards') fail("the old Batch Sheet tab (setAdminTab('audit')) should open the one 🏅 Scorecards page");
     const m1 = ACTIONS.exec(sheet.html); if (m1) fail(`the 🏅 Scorecard page carries an admin action: ${m1[0]}`);
     if (/View Detail|Hide Detail|Assign a case|Certificate signatories|Archive this batch|Log out/.test(sheet.text)) fail('the 🏅 Scorecard page shows admin controls (detail, assign, settings, archive, log out)');
-    if (!/Scores/.test(sheet.text) || !/Feedback on practical activities/.test(sheet.text)) fail('the 🏅 Scorecard page lost its 🏅 Scores table or the cards\' feedback on practical activities');
+    if (!/Scores/.test(sheet.text) || !/Feedback on Practical Activities/.test(sheet.text)) fail('the 🏅 Scorecard page lost its 🏅 Scores table or the cards\' feedback on practical activities');
     const cards = await scoresOnly('scorecards', () => !!document.querySelector('.bs-pt'));
     const m2 = ACTIONS.exec(cards.html); if (m2) fail(`🏅 Scorecards carries an admin action: ${m2[0]}`);
     if (!/Safety gate|100-point|Final/.test(cards.text)) fail('🏅 Scorecards should show the trainee cards with the 100-point model');

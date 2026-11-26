@@ -11,7 +11,7 @@
 // drive status with its nightly grades, the trainer's report of every drive), then reads each number off
 //   the trainee: 🏅 My Performance's day rows and the dashboard's 🏅 My Scores;
 //   the trainer: the trainee's card on 🏅 Scorecards; the one Admin → 🏅 Scorecard page: its 🏅 Scores row, the card's
-//   💬 Feedback on practical activities and ⬇ Download's 🏅 Score Card (Day 1, Day 2); and checks 🎲 Random tasks is in none of
+//   💬 Feedback on Practical Activities and ⬇ Download's 🏅 Score Card (Day 1, Day 2); and checks 🎲 Random tasks is in none of
 //   them (nor in the day score), while ⬇ Download's Recent progress still lists it.
 // It also checks each grade counts once in the day score (a Skill Activity by its latest attempt; a CMS activity's AI Grader
 // grade under 🧪 only, not again as a 🗂 CMS case file item) and that My Scores reads the same records after a reload.
@@ -137,7 +137,7 @@ const pctOf = (t) => { const m = /(\d+)%/.exec(String(t || '')); return m ? +m[1
     fromLines('Scorecards card', await lines('#bs-pt-' + dom));
 
     // 3. the one Admin → 🏅 Scorecard page: its 🏅 Scores row (a column per kind of work), the trainee's card with its
-    // 💬 Feedback on practical activities, and ⬇ Download's 🏅 Score Card (Day 1, Day 2) and 🕒 Recent progress
+    // 💬 Feedback on Practical Activities, and ⬇ Download's 🏅 Score Card (Day 1, Day 2) and 🕒 Recent progress
     await page.evaluate(() => { state.adminData = null; state.adminTab = ''; if (window.cmScorecard) cmScorecard.refresh(); goto('admin'); });
     await page.waitForSelector('.cmsh-screen #scx-scores', { timeout: 30000 }).catch(() => fail('Admin → 🏅 Scorecard shows no 🏅 Scores'));
     const nm = await page.evaluate((id) => { const r = (state.adminData || []).find(x => x.id === id); return r ? (typeof cleanName === 'function' ? cleanName(r.name) : r.name) : ''; }, id);
@@ -162,13 +162,13 @@ const pctOf = (t) => { const m = /(\d+)%/.exec(String(t || '')); return m ? +m[1
     await page.evaluate((id) => cmScorecard.only(id), id); await page.waitForTimeout(500);
     const detail = await page.evaluate((d) => { const c = document.querySelector('.cmsh-screen #bs-fb-' + d); if (!c) return null;
         return [...c.querySelectorAll('details.bs-fb-day')].map(day => [(day.querySelector('summary b') || {}).textContent || '', [...day.querySelectorAll('.bs-fb-it')].map(it => [(it.querySelector('.bs-fb-n') || {}).textContent || '', (it.querySelector('.bs-fb-sc b') || {}).textContent || ''])]); }, dom);
-    if (!detail) fail('the trainee\'s card has no 💬 Feedback on practical activities');
+    if (!detail) fail('the trainee\'s card has no 💬 Feedback on Practical Activities');
     else {
         const ITEM = { sa: /^🧪 /, ap: /^📝 Action Plan/, bd: /^📂 Backup/ };
         for (const n of [1, 2]) { const its = (detail.find(([h]) => h === `Day ${n}`) || [])[1] || [];
             if (its.some(([t]) => /Random task/.test(t))) fail(`the trainee's feedback should list no random task: ${JSON.stringify(its)}`);
             for (const col of Object.keys(WANT[n]).filter(k => ITEM[k])) { const v = its.filter(([t]) => ITEM[col].test(t)).map(([, p]) => pctOf(p)).filter(x => x != null);
-                want('the card\'s 💬 Feedback on practical activities', n, col, v.length ? Math.round(v.reduce((a, b) => a + b, 0) / v.length) : null); }
+                want('the card\'s 💬 Feedback on Practical Activities', n, col, v.length ? Math.round(v.reduce((a, b) => a + b, 0) / v.length) : null); }
             if (n === 1 && its.filter(([t]) => /^🧪 /.test(t)).length !== 2) fail(`Day 1 has two Skill Activities, each counted once (an AI Grader grade and its work-log line are one): ${JSON.stringify(its)}`); }
     }
     await page.evaluate(() => cmScorecard.only(''));
