@@ -15,7 +15,7 @@
 //   · the day's one Skill Building (CF.sequence `main`) comes first of the activities, then the required 📁 Backup File
 //     Maintenance (CF.sequence `drive`); the Practice Lab's opening slide lists every other activity (the side
 //     exercises), in the deck's order, each with the lesson it practises
-//     ("Practises: 2.3 Liability Investigation"); that lesson is taught before the practice; the side exercises follow
+//     ("Practices: 2.3 Liability Investigation"); that lesson is taught before the practice; the side exercises follow
 //     the order of the lessons' sections; and each activity's own first slide names its lesson the same way;
 //   · Next, clicked on every slide as a trainee and again as a trainer, goes to the very next slide and nowhere else
 //     (it used to open the Action Plan Editor after an activity drafted there); the last slide has no Next: its button
@@ -136,7 +136,7 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
         // its own first slide says it
         state.lessonSlide = r.from; render();
         const line = norm((document.querySelector('#lessonSlideWrap .cfx-of') /* in the Practice Lab line; under the steps on a Backup File Maintenance task */ || {}).textContent), num = of.h.split(' ')[0];
-        if (!line.startsWith('practises: ' + num + ' ') || !norm(of.cf.block.title).startsWith(line.slice(('practises: ' + num + ' ').length).slice(0, 12))) out.push(`${L}: ${r.id}'s Your Task should say "Practises: ${num} ${of.cf.block.title.slice(0, 30)}…"; it says "${line}"`);
+        if (!line.startsWith('practices: ' + num + ' ') || !norm(of.cf.block.title).startsWith(line.slice(('practices: ' + num + ' ').length).slice(0, 12))) out.push(`${L}: ${r.id}'s Your Task should say "Practices: ${num} ${of.cf.block.title.slice(0, 30)}…"; it says "${line}"`);
       });
       const labAt = at.findIndex(x => x.type === 'practiceLab');
       if (!d.cf.build && labAt >= 0) {
@@ -145,7 +145,7 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
         if (rows.length !== sideRuns.length) out.push(`${L}: the Practice Lab slide lists ${rows.length} side exercises; the day has ${sideRuns.length}`);
         rows.forEach((row, i) => { const r = sideRuns[i]; if (!r) return; const l = d.lessons.find(x => x.cf.block.id === r.id), of = l.cf.of;
           if (!norm(r.b.title).startsWith(row.t.slice(0, 12))) out.push(`${L}: the Practice Lab's row ${i + 1} is "${row.t}"; the deck's activity ${i + 1} is ${r.b.title}`);
-          if (of && !row.of.startsWith('practises: ' + of.h.split(' ')[0] + ' ')) out.push(`${L}: the Practice Lab's row ${i + 1} (${r.id}) should say "Practises: ${of.h.split(' ')[0]} …"; it says "${row.of}"`); });
+          if (of && !row.of.startsWith('practices: ' + of.h.split(' ')[0] + ' ')) out.push(`${L}: the Practice Lab's row ${i + 1} (${r.id}) should say "Practices: ${of.h.split(' ')[0]} …"; it says "${row.of}"`); });
         const z = [...document.querySelectorAll('#lessonSlideWrap *')].filter(e => e.style && e.style.zoom && Number(e.style.zoom) < 1).length;
         if (z) out.push(`${L}: the Practice Lab slide is scaled down to fit a 1366×768 screen`);
         const small = [...document.querySelectorAll('#lessonSlideWrap .cfx-lab-list *, #lessonSlideWrap .cfx-lab-tools *')].filter(e => !e.children.length && e.textContent.trim() && parseFloat(getComputedStyle(e).fontSize) < 16).length;

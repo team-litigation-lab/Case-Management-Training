@@ -286,7 +286,7 @@ const failures = []; const fail = (m) => failures.push(m);
             const li = [...s.querySelectorAll('.drv-s-steps > li')], one = li[0], btn = s.querySelector('[data-drv-link]'), open = s.querySelector('.drv-s-open'), build = s.querySelector('[data-drv-build]');
             const body = wrap && wrap.querySelector('.cfx-deck > .cfx-body'), box = body && (body.querySelector(':scope > .cfx-sheet') || body);
             const type = (min) => [...s.querySelectorAll('*')].filter(e => [...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())).map(e => { const c = getComputedStyle(e); return { t: e.textContent.trim().slice(0, 30), px: parseFloat(c.fontSize), w: Number(c.fontWeight), mine: !!e.closest('.drv-s-act, .drv-s-err') }; }).filter(x => x.px < 16 || x.w < (x.mine ? 700 : min));
-            return { text: s.innerText, one: one ? one.innerText : '', done: !!(one && one.classList.contains('is-done')), n: one ? one.querySelector('.drv-s-n').textContent : '',
+            return { text: s.innerText, one: one ? one.innerText : '', sa: (one && one.querySelector('.drv-s-share .drv-sa') || {}).textContent || '', box: !!(one && one.querySelector('input.drv-s-url')), done: !!(one && one.classList.contains('is-done')), n: one ? one.querySelector('.drv-s-n').textContent : '',
                 btn: btn ? { text: btn.innerText.trim(), disabled: btn.disabled, inOne: !!(one && one.contains(btn)), logo: !!btn.querySelector('svg'), w: Math.round(btn.getBoundingClientRect().width) } : null,
                 err: (s.querySelector('.drv-s-err') || {}).innerText || '', errInOne: !!(one && one.querySelector('.drv-s-err')),
                 open: open ? { href: open.getAttribute('href'), target: open.target, rel: open.rel, text: open.innerText.trim(), inOne: !!(one && one.contains(open)) } : null,
@@ -355,8 +355,11 @@ const failures = []; const fail = (m) => failures.push(m);
         else {
             if (!v.btn.inOne || !/^🔗 Link my Google Drive$/.test(v.btn.text) || v.btn.disabled) fail(`the button should be in step 1, reading 🔗 Link my Google Drive, ready to press: ${JSON.stringify(v.btn)}`);
             if (!v.btn.logo) fail("the button should carry the Google Drive logo");
-            if (!/Link your Google Drive/.test(v.one) || !/button here/.test(v.one) || !/share it with the platform as Editor/.test(v.one) || !/that folder only/.test(v.one))
-                fail(`step 1 should say to press the button here, share a folder with the platform as Editor, and that the platform works in that folder only: "${v.one}"`);
+            if (!/Link your Google Drive/.test(v.one) || !/Share a Google Drive folder as Editor with/.test(v.one) || !/link in the box/.test(v.one) || !/that folder only/.test(v.one))
+                fail(`step 1 should say to share a folder as Editor with the platform's address, paste its link in the box, and that the platform works in that folder only: "${v.one}"`);
+            // the address to share with is on the slide itself, with a box for the folder's link
+            if (v.sa !== SHARE) fail(`step 1 should show the platform's address to share the folder with (${SHARE}): "${v.sa}"`);
+            if (!v.box) fail("step 1 should have a box to paste the folder's link in");
             if (v.done || v.n !== '1') fail('step 1 should not be ticked before the drive is linked');
             if (v.build) fail('📂 Build my folders should wait until the drive is linked');
             if (writes().length) fail(`drawing the slide should write nothing to /api/drive: ${writes()}`);

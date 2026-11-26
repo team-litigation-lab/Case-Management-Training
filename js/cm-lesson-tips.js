@@ -13,7 +13,7 @@
      (d4m3-tx), Non-Responsive Adjusters (d4m4-l1) and Escalation Workflows (d4m4-l2)
    Their rules are not lost: each one is a 💡 Tip pop-up on the Skill Activity that practised it (or, where the owner cut
    that activity as an extra task, on the kept activity that now does its work), on the activity's
-   first slide, beside its "Practises:" line.
+   first slide, beside its "Practices:" line.
    The same goes for a lesson whose slides ARE the trainers' deck pages (js/cm-deck-slides.js, every day now): its own
    drawn slides are not shown, so its rules are a 💡 Tip on each activity that practises it (DECK_TIPS, read from the
    course's order, CF.sequence `practises`). The button opens a small panel (why it matters and the rules), and ✕ or Esc closes it.
@@ -62,7 +62,7 @@ renderDaySlideContent = function(d, slide){
   const ids = l && l.cf && l.cf.block && TIPS[l.cf.block.id];
   if(!ids || typeof html !== "string") return html;
   const btn = `<button type="button" class="cm-lt-btn" data-tips="${E(ids.join(","))}" onclick="cmLessonTips.open(this)" title="Tips from the lesson">💡 Tip</button>`;
-  // beside the activity's "Practises: …" line (in the flow of the slide, so it covers nothing); a slide without one: at its end
+  // beside the activity's "Practices: …" line (in the flow of the slide, so it covers nothing); a slide without one: at its end
   const at = html.search(/<b class="cfx-of"[^>]*>[\s\S]*?<\/b>/);
   if(at < 0) return window.cmCaseFlow && cmCaseFlow.modeOf && cmCaseFlow.modeOf(l.cf.block.id) ? html : html + `<div class="cm-lt-row">${btn}</div>`;   // (not on Your Task turned into its AI Grader or audit: its menu has it)
   const end = html.indexOf("</b>", at) + 4;
@@ -70,7 +70,7 @@ renderDaySlideContent = function(d, slide){
 };
 
 const css = document.createElement("style");
-css.textContent = `/* a small pill beside the Practises line (the slide's own button rules would restyle it: hence !important) */
+css.textContent = `/* a small pill beside the Practices line (the slide's own button rules would restyle it: hence !important) */
 .cm-lt-btn{display:inline-flex !important;align-items:center;width:auto !important;min-width:0 !important;height:auto !important;margin:0 0 0 8px !important;vertical-align:middle;border:1px solid #f0c94a !important;background:#fff8dc !important;color:#5b4500 !important;font-family:inherit;font-size:16px !important;font-weight:700 !important;line-height:1.1 !important;padding:4px 12px !important;border-radius:999px !important;cursor:pointer;box-shadow:none !important}
 .cm-lt-row{display:flex;justify-content:flex-end;margin-top:6px}
 .cm-lt-btn:hover{background:#ffefb0 !important}

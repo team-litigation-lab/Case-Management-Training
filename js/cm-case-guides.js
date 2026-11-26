@@ -115,7 +115,7 @@ renderDaySlideContent = function(d, slide){
     const end = html.indexOf("</b>", at);
     return html.slice(0, end) + pill("build") + html.slice(end);
   }
-  // a Skill Activity's Your Task: beside its "Practises:" line, which heads the 🧰 Tools menu (js/cm-lesson-tips.js puts the
+  // a Skill Activity's Your Task: beside its "Practices:" line, which heads the 🧰 Tools menu (js/cm-lesson-tips.js puts the
   // 💡 Tip there too); a slide without that line keeps its buttons as they are
   const l = slide && slide.type === "topic" && slide.part === 1 && d && d.lessons && d.lessons[slide.lessonIndex];
   const id = l && l.cf && l.cf.block && l.cf.block.id;
@@ -128,7 +128,7 @@ renderDaySlideContent = function(d, slide){
 
 const css = document.createElement("style");
 css.id = "cm-case-guides";
-css.textContent = `/* a small pill beside the Practises line and the 💡 Tip (the slide's own button rules would restyle it: hence !important) */
+css.textContent = `/* a small pill beside the Practices line and the 💡 Tip (the slide's own button rules would restyle it: hence !important) */
 .cm-cg-btn{display:inline-flex !important;align-items:center;width:auto !important;min-width:0 !important;height:auto !important;margin:0 0 0 8px !important;vertical-align:middle;border:1px solid #DB8437 !important;background:#FFF3E8 !important;color:#7A3A0C !important;font-family:inherit;font-size:16px !important;font-weight:700 !important;line-height:1.1 !important;padding:4px 12px !important;border-radius:999px !important;cursor:pointer;box-shadow:none !important;white-space:nowrap}
 .cm-cg-btn:hover{background:#FDE3CC !important}
 .cm-cg-pop{position:fixed;right:22px;top:120px;z-index:1000;width:min(460px,calc(100vw - 32px));max-height:min(60vh,520px);overflow:auto;background:#fff;color:#1E2340;border:1px solid #F0C7A0;border-top:6px solid #DB8437;border-radius:12px;padding:14px 18px 12px;box-shadow:0 10px 30px rgba(30,35,64,.25);font-size:16px;font-weight:600;line-height:1.45}

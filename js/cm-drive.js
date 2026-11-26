@@ -312,6 +312,8 @@ function paint(){
 
 /* ---------- 🔗 linking the trainee's folder (as the Foundations training links a trainee's Drive: shared, then pasted) ---------- */
 function linkInput(v){ linkUrl = String(v || ""); }
+let slideUrl = "";   // what is typed in step 1's box on Day 1's slide (kept apart from the panel's box)
+function slideInput(v){ slideUrl = String(v || ""); }
 async function linkFolder(){
   if(!D || !D.configured || connecting) return;
   const el = document.getElementById("drvLinkUrl"); if(el) linkUrl = el.value;
@@ -351,6 +353,8 @@ async function link(){
     if(!D){ linkErr = err || "Your Backup Drive couldn't be reached. Press the button again."; redrawSlides(); return; }
   }
   if(!D.configured || D.connected){ redrawSlides(); return; }
+  // a link pasted in step 1's box is linked from the slide; an empty box opens the panel at its steps, as before
+  if(slideUrl.trim()){ linkUrl = slideUrl; await linkFolder(); if(D && D.connected){ slideUrl = ""; redrawSlides(); } return; }
   show();
   setTimeout(()=>{ const el = document.getElementById("drvLinkUrl"); if(el) try{ el.focus(); }catch(e){} }, 0);
 }
@@ -542,14 +546,19 @@ function slide(){
   const off = !!(STD && STD.configured === false) || (mine && !!D && !D.configured);
   const linked = !!(me && me.connected), linking = mine && connecting;
   const showErr = !off && !linked && mine && !!linkErr && !linking;
+  // the platform's address the folder is shared with (the trainee's own status, or the firm's "standard" for a presenter)
+  const sa = (me && me.shareWith) || (STD && STD.shareWith) || "";
   // Step 1 is where the drive is linked: the button (a sample for anyone but a trainee on their own screen), then who is linked
   const linkBox = off ? "" : linked
     ? `<div class="drv-s-act"><span class="drv-s-ok">Linked${me.folderName || me.email ? `: <b>${esc(me.folderName || me.email)}</b>` : ""}</span>${/^https:\/\//.test(me.rootUrl || "") ? `<a class="drv-s-open" href="${esc(me.rootUrl)}" target="_blank" rel="noopener noreferrer">Open my Drive ↗</a>` : ""}</div>`
-    : `<div class="drv-s-act"><button type="button" class="drv-s-link" data-drv-link onclick="CMDrive.link()" ${linking ? "disabled" : ""}><span class="drv-s-g">${GLOGO}</span>${linking ? "Linking…" : "🔗 Link my Google Drive"}</button></div>${showErr ? `<div class="drv-s-err" role="alert" title="${esc(linkErr)}"><span>⚠ ${esc(linkErr)}</span></div>` : ""}`;
+    : `<div class="drv-s-act drv-s-paste"><input class="drv-s-url" type="url" aria-label="Your Google Drive folder's link" placeholder="Paste your folder's link: https://drive.google.com/drive/folders/…" value="${mine ? esc(slideUrl) : ""}" oninput="CMDrive.slideInput(this.value)" onkeydown="if(event.key==='Enter')CMDrive.link()" ${mine ? "" : "readonly"} ${linking ? "disabled" : ""}><button type="button" class="drv-s-link" data-drv-link onclick="CMDrive.link()" ${linking ? "disabled" : ""}><span class="drv-s-g">${GLOGO}</span>${linking ? "Linking…" : "🔗 Link my Google Drive"}</button></div>${showErr ? `<div class="drv-s-err" role="alert" title="${esc(linkErr)}"><span>⚠ ${esc(linkErr)}</span></div>` : ""}`;
   const build = linked && !me.built ? `<div class="drv-s-act"><button type="button" class="drv-s-link drv-s-build" data-drv-build onclick="CMDrive.show()">📂 Build my folders</button></div>` : "";
-  const scope = "Make a folder in your Google Drive, share it with the platform as <b>Editor</b> and paste its link. The platform works in that folder only.";
+  // the platform's address is in the sentence itself (with 📋 Copy), so step 1 costs the slide no extra row
+  const addr = sa ? `<span class="drv-s-share"><code class="drv-sa">${esc(sa)}</code><button type="button" class="drv-s-copy" data-copy="${esc(sa)}" onclick="CMDrive.copy(this)">📋 Copy</button></span>` : "the platform's address";
+  const scope = off || linked ? "Make a folder in your Google Drive, share it with the platform as <b>Editor</b> and paste its link. The platform works in that folder only."
+    : `Share a Google Drive folder as <b>Editor</b> with ${addr} and paste its link in the box. The platform works in that folder only.`;
   const steps = [
-    ["Link your Google Drive", (off || linked ? "" : "Press the button here. ") + scope, linked, linkBox],
+    ["Link your Google Drive", (off || linked ? "" : "") + scope, linked, linkBox],
     ["Build the firm's folders by hand", "Every folder named, numbered, nested and in order, exactly to the standard. Submit it: it is graded folder by folder.", !!(me && me.built), build],
     ["✓ Check my drive", "Confirm every folder is still there. Put back anything missing.", !!(me && me.built && me.checkedAt && (!me.builtAt || me.checkedAt >= me.builtAt) && !missing), ""],
     ["File in the CMS, every day", "Each document you file lands in its folder on the drive too, under the name you filed it with.", !!(me && (me.saved || []).length), ""]
@@ -775,7 +784,7 @@ function namingReport(){
   </div>`;
 }
 
-window.CMDrive = {card, slot, show, launch, close, retry(){ err = ""; settled = false; paint(); load(true); }, link, linkFolder, linkInput, disconnect, submit, check, rebuild, saveFiled, slide, grade, dayOpened,
+window.CMDrive = {card, slot, show, launch, close, retry(){ err = ""; settled = false; paint(); load(true); }, link, linkFolder, linkInput, slideInput, disconnect, submit, check, rebuild, saveFiled, slide, grade, dayOpened,
   namingBox, namingReport, nameFor, copy, naming:rule, toNames, nameLines, wrongOf,
   name:setName, addSub, addTop, remove, move, status:()=>D, reload:()=>load(true)};
 
@@ -865,6 +874,13 @@ body:has(#cmDriveHost) #toast{z-index:9600;}   /* what is said while the panel i
 .drv-s-ok{font:800 16px/1.4 'Inter',sans-serif;color:#1E8E4F;overflow-wrap:anywhere;}
 .drv-s-open{font:800 16px/1.4 'Inter',sans-serif;color:#1E2340;text-decoration:underline;text-decoration-color:#DB8437;text-decoration-thickness:2px;text-underline-offset:3px;white-space:nowrap;}
 .drv-s-open:hover{color:#B9610F;}
+.drv-s-share{white-space:normal;}
+.drv-s-share .drv-sa{font:700 16px/1.3 'IBM Plex Mono',monospace;background:#1E2340;color:#fff;border-radius:6px;padding:1px 6px;word-break:break-all;}
+.drv-s-copy{margin-left:4px;font:800 16px/1.2 'Inter',sans-serif;color:#1E2340;background:#FFF4E8;border:1.5px solid #DB8437;border-radius:999px;padding:0 8px;cursor:pointer;vertical-align:baseline;}
+.drv-s-paste{flex-wrap:nowrap;gap:8px;}
+.drv-s-url{flex:1 1 auto;min-width:0;box-sizing:border-box;padding:4px 10px;border:2px solid #C9D3EA;border-radius:10px;font:700 16px/1.3 'Inter',sans-serif;color:#141A2E;background:#fff;margin-bottom:3px;}
+.drv-s-url:focus{outline:3px solid #DB8437;outline-offset:1px;border-color:#DB8437;}
+.drv-s-paste .drv-s-link{flex:none;white-space:nowrap;}
 .drv-s-err{margin-top:6px;padding:4px 12px;border-left:4px solid #DB8437;border-radius:6px;background:#FFF8F0;color:#1E2340;font:700 16px/1.4 'Inter',sans-serif;}
 .drv-s-err > span{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;}   /* two lines at the most (all of it is in the toast, and on hover) */
 .aud-hint.drv-aud-say{top:18px;bottom:auto;max-width:calc(100vw - 40px);background:#1E2340;border:2px solid #DB8437;color:#fff;border-radius:12px;padding:8px 18px;font:700 16px/1.4 'Inter',sans-serif;text-align:center;z-index:30;cursor:pointer;animation:drvAudSay 4.5s ease forwards;animation-duration:4.5s!important;}   /* a fade, kept where motion is reduced: the line has to stay long enough to be read */

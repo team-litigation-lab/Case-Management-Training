@@ -188,14 +188,14 @@ function view(id){
   const ev = evidenceLines(id);
   const box = graded && !editing[id] ? resultHtml(id, r)
     : `<div class="aig-form aig-auto">
-        <p class="aig-lab">Your work is checked automatically against the answer key: John Doe's file in the CMS, the reference you log below, the documents you filed, and your calls and notes.</p>
+        <p class="aig-lab">Your work is checked automatically against the guide: John Doe's file in the CMS, the reference you log below, the documents you filed, and your calls and notes.</p>
         ${ev.length ? `<ul class="aig-ev">${ev.map(x => `<li><b>${E(x.h)}</b>${x.t ? `<span>${E(x.t)}</span>` : ""}</li>`).join("")}</ul>`
           : `<p class="aig-empty">Nothing is recorded for this activity yet. Do the task, log your work below, then press Submit.</p>`}
         <div class="aig-row"><span class="aig-st" id="cfaig_st_${E(id)}" role="status" aria-live="polite">${busy[id] ? "⏳ Checking your work… this takes a few seconds." : ""}</span>
           <button type="button" class="btn aig-go" onclick="CMAIGrader.submit('${E(id)}')"${busy[id] ? " disabled" : ""}>Submit →</button></div>
       </div>`;
   if(!graded && !busy[id] && ev.length && autoOk(id)) setTimeout(() => auto(id), 0);
-  const key = showKey && (c.checks || []).length ? `<aside class="aig-key"><h4>🔑 Answer key: what your file should hold</h4><ol>${c.checks.map(x => `<li>${hl(x)}</li>`).join("")}</ol>
+  const key = showKey && (c.checks || []).length ? `<aside class="aig-key"><h4>🧭 Guide: what your file should hold</h4><ol>${c.checks.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>
       ${isTrainer() && !final && !audience() ? `<p class="aig-note">Trainer view: trainees see this once their last attempt is graded.</p>` : ""}</aside>` : "";
   return `<div class="aig${key ? " aig-2" : ""}" data-aig="${E(id)}"><div class="aig-main">${box}</div>${key}</div>`;
 }
@@ -394,6 +394,19 @@ css.textContent = `
 .aig-coach b{display:block;margin:0 0 4px;font:800 17px/1.3 var(--font-ui);color:#1E2340;}
 .aig-key{background:#fff;border:2px solid #E3E6EF;border-radius:14px;padding:12px 14px;max-height:52vh;overflow:auto;}
 .aig-key ol{margin:0;padding-left:22px;}
+/* 🧭 the Guide beside the work: a small left-aligned heading, and each line one numbered row (the deck's own list
+   styles centred it and added a dot beside the number) */
+#app .aig .aig-key h4{margin:0 0 10px !important;font:800 19px/1.3 var(--font-ui) !important;color:#1E2340 !important;text-align:left !important;}
+#app .aig .aig-key ol{list-style:none !important;counter-reset:aigk;display:flex !important;flex-direction:column;gap:6px;width:auto !important;margin:0 !important;padding:0 !important;}
+#app .aig .aig-key ol > li{counter-increment:aigk;display:grid !important;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:start;text-align:left !important;margin:0 !important;padding:6px 10px !important;background:#F7F8FB;border:1.5px solid #E3E6EF;border-radius:10px;font:700 16px/1.4 var(--font-ui);color:#141A2E;}
+#app .aig .aig-key ol > li::before{content:counter(aigk) !important;position:static !important;display:grid !important;place-items:center;width:26px !important;height:26px !important;margin:0 !important;border-radius:50%;background:#DB8437 !important;color:#fff;font:800 14px/1 var(--font-ui);transform:none !important;}
+#app .aig .aig-key ol > li::marker{content:none;}
+/* your work: its lines from the left, Submit at the right end of its row */
+#app .aig .aig-main, #app .aig .aig-lab{text-align:left !important;}
+#app .aig .aig-ev{display:block !important;width:auto !important;}
+#app .aig .aig-ev li{justify-content:flex-start !important;text-align:left !important;}
+#app .aig .aig-ev li::before{content:none !important;display:none !important;}
+#app .aig .aig-row{justify-content:flex-end;}
 .aig-note{margin:8px 0 0;font:700 16px/1.35 var(--font-ui);color:#4A5068;}
 /* the final result with the answer key beside it: both columns scroll inside, so a long key never scales the slide below 16px */
 .aig.aig-2 .aig-key{max-height:40vh;}
