@@ -19,6 +19,7 @@
 // Usage: node .github/scripts/merge-whole.cjs   (no server, no browser needed)
 const vm = require('vm'), fs = require('fs'), path = require('path');
 const { harness, reporter } = require('./worker-harness.cjs');
+const { picksFor } = require('./kc-picks.cjs');   // (the Worker scores an attempt from its own picks, as the page sends them)
 const R = reporter();
 const T = (d, h = 10) => `2026-09-${String(d).padStart(2, '0')}T${String(h).padStart(2, '0')}:00:00.000Z`;
 (async () => {
@@ -97,7 +98,7 @@ const T = (d, h = 10) => `2026-09-${String(d).padStart(2, '0')}T${String(h).padS
 
     // ---------- 4. the Case Flow summary is the record's ----------
     const g = await h.portal('Sol', 'Summary', 'B090126', 'U-sol'), G = g.body.id;
-    await h.set('trainee:' + G, { id: G, dayProgress: { 13: { score: 50, done: false, history: [{ score: 50, passed: false }] } }, caseFlow: { at: T(2), days: { 3: { id: 13, kc: 50, passed: false } } } }, g.body.token);
+    await h.set('trainee:' + G, { id: G, dayProgress: { 13: { score: 50, done: false, history: [{ score: 50, passed: false, answers: picksFor(13, 50) }] } }, caseFlow: { at: T(2), days: { 3: { id: 13, kc: 50, passed: false } } } }, g.body.token);
     await h.set('trainee:' + G, Object.assign({}, h.raw('trainee:' + G), { caseFlow: { at: T(3), days: { 3: { id: 13, kc: 95, passed: true }, 4: { id: 14, kc: 99, passed: true } } } }), g.body.token);
     const cf = h.raw('trainee:' + G).caseFlow.days;
     R.check(cf[3].kc === 50 && cf[3].passed === false, `a device's summary should never outscore the record's attempt: ${JSON.stringify(cf[3])}`);

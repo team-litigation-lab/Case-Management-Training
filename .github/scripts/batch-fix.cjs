@@ -15,8 +15,11 @@ const failures = [];
 const fail = (m) => failures.push(m);
 const SECRET = 'portal-secret-shared-with-the-portal';
 const b64url = (s) => Buffer.from(s, 'utf8').toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+// A Portal ticket names the program it is for (p, its topic key: the Portal's makeTicket); p: undefined leaves it out.
+// j: a few random characters, as makeTicket adds, so two tickets made in the same millisecond are two tickets (each works once).
+const PORTAL_TOPIC = 'CM TRAINING';
 async function ticketFor(payloadObj) {
-    const payload = b64url(JSON.stringify(payloadObj));
+    const payload = b64url(JSON.stringify(Object.assign({ p: PORTAL_TOPIC, j: crypto.randomUUID().slice(0, 8) }, payloadObj)));
     const key = await crypto.subtle.importKey('raw', new TextEncoder().encode('portal-sso:' + SECRET), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
     const sig = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(payload));
     return payload + '.' + btoa(String.fromCharCode(...new Uint8Array(sig))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');

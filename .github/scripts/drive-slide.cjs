@@ -447,10 +447,14 @@ const failures = []; const fail = (m) => failures.push(m);
         await asTrainee(p2); await openSlide(p2);
 
         // (d) a trainer: the same button, as a sample. Pressing it opens nothing and writes nothing to /api/drive
+        // (a slides window that has just opened can take longer than 10s to draw the slide on a busy CI runner, and the slide is
+        // drawn again when the firm's standard arrives: give it 30s, and look again once if the first look fell between two draws)
         const sample = async (pg, who) => {
-            await pg.waitForSelector('.drv-slide [data-drv-link]', { timeout: 10000 }).catch(() => {});
-            await pg.waitForFunction(() => /Case ID/.test((document.querySelector('.drv-slide .drv-nc') || {}).innerText || ''), null, { timeout: 10000 }).catch(() => {});
-            const w = await look(pg);
+            const wait = () => pg.waitForSelector('.drv-slide [data-drv-link]', { timeout: 30000 }).catch(() => {});
+            await wait();
+            await pg.waitForFunction(() => /Case ID/.test((document.querySelector('.drv-slide .drv-nc') || {}).innerText || ''), null, { timeout: 30000 }).catch(() => {});
+            let w = await look(pg);
+            if (!w || !w.btn) { await wait(); w = await look(pg); }
             if (!w || !w.btn || !w.btn.inOne || !/^🔗 Link my Google Drive$/.test(w.btn.text) || w.btn.disabled || !w.btn.logo) { fail(`${who} should see the same 🔗 Link my Google Drive in step 1, as a sample: ${JSON.stringify(w && w.btn)}`); return; }
             if (w.done || /Linked:/.test(w.one) || w.build) fail(`${who} should not be shown a trainee's own link: "${w.one}"`);
             sound(w, who); await sized(pg, `Day 1's slide, ${who}`);

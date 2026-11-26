@@ -605,7 +605,7 @@ window.cmToolsMenuHTML = function(){
   const open = currentFrame && frameShell && !frameShell.hidden;
   // 📄 Drafting Tools live in this menu too (no top-bar button of their own): the hub and its three drafting exercises
   // (each opens as its hub card does: HIPAA here; LOR and Med Provider on the Portal's shared Drafting tool)
-  const drafting = [["drafting", "📄 All Drafting Tools"], ["hipaa", "🩺 HIPAA Drafting"], ["portal", "✉️ LOR Drafting"], ["portal", "🏥 Med Provider Drafting"]];
+  const drafting = [["drafting", "📄 All Drafting Tools"], ["hipaa", "🩺 HIPAA Drafting"], ["portal", "✉️ LOR Drafting"], ["portal-prov", "🏥 Med Provider Drafting"]];
   const onDraft = !open && ["drafting", "lor", "hipaa", "medprov"].includes(state.view);
   return `<div class="nav-tools" id="navTools">
     <button type="button" class="${open||onDraft?"active":""}" aria-haspopup="true" onclick="cmToggleToolsMenu(event)">🧰 Tools ▾</button>
@@ -617,7 +617,8 @@ window.cmToolsMenuHTML = function(){
 window.cmPickDraft = function(view){
   const n = document.getElementById("navTools"); if(n) n.classList.remove("open");
   if(state.mobileNavOpen && typeof toggleMobileNav==="function") toggleMobileNav();
-  if(view === "portal" && typeof lshOpenPortalDrafting === "function") lshOpenPortalDrafting(); else goto(view === "portal" ? "drafting" : view);
+  const portal = /^portal/.test(view);   // (portal-prov: the Drafting tool's Med Provider tab)
+  if(portal && typeof lshOpenPortalDrafting === "function") lshOpenPortalDrafting(view === "portal-prov" ? "prov" : ""); else goto(portal ? "drafting" : view);
 };
 window.cmToggleToolsMenu = function(e){ if(e) e.stopPropagation(); const n = document.getElementById("navTools"); if(n) n.classList.toggle("open"); };
 window.cmPickTool = function(id){

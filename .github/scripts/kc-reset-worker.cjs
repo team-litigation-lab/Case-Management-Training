@@ -19,6 +19,7 @@
 // Usage: node .github/scripts/kc-reset-worker.cjs   (no server, no browser needed)
 const path = require('path');
 const { pathToFileURL } = require('url');
+const { picksFor } = require('./kc-picks.cjs');   // (the Worker scores an attempt from its own picks, as the page sends them)
 const failures = [], fail = (m) => failures.push(m);
 (async () => {
     const worker = (await import(pathToFileURL(path.join(__dirname, '../../worker.js')).href)).default;
@@ -38,7 +39,7 @@ const failures = [], fail = (m) => failures.push(m);
     const write = (rec, tok = t.token) => api('/api/storage/set', { key, value: JSON.stringify(rec) }, tok);
     const base = { id: t.id, name: 'Kim Reset', batch: 'B100926' };
     const iso = (ms) => new Date(Date.now() + ms).toISOString();
-    const attempt = (score, ms) => ({ score, passed: score >= 70, date: iso(ms) });
+    const attempt = (score, ms) => ({ score, passed: score >= 70, date: iso(ms), answers: picksFor(11, score) });
     // the trainee's write: their day as js/cm-kc-once.js leaves it after a submit (the history plus the new attempt)
     const day = (h) => ({ 11: { score: Math.max(...h.map(x => x.score)), done: h.some(x => x.passed), date: h[h.length - 1].date, history: h } });
 
@@ -106,7 +107,7 @@ const failures = [], fail = (m) => failures.push(m);
     const oldDate = iso(-86400e3);
     await w3(base3); await w3(Object.assign({}, base3, { dayProgress: { 11: { score: 60, done: false, date: oldDate } } }), admin);
     if ((await api('/api/kc-reset', { traineeId: t3.id, dayId: 11 }, admin)).status !== 200) fail('a legacy record (a score, no history) should be resettable');
-    await w3(Object.assign({}, base3, { dayProgress: { 11: { score: 75, done: true, date: iso(0), history: [{ score: 75, passed: true, date: iso(0) }] } } }));
+    await w3(Object.assign({}, base3, { dayProgress: { 11: { score: 75, done: true, date: iso(0), history: [attempt(75, 0)] } } }));
     p = JSON.parse((await api('/api/storage/get', { key: key3 }, admin)).body.value).dayProgress[11];
     if (!p.history || p.history.length !== 2 || p.history[0].score !== 60 || p.history[1].score !== 75 || p.score !== 75 || !p.done) fail(`a legacy record's retake should keep the original attempt as history[0] and the best score: ${JSON.stringify(p)}`);
 

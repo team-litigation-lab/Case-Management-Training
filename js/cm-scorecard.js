@@ -377,29 +377,33 @@ const MODEL = (function(){
       if(!latest[k] || String(e.at || "") >= String(latest[k].at || "")) latest[k] = e; });
     // (a Skill Activity whose latest attempt is a newer AI Grader grade than this line counts by that grade, below: skillActs)
     const sa = skillActs(c), newer = new Set(sa.filter(x => x.from === "the grader" && !x.logged).map(x => x.key));
-    Object.values(latest).forEach(e => { const day = labDay(e), s = e.subs || {}, name = String(e.label || "Activity").replace(/^Day \d+ · /, "");
+    // (each part with the grader's own words beside it: under 70% the first gap it found, else the first thing done well)
+    const said = (base, v, best, gaps) => { const t = (v < 70 ? (gaps || [])[0] : (best || [])[0] || (gaps || [])[0]); const w = String(t || "").replace(/\s+/g, " ").trim();
+      return w ? `${base}: ${w.length > 170 ? w.slice(0, 169) + "…" : w}` : base; };
+    Object.values(latest).forEach(e => { const day = labDay(e), s = e.subs || {}, name = String(e.label || "Activity").replace(/^Day \d+ · /, ""), why = (b, v) => said(b, v, e.strengths, e.gaps);
       if(e.kind === "lab" && !/Self-Summary/.test(e.label || "") && newer.has(labKey(e))) return;
       // (📝 the takeaway's review, — CM Self-Summary: not scored, only its UPL flag is read, as a critical item)
       if(e.kind === "lab" && /Self-Summary/.test(e.label || "")){
         if(typeof s.risk === "number") gate("upl", day, name, s.risk > 0, s.risk > 0 ? "No legal advice found" : "Breach: your written work gave the client legal advice (the case's value, its merits or a legal consequence)");
       } else if(e.kind === "lab"){
-        if(typeof s.accuracy === "number" && typeof s.presence === "number") add("cp", "🧪 Work quality", day, name, (s.accuracy * 35 + s.presence * 30) / 65, "The grader's Accuracy and Presence");
+        if(typeof s.accuracy === "number" && typeof s.presence === "number") add("cp", "🧪 Work quality", day, name, (s.accuracy * 35 + s.presence * 30) / 65, why("The grader's Accuracy and Presence", (s.accuracy * 35 + s.presence * 30) / 65));
         else if(typeof e.score === "number") add("cp", "🧪 Work quality", day, name, e.score, "The review's total");
-        if(typeof s.risk === "number") add("na", "⚠️ Risk identification", day, name, s.risk, "The grader's Risk score");
-        if(typeof s.efficiency === "number") add("cd", "🗒 Documentation", day, name, s.efficiency, "The grader's Efficiency score");
+        if(typeof s.risk === "number") add("na", "⚠️ Risk identification", day, name, s.risk, why("The grader's Risk score", s.risk));
+        if(typeof s.efficiency === "number") add("cd", "🗒 Documentation", day, name, s.efficiency, why("The grader's Efficiency score", s.efficiency));
       } else {
-        if(typeof s.act === "number") add("pc", "📞 Call protocol", day, name, s.act, "The grader's A-C-T score");
-        if(typeof s.risk === "number") add("na", "⚠️ Risk identification", day, name, s.risk, "The grader's Risk & Privilege score");
-        if(typeof s.bluf === "number" && typeof s.composure === "number") add("cd", "📞 Calls", day, name, (s.bluf + s.composure) / 2, "The grader's BLUF and Composure");
+        if(typeof s.act === "number") add("pc", "📞 Call protocol", day, name, s.act, why("The grader's A-C-T score", s.act));
+        if(typeof s.risk === "number") add("na", "⚠️ Risk identification", day, name, s.risk, why("The grader's Risk & Privilege score", s.risk));
+        if(typeof s.bluf === "number" && typeof s.composure === "number") add("cd", "📞 Calls", day, name, (s.bluf + s.composure) / 2, why("The grader's BLUF and Composure", (s.bluf + s.composure) / 2));
       } });
     // 🧪 a Skill Activity whose latest attempt is an AI Grader grade (cf-ai-grades) with no work-log line of its own (its
     // sub-scores aren't kept): its total, once (skillActs: one activity is one key, its latest attempt)
     // (with its rubric parts kept, js/cm-ai-grader.js subs, it is split by what they measure, as a work-log line is)
     sa.forEach(x => { if(x.from !== "the grader" || x.logged) return; const s = x.subs;
-      if(!s){ add("cp", "🧪 Work quality", x.day, x.name, x.pct, "The grader's total"); return; }
-      add("cp", "🧪 Work quality", x.day, x.name, (s.accuracy * 35 + s.presence * 30) / 65, "The grader's Accuracy and Presence");
-      add("na", "⚠️ Risk identification", x.day, x.name, s.risk, "The grader's Risk score");
-      add("cd", "🗒 Documentation", x.day, x.name, s.efficiency, "The grader's Efficiency score"); });
+      const xw = (b, v) => said(b, v, x.best, x.improve);
+      if(!s){ add("cp", "🧪 Work quality", x.day, x.name, x.pct, xw("The grader's total", x.pct)); return; }
+      add("cp", "🧪 Work quality", x.day, x.name, (s.accuracy * 35 + s.presence * 30) / 65, xw("The grader's Accuracy and Presence", (s.accuracy * 35 + s.presence * 30) / 65));
+      add("na", "⚠️ Risk identification", x.day, x.name, s.risk, xw("The grader's Risk score", s.risk));
+      add("cd", "🗒 Documentation", x.day, x.name, s.efficiency, xw("The grader's Efficiency score", s.efficiency)); });
     // 🔍 Needs Assessment: the exhibit audits handed in (their privilege and calendar items are critical)
     Object.entries(R.audits || {}).forEach(([b, r]) => { const a = (EX.audits || {})[b]; if(!a || !r || !r.at || !Array.isArray(a.items)) return;
       // 🛡 the score it was handed in with (js/cm-credit-kept.js), not one worked out again on a key changed since

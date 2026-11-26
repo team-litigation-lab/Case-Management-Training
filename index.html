@@ -3263,6 +3263,10 @@ function scheduleCloudSave(){
 async function cloudSaveNow(){
   clearTimeout(cloudSaveTimer); cloudSaveTimer = null;
   const id = state.traineeId; if(!id) return false;
+  // never saved over a copy this device couldn't read: not until a read succeeds (js/cm-restore-guard.js tries again)
+  if(state.cloudUnread === id){ setSaveStatus("unread"); return false; }
+  // ...nor while the read of it is still under way (a slow one at sign-in): the save waits for it (cloudRestoreFirst)
+  if(state.cloudReading === id){ cloudSaveTimer = setTimeout(cloudSaveNow, 2000); return false; }
   const data = {};
   for(const k of PERSONAL_KEYS){ const v = await storeGet(k); if(v!==null && v!==undefined) data[k] = v; }
   // Skip the write entirely if nothing changed since the last save (saves KV write quota).
@@ -3275,13 +3279,34 @@ async function cloudSaveNow(){
   else setSaveStatus("offline");
   return ok;
 }
+// the sign-in's and the page load's restore: no save of this id goes out until it has settled, every layer's read included
+async function cloudRestoreFirst(traineeId){
+  state.cloudReading = traineeId;
+  try{ return await cloudRestore(traineeId); }finally{ if(state.cloudReading === traineeId) state.cloudReading = ""; }
+}
+// lsh_cloud-unread = {id, sig?}: this device's read of that id's saved copy failed, and no read since has settled it (it
+// outlives a reload and is seen by every tab: js/cm-restore-guard.js backs the device up before a later restore overwrites it)
+function cloudUnreadMark(id, on){
+  try{ const m = JSON.parse(localStorage.getItem("lsh_cloud-unread") || "null");
+    if(on === undefined) return m && m.id === id ? m : null;
+    if(on && !(m && m.id === id)) localStorage.setItem("lsh_cloud-unread", JSON.stringify({id}));
+    else if(!on && m && m.id === id) localStorage.removeItem("lsh_cloud-unread");
+  }catch(e){ return null; }
+}
 async function cloudRestore(traineeId){
   let snap = null;
-  try{ snap = await sharedGet("progress:"+traineeId); }catch(e){ return false; }
-  if(!snap || !snap.data) return false;
+  const unreadNow = () => { state.cloudUnread = traineeId; cloudUnreadMark(traineeId, true); setSaveStatus("unread"); return false; };
+  // a read that failed is not "nothing saved" (sharedGet answers null for both): this device saves nothing until one succeeds
+  try{ snap = await sharedGetStrict("progress:"+traineeId); }catch(e){ return unreadNow(); }
+  // ...nor is an answer that is no saved copy (cut off, with no data): only null is "nothing saved yet"
+  if(snap !== null && !(snap && typeof snap === "object" && snap.data && typeof snap.data === "object" && !Array.isArray(snap.data))) return unreadNow();
+  if(state.cloudUnread === traineeId) state.cloudUnread = "";
+  if(!snap){ cloudUnreadMark(traineeId, false); return false; }
   let localAt = ""; try{ localAt = localStorage.getItem("lsh_progress-saved-at") || ""; }catch(e){}
   const localOwner = await storeGet("trainee-id");
-  if(localOwner===traineeId && localAt && localAt >= snap.savedAt) return false; // this device is already newer
+  if(localOwner===traineeId && localAt && localAt >= snap.savedAt){ cloudUnreadMark(traineeId, false); return false; } // this device is already newer
+  // the work done here since a read failed (in this tab or another, before a reload) is backed up before it is overwritten
+  if(cloudUnreadMark(traineeId) && !(window.cmRestoreGuard && await window.cmRestoreGuard.beforeOverwrite(traineeId))) return unreadNow();
   state.cloudRestoring = true;
   try{
     for(const k of PERSONAL_KEYS){
@@ -3295,6 +3320,7 @@ async function cloudRestore(traineeId){
     }
     try{ localStorage.setItem("lsh_progress-saved-at", snap.savedAt); }catch(e){}
     state.lastCloudSave = snap.savedAt;
+    cloudUnreadMark(traineeId, false);
   }finally{ state.cloudRestoring = false; }
   return true;
 }
@@ -3304,6 +3330,7 @@ function setSaveStatus(s){
 }
 function saveStatusText(){
   if(!state.traineeId) return "Progress saves to your account once you sign in";
+  if(state.cloudUnread===state.traineeId) return "⚠ Couldn't load your saved work — not saving until it loads";
   if(state.saveStatus==="saving") return "☁ Saving…";
   if(state.saveStatus==="offline") return "⚠ Couldn't reach the server — saved on this device and will retry";
   const t = state.lastCloudSave ? new Date(state.lastCloudSave).toLocaleTimeString([], {hour:"numeric", minute:"2-digit"}) : "";
@@ -3498,6 +3525,7 @@ async function sharedGetStrict(key){
   const response = await authFetch("/api/storage/get", {key});
   if(!response.ok) throw new Error("storage "+response.status);
   const data = await response.json();
+  if(!data || typeof data !== "object" || !("value" in data)) throw new Error("storage: no value in the answer");   // (the Worker always sends value, null for "nothing saved")
   return data.value ? JSON.parse(data.value) : null;
 }
 async function resolveTraineeId(name, batch){
@@ -6453,7 +6481,7 @@ async function submitLoginInner(){
       state.assignedCase = existing.assignedCase || null;
     }
   }
-  if(isNewSession && await cloudRestore(state.traineeId)){ const keepName = state.traineeName; await loadAll(); state.traineeName = keepName; }
+  if(isNewSession && await cloudRestoreFirst(state.traineeId)){ const keepName = state.traineeName; await loadAll(); state.traineeName = keepName; }
   await syncToLedger(true);
   const status = await getApprovalStatus(state.traineeId);
   if(status==="approved"){
@@ -6851,7 +6879,7 @@ function bootShown(){ requestAnimationFrame(()=>document.documentElement.classLi
   if(state.traineeId && (await authStatus()) && !state.authToken){
     if(!(await reauthTrainee())){ state.traineeId = ""; await storeSet("trainee-id", ""); state.view = "login"; render(); bootShown(); return; }
   }
-  if(state.traineeId && await cloudRestore(state.traineeId)) await loadAll();
+  if(state.traineeId && await cloudRestoreFirst(state.traineeId)) await loadAll();
   loadPublishedContent().then(()=>{ if(["day","dashboard","admin"].includes(state.view)) render(); });
   if(sessionStorage.getItem("lsh_resume_after_update") && (state.isAdmin || state.traineeId)) setTimeout(()=>restoreAfterUpdate(), 400);
   if(state.isAdmin){ restoreBootRouteHash(); if(parseRouteHash()){ state.resumePending = true; setTimeout(()=>{ state.resumePending = false; openRouteFromHash(); state.routeReady = true; syncRouteHash(); fillNavBack(); }, 0); } }
@@ -7688,7 +7716,8 @@ async function submitQuiz(dayId){
       done: passed || (state.progress[dayId]?.done||false),
       score: Math.max(score, prevBest),
       date: new Date().toISOString(),
-      history: [...prevHistory, {score, passed, date: new Date().toISOString()}]
+      // (the picks go with the attempt: the Worker scores it from them, worker-identity.js kcScore)
+      history: [...prevHistory, {score, passed, date: new Date().toISOString(), answers: d.quiz.map((q,i)=> typeof state.quizAnswers[i]==="number" ? state.quizAnswers[i] : null)}]
     };
     // merged onto the day, not in its place: the day also holds its random-task scores (surpriseTaskScores) and the like
     state.progress[dayId]=Object.assign({}, state.progress[dayId]||{}, newRecord);
@@ -11763,6 +11792,7 @@ async function loadAuditExtras(force){
   const wrap = document.getElementById("adminRowsWrap"); if(wrap && state.view==="admin" && !isTyping()) wrap.innerHTML = renderAdminRows();
   const bwrap = document.getElementById("batchFolderBody"); if(bwrap && state.view==="admin" && (state.adminTab||"audit")==="audit" && !isTyping()) bwrap.innerHTML = renderBatchFolderBody();
 }
+const kcOfRecord = (rec, dayId) => { const p = ((rec && rec.dayProgress) || {})[dayId]; return p && typeof p.score==="number" ? p : null; };
 function auditSummary(rec){
   const x = state.auditExtra[rec.id]; const data = (x && x.data) || {};
   const dp = data["day-progress"] || rec.dayProgress || {};
@@ -11772,8 +11802,9 @@ function auditSummary(rec){
   const days = DAYS.map(d=>{
     const n = buildDaySlides(d).length; total += n;
     const reached = Math.min(n, (sp[d.id]||0) + ((sp[d.id]||dp[d.id]) ? 1 : 0)); seen += reached;
-    const kc = dp[d.id] || null; const labs = relatedTools(d.id); const labDone = labs.some(t=>pp[t.id] && (pp[t.id].runs||0)>0);
-    return {id:d.id, n, reached, passed:!!(kc&&kc.done), score:kc&&typeof kc.score==="number"?kc.score:null, labDone};
+    // 🛡 the Knowledge Check from the record the Worker scored (trainee:<id>.dayProgress); a score only the device holds is unconfirmed
+    const kc = kcOfRecord(rec, d.id), dev = !kc && dp[d.id] && typeof dp[d.id].score==="number" ? dp[d.id].score : null; const labs = relatedTools(d.id); const labDone = labs.some(t=>pp[t.id] && (pp[t.id].runs||0)>0);
+    return {id:d.id, n, reached, passed:!!(kc&&kc.done), score:kc?kc.score:null, deviceScore:dev, labDone};
   });
   let where = "Not started";
   if(lv && lv.view==="tool" && lv.toolId){ const t = PRACTICE_TOOLS.find(y=>y.id===lv.toolId); where = t ? `Skill Builders · ${t.title}` : "Skill Builders"; }
@@ -11800,7 +11831,7 @@ function renderAuditStrip(rec){
   if(!a.loaded) return `<div class="audit-strip loading">Loading exact progress…</div>`;
   const cell = (d)=>{
     const cls = d.passed ? "ok" : (d.score!==null ? "low" : (d.reached>0 ? "wip" : "none"));
-    const tip = `Day ${dayNo(d.id)}: ${d.reached}/${d.n} slides · ${d.score!==null ? `Knowledge Check ${d.score}%${d.passed?" ✓":" (below 70%)"}` : "Knowledge Check not taken"} · Skill Builders ${d.labDone?"done":"not done"}`;
+    const tip = `Day ${dayNo(d.id)}: ${d.reached}/${d.n} slides · ${d.score!==null ? `Knowledge Check ${d.score}%${d.passed?" ✓":" (below 70%)"}` : d.deviceScore!=null ? `Knowledge Check unconfirmed: ${d.deviceScore}% on the trainee's device only, not on their record` : "Knowledge Check not taken"} · Skill Builders ${d.labDone?"done":"not done"}`;
     return `<span class="ad-cell ${cls}" title="${esc(tip)}">${d.id}${d.labDone?`<i></i>`:""}</span>`;
   };
   return `<div class="audit-strip">
@@ -11851,10 +11882,13 @@ function renderUnlockDaysControl(rec){
 }
 async function adminUnlockDays(traineeId, value){
   const n = parseInt(value, 10); if(isNaN(n)) return;
-  const rec = await sharedGet("trainee:"+traineeId);
-  if(!rec){ toast("Couldn't load that trainee — refresh and try again."); return; }
-  const who = cleanName(rec.name) || "this trainee";
+  // the name from the roster on screen; the record is read only after OK, fresh, so whatever the trainee saved while the
+  // box was open (Case Flow scores, practice, submissions) isn't written back over (.github/scripts/unlock-fresh.cjs)
+  const row = (state.adminData || []).find(x => x && x.id === traineeId);
+  const who = cleanName(row && row.name) || "this trainee";
   if(n > 1 && !confirm(`Unlock Days 2–${n} for ${who}? They can open those lessons and Skill Builders right away, even if earlier ones aren't done.`)) return;
+  let rec = null; try{ rec = await sharedGetStrict("trainee:"+traineeId); }catch(e){ rec = null; }
+  if(!rec){ toast("Couldn't load that trainee — refresh and try again."); return; }
   rec.unlockedDays = n > 1 ? DAYS.map(d=>d.id).filter(id=>id>1 && id<=n) : [];
   rec.unlockedDaysAt = new Date().toISOString();
   await sharedSet("trainee:"+traineeId, rec);
@@ -12036,7 +12070,8 @@ async function loadTraineeWork(id, force){
 function dayEvidence(rec, work, dayId){
   const d = DAYS.find(x=>x.id===dayId);
   const data = work.snap || {};
-  const dp = (data["day-progress"] || rec.dayProgress || {})[dayId] || null;
+  const dd = (data["day-progress"] || {})[dayId] || null, rk = kcOfRecord(rec, dayId);   // 🛡 the KC from the Worker-scored record; the device's copy alone is unconfirmed
+  const dp = rk ? Object.assign({}, dd || {}, {score: rk.score, done: !!rk.done, history: rk.history || []}) : dd ? Object.assign({}, dd, {unconfirmed: true}) : null;
   const log = (data["work-log"]||[]).filter(e=>e.dayId===dayId);
   const qc = Object.entries(data["quick-check-answers"]||{}).filter(([k,v])=>k.startsWith(dayId+"_") && v.checked);
   const tools = relatedTools(dayId);
@@ -12051,7 +12086,8 @@ function evidenceText(ev){
   const L = [];
   L.push(`Lesson progress: reached slide ${Math.min(ev.slides+1, ev.totalSlides)} of ${ev.totalSlides}.`);
   if(ev.dp && typeof ev.dp.surpriseTaskScore==="number") L.push(`Random task: ${ev.dp.surpriseTaskScore}% average`);
-  if(ev.dp) L.push(`Knowledge Check: best ${ev.dp.score}% (${ev.dp.done?"passed":"not yet passed"}); attempts: ${(ev.dp.history||[]).map(h=>h.score+"%").join(", ")||"1"}.${typeof ev.dp.surpriseTaskScore==="number" ? ` Surprise task score: ${ev.dp.surpriseTaskScore}/100.` : ""}`);
+  if(ev.dp && ev.dp.unconfirmed) L.push(`Knowledge Check: unconfirmed, ${ev.dp.score}% on the trainee's device only (not on their record, not counted).`);
+  else if(ev.dp) L.push(`Knowledge Check: best ${ev.dp.score}% (${ev.dp.done?"passed":"not yet passed"}); attempts: ${(ev.dp.history||[]).map(h=>h.score+"%").join(", ")||"1"}.${typeof ev.dp.surpriseTaskScore==="number" ? ` Surprise task score: ${ev.dp.surpriseTaskScore}/100.` : ""}`);
   const quizLog = ev.log.filter(e=>e.kind==="quiz").slice(-1)[0];
   if(quizLog && quizLog.missed && quizLog.missed.length) L.push(`Missed on latest Knowledge Check: ${quizLog.missed.join(" | ")}`);
   if(ev.qc.length) L.push(`Quick Checks: ${ev.qc.filter(([k,v])=>v.correct).length}/${ev.qc.length} correct.`);
@@ -15903,8 +15939,12 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <!-- 🏷 the trainee's Batch ID follows their record: a corrected one shows within a minute -->
 <script src="/js/cm-batch-live.js"></script>
 <script src="/js/cm-batch-sheet.js"></script>
+<!-- 🔠 the Knowledge Check games fill the screen: the question, answers, ladder, board, wheel and doors grow with the window -->
+<script src="/js/cm-kc-big.js"></script>
 <!-- ✍️ Knowledge Checks take one attempt: the first score is the one recorded (wraps cm-case-flow.js's submitQuiz and results) -->
 <script src="/js/cm-kc-once.js"></script>
+<!-- ⚠ a Knowledge Check the Worker couldn't score (sent with no picks: an old tab) is reopened, and the trainee told to take it again -->
+<script src="/js/cm-kc-rejected.js"></script>
 <!-- 🔁 a trainer reopens one day's Knowledge Check for one trainee (Trainee Audit → a trainee's detail): one new attempt, the best score kept -->
 <script src="/js/cm-kc-reset.js"></script>
 <script src="/js/cm-know-tools.js"></script>
@@ -15962,6 +16002,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-debrief.js"></script>
 <!-- 🔁 the daily loop: lessons → Case Profile → the one Skill Building → Action Plan → optional side exercises → Knowledge Check (saved places follow their slides by key, cm-slide-keys.js) -->
 <script src="/js/cm-day-loop.js"></script>
+<!-- 🪪 the certificate shows the full name registered on the Portal (trainee:<id>.fullName, from the sign-in ticket's "full") -->
+<script src="/js/cm-full-name.js"></script>
 <!-- 💡 the rules of the lesson cards the decks replaced, as a Tip pop-up on the Skill Activity that practised each one -->
 <script src="/js/cm-lesson-tips.js"></script>
 <!-- 📍 a saved place on a merged activity lands on the Skill Building that now holds its work (a CM_SLIDE_KEY_RULES rule) -->
@@ -15969,6 +16011,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-one-slide.js"></script>
 <!-- ⭐ one Overall score on every page that shows one: the dashboard's My Score Card too (cmScorecard.overall) -->
 <script src="/js/cm-overall.js"></script>
+<!-- ☁ a saved copy that couldn't be read is never saved over: a notice with Try again, and the read retried until it loads -->
+<script src="/js/cm-restore-guard.js"></script>
 <!-- 🔥 the Roleplay hub and 🎲 Quick Practice serve only calls whose activity is still on a day (cut ones are taken out) -->
 <script src="/js/cm-roleplay-taught.js"></script>
 <!-- 🏆 Admin → 🏅 Scorecard → Rankings & Progress Report: the batch's ranking table to screenshot, edit and share (report.html) -->
