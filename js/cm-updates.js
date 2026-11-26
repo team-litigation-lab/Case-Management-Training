@@ -162,7 +162,8 @@ main:has(.pv){max-width:none !important;padding-left:16px !important;padding-rig
 .pv-cues .pv-empty{color:var(--ink-soft);font-size:14px;}
 .pv-ans{background:#EAF6EF;border-left:4px solid #3F7D58;border-radius:8px;padding:8px 12px;margin:6px 0 10px;}
 .pv-tip{margin:8px 0 0;font-size:12.5px;color:#4A5070;} .pv-tip b{color:var(--navy);}
-@media(max-width:1000px){.pv-grid{grid-template-columns:1fr;} .pv-cues{position:static;max-height:none;height:auto;}}
+@media(max-width:1000px){.pv-grid{grid-template-columns:minmax(0,1fr);} .pv-cues{position:static;max-height:none;height:auto;}}
+@media(max-width:760px){.pv-meta{flex-wrap:wrap;margin-left:0;} .pv-meta > *{white-space:nowrap;} .pv-nav{flex-wrap:wrap;} .pv-nav .btn{white-space:nowrap;} .pv-nav select{order:-1;flex:1 1 100%;max-width:100%;}}   /* a phone: the step, the timer and the case year, and the slide picker over Previous / Next, wrap rather than squeeze to a letter a line */
 /* ---- Audience window (shared in Google Meet) ---- */
 body.audience-mode{overflow:hidden;background:#1F2440;}
 body.audience-mode > *:not(#audienceRoot):not(.aud-hint){display:none !important;}

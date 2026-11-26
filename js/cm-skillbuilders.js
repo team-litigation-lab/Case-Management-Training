@@ -127,7 +127,7 @@ body.cm-tf-split .cm-tf-hint,body.cm-tf-split .cm-tf-long{display:none}
    results are showing. Nothing is clipped, so the results list can drop down. */
 @media(min-width:1181px) and (max-width:1600px){
 }
-@media(max-width:700px){.cm-calc{grid-template-columns:1fr}.cm-doc-row{flex-wrap:wrap}}
+@media(max-width:700px){.cm-calc{grid-template-columns:1fr}.cm-doc-row{flex-wrap:wrap}.cm-doc-row > div:first-child{flex:1 1 100%}.cm-doc-row > div:last-child{flex-wrap:wrap}}
 `; document.head.appendChild(st);
 
 /* ---------------- small helpers ---------------- */
