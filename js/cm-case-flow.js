@@ -1081,7 +1081,7 @@ window.cmCaseFlow.inject = function(dayId, i){
 const RING_FOR = 10 * 60 * 1000, RING_SECS = 60;
 function ringBtn(dayId, b){
   if(!b || !SIM.calls[b.id] || !trainerOnly()) return "";
-  return `<div class="cfx-ringrow"><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.ring(${dayId},'${b.id}')">📞 Ring every trainee now: ${E(SIM.calls[b.id].who)}</button><small>Rings their LSH Voice for ${RING_SECS} seconds; answered or missed, it's on their Scorecard.</small></div>`;
+  return `<div class="cfx-ringrow"><button type="button" class="btn btn-orange btn-sm" onclick="cmCaseFlow.ring(${dayId},'${b.id}')">📞 Ring every trainee now: ${E(SIM.calls[b.id].who)}</button><small>Rings their LSH CommX for ${RING_SECS} seconds; answered or missed, it's on their Scorecard.</small></div>`;
 }
 window.cmCaseFlow.ring = async function(dayId, blockId){
   const c = SIM.calls[blockId]; if(!c || typeof sharedSet !== "function") return;
@@ -1123,7 +1123,7 @@ function ring(r){
   if(document.getElementById("cfRing")) return;
   const o = document.createElement("div"); o.id = "cfRing"; o.className = "cf-ring"; o.setAttribute("role", "alertdialog"); o.setAttribute("aria-label", "Incoming call");
   let left = RING_SECS;
-  o.innerHTML = `<div class="cf-ring-box"><div class="cf-ring-ic" aria-hidden="true">📞</div><p class="cf-ring-k">Incoming call · ☎ LSH Voice</p><h3>${E(r.who)}</h3>
+  o.innerHTML = `<div class="cf-ring-box"><div class="cf-ring-ic" aria-hidden="true">📞</div><p class="cf-ring-k">Incoming call · ☎ LSH CommX</p><h3>${E(r.who)}</h3>
     <p class="cf-ring-on">On John Doe's file · <span class="cf-ring-t">${left}s</span></p>
     <div class="cf-ring-btns"><button type="button" class="btn cf-ring-no">Decline</button><button type="button" class="btn cf-ring-yes">📞 Answer</button></div>
     <small>Answered or missed, this call is logged on your file and your Scorecard.</small></div>`;
