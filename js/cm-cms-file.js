@@ -138,11 +138,13 @@ function html(res, me){
     const miss = []; x.areas.forEach(ar => ar.items.filter(i => i.pending || i.pct === 0).forEach(i => miss.push({ar, i})));
     const areas = x.areas.map(ar => `<tr><td class="cmf-a">${ar.a.icon} ${E(ar.a.label)}</td><td class="cmf-v ${tone(ar.pct)}">${ar.pct == null ? "—" : ar.pct + "%"}</td>
       <td class="cmf-n">${ar.graded} graded${ar.missing ? ` · <b class="cmf-miss">${ar.missing} missing</b>` : " · complete"}</td></tr>`).join("");
-    const ml = miss.slice(0, 40).map(({ar, i}) => `<li><b>${ar.a.icon} ${E(itemName(i, me))}</b> <span>${i.act ? E(`${i.act} · CMS → ${i.screen}`) + " · " : ""}${E(i.note)}</span></li>`).join("");
+    // (what the file is missing, as a table: the item, where it goes in the CMS and from which activity, and why it is missing)
+    const ml = miss.slice(0, 40).map(({ar, i}) => `<tr><th scope="row">${ar.a.icon} ${E(itemName(i, me))}</th><td>${i.act ? E(i.act) : E(ar.a.label)}</td>
+      <td>${i.screen ? E(`CMS → ${i.screen}`) : i.doc ? E(String(i.note || "").replace(/^.*?under\s+/, "Doc Hub → ").replace(/^Not filed:.*$/, "Doc Hub")) : "—"}</td><td class="cmf-why">${E(i.note)}</td></tr>`).join("");
     return `<details class="cmf-day"${x.missing ? " open" : ""}><summary><b>Day ${x.n}</b> <span>${E(String(x.d.title).replace(/^Case Flow Day \d+ · /, ""))}</span>
         <em class="${tone(x.pct)}">${x.pct == null ? "not graded yet" : x.pct + "%"}</em><i>${x.missing ? `${x.missing} to add` : "✓ complete"}${x.closed ? "" : " · day open"}</i></summary>
       <table class="cmf-t"><tbody>${areas}</tbody></table>
-      ${ml ? `<div class="cmf-todo"><b>${me ? "What your file is missing" : "What the file is missing"}</b><ul>${ml}</ul>${miss.length > 40 ? `<small>and ${miss.length - 40} more.</small>` : ""}</div>` : ""}</details>`; }).join("");
+      ${ml ? `<div class="cmf-todo"><b>${me ? "What your file is missing" : "What the file is missing"}</b><div class="cmf-todo-wrap"><table class="cmf-todo-t"><thead><tr><th>Missing</th><th>From</th><th>Where it goes</th><th>Why it's missing</th></tr></thead><tbody>${ml}</tbody></table></div>${miss.length > 40 ? `<small>and ${miss.length - 40} more.</small>` : ""}</div>` : ""}</details>`; }).join("");
   return `<table class="bs-pt-t cmf-sec"><colgroup><col class="bs-pt-c1"><col class="bs-pt-c2"><col></colgroup><tbody>
     <tr class="bs-pt-sec"><th colspan="3">🗂 CMS Case File: John Doe's file in the CMS</th></tr>
     <tr><td class="bs-pt-m">The file's grade</td><td class="bs-pt-v ${tone(res.pct)}">${res.pct == null ? "—" : res.pct + "%"}</td>
@@ -181,6 +183,11 @@ css.textContent = `
 .cmf-n{color:#2E3450;} .cmf-miss{color:#A50E0E;}
 .cmf-todo{margin:4px 10px 10px;padding:8px 12px;border-radius:8px;background:#FFF7E6;border:1px solid #F5D49A;font:600 14.5px/1.45 'Inter',Arial,sans-serif;color:#1E2340;}
 .cmf-todo > b{font-weight:800;} .cmf-todo ul{margin:4px 0 0;padding-left:20px;} .cmf-todo li{margin:3px 0;} .cmf-todo li span{color:#475569;font-weight:600;} .cmf-todo small{font-size:14px;}
+.cmf-todo-wrap{overflow-x:auto;margin-top:6px;border:1px solid #F5D49A;border-radius:8px;background:#fff;}
+.cmf-todo-t{width:100%;min-width:760px;border-collapse:collapse;font:600 14px/1.4 'Inter',Arial,sans-serif;color:#1E2340;}
+.cmf-todo-t thead th{background:#262B45;color:#fff;font-weight:800;text-align:left;padding:7px 10px;border-bottom:2px solid #DB8437;white-space:nowrap;}
+.cmf-todo-t td,.cmf-todo-t tbody th{padding:6px 10px;border-top:1px solid #F1E3C4;text-align:left;vertical-align:top;}
+.cmf-todo-t tbody th{font-weight:800;min-width:220px;} .cmf-todo-t td{color:#475569;} .cmf-todo-t td.cmf-why{color:#7A1A12;font-weight:700;}
 `;
 document.head.appendChild(css);
 })();
