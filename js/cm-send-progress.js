@@ -85,7 +85,11 @@ function paint(){
   el.innerHTML = panelHtml();
   Object.entries(keep).forEach(([id, v]) => { const t = document.getElementById(id); if(t) t.value = v; });
 }
-function open(id){ if(!isTrainer()) return; S.open = id; S.msg = ""; S.ok = true; paint(); setTimeout(() => { const t = document.getElementById("spNote"); if(t) t.focus(); }, 30); }
+// (the note takes the focus only if nothing in the panel has it yet: typing that has already started — in a day's note —
+// is never moved to the note by a focus that arrives late)
+function open(id){ if(!isTrainer()) return; S.open = id; S.msg = ""; S.ok = true; paint();
+  setTimeout(() => { const t = document.getElementById("spNote"), root = document.getElementById("spRoot"), a = document.activeElement;
+    if(t && !(root && a && a !== document.body && root.contains(a))) t.focus(); }, 30); }
 function close(){ S.open = null; paint(); }
 const who = () => state.traineeName || "Your trainer";
 // one trainee's report, written into their feedback:<id> read again just before (their reviews and others' reports kept)
