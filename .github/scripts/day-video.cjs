@@ -77,7 +77,10 @@ async function workerChecks() {
         });
         // every page the decks' notes give a lesson (Day 1's, and Days 2-5's, which are lessons the same way now)
         const allLessons = [1, 2, 3, 4, 5].map(n => JSON.parse(fs.readFileSync(path.join(process.cwd(), `build/videoslide/day${n}.json`), 'utf8')).lessons || {});
-        const wantSlides = allLessons.reduce((a, l) => a + Object.values(l).flat().length, 0), wantLessons = allLessons.reduce((a, l) => a + Object.keys(l).length, 0);
+        // (a deck's closing "Thank You!" page is on no slide: build/videoslide/deck-slides.cjs, the owner's one exception)
+        const thanks = [1, 2, 3, 4, 5].reduce((a, n) => { const d = JSON.parse(fs.readFileSync(path.join(process.cwd(), `build/videoslide/day${n}.json`), 'utf8')), t = new Set((d.slides || []).filter(s => /^\s*thank you!?\s*$/i.test(s.title || '')).map(s => s.page));
+            return a + Object.values(d.lessons || {}).flat().filter(p => t.has(p)).length; }, 0);
+        const wantSlides = allLessons.reduce((a, l) => a + Object.values(l).flat().length, 0) - thanks, wantLessons = allLessons.reduce((a, l) => a + Object.keys(l).length, 0);
         if (deck.bad.length || deck.lessons !== wantLessons || deck.slides !== wantSlides) fail(`deck slides: ${JSON.stringify(deck)}`);
         await page.evaluate(() => { goto('day', 11); }); await page.waitForTimeout(600);
         const shown = await page.evaluate(async () => {

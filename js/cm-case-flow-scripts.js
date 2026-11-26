@@ -1786,7 +1786,7 @@ window.CM_CF_SCRIPTS = {
     "say": "• Step 2 of the loop: John Doe's Case Profile, The Case So Far\n• Track A settled at $40,000 gross; the liens and the provider balance still to resolve\n• Then straight into the Skill Building: the final Net Sheet"
    },
    "lab": {
-    "say": "• Practice Lab: 4 short skill activities, each one an assumption and one entry to log in the CMS\n• The two lien reductions, the prior-attorney lien, the BI-alone Net Sheet\n• About 26 minutes: time for all 4, about six minutes each; then the Ready check"
+    "say": "• Practice Lab: 4 short skill activities, each one an assumption and one entry to log in the CMS\n• The two lien reductions, the prior-attorney lien, the BI-alone Net Sheet\n• About 28 minutes: time for all 4, about six minutes each; then the Ready check"
    },
    "plan": {
     "say": "• Step 4: update the Action Plan: each lien's status, the Net Sheet and the disbursement date\n• A lighter touch today: the trainees write it, you spot-check two plans"
