@@ -6,13 +6,16 @@
 const fs = require("fs"), path = require("path");
 const ROOT = path.join(__dirname, "..", "..");
 const lessons = {}, videos = {};
+const THANKS = (s) => !!s && /^\s*thank you!?\s*$/i.test(s.title || "");
 for (const f of fs.readdirSync(__dirname).filter((x) => /^day\d+\.json$/.test(x)).sort()) {
   const d = JSON.parse(fs.readFileSync(path.join(__dirname, f), "utf8")), n = f.match(/\d+/)[0];
   const by = new Map(d.slides.map((s) => [s.page, s]));
   const img = (p) => `/decks/day${n}/${String(p).padStart(2, "0")}.webp`;
   for (const [block, pages] of Object.entries(d.lessons || {})) {
     if (lessons[block]) throw new Error(`${f}: lesson ${block} is named by two decks' notes`);
-    lessons[block] = pages.map((p) => {
+    // a deck's closing "Thank You!" page is no lesson's slide (the owner, once, for those pages only: the decks now run
+    // back to back, so a thank-you between them interrupts the day); it stays in the narrated video and in dayN.json
+    lessons[block] = pages.filter((p) => !THANKS(by.get(p))).map((p) => {
       const s = by.get(p); if (!s) throw new Error(`${f}: lesson ${block} names page ${p}, which has no notes`);
       if (!fs.existsSync(path.join(ROOT, img(p)))) throw new Error(`${f}: ${img(p)} is missing`);
       return { page: p, title: s.title, img: img(p), notes: s.notes };

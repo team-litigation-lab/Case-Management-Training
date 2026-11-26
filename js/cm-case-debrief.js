@@ -8,9 +8,11 @@
    · The deck is build/debrief/debrief.json, drawn by build/debrief/render.cjs (decks/debrief/NN.webp) and recorded by
      build/videoslide/make_video.py (decks/debrief/debrief-narrated.mp4 and its .vtt); build/videoslide/deck-slides.cjs
      lists it in js/cm-deck-slides.js as CM_DEBRIEF_VIDEO, one chapter per slide.
-   · 🔒 for a trainee until Case Flow Day 5 is complete (its Knowledge Check passed: state.progress[day].done, the
-     day's ✓): the card says "🔒 Case Debrief", and the viewer says why and when it opens, giving nothing away. A
-     trainer, and a trainer's 👁 Trainee view, always has it open.
+   · 🔒 for a trainee until the trainer unlocks Case Flow Day 5's video (Admin → 🔓 Open Lessons → 🎬 Unlock Videos, for a
+     batch, all batches or one trainee: js/cm-day-video.js's unlocked()): one unlock opens both. Until then the card says
+     "🔒 Case Debrief", and the viewer says why and when it opens, giving nothing away. A trainer, and a trainer's
+     👁 Trainee view, always has it open.
+   · On the card it shares one row with ▶ Video: the two side by side (.cdb-pair).
    · The player, as the day videos' (js/cm-day-video.js): the captions in a strip under the picture (CC), speed 0.75× to
      2×, ⏪ / ⏩ 10 s, ⛶ Full screen, the slides beside it as chapters, and the trainee's place kept (personal key
      "case-debrief": "Resumed at m:ss · Start over"). The <video> outlives the page's redraws, so a redraw never stops
@@ -32,8 +34,7 @@ const mmss = t => { t = Math.max(0, Math.floor(t)); return Math.floor(t / 60) + 
 const cfDays = () => (typeof DAYS !== "undefined" ? DAYS : []).filter(d => d && d.cf).sort((a, b) => a.cf.n - b.cf.n);
 const gate = () => { const ds = cfDays(); return ds.find(d => d.cf.n === Number(V.opensAfter || 5)) || ds[ds.length - 1] || null; };
 const trainer = () => !!(state.isAdmin || state.adminPreview);
-const progOf = d => d ? ((state.progress || {})[d.id] || null) : null;
-function isOpen(){ if(trainer()) return true; const p = progOf(gate()); return !!(p && p.done); }
+function isOpen(){ if(trainer()) return true; const g = gate(); return !!(g && window.cmDayVideo && typeof cmDayVideo.unlocked === "function" && cmDayVideo.unlocked(g.id)); }
 const mode = () => !isOpen() ? "locked" : V.recorded ? "video" : "slides";
 const gateN = () => { const g = gate(); return g ? g.cf.n : Number(V.opensAfter || 5); };
 
@@ -64,24 +65,18 @@ function keepPlace(force){
 /* ---------- the viewer's content ---------- */
 const tabEl = () => document.querySelector("#cdb-ov .cdb-tab");
 function lockedHtml(){
-  const g = gate(), n = gateN(), p = progOf(g);
-  const open = typeof dayUnlocked === "function" && g ? dayUnlocked(g.id) : false;
-  const reached = [...cfDays()].reverse().find(d => typeof dayUnlocked === "function" && dayUnlocked(d.id));
-  const where = p && typeof p.score === "number" && !p.done
-    ? `Your Case Flow Day ${n} Knowledge Check is recorded at ${E(p.score)}%: the debrief opens on a pass. Your trainer can reopen the check for you.`
-    : open ? `Case Flow Day ${n} is open: its Knowledge Check is your last step.`
-    : reached ? `You're on Case Flow Day ${E(reached.cf.n)} of ${cfDays().length}.` : "";
+  const n = gateN();
   return `<div class="cpx-tab cdb-tab cdb-locked" data-cpx="debrief">
     <section class="cdb-lock"><div class="cdb-lock-ic" aria-hidden="true">🔒</div><div>
-      <h3>🎬 The Case Debrief opens when you finish Case Flow Day ${E(n)}</h3>
+      <h3>🎬 The Case Debrief opens when your trainer unlocks it</h3>
       <p><b>Why it's locked.</b> It's a narrated debrief of John Doe's whole file: the money trail, the traps planted in the documents, and the mistakes files make. It gives away the answers to every day's work, so it waits until your own file is done.</p>
-      <p><b>When it opens.</b> Here, on Case Flow Day ${E(n)}'s card, as soon as the day is marked complete ✓ (its Knowledge Check passed at 70%).${where ? ` ${where}` : ""}</p>
+      <p><b>When it opens.</b> Here, on Case Flow Day ${E(n)}'s card, when your trainer unlocks it with the day's ▶ Video, for your batch or for you. It opens within a minute of that.</p>
       <p class="cdb-lock-then"><b>Then:</b> open your CMS file, Net Sheet and Lien Tracker beside it and compare them, figure by figure.</p>
     </div></section></div>`;
 }
 const list = () => `<nav class="cdb-side" aria-label="The debrief's slides"><h4>Slides <small>${CH.length}</small></h4><ol class="cdb-list">${CH.map((c, i) =>
   `<li><button type="button" data-i="${i}" title="${E(c.page + ". " + c.title)}" onclick="cmCaseDebrief.seek(${i})"><span class="cdb-n">${E(c.page)}</span><span class="cdb-t">${E(c.title)}</span>${c.t != null ? `<span class="cdb-at">${mmss(c.t)}</span>` : ""}</button></li>`).join("")}</ol></nav>`;
-const sub = () => trainer() ? `Trainees: 🔒 until Case Flow Day ${gateN()} is complete` : "John Doe VS Robert Smith";
+const sub = () => trainer() ? `Trainees: 🔒 until you unlock Case Flow Day ${gateN()}'s video` : "John Doe VS Robert Smith";
 function videoHtml(){
   return `<div class="cpx-tab cdb-tab cdb-video-mode" data-cpx="debrief">
     <div class="cdb-bar"><h3>🎬 Case Debrief <span>${E(sub())}</span></h3>
@@ -113,13 +108,14 @@ if(typeof moduleCard === "function"){
     const html = __card.apply(this, arguments);
     if(!isGateDay(d)) return html;
     const on = isOpen();
-    const btn = `<button type="button" class="btn btn-ghost btn-sm cm-dcf-video cdb-btn${on ? "" : " cdb-btn-locked"}" onclick="event.stopPropagation(); cmCaseDebrief.open()"
-      title="${on ? "The Case Debrief: the whole file talked through, its money trail, its traps and the mistakes to look for in your own file" : `The Case Debrief opens when you finish Case Flow Day ${gateN()}`}">${on ? "🎬 Case Debrief" : "🔒 Case Debrief"}</button>`;
-    // right under ▶ Video, in the card's grid (js/cm-day-card-format.js and js/lsh-card-frame.js have laid the card out by now)
+    const btn = `<button type="button" class="btn btn-ghost btn-sm cm-dcf-video cdb-btn cdb-pair${on ? "" : " cdb-btn-locked cm-dv-locked"}" onclick="event.stopPropagation(); cmCaseDebrief.open()"
+      title="${on ? "The Case Debrief: the whole file talked through, its money trail, its traps and the mistakes to look for in your own file" : "The Case Debrief opens when your trainer unlocks it"}">${on ? "🎬 Case Debrief" : "🔒 Case Debrief"}</button>`;
+    // beside ▶ Video, on one row of the card's grid (js/cm-day-card-format.js and js/lsh-card-frame.js have laid the card out by now)
     const t = document.createElement("template"); t.innerHTML = String(html).trim();
     const card = t.content.firstElementChild; if(!card) return html;
     const vid = card.querySelector(".cm-dv-btn, .cm-dcf-video");
-    if(vid) vid.insertAdjacentHTML("afterend", btn); else (card.querySelector(".mc-grid") || card).insertAdjacentHTML("beforeend", btn);
+    if(vid){ vid.classList.add("cdb-pair", "cdb-pair-l"); vid.insertAdjacentHTML("afterend", btn); }
+    else (card.querySelector(".mc-grid") || card).insertAdjacentHTML("beforeend", btn);
     return card.outerHTML;
   };
 }
@@ -308,6 +304,10 @@ if(!document.getElementById("cdb-css")){
 .cdb-x:hover,.cdb-x:focus-visible{background:#DB8437;border-color:#DB8437;color:#fff;outline:none;}
 .cdb-ov .cdb-tab{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;gap:10px;padding:12px 64px 14px 16px;font-size:16px;overflow:hidden;}
 .cdb-btn-locked{opacity:.85;}
+/* Day 5's card: ▶ Video and 🎬 Case Debrief share one row, half each (beats js/cm-day-card-format.js's full-width Video) */
+html body .dash-main .module-card.mc-clean.mc-dcf.mc-dcf .mc-grid.mc-grid > button.cm-dcf-video.cdb-pair{grid-column:auto / span 1 !important;white-space:nowrap;}
+html body .dash-main .module-card.mc-clean.mc-dcf.mc-dcf .mc-grid.mc-grid > button.cm-dcf-video.cdb-pair-l{grid-column:1 / 2 !important;border-right:1px solid #9CA3B8 !important;}
+html body .dash-main .module-card.mc-clean.mc-dcf.mc-dcf .mc-grid.mc-grid > button.cm-dcf-video.cdb-pair:not(.cdb-pair-l){grid-column:2 / 3 !important;}
 .cdb-tab, .cdb-tab *{font-weight:700;}
 .cdb-bar{flex:none;display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;min-width:0;}
 .cdb-bar h3{flex:1 1 auto;min-width:0;margin:0;display:flex;align-items:baseline;gap:10px;font:800 20px/1.2 'Fraunces',serif;color:#1E2340;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}

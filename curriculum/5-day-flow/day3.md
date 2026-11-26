@@ -38,11 +38,11 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 4. *Lesson* — Disbursement: the Workflow & the Documentation
 5. *Lesson* — Final Case Reconciliation: the Net Sheet, the Closing Memo & Retention
 6. *Skill Activity* — Completing the Final Dual-Tab Net Sheet (practises: The Net Sheet: Two Recovery Streams & the Master Ledger) — **Skill Building**
-7. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab (practises: Lien Negotiations: Key Legal Doctrines & Prior-Attorney Liens) — *side*
-8. *Skill Activity* — Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold (practises: Lien Negotiations: Key Legal Doctrines & Prior-Attorney Liens) — *side*
-9. *Skill Activity* — Provider Balance Negotiation Exercises (practises: Increasing the Client's Net: Auditing the Billing) — *side*
-10. *Skill Activity* — The BI Settlement Net Sheet: Stream 1 at the Tender (practises: The Net Sheet: Two Recovery Streams & the Master Ledger) — *side*
-11. *Skill Activity* — Backup File Maintenance: the Pre-Demand Backup Audit (practises: Case Phase: Demand) — **Required: Backup File Maintenance**
+7. *Skill Activity* — Backup File Maintenance: the Pre-Demand Backup Audit (practises: Case Phase: Demand) — **Required: Backup File Maintenance**
+8. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab (practises: Lien Negotiations: Key Legal Doctrines & Prior-Attorney Liens) — *side*
+9. *Skill Activity* — Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold (practises: Lien Negotiations: Key Legal Doctrines & Prior-Attorney Liens) — *side*
+10. *Skill Activity* — Provider Balance Negotiation Exercises (practises: Increasing the Client's Net: Auditing the Billing) — *side*
+11. *Skill Activity* — The BI Settlement Net Sheet: Stream 1 at the Tender (practises: The Net Sheet: Two Recovery Streams & the Master Ledger) — *side*
 12. *Knowledge Check* — Demand Execution Audit
 13. *Knowledge Check* — Negotiation Mastery Check
 14. *Knowledge Check* — Lien Reduction Verification
@@ -511,7 +511,70 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 3.1.7 Health Subrogation & Statutory Lien Reduction Lab
+### 3.1.7 Backup File Maintenance: the Pre-Demand Backup Audit
+
+> **Skill Activity** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Demand Execution Audit (`d3m1`)  
+> **Topic:** Skill Activity — audit the backup against the CMS before the demand goes out  
+> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
+> **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · LSH firm standard: backup drive folder hierarchy
+
+#### 1 · Visual Layout Description
+
+A two-column audit sheet: CMS on the left, BACKUP DRIVE on the right, rows linked by green ticks, one row with a red gap. Below it a counter reads 18 OF 18 BACKED UP. In the 03, 04 and 07 folder chips, a current document sits on top of a greyed copy stamped SUPERSEDED. On the right, the Demand Package chip drops into 05 Insurance, Demands & Negotiation with an orange DRAFT FOR AUDIT tag.
+
+#### 2 · Slide Body — the scenario and the task
+
+**Scenario.** 07/17/2026, 3:00 p.m. The pre-demand audit closed on 07/15/2026 and the BI Time-Limited Demand is served on 07/20/2026. Since the last backup, corrected documents have replaced earlier ones: Summit Imaging's corrected-history addendum to the MRI report (07/15/2026), Crescent Pain & Spine's corrected $0.00 patient statement (07/10/2026, replacing the 07/01/2026 statement) and the final Lost Wage Verification Record (07/01/2026, replacing the 06/22/2026 draft worksheet). The demand specialist's draft demand and exhibit packet are on the file for audit.
+
+**Execution prompt.** Audit your Backup Drive against the CMS before the demand goes out, as part of the Final Scrub (Day 2 deck p17), so the demand goes out on the final balance and the corrected records. Open 📂 My Backup Drive and compare its count of backed-up documents with the documents filed in the CMS; for any filed document not on the drive, back it up from 📁 Work From. For each corrected document, put the current version in its folder and keep the version it replaces beside it, renamed with SUPERSEDED and the date of the version that replaced it as the last part of its name: the MRI addendum in 03 Medical Records, Crescent's corrected statement in 04 Bills & Invoices, the final wage record in 07 Wages & Costs. File the draft demand and the exhibit packet so they land in 05 Insurance, Demands & Negotiation, labeled DRAFT as the last part of their names. Run ✓ Check my drive, and record the audit in Case Notes: X of Y backed up, what you replaced and what you labeled.
+
+| | |
+|---|---|
+| **Tool / interface** | Backup Drive · CMS → Doc Hub · CMS → Notes → Case Notes |
+| **Expected output** | A backup that matches the CMS document for document, superseded versions kept and labeled, the demand drafts in 05 Insurance, Demands & Negotiation, a clean drive check and the audit recorded in Case Notes. |
+
+**Verification checkpoints**
+
+- [ ] Every document filed in the CMS is on the drive: X of Y backed up, with X equal to Y
+- [ ] The MRI addendum, Crescent's corrected $0.00 statement and the final wage record each in its folder as the current version
+- [ ] The 07/01/2026 Crescent statement and the 06/22/2026 wage worksheet kept, renamed SUPERSEDED with the replacing version's date; nothing deleted
+- [ ] The draft demand and the exhibit packet in 05 Insurance, Demands & Negotiation, labeled DRAFT
+- [ ] ✓ Check my drive run with no folder missing
+- [ ] The audit in Case Notes: the count, what was replaced and what was labeled
+
+**Best practices & pitfalls**
+
+- Audit the backup before every outgoing package: what the adjuster receives must be on the firm's own drive first.
+- Supersede, never delete: the old version explains why the new one exists.
+- ⚠️ Pitfall: two files with the same name in one folder and no way to tell which is current.
+- ⚠️ Pitfall: leaving the draft demand in 01 Intake & Retainer because it was opened from the Doc Hub's Case Files section.
+
+#### 3 · Knowledge Check & CM Summary
+
+Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's auto-graded questions.
+
+#### 4 · Assessment Criteria (AI + Trainer Rubric)
+
+| Channel | Weight | Dimension | What is graded |
+|---|---|---|---|
+| 🤖 AI | **20%** | Backup matches the CMS | Every filed document backed up: X of Y with X equal to Y |
+| 🤖 AI | **16%** | Superseded versions | Current versions in their folders; superseded versions kept and labeled with the replacing date |
+| 🤖 AI | **12%** | Demand Package placed | Draft demand and exhibit packet in 05 Insurance, Demands & Negotiation, labeled DRAFT; drive check clean |
+| 🤖 AI | **12%** | File names | Every file on the drive named by the firm's naming convention, with DRAFT or SUPERSEDED and its date as the last part of the name |
+| 🧑‍🏫 Trainer | **25%** | Audit discipline | Works the CMS list one document at a time rather than eyeballing folders |
+| 🧑‍🏫 Trainer | **15%** | Explaining the audit | Case Note states the count and the changes plainly for Atty. Thorne |
+
+**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
+
+#### 5 · Speaker Notes
+
+- Before anyone opens the drive, ask: “If Keystone says it never got the corrected statement, where do we prove which version was current on 07/20?” The labeled backup is the answer.
+- Check the labels: SUPERSEDED with the replacing version's date. A label without a date doesn't tell a colleague which is current.
+- Have two trainees read out their X of Y. A gap is a document the firm can't put its hand on if the CMS is down.
+
+---
+
+### 3.1.8 Health Subrogation & Statutory Lien Reduction Lab
 
 > **Skill Activity** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Skill Activity 1 — reduce Peach State, clear the statutory side  
@@ -590,7 +653,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 3) and that day
 
 ---
 
-### 3.1.8 Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold
+### 3.1.9 Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold
 
 > **Skill Activity** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Final Accounting Check (`d3m4`)  
 > **Topic:** Skill Activity 2 — the lien you didn't see coming, worked as evidence  
@@ -656,7 +719,7 @@ Verified in Final Accounting Check (taught on Case Flow Day 4) and that day's au
 
 ---
 
-### 3.1.9 Provider Balance Negotiation Exercises
+### 3.1.10 Provider Balance Negotiation Exercises
 
 > **Skill Activity** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Lien Reduction Verification (`d3m3`)  
 > **Topic:** Skill Activity 2 — the reduction call to the chiropractor  
@@ -725,7 +788,7 @@ Verified in Lien Reduction Verification (taught on Case Flow Day 3) and that day
 
 ---
 
-### 3.1.10 The BI Settlement Net Sheet: Stream 1 at the Tender
+### 3.1.11 The BI Settlement Net Sheet: Stream 1 at the Tender
 
 > **Skill Activity** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Negotiation Mastery Check (`d3m2`)  
 > **Topic:** Skill Activity — what Keystone's $10,000 does, and doesn't, do on its own  
@@ -793,69 +856,6 @@ Verified in Negotiation Mastery Check (taught on Case Flow Day 3) and that day's
 - Grade the dates. On 08/12/2026 no check has issued and no release is signed; the Limited Release comes 08/28 and Keystone's check reaches trust 09/04. A trainee who posts $10,000.00 to the Trust Ledger today has posted a promise.
 - Fail any reduced lien on this sheet. $1,240.00 and $4,580.00 do not exist until 10/09 and 10/12. Later, the final sheet (d3m4-a1) lands Stream 1 at $5,089.98: the $4,553.73 projection plus 25% of the $2,145.00 negotiated off, $536.25.
 - The 25% / 75% split is Atty. Thorne's working allocation, not the Case Manager's forecast of the UM claims. The CM computes and labels; he decides the method and what John Doe hears about value.
-
----
-
-### 3.1.11 Backup File Maintenance: the Pre-Demand Backup Audit
-
-> **Skill Activity** · Day 3 — Lien Negotiation & Disbursement · Module 3: Lien Negotiation & Disbursement · scored with Demand Execution Audit (`d3m1`)  
-> **Topic:** Skill Activity — audit the backup against the CMS before the demand goes out  
-> **Continuity:** John Doe VS Robert Smith · Atty. Elijah Thorne · $10,000 BI / $20,000 HOST UM / $10,000 REL UM · 14-Day Gap  
-> **Theory extracted from:** `D1#12` Bottleneck: Conflict Check Delays · `D1#13` Bottleneck: Intake Form Errors · LSH firm standard: backup drive folder hierarchy
-
-#### 1 · Visual Layout Description
-
-A two-column audit sheet: CMS on the left, BACKUP DRIVE on the right, rows linked by green ticks, one row with a red gap. Below it a counter reads 18 OF 18 BACKED UP. In the 03, 04 and 07 folder chips, a current document sits on top of a greyed copy stamped SUPERSEDED. On the right, the Demand Package chip drops into 05 Insurance, Demands & Negotiation with an orange DRAFT FOR AUDIT tag.
-
-#### 2 · Slide Body — the scenario and the task
-
-**Scenario.** 07/17/2026, 3:00 p.m. The pre-demand audit closed on 07/15/2026 and the BI Time-Limited Demand is served on 07/20/2026. Since the last backup, corrected documents have replaced earlier ones: Summit Imaging's corrected-history addendum to the MRI report (07/15/2026), Crescent Pain & Spine's corrected $0.00 patient statement (07/10/2026, replacing the 07/01/2026 statement) and the final Lost Wage Verification Record (07/01/2026, replacing the 06/22/2026 draft worksheet). The demand specialist's draft demand and exhibit packet are on the file for audit.
-
-**Execution prompt.** Audit your Backup Drive against the CMS before the demand goes out, as part of the Final Scrub (Day 2 deck p17), so the demand goes out on the final balance and the corrected records. Open 📂 My Backup Drive and compare its count of backed-up documents with the documents filed in the CMS; for any filed document not on the drive, back it up from 📁 Work From. For each corrected document, put the current version in its folder and keep the version it replaces beside it, renamed with SUPERSEDED and the date of the version that replaced it as the last part of its name: the MRI addendum in 03 Medical Records, Crescent's corrected statement in 04 Bills & Invoices, the final wage record in 07 Wages & Costs. File the draft demand and the exhibit packet so they land in 05 Insurance, Demands & Negotiation, labeled DRAFT as the last part of their names. Run ✓ Check my drive, and record the audit in Case Notes: X of Y backed up, what you replaced and what you labeled.
-
-| | |
-|---|---|
-| **Tool / interface** | Backup Drive · CMS → Doc Hub · CMS → Notes → Case Notes |
-| **Expected output** | A backup that matches the CMS document for document, superseded versions kept and labeled, the demand drafts in 05 Insurance, Demands & Negotiation, a clean drive check and the audit recorded in Case Notes. |
-
-**Verification checkpoints**
-
-- [ ] Every document filed in the CMS is on the drive: X of Y backed up, with X equal to Y
-- [ ] The MRI addendum, Crescent's corrected $0.00 statement and the final wage record each in its folder as the current version
-- [ ] The 07/01/2026 Crescent statement and the 06/22/2026 wage worksheet kept, renamed SUPERSEDED with the replacing version's date; nothing deleted
-- [ ] The draft demand and the exhibit packet in 05 Insurance, Demands & Negotiation, labeled DRAFT
-- [ ] ✓ Check my drive run with no folder missing
-- [ ] The audit in Case Notes: the count, what was replaced and what was labeled
-
-**Best practices & pitfalls**
-
-- Audit the backup before every outgoing package: what the adjuster receives must be on the firm's own drive first.
-- Supersede, never delete: the old version explains why the new one exists.
-- ⚠️ Pitfall: two files with the same name in one folder and no way to tell which is current.
-- ⚠️ Pitfall: leaving the draft demand in 01 Intake & Retainer because it was opened from the Doc Hub's Case Files section.
-
-#### 3 · Knowledge Check & CM Summary
-
-Verified in Demand Execution Audit (taught on Case Flow Day 3) and that day's auto-graded questions.
-
-#### 4 · Assessment Criteria (AI + Trainer Rubric)
-
-| Channel | Weight | Dimension | What is graded |
-|---|---|---|---|
-| 🤖 AI | **20%** | Backup matches the CMS | Every filed document backed up: X of Y with X equal to Y |
-| 🤖 AI | **16%** | Superseded versions | Current versions in their folders; superseded versions kept and labeled with the replacing date |
-| 🤖 AI | **12%** | Demand Package placed | Draft demand and exhibit packet in 05 Insurance, Demands & Negotiation, labeled DRAFT; drive check clean |
-| 🤖 AI | **12%** | File names | Every file on the drive named by the firm's naming convention, with DRAFT or SUPERSEDED and its date as the last part of the name |
-| 🧑‍🏫 Trainer | **25%** | Audit discipline | Works the CMS list one document at a time rather than eyeballing folders |
-| 🧑‍🏫 Trainer | **15%** | Explaining the audit | Case Note states the count and the changes plainly for Atty. Thorne |
-
-**Composite** = AI × 0.60 + Trainer × 0.40. **UPL is a gate, not a weighting:** giving the client legal advice fails the block's UPL criterion whatever the composite.
-
-#### 5 · Speaker Notes
-
-- Before anyone opens the drive, ask: “If Keystone says it never got the corrected statement, where do we prove which version was current on 07/20?” The labeled backup is the answer.
-- Check the labels: SUPERSEDED with the replacing version's date. A label without a date doesn't tell a colleague which is current.
-- Have two trainees read out their X of Y. A gap is a document the firm can't put its hand on if the CMS is down.
 
 ---
 

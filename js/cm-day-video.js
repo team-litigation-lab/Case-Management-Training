@@ -3,6 +3,9 @@
    • The day card shows ▶ Video (the Video Presentation) once the video is unlocked, 🔒 Video until then. A trainer always sees ▶.
    • settings:openvideos = {all: [dayIds], batches: {"<batch key>": [dayIds]}}: everyone reads it (worker.js PUBLIC_READ),
      only a trainer writes it: Admin → 🔓 Open Lessons → 🎬 Unlock Videos, for the batch picked there or for all batches.
+   • 👤 For one trainee: unlockedVideos (+ unlockedVideosAt) on trainee:<id>, which trainees can't change (worker.js
+     PROTECTED_TRAINEE_FIELDS); applyAdminUnlocks brings it to the trainee's page as state.cmMyVideos.
+   • Case Flow Day 5's unlock also opens its 🎬 Case Debrief (js/cm-case-debrief.js asks unlocked() for that day).
    • The trainee's page reads it in its once-a-minute check, on the same request as the open days (cmOpenLessons.keys).
    • The viewer: the video with captions (CC) in a strip under the picture, and a Slide picker in the header to jump to any slide (no list beside the picture: the video takes the full width); a chapter
      jumps to its slide. It has ⛶ Full screen, a speed choice (0.75× to 2×), and opens where the trainee left off. */
@@ -34,9 +37,29 @@ let loading = null;
 const load = () => loading || (loading = sharedGetMany([KEY]).then(([v]) => { loading = null; if(take(v)) redraw(); }).catch(() => { loading = null; }));
 function unlocked(id){
   if(state.isAdmin || state.adminPreview) return true;
+  if((state.cmMyVideos || []).includes(Number(id))) return true;   // 👤 unlocked for this trainee alone
   if(state.cmOpenVideos === null){ if(isTrainee()) load(); return false; }
   const o = state.cmOpenVideos;
   return [].concat(o.all, o.batches[OL.key(state.traineeBatch)] || []).includes(Number(id));
+}
+
+/* ---------- 👤 unlocked for this trainee alone: their record's unlockedVideos, read with the rest of their unlocks ---------- */
+state.cmMyVideos = [];
+if(typeof applyAdminUnlocks === "function"){
+  const __apply = applyAdminUnlocks;
+  applyAdminUnlocks = window.applyAdminUnlocks = async function(rec){
+    if(rec){
+      const next = nums(rec.unlockedVideos), prev = state.cmMyVideos || [];
+      if(JSON.stringify(next) !== JSON.stringify(prev)){
+        state.cmMyVideos = next;
+        const added = next.filter(n => !prev.includes(n));
+        if(added.length && isTrainee() && state.cmMyVideosSeen) say(`🔓 Your trainer unlocked ${added.map(dayName).join(", ")}'s video for you.`);
+        redraw();
+      }
+      state.cmMyVideosSeen = true;
+    }
+    return __apply.apply(this, arguments);
+  };
 }
 
 /* ---------- the trainee's once-a-minute check: one more key on the request the open days ride on ---------- */
@@ -247,7 +270,7 @@ function skip(sec){
 window.addEventListener("pagehide", () => keepPlace(true));
 // a hidden tab (another tab, a locked phone, the app switched) keeps the place now: the browser may discard the page there
 document.addEventListener("visibilitychange", () => { if(document.visibilityState === "hidden") keepPlace(true); });
-const why = () => say("🔒 Your trainer unlocks this video for your batch. It opens here within a minute of that.");
+const why = () => say("🔒 Your trainer unlocks this video, for your batch or for you. It opens here within a minute of that.");
 
 /* ---------- Admin → 🔓 Open Lessons → 🎬 Unlock Videos (for the batch picked on that page) ---------- */
 let reading = false;
@@ -266,11 +289,46 @@ function adminCard(){
   const tiles = ids().map(id => {
     const viaAll = sel !== "__all" && all.has(id), on = viaAll || (sel === "__all" ? all.has(id) : mine.has(id));
     return `<label class="cm-dv-day${on ? " on" : ""}${viaAll ? " via" : ""}"><input type="checkbox" ${on ? "checked" : ""} ${viaAll ? "disabled" : ""} onchange="cmDayVideo.toggle(${id}, this.checked)">
-      <span><b>🎬 ${E(dayName(id))}</b>${E(VIDEOS[id].title)}<small>${on ? (viaAll || sel === "__all" ? "unlocked for all batches" : "unlocked for " + E(name)) : "locked: trainees see 🔒 Video"}</small></span></label>`;
+      <span><b>🎬 ${E(dayName(id))}${E(plus(id))}</b>${E(VIDEOS[id].title)}<small>${on ? (viaAll || sel === "__all" ? "unlocked for all batches" : "unlocked for " + E(name)) : "locked: trainees see 🔒 Video"}</small></span></label>`;
   }).join("");
   return `<div class="card ft-open-days cm-dv-admin"><h3>🎬 Unlock Videos</h3>
-    <p class="cm-ol-help">A day's narrated video stays locked for trainees (🔒 Video on the day card) until you tick it here, for the batch picked above (${E(name)}). You can always play it yourself: <button type="button" class="btn btn-ghost btn-sm" onclick="cmDayVideo.open(${ids()[0]})">▶ Preview</button></p>
-    <div class="cm-dv-days">${tiles}</div></div>`;
+    <p class="cm-ol-help">A day's narrated video stays locked for trainees (🔒 Video on the day card) until you tick it here, for the batch picked above (${E(name)}). Case Flow Day ${E(debriefN())}'s also opens its 🎬 Case Debrief. You can always play them yourself: <button type="button" class="btn btn-ghost btn-sm" onclick="cmDayVideo.open(${ids()[0]})">▶ Preview</button></p>
+    <div class="cm-dv-days">${tiles}</div>${oneCard()}</div>`;
+}
+// the day whose unlock also opens the 🎬 Case Debrief (js/cm-case-debrief.js's gate: Case Flow Day 5)
+const debriefId = () => { const g = window.cmCaseDebrief && typeof cmCaseDebrief.gate === "function" ? cmCaseDebrief.gate() : null; return g ? g.id : null; };
+const debriefN = () => { const g = window.cmCaseDebrief && typeof cmCaseDebrief.gate === "function" ? cmCaseDebrief.gate() : null; return g && g.cf ? g.cf.n : 5; };
+const plus = id => id === debriefId() ? " + 🎬 Case Debrief" : "";
+// 👤 for one trainee: the trainee picked in Open Lessons' "Open for one trainee" above
+function oneCard(){
+  const tid = state.cmOdTrainee || "", who = tid && (state.adminData || []).find(r => r && r.id === tid);
+  if(!who) return `<div class="ft-od-one"><h4>👤 Unlock for one trainee</h4><p class="cm-ol-help">Pick a trainee in "👤 Open for one trainee" above to unlock a video for them alone.</p></div>`;
+  const o = state.cmOpenVideos || {all: [], batches: {}}, theirs = new Set(nums(who.unlockedVideos));
+  const viaBatch = new Set([].concat(o.all || [], (o.batches || {})[OL.key(who.batch)] || []));
+  const nm = (typeof cleanName === "function" ? cleanName(who.name) : who.name) || who.id;
+  const tiles = ids().map(id => {
+    const via = viaBatch.has(id), on = via || theirs.has(id);
+    return `<label class="cm-dv-day${on ? " on" : ""}${via ? " via" : ""}"><input type="checkbox" ${on ? "checked" : ""} ${via ? "disabled" : ""} onchange="cmDayVideo.toggleTrainee(${id}, this.checked)">
+      <span><b>🎬 ${E(dayName(id))}${E(plus(id))}</b>${E(VIDEOS[id].title)}<small>${via ? "unlocked for their batch" : on ? "unlocked for " + E(nm) : "locked for " + E(nm)}</small></span></label>`;
+  }).join("");
+  return `<div class="ft-od-one"><h4>👤 Unlock for one trainee: ${E(nm)}</h4>
+    <p class="cm-ol-help">For a trainee who is ahead of or behind the batch. They see it within a minute.</p><div class="cm-dv-days">${tiles}</div></div>`;
+}
+async function toggleTrainee(id, on){
+  if(!trainer()) return;
+  const tid = state.cmOdTrainee; if(!tid) return;
+  let rec;
+  try{ rec = await sharedGetStrict("trainee:" + tid); }catch(e){ rec = null; }
+  if(!rec){ say("Couldn't load that trainee: refresh and try again."); render(); return; }
+  const set = new Set(nums(rec.unlockedVideos));   // only this video changes
+  if(on) set.add(Number(id)); else set.delete(Number(id));
+  rec.unlockedVideos = [...set].sort((a, b) => a - b);
+  rec.unlockedVideosAt = new Date().toISOString();
+  if(!(await sharedSet("trainee:" + tid, rec))){ say("Not saved: check your connection and try again."); render(); return; }
+  if(state.adminData){ const i = state.adminData.findIndex(r => r.id === tid); if(i !== -1) state.adminData[i] = rec; }
+  const nm = (typeof cleanName === "function" ? cleanName(rec.name) : rec.name) || tid;
+  say(`${dayName(id)}'s video${plus(id) ? " and Case Debrief" : ""} ${on ? "unlocked" : "locked"} for ${nm}. Their page updates within a minute.`);
+  render();
 }
 if(typeof window.renderAdminOpenLessons === "function"){
   const __admin = window.renderAdminOpenLessons;
@@ -288,11 +346,11 @@ async function toggle(id, on){
   if(!(await sharedSet(KEY, o))){ say("Not saved: check your connection and try again."); render(); return; }
   state.cmOpenVideos = o;
   const name = sel === "__all" ? "all batches" : "batch " + ((typeof canonicalBatch === "function" && canonicalBatch(sel)) || sel.toUpperCase());
-  say(`${dayName(id)}'s video ${on ? "unlocked" : "locked"} for ${name}. Trainees see it within a minute.`);
+  say(`${dayName(id)}'s video${plus(id) ? " and Case Debrief" : ""} ${on ? "unlocked" : "locked"} for ${name}. Trainees see it within a minute.`);
   render();
 }
 
-window.cmDayVideo = {KEY, PREF, RATES, open, close, seek, skip, why, toggle, unlocked, shape, fullscreen, setRate, setCc, startOver, showCc, prefs: () => prefs};
+window.cmDayVideo = {KEY, PREF, RATES, open, close, seek, skip, why, toggle, toggleTrainee, unlocked, shape, fullscreen, setRate, setCc, startOver, showCc, prefs: () => prefs};
 
 const css = document.createElement("style");
 css.textContent = `
