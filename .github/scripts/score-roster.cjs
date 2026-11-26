@@ -54,7 +54,7 @@ const KEEP = 'ann-roster--b111326', OLD = 'ann-roster--b111326x';
         const bdCol = annTr && bi > 0 ? annTr.querySelectorAll('td')[bi - 1].textContent : null;
         const fb = document.querySelector('.cmsh-screen #bs-fb-' + KEEP.replace(/[^A-Za-z0-9_-]/g, '_') + ' details.bs-fb-day[data-day="1"]');
         const bdItem = fb ? [...fb.querySelectorAll('.bs-fb-it')].find(x => /Backup Drive/.test(x.textContent)) : null;
-        const bdPct = bdItem ? bdItem.querySelector('.bs-fb-h b').textContent : null;
+        const bdPct = bdItem ? bdItem.querySelector('.bs-fb-sc b').textContent : null;
         // the model's own Day 1 Backup Drive item
         const ann = state.adminData.find(x => x.id === KEEP), ev = cmScorecard.model.evidence({ rec: ann, cf: ann.caseFlow || { days: {} }, data: { 'day-progress': ann.dayProgress }, fb: { days: {} } });
         const bdModel = (ev.items.find(x => x.group === '📂 Backup Drive' && x.day === 1) || {}).pct;
@@ -85,7 +85,7 @@ const KEEP = 'ann-roster--b111326', OLD = 'ann-roster--b111326x';
     if (r.bdCol !== '85%') fail(`🏅 Scores' 📂 Backup Drive should be the Worker's nightly 85% (nothing saved on the trainee's progress): ${r.bdCol}`);
     const sc1 = T.find(x => /^🏅 Score Card · Day 1/.test(x.title)), c = CSV.cellOf(sc1, '📂 Backup Drive', 'Ann Roster');
     if (c.v !== '85%') fail(`⬇ Download's 🏅 Score Card · Day 1 📂 Backup Drive should be the nightly 85%: ${c.err || c.v}`);
-    if (r.bdPct !== 'Score 85%') fail(`the card's feedback on Day 1's 📂 Backup Drive should be the nightly 85%: ${r.bdPct}`);
+    if (r.bdPct !== '85%') fail(`the card's feedback on Day 1's 📂 Backup Drive should be the nightly 85%: ${r.bdPct}`);
     if (r.bdModel !== 85) fail(`the day score should count the nightly 85% for Day 1's Backup Drive: ${r.bdModel}`);
     await browser.close();
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
