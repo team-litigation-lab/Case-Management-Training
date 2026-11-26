@@ -1262,7 +1262,7 @@ function sopRunOfShow(dRaw){
       parts.length ? `Parts (≈10 min each): ${parts.map((a,k)=>`<b>${k+1}. ${esc(a)}</b>`).join(" · ")}.` : "",
       ti>0 ? `If time is short, trainees finish this one after the session; debrief it at the start of tomorrow.` : "",
       /Roleplay|The Call|Transportation Wall|Break the Adjuster|Deposition Prep/i.test(parts.join(" ")) ? `The live roleplay part can be run by you, or trainees rehearse solo first.` : "",
-      `Steps marked <b>Do this in the CMS</b> are done in 🗂 LSH CaseWorks (🧰 Tools); trainees log the Case ID.`,
+      `Steps marked <b>Do this in the CMS</b> are done in 🗂 LSH CaseWorX (🧰 Tools); trainees log the Case ID.`,
       `First submission of each exercise is free; repeats use one of 3 attempts per day (reset in Trainee Audit if someone is blocked by a technical issue).`].filter(Boolean),
       watch:"Anyone stuck on the same part for more than 10 minutes — nudge them to submit and move on; the debrief is where the learning lands."});
   });
@@ -1344,7 +1344,7 @@ function sopProgramFlow(){
         <tr><td>Read what trainees think of the program</td><td>Admin → <b>Trainee Feedback</b></td></tr>
         <tr><td>See the portal as a trainee does</td><td>Top bar → <b>👁 Trainee view</b></td></tr>
         <tr><td>See the planted errors in each case document</td><td><b>📁 Documents</b> signed in as admin (red 🔑 trainer key under each file)</td></tr>
-        <tr><td>Check a trainee's file work in the CMS</td><td><b>🧰 Tools</b> → 🗂 LSH CaseWorks (trainees log their Case ID in each Skill Builder)</td></tr>
+        <tr><td>Check a trainee's file work in the CMS</td><td><b>🧰 Tools</b> → 🗂 LSH CaseWorX (trainees log their Case ID in each Skill Builder)</td></tr>
         <tr><td>Run extra call, email or calendar practice</td><td><b>🛠 LSH Sims</b> (the LSH Training Portal's shared simulators, opened for CM)</td></tr>
       </tbody></table></section>
     <section class="card sopf-card" style="margin-top:14px;"><h3>The ${DAYS.length} days</h3>
