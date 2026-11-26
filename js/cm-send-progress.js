@@ -49,7 +49,7 @@ function snapHtml(s, note, dayNotes){
     ${(s.days || []).filter(d => (d.practical || []).length || (dayNotes || {})[d.n]).map(d => `<details class="sp-day"><summary><b>Day ${d.n}</b> ${E(d.title)} <em>${(d.practical || []).length} practical activit${(d.practical || []).length === 1 ? "y" : "ies"}</em></summary>
       ${(dayNotes || {})[d.n] ? `<div class="sp-note"><b>💬 Your trainer on Day ${d.n}</b><p>${E(dayNotes[d.n])}</p></div>` : ""}
       ${(d.practical || []).map(y => `<div class="sp-it"><div class="sp-ith"><span>${E(y.name)}</span><b class="${tone(y.pct)}">${y.pct == null ? E(y.status || "Not scored") : "Score " + y.pct + "%"}</b></div>
-        ${y.best.length ? `<p><b>⭐ What you did well:</b> ${li(y.best)}</p>` : ""}${y.improve.length ? `<p><b>🔧 What to improve:</b> ${li(y.improve)}</p>` : ""}${y.why ? `<p><b>🧾 Why:</b> ${E(y.why)}</p>` : ""}</div>`).join("")}</details>`).join("")}
+        ${y.why ? `<p><b>🧾 Why this score:</b> ${E(y.why)}</p>` : ""}${y.best.length ? `<p><b>⭐ What you did great:</b> ${li(y.best)}</p>` : ""}${y.improve.length ? `<p><b>❌ What was wrong · 💡 what could have been done better:</b> ${li(y.improve)}</p>` : ""}</div>`).join("")}</details>`).join("")}
     ${(s.missing || []).length ? `<div class="sp-miss"><b>⚠ Missing or failed</b><ul>${s.missing.map(m => `<li>${E(m)}</li>`).join("")}</ul></div>` : `<p class="sp-ok">✓ Nothing missing or failed.</p>`}
   </div>`;
 }
