@@ -15,6 +15,14 @@
      a trainer's copy read before a merge never clears its mergedAt or drops what it joined.
    • dateFirstAttempts / officialCaseFlow: on a trainee's write, a first attempt is dated by the Worker, and the Case Flow
      summary's kc / passed come from the record's own dayProgress, never from the device.
+   • kcScore: an attempt is scored HERE, from its own picks (answers) against the day's key (worker-kc-key.js, generated
+     from the lesson data by build/case-flow/kc-key.cjs; a trainer's published extra questions, extraquiz:day<N>, follow it
+     as the page adds them: kcExtras). A first attempt (or a reset's one retake) with no picks that can be scored is not
+     recorded; the score the device sent is kept beside it as `claimed` when it differs. The Case Flow summary's modules
+     are worked out here too: {a, t, c, ai} with a = the module's share of the official attempt and the device's AI score
+     of the written answers averaged (the AI half is the one part still reported by the device: the Worker doesn't keep
+     the AI's answer), t = the trainer's 40% from feedback:<id>.caseFlow.<module>.score (written by a trainer only),
+     c = a × 0.6 + t × 0.4. Whatever t or c the device sends is dropped.
    • afterMerge / afterMergeProgress: after a 👥 confirmed merge (mergedAt on trainee:<keep> and progress:<keep>), a device
      that hasn't restored the merged copy yet (its write doesn't name that mergedAt) can't drop what the merge folded in:
      its lists and objects are joined with the merge's own copy (mergebase:<keep>), the same fold every time, and the
@@ -22,12 +30,144 @@
    • orphanWrite: orphan:<own id>:<ms>, a device's backup of work its last save never got to the server
      (js/cm-safe-logout.js). Written once, never overwritten; at most ORPHAN_MAX per id; the ms within 7 days of now.
      Its owner is the id in its key (the token's own); the traineeId, name and batch in its body are unverified claims.
+   • trainee-alias:<id> = <kept id> (the id as plain text, not JSON): the Training Portal reads it, one hop, when it files a
+     trainee's simulator result or graded call (its functions/api/sim-results.js and call-results.js work the id out from
+     the trainee's Portal name + batch: courseTraineeId, this course's rawId), so the result lands on the record this course
+     keeps for them. aliasAtSignIn: every Portal sign-in points the Portal's id at the record it opened (the uid index after
+     a Batch ID or name change, a merged: redirect, a portal-batch move), and clears it when that is the Portal's id itself.
+     aliasPlan: a 👥 merge points each merged-away id at the kept one, and every alias that led to a merged-away id too
+     (the Portal follows one hop); the kept id's own alias goes (worker-account-repair.js writes it, backs it up, undoes it).
    ============================================================ */
 import { mergeVals, mergePractice, MERGE_FOLD, MAX_SNAPSHOT } from "./worker-account-repair.js";
+import { KC_KEY } from "./worker-kc-key.js";   // (generated: build/case-flow/kc-key.cjs)
 
 const parse = (raw) => { try { return JSON.parse(raw || "null"); } catch (e) { return null; } };
 const ORPHAN_MAX = 20, WEEK = 7 * 86400000;
 export const uidKey = (uid) => `uid:${String(uid || "").slice(0, 80)}`;
+// ✍️ an attempt's own picks scored against the day's key: {score, correct, total, mods: {<module>: {correct, total}}}, or
+// null when they can't be scored (no key for the day, no picks, picks that aren't whole numbers or null, fewer picks than
+// the day's own questions). extras: kcExtras's answer. Picks past the day's questions and the extra ones published now (a
+// trainer unpublished one while the quiz was open) are not scored: the attempt is still recorded, on the questions known here.
+export function kcScore(day, answers, extras) {
+  const k = KC_KEY[String(day)];
+  if (!k || !Array.isArray(answers) || answers.length > 200 || !answers.every((y) => y === null || Number.isInteger(y))) return null;
+  const xa = (extras && extras[String(day)]) || [];
+  const key = k.a.concat(xa), mod = k.mod.concat(xa.map(() => null));
+  if (answers.length < k.a.length) return null;
+  const n = Math.min(answers.length, key.length);
+  let correct = 0; const mods = {};
+  for (let i = 0; i < n; i++) {
+    const ok = answers[i] === key[i];
+    if (ok) correct++;
+    if (mod[i]) { const m = (mods[mod[i]] = mods[mod[i]] || { correct: 0, total: 0 }); m.total++; if (ok) m.correct++; }
+  }
+  return { score: Math.round((correct / n) * 100), correct, total: n, mods };
+}
+// the trainer's published extra questions of each day whose picks go past the day's own (extraquiz:day<N>, in the order
+// the page adds them: index.html mergeExtraQuiz), as {<day>: [their right options]}
+export async function kcExtras(kv, dayProgresses) {
+  const want = new Set();
+  for (const dp of dayProgresses) Object.entries(dp && typeof dp === "object" ? dp : {}).forEach(([d, p]) => {
+    const k = KC_KEY[String(d)];
+    if (k && p && Array.isArray(p.history) && p.history.some((x) => x && Array.isArray(x.answers) && x.answers.length > k.a.length)) want.add(String(d));
+  });
+  const out = {};
+  for (const d of want) {
+    const x = parse(await kv.get(`extraquiz:day${d}`));
+    out[d] = (x && Array.isArray(x.questions) ? x.questions : []).filter((q) => q && q.status === "published").map((q) => Number(q.a)).filter(Number.isInteger);
+  }
+  return out;
+}
+// the trainer's 40% of each module (feedback:<id>.caseFlow.<module>.score: a trainee's write to feedback:<id> never sets it)
+function trainerScoresIn(fb) {
+  const out = {};
+  Object.entries((fb && fb.caseFlow && typeof fb.caseFlow === "object") ? fb.caseFlow : {}).forEach(([m, t]) => { if (t && typeof t.score === "number" && Number.isFinite(t.score) && t.score >= 0 && t.score <= 100) out[m] = Math.round(t.score); });
+  return out;
+}
+export async function trainerScoresOf(kv, id) { return (await trainerScoresAt(kv, id)).scores; }
+// …and which save of them it is (caseFlowAt: stamped by the Worker on every trainer's save of feedback:<id>, kept in
+// feedback-admin:<id>), as {scores, at}: a trainee's write records it as caseFlow.tFrom, the version its t and c came from
+export async function trainerScoresAt(kv, id) {
+  const fb = parse(await kv.get(`feedback:${id}`));
+  return { scores: trainerScoresIn(fb), at: fb && typeof fb.caseFlowAt === "string" ? fb.caseFlowAt : "" };
+}
+// 🏅 A trainer's save of feedback:<id> is not written back into trainee:<id> (a whole-record write from a copy that can be up
+// to 60 s stale would roll back the trainee's newer work). Every read of trainee:<id> lays the trainer's newer 40% over the
+// record's Case Flow modules instead (worker.js kvOf): own = feedback-admin:<id>. A record whose t and c were worked out from
+// this same save (caseFlow.tFrom === its caseFlowAt), or written by a trainer since, reads as it is. The record itself
+// takes them on the trainee's next save (officialCaseFlow), which is when the Portal's Trainee Monitoring, reading the
+// record straight from KV, shows them. true when laid.
+export function layTrainerScores(rec, own) {
+  const cf = rec && rec.caseFlow;
+  if (!own || typeof own !== "object" || typeof own.caseFlowAt !== "string" || !cf || typeof cf !== "object" || !cf.days || typeof cf.days !== "object") return false;
+  if (cf.tFrom === own.caseFlowAt) return false;
+  const scores = trainerScoresIn(own);
+  Object.values(cf.days).forEach((v) => {
+    if (!v || typeof v !== "object") return;
+    const mods = v.modules && typeof v.modules === "object" && !Array.isArray(v.modules) ? v.modules : {};
+    const k = v.id != null ? KC_KEY[String(v.id)] : null;
+    const ids = new Set(Object.keys(mods)); if (k) k.mod.forEach((m) => { if (m in scores) ids.add(m); });
+    if (!ids.size) return;
+    const out = {};
+    for (const m of ids) {
+      const x = mods[m] && typeof mods[m] === "object" ? mods[m] : { a: null }, a = typeof x.a === "number" ? x.a : null, t = m in scores ? scores[m] : null;
+      if (a == null && t == null && !(m in mods)) continue;
+      out[m] = Object.assign({}, x, { a, t, c: a != null && t != null ? Math.round(a * 0.6 + t * 0.4) : null });
+    }
+    v.modules = out;
+  });
+  return true;
+}
+// a first attempt (or a reset's retake) as the Worker records it: its picks, the Worker's score, the device's when it differs
+export function scoredAttempt(day, x, extras, date) {
+  const s = x && typeof x === "object" ? kcScore(day, x.answers, extras) : null;
+  if (!s) return null;
+  return Object.assign({ score: s.score, passed: s.score >= 70, date, answers: x.answers.slice() }, typeof x.score === "number" && x.score !== s.score ? { claimed: x.score } : {});
+}
+export const aliasKey = (id) => `trainee-alias:${id}`;
+const ALIAS_ID = /^[a-z0-9-]{1,100}$/;   // (what the Portal follows)
+// 🔗 a Portal sign-in: the Portal's id for this trainee (portalId) leads to the record the sign-in opened (openedId)
+export async function aliasAtSignIn(kv, portalId, openedId) {
+  if (!ALIAS_ID.test(portalId || "") || !ALIAS_ID.test(openedId || "")) return;
+  const cur = await kv.get(aliasKey(portalId));
+  if (portalId === openedId) { if (cur != null) await kv.delete(aliasKey(portalId)); return; }
+  // a live record of its own under the Portal's id (a namesake really in that batch, or an account no trainer has merged
+  // here) keeps its results: no alias to this one, and one this sign-in wrote earlier is taken back
+  if (!(await leadsTo(kv, portalId, openedId))) { if (cur === openedId) await kv.delete(aliasKey(portalId)); return; }
+  if (cur !== openedId) await kv.put(aliasKey(portalId), openedId, { metadata: { into: openedId } });
+}
+// may results filed under id land on openedId? Yes when id has no record, or its record (or its merged:<id> chain) leads there
+async function leadsTo(kv, id, openedId) {
+  const rec = parse(await kv.get(`trainee:${id}`));
+  if (!rec) return true;
+  if (rec.mergedInto === openedId) return true;
+  for (let i = 0, at = id; i < 4 && at; i++) {
+    const m = parse(await kv.get(`merged:${at}`));
+    if (!m || !m.into || m.into === at) return false;
+    if (m.into === openedId) return true;
+    at = m.into;
+  }
+  return false;
+}
+// 🔗 a 👥 merge into keep of fromIds: {<alias key>: {was (null: none), to (null: deleted)}}, only the keys that change. Read
+// only: the merge backs up `was` before it writes `to` (aliasApply), and puts `was` back if it stops.
+export async function aliasPlan(kv, fromIds, keep) {
+  const out = {};
+  if (!ALIAS_ID.test(keep || "")) return out;
+  const from = new Set(fromIds.filter((x) => x && x !== keep && ALIAS_ID.test(x)));
+  const want = async (k, to) => { const was = await kv.get(k); if (was !== to && !(was == null && to == null)) out[k] = { was, to }; };
+  for (const id of from) await want(aliasKey(id), keep);
+  const keys = []; let cursor;
+  do { const r = await kv.list({ prefix: "trainee-alias:", cursor }); r.keys.forEach((k) => keys.push(k)); cursor = r.list_complete ? null : r.cursor; } while (cursor && keys.length < 5000);
+  for (const k of keys) {
+    if (k.name in out || k.name === aliasKey(keep) || [...from].some((id) => k.name === aliasKey(id))) continue;
+    const v = await kv.get(k.name);
+    if (from.has(v)) out[k.name] = { was: v, to: keep };
+  }
+  await want(aliasKey(keep), null);
+  return out;
+}
+export async function aliasApply(kv, k, to) { if (to == null) await kv.delete(k); else await kv.put(k, to, { metadata: { into: to } }); }
 
 export function identity(D) {
   const { kcHistory, kcAttempts, candidateIds, batchKey } = D;
@@ -156,41 +296,55 @@ export function identity(D) {
     return Object.assign({}, incoming, { data: Object.assign({}, incoming.data, { "day-progress": out }) });
   }
   // ✍️ On a trainee's own write to trainee:<id>, a day's FIRST attempt (the day had none on the stored record, so
-  // keepKcAttempts took the write as it is) is dated by the Worker's clock, not the device's, and only a score of 0–100
-  // is recorded: the record's dates and scores are then ones the trainee can't choose (a 👥 merge orders attempts by them).
-  function dateFirstAttempts(existing, merged, now) {
+  // keepKcAttempts took the write as it is) is dated by the Worker's clock, not the device's, and scored by the Worker from
+  // its own picks (kcScore): the record's dates and scores are then ones the trainee can't choose (a 👥 merge orders
+  // attempts by them). An attempt with no picks that can be scored, or a bare score, is not recorded.
+  function dateFirstAttempts(existing, merged, now, extras) {
     const was = (existing && existing.dayProgress && typeof existing.dayProgress === "object") ? existing.dayProgress : {};
     const dp = merged.dayProgress;
     if (!dp || typeof dp !== "object" || Array.isArray(dp)) return;
-    const ok = (x) => typeof x === "number" && Number.isFinite(x) && x >= 0 && x <= 100;
-    const at = now.toISOString(), out = Object.assign({}, dp);
+    const at = now.toISOString(), out = Object.assign({}, dp), rejected = [];
     let changed = false;
     for (const [d, n] of Object.entries(dp)) {
       if (!n || typeof n !== "object" || kcAttempts(was[d])) continue;
       const h = Array.isArray(n.history) ? n.history : [];
       // (a day with no attempt is never passed, nor marked restored: done and kcUnverified come only with a score)
-      if (!h.length && n.score == null) { if ("done" in n || "kcUnverified" in n) { const x = Object.assign({}, n); delete x.done; delete x.kcUnverified; out[d] = x; changed = true; } continue; }
+      // (kcRejected is the Worker's: the stored mark stays until an attempt is recorded, one the trainee sends is not kept)
+      if (!h.length && n.score == null) {
+        const mark = was[d] && typeof was[d] === "object" && was[d].kcRejected && typeof was[d].kcRejected === "object" ? was[d].kcRejected : null;
+        if ("done" in n || "kcUnverified" in n || "kcRejected" in n || mark) { const x = Object.assign({}, n); delete x.done; delete x.kcUnverified; delete x.kcRejected; if (mark) x.kcRejected = mark; out[d] = x; changed = true; }
+        continue;
+      }
       const x = Object.assign({}, n);
       delete x.kcUnverified;   // (a trainer's 🛠 restore sets it, never the trainee's write)
-      if (h.length) {
-        // (one attempt: a day's first write records only its first, as the one-attempt rule allows; js/cm-kc-once.js)
-        const first = h.find((y) => y && typeof y === "object" && ok(y.score));
-        if (!first) { ["history", "score", "done", "date"].forEach((f) => delete x[f]); }
-        else { x.history = [Object.assign({}, first, { passed: first.score >= 70, date: at })]; x.score = first.score; x.done = first.score >= 70; x.date = at; }
-      } else if (ok(n.score)) { x.date = at; x.done = n.score >= 70; }
-      else { ["score", "done", "date"].forEach((f) => delete x[f]); }
+      delete x.kcRejected;     // (the Worker's, below)
+      // (one attempt: a day's first write records only its first that can be scored, as the one-attempt rule allows; js/cm-kc-once.js)
+      let first = null;
+      for (const y of h) { first = scoredAttempt(d, y, extras, at); if (first) break; }
+      // ⚠ an attempt that can't be scored (no picks: a page from before the Worker scored them; or too few) is not recorded,
+      // but never silently: the day says so (kcRejected, for the trainer) and the write's answer names it, so the page
+      // (js/cm-kc-rejected.js) reopens that Knowledge Check and asks the trainee to take it again
+      if (!first) {
+        const y = h[0] && typeof h[0] === "object" ? h[0] : n, claimed = typeof y.score === "number" ? y.score : typeof n.score === "number" ? n.score : null;
+        x.kcRejected = Object.assign({ at, why: Array.isArray(y.answers) ? "too-few-picks" : "no-picks" }, claimed != null ? { claimed } : {});
+        ["history", "score", "done", "date"].forEach((f) => delete x[f]);
+        rejected.push(Number(d));
+      }
+      else { x.history = [first]; x.score = first.score; x.done = first.passed; x.date = at; }
       out[d] = x; changed = true;
     }
     if (changed) merged.dayProgress = out;
+    return rejected;
   }
   // 🏅 The Case Flow summary's Knowledge Check (caseFlow.days[n].kc and .passed: the Scorecard, the Batch Sheet and the
   // Portal read it) is the record's own: on a trainee's write it is set from merged.dayProgress (its official score and
   // pass, after keepKcAttempts), or, for a day with no attempt there, kept as the stored summary had it. The device's
   // copy (index.html scoreSummary, from its own state) never sets it.
-  function officialCaseFlow(existing, merged) {
+  function officialCaseFlow(existing, merged, trainer = {}, extras = {}, trainerAt = "") {
     const cf = merged.caseFlow;
     if (!cf || typeof cf !== "object" || !cf.days || typeof cf.days !== "object") return;
     const dp = (merged.dayProgress && typeof merged.dayProgress === "object") ? merged.dayProgress : {};
+    const { quiz, unscored } = moduleQuiz(dp, extras);
     const exDays = (existing && existing.caseFlow && existing.caseFlow.days && typeof existing.caseFlow.days === "object") ? existing.caseFlow.days : {};
     const days = {};
     // (which day's dayProgress a Case Flow day reads is not the device's to choose: the stored summary's id for that day
@@ -205,8 +359,52 @@ export function identity(D) {
       const p = own != null ? dp[String(own)] : null, ex = exDays[k] && typeof exDays[k] === "object" && (exId(k) != null || own == null) ? exDays[k] : null;
       if (kcAttempts(p)) days[k] = Object.assign(w, { kc: typeof p.score === "number" ? p.score : kcHistory(p)[0].score, passed: !!p.done });
       else days[k] = Object.assign(w, { kc: ex && typeof ex.kc === "number" ? ex.kc : null, passed: !!(ex && ex.passed) });
+      // (a day whose official attempt has no picks the Worker can score, one taken before picks were kept or a score a
+      // trainer restored: its modules' a is the one the record held, else the device's, marked aUnverified, never dropped)
+      const prev = unscored.has(String(own)) ? storedA(ex && ex.modules, w.modules) : null;
+      if ("modules" in w || own != null) w.modules = moduleScores(w.modules, own, quiz, trainer, prev);
     }
-    merged.caseFlow = Object.assign({}, cf, { days });
+    merged.caseFlow = Object.assign({}, cf, { days, tFrom: typeof trainerAt === "string" ? trainerAt : "" });
+  }
+  // {<module>: a} from the stored summary's modules, else the device's
+  function storedA(stored, listed) {
+    const out = {}, num = (v) => (typeof v === "number" && Number.isFinite(v) && v >= 0 && v <= 100 ? Math.round(v) : null);
+    [listed, stored].forEach((L) => Object.entries(L && typeof L === "object" && !Array.isArray(L) ? L : {}).forEach(([m, x]) => { const a = num(x && typeof x === "object" ? x.a : null); if (a != null) out[m] = a; }));
+    return out;
+  }
+  // 🏅 each module's share of its day's official attempt (the attempt the day's score is: the first, or after a trainer's
+  // reset the best; one taken before its picks were kept has none), as {<module>: pct}
+  // (the official attempt is the one its re-score gives p.score, else the one recorded at p.score: a 21-pick attempt whose
+  // extra question was unpublished since re-scores differently, but its modules' shares are of the day's own questions);
+  // {quiz, unscored: the days whose official attempt has no picks to score}
+  function moduleQuiz(dp, extras) {
+    const out = {}, unscored = new Set();
+    Object.entries(dp || {}).forEach(([d, p]) => {
+      if (!KC_KEY[String(d)] || !kcAttempts(p)) return;
+      const tries = kcHistory(p).map((x) => (x && typeof x === "object" ? { s: kcScore(d, x.answers, extras), at: x.score } : null)).filter((x) => x && x.s);
+      const t = tries.find((x) => x.s.score === p.score) || tries.find((x) => x.at === p.score) || null;
+      if (t) Object.entries(t.s.mods).forEach(([m, v]) => { if (v.total) out[m] = Math.round((v.correct / v.total) * 100); });
+      else unscored.add(String(d));
+    });
+    return { quiz: out, unscored };
+  }
+  // {a, t, c, ai} for each module the device lists and each module the day's Knowledge Check asks about
+  function moduleScores(listed, day, quiz, trainer, prev = null) {
+    const pct = (v) => (typeof v === "number" && Number.isFinite(v) && v >= 0 && v <= 100 ? Math.round(v) : null);
+    const L = listed && typeof listed === "object" && !Array.isArray(listed) ? listed : {};
+    const ids = new Set(Object.keys(L).filter((m) => /^[a-z0-9-]{1,40}$/i.test(m)));
+    const k = day != null ? KC_KEY[String(day)] : null;
+    if (k) k.mod.forEach((m) => ids.add(m));
+    const out = {};
+    for (const m of ids) {
+      const ai = pct(L[m] && typeof L[m] === "object" ? L[m].ai : null), q = m in quiz ? quiz[m] : null;
+      const auto = [q, ai].filter((v) => v != null), was = prev && q == null && m in prev ? prev[m] : null;
+      const a = was != null ? was : auto.length ? Math.round(auto.reduce((x, y) => x + y, 0) / auto.length) : null;
+      const t = m in trainer ? trainer[m] : null;
+      if (a == null && t == null) continue;
+      out[m] = Object.assign({ a, t, c: a != null && t != null ? Math.round(a * 0.6 + t * 0.4) : null }, ai != null ? { ai } : {}, was != null ? { aUnverified: true } : {});
+    }
+    return out;
   }
   return { mergedInto, uidTarget, indexUid, uidOf, resolveTrainee, mergedAway, kcUnion, keepKcStored, keepProgressAttempts, dateFirstAttempts, officialCaseFlow };
 }

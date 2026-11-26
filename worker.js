@@ -28,7 +28,8 @@ import { walkDrive, homeFinder, walkNote, walkSettled } from "./worker-drive-wal
 import { driveToProgress, keepNewerDriveGrades } from "./worker-drive-progress.js";   // 📂 the drive grades onto the trainee's progress, where the Scorecard reads them
 import { accountMergeApi, kcRestoreApi, finishPendingMerges } from "./worker-account-repair.js";   // 👥 two accounts of one trainee merged on the Worker (/api/account-merge); 🛠 one account's missing KC scores restored (/api/kc-restore)
 import { shareGet, shareAdmin, shareKey } from "./worker-share.js";   // 🔗 the 🏆 Rankings & Progress Report as a public, read-only link (share:<token>, /api/share/*)
-import { identity, uidKey, afterMerge, afterMergeProgress, keepMergeStored, orphanWrite } from "./worker-identity.js";   // 🪪 who a sign-in opens (the uid index, merged: redirects) and what keeps a trainee's records whole
+import { identity, uidKey, afterMerge, afterMergeProgress, keepMergeStored, orphanWrite, aliasKey, aliasAtSignIn, aliasPlan, aliasApply, kcExtras, scoredAttempt, trainerScoresAt, layTrainerScores } from "./worker-identity.js";   // 🪪 who a sign-in opens (the uid index, merged: redirects) and what keeps a trainee's records whole
+import { certNameOf } from "./worker-cert-name.js";   // 🎓 the name a trainee's own certificate record is issued in: the one the certificate shows
 /* ---------- KV with the "cm:" namespace prefix ---------- */
 const KV_PREFIX = "cm:";
 /* ---------- what the trainer owns in a trainee's records ----------
@@ -39,6 +40,7 @@ const KV_PREFIX = "cm:";
    A record no admin has saved since reads exactly as it is.
      trainee:<id>   approval, rejection, archive, unlocks, assignments, and who they are (name and batch)
      feedback:<id>  a trainer's review of a day (and its read mark stays the trainee's), a trainer's note on an auto-review,
+                    the trainer's 40% per Case Flow module (caseFlow)
                     a trainer's note on each graded activity (activities)
      focus:<id>     the focus items themselves (seen and done stay the trainee's)
      actsub:<id>    a trainer's feedback on an activity, for the submission it was written for: a new submission
@@ -56,9 +58,11 @@ const OWNED = {
         if (isTrainerReview(v)) days[d] = { review: v };
         else if (v && v.trainerNote) days[d] = { note: v.trainerNote };
       });
+      // 🏅 the trainer's 40% per Case Flow module (feedback:<id>.caseFlow): the record's t and Composite come only from here
+      // (caseFlowAt: which trainer's save of it this is, stamped by the Worker: layTrainerScores)
       // 📤 the progress reports a trainer sent (js/cm-send-progress.js) are the trainer's too, and so are the 🧑‍🏫 notes on
       // graded activities (js/cm-trainer-notes.js)
-      const own = Array.isArray(rec && rec.reports) ? { days, reports: rec.reports } : { days };
+      const own = Object.assign({ days, caseFlow: (rec && rec.caseFlow && typeof rec.caseFlow === "object") ? rec.caseFlow : {} }, typeof (rec && rec.caseFlowAt) === "string" ? { caseFlowAt: rec.caseFlowAt } : {}, Array.isArray(rec && rec.reports) ? { reports: rec.reports } : {});
       if (rec && rec.activities && typeof rec.activities === "object" && !Array.isArray(rec.activities)) own.activities = rec.activities;
       return own;
     },
@@ -69,6 +73,8 @@ const OWNED = {
         if (o.review) { const readAt = cur && cur.readAt; rec.days[d] = Object.assign({}, o.review); if (readAt && !rec.days[d].readAt) rec.days[d].readAt = readAt; }
         else if (o.note && cur && typeof cur === "object") cur.trainerNote = o.note;
       });
+      if (own.caseFlow && typeof own.caseFlow === "object") rec.caseFlow = own.caseFlow;   // (a copy saved before this was kept has none: left as it is)
+      if (typeof own.caseFlowAt === "string") rec.caseFlowAt = own.caseFlowAt; else delete rec.caseFlowAt;
       if (Array.isArray(own.reports)) rec.reports = own.reports;
       if (own.activities && typeof own.activities === "object") rec.activities = own.activities;
     }
@@ -120,13 +126,16 @@ function kvOf(env) {
     get: async (k) => {
       const t = ownedType(k);
       if (!t) return raw.get(KV_PREFIX + k);
-      const [base, owner] = await Promise.all([raw.get(KV_PREFIX + k), raw.get(KV_PREFIX + ownerKey(k))]);
-      if (base == null || owner == null) return base;
+      // (🏅 trainee:<id> also reads feedback-admin:<id>, the trainer's 40%: layTrainerScores)
+      const [base, owner, fbOwner] = await Promise.all([raw.get(KV_PREFIX + k), raw.get(KV_PREFIX + ownerKey(k)), t === "trainee" ? raw.get(KV_PREFIX + "feedback-admin:" + k.slice("trainee:".length)) : null]);
+      if (base == null || (owner == null && fbOwner == null)) return base;
       try {
-        const rec = JSON.parse(base), own = JSON.parse(owner);
-        if (!rec || typeof rec !== "object" || !own || typeof own !== "object") return base;
-        OWNED[t].overlay(rec, own);
-        return JSON.stringify(rec);
+        const rec = JSON.parse(base), own = owner == null ? null : JSON.parse(owner);
+        if (!rec || typeof rec !== "object") return base;
+        let laid = false;
+        if (own && typeof own === "object") { OWNED[t].overlay(rec, own); laid = true; }
+        if (fbOwner != null) { try { if (layTrainerScores(rec, JSON.parse(fbOwner))) laid = true; } catch (e) { /* a damaged copy: not laid */ } }
+        return laid ? JSON.stringify(rec) : base;
       } catch (e) { return base; }
     },
     put: (k, v, o) => raw.put(KV_PREFIX + k, v, o),
@@ -227,16 +236,22 @@ async function useTicketOnce(env, kv, ticket) {
     try {
       const ns = env.TICKET_LEDGER;
       const r = await ns.get(ns.idFromName("sso:" + sig)).fetch("https://ledger/use", { method: "POST" });
-      if (r.status === 200) return true;
       if (r.status === 409) return false;
+      if (r.status === 200) {
+        // the KV mark too, so a later use that finds the ledger unreachable (the KV check below) still knows of this one
+        if (kv) { try { await kv.put("sso-used:" + sig, "1", { expirationTtl: TICKET_NONCE_TTL_S }); } catch (e) { /* the ledger's own mark stands */ } }
+        return true;
+      }
     } catch (e) { /* the ledger couldn't be reached: the KV check below */ }
   }
   if (!kv) return true;
   const key = "sso-used:" + sig;
   if (await kv.get(key)) return false;
-  await kv.put(key, "1", { expirationTtl: 600 });
+  await kv.put(key, "1", { expirationTtl: TICKET_NONCE_TTL_S });
   return true;
 }
+// (the mark outlives any ticket it refuses: a ticket lives at most PORTAL_TICKET_MAX_MS, the mark 5 minutes more, as the ledger's)
+const TICKET_NONCE_TTL_S = Math.ceil(PORTAL_TICKET_MAX_MS / 1000) + 300;
 // One instance per ticket. A Durable Object handles one request's storage step at a time (its input gate), so a
 // second request for the same ticket always sees the first one's mark. The mark is cleared after 15 minutes, when
 // the ticket (good for at most 10) can no longer be used anyway.
@@ -252,6 +267,17 @@ export class TicketLedger {
   }
   async alarm() { await this.state.storage.deleteAll(); }
 }
+/* 🎯 A Portal ticket names the program it was made for (p: the topic key, functions/api/launch.js makeTicket). This
+   program refuses a ticket whose p is another program, a tool, or a course's tool link (p "tool"): why.r "audience", so
+   Program Access on the Portal stays the one gate. A ticket with no p is still taken, so nobody is locked out whichever
+   side deploys first: tickets are signed by the Portal and the courses only and live 5 minutes, and once the Portal and
+   the courses' tool tickets carry p, no ticket without one is made any more.
+   SSO_REQUIRE_AUDIENCE = "1" ends the rollout: a ticket with no p is refused too (why.r "audience"). */
+const PORTAL_TOPIC = "CM TRAINING";
+function ticketAudienceOk(env, t) {
+  if (!t || t.p == null) return String((env && env.SSO_REQUIRE_AUDIENCE) || "").trim() !== "1";
+  return String(t.p) === PORTAL_TOPIC;
+}
 async function readPortalTicket(env, ticket, why = {}) {
   if (!portalSecret(env)) { why.r = "format"; return null; }
   const parts = String(ticket || "").split(".");
@@ -261,13 +287,17 @@ async function readPortalTicket(env, ticket, why = {}) {
   let t; try { t = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(parts[0].replace(/-/g, "+").replace(/_/g, "/")), (c) => c.charCodeAt(0)))); } catch (e) { why.r = "format"; return null; }
   const exp = Number(t && t.exp);
   if (!exp || Date.now() > exp || exp - Date.now() > PORTAL_TICKET_MAX_MS) { why.r = "expired"; return null; }
+  if (!ticketAudienceOk(env, t)) { why.r = "audience"; return null; }
   if (t.r === "s") return { system: true };   // the Portal's own server-side tools (sign-in check, registration import): never given to a person
   if (t.r === "a") return { admin: true, name: String(t.n || "").trim().slice(0, 60) };   // an administrator signed in on the Portal (their own admin account)
   const first = String(t.first || "").trim(), last = String(t.last || "").trim(), batch = String(t.b || "").trim();
   if (!first || !last || !batch) return null;
   // u: the Portal's own id for the trainee, when the ticket carries one (it stays the same when their Batch ID is corrected)
   const uid = String(t.u || "").trim().slice(0, 80);
-  return { name: `${first} ${last}`, first, last, batch, uid };
+  // full: the whole name as registered on the Portal (a middle initial, a suffix), shown as the trainee's fullName; the
+  // ID stays first + last name + batch, so a trainee never gets a second account from it
+  const full = String(t.full || "").replace(/\s+/g, " ").trim().slice(0, 120);
+  return { name: `${first} ${last}`, first, last, batch, uid, full };
 }
 // Like readToken, but an expired token still counts for a while (same signature, same trainee), so a trainee
 // midway through the course whose 30 days run out isn't sent back to the portal in the middle of a lesson.
@@ -376,8 +406,8 @@ const PUBLIC_READ = [/^blueprint:meta$/, /^settings:(feedback|certificate|tools|
 // {<alert key>: {at, by}}}. Admin-only on purpose, both ways: it is in neither OWN nor PUBLIC_READ, so a trainee can't
 // read it, and traineeWrite refuses it, so a trainee can't mark their own alert resolved.
 const OWN = (id) => [`trainee:${id}`, `progress:${id}`, `feedback:${id}`, `focus:${id}`, `actsub:${id}`];
-const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt", "portalUid", "kcReset", "mergedAt"];
-const IDENTITY_TRAINEE_FIELDS = ["name", "firstName", "lastName", "batch"];
+const PROTECTED_TRAINEE_FIELDS = ["approved", "rejected", "archived", "labAttemptsResetAt", "certTrainer", "aiReview", "flaggedInvalidInput", "assignedRoleplay", "assignedCase", "registeredAt", "unlockedDays", "unlockedDaysAt", "unlockedCopies", "unlockedCopiesAt", "portalUid", "kcReset", "mergedAt", "name", "firstName", "lastName", "batch", "fullName"];
+const IDENTITY_TRAINEE_FIELDS = ["name", "firstName", "lastName", "batch", "fullName"];
 const ADMIN_OWNED_TRAINEE_FIELDS = PROTECTED_TRAINEE_FIELDS.concat(IDENTITY_TRAINEE_FIELDS);
 
 // callsim:<id>: the trainee's graded calls from the Call Simulator (☎ LSH Ring Channel), kept by the Training Portal (its /api/call-results).
@@ -420,18 +450,16 @@ function kcResetOpen(rs, p) {
   const h = kcHistory(p), first = Date.parse((h[0] && h[0].date) || "");
   return !(Number.isFinite(first) && first >= rAt) && !h.some((x) => x && Date.parse(x.date) > rAt);
 }
-function kcRetake(p, prevH, n, rs) {
+function kcRetake(p, prevH, n, rs, day, extras) {
   if (!kcResetOpen(rs, p)) return null;
   const seeded = kcHistory(p);   // (a legacy record's one attempt kept as history[0], so it is never lost)
   const h = Array.isArray(n.history) ? n.history : [];
   // exactly one new attempt: the stored ones and one more (a legacy record's page may send the new one alone)
   const legacyOne = !prevH.length && h.length === 1 && h[0] && h[0].date !== p.date;
   if (h.length !== seeded.length + 1 && !legacyOne) return null;
-  const x = h[h.length - 1];
-  if (!x || typeof x !== "object" || typeof x.score !== "number" || !Number.isFinite(x.score) || x.score < 0 || x.score > 100) return null;
-  // (dated by the Worker's clock, not the trainee's)
-  const rAt = Date.parse(rs.at), add = { score: Math.round(x.score), passed: x.score >= 70, date: new Date(Math.max(Date.now(), Number.isFinite(rAt) ? rAt + 1 : 0)).toISOString() };
-  if (Array.isArray(x.answers) && x.answers.length <= 200 && x.answers.every((y) => y === null || Number.isInteger(y))) add.answers = x.answers;
+  // (scored by the Worker from its own picks, worker-identity.js scoredAttempt; dated by the Worker's clock, not the trainee's)
+  const rAt = Date.parse(rs.at), add = scoredAttempt(day, h[h.length - 1], extras, new Date(Math.max(Date.now(), Number.isFinite(rAt) ? rAt + 1 : 0)).toISOString());
+  if (!add) return null;
   const best = typeof p.score === "number" ? Math.max(p.score, add.score) : add.score;
   return { history: seeded.concat([add]), score: best, done: !!p.done || add.passed, date: add.date };
 }
@@ -469,7 +497,7 @@ async function keepKcResets(kv, key, value) {
   if (!changed) return value;
   inc.kcReset = out; return JSON.stringify(inc);
 }
-function keepKcAttempts(existing, merged) {
+function keepKcAttempts(existing, merged, extras) {
   const was = existing && existing.dayProgress;
   if (!was || typeof was !== "object") return;
   const now = merged.dayProgress && typeof merged.dayProgress === "object" ? Object.assign({}, merged.dayProgress) : {};
@@ -478,7 +506,7 @@ function keepKcAttempts(existing, merged) {
     const prevH = Array.isArray(p.history) ? p.history : [];
     if (!prevH.length && typeof p.score !== "number") continue;   // no attempt yet: the trainee's write stands
     const n = now[d] && typeof now[d] === "object" ? Object.assign({}, now[d]) : {};
-    const retake = kcRetake(p, prevH, n, existing.kcReset && existing.kcReset[d]);
+    const retake = kcRetake(p, prevH, n, existing.kcReset && existing.kcReset[d], d, extras);
     if (p.kcUnverified) n.kcUnverified = true; else delete n.kcUnverified;   // (🛠 a score a trainer restored from the device: the label stays the Worker's)
     if (retake) { now[d] = Object.assign(n, retake); continue; }
     let h = Array.isArray(n.history) ? n.history.slice() : [];
@@ -496,7 +524,23 @@ function keepKcAttempts(existing, merged) {
 // 🪪 worker-identity.js: resolveTrainee, mergedInto, the uid index, and keepKcStored / keepProgressAttempts
 const { mergedInto, indexUid, uidOf, resolveTrainee, mergedAway, keepKcStored, keepProgressAttempts, dateFirstAttempts, officialCaseFlow } = identity({ kcHistory, kcAttempts, candidateIds, batchKey });
 // 👥 what worker-account-repair.js uses of the Worker (/api/account-merge)
-const accountMergeDeps = () => ({ kvOf, ownerPut, ownedType, ownerKey, candidateIds, canonicalBatch, resolveTrainee, mergedInto, uidKey, kcHistory, kcResetOpen, trainerWho, isTrainerReview, keepKcStored, keepProgressAttempts });
+const accountMergeDeps = () => ({ kvOf, ownerPut, ownedType, ownerKey, candidateIds, canonicalBatch, resolveTrainee, mergedInto, uidKey, kcHistory, kcResetOpen, trainerWho, isTrainerReview, keepKcStored, keepProgressAttempts, aliasKey, aliasPlan, aliasApply });
+// 🏅 A trainer's save of feedback:<id> is stamped (caseFlowAt) and never written back into trainee:<id>: every read of the
+// record lays it over the Case Flow modules (layTrainerScores), and the trainee's next save records it. A trainer's own
+// write of trainee:<id> names the save its t and c were read with (caseFlow.tFrom), so what the trainer wrote stands.
+function stampTrainerScores(value, at) {
+  let rec; try { rec = JSON.parse(value); } catch (e) { return value; }
+  if (!rec || typeof rec !== "object" || !rec.caseFlow || typeof rec.caseFlow !== "object") return value;
+  return JSON.stringify(Object.assign(rec, at ? { caseFlowAt: at } : {}));
+}
+async function trainerWroteCaseFlow(kv, id, value) {
+  let rec; try { rec = JSON.parse(value); } catch (e) { return value; }
+  if (!rec || typeof rec !== "object" || !rec.caseFlow || typeof rec.caseFlow !== "object") return value;
+  const own = await kv.get(`feedback-admin:${id}`);
+  let at = ""; try { const o = JSON.parse(own || "null"); at = o && typeof o.caseFlowAt === "string" ? o.caseFlowAt : ""; } catch (e) { /* none */ }
+  rec.caseFlow = Object.assign({}, rec.caseFlow, { tFrom: at });
+  return JSON.stringify(rec);
+}
 async function traineeWrite(env, tok, key, value) {
   const kv = kvOf(env);
   const id = tok.id;
@@ -510,18 +554,26 @@ async function traineeWrite(env, tok, key, value) {
   if (key === `trainee:${id}`) {
     // Trainees keep their own record current, but can never change approval, attempts resets, etc.
     const merged = Object.assign({}, incoming);
-    PROTECTED_TRAINEE_FIELDS.forEach((f) => { if (existing && f in existing) merged[f] = existing[f]; else delete merged[f]; });
+    // (a brand-new record's first write still sets its own name and batch: IDENTITY_TRAINEE_FIELDS, kept from then on)
+    PROTECTED_TRAINEE_FIELDS.forEach((f) => { if (existing && f in existing) merged[f] = existing[f]; else if (existing || !IDENTITY_TRAINEE_FIELDS.includes(f)) delete merged[f]; });
     // Who the trainee is (their name and batch) is set once, at registration or by the Portal's sign-in; after that
     // only an admin changes it. A Training Tools ticket is signed from these fields, so a trainee who renamed
     // themselves could otherwise sign in elsewhere as someone else.
     if (existing) IDENTITY_TRAINEE_FIELDS.forEach((f) => { if (f in existing) merged[f] = existing[f]; else delete merged[f]; });
     if (!existing) { merged.approved = false; merged.registeredAt = new Date().toISOString(); }
-    if (existing) keepKcAttempts(existing, merged);
-    dateFirstAttempts(existing, merged, new Date());   // (a day's first attempt: dated by the Worker, a score of 0–100)
+    // ✍️ a Knowledge Check attempt is scored here, from its own picks (worker-kc-key.js; a trainer's published extra questions)
+    const extras = await kcExtras(kv, [existing && existing.dayProgress, merged.dayProgress]);
+    if (existing) keepKcAttempts(existing, merged, extras);
+    const kcRejected = dateFirstAttempts(existing, merged, new Date(), extras);   // (a day's first attempt: dated and scored by the Worker; [days] it couldn't score)
     const fold = await afterMerge(kv, id, existing, merged, incoming);   // 👥 a device that hasn't restored a merge yet can't drop what it folded in
-    officialCaseFlow(existing, merged);   // 🏅 caseFlow.days[n].kc / passed from the record's own dayProgress, never the device's
+    // 🏅 caseFlow.days[n].kc / passed from the record's own dayProgress, never the device's; each module's {a, t, c} worked
+    // out here, its trainer's 40% (t) from feedback:<id> only
+    const tr = merged.caseFlow ? await trainerScoresAt(kv, id) : { scores: {}, at: "" };
+    officialCaseFlow(existing, merged, tr.scores, extras, tr.at);
     merged.id = id;
-    await kv.put(key, JSON.stringify(merged)); return fold ? { ok: true, mergePending: fold } : null;
+    await kv.put(key, JSON.stringify(merged));
+    const rej = kcRejected && kcRejected.length ? { kcRejected } : null;   // (js/cm-kc-rejected.js reopens those days' Knowledge Checks)
+    return fold || rej ? Object.assign({ ok: true }, fold ? { mergePending: fold } : {}, rej || {}) : null;
   }
   if (key === `progress:${id}`) {
     if (String(value).length > 2000000) return "Too large";
@@ -612,7 +664,9 @@ async function traineeWrite(env, tok, key, value) {
     if ((incoming && incoming.traineeId) !== id || existing) return "Not allowed";
     let who = null; try { who = JSON.parse((await kv.get(`trainee:${id}`)) || "null"); } catch (e) { /* no record */ }
     if (!who || who.approved !== true || who.archived) return "Not allowed";
-    const rec = Object.assign({}, incoming, { traineeId: id, name: who.name || incoming.name || "", batch: who.batch || "", issuedBy: "self", issuedAt: new Date().toISOString() });
+    // (🎓 in the name the certificate shows, as a trainer's issue is: worker-cert-name.js)
+    let cs = null; try { cs = JSON.parse((await kv.get("settings:certificate")) || "null"); } catch (e) { /* the default order */ }
+    const rec = Object.assign({}, incoming, { traineeId: id, name: certNameOf(who, cs) || who.name || "", batch: who.batch || "", issuedBy: "self", issuedAt: new Date().toISOString() });
     await kv.put(key, JSON.stringify(rec)); return null;
   }
   return "Not allowed";
@@ -2063,13 +2117,15 @@ export default {
         const who = await readPortalTicket(env, ticket, why);
         if (!who) return json({ error: why.r === "signature"
           ? "The LSH Training Portal couldn't be verified (code: bad-signature). Please tell your administrator: the Portal and this program need the same sign-in secret."
+          : why.r === "audience" ? "This sign-in link was made for another program or tool. Open this program from the LSH Training Portal's Training Directory."
           : "This sign-in link has expired. Open the program again from the LSH Training Portal.", code: why.r || "format" }, 401);
+        // Every Portal ticket works once (a trainee's, a trainer's and the Sign-in check's), so a copy of the link (browser
+        // history, a forwarded URL) can't sign anyone in again inside its 5 minutes.
+        if (!(await useTicketOnce(env, kv, ticket))) return json({ error: "This sign-in link was already used. Open the program again from the LSH Training Portal.", code: "used" }, 401);
         if (who.system) return json({ admin: true, token: await makeToken(env, "a", "admin", 12) });
         if (who.admin) {
           // Single sign-on for trainers too: an administrator signed in on the Main Portal opens every program as a
-          // trainer, with no second password here. Their ticket works once, so a copy of the link (browser history,
-          // a forwarded URL) can't sign anyone in again inside its 5 minutes.
-          if (!(await useTicketOnce(env, kv, ticket))) return json({ error: "This sign-in link was already used. Open the program again from the LSH Training Portal.", code: "used" }, 401);
+          // trainer, with no second password here (the ticket was taken once, above).
           return json({ admin: true, name: who.name, token: await makeToken(env, "a", who.name ? "admin:" + String(who.name).replace(/[.]/g, " ").slice(0, 80) : "admin", 12) });   // (the token names the trainer: kcReset's `by`)
         }
         let res = await traineeSession(who.name, who.batch, "", who.uid);
@@ -2109,7 +2165,19 @@ export default {
         }
         // 🪪 the uid index (resolveTrainee looks at it first): this Portal id now opens this record, under whatever name or batch
         if (who.uid && out.existing && (!out.existing.portalUid || out.existing.portalUid === who.uid)) await indexUid(kv, who, out.id);
-        return json(Object.assign(out, { name: who.name, first: who.first, last: who.last, batch: who.batch }));
+        // the full name as registered on the Portal (with a middle name or initial), kept beside the record's name
+        if (out.existing && who.full && who.full !== who.name && out.existing.fullName !== who.full) {
+          out.existing = Object.assign({}, out.existing, { fullName: who.full });
+          await ownerPut(kv, `trainee:${out.id}`, JSON.stringify(out.existing));
+        } else if (out.existing && who.full && who.full === who.name && "fullName" in out.existing) {
+          // (the Portal corrected the registered name to the first + last name alone: the old full name goes)
+          out.existing = Object.assign({}, out.existing); delete out.existing.fullName;
+          await ownerPut(kv, `trainee:${out.id}`, JSON.stringify(out.existing));
+        }
+        // 🔗 the Portal files this trainee's simulator results and graded calls under its own id for them (their name + batch:
+        // rawId); trainee-alias:<that id> sends them to the record this sign-in opened, when it is another one
+        await aliasAtSignIn(kv, candidateIds(who.name, who.batch).rawId, out.id);
+        return json(Object.assign(out, { name: who.name, first: who.first, last: who.last, batch: who.batch }, who.full ? { fullName: who.full } : {}));
       }
 
       if (path === "/api/share/get") return await shareGet(kvOf(env), request);   // 🔗 no sign-in: one shared report link, or 404
@@ -2140,12 +2208,15 @@ export default {
          trainer as a trainer. Good for 5 minutes. */
       if (path === "/api/auth/tool-ticket") {
         if (!portalSecret(env)) return json({ error: "not-available" }, 501);
-        const sign = async (t) => { const payload = btoa(String.fromCharCode(...enc.encode(JSON.stringify(t)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+        // (j: a few random characters, as the Portal's makeTicket adds: two tickets made in the same millisecond are two tickets, each taken once)
+        const sign = async (t) => { t.j = btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(6)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+          const payload = btoa(String.fromCharCode(...enc.encode(JSON.stringify(t)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
           return `${payload}.${await hmac("portal-sso:" + portalSecret(env), payload)}`; };
         // A trainer signed in here (the admin password, or the Portal's admin sign-in) opens the CMS as a trainer, the
         // same {r: "a"} ticket the Portal gives its administrators: the CMS takes it once (its useTicketOnce), so a
         // fresh one is made for every tool opened. Single sign-on on every platform, for trainers as for trainees.
-        if (tok.role === "a") return json({ ticket: await sign({ r: "a", n: "", exp: Date.now() + 5 * 60 * 1000 }), admin: true });
+        // (p "tool": a tool's ticket; no training program takes it, so it can't open one)
+        if (tok.role === "a") return json({ ticket: await sign({ r: "a", n: "", p: "tool", exp: Date.now() + 5 * 60 * 1000 }), admin: true });
         if (tok.role !== "t") return json({ error: "not-available" }, 403);
         const rec = JSON.parse((await kv.get(`trainee:${tok.id}`)) || "null");
         if (!rec || rec.approved !== true || rec.archived) return json({ error: "not-approved" }, 403);
@@ -2156,7 +2227,12 @@ export default {
         const ids = candidateIds(`${first} ${last}`, rec.batch);
         // (or the record they resolve to: the uid index's, after the Portal changed the name or batch, or a merge's)
         if (![ids.newId, ids.rawId, ids.altId, ids.legacyId].includes(tok.id) && (await resolveTrainee(kv, `${first} ${last}`, rec.batch, rec.portalUid || "")).chosen !== tok.id) return json({ error: "identity-mismatch" }, 403);
-        return json({ ticket: await sign({ first, last, b: String(rec.batch || ""), exp: Date.now() + 5 * 60 * 1000 }) });
+        // (u: the trainee's Portal account id, the only thing the Portal trusts about who a tool ticket is for: it signs in
+        // that exact account, and refuses a trainee ticket without one. Set on the record from the Portal's own ticket only
+        // (/api/auth/portal; portalUid is a protected field), so a record from before that has none until the next Portal sign-in)
+        const u = typeof rec.portalUid === "string" ? rec.portalUid.trim().slice(0, 80) : "";
+        if (!u) return json({ error: "Your training tools can't open signed in yet. Please open Case Management Training again from the LSH Training Portal once (that links this account to your Portal account), then open the tool again.", code: "portal-uid-missing" }, 409);
+        return json({ ticket: await sign({ first, last, b: String(rec.batch || ""), u, p: "tool", exp: Date.now() + 5 * 60 * 1000 }) });
       }
 
       /* ---------- 🕘 automatic Time In: a trainee's first visit today (see checkIn) ---------- */
@@ -2424,6 +2500,8 @@ export default {
           // ✍️ a copy read earlier keeps the Knowledge Checks stored since (keepKcStored); replaceKc: true is a deliberate replacement
           if (/^trainee:[^:]+$/.test(key) && body.replaceKc !== true) body.value = await keepKcStored(kv, key, body.value);
           if (/^trainee:[^:]+$/.test(key)) body.value = await keepMergeStored(kv, key, body.value);   // 👥 a copy read before a merge keeps its mergedAt and what it joined
+          if (/^trainee:[^:]+$/.test(key)) body.value = await trainerWroteCaseFlow(kv, key.slice("trainee:".length), body.value);   // 🏅 its t and c stand
+          if (/^feedback:[^:]+$/.test(key)) body.value = stampTrainerScores(body.value, new Date().toISOString() + "~" + crypto.randomUUID().slice(0, 8));   // 🏅 the trainer's 40% reaches the Composite at once, laid over every read
           await ownerPut(kv, key, body.value);
           return json({ ok: true });
         }

@@ -27,13 +27,19 @@ const signedTrainer = ()=> typeof state === "object" && (!!state.isAdmin || !!st
 const signedIn = ()=> signedTrainee() || signedTrainer();
 
 let cached = null, cachedAt = 0, pending = null;
+// (a record the Portal hasn't linked to the trainee's Portal account yet gets no ticket: the Worker says to open the program
+// from the Portal once, and the trainee is told so; the tool still opens, at its own sign-in page)
+function unlinked(j){
+  if(!j || j.code !== "portal-uid-missing" || !j.error) return;
+  if(typeof window.toast === "function") window.toast(j.error); else if(typeof alert === "function") alert(j.error);
+}
 function ticket(){
   if(signedTrainer()) return fetch("/api/auth/tool-ticket", {method:"POST", headers: authHeaders(), body:"{}"})   // a trainer's: once only, never cached
     .then(r=>r.ok ? r.json() : {}).then(j=>(j && j.ticket) || "").catch(()=>"");
   if(cached && Date.now() - cachedAt < 3 * 60 * 1000) return Promise.resolve(cached);
   if(pending) return pending;
   pending = fetch("/api/auth/tool-ticket", {method:"POST", headers: authHeaders(), body:"{}"})
-    .then(r=>r.ok ? r.json() : {}).then(j=>{ pending = null; if(j && j.ticket){ cached = j.ticket; cachedAt = Date.now(); } return (j && j.ticket) || ""; })
+    .then(r=>r.ok ? r.json() : r.json().then(j=>{ unlinked(j); return {}; }, ()=>({}))).then(j=>{ pending = null; if(j && j.ticket){ cached = j.ticket; cachedAt = Date.now(); } return (j && j.ticket) || ""; })
     .catch(()=>{ pending = null; return ""; });
   return pending;
 }

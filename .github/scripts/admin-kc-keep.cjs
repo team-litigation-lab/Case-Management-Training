@@ -11,6 +11,7 @@
 //   5. only a deliberate replacement (replaceKc: true) clears a day.
 // Usage: node .github/scripts/admin-kc-keep.cjs   (no server, no browser needed)
 const { harness, reporter } = require('./worker-harness.cjs');
+const { picksFor } = require('./kc-picks.cjs');   // (the Worker scores a trainee's attempt from its own picks, as the page sends them)
 const R = reporter();
 (async () => {
     const h = await harness();
@@ -21,7 +22,7 @@ const R = reporter();
     // the trainer's page reads the record (no Knowledge Check yet)
     const stale = await h.get(key);
     // the trainee submits Day 12's Knowledge Check, and the Case Flow summary with it
-    const d12 = { score: 85, done: true, date: at(-5), history: [{ score: 85, passed: true, date: at(-5) }], surpriseTaskScore: 70 };
+    const d12 = { score: 85, done: true, date: at(-5), history: [{ score: 85, passed: true, date: at(-5), answers: picksFor(12, 85) }], surpriseTaskScore: 70 };
     await h.set(key, Object.assign({}, stale, { dayProgress: { 12: d12 }, caseFlow: { at: at(-5), days: { 2: { id: 12, kc: 85, passed: true } } } }), t.token);
     R.check(((await h.get(key)).dayProgress || {})[12], 'the trainee\'s Knowledge Check should be stored');
     // 1, 3, 4. the trainer's stale copy lands
@@ -32,11 +33,11 @@ const R = reporter();
     R.check(r.caseFlow && r.caseFlow.days && r.caseFlow.days[2] && r.caseFlow.days[2].kc === 85, `a stale admin copy should keep the newer Case Flow summary: ${JSON.stringify(r.caseFlow)}`);
 
     // 2. a retake after a reset, then a stale copy holding only the first attempt
-    await h.set(key, Object.assign({}, r, { dayProgress: Object.assign({}, r.dayProgress, { 13: { score: 50, done: false, date: at(-4), history: [{ score: 50, passed: false, date: at(-4) }] } }) }), t.token);
+    await h.set(key, Object.assign({}, r, { dayProgress: Object.assign({}, r.dayProgress, { 13: { score: 50, done: false, date: at(-4), history: [{ score: 50, passed: false, date: at(-4), answers: picksFor(13, 50) }] } }) }), t.token);
     const copy = await h.get(key);
     R.check((await h.api('/api/kc-reset', { traineeId: t.id, dayId: 13 }, h.admin)).status === 200, 'the trainer should reset Day 13');
     const now = await h.get(key);
-    await h.set(key, Object.assign({}, now, { dayProgress: Object.assign({}, now.dayProgress, { 13: { score: 90, done: true, date: at(-1), history: now.dayProgress[13].history.concat([{ score: 90, passed: true, date: at(-1) }]) } }) }), t.token);
+    await h.set(key, Object.assign({}, now, { dayProgress: Object.assign({}, now.dayProgress, { 13: { score: 90, done: true, date: at(-1), history: now.dayProgress[13].history.concat([{ score: 90, passed: true, date: at(-1), answers: picksFor(13, 90) }]) } }) }), t.token);
     R.check((await h.get(key)).dayProgress[13].history.length === 2, 'the retake should be stored');
     await h.set(key, Object.assign({}, copy, { approved: true, unlockedDays: [14] }));
     r = await h.get(key);
