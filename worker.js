@@ -26,7 +26,7 @@ import { viaClaude, claudeOn, claudeModel, claudeMark, claudeFailure } from "./w
 import { courseDocs, credited, driveFind, knownFor, listedOf, setupOf, startsDay } from "./worker-drive-found.js";
 import { walkDrive, homeFinder, walkNote, walkSettled } from "./worker-drive-walk.js";
 import { driveToProgress, keepNewerDriveGrades } from "./worker-drive-progress.js";   // 📂 the drive grades onto the trainee's progress, where the Scorecard reads them
-import { accountMergeApi, kcRestoreApi } from "./worker-account-repair.js";   // 👥 two accounts of one trainee merged on the Worker (/api/account-merge); 🛠 one account's missing KC scores restored (/api/kc-restore)
+import { accountMergeApi, kcRestoreApi, finishPendingMerges } from "./worker-account-repair.js";   // 👥 two accounts of one trainee merged on the Worker (/api/account-merge); 🛠 one account's missing KC scores restored (/api/kc-restore)
 import { shareGet, shareAdmin, shareKey } from "./worker-share.js";   // 🔗 the 🏆 Rankings & Progress Report as a public, read-only link (share:<token>, /api/share/*)
 import { identity, uidKey, afterMerge, afterMergeProgress, keepMergeStored, orphanWrite, aliasKey, aliasAtSignIn, aliasPlan, aliasApply, kcExtras, scoredAttempt, trainerScoresAt, layTrainerScores } from "./worker-identity.js";   // 🪪 who a sign-in opens (the uid index, merged: redirects) and what keeps a trainee's records whole
 import { certNameOf } from "./worker-cert-name.js";   // 🎓 the name a trainee's own certificate record is issued in: the one the certificate shows
@@ -2530,5 +2530,6 @@ export default {
      ⚡ the other hours, only the drives whose trainee did something since they were last looked at (driveWorkActive) */
   async scheduled(event, env, ctx) {
     try { await (cronRun(event) === "active" ? driveWorkActive : driveWorkNightly)(env, driveWorkDeps()); } catch (e) { console.error(e); }   // the outcome is kept in cm:drivework-run / cm:drivework-active
+    try { const f = await finishPendingMerges(env, accountMergeDeps()); if (f.finished.length || f.skipped.length) console.log("merge finish", JSON.stringify(f)); } catch (e) { console.error(e); }   // 👥 a merge's other account removed once it has settled (the trainer's page usually does it first)
   }
 };

@@ -775,3 +775,31 @@ export async function kcRestoreApi(env, D, tok, b) {
   }
   return { status: 200, body: Object.assign({ ok: true, restored, backup: bk }, report) };
 }
+
+/* 🔁 FINISH WHAT A MERGE LEFT: the other account removed by itself, no second run by hand.
+   A confirmed merge leaves the other account's copied keys for SETTLE_MS (a save elsewhere may not be visible yet: see
+   step 5 above), then deletes them when it is run again. The trainer's page runs it again by itself once that time is up
+   (js/cm-account-repair.js); this is the backstop for a page closed before then, called from the Worker's hourly run.
+   For each merged:<other> = {into, how: "account-merge"} older than SETTLE_MS whose trainee:<other> is still there (and
+   trainee:<into> too), it runs the same merge again the safe way: a dry run of [into, other], and only when that dry run
+   keeps `into`, the confirm of exactly what it showed (expectKeep, expectDelete, expectKc). Anything else is left for a
+   trainer (🛠 Account Repair lists it as "Merge not finished"). At most `max` merges a run. Returns what it did. */
+export async function finishPendingMerges(env, D, max = 3) {
+  const kv = D.kvOf(env); if (!kv) return { finished: [], skipped: [] };
+  const tok = { role: "a", id: "admin:Automatic merge finish" }, finished = [], skipped = [];
+  for (const k of await listKeys(kv, "merged:")) {
+    if (finished.length + skipped.length >= max) break;
+    const other = String(k.name || "").slice(7); if (!ID_RE.test(other)) continue;
+    let m = null; try { m = JSON.parse((await kv.get(k.name)) || "null"); } catch (e) { m = null; }
+    if (!m || m.how !== "account-merge" || !m.into || m.into === other || !(Date.now() - Date.parse(m.at || "") >= SETTLE_MS)) continue;
+    if ((await kv.get(`trainee:${other}`)) == null || (await kv.get(`trainee:${m.into}`)) == null) continue;
+    try {
+      const dry = await accountMergeApi(env, D, tok, { ids: [m.into, other], keep: m.into });
+      if (dry.status !== 200 || !dry.body.dryRun || dry.body.keep !== m.into) { skipped.push({ other, into: m.into, why: (dry.body && dry.body.error) || `the dry run keeps ${dry.body && dry.body.keep}` }); continue; }
+      const r = await accountMergeApi(env, D, tok, { ids: [m.into, other], keep: m.into, confirm: true, expectKeep: dry.body.keep, expectDelete: ((dry.body.keys || {}).delete || []).slice(), expectKc: dry.body.expectKc, differentPortalIds: true });
+      if (r.status === 200 && r.body.ok) finished.push({ other, into: m.into, left: (r.body.pendingDelete || []).length });
+      else skipped.push({ other, into: m.into, why: (r.body && r.body.error) || `status ${r.status}` });
+    } catch (e) { skipped.push({ other, into: m.into, why: String((e && e.message) || e).slice(0, 200) }); }
+  }
+  return { finished, skipped };
+}

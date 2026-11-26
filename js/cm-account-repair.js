@@ -24,7 +24,7 @@
        day · record value · recovered value · source, the id kept, and every key it would write, move, leave and delete.
        Only then is "Merge" offered, saying what it will do; it sends the same request with confirm: true and the preview's
        result (expectKeep, expectDelete, expectKc), which the Worker refuses if the accounts changed since. The other
-       account's keys are deleted only when the merge is run again, two minutes or more later. cmAccountRepair.mergeIds
+       account's keys are deleted when the merge runs again: by itself (autoFinish) once its redirect has settled, two minutes or more later, or by the Worker's hourly run if the page was closed. cmAccountRepair.mergeIds
        does the same for the 📋 Batch Sheet's 👥 Merge.
      - 🔓 a merged:<id> left on a live account: "Remove redirect" (a dry run, then the confirmed removal, backed up).
      - ✍️ one account: "Restore missing KC scores" asks /api/kc-restore for its dry run (the days its record lacks, filled in
@@ -190,7 +190,8 @@ async function confirmMerge(k){
   S.busy[k] = false;
   if(r.status === 200 && r.body.ok){
     delete S.dry[k];
-    S.done.unshift({ok: true, text: doneText(r.body)});
+    S.done.unshift({ok: true, text: doneText(r.body) + pendingNote(r.body)});
+    if((r.body.pendingDelete || []).length) autoFinish(d.req.ids, r.body.keep, r.body.finishAfter);
     afterChange();
   } else {
     if(r.body && r.body.previewAgain) delete S.dry[k];
@@ -198,6 +199,26 @@ async function confirmMerge(k){
   }
   redraw();
 }
+/* 🔁 a confirmed merge that left the other account's keys (pendingDelete, until its redirect is settled) is finished by
+   itself: once finishAfter has passed, the same merge is run again the safe way (a dry run, and the confirm of exactly
+   what it shows, only while it still keeps the same account), so the other account and its batch row go without a second
+   click. A page closed first is covered by the Worker's hourly run (worker-account-repair.js finishPendingMerges). */
+function autoFinish(ids, keep, finishAfter, tries){
+  tries = tries || 0;
+  const wait = Math.max(5000, (Date.parse(finishAfter || "") || Date.now()) - Date.now() + 5000);
+  setTimeout(async () => {
+    const d = await post("/api/account-merge", {ids: ids.slice(), keep});
+    if(d.status !== 200 || !d.body.dryRun || d.body.keep !== keep){
+      S.done.unshift({ok: false, text: `The merge into ${keep} couldn't finish by itself (${(d.body && d.body.error) || "the dry run keeps another account"}). Open 🔁 Finish the merge in 👥.`}); redraw(); return; }
+    const c = await post("/api/account-merge", {ids: ids.slice(), keep, confirm: true, expectKeep: d.body.keep, expectDelete: ((d.body.keys || {}).delete || []).slice(), expectKc: d.body.expectKc, differentPortalIds: true});
+    if(c.status === 200 && c.body.ok && !(c.body.pendingDelete || []).length){
+      S.done.unshift({ok: true, text: `✓ Merge finished: ${(c.body.others || []).join(", ")} removed. Only ${keep} is left, in its own batch.`}); afterChange(); }
+    else if(c.status === 200 && c.body.ok && tries < 2) autoFinish(ids, keep, c.body.finishAfter, tries + 1);
+    else S.done.unshift({ok: false, text: `The merge into ${keep} couldn't finish by itself (${(c.body && c.body.error) || "keys still pending"}). The Worker tries again within the hour, or open 🔁 Finish the merge in 👥.`});
+    redraw();
+  }, wait);
+}
+const pendingNote = b => (b.pendingDelete || []).length ? ` The other account is removed by itself in about ${Math.max(1, Math.round(((Date.parse(b.finishAfter || "") || Date.now()) - Date.now()) / 60000) + 1)} minutes: keep this page open (if it is closed, the Worker finishes it within the hour).` : "";
 const doneText = b => `Merged ${(b.others || []).join(", ")} into ${b.keep}. Backups: ${(b.backups || []).join(", ") || "—"}.${(b.failedDeletes || []).length ? ` These old keys couldn't be deleted (their data is in ${b.keep} too): ${b.failedDeletes.join(", ")}.` : ""}${b.message ? " " + b.message : ""}`;
 // 👥 a merge of these ids from another page (the 📋 Batch Sheet's 👥 Merge): the Worker's dry run, the trainer's confirm of
 // what it says, then the confirmed merge of exactly that preview. {ok, text}
@@ -208,7 +229,7 @@ async function mergeIds(ids, keep){
   const r = d.body, ch = (r.days || []).filter(x => x.changed);
   const msg = `Merge ${r.others.join(", ")} into ${r.keep}?\n(${r.keepWhy})\n\n${(r.warnings || []).map(w => "⚠ " + w + "\n").join("")}`
     + `Knowledge Checks that change: ${ch.length ? ch.map(x => `${dayLabel(x.day)} ${val(x.record)} → ${val(x.recovered)}`).join("; ") : "none"}.\n\n`
-    + `The Worker backs up every account first, writes the merged records to ${r.keep}, moves the rest, redirects the other sign-ins, and deletes the other account's copied keys (${((r.keys || {}).delete || []).length}) only when the merge is run again, two minutes or more later.`
+    + `The Worker backs up every account first, writes the merged records to ${r.keep}, moves the rest, redirects the other sign-ins, and removes the other account (its ${((r.keys || {}).delete || []).length} copied keys) by itself about two minutes later, once every copy has settled.`
     + `\n\nThe full table is in Admin → 🛠 Account Repair.`;
   if(typeof confirm === "function" && !confirm(msg)) return {ok: false, cancelled: true, text: "Not merged."};
   const body = Object.assign({}, req, {confirm: true, expectKeep: r.keep, expectDelete: ((r.keys || {}).delete || []).slice(), expectKc: r.expectKc});
@@ -217,7 +238,7 @@ async function mergeIds(ids, keep){
     body.differentPortalIds = true;
   }
   const c = await post("/api/account-merge", body);
-  if(c.status === 200 && c.body.ok){ S.done.unshift({ok: true, text: doneText(c.body)}); afterChange(); return {ok: true, keep: c.body.keep, text: doneText(c.body)}; }
+  if(c.status === 200 && c.body.ok){ S.done.unshift({ok: true, text: doneText(c.body) + pendingNote(c.body)}); if((c.body.pendingDelete || []).length) autoFinish(req.ids, c.body.keep, c.body.finishAfter); afterChange(); return {ok: true, keep: c.body.keep, text: doneText(c.body) + pendingNote(c.body)}; }
   return {ok: false, text: (c.body && c.body.error) || `The merge failed (${c.status}).`};
 }
 // 🔁 a merge that has run once, finished: its group's dry run, shown in 👥 where it is confirmed (✔ Merge into …); when its
