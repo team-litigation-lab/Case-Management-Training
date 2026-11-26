@@ -92,9 +92,11 @@ const BATCH = 'B112026';
     if (by.Eve && (by.Eve.attrs.match(/N\/A \(insufficient data\)/g) || []).length !== 3) fail(`Eve's three attributes should be N/A (insufficient data): ${by.Eve.attrs}`);
     if (by.Ann && (by.Ann.attrs.match(/★★★★★/g) || []).length !== 3) fail(`Ann's attributes should be ★★★★★: ${by.Ann.attrs}`);
     if (by.Cy && !/★★★☆☆/.test(by.Cy.attrs)) fail(`Cy's attributes should be ★★★☆☆ (70s): ${by.Cy.attrs}`);
-    if (by.Ann && !/Day \d: .+ \d+%/.test(by.Ann.strength)) fail(`Strength should cite a day's work with its score: ${by.Ann.strength}`);
-    if (by.Ann && !/AI review/.test(by.Ann.strength)) fail(`Strength should quote the AI's strengths: ${by.Ann.strength}`);
+    // (Strength and Challenges are a general summary: the dimensions and the habits, no activity, day, score or AI quote)
+    if (by.Ann && !/^Strong in /.test(by.Ann.strength)) fail(`Ann's Strength should name her strong dimensions in general terms: ${by.Ann.strength}`);
     if (by.Cy && !/Needs work on/.test(by.Cy.challenges)) fail(`Cy's Challenges should name the weak dimensions: ${by.Cy.challenges}`);
+    Object.entries(by).forEach(([n, x]) => { const t = `${x.strength} ${x.challenges}`;
+      if (/\bDay \d|\d+%|AI review|"/.test(t)) fail(`${n}'s Strength and Challenges should be a general summary, with no day, score or quote: ${t}`); });
     if (by.Ann && !(/Until Day 5/.test(by.Ann.prog) && /Days passed 5\/5/.test(by.Ann.prog))) fail(`Ann's progress: ${by.Ann.prog}`);
     if (by.Eve && !/Days passed 0\/5/.test(by.Eve.prog)) fail(`Eve's progress: ${by.Eve.prog}`);
     if (r.fit.doc > r.fit.win || r.fit.sheet > r.fit.win || r.fit.tw > r.fit.tcw + 1) fail(`the table should fit 1366 wide: ${JSON.stringify(r.fit)}`);
