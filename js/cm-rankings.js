@@ -54,6 +54,11 @@ const RESULT = {pass: "PASS", pending: "Pass pending (no critical item assessed 
 const FIELDS = ["strength", "challenges", "redflag", "endorsement"];
 const COLS = ["Rank", "Trainee's Name", "Batch Score", "Strength", "Challenges", "General Attribute Rating", "Red Flag", "Endorsement", "Progress"];
 
+/* what each dimension says about how a trainee works, in general terms (the Strength and Challenges summaries) */
+const GOOD = {pc: "follows the firm's procedures in order and on time", na: "spots what a file needs and the risks in it",
+  cp: "turns a file into clear, complete plans with owners and dates", cd: "communicates clearly and keeps the file well documented"};
+const GAP = {pc: "doing each step the firm's way, in order and on time", na: "finding a file's gaps and risks before they cause harm",
+  cp: "building complete plans, each step with an owner and a date", cd: "writing clear updates and keeping the file's notes and logs current"};
 /* ---------- one trainee's row, generated ---------- */
 const dayN = (it) => it && it.day ? `Day ${it.day}: ` : "";
 // "Day 13 · Case Flow Day 3 · Demand Package — Skill Building" → "Demand Package"; a takeaway's review → "Takeaway"
@@ -68,34 +73,28 @@ function rowOf(r, c){
     return dp[d.id] || (data["slide-progress"] || {})[d.id] || (data["day-progress"] || {})[d.id] || (x && x.S != null) ? d.cf.n : n; }, 0);
   const kcs = days.map(d => ({d, best: S.kcBest(dp[d.id], S.cfDay(c, d)), tries: ((dp[d.id] || {}).history || []).length, ok: S.kcPassed(c, d)}));
 
-  // ⭐ Strength
-  const st = [];
-  const top = dims.slice().sort((a, b) => b.v - a.v);
-  if(top.length){ const good = top.filter(x => x.v >= 80).slice(0, 2);
-    st.push(good.length ? `Strongest in ${good.map(x => `${dimLabel(x.k)} (${x.v}%)`).join(" and ")}.` : `Best area so far: ${dimLabel(top[0].k)} (${top[0].v}%).`); }
-  const best = items.filter(x => x.pct >= 80).slice().sort((a, b) => b.pct - a.pct || a.day - b.day), seen = new Set(), cite = [];
-  best.forEach(x => { const k = x.day + "|" + itemName(x.name); if(cite.length < 3 && !seen.has(k)){ seen.add(k); cite.push(`${dayN(x)}${itemName(x.name)} ${x.pct}%`); } });
-  if(cite.length) st.push(`Solid work: ${cite.join("; ")}.`);
-  const aiGood = sa.filter(x => (x.best || []).length && fin(x.pct)).sort((a, b) => b.pct - a.pct)[0];
-  if(aiGood) st.push(`AI review (${dayN(aiGood).replace(/: $/, "")}${aiGood.day ? ", " : ""}${itemName(aiGood.name)}): "${clip(aiGood.best[0], 150)}"`);
-  if(passed) st.push(passed === days.length ? `Passed every Knowledge Check (${passed}/${days.length}).` : `Passed ${passed} of ${days.length} Knowledge Checks so far.`);
+  // ⭐ Strength and 🔧 Challenges: a general summary of how the trainee works — the dimensions they are strong or weak in and
+  // the habits their record shows — with no detail of a piece of work (no activity, day, score or AI quote: those are on
+  // their 🏅 Scorecard)
+  const st = [], ch = [];
+  const top = dims.slice().sort((a, b) => b.v - a.v), low = dims.slice().sort((a, b) => a.v - b.v);
+  const good = top.filter(x => x.v >= 80).slice(0, 2), weak = low.filter(x => x.v < 80).slice(0, 2);
+  const and = xs => xs.length > 1 ? xs.slice(0, -1).join(", ") + " and " + xs[xs.length - 1] : xs[0] || "";
+  if(good.length) st.push(`Strong in ${and(good.map(x => dimLabel(x.k)))}: ${and(good.map(x => GOOD[x.k.id] || "meets the firm's standard"))}.`);
+  else if(top.length) st.push(`Strongest area so far is ${dimLabel(top[0].k)}, where they ${GOOD[top[0].k.id] || "are closest to the firm's standard"}, though not yet at the pass mark.`);
+  const hi = items.filter(x => x.pct >= 80).length, share = items.length ? hi / items.length : 0;
+  if(items.length >= 4 && share >= 0.7) st.push("Delivers accurate, complete work on most tasks.");
+  else if(items.length >= 4 && share >= 0.4) st.push("Gets a good share of tasks right the first time.");
+  if(passed) st.push(passed === days.length ? "Has a firm grasp of the lessons: every Knowledge Check passed." : passed >= Math.ceil(days.length / 2) ? "Understands most of the lessons taught so far." : "Is building an understanding of the lessons.");
+  if(sa.length && sa.every(x => (x.tries || 1) <= 2) && share >= 0.4) st.push("Works independently, needing few retries.");
   const strength = st.length ? st.slice(0, 4).join(" ") : "No graded work yet to draw strengths from.";
 
-  // 🔧 Challenges
-  const ch = [];
-  const low = dims.slice().sort((a, b) => a.v - b.v), weak = low.filter(x => x.v < 80).slice(0, 2);
-  if(weak.length) ch.push(`Needs work on ${weak.map(x => `${dimLabel(x.k)} (${x.v}%)`).join(" and ")}.`);
-  else if(low.length) ch.push(`No dimension below the 80% pass mark; lowest is ${dimLabel(low[0].k)} (${low[0].v}%).`);
-  const worst = items.filter(x => x.pct < 70).slice().sort((a, b) => a.pct - b.pct), seen2 = new Set(), cite2 = [];
-  worst.forEach(x => { const k = x.day + "|" + itemName(x.name); if(cite2.length < 2 && !seen2.has(k)){ seen2.add(k); cite2.push(`${dayN(x)}${itemName(x.name)} ${x.pct}%`); } });
-  if(cite2.length) ch.push(`Lowest scores: ${cite2.join("; ")}.`);
-  const aiGap = sa.filter(x => (x.improve || []).length && fin(x.pct)).sort((a, b) => a.pct - b.pct)[0];
-  if(aiGap) ch.push(`AI review (${dayN(aiGap).replace(/: $/, "")}${aiGap.day ? ", " : ""}${itemName(aiGap.name)}): "${clip(aiGap.improve[0], 150)}"`);
-  const failed = kcs.filter(x => fin(x.best) && !x.ok);
-  if(failed.length) ch.push(`Knowledge Check not passed yet: ${failed.map(x => `Day ${x.d.cf.n} (${x.best}%)`).join(", ")}.`);
-  const retried = sa.filter(x => (x.tries || 0) >= 3).map(x => `${dayN(x)}${itemName(x.name)} (${x.tries} attempts)`)
-    .concat(kcs.filter(x => x.tries >= 2).map(x => `Day ${x.d.cf.n} Knowledge Check (${x.tries} attempts)`));
-  if(retried.length) ch.push(`Took several attempts: ${retried.slice(0, 2).join("; ")}.`);
+  if(weak.length) ch.push(`Needs work on ${and(weak.map(x => dimLabel(x.k)))}: ${and(weak.map(x => GAP[x.k.id] || "meeting the firm's standard"))}.`);
+  else if(low.length) ch.push(`No area below the pass mark; ${dimLabel(low[0].k)} has the most room to grow.`);
+  const lo = items.filter(x => x.pct < 70).length;
+  if(items.length >= 4 && lo / items.length >= 0.4) ch.push("Several tasks are incomplete or not yet to standard: finishing each step fully before moving on would help.");
+  if(kcs.some(x => fin(x.best) && !x.ok)) ch.push("Some lessons need another review before the next day builds on them.");
+  if(sa.some(x => (x.tries || 0) >= 3) || kcs.some(x => x.tries >= 2)) ch.push("Often needs several attempts to get a task right: checking the work against the instructions first would save time.");
   const challenges = ch.length ? ch.slice(0, 4).join(" ") : (items.length ? "No significant challenges in the graded work so far." : "No graded work yet: nothing handed in to assess.");
 
   // ★ the attributes
