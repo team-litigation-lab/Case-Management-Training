@@ -11,7 +11,7 @@
 //      slides and a line of its work, and its hover lists that day's events with their scores, newest first (each Knowledge
 //      Check attempt); ✍️ Knowledge Checks' hover gives each day's best, attempts and pass;
 //   3. the card's feedback: Day 1 … Day 5 collapsible, shut at first; Day 1 opens to the seeded AI-graded activity with its
-//      score, ⭐ what they did well, 🔧 what to improve and 🧾 why, in words;
+//      score, 🧾 why this score, ⭐ what you did great, ❌ what was wrong, 💡 what could have been done better and 🚩 red flag, in words;
 //   4. ⬇ Download starts with 🏅 Scores, then ✍️ Knowledge Checks (a column per day), 📚 Lessons, 🧮 Grading systems (every
 //      system's columns, a row per trainee), 🕒 Recent progress (every attempt with its score) and the feedback; ⬇ Scores
 //      only is the one table;
@@ -130,11 +130,13 @@ const BATCH = 'B111526', ANN = 'ann-one--b111526', BEN = 'ben-one--b111526', CY 
     if (!F1 || !F1.open) fail('Day 1 of the feedback did not open');
     else {
         const it = F1.it;
-        // (one table a day: Activity · ⭐ did well · 🔧 to improve · 🧾 why · 💡 could have been done better · 🚩 red flag · Score)
-        if (F1.head.join('|') !== 'Activity|⭐ What they did well|🔧 What to improve|🧾 Why|💡 What could have been done better|🚩 Red flag|Score') fail(`the day's feedback table has the wrong columns: ${F1.head.join(' | ')}`);
+        // (one table a day, the standard "why this score" columns: Activity · Score · 🧾 why · ⭐ great · ❌ wrong · 💡 better · 🚩 red flag)
+        if (F1.head.join('|') !== 'Activity|Score|🧾 Why this score|⭐ What you did great|❌ What was wrong|💡 What could have been done better|🚩 Red flag') fail(`the day's feedback table has the wrong columns: ${F1.head.join(' | ')}`);
         if (!it.includes(seed.act) || F1.sc !== '72%') fail(`Day 1 should list the graded activity with its score: "${it}" (${F1.sc})`);
         if (!/Logged every channel with its time stamp/.test(F1.best)) fail(`the activity should say what they did well: "${F1.best}"`);
-        if (!/The callback window was not set/.test(F1.imp) || !/Put the callback on the calendar/.test(F1.imp)) fail(`the activity should say what to improve: "${F1.imp}"`);
+        if (!/The callback window was not set/.test(F1.imp) || !/Put the callback on the calendar/.test(F1.imp)) fail(`the activity should say what was wrong: "${F1.imp}"`);
+        if (!/Below the 80% pass mark/.test(F1.why)) fail(`🧾 Why this score should end with the pass mark: "${F1.why}"`);
+        if (!F1.better) fail(`💡 What could have been done better should never be blank: "${F1.better}"`);
         if (!/Proficient/.test(F1.why)) fail(`the activity should say why it scored so: "${F1.why}"`);
         if (!/rubric: accuracy 80%, presence 70%, risk 60%, efficiency 50%/.test(F1.why)) fail(`the AI Grader's four rubric parts should be in the why: "${F1.why}"`);
         if (!/A date not set or missed/.test(F1.flag) || !/The callback window was not set/.test(F1.flag)) fail(`the unset callback should be a 🚩 red flag, saying why and quoting it: "${F1.flag}"`);
@@ -187,8 +189,10 @@ const BATCH = 'B111526', ANN = 'ann-one--b111526', BEN = 'ben-one--b111526', CY 
         const rec = (by('🕒 Recent progress') || { rows: [] }).rows.map(r => r.join(' | ')).join('\n');
         if (!/Ann One \| Day 1 \| Knowledge Check \| Day 1 · attempt 1 \| 40%/.test(rec) || !/Backup File Maintenance \| Case Flow Day 2 · passed \| 88%/.test(rec)) fail(`🕒 Recent progress should list each attempt and the Backup Drive with their scores: ${rec.slice(0, 600)}`);
         const fb = (by('💬 Feedback on Practical Activities') || { rows: [] }).rows.find(r => r[0] === 'Ann One' && r[2].includes(seed.act));
-        // (Trainee · Day · Activity · Status · did well · to improve · why · could have been done better · red flag · Score)
-        if (!fb || fb[9] !== '72%' || !/Logged every channel/.test(fb[4]) || !/callback window/.test(fb[5]) || !/A date not set or missed/.test(fb[8])) fail(`⬇ Download's feedback should carry the activity's did well, to improve, red flag and score: ${JSON.stringify(fb)}`);
+        // (Trainee · Day · Activity · Status · Score · 🧾 why this score · ⭐ great · ❌ wrong · 💡 better · 🚩 red flag: the page's columns)
+        const fh = (by('💬 Feedback on Practical Activities') || {}).head || [];
+        if (fh.join('|') !== 'Trainee|Day|Activity|Status|Score|🧾 Why this score|⭐ What you did great|❌ What was wrong|💡 What could have been done better|🚩 Red flag') fail(`⬇ Download's feedback should have the page's columns: ${fh.join(' | ')}`);
+        if (!fb || fb[4] !== '72%' || !/Proficient/.test(fb[5]) || !/Logged every channel/.test(fb[6]) || !/callback window/.test(fb[7]) || !/A date not set or missed/.test(fb[9])) fail(`⬇ Download's feedback should carry the activity's did well, to improve, red flag and score: ${JSON.stringify(fb)}`);
     }
     const only = await CSV.grab(page, () => cmScorecard.csv(true));
     const O = only ? CSV.parse(only) : [];

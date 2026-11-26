@@ -1,8 +1,9 @@
-// @check node — Every Canva deck page, Days 1-5, is on the platform on its own day: each page of Day N's deck (title, agenda and Thank You pages too) is one Case Flow Day N lesson's slide, with its picture and talking points; nothing beside the lessons, no picture unused
+// @check node — Every Canva deck page, Days 1-5, is on the platform on its own day: each page of Day N's deck (title and agenda pages too; a closing Thank You page is in the notes and the video but on no slide) is one Case Flow Day N lesson's slide, with its picture and talking points; nothing beside the lessons, no picture unused
 // The trainers' Canva decks teach the course: build/videoslide/dayN.json `lessons` names the deck pages that ARE a
 // lesson's slides (js/cm-deck-slides.js window.CM_DECK_SLIDES, drawn by js/cm-case-flow.js viewsOf), and Day N's
 // deck is taught on Case Flow Day N (the narrated videos and the day titles follow the decks). The owner: nothing of
-// the Canva slides is removed, so every page is on the platform, its title, Training Agenda and Thank You pages too.
+// the Canva slides is removed, so every page is on the platform, its title and Training Agenda pages too. The one
+// exception, the owner's own: a deck's closing "Thank You!" page, now that the decks run back to back, is on no slide.
 // No deck page is shown on its own beside the lessons (the old "onDeck" topics are gone). Checked, for Days 1 to 5:
 //   · no `onDeck` in the notes and nothing in window.CM_DAY_DECKS;
 //   · EVERY page of the deck's notes is the slide of exactly one lesson, a lesson the course still teaches (in
@@ -26,6 +27,7 @@ const dayOf = {}; CF.sequence.forEach(d => d.phases.forEach(p => p.blocks.forEac
 const STORED = {}; CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { STORED[b.id] = b; })));
 if (Object.values(window.CM_DAY_DECKS || {}).some(g => g && g.length)) fail.push('window.CM_DAY_DECKS still puts deck pages beside the lessons');
 const NOT_TEACHING = /^Thank You|^Training Agenda|^Case Management Training/i;
+const THANKS = /^\s*thank you!?\s*$/i;   // a deck's closing page: no lesson's slide (build/videoslide/deck-slides.cjs)
 const counts = {};
 for (const n of [1, 2, 3, 4, 5]) {
   const spec = JSON.parse(fs.readFileSync(path.join(ROOT, `build/videoslide/day${n}.json`), 'utf8'));
@@ -38,7 +40,9 @@ for (const n of [1, 2, 3, 4, 5]) {
     else if (dayOf[id] !== n) fail.push(`day${n}.json: ${id} is taught on Case Flow Day ${dayOf[id]}; Day ${n}'s deck is taught on Day ${n}`);
     if (pages.some((p, i) => i && p <= pages[i - 1])) fail.push(`day${n}.json: ${id}'s pages are not in the deck's order`);
     const drawn = DECK[id] || [];
-    if (drawn.length !== pages.length) fail.push(`${id}: js/cm-deck-slides.js has ${drawn.length} of its ${pages.length} pages (run node build/videoslide/deck-slides.cjs)`);
+    // the one exception the owner made: a deck's closing "Thank You!" page is in the notes and the video, but on no slide
+    const shown = pages.filter(p => !THANKS.test((spec.slides.find(x => x.page === p) || {}).title || ''));
+    if (drawn.length !== shown.length || drawn.some(x => !shown.includes(x.page))) fail.push(`${id}: js/cm-deck-slides.js has ${drawn.length} of its ${shown.length} pages (every page but a closing Thank You; run node build/videoslide/deck-slides.cjs)`);
     pages.forEach(p => {
       if (on[p]) fail.push(`day${n}.json: page ${p} is the slide of ${on[p]} and ${id}`); on[p] = id;
       const s = spec.slides.find(x => x.page === p), x = drawn.find(y => y.page === p);

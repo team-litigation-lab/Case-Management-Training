@@ -182,12 +182,12 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
         if (!/THE DAY'S SKILL BUILDING/.test(norm((w.querySelector('.topic-separator') || {}).textContent))) out.push(`${L}: the Skill Building's top line should say THE DAY'S SKILL BUILDING`);
         if (norm((w.querySelector('.cfx-what-k') || {}).textContent) !== 'Skill Building') out.push(`${L}: the Skill Building's band should say Skill Building (${norm((w.querySelector('.cfx-what-k') || {}).textContent)})`);
         if (!w.querySelector('[data-launch]')) out.push(`${L}: the Skill Building's Your Task has no 🚀 Launch LSH CaseWorX & Google Drive`);
-        if (!/Submit →/.test(w.textContent) || /AI Grader/.test(w.textContent)) out.push(`${L}: the Skill Building's Your Task should have "Submit →" and never say "AI Grader"`);
+        if (w.querySelector('.cfx-grade-go') || /AI Grader/.test(w.textContent)) out.push(`${L}: the Skill Building's Your Task should have no Submit on the slide (it is in CaseWorX's window: js/cm-cms-submit.js) and never say "AI Grader"`);
       }
       if (dv.length) { w = await show(dv[0][1]);
         if (!/REQUIRED · BACKUP FILE MAINTENANCE/.test(norm((w.querySelector('.topic-separator') || {}).textContent))) out.push(`${L}: the Backup File Maintenance's top line should say REQUIRED · BACKUP FILE MAINTENANCE`);
         if (norm((w.querySelector('.cfx-what-k') || {}).textContent) !== 'Required: Backup File Maintenance') out.push(`${L}: the Backup File Maintenance's band should say Required: Backup File Maintenance (${norm((w.querySelector('.cfx-what-k') || {}).textContent)})`);
-        if (!/Submit →/.test(w.textContent) || /AI Grader/.test(w.textContent)) out.push(`${L}: the Backup File Maintenance's Your Task should have "Submit →" and never say "AI Grader"`); }
+        if (w.querySelector('.cfx-grade-go') || /AI Grader/.test(w.textContent)) out.push(`${L}: the Backup File Maintenance's Your Task should have no Submit on the slide (CaseWorX's window has it) and never say "AI Grader"`); }
       const sideK = deck.findIndex((sl, k) => steps[k] === 'side' && sl.type === 'topic');
       if (sideK >= 0) { w = await show(sideK); if (!/SKILL ACTIVITY/.test(norm((w.querySelector('.topic-separator') || {}).textContent))) out.push(`${L}: a side exercise's top line should say SKILL ACTIVITY`);
         if (norm((w.querySelector('.cfx-what-k') || {}).textContent) !== 'Skill Activity') out.push(`${L}: a side exercise's band should say Skill Activity (${norm((w.querySelector('.cfx-what-k') || {}).textContent)})`); }
