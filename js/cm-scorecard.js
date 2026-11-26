@@ -857,7 +857,13 @@ function csv(only){
 }
 
 /* ---------- the page, its address and its top-bar button ---------- */
-window.renderScorecardPage = () => isAdmin() ? renderAll() : isTrainee() ? renderMine() : (typeof renderDashboard === "function" ? renderDashboard() : "");
+// (👁 a trainer's Trainee view opens the trainee's own page, not the Dashboard with its day cards: a preview has no trainee's
+// records, so it shows what a trainee sees there)
+function renderPreview(){
+  return `<div class="scx-page scx-wide">${sheetTop("My Scorecard", "👁 Trainee view: a preview", "")}
+    <div class="card gs-card scx-card"><div class="scx-pad"><p class="bs-note">This is a trainee's 🏅 Scorecard. Each trainee sees only their own: ✅ the passing score (80%) with their Overall and each day against it, 🏅 My Scores (their row of your 🏅 Scores table), their card with 💬 Feedback on Practical Activities, and 📊 My Batch's Progress (their rank and each day beside the batch average, as the Rankings &amp; Progress Report last shared it). A preview has no trainee's records, so there is nothing to score here.</p></div></div></div>`;
+}
+window.renderScorecardPage = () => isAdmin() ? renderAll() : isTrainee() ? renderMine() : state.adminPreview ? renderPreview() : (typeof renderDashboard === "function" ? renderDashboard() : "");
 window.addEventListener("focus", () => { if(isTrainee() && state.view === "scorecard") loadMine(); });
 window.cmScorecard = {
   batch(b){ ALL.batch = b || ""; ALL.pick = ""; ALL.only = ""; render(); },
@@ -981,7 +987,7 @@ css.textContent = `
 .bs-pt-t th,.bs-pt-t td{border:1px solid #9AA3B5;padding:8px 10px;text-align:left;vertical-align:top;}
 .bs-pt-t col.bs-pt-c1{width:240px;} .bs-pt-t col.bs-pt-c2{width:132px;}
 .bs-pt-sec th{background:#1E2340;color:#fff;font:800 17px 'Poppins','Inter',Arial,sans-serif;}
-.bs-pt-m{font-weight:800;color:#1E2340;} .bs-pt-w{display:inline-block;margin-left:4px;padding:0 7px;border-radius:999px;background:#FDF0E4;color:#A4470F;font-size:14px;font-weight:800;}
+.bs-pt-m{font-weight:800;color:#1E2340;} .bs-pt-s-model td.bs-pt-m{text-align:center;vertical-align:middle;}   /* (🏅 The 100-point model: each dimension centred in its cell) */ .bs-pt-w{display:inline-block;margin-left:4px;padding:0 7px;border-radius:999px;background:#FDF0E4;color:#A4470F;font-size:14px;font-weight:800;}
 .bs-pt-mult{display:block;margin-top:3px;font:600 14px 'Inter',Arial,sans-serif;color:#475569;}
 .bs-pt-v{font-weight:800;font-size:18.5px;} .bs-pt-v.gs-hi{background:#E6F4EA;color:#0B5D1E;} .bs-pt-v.gs-mid{background:#FFF4E0;color:#7A4B00;} .bs-pt-v.gs-lo{background:#FDE8E8;color:#A50E0E;}
 .bs-pt .gs-na{color:#5F6368 !important;background:#F1F3F4 !important;}

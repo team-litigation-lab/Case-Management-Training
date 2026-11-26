@@ -145,16 +145,18 @@ const BATCH = 'B111526', ANN = 'ann-one--b111526', BEN = 'ben-one--b111526', CY 
     const down = await page.evaluate(async () => { const at = new Date().toISOString();
         const row = (id, name) => { const c = { rec: { id, name, batch: 'B111526', approved: true }, cf: { days: {} }, data: { 'cf-ai-grades': { blocks: { x1: { score: 60, at: '2026-01-01T00:00:00Z' }, x2: { failed: { why: 'No AI is set up', at } } } } }, fb: {} };
             return { id, name, batch: 'B111526', c, m: cmScorecard.model.compute(c), sc: cmScorecard.compute(c) }; };
-        const rows = [row('x-a', 'X A'), row('x-b', 'X B')], A = window.cmAiCheck, keep = { res: A.state.res, run: A.run };
+        const rows = [row('x-a', 'X A'), row('x-b', 'X B')], A = window.cmAiCheck, keep = { res: A.state.res, run: A.run, latest: A.latest };
         // (a) not known yet: the AI check is asked once, quietly, and nothing alarming is said meanwhile
-        let asked = 0; A.state.res = null; A.run = async () => { asked++; return null; }; cmBatchSheet._askAiAgain();
+        // (no check kept: cmAiCheck.latest() answers nothing, so the page runs one; a check kept by another test on this
+        //  server would otherwise answer first, js/cm-batch-sheet.js askAi)
+        let asked = 0; A.state.res = null; A.latest = async () => null; A.run = async () => { asked++; return null; }; cmBatchSheet._askAiAgain();
         const T0 = cmBatchSheet.scoresSheet(rows); cmBatchSheet.scoresSheet(rows);   // drawn twice: asked once
         await new Promise((r) => setTimeout(r, 50));
         // (b) the check says it doesn't work: the warning; (c) it works again: a calm line, no warning
         A.state.res = { ok: false, error: 'No AI is set up' }; const T1 = cmBatchSheet.scoresSheet(rows);
         A.state.res = { ok: false, fallback: true }; const T2 = cmBatchSheet.scoresSheet(rows);
         A.state.res = { ok: true }; const T3 = cmBatchSheet.scoresSheet(rows);
-        A.state.res = keep.res; A.run = keep.run;
+        A.state.res = keep.res; A.run = keep.run; A.latest = keep.latest;
         return { asked, w0: T0.warn, w1: T1.warn, w2: T2.warn, i2: T2.info, w3: T3.warn, i3: T3.info }; });
     if (down.w0 || down.asked !== 1) fail(`before the AI check has answered, the table should ask it once and not say AI grading is down: ${JSON.stringify(down)}`);
     if (!/AI grading looks down.*No AI is set up.*AI check/.test(down.w1)) fail(`when every trainee's newest grading failed and the AI check fails, the table should point to 🤖 the AI check: "${down.w1}"`);

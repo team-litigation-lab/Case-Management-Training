@@ -40,6 +40,10 @@ const failures = []; const fail = (m) => failures.push(m);
     for (const t of ["📊 My Batch's Progress", '#2', 'of 5 ranked', 'Batch average', '78%', '85%', 'Strong in Communication', 'Needs work on Care/Action Plan', '★★★★☆'])
         if (!R.batch.includes(t)) fail(`📊 My Batch's Progress has no "${t}": ${R.batch.slice(0, 400)}`);
     if (/Ann|Ben/.test(R.batch)) fail('📊 My Batch\'s Progress should name no other trainee');
+    // 👁 a trainer's Trainee view opens the Scorecard page itself, not the Dashboard with its day cards
+    const pv = await page.evaluate(() => { state.isAdmin = true; state.adminPreview = true; goto('scorecard'); render();
+        return { banner: (document.querySelector('.scx-banner') || {}).innerText || '', dayCards: document.querySelectorAll('.day-card, .cf-day-card, .dash-day').length, dash: !!document.querySelector('.my-sc') }; });
+    if (!/My Scorecard/.test(pv.banner) || pv.dayCards || pv.dash) fail(`👁 Trainee view's 🏅 Scorecard should be the Scorecard page, not the Dashboard: ${JSON.stringify(pv)}`);
     await browser.close();
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
     console.log('The trainee\'s 🏅 Scorecard: the passing score with the pass mark, their own row of 🏅 Scores, their feedback table, and their batch\'s progress (rank, each day against the batch average) with no other trainee named.');
