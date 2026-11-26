@@ -691,7 +691,7 @@ function cardHtml(r, me){
       ${pills.map(([l, v, f]) => `<span class="bs-pt-k ${MODEL.mtone(v)}" title="${E(f)}">${E(l)} <b>${mpct(v)}</b></span>`).join("")}
       <span class="bs-pt-k bs-pt-r ${rtone}" title="Pass = Final ≥ ${MODEL.PASS}% and the safety gate at 100%">${m.tier ? E(m.tier.label) + " · " : ""}<b>${E(MODEL.STATUS[m.status])}</b></span></div>
     ${inFb ? "" : focusHtml(m)}
-    <div class="bs-pt-wrap">${daysTable(m, r.c)}${!me && window.cmSendProgress ? cmSendProgress.cardHtml(r) : ""}${inFb ? cmBatchSheet.feedbackHtml(r, focusHtml(m)) : ""}
+    <div class="bs-pt-wrap">${daysTable(m, r.c)}${!me && window.cmCompliance ? cmCompliance.html(r) : ""}${!me && window.cmSendProgress ? cmSendProgress.cardHtml(r) : ""}${inFb ? cmBatchSheet.feedbackHtml(r, focusHtml(m)) : ""}
       <details class="bs-pt-src bs-pt-how"><summary>▸ How this is scored (the 100-point model, the CMS case file, every graded item)</summary>
         ${modelTable(m)}${window.cmCmsFile ? cmCmsFile.html(cmCmsFile.compute(r.c), me) : ""}${window.cmRubric ? profileTable(r.sc) : ""}
         ${sheetHtml(Object.assign(detailSheet(r.sc, me ? "" : r.name), {id: "detail-" + domId(r.id)}))}
