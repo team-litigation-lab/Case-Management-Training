@@ -51,7 +51,7 @@ const KEEP = 'ann-roster--b111326', OLD = 'ann-roster--b111326x';
         const shown = [...document.querySelectorAll('.cmsh-screen .bs-pt')].map(x => x.dataset.id);
         const hs = [...document.querySelectorAll('.cmsh-screen #scx-scores .gs-head th')].map(t => t.textContent.trim()), bi = hs.indexOf('📂 Backup Drive %');
         const annTr = [...document.querySelectorAll('.cmsh-screen #scx-scores tbody tr')].find(x => (x.querySelector('td') || {}).textContent === 'Ann Roster');
-        const bdCol = annTr && bi > 0 ? annTr.querySelectorAll('td')[bi - 1].textContent : null;
+        const bdCol = annTr && bi >= 0 ? annTr.querySelectorAll('td')[bi].textContent : null;
         const fb = document.querySelector('.cmsh-screen #bs-fb-' + KEEP.replace(/[^A-Za-z0-9_-]/g, '_') + ' details.bs-fb-day[data-day="1"]');
         const bdItem = fb ? [...fb.querySelectorAll('.bs-fb-it')].find(x => /Backup Drive/.test(x.textContent)) : null;
         const bdPct = bdItem ? bdItem.querySelector('.bs-fb-sc b').textContent : null;

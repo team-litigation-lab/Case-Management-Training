@@ -14,7 +14,8 @@
 "use strict";
 if(typeof window === "undefined" || typeof document === "undefined" || typeof renderTraineesAndBatches !== "function") return;
 const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
-const S = {busy: false, res: null};
+const S = {busy: false, res: null, day: null, loaded: false, readAt: 0, reading: false, readErr: ""};
+const STALE = 150 * 60000;   // 2 hours and a half: past it, the automatic check has missed a run
 
 // what to do about it, in the trainer's words
 function fix(r){
@@ -40,18 +41,28 @@ function summary(r){
   const n = claudeNote(r);
   return (r && r.ok ? works(r) : `❌ AI grading doesn't work right now: ${(r && r.error) || "no answer"}`) + (n ? " " + n : "");
 }
+// when the result shown was taken, and by whom: the Worker runs the check by itself every 2 hours (worker.js scheduled)
+const when = at => { try{ const d = new Date(at), today = d.toDateString() === new Date().toDateString();
+  return d.toLocaleString(undefined, today ? {hour: "numeric", minute: "2-digit"} : {weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit"}) + (today ? " today" : ""); }catch(e){ return ""; } };
+function stamp(r){
+  if(!r || !r.at) return "";
+  const runs = (S.day && S.day.day === String(r.at).slice(0, 10) ? S.day.runs : []) || [], bad = runs.filter(x => !x.ok).length;
+  const old = Date.now() - Date.parse(r.at) > STALE ? `<p class="aic-p aic-bad">⚠ The automatic check hasn't run since then: run it now, and if it keeps not running, the Worker's cron needs checking.</p>` : "";
+  return old + `<p class="aic-p aic-dim">Checked ${E(when(r.at))} · ${r.by === "trainer" ? "run by a trainer" : "automatically"} · it runs by itself every 2 hours${runs.length ? ` · today: ${runs.length} check${runs.length === 1 ? "" : "s"}${bad ? `, ${bad} failed` : ", all fine"}` : ""}.</p>`;
+}
 function card(){
+  if(!S.busy && !S.reading && (!S.loaded || Date.now() - S.readAt > 10 * 60000)) setTimeout(latest, 0);   // read again every 10 minutes the page stays open
   const r = S.res, note = claudeNote(r);
   const line = S.busy ? `<p class="aic-p aic-dim">⏳ Sending one small grading…</p>`
-    : !r ? `<p class="aic-p aic-dim">Not run yet. It sends one small grading, the way a trainee's Skill Activity is sent.</p>`
+    : !r ? `<p class="aic-p ${S.readErr ? "aic-bad" : "aic-dim"}">${S.readErr ? `Couldn't read the latest check (${E(S.readErr)}): run it now.` : S.loaded ? "No check has run yet: the first automatic one runs within 2 hours, or run it now." : "Reading the latest check…"}</p>`
     : (r.ok ? `<p class="aic-p aic-ok">${E(works(r))}</p>`
-    : `<p class="aic-p aic-bad">❌ AI grading doesn't work right now: ${E(r.error || "no answer")}</p>${fix(r)}`) + (note ? `<p class="aic-p aic-bad">${E(note)}</p>` : "");
+    : `<p class="aic-p aic-bad">❌ AI grading doesn't work right now: ${E(r.error || "no answer")}</p>${fix(r)}`) + (note ? `<p class="aic-p aic-bad">${E(note)}</p>` : "") + stamp(r);
   const key = r && r.key ? `<div class="aic-key"><p class="aic-p">🔑 The key this site sends${r.host ? ` to <b>${E(r.host)}</b>` : ""}: fingerprint <code>${E(r.key.fp)}</code> · ${E(r.key.len)} characters <span class="aic-dim">(a fingerprint, never the key)</span></p>
     <p class="aic-p aic-dim">Paste the value you meant to save to check it here. It stays in this browser: only its fingerprint is worked out, nothing is sent.</p>
     <div class="aic-row"><input type="password" id="aicTry" class="aic-in" autocomplete="off" placeholder="The AI_GATEWAY_SECRET value you saved" oninput="cmAiCheck.compare(this.value)"><span id="aicSay" class="aic-p" role="status"></span></div></div>` : "";
   return `<div class="card aic-card" id="aiCheck"><h3 class="aic-h">🤖 AI check</h3>
-    <p class="aic-p">Every AI grading (Skill Activities, takeaways, random tasks, calls) depends on it. When AI-graded scores stay blank on the 🏅 Scorecard, run it (or from ⚡ Run now on the Admin header).</p>
-    <div class="aic-row"><button type="button" class="btn btn-navy btn-sm" onclick="cmAiCheck.run()" ${S.busy ? "disabled" : ""}>🤖 Run the AI check</button></div>${line}${key}</div>`;
+    <p class="aic-p">Every AI grading (Skill Activities, takeaways, random tasks, calls) depends on it. It checks itself every 2 hours and the latest result is below: run it yourself only when something isn't being graded.</p>
+    <div class="aic-row"><button type="button" class="btn btn-navy btn-sm" onclick="cmAiCheck.run()" ${S.busy ? "disabled" : ""}>🤖 Run it now</button></div>${line}${key}</div>`;
 }
 function paint(){ const el = document.getElementById("aiCheck"); if(el) el.outerHTML = card(); }
 async function run(){
@@ -61,11 +72,30 @@ async function run(){
     const res = await authFetch("/api/ai-check", {});
     const b = await res.json().catch(() => ({}));
     S.res = res.ok ? b : {ok: false, status: res.status, error: b.error || `No answer (${res.status}).`};
+    if(res.ok && b.day) S.day = b.day;
+    S.loaded = true;
   }catch(e){ S.res = {ok: false, error: "This site couldn't be reached: " + ((e && e.message) || e)}; }
   S.busy = false; paint();
   return S.res;
 }
 
+// the latest result the Worker kept (its own 2-hourly check, or a trainer's), read once per page: nothing is run
+// (a newer result replaces the one shown; one read at a time; a failed read says so and is tried again on the next redraw)
+async function latest(){
+  if(S.reading || typeof authFetch !== "function") return S.res;
+  S.reading = true;
+  try{
+    const res = await authFetch("/api/ai-check", {latest: true});
+    if(!res.ok) throw new Error(`status ${res.status}`);
+    const b = await res.json().catch(() => ({}));
+    if(b.last && (!S.res || !S.res.at || String(b.last.at) > String(S.res.at))){ S.res = b.last; S.day = b.day || S.day; }
+    else if(b.day && (!S.day || ((b.day.runs || []).length >= ((S.day.runs || []).length)))) S.day = b.day;
+    S.loaded = true; S.readAt = Date.now(); S.readErr = "";
+  }catch(e){ S.readErr = (e && e.message) || "no answer"; S.loaded = true; S.readAt = Date.now() - 9 * 60000; }   // (retried in a minute)
+  S.reading = false;
+  paint();
+  return S.res;
+}
 const __r = renderTraineesAndBatches;
 renderTraineesAndBatches = function(){ return card() + __r.apply(this, arguments); };
 if(!document.getElementById("aicStyle")){
@@ -91,5 +121,5 @@ async function compare(v){
     : `❌ ${p.fp} · ${p.len} characters: not the value this site's Worker holds (${mine.fp} · ${mine.len}). Save it on the Worker (case-management-training → Settings → Variables and Secrets).`;
   return p;
 }
-window.cmAiCheck = {run, compare, print, summary, state: S};
+window.cmAiCheck = {run, latest, compare, print, summary, state: S};
 })();

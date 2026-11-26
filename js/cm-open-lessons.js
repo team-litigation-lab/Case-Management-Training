@@ -96,7 +96,7 @@ if(typeof renderTopbar === "function"){
     if(!trainer()) return html;
     const on = state.view === "admin" && state.adminTab === "openlessons";
     const b = `<button type="button" class="nav-openlessons${on ? " active" : ""}" onclick="cmOpenLessons.go()" title="Open a Case Flow day for a batch, or for one trainee">🔓 Open Lessons</button>`;
-    const i = html.indexOf('onclick="openAdmin()"'); if(i < 0) return html;
+    const w = html.indexOf('class="nav-viewswitch"'), i = w >= 0 ? w : html.indexOf('onclick="openAdmin()"'); if(i < 0) return html;   // the Foundational Training's order: 🔓 Open Lessons · 👁 Switch View · 🛡 Admin
     const s = html.lastIndexOf("<button", i);
     return html.slice(0, s) + b + html.slice(s);
   };

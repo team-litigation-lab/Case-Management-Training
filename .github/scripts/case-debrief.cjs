@@ -1,8 +1,9 @@
-// @check browser — 🎬 The Case Debrief, the Case Profile's third tab: 🔒 for a trainee until Case Flow Day 5 is complete (saying why and when it opens, giving nothing away), open after it and always for a trainer; its slides and captions served, the player's controls (captions in a strip, CC, speed, ⛶ Full screen, the slides as chapters, the place kept across a redraw and a reload); one screen at 1366×768 and 1920×1080, type bold and 16px or more
+// @check browser — 🎬 The Case Debrief, on Case Flow Day 5's card only (not on the Case Profile, nor any other day): 🔒 for a trainee until Case Flow Day 5 is complete (saying why and when it opens, giving nothing away), open after it and always for a trainer; its slides and captions served, the player's controls (captions in a strip, CC, speed, ⛶ Full screen, the slides as chapters, the place kept across a redraw and a reload); one screen at 1366×768 and 1920×1080, type bold and 16px or more
 // js/cm-case-debrief.js, with CM_DEBRIEF_VIDEO from build/debrief/debrief.json (build/videoslide/deck-slides.cjs):
-// 1. the tab is the profile's third, after 👋 Meet John Doe and 🗺 File Map; CM_DEBRIEF_VIDEO has one chapter per slide of
+// 1. it is on Case Flow Day 5's card (under ▶ Video) and nowhere else: no other day's card, not the Case Profile's tabs; it opens
+//    in a viewer over the page (cmCaseDebrief.open, ✕ / Esc close it); CM_DEBRIEF_VIDEO has one chapter per slide of
 //    debrief.json, each with its picture served (decks/debrief/NN.webp, a WebP);
-// 2. a trainee whose Case Flow Day 5 is not complete sees "🎬 Case Debrief 🔒" and a locked tab that says why and when it
+// 2. a trainee whose Case Flow Day 5 is not complete sees "🔒 Case Debrief" on the card and a locked viewer that says why and when it
 //    opens (a Day 5 Knowledge Check recorded below 70% is named, with the trainer who can reopen it), with no player, no
 //    slide list and none of the deck's titles; once Day 5 is complete (state.progress[day].done) it opens; a trainer, and a
 //    trainer's 👁 Trainee view, always sees it open;
@@ -29,22 +30,29 @@ const failures = [];
 const check = (ok, m) => { console.log((ok ? 'PASS ' : 'FAIL ') + m); if (!ok) failures.push(m); };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-// in the page: open the Case Profile on the debrief tab, as a trainee or a trainer, and measure it
+// in the page: Case Flow Day 5's card, then its 🎬 Case Debrief opened over the page, as a trainee or a trainer, and measured
 async function openTab(page, setup) {
     return page.evaluate(async (setup) => {
         const day5 = DAYS.find((d) => d.cf && d.cf.n === 5);
         state.isAdmin = setup.role === 'trainer'; state.adminPreview = setup.role === 'preview'; state.cfReturn = null;
         if (setup.progress !== undefined) { if (setup.progress) state.progress[day5.id] = setup.progress; else delete state.progress[day5.id]; }
-        state.cfFileTab = 'debrief'; goto('clientprofile'); await new Promise((r) => setTimeout(r, 600));
-        const t = document.querySelector('.cf-file-page .cdb-tab'), main = document.querySelector('#app > main');
-        const tabs = [...document.querySelectorAll('.cf-file-tab')].map((b) => b.textContent.trim());
+        if (window.cmCaseDebrief) cmCaseDebrief.close();
+        goto('clientprofile'); await new Promise((r) => setTimeout(r, 400));
+        const profileTabs = [...document.querySelectorAll('.cf-file-tab')].map((b) => b.textContent.trim());
+        goto('dashboard'); await new Promise((r) => setTimeout(r, 500));
+        const kt = document.getElementById('ktLogin'); if (kt) kt.remove();
+        const cards = [...document.querySelectorAll('.module-card')].map((c) => ({ id: c.id, deb: [...c.querySelectorAll('button')].map((b) => b.textContent.trim()).filter((x) => /Case Debrief/.test(x)) }));
+        const card5 = cards.find((c) => c.id === 'module-' + day5.id) || { deb: [] };
+        const btn = document.querySelector('#module-' + day5.id + ' .cdb-btn'); if (btn) btn.click();
+        await new Promise((r) => setTimeout(r, 500));
+        const t = document.querySelector('#cdb-ov .cdb-tab');
         const visible = (e) => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden';
         const words = t ? [...t.querySelectorAll('*')].filter((e) => visible(e) && [...e.childNodes].some((c) => c.nodeType === 3 && c.textContent.trim())) : [];
         const small = words.filter((e) => parseFloat(getComputedStyle(e).fontSize) < 16 || Number(getComputedStyle(e).fontWeight) < 600)
             .map((e) => `${e.tagName.toLowerCase()}.${e.className} ${getComputedStyle(e).fontSize}/${getComputedStyle(e).fontWeight} "${e.textContent.trim().slice(0, 30)}"`);
-        return { mode: window.cmCaseDebrief ? cmCaseDebrief.mode() : null, tabs, on: (document.querySelector('.cf-file-tab.on') || {}).textContent || '',
+        return { mode: window.cmCaseDebrief ? cmCaseDebrief.mode() : null, profileTabs, on: card5.deb[0] || '', others: cards.filter((c) => c !== card5 && c.deb.length).map((c) => c.id),
             text: t ? t.innerText : '', locked: !!(t && t.classList.contains('cdb-locked')), video: !!(t && t.querySelector('video')), list: !!(t && t.querySelector('.cdb-list')),
-            over: t ? t.scrollHeight - t.clientHeight : 99, win: document.documentElement.scrollHeight - innerHeight, body: main ? main.scrollHeight - main.clientHeight : 99,
+            over: t ? t.scrollHeight - t.clientHeight : 99, win: document.documentElement.scrollHeight - innerHeight, body: 0,
             bottom: t ? Math.round(t.getBoundingClientRect().bottom - innerHeight) : 99, small };
     }, setup);
 }
@@ -88,8 +96,8 @@ const fits = (r) => r.over <= 2 && r.win <= 2 && r.body <= 2 && r.bottom <= 1;
 
         // 2. the lock: a trainee before Day 5 is complete
         let r = await openTab(page, { role: 'trainee', progress: null });
-        check(r.tabs[0] && /Meet John Doe/.test(r.tabs[0]) && /File Map/.test(r.tabs[1] || '') && /Case Debrief/.test(r.tabs[2] || ''), `${L}: 🎬 Case Debrief is the profile's third tab (${JSON.stringify(r.tabs.slice(0, 4))})`);
-        check(r.mode === 'locked' && /🔒/.test(r.on) && r.locked && !r.video && !r.list, `${L} trainee, Day 5 not complete: the tab is 🔒 and locked, no player and no slide list (mode ${r.mode}, tab "${r.on.trim()}")`);
+        check(r.on && !r.others.length && !r.profileTabs.some((x) => /Debrief/.test(x)), `${L}: the Case Debrief is on Case Flow Day 5's card only, not on another day's card nor the Case Profile (card "${r.on}", others ${JSON.stringify(r.others)}, profile ${JSON.stringify(r.profileTabs)})`);
+        check(r.mode === 'locked' && /🔒/.test(r.on) && r.locked && !r.video && !r.list, `${L} trainee, Day 5 not complete: the card says 🔒 and the viewer is locked, no player and no slide list (mode ${r.mode}, card "${r.on.trim()}")`);
         check(/Case Flow Day 5/.test(r.text) && /Why it's locked/i.test(r.text) && /When it opens/i.test(r.text) && /Knowledge Check/.test(r.text) && /70%/.test(r.text), `${L} trainee: the locked tab says why it is locked and when it opens`);
         const leaked = SPEC.slides.map((s) => s.title).filter((t) => r.text.includes(t));
         check(!leaked.length && !/\$\d/.test(r.text), `${L} trainee: the locked tab gives nothing away (no slide title, no figure)${leaked.length ? ': ' + leaked.join('; ') : ''}`);
@@ -100,11 +108,11 @@ const fits = (r) => r.over <= 2 && r.win <= 2 && r.body <= 2 && r.bottom <= 1;
 
         // the tab opens on Day 5 complete, and is always open for a trainer and a trainer's Trainee view
         r = await openTab(page, { role: 'trainee', progress: { score: 85, done: true, history: [{ score: 85, passed: true, date: new Date().toISOString() }] } });
-        check(r.mode !== 'locked' && !/🔒/.test(r.on) && !r.locked && r.list, `${L} trainee, Day 5 complete: the tab opens (mode ${r.mode}, tab "${r.on.trim()}")`);
+        check(r.mode !== 'locked' && /🎬/.test(r.on) && !/🔒/.test(r.on) && !r.locked && r.list, `${L} trainee, Day 5 complete: 🎬 Case Debrief opens (mode ${r.mode}, card "${r.on.trim()}")`);
         check(fits(r) && !r.small.length, `${L} trainee, open: fits one screen, type bold and 16px or more (tab+${r.over}, window+${r.win}, page+${r.body}${r.small.length ? '; small: ' + r.small.slice(0, 4).join(', ') : ''})`);
         for (const role of ['trainer', 'preview']) {
             r = await openTab(page, { role, progress: null });
-            check(r.mode !== 'locked' && !r.locked && r.list, `${L} ${role === 'trainer' ? 'trainer' : "trainer's 👁 Trainee view"}: the tab is open with no Day 5 (mode ${r.mode})`);
+            check(r.mode !== 'locked' && !r.locked && r.list && !r.others.length && !r.profileTabs.some((x) => /Debrief/.test(x)), `${L} ${role === 'trainer' ? 'trainer' : "trainer's 👁 Trainee view"}: open with no Day 5, and only on Day 5's card (mode ${r.mode}, others ${JSON.stringify(r.others)})`);
             check(fits(r) && !r.small.length, `${L} ${role}: fits one screen, type bold and 16px or more (tab+${r.over}, window+${r.win}, page+${r.body}${r.small.length ? '; small: ' + r.small.slice(0, 4).join(', ') : ''})`);
         }
 
@@ -210,10 +218,10 @@ const fits = (r) => r.over <= 2 && r.win <= 2 && r.body <= 2 && r.bottom <= 1;
             check(/cdb-stage/.test(asked || ''), `${L} the player: ⛶ Full screen asks for the stage, the video and its captions (${asked})`);
         }
 
-        // the place is kept: leave the tab at 2:05, reload, and the debrief opens there
-        await page.evaluate(async () => { document.querySelector('.cdb-tab video').currentTime = 125; cmCaseFlow.fileTab('meet'); await new Promise((r) => setTimeout(r, 300)); });
+        // the place is kept: close the viewer at 2:05, reload, and the debrief opens there
+        await page.evaluate(async () => { document.querySelector('.cdb-tab video').currentTime = 125; await new Promise((r) => setTimeout(r, 100)); cmCaseDebrief.close(); await new Promise((r) => setTimeout(r, 300)); });
         const left = await page.evaluate(() => ({ pos: JSON.parse(localStorage.getItem('lsh_case-debrief') || '{}').pos, paused: cmCaseDebrief.player().paused }));
-        check(left.pos === 125 && left.paused, `${L} the player: leaving the tab pauses it and keeps the place, 2:05 (${JSON.stringify(left)})`);
+        check(left.pos === 125 && left.paused, `${L} the player: closing the viewer pauses it and keeps the place, 2:05 (${JSON.stringify(left)})`);
         await page.reload({ waitUntil: 'load' });
         await page.waitForFunction(() => typeof goto === 'function' && typeof state === 'object' && !!state.traineeId && !!window.cmCaseDebrief, null, { timeout: 20000 });
         await sleep(800);
@@ -237,5 +245,5 @@ const fits = (r) => r.over <= 2 && r.win <= 2 && r.body <= 2 && r.bottom <= 1;
     }
     await browser.close();
     if (failures.length) { console.error(`\n${failures.length} check(s) failed:\n  ` + failures.join('\n  ')); process.exit(1); }
-    console.log('\nAll good: the Case Debrief is the profile\'s third tab, 🔒 until Case Flow Day 5 is complete and open for a trainer, its slides and player work and keep the trainee\'s place, and it fits one screen at both sizes.');
+    console.log('\nAll good: the Case Debrief is on Case Flow Day 5\'s card only, 🔒 until Case Flow Day 5 is complete and open for a trainer, its slides and player work and keep the trainee\'s place, and it fits one screen at both sizes.');
 })().catch((e) => { console.error(e); process.exit(1); });

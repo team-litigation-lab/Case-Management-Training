@@ -206,6 +206,7 @@ css.textContent = `
 .cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-label ~ li.cfx-ag-label{grid-column:3;}   /* Part 2: the third column */
 .cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-lab{grid-column:3;background:rgba(219,132,55,.24);border-color:#DB8437;}   /* the daily loop's steps, one under another */
 .cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-kc{grid-column:3;}
+@media (max-width:760px){ .cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-label,.cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-label ~ li.cfx-ag-label,.cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-lab,.cfx-agenda .cfx-ag-list.cfx-ag-two li.cfx-ag-kc{grid-row:auto;grid-column:auto;} }   /* a phone: one column, Part 2 and the loop under Part 1 */
 `;
 document.head.appendChild(css);
 window.cmFlowParts = {partsOf, labels};   // .github/scripts/flow-order.cjs

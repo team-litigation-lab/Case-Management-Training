@@ -119,7 +119,10 @@ function fit(el){
   const p = el.querySelector(".cmrn-pop"); if(!p) return;
   p.style.maxHeight = ""; const top = p.getBoundingClientRect().top;
   p.style.maxHeight = Math.max(160, Math.floor(window.innerHeight - Math.max(0, top) - 12)) + "px";
-  const r = p.getBoundingClientRect(); if(r.right > window.innerWidth - 8){ p.style.left = "auto"; p.style.right = "0"; }
+  p.style.left = ""; p.style.right = "";
+  let r = p.getBoundingClientRect(); if(r.right > window.innerWidth - 8){ p.style.left = "auto"; p.style.right = "0"; r = p.getBoundingClientRect(); }
+  // a phone: ending at its button pushed it off the left edge instead, so it starts 8px in from the screen's edge
+  if(r.left < 8){ p.style.right = "auto"; p.style.left = Math.round(8 - el.getBoundingClientRect().left) + "px"; }
 }
 // the Admin header (js/cm-admin-shell.js): the menu at the end of the section pills
 function hookHeader(){

@@ -95,7 +95,7 @@ function compute(c){
       const item = (name, ok, yes, no, pend) => put("open", ok == null ? {name, pct: null, pending: true, note: pend} : {name, pct: ok ? 100 : 0, note: ok ? yes : no});
       const due = shut || worked("d1m1-open");
       item("CMS Case ID logged on the Submit slide", ref ? true : due ? false : null, `Logged: ${ref}`, "No CMS Case ID logged", "Log it on the first CMS activity's Submit slide");
-      item("The CMS reported your case open", id ? true : due ? false : null, `${id}${cms.at ? " · last heard " + new Date(cms.at).toLocaleDateString() : ""}`, "The CMS never reported a case: open your own case in 🗂 Open LSH CaseWorks", "Open your own case in the CMS beside the lesson");
+      item("The CMS reported your case open", id ? true : due ? false : null, `${id}${cms.at ? " · last heard " + new Date(cms.at).toLocaleDateString() : ""}`, "The CMS never reported a case: open your own case in 🗂 Open LSH CaseWorX", "Open your own case in the CMS beside the lesson");
       if(id){
         item("Client recorded as John Doe", /\bjohn\b/i.test(client) && /\bdoe\b/i.test(client), `Client: ${client}`, `The CMS has the client as "${client || "blank"}"`);
         item("Date of Loss entered", !!cms.dol, `Date of Loss ${cms.dol}`, "No Date of Loss in the CMS case");

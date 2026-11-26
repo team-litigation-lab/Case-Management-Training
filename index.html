@@ -15959,6 +15959,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <!-- 🤖 Day 5's companion-case build, AI graded on a rubric of the Day 1–4 deliverables (registers with cm-ai-grader.js) -->
 <script src="/js/cm-companion-grade.js"></script>
 <script src="/js/cm-companion.js"></script>
+<!-- 📋 Compliance and Platform Utilization Monitoring on a trainee's 🏅 Scorecard card: Backup Drive, lesson decks, last opened, last on the platform (the section every LSH program's scorecard carries) -->
+<script src="/js/cm-compliance-monitor.js"></script>
 <!-- 🛡 credit kept: a Net Sheet stage that tied out stays tied out, case exercises keep the score they were handed in with -->
 <script src="/js/cm-credit-kept.js"></script>
 <script src="/js/cm-open-lessons.js"></script>
@@ -15997,11 +15999,15 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-case-guides.js"></script>
 <!-- ⚡ every score fills in by itself: an AI grading that didn't come back is sent again with backoff, and the trainer's Scorecard keeps itself current -->
 <script src="/js/cm-auto-grade.js"></script>
+<!-- ✨ the day cards wear the LSH frame: navy along the top fading to gold at the bottom, as on the Portal's cards -->
+<script src="/js/cm-blue-gold-cards.js"></script>
 <script src="/js/cm-progress-log.js"></script>
-<!-- 🎬 the Case Debrief: the Case Profile's third tab, a narrated debrief of the whole file, 🔒 for a trainee until Case Flow Day 5 is complete (after cm-case-profile.js and cm-deck-slides.js) -->
+<!-- 🎬 the Case Debrief: on Case Flow Day 5's card only (under ▶ Video), a narrated debrief of the whole file, 🔒 for a trainee until Day 5 is complete (after cm-day-card-format.js, lsh-card-frame.js and cm-deck-slides.js) -->
 <script src="/js/cm-case-debrief.js"></script>
 <!-- 🔁 the daily loop: lessons → Case Profile → the one Skill Building → Action Plan → optional side exercises → Knowledge Check (saved places follow their slides by key, cm-slide-keys.js) -->
 <script src="/js/cm-day-loop.js"></script>
+<!-- ✨ the lesson decks take the Portal's elevated look: the blue-gold frame, crisp titles, mono tags, navy buttons (design only, no slide content) -->
+<script src="/js/cm-deck-elite.js"></script>
 <!-- 🪪 the certificate shows the full name registered on the Portal (trainee:<id>.fullName, from the sign-in ticket's "full") -->
 <script src="/js/cm-full-name.js"></script>
 <!-- 💡 the rules of the lesson cards the decks replaced, as a Tip pop-up on the Skill Activity that practised each one -->
@@ -16011,17 +16017,20 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-one-slide.js"></script>
 <!-- ⭐ one Overall score on every page that shows one: the dashboard's My Score Card too (cmScorecard.overall) -->
 <script src="/js/cm-overall.js"></script>
+<!-- 📱 phones: the safety net (pictures and frames shrink to the screen, long words break, a wide table scrolls in its own box) -->
+<script src="/js/cm-phone-fit.js"></script>
 <!-- ☁ a saved copy that couldn't be read is never saved over: a notice with Try again, and the read retried until it loads -->
 <script src="/js/cm-restore-guard.js"></script>
 <!-- 🔥 the Roleplay hub and 🎲 Quick Practice serve only calls whose activity is still on a day (cut ones are taken out) -->
 <script src="/js/cm-roleplay-taught.js"></script>
 <!-- 🏆 Admin → 🏅 Scorecard → Rankings & Progress Report: the batch's ranking table to screenshot, edit and share (report.html) -->
 <script src="/js/cm-rankings.js"></script>
+<script src="/js/cm-rank-share.js"></script>
 <!-- ⚡ Run now: every manual trigger a trainer has, on the Admin header and the 🏅 Scorecard banner -->
 <script src="/js/cm-run-now.js"></script>
 <!-- 🧳 logging out wipes the device only after a confirmed save; otherwise its work is backed up (orphan:<id>:<ms>) -->
 <script src="/js/cm-safe-logout.js"></script>
-<!-- 🎯 Your Task: the one Launch LSH CaseWorks & Google Drive button, and the Rules & Naming Guide in 📖 Reference -->
+<!-- 🎯 Your Task: the one Launch LSH CaseWorX & Google Drive button, and the Rules & Naming Guide in 📖 Reference -->
 <script src="/js/cm-sb-task.js"></script>
 <!-- 📤 Send progress: a trainer sends a trainee their progress with their feedback; the trainee reads it in 📒 My Progress Log -->
 <script src="/js/cm-send-progress.js"></script>

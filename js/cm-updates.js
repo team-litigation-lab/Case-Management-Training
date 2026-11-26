@@ -162,7 +162,8 @@ main:has(.pv){max-width:none !important;padding-left:16px !important;padding-rig
 .pv-cues .pv-empty{color:var(--ink-soft);font-size:14px;}
 .pv-ans{background:#EAF6EF;border-left:4px solid #3F7D58;border-radius:8px;padding:8px 12px;margin:6px 0 10px;}
 .pv-tip{margin:8px 0 0;font-size:12.5px;color:#4A5070;} .pv-tip b{color:var(--navy);}
-@media(max-width:1000px){.pv-grid{grid-template-columns:1fr;} .pv-cues{position:static;max-height:none;height:auto;}}
+@media(max-width:1000px){.pv-grid{grid-template-columns:minmax(0,1fr);} .pv-cues{position:static;max-height:none;height:auto;}}
+@media(max-width:760px){.pv-meta{flex-wrap:wrap;margin-left:0;} .pv-meta > *{white-space:nowrap;} .pv-nav{flex-wrap:wrap;} .pv-nav .btn{white-space:nowrap;} .pv-nav select{order:-1;flex:1 1 100%;max-width:100%;}}   /* a phone: the step, the timer and the case year, and the slide picker over Previous / Next, wrap rather than squeeze to a letter a line */
 /* ---- Audience window (shared in Google Meet) ---- */
 body.audience-mode{overflow:hidden;background:#1F2440;}
 body.audience-mode > *:not(#audienceRoot):not(.aud-hint){display:none !important;}
@@ -239,9 +240,9 @@ const DRAFTING_SUBVIEWS = ["lor","hipaa","medprov"];
 window.EXTRA_ROUTE_VIEWS = ["casedocs", "drafting", "scorecard", "knowtools"].concat(DRAFTING_SUBVIEWS);
 // Page names for the "← Back to …" button, matching this top bar.
 window.EXTRA_ROUTE_LABELS = {clientprofile:"Case Profile", casedocs:"Documents", practice:"Practice", notes:"Notes",
-  drafting:"Drafting Tools", handouts:"LSH Atlas", scorecard:"My Performance", lor:"Drafting Tools", hipaa:"Drafting Tools", medprov:"Drafting Tools"};
+  drafting:"Drafting Tools", handouts:"LSH Atlas", scorecard:"My Scorecard", lor:"Drafting Tools", hipaa:"Drafting Tools", medprov:"Drafting Tools"};
 function renderTopbar(){   // trainees never see an admin sign-in (🛡 Admin is for admins only): admins come in from the Portal (?admin=1)
-  let views = [["dashboard","Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case Profile"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["notes","Notes"],["handouts","📚 LSH Atlas"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
+  let views = [["dashboard","📚 Dashboard"],["tasks","🎲 Tasks"],["clientprofile","Case Profile"],["casedocs","📁 Documents"],["practice","🧪 Practice"],["notes","🗒 Notes"],["handouts","📚 LSH Atlas"]];   // (no 📋 Activities: trainers still publish and review them in Admin → 📋 Activities)
   if(state.isAdmin){
     // Admin is a trainer monitoring dashboard, not a trainee workspace — hide
     // the trainee-facing-only views that have no role here.
@@ -251,7 +252,7 @@ function renderTopbar(){   // trainees never see an admin sign-in (🛡 Admin is
   }
   // 🏅 the Scorecard (js/cm-scorecard.js): a trainee's own grades, or every trainee's for a trainer
   // (a trainer's 🏅 Scorecards are the 📋 Batch Sheet's 🏅 Scores now: Admin → 📋 Batch Sheet, js/cm-batch-sheet.js)
-  if(typeof renderScorecardPage === "function" && (state.traineeId || state.adminPreview) && (!state.isAdmin || state.adminPreview)) views.push(["scorecard", "🏅 My Performance"]);
+  if(typeof renderScorecardPage === "function" && (state.traineeId || state.adminPreview) && (!state.isAdmin || state.adminPreview)) views.push(["scorecard", "🏅 Scorecard"]);
   return `
   ${state.adminPreview ? `<div class="view-mode-strip">👁 <b>Trainee view</b> — you're seeing the portal as a trainee sees it (every day unlocked for preview). <button type="button" onclick="setAdminViewMode('admin')">Switch back to Admin view</button></div>` : ""}
   <div class="topbar ${state.mobileNavOpen?'nav-open':''}">
@@ -265,10 +266,11 @@ function renderTopbar(){   // trainees never see an admin sign-in (🛡 Admin is
         <div class="nav">
           ${views.map(([id,label])=>`<button class="${(state.view===id || (id==="practice" && PRACTICE_SUBVIEWS.includes(state.view)) || (id==="drafting" && DRAFTING_SUBVIEWS.includes(state.view)))?'active':''}" onclick="goto('${id}')">${label}${id==="tasks" && openTasksCount() ? `<span class="nav-badge">${openTasksCount()}</span>` : ""}${id==="activities" && typeof daUnreadCount==="function" && daUnreadCount() ? `<span class="nav-badge nav-badge-act">${daUnreadCount()}</span>` : ""}</button>${id==="practice" && window.cmToolsMenuHTML ? cmToolsMenuHTML() : ""}`).join("")}
           ${(state.traineeId && !state.isAdmin) ? `<button type="button" class="nav-focus" onclick="openFocusPanel()" title="My Focus — trainer feedback and what to work on next">🎯 Focus${focusNewCount()?`<span class="nav-badge">${focusNewCount()}</span>`:""}</button>` : ""}
+          ${/* the Foundational Training's order (js/lsh-program.js there): … 👁 Switch View · 🛡 Admin · 🎓 LSH Academy Index (js/portal-link.js) */""}
           ${state.adminPreview
-            ? `<button type="button" class="nav-viewswitch" onclick="setAdminViewMode('admin')" title="Return to the admin (trainer) view">🛡 Back to Admin view</button>`
-            : (state.isAdmin ? `<button class="${state.view==='admin'?'active':''}" onclick="openAdmin()">🛡 Admin</button>` : "")}
-          ${state.isAdmin ? `<button type="button" class="nav-viewswitch" onclick="setAdminViewMode('trainee')" title="See the portal exactly as a trainee does — no trainer tools or admin pages">👁 Trainee view</button>` : ""}
+            ? `<button type="button" class="nav-viewswitch" onclick="setAdminViewMode('admin')" title="Switch back to the trainer (admin) view">👁 Switch View</button>`
+            : (state.isAdmin ? `<button type="button" class="nav-viewswitch" onclick="setAdminViewMode('trainee')" title="See the portal exactly as a trainee does — no trainer tools or admin pages">👁 Switch View</button>` : "")}
+          ${state.isAdmin && !state.adminPreview ? `<button class="${state.view==='admin'?'active':''}" onclick="openAdmin()">🛡 Admin</button>` : ""}
         </div>
       </div>
     </div>
@@ -502,7 +504,7 @@ function setAdminViewMode(mode){
     try{ sessionStorage.setItem("lsh_admin_preview","1"); }catch(e){}
     const back = ["admin","orientation","facilitatorguide"].includes(state.view) ? "dashboard" : state.view;
     if(state.view==="day") render(); else goto(back);
-    toast("👁 Trainee view — this is what trainees see. Use “Back to Admin view” to return.");
+    toast("👁 Trainee view — this is what trainees see. Use 👁 Switch View to return.");
   }else{
     if(!state.adminPreview) return;
     state.adminPreview = false; state.isAdmin = true;
@@ -1262,7 +1264,7 @@ function sopRunOfShow(dRaw){
       parts.length ? `Parts (≈10 min each): ${parts.map((a,k)=>`<b>${k+1}. ${esc(a)}</b>`).join(" · ")}.` : "",
       ti>0 ? `If time is short, trainees finish this one after the session; debrief it at the start of tomorrow.` : "",
       /Roleplay|The Call|Transportation Wall|Break the Adjuster|Deposition Prep/i.test(parts.join(" ")) ? `The live roleplay part can be run by you, or trainees rehearse solo first.` : "",
-      `Steps marked <b>Do this in the CMS</b> are done in 🗂 LSH CaseWorks (🧰 Tools); trainees log the Case ID.`,
+      `Steps marked <b>Do this in the CMS</b> are done in 🗂 LSH CaseWorX (🧰 Tools); trainees log the Case ID.`,
       `First submission of each exercise is free; repeats use one of 3 attempts per day (reset in Trainee Audit if someone is blocked by a technical issue).`].filter(Boolean),
       watch:"Anyone stuck on the same part for more than 10 minutes — nudge them to submit and move on; the debrief is where the learning lands."});
   });
@@ -1344,7 +1346,7 @@ function sopProgramFlow(){
         <tr><td>Read what trainees think of the program</td><td>Admin → <b>Trainee Feedback</b></td></tr>
         <tr><td>See the portal as a trainee does</td><td>Top bar → <b>👁 Trainee view</b></td></tr>
         <tr><td>See the planted errors in each case document</td><td><b>📁 Documents</b> signed in as admin (red 🔑 trainer key under each file)</td></tr>
-        <tr><td>Check a trainee's file work in the CMS</td><td><b>🧰 Tools</b> → 🗂 LSH CaseWorks (trainees log their Case ID in each Skill Builder)</td></tr>
+        <tr><td>Check a trainee's file work in the CMS</td><td><b>🧰 Tools</b> → 🗂 LSH CaseWorX (trainees log their Case ID in each Skill Builder)</td></tr>
         <tr><td>Run extra call, email or calendar practice</td><td><b>🛠 LSH Sims</b> (the LSH Training Portal's shared simulators, opened for CM)</td></tr>
       </tbody></table></section>
     <section class="card sopf-card" style="margin-top:14px;"><h3>The ${DAYS.length} days</h3>

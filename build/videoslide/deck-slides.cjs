@@ -28,7 +28,7 @@ for (const f of fs.readdirSync(__dirname).filter((x) => /^day\d+\.json$/.test(x)
   }
 }
 // The Case Debrief (build/debrief/debrief.json, drawn by build/debrief/render.cjs): its video and one chapter per slide,
-// for the 🎬 Case Debrief tab on the Case Profile (js/cm-case-debrief.js). "recorded" once video.starts has a time for
+// for the 🎬 Case Debrief on Case Flow Day 5 (js/cm-case-debrief.js). "recorded" once video.starts has a time for
 // every slide (make_video.py prints them); until then the tab steps through the slides and their script.
 const debrief = (() => {
   const f = path.join(ROOT, "build", "debrief", "debrief.json"); if (!fs.existsSync(f)) return null;

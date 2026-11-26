@@ -664,7 +664,7 @@ window.cmCaseFlow.artReplay = (el) => { el.classList.remove("cfa-on"); void el.o
    step's live call. The Drafting Tools (LOR, HIPAA, Med Provider) stay out: they're standalone exercises on
    their own assigned cases, never linked to a case file. */
 const TOOLKIT = [
-  {id: "cms", icon: "🗂", short: "LSH CaseWorks", name: "LSH CaseWorks", re: /\bCMS\b|Case File|Case Notes|Case Summary|Communications Log|Financial Ledger|Lien Tracker|Net Sheet|Recovery Ledger|Insurance tab|\bTasks\b|\bLiens\b|Parties|\bCalendar\b(?! Conflict)|Documents →|Doc Hub|Settlement \(BI\/UM\)/},
+  {id: "cms", icon: "🗂", short: "LSH CaseWorX", name: "LSH CaseWorX", re: /\bCMS\b|Case File|Case Notes|Case Summary|Communications Log|Financial Ledger|Lien Tracker|Net Sheet|Recovery Ledger|Insurance tab|\bTasks\b|\bLiens\b|Parties|\bCalendar\b(?! Conflict)|Documents →|Doc Hub|Settlement \(BI\/UM\)/},
   {id: "call", icon: "📞", short: "Call Sim", name: "the Call Sim", re: /Call Sim(ulator)?\b|\bcall(s|ed)? (John|Margaret|Dana|the adjuster|the client)\b/i},
   {id: "netsheet", icon: "📊", short: "Net Sheet", name: "the LSH Net Sheet", re: /Net Sheet|Lien Tracker|Recovery Ledger|Specials ledger|Financial Ledger → Specials|Medical Liens \/ Payoffs|Gross Settlement|Total Medical Specials|Settlement \(BI\/UM\)(?! →)/},
   {id: "email", icon: "✉️", short: "Email", name: "the Email Workspace", re: /Email Workspace/},
@@ -932,7 +932,7 @@ function slideBody(view, l, d){
         </div></div>`;
     }
     case "task": {   /* Your Task, the activity's one slide (js/cm-sb-task.js styles it and draws its Launch button): 📂 Your Case, the
-         assumption or what just landed, in a line or two; the steps; then one bar with three buttons: 🚀 Launch LSH CaseWorks & Google
+         assumption or what just landed, in a line or two; the steps; then one bar with three buttons: 🚀 Launch LSH CaseWorX & Google
          Drive, 🧰 Tools ▾ (everything else the task is done with: the Action Plan Editor, the live call, the service
          confirmation, the Amendment Requests, the Notes & Action Plan, the Source Files, a side exercise's document audit,
          a trainer's ⚡ Inject) and Submit →, which turns this slide into the 🤖 AI Grader (js/cm-ai-grader.js). What the
@@ -4217,7 +4217,7 @@ function caseFlowProfile(){
         <div class="cf-file-who"><p class="eyebrow">Case Profile</p><h1>📇 ${E(c.style)}</h1>
           ${ext.head ? ext.head() : `<div class="cf-client"><span class="cf-client-k">📌 Your Client</span><b>${E(c.client.name)}</b><span>Matter ${E(c.no)} · Lead Counsel ${E(c.counsel)}</span></div>`}</div>
       </div>
-      <p class="cf-note">${isTrainer() ? `The whole file, as you know it: the key tabs are the answers, and trainees never see them.${DATES ? ` 📅 Case year ${E(DATES.year)} (collision ${E(DATES.dol())}); each trainee keeps the year they started on.${DATES.preview ? ` <b>Preview of ${E(DATES.year)}</b>: <a href="?caseYear=off">end it</a>.` : ""}` : ""}` : "Meet John Doe first, then follow your case in 📅 So Far. The file itself is in 📁 Case Documents, and the case you build is in 🗂 LSH CaseWorks."}</p>${dolNote()}</section>
+      <p class="cf-note">${isTrainer() ? `The whole file, as you know it: the key tabs are the answers, and trainees never see them.${DATES ? ` 📅 Case year ${E(DATES.year)} (collision ${E(DATES.dol())}); each trainee keeps the year they started on.${DATES.preview ? ` <b>Preview of ${E(DATES.year)}</b>: <a href="?caseYear=off">end it</a>.` : ""}` : ""}` : "Meet John Doe first, then follow your case in 📅 So Far. The file itself is in 📁 Case Documents, and the case you build is in 🗂 LSH CaseWorX."}</p>${dolNote()}</section>
     ${fileTabs(shown, pos)}
 </div>`;
 }
@@ -4408,7 +4408,7 @@ async function backupDoc(btn, id){
       const st = window.CMDrive && CMDrive.status ? CMDrive.status() : null, ruled = !!(window.CMDrive && CMDrive.naming && CMDrive.naming());
       toast(!st || !st.configured || !st.connected || !st.built ? "Your Backup Drive isn't set up yet. Link it, then try again."
         : !ruled ? "The firm's naming convention hasn't loaded yet. Open 📂 My Backup Drive, then try again."
-        : "Open your case in the CMS first (🗂 Open LSH CaseWorks): the backup copy is named with its Case ID, the firm's way.");
+        : "Open your case in the CMS first (🗂 Open LSH CaseWorX): the backup copy is named with its Case ID, the firm's way.");
       return; }
     const out = await cmDocFiling.keepOnDrive(d.folder, name, await r.arrayBuffer(), d.id);
     if(out && out.ok){ btn.textContent = "✓ In GDrive"; toast(`Backed up to your Drive under ${String(out.folder).split("/").pop()} as ${name}.`); return; }
@@ -4497,7 +4497,7 @@ function caseFlowPractice(){
     `<button class="btn btn-ghost btn-sm" onclick="goto('casedocs')">📁 Case Documents</button>`,
     typeof rpLaunchQuickPractice === "function" ? `<button class="btn btn-ghost btn-sm" onclick="rpLaunchQuickPractice()">🎲 Quick roleplay call</button>` : "",
     typeof openTool === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openTool('cms',null,'library=1')">📚 CMS Training Library</button>` : "",
-    typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open LSH CaseWorks</button>` : ""].join("");
+    typeof openCms === "function" ? `<button class="btn btn-ghost btn-sm" onclick="openCms()">🗂 Open LSH CaseWorX</button>` : ""].join("");
   // one screen: a single header line, the day tabs, then the day's tiles; the any-day links ride in the header
   return `<div class="cf-px-page"><div class="cf-px-head"><h1>🧪 Practice <span>The Case Flow Skill Activities, on ${E(CF.case.style)}: each opens on its slide.</span></h1><div class="cf-px-any">${any}</div></div>
     ${tabs}
@@ -4711,6 +4711,7 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx .cfx-docline-k{flex:none;font:800 18px/1.3 var(--font-ui);color:#1E2340;white-space:nowrap;}
 .cfx .cfx-docline-t{flex:1 1 auto;font:700 clamp(16px,2.2vh,20px)/1.25 var(--font-ui);color:#1E2340;text-align:left !important;}
 .cfx .cfx-docline-f{flex:none;font:800 16px/1.2 var(--font-ui);color:#1E2340;background:#DB8437;border-radius:999px;padding:5px 12px;text-decoration:none;white-space:nowrap;}
+@media (max-width:760px){ .cfx .cfx-docline{flex-wrap:wrap;gap:4px 10px;padding:6px 12px;} .cfx .cfx-docline-t{flex-basis:100%;} .cfx .cfx-docline-k{white-space:normal;} }   /* a phone: the document's name, its line under it, then On John Doe's file */
 /* a drawn lesson's one slide (The Rules, lean): the points, the box beside them and the UPL line closer together, so it holds its why line at full size */
 .cfx.cfx-lesson.cfx-rules .cfx-whyline,.cfx.cfx-lesson.cfx-rules .cfx-docline{margin-bottom:6px;}
 .cfx.cfx-lesson.cfx-rules .cfx-points{gap:8px;}
@@ -5374,7 +5375,7 @@ main:has(.cf-kc-result) #answerFeedback{max-width:none;}
 .cf-ans-pick{font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .cf-ans-right{margin-top:3px;color:#1E6B43;font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 @media (max-width:900px){.cf-ans-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
-/* Case Documents: the Case File / Documents switch sits under the page's intro (no Open LSH CaseWorks: the slides send trainees to
+/* Case Documents: the Case File / Documents switch sits under the page's intro (no Open LSH CaseWorX: the slides send trainees to
    the CMS), so the copy js/lsh-topbar.js puts at the top of the page is hidden there */
 main:has(.cf-docs-switch) > .lsh-subtabs{display:none !important;}   /* (ours is wrapped, so js/lsh-topbar.js leaves it alone) */
 /* the Admin screen: a solid, full-width panel over the photo (as Foundational's js/ft-admin-tidy.js) */
@@ -6004,7 +6005,8 @@ document.head.appendChild(st);
 .cfx-ex-list button{width:100%;text-align:left;display:flex;gap:10px;align-items:baseline;border:1.5px solid #DDE1EA;background:#fff;border-radius:10px;padding:8px 14px;font:700 18px/1.35 'Inter',sans-serif;color:#1E2340;cursor:pointer;}
 .cfx-ex-list button:hover{border-color:#DB8437;} .cfx-ex-list button span{font:700 15px 'IBM Plex Mono',monospace;color:#A4470F;flex:0 0 auto;}
 .cfx-ex-go{display:flex;justify-content:flex-end;} .cfx-ex-go .btn{font-size:17px;padding:12px 22px;}
-@media(max-width:900px){ .cfx-bd-case{grid-template-columns:1fr;grid-template-areas:'k' 'h' 'p' 'dl' 'b';} .cfx-bd-steps,.cfx-ex-list{grid-template-columns:1fr;} }`;
+@media(max-width:900px){ .cfx-bd-case{grid-template-columns:1fr;grid-template-areas:'k' 'h' 'p' 'dl' 'b';} .cfx-bd-steps,.cfx-ex-list{grid-template-columns:minmax(0,1fr);} }
+@media(max-width:760px){ .cfx-bd-steps li{grid-template-columns:minmax(0,1fr);gap:4px;padding:9px 12px;} .cfx-bd-steps .cfx-bd-t{flex-direction:row;align-items:baseline;gap:8px;} .cfx-bd-steps li .cm-cg-btn{max-width:100%;white-space:normal;} }   /* a phone: each step's time over its text, not beside it */`;
   document.head.appendChild(st);
 })();
 
@@ -6144,6 +6146,7 @@ body:not(.ft-fit) #lessonStage > .slide-nav{margin-top:8px !important;margin-bot
 .cfx-rf-i{display:inline-flex;}
 .cfx-rf-h b{font:800 17px var(--font-ui);letter-spacing:.08em;text-transform:uppercase;color:#7F1D1D;}
 .cfx-rf-own{margin-left:auto;font:800 17px var(--font-ui);background:#1E2340;color:#fff;border-radius:999px;padding:3px 14px;white-space:nowrap;}
+@media (max-width:760px){ .cfx-rf-h{flex-wrap:wrap;} .cfx-rf-own{margin-left:0;white-space:normal;} .cfx-rf-r{grid-template-columns:minmax(0,1fr);gap:0;} }   /* a phone: the owner under the flag, each label over its line */
 .cfx-rf dl{margin:0;display:flex;flex-direction:column;gap:2px;}
 .cfx-rf-r{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:baseline;}
 .cfx-rf dt{font:800 17px var(--font-ui);color:#B3261E;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;}

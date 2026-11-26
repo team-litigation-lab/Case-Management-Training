@@ -50,6 +50,23 @@
   .xp .msg { font-weight: 700; } .xp .msg.bad { color: #b42318; } .xp .msg.ok { color: #157a3c; }
   @media (max-width: 760px) { .xp li { grid-template-columns: 1fr; } }
   @media (max-width: 760px) { .cdv-sheet { margin: 0; padding: 20px 16px; box-shadow: none; } }
+  /* a phone: the letter-size page reflows to the screen. Its forms go to two columns, a caption's parties sit over the case
+     number, a ledger scrolls sideways in its own box (below), and anything else still wider than the screen scrolls inside
+     the page rather than taking the whole window sideways. Print and the PDF (rendered at 8.5in) keep the paper layout. */
+  @media screen and (max-width: 760px) {
+    .cdv-turn { margin: 28px -16px; }
+    table.cdv-page { table-layout: fixed; }
+    table.cdv-page > tbody > tr > td { overflow-x: auto; }
+    .cdv-sheet .letterhead { flex-wrap: wrap; gap: 4px 12px; }
+    .cdv-sheet .letterhead .lh-right { text-align: left; }
+    .cdv-sheet .grid:not(.c2) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cdv-sheet .grid .f.s3, .cdv-sheet .grid .f.s4, .cdv-sheet .grid .f.s6 { grid-column: 1 / -1; }
+    .cdv-sheet .caption .row { flex-direction: column; }
+    .cdv-sheet .caption .parties { border-right: 0; border-bottom: 1px solid #000; padding: 0 0 8px; }
+    .cdv-sheet .caption .caseno { padding: 8px 0 0; }
+    .cdv-sheet .sig { min-width: 0; width: 100%; margin-right: 0; }
+    .cdv-sheet .meta b { min-width: 96px; }
+  }
   @media print {
     .cdv-bar { display: none; }
     html, body { background: #fff; }
@@ -61,6 +78,7 @@
 <script src="/js/cm-case-flow-docs.js"></script>
 <script src="/js/cm-case-dates.js"></script>
 <script src="/js/cm-exhibit-pick.js"></script>
+<script src="/js/cm-phone-fit.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
@@ -105,6 +123,8 @@
   // breaks is a table whose footer row Chrome repeats on each page that part runs over.
   const parts = html.split('<div class="page-break"></div>');
   out.innerHTML = `<div class="cdv-sheet">${parts.map(p => `<table class="cdv-page"><tfoot><tr><td>${foot}</td></tr></tfoot><tbody><tr><td>${p}</td></tr></tbody></table>`).join('<div class="cdv-turn"></div>')}</div>`;
+  // a phone: each table in the document scrolls sideways in its own box when it is wider than the screen (js/cm-phone-fit.js .cm-pf-scroll)
+  if(matchMedia("(max-width: 760px)").matches) out.querySelectorAll(".cdv-sheet table:not(.cdv-page)").forEach(t => { const box = document.createElement("div"); box.className = "cm-pf-scroll"; t.before(box); box.appendChild(t); });
   document.getElementById("bar").hidden = false;
   /* ⬇ Download PDF: a file the trainee keeps and works from (their own binder, demand or exhibit set, uploaded to
      their training Drive / the CMS for the audit), never a print dialog. Dates unchanged: the original PDF itself.

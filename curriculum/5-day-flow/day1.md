@@ -615,9 +615,9 @@ A six-station vertical protocol spine down the left third, stations numbered 1�
 1. **Internal Review** — Case status, live deadlines, date of last contact; approved channels confirmed.
 2. **Contact Attempts** — 2+ phone attempts → email and text → emergency contact → certified mail or letter.
 3. **Team Notification** — Escalate to attorney/supervisor, document in the CMS, assess SOL and hearing dates.
-4. **Final Warning Letter** — Certified mail AND email; 7–14 day deadline. (Next lesson.)
-5. **Decision Point** — The attorney may file a Notice of Withdrawal or a Motion to Withdraw. (Next lesson.)
-6. **File Closure** — “No response – withdrew per protocol”; all proof of attempts retained. (Next lesson.)
+4. **Final Warning Letter** — Certified mail AND email; 7–14 day deadline. (💡 Tips: the Final Warning Letter.)
+5. **Decision Point** — The attorney may file a Notice of Withdrawal or a Motion to Withdraw. (💡 Tips: the Final Warning Letter.)
+6. **File Closure** — “No response – withdrew per protocol”; all proof of attempts retained. (💡 Tips: the Final Warning Letter.)
 
 **Best practices & pitfalls**
 
@@ -1185,6 +1185,7 @@ A split stage. Left half, headed IN THE RECORDS: a navy column of four stacked s
 8. Run every contact on OARS: Open-ended questions, Affirmations, Reflective listening, Summaries. Ask specific questions, not “How are you?”: visits kept, pain, what he can and can't do at work and at home.
 9. Two MI moves for ambivalence. Developing discrepancy: help him see the gap between what he is doing now and his own long-term goal, in his words. Rolling with resistance: if he refuses a service, don't argue, pivot (“It sounds like that specific clinic isn't a good fit for you. Let's look at why.”), and take his reason to the provider.
 10. Expect the mid-treatment plateau: when the newness wears off and the hard work begins, adherence drops. Re-engage him on his own goal, then run the course-correction cycle (Assess Response, Evaluate Efficacy, Adjust Intervention). If he isn't reaching his goals it is usually the plan, not the person: raise it with the provider, whose change it is. That is proactive management, not an admission.
+11. When a client who went silent calls back, interview him trauma-informed: ask about his safety first, go at his pace, offer him choices, and never ask “why didn't you…?”. Record his words, then coordinate the next step with his consent.
 
 > ⚠️ **UPL boundary.** You recognise and report flags; every clinical judgment is the provider's: a screen, a medication, a referral, a change of plan. Never tell John Doe to add, skip, stop or change a treatment or medication, and never second-guess a provider.
 
@@ -1387,7 +1388,7 @@ An exploded packet: a central navy folder with six document cards fanned around 
 
 **Scenario.** 02/09/2026, 8:47 a.m.: a voicemail from John Doe. Dana from Keystone Mutual, Robert Smith's carrier, called him on Saturday (02/07) and asked to record what happened; he said he'd think about it, and she is calling back today. His neck is still stiff and he hasn't seen anyone. Nothing has reached him from the firm yet. You work it that afternoon, once he has signed the retainer and the matter is open in the CMS (1:12 p.m.), after the Conflict Check.
 
-**Execution prompt.** Work the voicemail in your Notes & Action Plan: transcribe it, then write your action plan (graded, with the answer key once handed in). Work the plan: email Dana Whitfield that the firm represents John Doe, that she is not to contact him directly and that any Recorded Statement request comes through the firm, with nothing about his injuries; call John Doe back to check on his neck and his treatment status, outline the next steps and have him repeat the instruction (no Recorded Statement, no talk about the case with anyone outside the firm); and coordinate his first visit with Riverton Urgent Care. Then assemble his onboarding Direction Packet (all six sections, the Property Damage section specific to this file: from the records, whose vehicle and claim it is), deliver it and log every contact.
+**Execution prompt.** Work the voicemail in your Notes & Action Plan: transcribe it, then write your action plan (graded, with the answer key once handed in). Work the plan: email Dana Whitfield that the firm represents John Doe, that she is not to contact him directly and that any Recorded Statement request comes through the firm, with nothing about his injuries; call John Doe back to check on his neck and his treatment status, outline the next steps and have him repeat the instruction (no Recorded Statement, no talk about the case with anyone outside the firm); and coordinate his first visit with Riverton Urgent Care. Then assemble his onboarding Direction Packet in its six sections (1 Do's and Don'ts, 2 Treatment directions, 3 Property Damage and rental, 4 Communication protocol, 5 Document retention, 6 Firm contacts and escalation path; the Property Damage section specific to this file: from the records, whose vehicle and claim it is), deliver it and log every contact.
 
 | | |
 |---|---|
@@ -1595,7 +1596,7 @@ A full-slide editor canvas showing the live plan with all five bands stubbed and
 
 #### 2 · Slide Body — the scenario and the task
 
-**Scenario.** Everything from Day 1 and Claim Set Up is in the file: parties mapped, the $40,000 stack verified, the onboarding packet delivered and tracked, and the 14-Day Treatment Gap identified. Treatment began 02/20/2026; John Doe gave his own account of the gap on the recorded call of 03/04/2026, and the papers he named (his texts, the call-outs, the 02/07 receipt) are requested. The Regulatory Triple-Check was cleared and recorded on 03/12/2026 (HIPAA authorization, BCRC/SSDI answer, Payer Order). Atty. Thorne is waiting on the Case Plan.
+**Scenario.** Everything from Day 1 and Claim Set Up is in the file: parties mapped, the $40,000 stack verified, the onboarding packet delivered and tracked, and the 14-Day Treatment Gap identified. Treatment began 02/20/2026; on the recorded call of 03/04/2026 John Doe gave his own account of the gap: he had no transport until 02/18; he thought it was only soreness; he wasn't sure his new Peach State plan was active and didn't understand that PIP paid his bills; and his right hand went numb from 02/18, his first day off. The papers he named (his texts to his mother 02/07–02/15, the 02/09–02/13 call-outs, the 02/07 pharmacy receipt) are requested, not yet in hand. The Regulatory Triple-Check was cleared and recorded on 03/12/2026 (HIPAA authorization, BCRC/SSDI answer, Payer Order). Atty. Thorne is waiting on the Case Plan.
 
 **Execution prompt.** Draft the complete Case Plan for John Doe VS Robert Smith. Fill all five bands from today's work: the acceptance decision with its reason; coverage as a stack with its order of operations, liability, and a preliminary projection; the Regulatory Triple-Check, shown cleared with its date and each of its three results; Clinical, Functional and Subrogation Management pillars with measurable goals, each action item with an owner and a date; and the risks band with the Treatment Gap and the risk of a later break in care, prominently, with their consequences. Count the gap from the dates on the records and write only what they show; under it, record John Doe's own account from the 03/04/2026 recorded call, attributed to him, with the document that would bear out each reason marked requested, and leave what the gap means for the claim to Atty. Thorne. Docket the filing window, then route the plan to Atty. Thorne.
 
@@ -1661,7 +1662,7 @@ Verified in Case Plan Audit & the Claim Set Up Gate (taught on Case Flow Day 1) 
 
 #### 1 · Visual Layout Description
 
-A horizontal treatment timeline from 04/02/2026 to 04/21/2026. A hollow red band spans 04/02 → 04/21, labelled 19 DAYS · NO VISITS, with four red ✗ markers at 04/03, 04/07, 04/09 and 04/14. Above the band, an orange escalation rail of dated notices: ① CALL + TEXT 04/08 ② CALL + EMAIL 04/09 ③ EMERGENCY CONTACT 04/10 ④ FINAL WARNING LETTER 04/10 · RESPOND BY 04/20, with a grey DROP WARNING chip hanging from ④. At 04/17 a green phone icon breaks the rail: JOHN CALLS. Below the band, three navy cards: SAFETY · CHOICE · HIS WORDS (the interview), then a green RESTORED · 04/20 chip and ✓ marks at 04/21 and 04/23. The argument: the silence had a cause, and the record shows the firm looked for it.
+A horizontal treatment timeline from 04/02/2026 to 04/21/2026. A hollow red band spans 04/02 → 04/21, labelled 19 DAYS · NO VISITS, with four red ✗ markers at 04/03, 04/07, 04/09 and 04/14. Above the band, an orange escalation rail of dated notices: ① TWO CALLS 04/08 ② EMAIL + TEXT 04/09 ③ EMERGENCY CONTACT 04/10 ④ FINAL WARNING LETTER 04/10 · RESPOND BY 04/20, with a grey DROP WARNING chip hanging from ④. At 04/17 a green phone icon breaks the rail: JOHN CALLS. Below the band, three navy cards: SAFETY · CHOICE · HIS WORDS (the interview), then a green RESTORED · 04/20 chip and ✓ marks at 04/21 and 04/23. The argument: the silence had a cause, and the record shows the firm looked for it.
 
 #### 2 · Slide Body — the scenario and the task
 
@@ -1685,7 +1686,7 @@ A horizontal treatment timeline from 04/02/2026 to 04/21/2026. A hollow red band
 **Verification checkpoints**
 
 - [ ] Assess: the missed visits classed as a legal danger (a gap in care), not a medical one; Step 1 review dated 04/08/2026, before any outreach: SOL 02/06/2028, care stopped since 04/02, visits of 04/03 and 04/07 missed (the Case Plan's week-6 measures, due 04/07, not taken), last contact 03/31
-- [ ] Clarify: Riverton Spine & Rehab's office asked about the missed visits; notices escalate by channel and are logged with date, time, channel and outcome: call and text 04/08, call and email 04/09, Margaret Doe 04/10 (no case details shared)
+- [ ] Clarify: Riverton Spine & Rehab's office asked about the missed visits; notices escalate by channel and are logged with date, time, channel and outcome: two calls 04/08, then email and text 04/09 (the lesson's ladder: phone twice, then email and text), Margaret Doe 04/10 (no case details shared)
 - [ ] Step 3 escalation to Atty. Thorne 04/10; Final Warning Letter by certified mail AND email, response date 04/20/2026, withdrawal possible, not decided, nothing about the claim
 - [ ] The retainer's 30 days of documented attempts (04/08 → 05/08/2026) noted: the 10-day date is a response date, and any withdrawal is Atty. Thorne's decision
 - [ ] Drop Warning status set with 04/20 on the calendar; the 04/16 14-day no-visit trigger logged and flagged
