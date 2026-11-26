@@ -145,7 +145,7 @@ body .cfx .cfx-task1 .cfx-docs-pop button,body .cfx .cfx-task1 .cfx-docs-pop a,b
 `;
 document.head.appendChild(css);
 /* the 🧰 Tools menu opens upward over the steps: on a slide the layout enlarges (cm-slide-layout.js zooms the task), a long
-   menu reached past the card's top, under the deck's head bar, where its first row (Practises, 💡 Tip, 🧠 Think it through)
+   menu reached past the card's top, under the deck's head bar, where its first row (Practices, 💡 Tip, 🧠 Think it through)
    could not be clicked. It is held inside the card: shorter, and it scrolls. */
 function fitTools(menu){
   const pop = menu && menu.open && menu.querySelector(".cfx-tools-pop"); if(!pop) return;

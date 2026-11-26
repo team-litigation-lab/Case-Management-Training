@@ -2307,7 +2307,7 @@ export default {
           // The firm's structure and whether linking is switched on, for Day 1's slide. A presenter is an admin, so
           // this is open to anyone signed in; it reads no one's drive.
           const st = driveStatus(env, null);
-          return json({ standard: { configured: st.configured, root: st.root, standard: st.standard, why: st.why, naming: namingRule(null) } });
+          return json({ standard: { configured: st.configured, shareWith: st.shareWith, root: st.root, standard: st.standard, why: st.why, naming: namingRule(null) } });
         }
         const who = mine || (tok.role === "a" && typeof b.traineeId === "string" ? b.traineeId.slice(0, 120) : "");
         // An open-mode Worker (no admin password) has no trainee tokens at all, so everyone reads as an

@@ -1,7 +1,7 @@
 // @check browser — 🧠 Think it through works on the slide: beside the 💡 Tip on the activity that practises the deck pages, it opens the question and a box for the trainee's own reasoning, and Submit grades it like every activity (the score stored under cf-ai-grades and in the work log)
 // js/cm-think-through.js with js/cm-ai-grader.js, in a real browser, as a trainee:
 //   · Day 2's Skill Activity d3m2-a1 (it practises the Valuation Baseline pages, Day 2 pages 23–24) has 🧠 Think it through in its
-//     Your Task 🧰 Tools menu, next to the 💡 Tip; the slide still fits one screen;
+//     Your Task's tools (in 📖 Reference, js/cm-task-card.js), next to the 💡 Tip; the slide still fits one screen;
 //   · the button opens a panel over the slide: the question (what the slides' figures cause on John Doe's file), its 2–3 steps,
 //     a box to write in, and Submit → (never "AI Grader"); nothing is handed in before the trainee presses Submit;
 //   · submitted (the AI answered by the test, callAIJson: the test server has no AI key), the score shows in the panel, is
@@ -29,19 +29,19 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     await page.setViewportSize({ width: w, height: h });
     if (!await go()) { fail(`Day 2 has no Your Task slide for ${ACT}`); break; }
     await sleep(600);
-    const s = await page.evaluate(() => { const wrap = document.getElementById('lessonSlideWrap'), stage = document.getElementById('lessonStage'), menu = document.querySelector('#app .cfx-task-foot .cfx-tools-menu');
+    const s = await page.evaluate(() => { const wrap = document.getElementById('lessonSlideWrap'), stage = document.getElementById('lessonStage'), menu = document.querySelector('#app .cfx-tools-stash');
       const b = menu && menu.querySelector('.ctt-btn'), tip = menu && menu.querySelector('.cm-lt-btn');
       return { btn: !!b, text: b ? b.textContent : '', nextToTip: !!(b && tip && b.previousElementSibling === tip), over: wrap ? wrap.scrollHeight - wrap.clientHeight : -1, below: stage ? stage.getBoundingClientRect().bottom - innerHeight : 99, pages: state.slidePages || 1 }; });
-    if (!s.btn || !/Think it through/.test(s.text)) fail(`${w}×${h}: ${ACT}'s Your Task should carry 🧠 Think it through in its 🧰 Tools menu: ${JSON.stringify(s)}`);
+    if (!s.btn || !/Think it through/.test(s.text)) fail(`${w}×${h}: ${ACT}'s Your Task should carry 🧠 Think it through among its tools (📖 Reference): ${JSON.stringify(s)}`);
     else if (!s.nextToTip) fail(`${w}×${h}: 🧠 Think it through should sit next to the 💡 Tip`);
     if (s.over > 2 || s.below > 1 || s.pages !== 1) fail(`${w}×${h}: the Your Task slide should still fit one screen: ${JSON.stringify(s)}`);
   }
   await page.evaluate(() => { window.callAIJson = async () => ({ accuracyScore: 26, presenceScore: 22, riskScore: 15, efficiencyScore: 11,
     strengths: ['You tied the 48-hour exhaustion to severity.'], blindspots: ['Work the file without the EMC.'], growthSuggestions: ['Lead with the anchor figure.'] }); });
   page.setDefaultTimeout(8000);
-  await page.click('#app .cfx-task-foot .cfx-tools-menu > summary').catch(() => {});
-  await sleep(200);
-  await page.click('#app .ctt-btn').catch((e) => fail(`could not press 🧠 Think it through: ${e.message}`));
+  await page.click('#app .cfx-ref-open').catch(() => {});
+  await sleep(300);
+  await page.click('.cfx-ref .cfx-ref-tools .ctt-btn').catch((e) => fail(`could not press 🧠 Think it through: ${e.message}`));
   await sleep(400);
   await page.evaluate(() => { state.isAdmin = false; });   // the trainee's own Submit
   const p = await page.evaluate((id) => { const o = document.getElementById('cttPanel');

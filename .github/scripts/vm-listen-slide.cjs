@@ -2,7 +2,7 @@
 // After the one-slide activities (#304) a voicemail was only under 🧰 Tools → 🎧 Listen. Every activity whose event is a
 // voicemail (CM_CF_SIM.events[id].channel "voicemail", spoken, with a Listening Check) now carries "🎧 Listen to the
 // voicemail" in its Your Task's 📂 Your Case sentence (js/cm-case-flow.js), so the slide's bar keeps its three buttons
-// (🚀 Launch, 🧰 Tools ▾, Submit →: slide-type.cjs). At 1366×768, as a trainee: the link is visible, bold and at least
+// (🚀 Launch and its one button: slide-type.cjs). At 1366×768, as a trainee: the link is visible, bold and at least
 // 16px, reachable from the keyboard (tabindex 0, Enter), and opens the 🎧 Listening Check for that voicemail, with its player.
 // No speech engine is needed (CI's Chromium has no voices): only that the player opens is checked, not that it speaks.
 // Usage: node .github/scripts/vm-listen-slide.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)

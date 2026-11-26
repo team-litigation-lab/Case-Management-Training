@@ -15968,6 +15968,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-day-video.js"></script>
 <!-- 🗂 every day card in Day 1's format: Review · 👁 Review Score | 🔁 Retake · ▶ Video (after cm-day-video.js, before lsh-card-frame.js) -->
 <script src="/js/cm-day-card-format.js"></script>
+<!-- 🗂 the day cards tidied: the theme in a pill, ▶ Video clear of the frame, Review Score | Retake centred (styles, added after the card files') -->
+<script src="/js/cm-day-card-polish.js"></script>
 <script src="/js/show-password.js"></script>
 <script src="/js/lsh-card-frame.js"></script>
 <script src="/js/lsh-tool-links.js"></script>
@@ -16012,6 +16014,8 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-full-name.js"></script>
 <!-- 💡 the rules of the lesson cards the decks replaced, as a Tip pop-up on the Skill Activity that practised each one -->
 <script src="/js/cm-lesson-tips.js"></script>
+<!-- 🧩 every lesson slide in separate, spaced blocks; the Ready check centred on its sheet (styles only) -->
+<script src="/js/cm-lesson-spacing.js"></script>
 <!-- 📍 a saved place on a merged activity lands on the Skill Building that now holds its work (a CM_SLIDE_KEY_RULES rule) -->
 <script src="/js/cm-merged-places.js"></script>
 <script src="/js/cm-one-slide.js"></script>
@@ -16044,10 +16048,14 @@ window.addEventListener("error", (ev)=>{ if(state.isAdmin && ev && ev.message &&
 <script src="/js/cm-slide-keys.js"></script>
 <!-- 📝 a takeaway review that didn't complete is run again, once a session, for the days whose Knowledge Check is taken -->
 <script src="/js/cm-takeaway-catchup.js"></script>
+<!-- 🧾 every activity's Your Task as one card (📂 Your Case, ✅ What to do, the steps, its tools in a row) and a bar of 🚀 Launch · Submit → (before cm-vm-transcribe.js) -->
+<script src="/js/cm-task-card.js"></script>
 <!-- 🧠 Think it through: a Canva page's example worked on John Doe's own file, AI graded (beside the 💡 Tip; after cm-lesson-tips.js) -->
 <script src="/js/cm-think-through.js"></script>
 <!-- 🧑‍🏫 Trainer notes on graded activities: the trainer's own feedback beside the automated grade (after cm-ai-grader.js) -->
 <script src="/js/cm-trainer-notes.js"></script>
+<!-- 🎙 a voicemail activity's Your Task: take it down in the 🎧 Listening Check (graded), then 📤 Submit opens the AI Grader (after cm-ai-grader.js and cm-day-loop.js) -->
+<script src="/js/cm-vm-transcribe.js"></script>
 <script src="/js/lsh-footer.js"></script>
 <script src="/js/lsh-topbar.js"></script>
 <!-- 🟨 lesson cards framed as on the LSH Academy Index: navy along the top fading to gold, on a white card (the same file in every LSH course; the buttons stay as they are) -->

@@ -45,7 +45,7 @@ const cut = (t, max) => { t = String(t || ""); const c = t.split(/:\s| — /)[0]
    and the Backup File Maintenance ahead of the other activities, so every Case Flow topic is numbered once here, in the
    order the deck and the 🗺 Roadmap show it: the lessons, the Skill Building, the Backup File Maintenance, the side
    exercises in the sequence's order, the Learning Checks. The slide titles, NEXT UP, the slide picker, Presenter view's
-   jump list, "Practises: N.M" and the Roadmap all read l.h, so they agree. The lessons' indices (d.lessons) and the
+   jump list, "Practices: N.M" and the Roadmap all read l.h, so they agree. The lessons' indices (d.lessons) and the
    saved places (block ids, js/cm-slide-keys.js) do not change; the number a topic had is kept (l.cf.h0) for what was
    stored under it (a published lesson expansion, lessonExpansion). */
 function renumber(d){
@@ -221,7 +221,7 @@ function sideLab(d){
       <div class="cfx-ribbon"><span>${acts.length} Skill Activit${acts.length === 1 ? "y" : "ies"} · ${mins} · every one counts</span></div>
       <div class="cfx-body"><div class="cfx-sheet">
         <p class="dl-side-lead">Each one starts from an assumption (“Assuming …”): log one entry in the CMS. Work all ${acts.length}, in order.</p>
-        <ol class="cfx-lab-list cfx-lab-of">${acts.map(([l, li], k) => { const b = l.cf.block, of = l.cf.of, ref = of ? `Practises: ${of.h.split(" ")[0]} ${cut(of.cf.block.title, 40)}` : "";
+        <ol class="cfx-lab-list cfx-lab-of">${acts.map(([l, li], k) => { const b = l.cf.block, of = l.cf.of, ref = of ? `Practices: ${of.h.split(" ")[0]} ${cut(of.cf.block.title, 40)}` : "";
           return `<li><button type="button" onclick="cmCaseFlow.labGo(${d.id},${li})" title="${E(b.title)}: go to this side exercise"><span class="n">${k + 1}</span><span class="tt"><span class="t">${E(cut(b.title, 54))}</span>${ref ? `<span class="of">${E(ref)}</span>` : ""}</span></button></li>`; }).join("")}</ol>
         <div class="cfx-ex-go dl-side-go"><button type="button" class="btn btn-primary" onclick="cmCaseFlow.toReady(${d.id})">⏭ On to 🎯 Ready for the Knowledge Check?</button></div>
       </div></div>
@@ -324,6 +324,8 @@ if(typeof presenterCues === "function"){
 if(!document.getElementById("dl-css")){
   const st = document.createElement("style"); st.id = "dl-css";
   st.textContent = `
+/* 📁 Required: Backup File Maintenance: its band label in red, so the required activity stands out from the rest */
+html body .cfx.dl-drive .cfx-what-k.cfx-what-k.cfx-what-k{color:#fff !important;background:#C62828 !important;border:1px solid #EF9A9A !important;}
 .dl-slide .cpx-s-lead{margin:0 0 10px;}
 .dl-state li{font-weight:700;}
 .dl-plan{margin:0 0 8px;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px;}
@@ -337,7 +339,13 @@ if(!document.getElementById("dl-css")){
 .dl-think-t summary::-webkit-details-marker{display:none;}
 .dl-think-t[open] span{position:absolute;z-index:5;left:0;top:calc(100% + 4px);width:min(420px,70vw);padding:8px 10px;border-radius:8px;background:#fff;border:2px solid #1E2340;box-shadow:0 6px 18px rgba(30,35,64,.2);font-weight:700;}
 .dl-side-lead{margin:0 0 10px;font:700 17px/1.4 var(--font-ui,'Inter',sans-serif);color:#2B3147;}
-.dl-side-go{margin-top:6px !important;}
+.dl-side-go{margin-top:14px !important;justify-content:center !important;}
+/* ⏭ On to 🎯 Ready for the Knowledge Check?: centred under the activities, in the deck's navy button with orange-to-white grid lines */
+.cfx-ex-go .btn.btn-primary{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(135deg,#2A3160 0%,#1E2340 55%,#161A33 100%) !important;border:2px solid #DB8437 !important;color:#fff !important;font-weight:800 !important;box-shadow:0 10px 22px -12px rgba(30,35,64,.8) !important;}
+.cfx-ex-go .btn.btn-primary::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.55;background:linear-gradient(90deg,#DB8437 0%,#F3B77F 45%,#fff 100%);
+  -webkit-mask:repeating-linear-gradient(90deg,#000 0 1px,transparent 1px 18px),repeating-linear-gradient(0deg,#000 0 1px,transparent 1px 18px);
+  mask:repeating-linear-gradient(90deg,#000 0 1px,transparent 1px 18px),repeating-linear-gradient(0deg,#000 0 1px,transparent 1px 18px);}
+.cfx-ex-go .btn.btn-primary:hover{background:linear-gradient(135deg,#353D75 0%,#262C52 55%,#1E2340 100%) !important;}
 `;
   document.head.appendChild(st);
 }

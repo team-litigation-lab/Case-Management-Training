@@ -6,7 +6,7 @@
 // answer key, as the trainee sees them) and a side exercise's document audit: every piece of text on the slide (in #lessonSlideWrap,
 // shown: not inside a closed menu or a folded box) is at least 16px once the slide is scaled to fit and weighs 600 or
 // more. A Trainer's deck page is a picture (no text to measure). On a Skill Activity's slide at most 3 buttons are in
-// view (🚀 Launch, 🧰 Tools ▾, Submit →: the rest of its tools are in the menu).
+// view (🚀 Launch and Submit →: the rest of its tools are in 📖 Reference, js/cm-task-card.js).
 // Usage: node .github/scripts/slide-type.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');

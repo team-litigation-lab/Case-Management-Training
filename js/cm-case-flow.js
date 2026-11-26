@@ -938,7 +938,7 @@ function slideBody(view, l, d){
          a trainer's ⚡ Inject) and Submit →, which turns this slide into the 🤖 AI Grader (js/cm-ai-grader.js). What the
          slide no longer shows (the message that landed, the file date, the Grade-A Standard, the model, the answer key)
          is in 📖 Reference and the trainer's talking points; purpose, principle and the naming convention too. */
-      const ofLine = practisesLine(l) ? `<b class="cfx-of" title="The lesson this activity practises: ${E(titleCase(l.cf.of.cf.block.title))}">${E(practisesLine(l))}</b>` : "";
+      const ofLine = practisesLine(l) ? `<b class="cfx-of" title="The lesson this activity practices: ${E(titleCase(l.cf.of.cf.block.title))}">${E(practisesLine(l))}</b>` : "";
       const more = blockTools(b).filter(id => !["cms", "drive", "call", "docs", "plan"].includes(id)).map(id => toolChip(id, b.id)).join(""), n = (CF_PACKETS[b.id] || []).length;
       const row = (h, t, btn) => `<div class="cfx-call cfx-svb"><b>${h}</b><span>${t}</span>${btn}</div>`, li = d && d.lessons ? d.lessons.indexOf(l) : -1;
       const tools = (trainerOnly() && !inAudience() && injectsOf(b).length && li >= 0 ? row("⚡ Inject: trainer only", E(injectsOf(b).map(x => x.short).join(" · ")), `<button type="button" class="btn btn-navy btn-sm cfx-inject" onclick="cmCaseFlow.inject(${d.id},${li})" title="Trainer only: a real-time task to inject while the room works this one">⚡ Inject</button>`) : "")
@@ -1233,7 +1233,7 @@ window.cmCaseFlow.schedule = daySchedule;   // js/cm-day-loop.js: the side exerc
 const shortTitle = (t, max) => { t = titleCase(String(t || "").split(/:\s| — /)[0]); if(t.length <= max) return t;
   const cut = [...t.matchAll(/\s&\s|,\s/g)].map(m => t.slice(0, m.index)).find(x => x.length >= 12); return cut || t; };
 const lessonRef = l => l ? `${l.h.split(" ")[0]} ${shortTitle(l.cf.block.title, 40)}` : "";
-const practisesLine = l => l && l.cf.of ? `Practises: ${lessonRef(l.cf.of)}` : "";
+const practisesLine = l => l && l.cf.of ? `Practices: ${lessonRef(l.cf.of)}` : "";
 /* beside the agenda: the one file the day works, and the stretch of it today covers (its activities' file dates) */
 function agendaFile(d){
   const c = CF.case, dates = d.lessons.filter(l => l.cf.block.kind === "activity" && !l.cf.block.otherMatter && SIM.events[l.cf.block.id]).map(l => SIM.events[l.cf.block.id].date).sort((a, b) => dayMs(a) - dayMs(b));
@@ -1299,7 +1299,7 @@ function agendaNotes(d){
       + (sc.acts ? " We'll take a ten-minute break when the lessons are done." : ""),
     sc.loop ? `Part two is the loop we run every day. First John Doe's Case Profile${n === 1 ? ", where you meet him" : ", to see what changed on his file"}, then ${sc.build ? `the big one: ${sc.build} minutes building your companion case, start to finish, the way you worked John Doe's file` : `today's one Skill Building${n === 1 ? ", his Intake: opening his file in the CMS" : ""}, about ${sc.act} minutes on his file, submitted and graded, with ${sc.brainstorm} minutes after it to brainstorm what the file showed us`}.${sc.drive ? ` Then Backup File Maintenance, about ${sc.drive} minutes: it's required every day, your Backup Drive brought up to the firm's standard and graded from the Drive itself.` : ""} Then you ${n === 5 ? "close out" : "update"} your Action Plan, about ${sc.plan} minutes.${sc.sides ? ` After that there are ${sc.sides} short side exercises${sc.side ? `, in about ${sc.side} minutes` : ""}, and every one counts: each one is an assumption and an entry to log in the CMS.` : ""}` : "",
     sc.loop ? "" : sc.build ? `Part two is the big one: ${sc.build} minutes building your companion case, start to finish, the way you worked John Doe's file.` : "",
-    sc.acts && !sc.loop ? `Part two is the Practice Lab, all ${sc.acts} Skill Activities in one place, in the same order as the lessons: you do each one on John Doe's file, in the CMS and the tools, about ${sc.act} minutes an activity, and each one names the lesson it practises. After each group we take ${sc.brainstorm} minutes to brainstorm what the file just showed us.` : "",
+    sc.acts && !sc.loop ? `Part two is the Practice Lab, all ${sc.acts} Skill Activities in one place, in the same order as the lessons: you do each one on John Doe's file, in the CMS and the tools, about ${sc.act} minutes an activity, and each one names the lesson it practices. After each group we take ${sc.brainstorm} minutes to brainstorm what the file just showed us.` : "",
     `We finish with the Knowledge Check, ${q} question${q === 1 ? "" : "s"} in about ${sc.kc} minutes, and you need 70% ${next || n < 5 ? `to open Day ${n + 1}` : "to finish the Case Flow"}.`,
     `By the end of today you'll ${firstAim(d)}.`].filter(Boolean).join("\n");
   return {say, ask: w.ask || "", run: say.split("\n").slice(1).join(" ")};   // run: the run of the day alone (the Speaker Notes print it under the day's own opening)
@@ -2663,7 +2663,7 @@ if(typeof window.renderOpenRoleplay === "function" || typeof renderOpenRoleplay 
 }
 /* ---------- the Practice Lab: one slide a day, after ALL of the day's lessons ----------
    Every Skill Activity of the day is behind this slide, in the order its lesson was taught. The slide lists them in
-   that order, each with the lesson it practises ("Practises: 2.3 Liability Investigation"), so nobody has to remember
+   that order, each with the lesson it practises ("Practices: 2.3 Liability Investigation"), so nobody has to remember
    which lesson a lab belongs to; each activity's own Your Task slide says it again (practisesLine).
    It is also where the day's tools open, once: the CMS and every other platform its Skill Activities use (the Net
    Sheet, LOR Drafting, ChartSwap, the Docket and E-Filing platforms, the Case Documents). The activity slides that
@@ -2896,7 +2896,7 @@ if(typeof presenterCues === "function"){   // Presenter view: the trainer's note
       return x ? `<h3>Training Agenda</h3>${dayScriptHtml(x)}<div class="pn-on pn-cue"><b>The run of the day, from the slide</b>${sayHtml(a.say.split("\n").slice(1).join("\n"))}</div>`
         : `<h3>Training Agenda</h3><div class="pn-part">🎙 Script — read aloud</div>${sayHtml(a.say)}${a.ask ? `<p><b>Ask:</b> ${E(a.ask)}</p>` : ""}`; }
     const n = d.lessons.filter(l => l.cf.block.kind === "activity").length, x = dayScript(d, "lab");
-    const how = `<p>The lessons are done: every slide from here to the Ready check is practice. Have everyone open the tools from this slide now, the CMS first, so they stay open beside the slides. All ${n} of today's Skill Activities follow, in the order their lessons were taught; the slide names the lesson each one practises, and so does each activity's first slide. Each runs Your Task, then Your Case, then Submit. Live calls are taken from their own activity.</p><p>Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands.</p>`;
+    const how = `<p>The lessons are done: every slide from here to the Ready check is practice. Have everyone open the tools from this slide now, the CMS first, so they stay open beside the slides. All ${n} of today's Skill Activities follow, in the order their lessons were taught; the slide names the lesson each one practices, and so does each activity's first slide. Each runs Your Task, then Your Case, then Submit. Live calls are taken from their own activity.</p><p>Anyone stuck on one step for more than ten minutes: help them log what they have and move on. The debrief is where it lands.</p>`;
     return x ? `<h3>Practice Lab</h3>${dayScriptHtml(x)}<div class="pn-on pn-cue"><b>Trainer note — not read aloud</b>${how}</div>` : `<h3>Practice Lab</h3>${how}`;
   };
 }
