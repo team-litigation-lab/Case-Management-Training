@@ -26,7 +26,8 @@ const W = 1920, H = 1080, WEBP = [1600, 900];
 const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 // money in orange, so the trail reads at a glance (a figure is never split across lines)
 const rich = (s) => esc(s).replace(/\$[\d,]+(?:\.\d\d)?(?:[–-]\$[\d,]+(?:\.\d\d)?)?/g, (m) => `<span class="amt">${m}</span>`);
-const LOGO = fs.readFileSync(path.join(ROOT, 'logo.svg'), 'utf8').replace(/<title>[\s\S]*?<\/title>/, '').replace(/^<svg /, '<svg class="logo-svg" ');
+// the one LSH logo (white outline and wordmark, made for dark backgrounds), drawn in from the PNG
+const LOGO = '<img class="logo-svg" alt="Legal Support Help" src="data:image/png;base64,' + fs.readFileSync(path.join(ROOT, 'lsh-logo-dark.png')).toString('base64') + '">';
 const ORNAMENT = `<svg viewBox="0 0 240 240" fill="none" stroke-linecap="round"><path d="M30 34V204H200" stroke="#DB8437" stroke-width="4"/><path d="M14 74V160M74 226H160" stroke="#8E97C4" stroke-width="3"/><circle cx="30" cy="34" r="7" fill="#DB8437"/><circle cx="200" cy="204" r="5" fill="#8E97C4"/></svg>`;
 
 const CSS = `
