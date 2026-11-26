@@ -50,6 +50,13 @@ ${S} .cfx-ms-n{box-shadow:none !important;}
 /* the Ready check: its questions in the middle of the sheet (auto margins: a long list still starts at the top) */
 ${R}{justify-content:flex-start !important;}
 ${R} > .cfx-lab-gate{margin-top:auto !important;margin-bottom:auto !important;}
+/* …and each question its own centred block: the question, then its answers in a centred row, with room between them */
+${R} .cfx-lab-gate{text-align:center !important;padding:14px 22px !important;}
+${R} .cfx-lab-q{margin-top:16px !important;padding-top:14px;border-top:1.5px dashed #E8C49B;}
+${R} .cfx-lab-q > span{display:block;text-align:center;}
+${R} .cfx-lab-q .o{display:flex !important;flex-wrap:wrap;justify-content:center !important;gap:10px 12px !important;margin-top:10px !important;}
+${R} .cfx-lab-q .r{text-align:center;}
+@media (max-height:900px){ ${R} .cfx-lab-gate{padding:8px 16px !important;} ${R} .cfx-lab-q{margin-top:8px !important;padding-top:8px;} ${R} .cfx-lab-q .o{gap:6px 10px !important;margin-top:6px !important;} }
 `;
 const add = () => { if(document.getElementById("cm-lesson-spacing")) return;
   const st = document.createElement("style"); st.id = "cm-lesson-spacing"; st.textContent = css; document.head.appendChild(st); };
