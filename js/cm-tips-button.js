@@ -24,6 +24,7 @@ new MutationObserver(() => { if(queued) return; queued = true; Promise.resolve()
      (js/cm-litigation-note.js), and on a Backup File Maintenance task its 📋 Rules & Naming Guide (the naming
      convention the task is done with: js/cm-sb-task.js);
    · added: 💡 Hints, the lesson's own key points (an activity: the lesson it practises) and ⚠ Watch out, its don'ts;
+     📖 In plain English, the slide's terms and what they mean (no button of their own on the band);
    · gone: the case chips and the block's full text (the trainer's talking points carry the full lesson). */
 const E = t => String(t == null ? "" : t).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
 const hl = t => E(t).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
@@ -48,12 +49,17 @@ if(window.cmCaseFlow && typeof cmCaseFlow.full === "function"){
       const body = document.querySelector(".cfx-ref .cfx-ref-b"); if(!body) return r;
       const b = typeof cmCaseFlow.blockAt === "function" ? cmCaseFlow.blockAt(dayId, i) : null;
       const tools = body.querySelector(".cfx-ref-tools"), note = body.querySelector(".lgn-note"), g = body.querySelector(".cfx-guide");
+      // 📖 In plain English: the slide's terms (the hidden bar, js/cm-plain-pop.js; an activity's sits in its tools) as a section here
+      const pd = document.querySelector("#lessonSlideWrap details.cfx-plain") || (tools && tools.querySelector("details.cfx-plain"));
+      const terms = pd ? [...pd.querySelectorAll("dl > div")].map(d => [(d.querySelector("dt") || {}).textContent || "", (d.querySelector("dd") || {}).textContent || ""]).filter(x => x[0]) : [];
+      if(tools) tools.querySelectorAll("details.cfx-plain").forEach(n => n.remove());
       const guide = g && g.querySelector("[data-drv-naming]") ? g : null;
       const keep = [tools, note, guide].filter(Boolean);
       body.innerHTML = "";
       if(note) body.appendChild(note);   // a litigation hand-off's note heads the panel, as it headed the full text
       if(tools) body.appendChild(tools);
       body.insertAdjacentHTML("beforeend", hintsHtml(b));
+      if(terms.length) body.insertAdjacentHTML("beforeend", `<section class="cfx-tips-hints cfx-tips-plain" aria-label="In plain English"><h3>📖 In plain English</h3><dl>${terms.map(([t, m]) => `<div><dt>${E(t)}</dt><dd>${E(m)}</dd></div>`).join("")}</dl></section>`);
       if(guide) body.appendChild(guide);
       if(!keep.length && !body.children.length) body.innerHTML = `<p class="cfx-tips-none">No tips for this slide: work it from what the slide and your trainer say.</p>`;
       fix();
@@ -73,6 +79,9 @@ html body .cfx-ref-open.cfx-ref-open:hover, html body .cfx-ref-open.cfx-ref-open
 .cfx-ref .cfx-tips-hints li{margin:0 !important;padding:0 !important;font:700 17px/1.45 'Inter',sans-serif !important;color:#1E2340 !important;text-align:left !important;}
 .cfx-ref .cfx-tips-hints li::before{content:none !important;display:none !important;}
 .cfx-ref .cfx-tips-hints li::marker{color:#C9A27A;}
+.cfx-ref .cfx-tips-plain dl{margin:0;display:flex;flex-direction:column;gap:8px;}
+.cfx-ref .cfx-tips-plain dt{font:800 17px/1.3 'Inter',sans-serif !important;color:#9A4E12 !important;text-align:left !important;}
+.cfx-ref .cfx-tips-plain dd{margin:2px 0 0 !important;font:700 17px/1.45 'Inter',sans-serif !important;color:#1E2340 !important;text-align:left !important;}
 .cfx-ref .cfx-tips-none{font:700 17px/1.5 'Inter',sans-serif;color:#3E4560;}
 `;
 document.head.appendChild(st);

@@ -218,22 +218,22 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
     if (r.view !== 'day' || r.slide !== p.from || r.mode !== 'slides') fail(`Day ${p.n} ${p.id}: Back from the editor should return to the slide the trainee left (${p.from + 1}); it went to ${r.view} slide ${r.slide + 1} (${r.mode})`);
   }
 
-  // 4. Day 5's ⏭ on Extra Practice goes to the Ready check, and says so
+  // 4. Day 5's Extra Practice: no ⏭ button of its own; Next → goes on, through the extra practice, to the Ready check (the last slide)
   const skip = await page.evaluate(async () => {
     const d = DAYS.find(x => x.cf && x.cf.build); if (!d) return null;
     const deck = buildDaySlides(d), ex = deck.findIndex(x => x.type === 'extraPractice'), ready = deck.findIndex(x => x.type === 'readyCheck');
     state.isAdmin = false; state.slideProgress = state.slideProgress || {}; state.slideProgress[d.id] = Math.max(1, state.slideProgress[d.id] || 0); goto('day', d.id);
     if (state.view !== 'day' || state.dayId !== d.id) return { err: 'the day did not open for the trainee' }; state.dayViewMode = 'slides'; state.maxSlideReached = ex; state.lessonSlide = ex; render(); await new Promise(r => setTimeout(r, 30));
-    const btn = document.querySelector('#lessonSlideWrap .cfx-ex-go button'); if (!btn) return { err: 'no ⏭ button on Extra Practice' };
-    const label = btn.textContent.trim(); btn.click(); await new Promise(r => setTimeout(r, 60));
-    return { label, at: state.lessonSlide, ready, view: state.view, mode: state.dayViewMode, last: deck.length - 1, reached: state.maxSlideReached };
+    // the ⏭ button is gone (js/cm-flow-polish.js): the deck's Next → goes on to the Ready check
+    const btn = document.querySelector('#lessonSlideWrap .cfx-ex-go button'), shown = !!(btn && btn.getClientRects().length);
+    if (typeof goToSlide === 'function') goToSlide(state.lessonSlide + 1); await new Promise(r => setTimeout(r, 60));
+    return { label: shown ? btn.textContent.trim() : '', shown, ex, at: state.lessonSlide, ready, view: state.view, mode: state.dayViewMode, last: deck.length - 1, reached: state.maxSlideReached };
   });
   if (!skip) fail('no build day (Day 5) found');
   else if (skip.err) fail(`Day 5: ${skip.err}`);
   else {
-    if (!/Ready for the Knowledge Check/.test(skip.label) || /Skip to the Knowledge Check/.test(skip.label)) fail(`Day 5: the ⏭ button on Extra Practice should say it goes to the Ready check: "${skip.label}"`);
-    if (skip.view !== 'day' || skip.mode !== 'slides' || skip.at !== skip.ready || skip.ready !== skip.last) fail(`Day 5: ⏭ should open the Ready check, the last slide (${skip.last + 1}); it opened ${skip.view} slide ${skip.at + 1} (${skip.mode})`);
-    if (skip.reached < skip.ready) fail('Day 5: going on past the extra practice should count the Ready check as reached');
+    if (skip.shown) fail(`Day 5: the ⏭ button on Extra Practice should be gone (Next → does it): "${skip.label}"`);
+    if (skip.view !== 'day' || skip.mode !== 'slides' || !(skip.at > skip.ex && skip.at <= skip.ready) || skip.ready !== skip.last) fail(`Day 5: Next → on Extra Practice should go on toward the Ready check, the last slide (${skip.last + 1}); it opened ${skip.view} slide ${skip.at + 1} (${skip.mode})`);
   }
 
   // 5. the two parts on the Roadmap and the slide picker
