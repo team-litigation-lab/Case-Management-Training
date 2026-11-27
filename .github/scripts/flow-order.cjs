@@ -83,12 +83,12 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
         const order = r.kind === 'lesson' ? LESSON : ACTIVITY, pos = r.views.map(v => order.indexOf(v));
         if (pos.some(p => p < 0) || pos.some((p, i) => i && p <= pos[i - 1])) out.push(`${L}: ${r.id} (${r.kind}) runs ${r.views.join(' → ')}; the fixed order is ${order.join(' → ')}`);
         if (r.views.join(' ') !== cmCaseFlow.viewsOf(r.b).join(' ')) out.push(`${L}: ${r.id} shows ${r.views.join(' ')}; the block's slides are ${cmCaseFlow.viewsOf(r.b).join(' ')}`);
-        // a drawn lesson is one slide, The Rules; a Skill Activity is one slide, Your Task (its AI Grader opens on it from
-        // Submit), with a second only for the day's Skill Building's document audit or Day 1's Backup Drive set-up (Your Case)
+        // a drawn lesson is one slide, The Rules; a Skill Activity is one slide, Your Task: a card whose ▶ Start opens the task
+        // in the 🧪 Practice Lab (js/cm-task-lab.js), where its document audit or Backup Drive set-up is too
         if (r.kind === 'lesson') {
           if (r.views.join(' ') !== 'rules') out.push(`${L}: ${r.id} is a drawn lesson and runs ${r.views.join(' → ')}; it is one slide, The Rules`);
         } else {
-          const want = ['task'].concat(r.id === main && (window.CM_CF_EXHIBITS || {}).audits && CM_CF_EXHIBITS.audits[r.id] ? ['audit'] : [], r.id === 'd1m1-drive' ? ['case'] : []);
+          const want = ['task'];
           if (r.views.join(' ') !== want.join(' ')) out.push(`${L}: ${r.id} runs ${r.views.join(' → ')}; a Skill Activity is ${want.map(v => LABEL[v]).join(' → ')}${r.id === main ? ' (the day\'s Skill Building)' : r.id === drive ? ' (Backup File Maintenance)' : ' (a side exercise: one slide)'}`);
           if (r.views.includes('check')) out.push(`${L}: ${r.id} has an AI Grader slide; its Submit opens the AI Grader on Your Task`);
         }
@@ -198,26 +198,29 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
     r.forEach(m => fail(`as a ${who}: ${m}`));
   }
 
-  // 3. the Action Plan Editor is a plain button on the activity's Your Task; Back returns to the slide
+  // 3. the Action Plan Editor is a plain button on the activity's Your Task (in the 🧪 Practice Lab, opened from the slide's
+  //    ▶ Start, js/cm-task-lab.js); Back returns to the task there
   const plans = decks.days.flatMap(d => d.plan.map(p => Object.assign({ n: d.n, dayId: d.id }, p)));
   if (!plans.length) fail('no Skill Activity is drafted in the Action Plan Editor (the check wants one to stand on)');
   for (const p of plans) {
     const r = await page.evaluate(async (p) => {
       state.isAdmin = false; state.slideProgress = state.slideProgress || {}; state.slideProgress[p.dayId] = Math.max(1, state.slideProgress[p.dayId] || 0); goto('day', p.dayId);
       if (state.view !== 'day' || state.dayId !== p.dayId) return { err: 'the day did not open for the trainee' }; state.dayViewMode = 'slides'; state.maxSlideReached = 9999; state.lessonSlide = p.from; render(); await new Promise(r => setTimeout(r, 30));
-      const btn = [...document.querySelectorAll('#lessonSlideWrap button')].find(b => /Open the Action Plan Editor/.test(b.textContent));
+      cmTaskLab.start(); await new Promise(r => setTimeout(r, 30));
+      if (!document.querySelector('.ctl-page')) return { err: 'its slide\'s ▶ Start did not open the task in the 🧪 Practice Lab' };
+      const btn = [...document.querySelectorAll('.ctl-page #lessonSlideWrap button')].find(b => /Open the Action Plan Editor/.test(b.textContent));
       if (!btn) return { err: 'its Your Task has no "📝 Open the Action Plan Editor" button' };
       btn.click(); await new Promise(r => setTimeout(r, 60));
       const there = state.view, back = [...document.querySelectorAll('button')].find(b => /Back to Case Flow Day/.test(b.textContent) && b.offsetParent !== null);
       const onward = [...document.querySelectorAll('button')].filter(b => /^Next:/.test(b.textContent.trim()) && b.offsetParent !== null).length;
       if (back) back.click(); await new Promise(r => setTimeout(r, 120));
-      return { there, back: !!back, onward, view: state.view, slide: state.lessonSlide, mode: state.dayViewMode };
+      return { there, back: !!back, onward, view: state.view, slide: state.lessonSlide, lab: !!(state.taskLab && document.querySelector('.ctl-page')) };
     }, p);
     if (r.err) { fail(`Day ${p.n} ${p.id}: ${r.err}`); continue; }
     if (r.there !== 'notes') fail(`Day ${p.n} ${p.id}: 📝 Open the Action Plan Editor should open the Notes & Action Plan page; it opened ${r.there}`);
     if (!r.back) fail(`Day ${p.n} ${p.id}: the Action Plan Editor has no "← Back to Case Flow Day ${p.n}" button`);
     if (r.onward) fail(`Day ${p.n} ${p.id}: the Action Plan Editor still has a "Next: …" button that carries on past the slide`);
-    if (r.view !== 'day' || r.slide !== p.from || r.mode !== 'slides') fail(`Day ${p.n} ${p.id}: Back from the editor should return to the slide the trainee left (${p.from + 1}); it went to ${r.view} slide ${r.slide + 1} (${r.mode})`);
+    if (r.view !== 'practice' || !r.lab || r.slide !== p.from) fail(`Day ${p.n} ${p.id}: Back from the editor should return to the task in the 🧪 Practice Lab (slide ${p.from + 1}'s); it went to ${r.view} slide ${r.slide + 1}`);
   }
 
   // 4. Day 5's Extra Practice: no ⏭ button of its own; Next → goes on, through the extra practice, to the Ready check (the last slide)

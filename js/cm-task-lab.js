@@ -3,7 +3,8 @@
    its name, where it sits in the day (Skill Building, Backup File Maintenance or Skill Activity k of N), the scenario in
    a line, the day's activities with ✓ for the ones done, and ▶ Start in the Practice Lab. ▶ Start opens the 🧪 Practice
    page on that activity: its full Your Task (📂 Your Case, the steps, the tools, Submit for grading and the AI Grader),
-   and its second page where it has one (the Skill Building's document audit, Day 1's Backup Drive set-up), with the
+   and its second page where it has one (the Skill Building's document audit, Day 1's Backup Drive set-up: a step tab and
+   Next →, one page at a time, as the EA/PA lab's parts), with the
    day's other activities beside it and ← Back to the slide you came from.
    · the deck: an activity's second slide (the audit, the Your Case) leaves the deck; its work is on the lab page. Saved
      places need nothing (js/cm-slide-keys.js: a place on a slide that is gone lands on the one before it, the card).
@@ -20,7 +21,10 @@ const isAct = (d, sl) => cfDay(d) && sl && sl.type === "topic" && (blockOf(d, sl
 const loop = () => window.cmDayLoop || {};
 const words = (t, n) => { const w = String(t || "").replace(/\*\*/g, "").replace(/\s+/g, " ").trim().split(" "); return w.length <= n ? w.join(" ") : w.slice(0, n).join(" ").replace(/[,;:]$/, "") + "…"; };
 const title = l => String(l.h || "").trim() || (l.cf && l.cf.block.title) || "";
-const viewsOf = b => (window.cmCaseFlow && typeof cmCaseFlow.viewsOf === "function" ? cmCaseFlow.viewsOf(b) : ["task"]) || ["task"];
+const __views = window.cmCaseFlow && typeof cmCaseFlow.viewsOf === "function" ? cmCaseFlow.viewsOf : null;
+const viewsOf = b => (__views ? __views(b) : ["task"]) || ["task"];   // all of an activity's pages: the lab page draws them
+/* the deck's slides of a block (js/cm-slide-keys.js, the checks): an activity is its one card */
+if(__views) cmCaseFlow.viewsOf = b => b && b.kind === "activity" && !FULL ? ["task"] : __views(b);
 let FULL = false;   // drawing the lab page: the activity's own slides, in full
 
 /* ---------- the deck: one slide per activity ---------- */
@@ -52,15 +56,17 @@ function roleOf(d, li){
 }
 function cardHtml(d, sl, idx){
   const li = sl.lessonIndex, l = d.lessons[li], b = l.cf.block, acts = actsOf(d), k = acts.findIndex(x => x[0] === li);
+  const of = l.cf.of && l.cf.of.h ? l.cf.of : null;
   const role = roleOf(d, li) || `🧪 Skill Activity ${k + 1} of ${acts.length}`, st = doneOf(b.id);
   const list = acts.map(([j], n) => { const bb = blockOf(d, j), s = doneOf(bb.id);
     return `<li class="${j === li ? "on" : ""}${s ? " done" : ""}"><span>${s ? "✓" : n + 1}</span>${E(words(String(title(d.lessons[j])).replace(/^\d+\.\d+\s+/, ""), 9))}</li>`; }).join("");
   return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; PRACTICE LAB &middot; ACTIVITY ${k + 1} OF ${acts.length}</div>
     <div class="card lesson-card cf-card cfx cfx-deck ctl-card" data-ctl="${E(b.id)}">
       <div class="cfx-deck-head"><h2 class="cfx-deck-title">${E(title(l))}</h2></div>
-      <div class="cfx-ribbon"><span>${E(role)} · your task is in the 🧪 Practice Lab</span></div>
+      <div class="cfx-ribbon cfx-what"><span><i class="cfx-what-k">${E(role)}</i><b class="cfx-what-v">Your Task</b><em class="ctl-where">is in the 🧪 Practice Lab</em></span></div>
       <div class="cfx-body"><div class="cfx-sheet ctl-sheet">
         <div class="ctl-main">
+          ${of ? `<b class="cfx-of ctl-of">Practices: ${E(of.h)}</b>` : ""}
           ${b.act && b.act.scenario ? `<p class="ctl-scn"><b>📂 The case:</b> ${E(words(b.act.scenario, 34))}</p>` : ""}
           <p class="ctl-st ${st ? "ok" : ""}">${st === "graded" ? "✓ Done and graded: open it to see your grade and the answers." : st ? "✓ Started: your work is saved. Open it to carry on or submit." : "Not started yet."}</p>
           <button type="button" class="btn ctl-go" onclick="cmTaskLab.open(${d.id},${li})">▶ ${st ? "Open" : "Start"} in the Practice Lab</button>
@@ -76,12 +82,12 @@ renderDaySlideContent = window.renderDaySlideContent = function(d, sl){
 };
 
 /* ---------- the 🧪 Practice page on one activity ---------- */
-function open(dayId, li){
+function open(dayId, li, part){
   const d = DAYS.find(x => x.id === dayId); if(!cfDay(d)) return;
   const at = actsOf(d).find(x => x[0] === li); if(!at) return;
   if(state.presenting && typeof presenterEnd === "function") presenterEnd(true);
   if(document.fullscreenElement && document.exitFullscreen) try{ document.exitFullscreen(); }catch(e){}
-  state.taskLab = {dayId, li};
+  state.taskLab = {dayId, li, part: Math.max(1, Math.min(Number(part) || 1, viewsOf(blockOf(d, li)).length))};
   state.dayId = dayId; state.lessonSlide = at[1];   // the slide it is opened from: what the slide's own code reads
   OPENING = true; try{ goto("practice"); } finally { OPENING = false; }
 }
@@ -96,10 +102,15 @@ function pageHtml(){
   if(!cfDay(d) || !blockOf(d, t.li)) { state.taskLab = null; return null; }
   const l = d.lessons[t.li], b = l.cf.block, acts = actsOf(d), k = acts.findIndex(x => x[0] === t.li);
   state.dayId = d.id; state.lessonSlide = acts[k][1];
+  const views = viewsOf(b), part = Math.max(1, Math.min(t.part || 1, views.length));
   let body = "";
   FULL = true;
-  try{ body = viewsOf(b).map((v, j) => `<div class="cf-stage-card ctl-stage"><div class="lesson-slide still" id="${j ? "ctlSlide" + j : "lessonSlideWrap"}">${renderDaySlideContent(d, {type: "topic", lessonIndex: t.li, part: j + 1}, acts[k][1])}</div></div>`).join(""); }
+  try{ body = `<div class="cf-stage-card ctl-stage"><div class="lesson-slide still" id="lessonSlideWrap">${renderDaySlideContent(d, {type: "topic", lessonIndex: t.li, part}, acts[k][1])}</div></div>`; }
   finally { FULL = false; }
+  const LBL = {task: "Your Task", case: "Your Case", audit: "Audit & the Finished Set", check: "Submit"};
+  const steps = views.length > 1 ? `<div class="ctl-steps" role="tablist">${views.map((v, j) => `<button type="button" role="tab" aria-selected="${j + 1 === part}" class="${j + 1 === part ? "on" : ""}" onclick="cmTaskLab.open(${d.id},${t.li},${j + 1})"><span>${j + 1}</span>${E(LBL[v] || v)}</button>`).join("")}</div>` : "";
+  const next = part < views.length ? `<div class="ctl-next"><button type="button" class="btn ctl-go2" onclick="cmTaskLab.open(${d.id},${t.li},${part + 1})">Next: ${E(LBL[views[part]] || views[part])} →</button></div>` : "";
+  body = steps + body + next;
   const side = acts.map(([j], n) => { const bb = blockOf(d, j), s = doneOf(bb.id);
     return `<li><button type="button" class="${j === t.li ? "on" : ""}${s ? " done" : ""}" onclick="cmTaskLab.open(${d.id},${j})"><span>${s ? "✓" : n + 1}</span>${E(String(title(d.lessons[j])))}</button></li>`; }).join("");
   return `<div class="ctl-page">
@@ -127,16 +138,30 @@ if(typeof window.goto === "function"){
 let FROM = null;
 if(window.cmCaseFlow && typeof cmCaseFlow.tool === "function" && typeof cmCaseFlow.back === "function"){
   const __tool = cmCaseFlow.tool, __back = cmCaseFlow.back;
-  cmCaseFlow.tool = function(){ FROM = state.taskLab ? Object.assign({}, state.taskLab) : null; return __tool.apply(this, arguments); };
+  cmCaseFlow.tool = function(){
+    FROM = state.taskLab ? Object.assign({}, state.taskLab) : null;
+    const r = __tool.apply(this, arguments);
+    // a page opened from the lab says "← Back to Case Flow Day N", as from the slide; it comes back to the lab
+    if(FROM && !state.taskLab && state.cfReturn && state.cfReturn.view !== "day"){ state.cfReturn.view = "day"; if(typeof render === "function") render(); }
+    return r;
+  };
   cmCaseFlow.back = function(){ if(FROM && !state.taskLab){ const f = FROM; FROM = null; state.cfReturn = null; return open(f.dayId, f.li); } FROM = null; return __back.apply(this, arguments); };
 }
-window.cmTaskLab = {open, back, start: () => { const d = DAYS.find(x => x.id === state.dayId), sl = d && buildDaySlides(d)[state.lessonSlide || 0]; if(isAct(d, sl)) open(d.id, sl.lessonIndex); }, card: cardHtml, acts: actsOf};
+/* a block's page by its id and view ("d1m1-drive", "case"): what the checks open */
+function openView(id, view){
+  for(const d of DAYS){ if(!cfDay(d)) continue; const li = d.lessons.findIndex(l => l.cf.block.id === id); if(li < 0) continue;
+    const j = viewsOf(d.lessons[li].cf.block).indexOf(view || "task"); if(j < 0) return false; open(d.id, li, j + 1); return !!state.taskLab; }
+  return false;
+}
+window.cmTaskLab = {openView, views: b => viewsOf(b), open, back, start: () => { const d = DAYS.find(x => x.id === state.dayId), sl = d && buildDaySlides(d)[state.lessonSlide || 0]; if(isAct(d, sl)) open(d.id, sl.lessonIndex); }, card: cardHtml, acts: actsOf};
 
 const st = document.createElement("style"); st.id = "cm-task-lab"; st.textContent = `
 /* the deck's card */
 .ctl-card .ctl-sheet{text-align:left !important;display:grid !important;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:22px;align-items:center;}
 .ctl-card .ctl-main{display:flex !important;flex-direction:column !important;gap:16px !important;align-items:flex-start !important;justify-content:center !important;align-self:center !important;margin:0 !important;}
 .ctl-card .ctl-main > *{margin:0 !important;align-self:flex-start !important;text-align:left !important;}
+.ctl-card .ctl-where{font-style:normal;margin-left:8px;opacity:.85;}
+.ctl-card .ctl-of{display:inline-block;padding:4px 12px;border-radius:999px;background:#EEF0F6;color:#1E2340;font:800 16px/1.35 'Inter',sans-serif;}
 .ctl-card .ctl-scn{margin:0;font:700 19px/1.5 'Inter',sans-serif;color:#1E2340;}
 .ctl-card .ctl-st{margin:0;padding:8px 14px;border-radius:10px;background:#EEF0F6;font:800 17px/1.35 'Inter',sans-serif;color:#4A5170;}
 .ctl-card .ctl-st.ok{background:#E7F6EC;color:#166534;}
@@ -168,6 +193,12 @@ body:has(.ctl-page) #cf-return, body:has(.ctl-page) .nav-back-row{display:none !
 .ctl-side button.done span{background:#16A34A;color:#fff;}
 .ctl-work{display:flex;flex-direction:column;gap:16px;min-width:0;}
 .ctl-work .ctl-stage .lesson-slide{animation:none !important;}
+.ctl-steps{display:flex;gap:8px;flex-wrap:wrap;}
+.ctl-steps button{display:flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:10px 18px;background:rgba(255,255,255,.92);color:#1E2340;font:800 16px/1 'Inter',sans-serif;cursor:pointer;}
+.ctl-steps button span{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#E3E6EF;font:800 14px/1 'Inter',sans-serif;}
+.ctl-steps button.on{background:#1E2340;color:#fff;} .ctl-steps button.on span{background:#C9A27A;color:#1E2340;}
+.ctl-next{display:flex;justify-content:flex-end;}
+.ctl-go2{font:800 16px/1 'Inter',sans-serif !important;padding:12px 20px !important;border-radius:999px !important;border:0 !important;background:#1E2340 !important;color:#fff !important;}
 @media (max-width:900px){ .ctl-grid{grid-template-columns:1fr;} .ctl-side{position:static;} }
 `;
 document.head.appendChild(st);
