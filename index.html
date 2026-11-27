@@ -3345,31 +3345,41 @@ document.addEventListener("visibilitychange", ()=>{ if(document.visibilityState=
    admin password checked on the server). If the Worker has no
    MASTER_ADMIN_PASSWORD set, the portal runs in the old open mode.
    ============================================================ */
-state.authToken = (()=>{ try{ return localStorage.getItem("lsh_auth_token")||""; }catch(e){ return ""; } })();
-state.adminToken = (()=>{ try{ return sessionStorage.getItem("lsh_admin_token")||""; }catch(e){ return ""; } })();
+/* 🔓 a sign-in lasts until 8 hours go by with no activity (worker.js SESSION_IDLE_HOURS): both tokens are kept in localStorage,
+   so closing the tab or the browser signs no one out (the trainer's used to be in sessionStorage: every new tab, a sign-in);
+   one that ran out while no page was open (8 hours idle) is dropped as the page opens, which reads as signed out */
+state.authToken = (()=>{ try{ const t = localStorage.getItem("lsh_auth_token")||""; if(t && !tokenRunOut(t)) return t; localStorage.removeItem("lsh_auth_token"); }catch(e){} return ""; })();
+state.adminToken = (()=>{ try{ const t = localStorage.getItem("lsh_admin_token")||sessionStorage.getItem("lsh_admin_token")||""; sessionStorage.removeItem("lsh_admin_token");
+  if(t && !tokenRunOut(t)){ localStorage.setItem("lsh_admin_token", t); return t; } localStorage.removeItem("lsh_admin_token"); }catch(e){} return ""; })();
 // a token is "<role>.<subject>.<expiry ms>.<signature>": live while its expiry is ahead
 function tokenLive(t){ const p = String(t||"").split("."); return p.length===4 && Number(p[2]) > Date.now() + 30000; }
+function tokenRunOut(t){ const p = String(t||"").split("."); return p.length===4 && !(Number(p[2]) > Date.now()); }
 function authHeaders(){
   // an admin token that has run out falls back to the trainee's own, if that one is still live
   const t = [state.isAdmin && state.adminToken, state.authToken].find(tokenLive) || (state.isAdmin && state.adminToken) || state.authToken;
   return Object.assign({"Content-Type":"application/json"}, t ? {"Authorization":"Bearer "+t} : {});
 }
-/* a session in use is renewed in its last three hours (worker.js /api/auth/refresh), checked every ten minutes,
-   so a long training day never ends a live call on "your session has expired" */
+/* a session in use is renewed while its page is open (worker.js /api/auth/refresh), every ten minutes and as the tab comes
+   back into view: each fresh token runs 8 hours, so a long training day never ends a live call on "your session has expired",
+   and the session ends only 8 hours after the last page was closed (or slept). A token that ran out meanwhile (a laptop
+   asleep overnight with the tab open) is not renewed: the page opens again, signed out. */
 async function refreshTokens(){
+  refreshTokens.at = Date.now();
   for(const [t, set] of [[state.adminToken, setAdminToken], [state.authToken, setTraineeToken]]){
+    if(t && tokenRunOut(t)){ try{ location.reload(); }catch(e){} return; }
     const p = String(t||"").split("."), left = p.length===4 ? Number(p[2]) - Date.now() : 0;
-    if(left <= 30000 || left > 3*3600e3) continue;
+    if(left <= 30000) continue;
     try{
       const r = await fetch("/api/auth/refresh", {method:"POST", headers:{"Content-Type":"application/json", "Authorization":"Bearer "+t}, body:"{}"});
       const j = r.ok ? await r.json() : {};
-      if(j.token) set(j.token);
+      if(j.token && (t === state.adminToken || t === state.authToken)) set(j.token);   // (not after a 🚪 Log out meanwhile)
     }catch(e){}
   }
 }
 setInterval(refreshTokens, 10*60e3); setTimeout(refreshTokens, 5000);
+document.addEventListener("visibilitychange", ()=>{ if(document.visibilityState === "visible" && Date.now() - (refreshTokens.at||0) > 60e3) refreshTokens(); });
 function setTraineeToken(t){ state.authToken = t||""; try{ t ? localStorage.setItem("lsh_auth_token", t) : localStorage.removeItem("lsh_auth_token"); }catch(e){} }
-function setAdminToken(t){ state.adminToken = t||""; try{ t ? sessionStorage.setItem("lsh_admin_token", t) : sessionStorage.removeItem("lsh_admin_token"); }catch(e){} }
+function setAdminToken(t){ state.adminToken = t||""; try{ sessionStorage.removeItem("lsh_admin_token"); t ? localStorage.setItem("lsh_admin_token", t) : localStorage.removeItem("lsh_admin_token"); }catch(e){} }
 async function authStatus(){
   if(typeof state.secureMode === "boolean") return state.secureMode;
   try{ const r = await fetch("/api/auth/status", {method:"POST", headers:{"Content-Type":"application/json"}, body:"{}"}); const j = r.ok ? await r.json() : {}; state.secureMode = !!j.secure; state.portalOnly = !!j.portalOnly; state.portalSecret = j.portalSecret !== false; }
@@ -3817,7 +3827,7 @@ function aiTroubleLine(e, what){
   const st = e && e.status, m = String((e && e.message) || "");
   // a 401 is a session problem only when it is this site's own "Sign-in required": anything else is the AI service's
   const signIn = st===401 && /sign-in required/i.test(m);
-  const why = signIn ? (state.isAdmin && state.adminToken && !tokenLive(state.adminToken) ? "your admin sign-in has run out (it lasts 12 hours): sign in to Admin again, then try the call again" : "your session has expired: reload the page, or open the program again from the Portal")
+  const why = signIn ? (state.isAdmin && state.adminToken && !tokenLive(state.adminToken) ? "your admin sign-in has run out (it ends after 8 hours without activity): sign in to Admin again, then try the call again" : "your session has expired: reload the page, or open the program again from the Portal")
     : (st===401 || st===403 || /key was refused|invalid x-api-key/i.test(m)) ? "the AI service refused this request: try again, and if it keeps happening tell your trainer (the site's AI key needs checking)"
     : (st===429 || /rate limit/i.test(m)) ? "the AI is busy right now: wait a minute, then try again"
     : /timed out/i.test(m) ? "the AI took too long to answer: try again"

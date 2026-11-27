@@ -165,7 +165,7 @@ None.
 
 `/api/account-merge` · `/api/ai` · `/api/ai-check` · `/api/auth/admin` · `/api/auth/portal` · `/api/auth/refresh` · `/api/auth/status` · `/api/auth/tool-ticket` · `/api/auth/trainee` · `/api/checkin` · `/api/claude` · `/api/drive` · `/api/kc-reset` · `/api/kc-restore` · `/api/ranking` · `/api/share/get` · `/api/storage/delete` · `/api/storage/get` · `/api/storage/get-many` · `/api/storage/list` · `/api/storage/set` · `/api/version` · `/blueprint.pdf` · `/report.html` · `/version`
 
-## Node checks (85)
+## Node checks (86)
 
 | Check | What it covers |
 |---|---|
@@ -241,6 +241,7 @@ None.
 | `score-records.cjs` | 🏅 Scores read right from the records already stored: a pre-rule Knowledge Check keeps its best, a device-only check stays unconfirmed on My Performance, the trainer's 40% shows at once, Track A's Net Sheet is Day 3's, calls are all counted, a failed reload keeps the scores shown, a merged amendment set counts once |
 | `scorecard-kc-official.cjs` | 🏅 A Knowledge Check's score and pass on the Scorecard and the Batch Sheet come only from trainee:<id> and its Case Flow summary; a score only the trainee's device holds is shown as unconfirmed and never counted |
 | `send-progress-worker.cjs` | 📤 A progress report a trainer sends stays the trainer's: a trainee's own save of feedback:<id> (their auto-review, a stale copy without the report, or one that rewrites it) never changes or drops it, the trainee reads it, and their read mark lives in their own progress |
+| `session-idle.cjs` | 🔓 A sign-in lasts until 8 hours with no activity: closing the tab keeps it, 9 hours idle ends it (index.html's tokens) |
 | `share-links.cjs` | 🔗 Shared report links (worker-share.js): a trainer's link reads with no sign-in, holds only the table's fields; expired, revoked and unknown links are 404; a trainee can't make or overwrite one; share: is never listed |
 | `side-notes.cjs` | Every side exercise's speaker notes tell its own short exercise: the steps on Your Task, the "Assuming …" scenario on Your Case, Submit and the one thing to watch for on the Submit slide |
 | `sso-audience.cjs` | 🎯 A Portal ticket is for one program and works once: SSO_REQUIRE_AUDIENCE=1 refuses one with no p, the used-ticket mark outlives the ticket, this course's tool tickets (p "tool", each its own) never sign anyone in here, and the full registered name is the certificate's |

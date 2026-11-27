@@ -161,6 +161,35 @@ async function ticketFor(payloadObj, secret) {
         if (stale.status !== 401) fail(`an expired (or re-dated) token must not be renewed, got ${stale.status}`);
     }
 
+    // 7b. 🔓 a sign-in lasts until 8 hours with no activity (worker.js SESSION_IDLE_HOURS): every token runs 8 hours from when it
+    //     was made and an open page renews it, so a closed tab is still signed in 7 hours later and signed out 9 hours later;
+    //     a token that ran out (9 hours idle) can't be brought back by the name + batch renewal either (no grace)
+    {
+        const H = 3600e3, near = (t, ms) => Math.abs(Number(String(t || '').split('.')[2]) - Date.now() - ms) < 60000;
+        if (!(adminTicket.body && near(adminTicket.body.token, 8 * H))) fail(`a trainer's Portal sign-in should run 8 hours: ${adminTicket.body && adminTicket.body.token}`);
+        if (!(good.body && near(good.body.token, 8 * H))) fail(`a trainee's Portal sign-in should run 8 hours (it was 30 days): ${good.body && good.body.token}`);
+        const pw = await call(env, '/api/auth/admin', { passphrase: 'ci-pass' });
+        if (!(pw.body && near(pw.body.token, 8 * H))) fail(`a trainer's admin-password sign-in should run 8 hours (it was 12): ${JSON.stringify(pw.body)}`);
+        const ren = await call(env, '/api/auth/refresh', {}, { Authorization: 'Bearer ' + good.body.token });
+        if (!(ren.status === 200 && near(ren.body && ren.body.token, 8 * H))) fail(`a renewed token should run 8 hours from now: ${JSON.stringify(ren)}`);
+        // a token made <ago> hours ago (signed as the Worker signs one), as a tab closed then and opened again now finds it
+        const signed = async (role, subj, ago) => {
+            const body = `${role}.${encodeURIComponent(subj)}.${Date.now() - ago * H + 8 * H}`;
+            const key = await crypto.subtle.importKey('raw', new TextEncoder().encode('ci-secret'), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+            const sig = btoa(String.fromCharCode(...new Uint8Array(await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(body))))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+            return `${body}.${sig}`;
+        };
+        const tid = good.body.id;
+        for (const [ago, alive] of [[0.05, true], [7, true], [9, false], [24, false]]) {
+            for (const [role, subj] of [['a', 'admin:Coach Ana'], ['t', tid]]) {
+                const r = await call(env, '/api/auth/refresh', {}, { Authorization: 'Bearer ' + await signed(role, subj, ago) });
+                if ((r.status === 200) !== alive) fail(`a ${role === 'a' ? "trainer's" : "trainee's"} sign-in idle ${ago} h should read ${alive ? 'signed in' : 'signed out'}, got ${r.status}`);
+            }
+            const rn = await call(env, '/api/auth/trainee', { name: 'Ana Cruz', batch: 'B100926', id: tid }, { Authorization: 'Bearer ' + await signed('t', tid, ago) });
+            if ((rn.status === 200) !== alive) fail(`the name + batch renewal of a trainee idle ${ago} h should be ${alive ? 'accepted' : 'refused (portal-required)'}, got ${rn.status} ${JSON.stringify(rn.body).slice(0, 120)}`);
+        }
+    }
+
     // 6. 🎯 a Portal ticket names the program it is for (p, this program's topic key) and works once, whoever it is for
     //    (platform QA 2026-11-19, finding 1): a ticket made for another program or a tool is refused, so Program Access on
     //    the Portal stays the one gate (one with no p is still taken: the rollout); and the trainee's full registered name (finding 8) is kept, the ID unchanged.
