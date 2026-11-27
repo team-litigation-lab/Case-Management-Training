@@ -105,7 +105,7 @@ function pageHtml(){
   const views = viewsOf(b), part = Math.max(1, Math.min(t.part || 1, views.length));
   let body = "";
   FULL = true;
-  try{ body = `<div class="cf-stage-card ctl-stage"><div class="lesson-slide still" id="lessonSlideWrap">${renderDaySlideContent(d, {type: "topic", lessonIndex: t.li, part}, acts[k][1])}</div></div>`; }
+  try{ body = `<div class="lesson-stage ctl-lstage"><div class="cf-stage-card ctl-stage"><div class="lesson-slide still" id="lessonSlideWrap">${renderDaySlideContent(d, {type: "topic", lessonIndex: t.li, part}, acts[k][1])}</div></div></div>`; }
   finally { FULL = false; }
   const LBL = {task: "Your Task", case: "Your Case", audit: "Audit & the Finished Set", check: "Submit"};
   const steps = views.length > 1 ? `<div class="ctl-steps" role="tablist">${views.map((v, j) => `<button type="button" role="tab" aria-selected="${j + 1 === part}" class="${j + 1 === part ? "on" : ""}" onclick="cmTaskLab.open(${d.id},${t.li},${j + 1})"><span>${j + 1}</span>${E(LBL[v] || v)}</button>`).join("")}</div>` : "";
@@ -146,6 +146,24 @@ if(window.cmCaseFlow && typeof cmCaseFlow.tool === "function" && typeof cmCaseFl
     return r;
   };
   cmCaseFlow.back = function(){ if(FROM && !state.taskLab){ const f = FROM; FROM = null; state.cfReturn = null; return open(f.dayId, f.li); } FROM = null; return __back.apply(this, arguments); };
+}
+/* the lab page is not a slide: nothing on it is scaled to fit one screen (the page scrolls instead) */
+if(typeof window.paginateLessonSlide === "function"){
+  const __pg = window.paginateLessonSlide;
+  window.paginateLessonSlide = function(){
+    const w = document.getElementById("lessonSlideWrap");
+    if(w && w.closest(".ctl-page")){ [w].concat([...w.querySelectorAll("[style*=zoom]")]).forEach(n => { n.style.zoom = ""; }); w.style.height = ""; return; }
+    return __pg.apply(this, arguments);
+  };
+}
+/* an activity opened from anywhere else (🧪 Practice's day tiles, 📤 Submit for grading in CaseWorX …) opens in the lab */
+if(window.cmCaseFlow && typeof cmCaseFlow.openBlock === "function"){
+  const __openBlock = cmCaseFlow.openBlock;
+  cmCaseFlow.openBlock = function(dayId, li){
+    const d = DAYS.find(x => x.id === dayId);
+    if(cfDay(d) && (blockOf(d, li) || {}).kind === "activity" && actsOf(d).some(x => x[0] === li)) return open(dayId, li);
+    return __openBlock.apply(this, arguments);
+  };
 }
 /* a block's page by its id and view ("d1m1-drive", "case"): what the checks open */
 function openView(id, view){
@@ -194,6 +212,10 @@ body:has(.ctl-page) #cf-return, body:has(.ctl-page) .nav-back-row{display:none !
 .ctl-side button.done span{background:#16A34A;color:#fff;}
 .ctl-work{display:flex;flex-direction:column;gap:16px;min-width:0;}
 .ctl-work .ctl-stage .lesson-slide{animation:none !important;}
+.ctl-work > .ctl-lstage{margin:0;padding:0;min-height:0;height:auto;}
+.ctl-page .ctl-stage .lesson-slide{max-height:none !important;overflow:visible !important;}   /* (one scroll: the page, not a box inside it) */
+.ctl-page .ctl-stage .lesson-slide, .ctl-page #lessonSlideWrap > .card{height:auto !important;}
+.ctl-page #lessonSlideWrap .cfx-body{height:auto !important;max-height:none !important;flex:none !important;overflow:visible !important;}
 .ctl-steps{display:flex;gap:8px;flex-wrap:wrap;}
 .ctl-steps button{display:flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:10px 18px;background:rgba(255,255,255,.92);color:#1E2340;font:800 16px/1 'Inter',sans-serif;cursor:pointer;}
 .ctl-steps button span{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#E3E6EF;font:800 14px/1 'Inter',sans-serif;}

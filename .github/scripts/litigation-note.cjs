@@ -1,17 +1,18 @@
-// @check browser — The Litigation note ("Case Managers handling Litigation and Pre-Litigation are sometimes different individuals…"): word for word at the start of the Litigation section and on every handoff step, a pop-up there once for a trainee, and the slides still fit
+// @check browser — The Litigation note ("Case Managers handling Litigation and Pre-Litigation are sometimes different individuals…"): word for word at the start of the Litigation section and on every handoff step (an activity's: in the 🧪 Practice Lab), a pop-up there once for a trainee, and the slides still fit
 // The owner's note (js/cm-litigation-note.js), checked in a real browser on Case Flow Day 5:
 //   · its exact words are on the first slide of the Litigation section (d4m1-l1) and on the first slide of every
 //     litigation transition or file-handoff step (d4m1-l2 From Pre-Lit to Litigation, d4m1-a1 the fork, d4m1-a2 the
 //     move to Litigation status, d4m1-efile the filing handed to the Litigation Desk; on Day 4 the court work once suit
 //     is filed, d4m2-l1 Court Hard Rules, SOL Cutoffs & the Master Calendar, d4m2-a1 its calendar-cutoff audit and
 //     d4m2-medcal the court-ordered mediation's calendar; on Day 5 the litigated disbursement, d5m5-l1 and d5m5-a1 the
-//     Litigation Net Sheet), in bold type of at least 16px;
+//     Litigation Net Sheet), in bold type of at least 16px; a Skill Activity's is on its Your Task in the 🧪 Practice Lab
+//     (js/cm-task-lab.js: the deck keeps the activity's card, ▶ Start opens the lab);
 //   · the same words at the top of each of those blocks' full text (📖 Additional Reference, the lesson card that is not
 //     a slide), and not on a block that is no handoff;
-//   · a trainee reaching a handoff step gets it as a pop-up too; "Got it" puts it away, it does not come back on that
-//     step (and it is saved as the trainee's progress, "litigation-note-seen"), while the callout stays on the slide;
+//   · a trainee reaching a handoff step (an activity's lab page) gets it as a pop-up too; "Got it" puts it away, it does not
+//     come back on that step (and it is saved as the trainee's progress, "litigation-note-seen"), while the callout stays;
 //   · a trainer gets no pop-up, and Presenter view's notes say to read the note aloud;
-//   · every one of those slides still fits one screen at 1366×768 and 1920×1080.
+//   · every one of those slides (an activity's deck card) still fits one screen at 1366×768 and 1920×1080.
 // Usage: node .github/scripts/litigation-note.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -42,7 +43,15 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
             // the day open for the trainee for the whole run: a day they have reached is never locked again (js/cm-open-lessons.js,
             // whose once-a-minute check could otherwise close Day 5 partway), set before the day is drawn
             if (!trainer) { state.slideProgress = state.slideProgress || {}; state.slideProgress[d.id] = Math.max(i + 1, state.slideProgress[d.id] || 0); }
-            const draw = () => { goto('day', d.id); state.dayViewMode = 'slides'; state.lessonSlide = i; render(); };
+            const sleep = ms => new Promise(r => setTimeout(r, ms));
+            // a Skill Activity's Your Task (and the note) is in the 🧪 Practice Lab; the deck keeps its card, which must fit
+            const act = i >= 0 && d.lessons[s[i].lessonIndex].cf.block.kind === 'activity';
+            let fit = null;
+            if (act) { goto('day', d.id); state.dayViewMode = 'slides'; state.lessonSlide = i; render(); await sleep(200);
+                const cw = document.getElementById('lessonSlideWrap'), cs = document.getElementById('lessonStage');
+                fit = { over: cw ? cw.scrollHeight - cw.clientHeight : -1, below: cs ? cs.getBoundingClientRect().bottom - innerHeight : 99, pages: state.slidePages || 1, card: !!(cw && cw.querySelector('.ctl-card .ctl-go')) };
+                { const p = document.getElementById('lgnPop'); if (p) p.remove(); } }
+            const draw = act ? () => { cmTaskLab.openView(id, 'task'); } : () => { goto('day', d.id); state.dayViewMode = 'slides'; state.lessonSlide = i; render(); };
             draw();
             // wait for the slide itself (its callout), not a fixed time; drawn again once if the page re-rendered elsewhere
             const drawn = () => { const w = document.getElementById('lessonSlideWrap'); return !!(w && w.querySelector('.lgn-note')); };
@@ -52,17 +61,18 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
             const box = w && [...w.querySelectorAll('.lgn-note')].find(x => !x.closest('.np-mini')), p = box && box.querySelector('p');
             const pop = document.getElementById('lgnPop');
             const cs = p ? getComputedStyle(p) : null;
-            return { i, text: box ? box.textContent.replace(/\s+/g, ' ').replace(/^\W+/, '').trim() : '', size: cs ? parseFloat(cs.fontSize) : 0, weight: cs ? Number(cs.fontWeight) : 0,
-                pop: pop ? pop.textContent.replace(/\s+/g, ' ') : '', over: w ? w.scrollHeight - w.clientHeight : -1, below: stage ? stage.getBoundingClientRect().bottom - innerHeight : 99, pages: state.slidePages || 1 };
+            return { i, act, lab: act ? !!(w && w.closest('.ctl-page')) : null, card: fit ? fit.card : null, text: box ? box.textContent.replace(/\s+/g, ' ').replace(/^\W+/, '').trim() : '', size: cs ? parseFloat(cs.fontSize) : 0, weight: cs ? Number(cs.fontWeight) : 0,
+                pop: pop ? pop.textContent.replace(/\s+/g, ' ') : '', ...(fit || { over: w ? w.scrollHeight - w.clientHeight : -1, below: stage ? stage.getBoundingClientRect().bottom - innerHeight : 99, pages: state.slidePages || 1 }) };
         }, { id, trainer });
         // a trainee who has seen nothing yet
         await page.evaluate(async () => { await storeSet('litigation-note-seen', {}); await cmLitigationNote.reload(); });
         for (const id of BLOCKS) {
             const t = await go(id, false);
             check(t.i >= 0, `${L} the course has ${id}'s first slide`);
-            check(t.text === NOTE, `${L} ${id}: the note is on the slide, word for word${t.text === NOTE ? '' : ` ("${t.text.slice(0, 90)}…")`}`);
+            if (t.act) check(t.lab && t.card, `${L} ${id}: the deck has its card (▶ Start) and its Your Task opens in the 🧪 Practice Lab`);
+            check(t.text === NOTE, `${L} ${id}: the note is on the ${t.act ? 'lab page' : 'slide'}, word for word${t.text === NOTE ? '' : ` ("${t.text.slice(0, 90)}…")`}`);
             check(t.size >= 16 && t.weight >= 600, `${L} ${id}: in bold type of at least 16px (${t.size}px, weight ${t.weight})`);
-            check(t.over <= 2 && t.below <= 1 && t.pages === 1, `${L} ${id}: the slide still fits one screen (inside +${t.over}, below +${Math.round(t.below)}, ${t.pages} page)`);
+            check(t.over <= 2 && t.below <= 1 && t.pages === 1, `${L} ${id}: the ${t.act ? 'deck card' : 'slide'} still fits one screen (inside +${t.over}, below +${Math.round(t.below)}, ${t.pages} page)`);
             if (id === 'd4m1-l1') { check(!t.pop, `${L} ${id}: the start of the section has the callout, no pop-up`); continue; }
             check(t.pop.includes(NOTE), `${L} ${id}: a trainee gets it as a pop-up too`);
             if (id === 'd4m2-l1') {   // (d4m1-a2 and d4m1-efile, which these steps used, were cut as extra tasks)
@@ -95,7 +105,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
         // a trainer: no pop-up; Presenter view says to read it aloud
         await page.evaluate(async () => { await storeSet('litigation-note-seen', {}); await cmLitigationNote.reload(); });
         const tr = await go('d4m2-a1', true);
-        check(!tr.pop && tr.text === NOTE, `${L} a trainer gets the callout on the slide and no pop-up`);
+        check(!tr.pop && tr.text === NOTE, `${L} a trainer gets the callout (in the 🧪 Practice Lab) and no pop-up`);
         const cue = await page.evaluate(() => { const d = DAYS.find(x => x.cf && x.cf.n === 5), s = buildDaySlides(d); const sl = s.find(x => x.type === 'topic' && x.part === 1 && d.lessons[x.lessonIndex].cf.block.id === 'd4m1-l1');
             return typeof presenterCues === 'function' ? String(presenterCues(d, sl) || '') : ''; });
         check(/Read this note aloud/.test(cue) && cue.includes('verify the assigned Case Manager'), `${L} Presenter view's notes say to read the note aloud`);
@@ -103,5 +113,5 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
     }
     await browser.close();
     if (failures.length) { console.error(`\n${failures.length} check(s) failed.`); process.exit(1); }
-    console.log('\nAll good: the Litigation note is at the start of the section and on every handoff step (Day 4\'s court work after suit and Day 5\'s litigated disbursement too), on the slide and in its full text, word for word.');
+    console.log('\nAll good: the Litigation note is at the start of the section and on every handoff step (Day 4\'s court work after suit and Day 5\'s litigated disbursement too), on the slide (an activity\'s in the 🧪 Practice Lab) and in its full text, word for word.');
 })().catch(e => { console.error(e); process.exit(1); });

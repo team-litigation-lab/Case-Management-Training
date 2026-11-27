@@ -286,6 +286,8 @@ const failures = []; const fail = (m) => failures.push(m);
             await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
             const s = document.querySelector('.drv-slide'), wrap = document.getElementById('lessonSlideWrap'); if (!s) return null;
             const lab = !!(wrap && wrap.closest('.ctl-page'));
+            // on a lab page (which may scroll) only what a box hides is cut off, not what a box scrolls to
+            const clipped = (els) => Math.max(0, ...els.filter(Boolean).filter(e => /hidden|clip/.test(getComputedStyle(e).overflowY)).map(e => e.scrollHeight - e.clientHeight));
             const li = [...s.querySelectorAll('.drv-s-steps > li')], one = li[0], btn = s.querySelector('[data-drv-link]'), open = s.querySelector('.drv-s-open'), build = s.querySelector('[data-drv-build]');
             const body = wrap && wrap.querySelector('.cfx-deck > .cfx-body'), box = body && (body.querySelector(':scope > .cfx-sheet') || body);
             const type = (min) => [...s.querySelectorAll('*')].filter(e => [...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())).map(e => { const c = getComputedStyle(e); return { t: e.textContent.trim().slice(0, 30), px: parseFloat(c.fontSize), w: Number(c.fontWeight), mine: !!e.closest('.drv-s-act, .drv-s-err') }; }).filter(x => x.px < 16 || x.w < (x.mine ? 700 : min));
@@ -295,7 +297,7 @@ const failures = []; const fail = (m) => failures.push(m);
                 open: open ? { href: open.getAttribute('href'), target: open.target, rel: open.rel, text: open.innerText.trim(), inOne: !!(one && one.contains(open)) } : null,
                 build: build ? { text: build.innerText.trim(), inTwo: !!(li[1] && li[1].contains(build)) } : null, img: s.querySelectorAll('img').length, xss: !!window.__xss,
                 kept: !!(wrap && wrap.__kept), at: state.lessonSlide, panel: !!document.getElementById('cmDriveHost'),
-                small: type(600), cut: Math.max(wrap ? wrap.scrollHeight - wrap.clientHeight : 0, box ? box.scrollHeight - box.clientHeight : 0),
+                small: type(600), cut: lab ? clipped([wrap.closest('.ctl-stage'), wrap, wrap.querySelector('.cfx-deck'), body, box]) : Math.max(wrap ? wrap.scrollHeight - wrap.clientHeight : 0, box ? box.scrollHeight - box.clientHeight : 0),
                 below: lab ? 0 : Math.round((document.getElementById('lessonStage') || wrap).getBoundingClientRect().bottom + window.scrollY - innerHeight) };
         });
         const sound = (v, what) => {   // (e) the type, and the fit at 1366x768
@@ -312,6 +314,7 @@ const failures = []; const fail = (m) => failures.push(m);
             await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
             const wrap = document.getElementById('lessonSlideWrap'); if (!wrap) return null;
             const lab = !!wrap.closest('.ctl-page');
+            const clipped = (els) => Math.max(0, ...els.filter(Boolean).filter(e => /hidden|clip/.test(getComputedStyle(e).overflowY)).map(e => e.scrollHeight - e.clientHeight));
             const zoomOf = (e) => { let z = 1; for (let n = e; n && n !== wrap.parentNode; n = n.parentNode) { const v = parseFloat(n.style && n.style.zoom); if (v) z *= v; } return z; };
             const shown = (e) => e.getClientRects().length > 0 && (!e.checkVisibility || e.checkVisibility({ contentVisibilityAuto: true, visibilityProperty: true }));
             const zooms = [...wrap.querySelectorAll('*')].map(e => parseFloat(e.style.zoom)).filter(z => z > 0 && z < 1);
@@ -322,7 +325,7 @@ const failures = []; const fail = (m) => failures.push(m);
                 return r.width > 0 && r.top >= wr.top && r.bottom <= wr.bottom && r.left >= wr.left && r.right <= wr.right && (top === b || b.contains(top)); };
             const card = wrap.querySelector('.drv-nc-side'), cr = card && card.getBoundingClientRect(), row = wrap.querySelector('.drv-nc-s:not(.drv-nc-side) .drv-nc-r');
             const over = cr ? [...wrap.querySelectorAll('.drv-s-tree li b, .drv-s-root b')].filter(b => { const r = b.getBoundingClientRect(); return r.right > cr.left && r.left < cr.right && r.bottom > cr.top && r.top < cr.bottom; }).map(b => b.textContent) : [];
-            return { zoom: zooms.length ? Math.min(...zooms) : 1, tiny, lab, cut: Math.max(wrap.scrollHeight - wrap.clientHeight, box ? box.scrollHeight - box.clientHeight : 0),
+            return { zoom: zooms.length ? Math.min(...zooms) : 1, tiny, lab, cut: lab ? clipped([wrap.closest('.ctl-stage'), wrap, wrap.querySelector('.cfx-deck'), body, box]) : Math.max(wrap.scrollHeight - wrap.clientHeight, box ? box.scrollHeight - box.clientHeight : 0),
                 below: lab ? 0 : Math.round((wrap.closest('.lesson-stage') || wrap).getBoundingClientRect().bottom + window.scrollY - innerHeight),
                 hidden: [...wrap.querySelectorAll('[data-drv-link], [data-drv-build], .ctl-go')].filter(b => !plain(b)).map(b => b.innerText.trim()),
                 over,
@@ -347,11 +350,13 @@ const failures = []; const fail = (m) => failures.push(m);
         const openTask = (pg, n, view) => pg.evaluate(([n, view]) => { state.isAdmin = true; const id = n === 1 ? 'd1m1-drive' : `d${n}-drive`;
             return cmTaskLab.openView(id, view); }, [n, view]);
         // a day's Backup File Maintenance card on the deck: the activity's one slide
-        const openCard = (pg, n) => pg.evaluate((n) => { const d = DAYS.find(d => d.cf && d.cf.n === n), id = n === 1 ? 'd1m1-drive' : `d${n}-drive`; goto('day', d.id); state.dayViewMode = 'slides';
+        const openCard = (pg, n) => pg.evaluate((n) => { state.isAdmin = true; const d = DAYS.find(d => d.cf && d.cf.n === n), id = n === 1 ? 'd1m1-drive' : `d${n}-drive`; goto('day', d.id); state.dayViewMode = 'slides';
             const ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === id);
             if (k < 0) return false; goToSlide(k); return true; }, n);
         const cardFits = async (pg, n, who) => {
+            // (opened as a trainer opens the day, then drawn again as the trainee's own, as the tasks above)
             if (!(await openCard(pg, n))) { fail(`Day ${n} has no Backup File Maintenance card on the deck`); return; }
+            if (who === 'a trainee') await asTrainee(pg);
             await pg.waitForTimeout(400);
             const f = await sized(pg, `Day ${n}'s Backup File Maintenance card on the deck, ${who}`);
             if (f.card !== (n === 1 ? 'd1m1-drive' : `d${n}-drive`)) fail(`Day ${n}'s Backup File Maintenance slide on the deck, ${who}, should be the activity's card (▶ Start in the Practice Lab): "${f.card}"`);
@@ -463,7 +468,7 @@ const failures = []; const fail = (m) => failures.push(m);
         // Day 1's own Your Task, in the lab: as it was (the convention is on Your Case), and not scaled down
         if (await openTask(p2, 1, 'task')) await sized(p2, "Day 1's Your Task in the 🧪 Practice Lab", { anyType: true });
         // each day's Backup File Maintenance card on the deck fits one screen, for a trainee and a trainer
-        for (const n of [1, 2, 3, 4, 5]) { await asTrainee(p2); await cardFits(p2, n, 'a trainee'); await p2.evaluate(() => { state.isAdmin = true; render(); }); await cardFits(p2, n, 'a trainer'); }
+        for (const n of [1, 2, 3, 4, 5]) { await cardFits(p2, n, 'a trainee'); await cardFits(p2, n, 'a trainer'); }
         report = null; built = false;
         await asTrainee(p2); await openSlide(p2);
 

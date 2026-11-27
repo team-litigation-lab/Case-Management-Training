@@ -104,8 +104,8 @@ const D3 = [
       if (!l.opened.some(u => /^https:\/\/drive\.google\.com\//.test(u))) fail(`🚀 Launch did not open Google Drive in a new tab: ${JSON.stringify(l.opened)}`);
       await page.evaluate(() => { if (typeof closeToolFrame === 'function') closeToolFrame(); });
 
-      // 📤 Submit for grading, in the CaseWorX window an activity's 🚀 Launch opened (js/cm-cms-submit.js): the slide turns
-      // in the lab into the AI Grader beside it; CaseWorX opened any other way has no Submit
+      // 📤 Submit for grading, in the CaseWorX window an activity's 🚀 Launch opened (js/cm-cms-submit.js): the Your Task
+      // in the lab turns into the AI Grader beside it; CaseWorX opened any other way has no Submit
       await go(3, 'd3-drive', 'task'); await page.waitForTimeout(400);
       await page.evaluate(() => cmCaseFlow.tool('cms', 'd3-drive')); await page.waitForTimeout(600);
       if (!await page.$('#cm-toolframe .cm-tf-submit')) fail('the CaseWorX window an activity opened has no 📤 Submit for grading');
