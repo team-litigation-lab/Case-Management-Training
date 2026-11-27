@@ -100,9 +100,10 @@ const BATCH = 'B111526', ANN = 'ann-one--b111526', BEN = 'ben-one--b111526', CY 
     if (ann.length) {
         // (Registered is in ⬇ Download, not on screen)
         const d1 = ann[at('Day 1 %')];
-        // (the score, then the day's slides and work as a small label | value table)
-        if (!/^\d+% /.test(d1.t) || !/Slides \d+\/\d+|Slides ✓/.test(d1.t) || !/KC 90%/.test(d1.t) || !/Activities 1 · avg 72%/.test(d1.t) || !/Drive 100%/.test(d1.t) || (seed.doc && !/Docs filed 1 \(1 first time\)/.test(d1.t)))
-            fail(`Day 1's cell should be its score, then its slides and work as a small table: "${d1.t}"`);
+        // (the score alone on screen: the day's slides and work are in the trainee's card, 📅 Day scores, js/cm-scorecard-tidy.js)
+        if (d1.t !== '72%') fail(`Day 1's cell should show its score alone, 72%: "${d1.t}"`);
+        const dayRow = await page.evaluate(() => { const r = [...document.querySelectorAll('.scx-page .bs-pt-s-days tr')].find(x => /^Day 1\b/.test(x.textContent.trim())); return r ? r.textContent.replace(/\s+/g, ' ') : ''; });
+        if (!/📚 Slides \d+\/\d+|📚 Slides ✓/.test(dayRow) || !/Knowledge Check 90%/.test(dayRow)) fail(`the card's 📅 Day scores row for Day 1 should lead with its slides, then its work: "${dayRow.slice(0, 200)}"`);
         const a2 = d1.title.indexOf('attempt 2 · passed · 90%'), a1 = d1.title.indexOf('attempt 1 · 40%');
         if (a2 < 0 || a1 < 0 || a2 > a1 || !/Skill Activity|Backup Drive set up/.test(d1.title)) fail(`Day 1's hover should list the day's events with their scores, newest first: ${d1.title.slice(0, 600)}`);
         const d2 = ann[at('Day 2 %')]; if (!/Backup File Maintenance · Case Flow Day 2 · passed · 88%/.test(d2.title)) fail(`Day 2's hover should list its Backup File Maintenance with its score: ${d2.title.slice(0, 400)}`);
