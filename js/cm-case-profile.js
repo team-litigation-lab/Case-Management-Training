@@ -123,7 +123,7 @@ window.cmCaseFlow.meetJohnDoe = function(){
   window.scrollTo(0, 0);
 };
 
-/* ---------- Day 1: the slide after the lessons that sends the trainee to Meet John Doe ---------- */
+/* ---------- Day 1: the slide that sends the trainee to Meet John Doe (js/cm-day-loop.js puts it first, before the lessons) ---------- */
 const TYPE = "meetJohnDoe";
 if(typeof buildDaySlides === "function"){
   const __build = buildDaySlides;
@@ -142,9 +142,9 @@ function meetSlide(d){
   return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; MEET JOHN DOE</div>
     <div class="card lesson-card cf-card cfx cfx-deck cpx-slide">
       <div class="cfx-deck-head"><h2 class="cfx-deck-title">👋 Meet John Doe</h2></div>
-      <div class="cfx-ribbon"><span>Lessons done · Step 2: meet your client on his Case Profile, then do his Intake</span></div>
+      <div class="cfx-ribbon"><span>First, before the lessons: meet your client on his Case Profile</span></div>
       <div class="cfx-body"><div class="cfx-sheet">
-        <p class="cpx-s-lead">You've finished today's lessons. Meet your client, <b>${E(c.client.name)}</b>, on his Case Profile: <b>${E(c.style)}</b>. Then do his Intake: the next slide, today's Skill Building, opens his file in the CMS.</p>
+        <p class="cpx-s-lead">Before today's lessons, meet your client, <b>${E(c.client.name)}</b>, on his Case Profile: <b>${E(c.style)}</b>. Every lesson today works his file; after them, today's Skill Building, his Intake, opens it in the CMS.</p>
         <ul class="cpx-s-list">
           <li><span aria-hidden="true">🚗</span>What happened, and where to check it</li>
           <li><span aria-hidden="true">🧱</span>Who pays, and in what order: ${money(c.total)}</li>

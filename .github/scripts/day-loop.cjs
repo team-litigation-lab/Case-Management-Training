@@ -45,7 +45,7 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
     const out = [], days = [], sleep = ms => new Promise(res => setTimeout(res, ms)), norm = s => String(s || '').replace(/\s+/g, ' ').trim();
     if (!window.cmDayLoop) return { out: ['js/cm-day-loop.js is not loaded'], days };
     const CF = window.CM_CASE_FLOW, SL = window.CM_CF_SLIDES || {};
-    const RANK = { 0: 0, 1: 1, 2: 2, 3: 3, drive: 3.5, 4: 4, side: 4.5, 5: 5 };
+    const RANK = { 0: 0, 2: 0.5, 1: 1, 3: 3, drive: 3.5, 4: 4, side: 4.5, 5: 5 };   // the client first: the Case Profile (step 2) before the lessons
     for (const d of DAYS.filter(x => x.cf)) {
       state.isAdmin = true;
       const n = d.cf.n, L = `Day ${n}`, deck = buildDaySlides(d), seq = CF.sequence.find(s => s.n === n), main = seq.main || '', drive = seq.drive || '';
@@ -116,10 +116,12 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
       let w = await show(0);
       const ag = [...w.querySelectorAll('.cfx-ag-label b')].map(e => norm(e.textContent)), agRows = [...w.querySelectorAll('.cfx-ag-lab b')].map(e => norm(e.textContent));
       if (ag.length !== 2 || !/Part 2 · 🔁 The Daily Loop/.test(ag[1])) out.push(`${L}: the Training Agenda should label Part 2 · 🔁 The Daily Loop (${JSON.stringify(ag)})`);
-      if (agRows.length !== 1 || !/(Case Profile|Meet John Doe).*Skill Building.*📁 Backup Files.*Action Plan/.test(agRows[0])) out.push(`${L}: the agenda's loop should be one row, Case Profile → Skill Building → 📁 Backup Files → Action Plan (${JSON.stringify(agRows)})`);
+      if (agRows.length !== 1 || !/Skill Building.*📁 Backup Files.*Action Plan/.test(agRows[0]) || /Case Profile|Meet John Doe/.test(agRows[0])) out.push(`${L}: the agenda's loop should be one row, Skill Building → 📁 Backup Files → Action Plan (the Case Profile opens Part 1) (${JSON.stringify(agRows)})`);
+      const agProf = norm((w.querySelector('.cfx-ag-profile b') || {}).textContent), agFirst = w.querySelector('.cfx-ag-list > li:not(.cfx-ag-label)');
+      if (!agProf || !agFirst || !agFirst.classList.contains('cfx-ag-profile') || !(n === 1 ? /Meet John Doe/ : /Case Profile/).test(agProf)) out.push(`${L}: the agenda's Part 1 should open with the client, ${n === 1 ? '👋 Meet John Doe' : '📇 Case Profile'} (${agProf || 'none'})`);
       // Part 2's "then N skill activities" counts the day's own side exercises (Day 5: its Extra Practice), no more, no fewer
       if (sideActs.length && !new RegExp('then ' + sideActs.length + ' skill activit').test(norm(w.textContent))) out.push(`${L}: the Training Agenda's Part 2 should say "then ${sideActs.length} skill activities" (${norm(w.textContent).match(/then \d+ skill activit\w+/) || 'none'})`);
-      if (n === 1 && !/Meet John Doe → 🎯 Skill Building: the Intake/.test(agRows[0] || '')) out.push(`${L}: Day 1's loop row should say the Intake is the Skill Building (${agRows[0]})`);
+      if (n === 1 && !/🎯 Skill Building: the Intake/.test(agRows[0] || '')) out.push(`${L}: Day 1's loop row should say the Intake is the Skill Building (${agRows[0]})`);
       // the Objectives page, the Run of Show, the Speaker Notes
       const intro = window.renderDayIntro(d);
       if (!/The Daily Loop/.test(intro) || /Practice Lab \(all/.test(intro) || !/Skill Building[\s\S]*Backup File Maintenance \(required\)[\s\S]*Action Plan/.test(intro) || (sideActs.length && !/Skill activities/.test(intro))) out.push(`${L}: the Objectives page's Part 2 should be the daily loop (Case Profile, Skill Building, Backup File Maintenance (required), Action Plan, the other skill activities)`);

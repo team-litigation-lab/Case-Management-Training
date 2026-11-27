@@ -797,10 +797,12 @@ const DECK7 = { 1: '74:1d3nxnu', 2: '135:1c0ub5w', 3: '89:1en7hyz', 4: '97:1v909
         const main = cmDayLoop.mainId(d); if (!main) continue;
         const old = dedupe(d, cmDayLoop.layout8(d)), now = K.keysOf(d), L = `Day ${d.cf.n}`;
         const lab8 = old.indexOf('~practiceLab'), main8 = old.findIndex(k => block(k) === main), mainNow = now.findIndex(k => block(k) === main);
-        const s2 = now.findIndex(k => k === '~meetJohnDoe' || k === '~profileCheck');
+        // the client first (js/cm-day-loop.js): the Case Profile right after the agenda; a place moved by the loop's rule lands
+        // on the slide right before the Skill Building (the day's last lesson), s2
+        const prof = now.findIndex(k => k === '~meetJohnDoe' || k === '~profileCheck'), s2 = mainNow - 1;
         if (lab8 < 0 || main8 < 0) continue;
         days++;
-        if (s2 < 0 || s2 !== mainNow - 1) { out.push(`${L}: the loop's Case Profile slide should sit right before the Skill Building (${s2 + 1}, ${mainNow + 1})`); continue; }
+        if (prof !== 1 || mainNow < 2) { out.push(`${L}: the loop's Case Profile slide should open the day, right after the agenda (slide ${prof + 1}; the Skill Building ${mainNow + 1})`); continue; }
         const isAct = k => d.lessons.some(l => l.cf && l.cf.block.id === block(k) && l.cf.block.kind === 'activity');
         const early = old.findIndex((k, i) => i > lab8 && i < main8 && isAct(k));   // a side exercise ahead of the Skill Building in the old lab
         const late = old.findIndex((k, i) => i > main8 && isAct(k) && block(k) !== main);   // one after it

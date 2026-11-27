@@ -30,7 +30,7 @@ const count = (d, kind) => d.lessons.filter(l => l.cf && l.cf.block.kind === kin
 function labels(d){
   const nL = count(d, "lesson"), nA = count(d, "activity"), build = !!d.cf.build;
   const loop = window.cmDayLoop ? window.cmDayLoop.agendaRows(d, {build}) : null;   // the daily loop: the same words as the Training Agenda
-  if(loop) return {lessons: ["Part 1 · 📘 Lessons", `${nL} lesson${nL === 1 ? "" : "s"}, all together`], lab: [loop.label, loop.sub], kc: ["🎯 Knowledge Check", "after the Ready check, the day's last slide"]};
+  if(loop) return {lessons: ["Part 1 · 📇 Your Client, then 📘 Lessons", `the Case Profile first, then ${nL} lesson${nL === 1 ? "" : "s"}, all together`], lab: [loop.label, loop.sub], kc: ["🎯 Knowledge Check", "after the Ready check, the day's last slide"]};
   return {
     lessons: ["Part 1 · 📘 Lessons", `${nL} lesson${nL === 1 ? "" : "s"}, all together`],
     lab: build ? ["Part 2 · 🏗 Full Application Practice", `build your companion case; then ${nA} extra activities on John Doe's file`]
@@ -42,7 +42,8 @@ function labels(d){
 function partsOf(d){
   let part = "";
   return buildDaySlides(d).map(sl => {
-    if(sl.type === "practiceLab" || sl.type === "companionBuild" || sl.type === "meetJohnDoe" || sl.type === "profileCheck" || sl.type === "actionPlan") part = part === "kc" ? part : "lab";
+    if(sl.type === "meetJohnDoe" || sl.type === "profileCheck"){ if(part === "") part = "lessons"; }   // the client first: Part 1 opens with the Case Profile
+    else if(sl.type === "practiceLab" || sl.type === "companionBuild" || sl.type === "actionPlan") part = part === "kc" ? part : "lab";
     else if(sl.type === "readyCheck" || sl.type === "closing") part = "kc";
     else if(sl.type === "topic"){ const k = kindAt(d, sl.lessonIndex); if(k === "lesson" && part === "") part = "lessons"; else if(k === "activity" && part !== "kc") part = "lab"; }
     return part;
@@ -96,8 +97,9 @@ function labelRoadmap(){
     if(di >= 0){ const opt = lis[di].querySelector(".rmx-opt"); if(opt) opt.remove(); tag(di, `<small class="dl-rm-tag dl-rm-req">📁 Required</small>`); }
     const sidesI = actsI.filter(li => li !== mi && li !== di);
     // Part 2, in the loop's order
+    // the client first (js/cm-day-loop.js): the Case Profile row heads Part 1, before the lessons
+    const prof = row("rmx-step-profile", n === 1 ? "👋" : "📇", n === 1 ? "Meet John Doe: his Case Profile" : "Case Profile Check-In", ["meetJohnDoe", "profileCheck"]);
     const out = [part("activity", L.lab),
-      row("rmx-step-profile", n === 1 ? "👋" : "📇", n === 1 ? "Meet John Doe: his Case Profile" : "Case Profile Check-In", ["meetJohnDoe", "profileCheck"]),
       mi >= 0 ? lis[mi] : d.cf.build ? row("rmx-step-build", "🏗", "Skill Building: Build Your Companion Case", ["companionBuild", "companionBuild2"]) : null,
       di >= 0 ? lis[di] : null,
       row("rmx-step-plan", "📝", n === 5 ? "Close Out Your Action Plan" : "Update Your Action Plan", ["actionPlan"])];
@@ -111,7 +113,8 @@ function labelRoadmap(){
     }
     out.push(part("check", ["✅ Ready check · ✍️ Knowledge Check", "the day's last slide, then the check"]), row("rmx-step-ready", "✅", "Ready for the Knowledge Check?", ["readyCheck"]));
     checksI.forEach(li => out.push(lis[li]));
-    if(lessonsI.length) ol.insertBefore(part("lesson", L.lessons), lis[lessonsI[0]]);
+    if(lessonsI.length){ ol.insertBefore(part("lesson", L.lessons), lis[lessonsI[0]]); if(prof) ol.insertBefore(prof, lis[lessonsI[0]]); }
+    else if(prof) out.splice(1, 0, prof);
     out.filter(Boolean).forEach(x => ol.appendChild(x));   // after the lessons, in the loop's order
     // numbered in the order shown
     let k = 0; [...ol.querySelectorAll(".rmx-tn")].forEach(x => { x.textContent = `${n}.${++k}`; });

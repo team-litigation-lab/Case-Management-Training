@@ -54,9 +54,11 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
       const at = deck.map(sl => { const l = sl.type === 'topic' ? d.lessons[sl.lessonIndex] : null, b = l && l.cf.block; return b ? { id: b.id, kind: b.kind, view: cmCaseFlow.viewsOf(b)[sl.part - 1], l, b, part: sl.part } : { type: sl.type }; });
       if (!at.length || at[0].type !== 'taskOverview') out.push(`${L}: the deck should open with the Training Agenda (it opens with ${at[0] ? at[0].type || at[0].id : 'nothing'})`);
       if (at[at.length - 1].type !== 'readyCheck') out.push(`${L}: the deck should end on 🎯 Ready for the Knowledge Check? (it ends on ${at[at.length - 1].type || at[at.length - 1].id + ' ' + at[at.length - 1].view})`);
-      // the practice starts with the daily loop's Case Profile slide (js/cm-day-loop.js)
-      const lab = at.findIndex(x => x.type === 'meetJohnDoe' || x.type === 'profileCheck');
-      if (lab < 0) out.push(`${L}: no Case Profile slide after the lessons (the daily loop's step 2)`);
+      // the client first: the daily loop's Case Profile slide opens the day, right after the agenda; the practice starts after
+      // the lessons, with the day's Skill Building (or, on a build day, the build)
+      const prof = at.findIndex(x => x.type === 'meetJohnDoe' || x.type === 'profileCheck');
+      if (prof !== 1) out.push(`${L}: the Case Profile slide should open the day, right after the agenda (it is slide ${prof + 1})`);
+      const lab = at.findIndex(x => x.kind === 'activity' || x.type === 'companionBuild');
       if (at.filter(x => x.type === 'practiceLab').length !== (d.cf.build ? 0 : 1)) out.push(`${L}: ${at.filter(x => x.type === 'practiceLab').length} Practice Lab slides; a day has one, of its side exercises (a build day none: they are its Extra Practice)`);
       at.forEach((x, k) => {
         if (x.kind === 'lesson' && lab >= 0 && k > lab) out.push(`${L} slide ${k + 1}: a lesson slide (${x.id} ${x.view}) after the day's first practice slide (slide ${lab + 1})`);
@@ -255,10 +257,11 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
     if (p1 !== 0) fail(`Roadmap, Day ${i + 1}: "Part 1 · Lessons" should head the day's topics`);
     if (p2 < 0) fail(`Roadmap, Day ${i + 1}: no "Part 2 · 🔁 The Daily Loop" label`);
     // the deck pages are the lessons' own slides: no row of the roadmap is a deck topic beside the lessons (rmx-dk)
-    else if (parts.slice(p1 + 1, p2).some(x => x !== 'L') || parts[p2 + 1] !== 'S') fail(`Roadmap, Day ${i + 1}: "Part 2" should sit after the last lesson and open on the loop's first step, the Case Profile (roadmap.cjs checks the rest of the loop)`);
+    // the client first: Part 1 opens on the Case Profile step row, then the lessons; Part 2 follows the last lesson
+    else if (parts[p1 + 1] !== 'S' || parts.slice(p1 + 2, p2).some(x => x !== 'L')) fail(`Roadmap, Day ${i + 1}: "Part 1" should open on the Case Profile, then the lessons, and "Part 2" sit after the last lesson (roadmap.cjs checks the rest of the loop): ${parts.join(' ')}`);
   });
   if (lists.sm.length !== 3 || !/^Part 1.*Lessons/.test(lists.sm[0]) || !/^Part 2.*Daily Loop/.test(lists.sm[1]) || !/Knowledge Check/.test(lists.sm[2])) fail(`the slide picker of Day 2 should label Part 1 · Lessons, Part 2 · 🔁 The Daily Loop and the Knowledge Check: ${JSON.stringify(lists.sm)}`);
-  if (!/Case Profile/.test(lists.firstLab)) fail('the slide picker\'s "Part 2 · 🔁 The Daily Loop" label should sit above the Case Profile slide, the loop\'s first');
+  if (/Case Profile/.test(lists.firstLab)) fail('the slide picker\'s Case Profile slide should be in Part 1, before the lessons, not under "Part 2 · 🔁 The Daily Loop"');
 
   // 6. Presenter view: the forward button after an activity drafted in the editor, and on the last slide
   const pv = await page.evaluate(async (plans) => {

@@ -81,10 +81,11 @@ const failures = []; const fail = (m) => failures.push(m);
         const r = d.rows, p1 = r.findIndex(x => /^P:Part 1/.test(x)), p2 = r.findIndex(x => /^P:Part 2/.test(x)), pk = r.findIndex(x => /^P:.*Knowledge Check/.test(x));
         if (p1 !== 0) fail(`${L}: "Part 1 · Lessons" should head the day's topics`);
         if (p2 < 0) { fail(`${L}: no "Part 2 · 🔁 The Daily Loop" band`); return; }
-        if (r.slice(p1 + 1, p2).some(x => !/^T::/.test(x))) fail(`${L}: Part 1 should hold the lessons only: ${r.slice(p1 + 1, p2).join(' | ')}`);
+        // the client first (js/cm-day-loop.js): Part 1 opens on the Case Profile step, then holds the lessons only
+        if (r[p1 + 1] !== 'S:' + (d.n === 1 ? '👋' : '📇') || r.slice(p1 + 2, p2).some(x => !/^T::/.test(x))) fail(`${L}: Part 1 should open on the Case Profile, then hold the lessons only: ${r.slice(p1 + 1, p2).join(' | ')}`);
         if (!/Action Plan/.test(r[p2]) || !/Backup File Maintenance \(required\)/.test(r[p2]) || !/Skill Building/.test(r[p2])) fail(`${L}: the Part 2 band should tell the loop, Skill Building → Backup File Maintenance (required) → Action Plan: "${r[p2]}"`);
         const loop = r.slice(p2 + 1, pk).map(x => x.replace(/^(T:(main|drive):|G:\d+:\w+:|S:)(.*)$/, (m, a, role, rest) => a.startsWith('T') ? role : a.startsWith('G') ? 'sides' : rest));
-        const want2 = [d.n === 1 ? '👋' : '📇', d.build ? '🏗' : 'main', 'drive', '📝'].concat(d.sides ? ['sides'] : []);
+        const want2 = [d.build ? '🏗' : 'main', 'drive', '📝'].concat(d.sides ? ['sides'] : []);
         if (loop.join(' ') !== want2.join(' ')) fail(`${L}: Part 2 should run ${want2.join(' → ')}: ${loop.join(' → ')}`);
         const g = r.find(x => /^G:/.test(x));
         if (d.sides && !(g && g.split(':')[1] === String(d.sides) && g.split(':')[2] === 'true' && new RegExp(`Skill activities \\(${d.sides}\\)`).test(g))) fail(`${L}: the side exercises should be one collapsible group, "Skill activities (${d.sides})": ${g}`);
