@@ -53,6 +53,7 @@ if(window.cmCaseFlow && typeof cmCaseFlow.full === "function"){
       const pd = document.querySelector("#lessonSlideWrap details.cfx-plain") || (tools && tools.querySelector("details.cfx-plain"));
       const terms = pd ? [...pd.querySelectorAll("dl > div")].map(d => [(d.querySelector("dt") || {}).textContent || "", (d.querySelector("dd") || {}).textContent || ""]).filter(x => x[0]) : [];
       if(tools) tools.querySelectorAll("details.cfx-plain").forEach(n => n.remove());
+      if(tools) tools.querySelectorAll(".cfx-inject").forEach(n => { const row = n.closest(".cfx-call") || n; row.remove(); });   // ⚡ Inject is the trainer's band button now (js/cm-inject-pop.js)
       const guide = g && g.querySelector("[data-drv-naming]") ? g : null;
       const keep = [tools, note, guide].filter(Boolean);
       body.innerHTML = "";
