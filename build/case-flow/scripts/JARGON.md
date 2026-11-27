@@ -192,7 +192,7 @@ Confirm: that the firm still relies on this citation for its matters.
 ### Work hardening
 **Plain words:** Therapy that rebuilds the strength and stamina a person needs for their specific job.
 
-**Say it like this:** "Regular therapy gets you moving; work hardening gets you working. If he lifts boxes all day, therapy practises lifting boxes. It's the gym, but your boss wrote the workout."
+**Say it like this:** "Regular therapy gets you moving; work hardening gets you working. If he lifts boxes all day, therapy practices lifting boxes. It's the gym, but your boss wrote the workout."
 
 **Why it matters for the settlement:** It shows the client is trying to get back to work, which supports the wage loss and the injury itself.
 

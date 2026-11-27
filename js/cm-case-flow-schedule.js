@@ -12,7 +12,7 @@
                        equally (5 to 30 minutes each). Whatever is left over is Q&A.
    A day is two parts, in this order: ALL of its lessons (`parts`: a run of lessons under one section heading), then ONE
    Practice Lab that holds all of its Skill Activities (`labs`: the lab's Skill Building groups, each the activities that
-   practise one section's lessons, with a brainstorm after each group), then the Knowledge Check.
+   practice one section's lessons, with a brainstorm after each group), then the Knowledge Check.
    A day with a build (Day 5's Full Application Practice: the trainees build their companion case) spends its practical on
    it: its own Skill Activities are optional extra practice, untimed. Day 5's lessons are condensed and capped at 30
    minutes (lessonMax), and the build takes every minute the lessons and the Knowledge Check leave (build: "rest").
@@ -55,7 +55,7 @@ function share(total, weights, floor){
 /* items: the day's lessons and Skill Activities in teaching order (no Learning Checks), each
    {kind: "lesson"|"activity", brief, thorough, slides, optional, heading, mod, modTitle, ref, id, of} — ref is handed back on
    the parts untouched; slides: the lesson's slide count (its views), 1 when not given; id: the block's id, and on an
-   activity of: the id of the lesson it practises (its Skill Building group is that lesson's section).
+   activity of: the id of the lesson it practices (its Skill Building group is that lesson's section).
    opts: {build: minutes} for a day whose practical is a build (Day 5's companion case). */
 function schedule(items, opts){
   opts = opts || {};
@@ -85,7 +85,7 @@ function schedule(items, opts){
   Object.keys(seen).filter(h => seen[h] > 1).forEach(h => { const same = parts.filter(p => p.heading === h);
     const mixed = same.some(p => new Set(p.topics.map(x => x.mod)).size > 1), names = new Set(same.map(p => p.title));
     if(mixed || names.size < same.length) same.forEach((p, i) => { p.title = `${h} (${i + 1} of ${same.length})`; }); });
-  // the Practice Lab's Skill Building groups: the activities, in order, that practise one section's lessons
+  // the Practice Lab's Skill Building groups: the activities, in order, that practice one section's lessons
   const labs = []; let lab = null;
   items.filter(x => x.kind === "activity").forEach(x => {
     const part = (x.of && partOf[x.of]) || null, key = part || String(x.heading || "").replace(/^Skill Building:\s*/, "");

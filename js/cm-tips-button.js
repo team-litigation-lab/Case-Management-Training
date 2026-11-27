@@ -23,7 +23,7 @@ new MutationObserver(() => { if(queued) return; queued = true; Promise.resolve()
    · kept: 🧰 This task's tools (js/cm-task-card.js: the 💡 Tip, the call, the Source Files…), the litigation note
      (js/cm-litigation-note.js), and on a Backup File Maintenance task its 📋 Rules & Naming Guide (the naming
      convention the task is done with: js/cm-sb-task.js);
-   · added: 💡 Hints, the lesson's own key points (an activity: the lesson it practises) and ⚠ Watch out, its don'ts;
+   · added: 💡 Hints, the lesson's own key points (an activity: the lesson it practices) and ⚠ Watch out, its don'ts;
      📖 In plain English, the slide's terms and what they mean (no button of their own on the band);
    · gone: the case chips and the block's full text (the trainer's talking points carry the full lesson). */
 const E = t => String(t == null ? "" : t).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);

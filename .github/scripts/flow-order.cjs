@@ -14,7 +14,7 @@
 //     order (rising page numbers), each labelled with its page's title in the band and in the slide picker;
 //   · the day's one Skill Building (CF.sequence `main`) comes first of the activities, then the required 📁 Backup File
 //     Maintenance (CF.sequence `drive`); the Practice Lab's opening slide lists every other activity (the side
-//     exercises), in the deck's order, each with the lesson it practises
+//     exercises), in the deck's order, each with the lesson it practices
 //     ("Practices: 2.3 Liability Investigation"); that lesson is taught before the practice; the side exercises follow
 //     the order of the lessons' sections; and each activity's own first slide names its lesson the same way;
 //   · Next, clicked on every slide as a trainee and again as a trainer, goes to the very next slide and nowhere else
@@ -125,16 +125,16 @@ const LABEL = { map: 'The Roadmap', theory: 'The Theory', theory2: 'The Theory, 
           if (!title.includes(LABEL[x.view]) || !title.includes(x.l.h)) out.push(`${L} slide ${k + 1}: its name in the slide picker is "${title}", not ${x.l.h} — ${LABEL[x.view]}`);
         }
       }
-      // the Practice Lab's opening slide: every activity, in order, with the lesson it practises
+      // the Practice Lab's opening slide: every activity, in order, with the lesson it practices
       const acts = runs.filter(r => r.kind === 'activity'), lessonRuns = runs.filter(r => r.kind === 'lesson'), sideRuns = acts.filter(r => r.id !== main && r.id !== drive);
       const sectionOf = id => { let s = -1, prev = null, got = -1; d.lessons.forEach(l => { if (l.cf.block.kind !== 'lesson') return; if (l.cf.heading !== prev) { s++; prev = l.cf.heading; } if (l.cf.block.id === id) got = s; }); return got; };
       let far = -1;
       acts.forEach(r => { const l = d.lessons.find(x => x.cf.block.id === r.id), of = l.cf.of;
-        if (!of || of.cf.block.kind !== 'lesson') return out.push(`${L}: ${r.id} names no lesson it practises`);
+        if (!of || of.cf.block.kind !== 'lesson') return out.push(`${L}: ${r.id} names no lesson it practices`);
         // taught before it on this day, or on an earlier day (each deck is taught on its own day: Day N's on Case Flow Day N)
         const lr = lessonRuns.find(x => x.id === of.cf.block.id), dayOfOf = DAYS.findIndex(x => x.cf && x.lessons.includes(of)), earlier = !lr && dayOfOf >= 0 && dayOfOf < DAYS.indexOf(d);
-        if (!earlier && (!lr || lr.from > r.from)) out.push(`${L}: ${r.id} practises ${of.cf.block.id}, which is not taught before it (on this day or an earlier one)`);
-        const s = sectionOf(of.cf.block.id), lab = r.id !== main && r.id !== drive && !earlier; if (lab && s < far) out.push(`${L}: ${r.id} practises a lesson (${of.cf.block.id}) of a section taught before the lessons of the activity ahead of it: the lab follows the lessons' order`); if (lab) far = Math.max(far, s);
+        if (!earlier && (!lr || lr.from > r.from)) out.push(`${L}: ${r.id} practices ${of.cf.block.id}, which is not taught before it (on this day or an earlier one)`);
+        const s = sectionOf(of.cf.block.id), lab = r.id !== main && r.id !== drive && !earlier; if (lab && s < far) out.push(`${L}: ${r.id} practices a lesson (${of.cf.block.id}) of a section taught before the lessons of the activity ahead of it: the lab follows the lessons' order`); if (lab) far = Math.max(far, s);
         // its own first slide says it
         state.lessonSlide = r.from; render();
         const line = norm((document.querySelector('#lessonSlideWrap .cfx-of') /* in the Practice Lab line; under the steps on a Backup File Maintenance task */ || {}).textContent), num = of.h.split(' ')[0];

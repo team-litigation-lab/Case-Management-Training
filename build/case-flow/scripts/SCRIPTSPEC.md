@@ -25,7 +25,7 @@ The notes are shown beside the slide they are keyed to, so each is about THAT sl
 before it: a `task` note covers the steps (the scenario comes on the next slide, Your Case: say "on the next slide"
 when it points there), a `case` note covers the scenario on the file and never introduces the task again. A day runs
 ALL of its lessons first and then ONE Practice Lab with all of its Skill Activities, so a lesson's note never says
-"the next activity" (its activity is in the lab, named there by "Practises: …"), and an activity's note never says
+"the next activity" (its activity is in the lab, named there by "Practices: …"), and an activity's note never says
 "the lesson we just did".
 
 **Milestone Steps** is no slide: a `steps` script is refused. The 26 lessons that had the slide carry their steps in

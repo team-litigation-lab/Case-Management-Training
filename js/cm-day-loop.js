@@ -279,7 +279,7 @@ if(typeof window.renderLessonCard === "function"){
       .replace(/(<i class="cfx-what-k">)Practice Lab(<\/i>)/, `$1${{main: "Skill Building", drive: "Required: Backup File Maintenance", side: "Skill Activity"}[role]}$2`)
       // the materials of a voicemail are transcribed: the slide says so (not "Your Case")
       .replace(/(<b class="cfx-what-v">)Your Case(<\/b>)/, `$1${vmOf(b.id) ? "Transcription Exercise" : "Your Case"}$2`)
-      // 🧠 a critical-thinking banner opens the materials, tied to the lesson it practises and its plain-English terms
+      // 🧠 a critical-thinking banner opens the materials, tied to the lesson it practices and its plain-English terms
       .replace(/(<div class="cfx-sb(?: [^"]*)?">)/, m => m + thinkBanner(l, b));
   };
 }

@@ -28,7 +28,7 @@
 
 ## This day's module
 
-The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then 📁 Backup File Maintenance, required every day (marked **Required: Backup File Maintenance** below); then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
+The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then 📁 Backup File Maintenance, required every day (marked **Required: Backup File Maintenance** below); then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practices. A lesson marked (condensed) is a short overview.
 
 **Module 5 — Litigation & Property Damage**
 
@@ -44,10 +44,10 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 10. *Lesson* — Comparative Negligence & the Liability Counter-Package (condensed)
 11. *Lesson* — Disbursing a Litigated Recovery: the 40% Tier, Litigation Costs & the Fund (condensed)
 12. *Lesson* — Dropped Cases: the Case Manager's Close-Out (condensed)
-13. *Skill Activity* — Backup File Maintenance: the Final Audit and the Close-Out (practises: Final Case Reconciliation: the Net Sheet, the Closing Memo & Retention) — **Required: Backup File Maintenance**
-14. *Skill Activity* — Pleadings & Discovery Log Maintenance (practises: Litigation: Pleadings, Discovery & File Maintenance) — *side*
-15. *Skill Activity* — Virtual Deposition Prep Roleplay (practises: Deposition Prep: Preparing the Client) — *side*
-16. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch (practises: The Process Server & the Evading Defendant) — *side*
+13. *Skill Activity* — Backup File Maintenance: the Final Audit and the Close-Out (practices: Final Case Reconciliation: the Net Sheet, the Closing Memo & Retention) — **Required: Backup File Maintenance**
+14. *Skill Activity* — Pleadings & Discovery Log Maintenance (practices: Litigation: Pleadings, Discovery & File Maintenance) — *side*
+15. *Skill Activity* — Virtual Deposition Prep Roleplay (practices: Deposition Prep: Preparing the Client) — *side*
+16. *Skill Activity* — Skip-Tracing Execution & Certified Notice Dispatch (practices: The Process Server & the Evading Defendant) — *side*
 17. *Knowledge Check* — Litigation Fork Transition Check
 18. *Knowledge Check* — Litigation Support Assessment
 19. *Knowledge Check* — PD Transition Check
@@ -379,7 +379,7 @@ A two-lane calendar runs left to right across the slide in six date columns, AUD
 2. Audit John's signed interrogatory answers and public social media; route any inconsistency with the records to Atty. Thorne the same day. He decides whether an answer is corrected or supplemented; John testifies to the truth, never to match a document. Never tell John to delete or hide a post.
 3. Injury narrative alignment: John's truthful account matches his records because he has reviewed them with Atty. Thorne, never because he learned a script. Atty. Thorne chooses the review set: a document used to refresh memory may have to be produced (confirm the governing rule).
 4. Pillar 1, de-escalate: no judge, no jury, no shouting: questions and answers on a video call, under oath, before a court reporter. Calm him with the process, never a prediction.
-5. Pillar 2, the essential guidelines: pause two seconds; tell the truth about prior treatment (that question tests honesty); stop talking once the question is answered. These testimony habits are Atty. Thorne's to practise with John; the Case Manager names them as his and never drills or coaches them.
+5. Pillar 2, the essential guidelines: pause two seconds; tell the truth about prior treatment (that question tests honesty); stop talking once the question is answered. These testimony habits are Atty. Thorne's to practice with John; the Case Manager names them as his and never drills or coaches them.
 6. Pillar 3, dress and demeanor: business casual, as for a job interview; nothing flashy, no hats or slogans; polite; limitations told plainly, never minimized or exaggerated.
 7. Set-up: a computer, not a hand-held phone; camera at eye level, light in front, a quiet private room. Test it with John on 02/16/2027, on that device in that room.
 8. While he testifies: no one else in the room except Atty. Thorne if he attends in person (anyone present is identified on the record), not Margaret; no notes, phone away, no messages to anyone, you included. Exhibits come by screen-share; he may ask to see the whole page.
@@ -1111,7 +1111,7 @@ A video-call frame fills the left two-thirds: John Doe's tile large, the trainee
 |---|---|
 | “That's exactly what Atty. Thorne will go through with you. I'm writing it down in your words now.” | “Just say you had no ride and thought it would pass.” |
 | “The first rule is always the truth. How the 2021 questions will go is his to prepare with you.” | “Say you always wear your seatbelt.” |
-| “How to answer their questions is what Atty. Thorne will practise with you, right after me.” | “The 2021 visits were your back, so leave them out.” |
+| “How to answer their questions is what Atty. Thorne will practice with you, right after me.” | “The 2021 visits were your back, so leave them out.” |
 |  | “Tell them the MRI shows no degeneration.” |
 
 **Verification checkpoints**
@@ -1120,7 +1120,7 @@ A video-call frame fills the left two-thirds: John Doe's tile large, the trainee
 - [ ] Logistics stated exactly: 02/18/2027, 10:00 a.m., by videoconference, Riverton Court Reporting
 - [ ] Test call set for 02/16/2027 on the device and in the room John will use on the day
 - [ ] Pillar 1: the setting explained (not a courtroom; no judge or jury; under oath, with a court reporter); no outcome predicted
-- [ ] Pillar 2, the testimony habits (the two-second pause, the truth about prior treatment, stop talking), left to Atty. Thorne: named as his to practise with John, never drilled or coached by the CM (Day 5 deck p10–p11)
+- [ ] Pillar 2, the testimony habits (the two-second pause, the truth about prior treatment, stop talking), left to Atty. Thorne: named as his to practice with John, never drilled or coached by the CM (Day 5 deck p10–p11)
 - [ ] Pillar 3: business casual; no flashy jewelry, hats, slogans or athletic wear; polite tone; raised as advice every client gets
 - [ ] In-room rules: private room, no one else present, no notes, phone set aside, no messaging; exhibits shared on screen
 - [ ] All five substantive questions (gap, missed April therapy, seatbelt, 2021 visits, MRI) recognised and met with a routing, not content

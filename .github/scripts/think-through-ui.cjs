@@ -1,6 +1,6 @@
-// @check browser — 🧠 Think it through works in the 🧪 Practice Lab: beside the 💡 Tip on the activity that practises the deck pages, it opens the question and a box for the trainee's own reasoning, and Submit grades it like every activity (the score stored under cf-ai-grades and in the work log)
+// @check browser — 🧠 Think it through works in the 🧪 Practice Lab: beside the 💡 Tip on the activity that practices the deck pages, it opens the question and a box for the trainee's own reasoning, and Submit grades it like every activity (the score stored under cf-ai-grades and in the work log)
 // js/cm-think-through.js with js/cm-ai-grader.js, in a real browser, as a trainee:
-//   · Day 2's Skill Activity d3m2-a1 (it practises the Valuation Baseline pages, Day 2 pages 23–24) has 🧠 Think it through in its
+//   · Day 2's Skill Activity d3m2-a1 (it practices the Valuation Baseline pages, Day 2 pages 23–24) has 🧠 Think it through in its
 //     Your Task's tools in the 🧪 Practice Lab (in 📖 Reference, js/cm-task-card.js), next to the 💡 Tip; its deck card still fits one screen;
 //   · the button opens a panel over the page: the question (what the slides' figures cause on John Doe's file), its 2–3 steps,
 //     a box to write in, and Submit → (never "AI Grader"); nothing is handed in before the trainee presses Submit;

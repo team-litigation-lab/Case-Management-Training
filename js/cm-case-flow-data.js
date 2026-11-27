@@ -546,7 +546,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d1m1-upl",
-        retired: "Replaced by Day 1's decks; its rules are a 💡 Tip on the activity that practised it (js/cm-lesson-tips.js)",
+        retired: "Replaced by Day 1's decks; its rules are a 💡 Tip on the activity that practiced it (js/cm-lesson-tips.js)",
         title: "Fact Sharing vs. Legal Advice: the UPL Line",
         topic: "What you may say, and what only Atty. Thorne says",
         visual: "A two-column board split by a red vertical line labelled THE UPL LINE. Left, a green-bordered column headed FACT SHARING · YOU, five speech bubbles in plain words: a date read from a document, the next step in the process, who decides, when an answer is due, what was sent and when. Right, a red-bordered column headed LEGAL ADVICE · ATTY. THORNE, five struck-through bubbles: what the case is worth, whether to settle, what the gap does to the claim, what the law means for him, what to tell an adjuster. Along the bottom, three mono pills: HEAR IT · LOG IT · ROUTE IT TO ATTY. THORNE, THE SAME DAY.",
@@ -1031,7 +1031,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d1m2-l2",
-        retired: "Replaced by Day 1's decks; its rules are a 💡 Tip on the activity that practised it (js/cm-lesson-tips.js)",
+        retired: "Replaced by Day 1's decks; its rules are a 💡 Tip on the activity that practiced it (js/cm-lesson-tips.js)",
         title: "Final Warning Letter & When a Skip-Trace Starts",
         topic: "No Contact Protocol Steps 4 to 6, and when the search begins",
         visual: "Two panels. Left: the Final Warning Letter on white letterhead with a navy band, four required elements called out by orange numbered badges — ① the earlier attempts, itemized ② a response deadline of 7–14 days ③ notice of potential withdrawal ④ how to respond. Above the letter, a chip pair reads CERTIFIED MAIL + EMAIL, joined by a bold AND, because both are required. Right: the Step 5 decision fork on a pale ground. Root, navy: “Response within the deadline?” Yes (green) → RESUME FILE. No (orange) → a three-chip AND gate (ladder exhausted · letter sent · deadline expired) ending in two outcomes: TRIGGER SKIP-TRACE and ATTORNEY DECISION POINT. Draw the gate as a gate, never as a bullet list.",
@@ -1244,7 +1244,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d1m3-l1",
-        retired: "Replaced by Day 1's decks; its rules are a 💡 Tip on the activity that practised it (js/cm-lesson-tips.js)",
+        retired: "Replaced by Day 1's decks; its rules are a 💡 Tip on the activity that practiced it (js/cm-lesson-tips.js)",
         title: "Client Do's and Don'ts",
         topic: "Protecting the claim from the client's own good intentions",
         visual: "A balanced two-column DO / DON'T board on the upper two-thirds, green-bordered left and red-bordered right, with matched pairs on the same line so each DON'T sits opposite the DO it replaces. Each row carries a small icon in the gutter. Lower third: a strip of three orange tags — NO RECORDED STATEMENT · KEEP EVERY RECEIPT · PROPERTY DAMAGE ONLY — the three instructions clients most often break in week one.",
@@ -2105,7 +2105,7 @@ window.CM_CASE_FLOW = {
        },
        {
          kind: "lesson", id: "d1m4-emc",
-         retired: "Replaced by the Canva decks (Day 2 deck p24 (The Valuation Baseline: the EMC and the Benefit Ceiling)); its rules are a 💡 Tip on the activities that practise its topic (js/cm-lesson-tips.js)",
+         retired: "Replaced by the Canva decks (Day 2 deck p24 (The Valuation Baseline: the EMC and the Benefit Ceiling)); its rules are a 💡 Tip on the activities that practice its topic (js/cm-lesson-tips.js)",
          brief: true,
          title: "The Emergency Medical Condition (EMC) Rule: $2,500 vs $10,000",
          topic: "A state-specific PIP rule: what it requires, who can make the finding, and how it opened John Doe's full $10,000",
@@ -2729,7 +2729,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d2m1-l2", compact: true,
-        retired: "Replaced by the Canva decks (Day 1 deck p19 and p21 (Claim Set Up: Coverage Determination; Case Example: Coverage Analysis)); its rules are a 💡 Tip on the activities that practise its topic (js/cm-lesson-tips.js)",
+        retired: "Replaced by the Canva decks (Day 1 deck p19 and p21 (Claim Set Up: Coverage Determination; Case Example: Coverage Analysis)); its rules are a 💡 Tip on the activities that practice its topic (js/cm-lesson-tips.js)",
         title: "Coverage Verification Tracking & Follow-Up Deadlines",
         topic: "From “reported” to “confirmed in writing”, with a date on every open item",
         visual: "A horizontal five-stage status track across the upper half — REPORTED → NOTICED → ACKNOWLEDGED → DISCLOSED → CONFIRMED IN WRITING — each stage a navy chip with an orange numbered badge, the last edged in green. Beneath it, three swim rows, one per stack layer, each with a marker where that layer stood on 03/11/2026: Host UM and Relative UM at the green end with their dates in mono pills (03/02, 03/09); BI held short in orange, labelled WRITTEN REQUEST PENDING, with a dashed line to a future pill, 03/20. Bottom strip: a calendar band with the firm cadence (24–48 h · third business day · dated next follow-up) and behind it, in red outline, REGULATORY BACKSTOP · CONFIRM THE RULE. The argument: a layer is verified only at the green end.",
@@ -2932,7 +2932,7 @@ window.CM_CASE_FLOW = {
       },
       {
         kind: "lesson", id: "d2m1-liab",
-        retired: "Replaced by the Canva decks (Day 1 deck p19 and p22 (Liability Assessment; Case Example: Liability Determination)); its rules are a 💡 Tip on the activities that practise its topic (js/cm-lesson-tips.js)",
+        retired: "Replaced by the Canva decks (Day 1 deck p19 and p22 (Liability Assessment; Case Example: Liability Determination)); its rules are a 💡 Tip on the activities that practice its topic (js/cm-lesson-tips.js)",
         brief: true,
         title: "Liability Investigation: the Police Report, the Witness, the Video & Comparative Fault",
         topic: "Proving who caused the collision while the evidence is fresh",
@@ -3269,7 +3269,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d2m1-cov",
-        retired: "Replaced by the Canva decks (Day 1 deck p19 and p21 (Coverage Determination; Case Example: Coverage Analysis, the Recovery Stack) and p23 (the Payer Order)); its rules are a 💡 Tip on the activities that practise its topic (js/cm-lesson-tips.js)",
+        retired: "Replaced by the Canva decks (Day 1 deck p19 and p21 (Coverage Determination; Case Example: Coverage Analysis, the Recovery Stack) and p23 (the Payer Order)); its rules are a 💡 Tip on the activities that practice its topic (js/cm-lesson-tips.js)",
         title: "Coverages & the Payer-First Principle",
         topic: "Every policy on John Doe's file, what it pays, and who pays first",
         visual: "A two-tier slide. The top tier is a coverage map: eight cards in three colour groups. Navy, THIRD-PARTY: Keystone BI $10,000 · Keystone PD $25,000. Orange, FIRST-PARTY: Harbor Point Host UM $20,000 · Cardinal State Relative UM $10,000 · Harbor Point PIP $10,000 and MedPay $5,000 · Bluewater collision ($500 deductible). Green, HEALTH: Peach State Health Plan. A crossed-out grey card: Bluewater UM, rejected 03/14/2024. Each card carries a small tag for what it pays: THE CLAIM, THE BILLS or THE CAR, and only the three THE CLAIM cards are joined by a bracket labelled RECOVERY STACK $40,000. The bottom tier is a staircase running down left to right, titled THE PAYER-FIRST PRINCIPLE: MedPay/PIP → Health Plan → Letter of Protection, each step lower than the last, labelled pays regardless of fault · contract rate, reimbursement right · paid from the recovery. Bottom-right, an orange callout: “Out of order = a lien that didn't have to exist.”",
@@ -3687,7 +3687,7 @@ window.CM_CASE_FLOW = {
       },
       {
         kind: "lesson", id: "d2m2-l2", compact: true,
-        retired: "Replaced by the Canva decks (Day 1 deck p37-44 and p48-49 (the Standard Treatment Map, Variance Analysis, A-C-T, Course Correction, the Escalation Ladder)); its rules are a 💡 Tip on the activities that practise its topic (js/cm-lesson-tips.js)",
+        retired: "Replaced by the Canva decks (Day 1 deck p37-44 and p48-49 (the Standard Treatment Map, Variance Analysis, A-C-T, Course Correction, the Escalation Ladder)); its rules are a 💡 Tip on the activities that practice its topic (js/cm-lesson-tips.js)",
         title: "A-C-T Crisis Protocol & Treatment Monitoring Principles",
         topic: "Is the plan working, and what you do the day it isn't",
         visual: "A closed monitoring loop drawn as a navy ring left of centre, with “IS THE PLAN WORKING?” set in Fraunces inside it. At the ring's four o'clock a red DETECT node breaks out into an orange three-step rail running right: ① ASSESS ② CLARIFY ③ TRACK, each a navy card with an orange badge, the TRACK card's arrow curving back up into the ring. Top-right, a treatment-map strip of mono pills, ACUTE · SUB-ACUTE · RESTORATIVE · MMI, with a marker on RESTORATIVE · WEEK 9 · 04/08/2026. Left margin, three stacked variance chips, CLINICAL · PSYCHOSOCIAL · SYSTEMIC, with PSYCHOSOCIAL highlighted. The argument: A-C-T is not a detour from monitoring; it closes back into it.",
@@ -3759,7 +3759,7 @@ window.CM_CASE_FLOW = {
       },
       {
         kind: "lesson", id: "d2m2-pip",
-        retired: "Replaced by Day 2's deck pages (Valuation Baseline); its rules are a 💡 Tip on the activity that practised it (js/cm-lesson-tips.js)",
+        retired: "Replaced by Day 2's deck pages (Valuation Baseline); its rules are a 💡 Tip on the activity that practiced it (js/cm-lesson-tips.js)",
         brief: true,
         title: "PIP Strategy: Strategic Exhaustion, the EMC Ceiling & PIP's Weight at Settlement",
         topic: "Where PIP's $10,000 lands, and what that means for the settlement later",
@@ -4041,7 +4041,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d1m1-l2", brief: true,
-        retired: "Replaced by the Canva decks (Day 1 deck p23 (Case Planning Framework: Regulatory Triple-Check) and Day 2 deck p25 (Subrogation vs. Non-Subrogation)); its rules are a 💡 Tip on the activities that practise its topic (js/cm-lesson-tips.js)",
+        retired: "Replaced by the Canva decks (Day 1 deck p23 (Case Planning Framework: Regulatory Triple-Check) and Day 2 deck p25 (Subrogation vs. Non-Subrogation)); its rules are a 💡 Tip on the activities that practice its topic (js/cm-lesson-tips.js)",
         title: "Health Subrogation, Payer Order & the Regulatory Triple-Check",
         topic: "Who pays the bills now, and who gets paid back later",
         visual: "A two-lane swimlane running left to right. Upper lane, navy, labelled PAYS THE BILLS NOW — PAYER ORDER: an arrow through PIP/MedPay → Peach State Health Plan → LOP/provider liens. Lower lane, orange, labelled PAYS THE CLAIM LATER — RECOVERY STACK: an arrow through BI → Host UM → Relative UM ending at a SETTLEMENT node. A bold orange return arrow curves from the Health Plan in the upper lane down into the settlement node, labelled REIMBURSEMENT CLAIM. The curve is the heaviest line on the slide. Top-right, three stacked chips form the Regulatory Triple-Check: HIPAA · BCRC · PAYER ORDER, each with a tick box. Bottom-left, a danger-bordered callout: “Flagged late = paid twice.”",
@@ -4114,7 +4114,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d2m2-sum", compact: true,
-        retired: "Replaced by the Canva decks (Day 1 deck p23 (Regulatory Triple-Check: subrogation, Payer Order) and p46-47 (Treatment Gaps)); its rules are a 💡 Tip on the activities that practise its topic (js/cm-lesson-tips.js)",
+        retired: "Replaced by the Canva decks (Day 1 deck p23 (Regulatory Triple-Check: subrogation, Payer Order) and p46-47 (Treatment Gaps)); its rules are a 💡 Tip on the activities that practice its topic (js/cm-lesson-tips.js)",
         title: "Coverage & Subrogation: the Treatment Phase Summary",
         topic: "Every coverage, the Payer-First Principle, health subrogation, and exactly when the CMS flags go up",
         visual: "A one-page summary board in four quadrants on a cream card, each a context card with a ＋ More tab. Top-left, EVERY COVERAGE, SORTED: a mini coverage map with only BI, HOST UM and RELATIVE UM bracketed as RECOVERY STACK $40,000. Top-right, PAYER-FIRST: a four-step staircase PIP → MEDPAY → PEACH STATE → LOP. Bottom-left, HEALTH SUBROGATION: a curved return arrow from the Health Plan to a settlement node, a mono pill $3,618.00 ASSERTED struck through beside $1,860.00 CONFIRMED 06/24/2026, and three ticked chips HIPAA · BCRC · PAYER ORDER. Bottom-right, THE TWO FLAGS IN THE CMS: two orange flag icons on a date rail, LIEN · 02/27/2026 · BEFORE ANY DEMAND and GAP · 02/06 → 02/20/2026 · 14 DAYS, with a dashed WATCH strip running on to 04/02 → 04/21 · 19 DAYS. The flags are the brightest marks on the slide.",
@@ -4486,7 +4486,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d2m3-l2", noGame: true,
-        retired: "Replaced by the Canva decks (Day 1 deck p46-47 (Handling Treatment Gaps) and Day 2 deck p15 (Treatment Gaps in the Demand Phase)); its rules are a 💡 Tip on the activities that practise its topic (js/cm-lesson-tips.js)",
+        retired: "Replaced by the Canva decks (Day 1 deck p46-47 (Handling Treatment Gaps) and Day 2 deck p15 (Treatment Gaps in the Demand Phase)); its rules are a 💡 Tip on the activities that practice its topic (js/cm-lesson-tips.js)",
         title: "Medical Excuse Notes & Continuous-Care Documentation Rules",
         topic: "What proves the care was continuous, and what never happens",
         visual: "A two-column compare board. Left: a cream card with a green top rule headed COUNTS — MADE AT THE TIME, each item with a small document icon and its date in a mono pill (02/06 EMS · 02/07 receipt · 02/09–02/13 call-outs · 02/20 urgent care · 06/19 Causation Letter). Right: a red-bordered card headed NEVER — MADE TO ORDER, each item struck through with a thin red line. Along the bottom, a navy timeline from 02/06 to 06/19 with the left card's documents pinned to it, showing the proof was laid down while the gap was happening. The argument: timing is what makes a document believable.",
@@ -5002,7 +5002,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d2m4-l2", compact: true,
-        retired: "Replaced by the Canva decks (Day 2 deck p3-10 (Pre-Demand Case Auditing: the Trinity, the Master Audit Checklist, the Defense-Eye Audit, Final Package Readiness)); its rules are a 💡 Tip on the activities that practise its topic (js/cm-lesson-tips.js)",
+        retired: "Replaced by the Canva decks (Day 2 deck p3-10 (Pre-Demand Case Auditing: the Trinity, the Master Audit Checklist, the Defense-Eye Audit, Final Package Readiness)); its rules are a 💡 Tip on the activities that practice its topic (js/cm-lesson-tips.js)",
         title: "Strategy Briefing Protocols with Lead Counsel",
         topic: "Briefing Atty. Thorne, live or in the AI strategy session",
         visual: "A single brief page fills the centre of the slide, a white card with five horizontal bands in fixed order, each with an orange numbered badge: ① BOTTOM LINE in navy, one line in the largest type; ② FACTS · AUDITED, split into NARRATIVE · PHYSICALITY · MEDICALS with a green ✓ on each; ③ RISKS in danger red, four chips (14-DAY GAP · DISRUPTION · 2021 LOW BACK · “DEGENERATIVE”), each tethered to a small document chip; ④ DECISIONS NEEDED, orange-bordered, each item a question; ⑤ OPTIONS → CONSEQUENCES in two columns. Along the right edge a navy rail, ATTY. ELIJAH THORNE DECIDES, ends in a card: DECISION RECORD · dated · tasked. The page is ordered for the reader who decides.",
@@ -5462,7 +5462,7 @@ window.CM_CASE_FLOW = {
       },
        {
          kind: "lesson", id: "d3m1-pkg",
-         retired: "Replaced by Day 2's deck pages (Demand); its rules are a 💡 Tip on the activity that practised it (js/cm-lesson-tips.js)",
+         retired: "Replaced by Day 2's deck pages (Demand); its rules are a 💡 Tip on the activity that practiced it (js/cm-lesson-tips.js)",
          compact: true,
          title: "Building the Demand Package: the Big Four, the Human Story & the Final Scrub",
          topic: "What each part of the package proves, and the adjuster trap each one shuts",
@@ -5749,7 +5749,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d3m2-l1",
-        retired: "Replaced by Day 2's deck pages (Demand, Settlement Negotiations); its rules are a 💡 Tip on the activity that practised it (js/cm-lesson-tips.js)", compact: true,
+        retired: "Replaced by Day 2's deck pages (Demand, Settlement Negotiations); its rules are a 💡 Tip on the activity that practiced it (js/cm-lesson-tips.js)", compact: true,
         title: "Countering Adjuster Delay Tactics & Gap Pushback",
         topic: "The battle map, the first call, and the stall rebuttals",
         visual: "A battle map across the full slide width: four orange-numbered stations on a navy rail, left to right — ① NET FLOOR ② VALUE DRIVERS ③ THEIR TOP TWO ④ REBUTTAL READY. Station ① carries a mono pill, $12,677.63 GROSS, with a small red note: KEYSTONE LIMIT $10,000. Under station ③ hang two red-bordered danger cards, 14-DAY GAP and “DEGENERATIVE” MRI; under station ④, two cream cards answer them, each with mono source pills: EMS REPORT · CAUSATION LETTER 06/19/2026, and SUMMIT MRI 03/13/2026. Top-right, a navy chip: DEMAND EXPIRES 08/21/2026. The argument: every attack on this file is answered before the phone rings.",
@@ -5971,7 +5971,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d3m2-umw",
-        retired: "Replaced by Day 2's deck pages (BI Settlement); its rules are a 💡 Tip on the activity that practised it (js/cm-lesson-tips.js)", compact: true,
+        retired: "Replaced by Day 2's deck pages (BI Settlement); its rules are a 💡 Tip on the activity that practiced it (js/cm-lesson-tips.js)", compact: true,
         title: "The BI Settlement and the UM Consent to Settle & Subrogation Waiver",
         topic: "Why Keystone's $10,000 can't close until Harbor Point and Cardinal State sign off",
         visual: "Three linked cards across the slide on a navy rail. Left: KEYSTONE · BI $10,000 · TENDERED 08/12, with a red padlock chip CHECK HELD UNTIL WAIVERS. Centre: two stacked cream cards, HARBOR POINT · HOST UM · CONSENT + WAIVER 08/24 and CARDINAL STATE · RELATIVE UM · CONSENT + WAIVER 08/26, each with an orange tick and a mono pill SUBROGATION AGAINST SMITH WAIVED. Right: a signature card, LIMITED RELEASE · SIGNED 08/28, unlocked only once both centre cards are ticked. Far left, greyed and struck through: BLUEWATER · UM REJECTED 03/14/2024 · NOT A UM LAYER. The argument: the BI money and the UM claims are tied together, and the waiver is the knot.",
@@ -6669,7 +6669,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d3m3-l3", brief: true,
-        retired: "Replaced by the Canva decks (Day 3 deck p3-4 (Increasing the Client's Net; Auditing the Billing) and Day 2 deck p37 and p42 (Lien Payoff Letters; Final Lien Mitigation)); its rules are a 💡 Tip on the activities that practise its topic (js/cm-lesson-tips.js)",
+        retired: "Replaced by the Canva decks (Day 3 deck p3-4 (Increasing the Client's Net; Auditing the Billing) and Day 2 deck p37 and p42 (Lien Payoff Letters; Final Lien Mitigation)); its rules are a 💡 Tip on the activities that practice its topic (js/cm-lesson-tips.js)",
         title: "Lien Negotiation Calls: the Reduction Request, the Ask and the Payoff Letter",
         topic: "From the audited balance to a signed full-and-final payoff",
         visual: "A three-step ladder on the left: REDUCTION REQUEST → THE CALL → PAYOFF LETTER, each rung a navy card with an orange badge. On the right, a lien card for Riverton Spine & Rehab: $6,290.00 struck through, $6,105.00 audited, $4,580.00 agreed, with a green FULL AND FINAL stamp.",
@@ -8930,7 +8930,7 @@ window.CM_CASE_FLOW = {
 
       {
          kind: "lesson", id: "d4m3-tx",
-         retired: "Replaced by the Canva decks (Day 1 deck p30 (Documentation) and Day 2 deck p15-16 (Treatment Gaps in the Demand Phase; the Demand Packet Checklist)); its rules are a 💡 Tip on the activities that practise its topic (js/cm-lesson-tips.js)",
+         retired: "Replaced by the Canva decks (Day 1 deck p30 (Documentation) and Day 2 deck p15-16 (Treatment Gaps in the Demand Phase; the Demand Packet Checklist)); its rules are a 💡 Tip on the activities that practice its topic (js/cm-lesson-tips.js)",
          brief: true,
          title: "From Treatment to Demand: How the Treatment Record Becomes the Claim",
          topic: "Every stop on the treatment map, and what it becomes in the demand and the binders",
@@ -9136,7 +9136,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d4m4-l1", brief: true,
-        retired: "Replaced by the Canva decks (Day 4 deck p33-35 (Common Bottlenecks in Mediation & Arbitration; Operational Countermeasures) and Day 1 deck p48 (the Escalation Protocol)); its rules are a 💡 Tip on the activities that practise its topic (js/cm-lesson-tips.js)",
+        retired: "Replaced by the Canva decks (Day 4 deck p33-35 (Common Bottlenecks in Mediation & Arbitration; Operational Countermeasures) and Day 1 deck p48 (the Escalation Protocol)); its rules are a 💡 Tip on the activities that practice its topic (js/cm-lesson-tips.js)",
         title: "Identifying Non-Responsive Adjusters, Delayed Records & Scheduling Bottlenecks",
         topic: "Name the bottleneck by the date it threatens",
         visual: "A Track B timeline runs across the full slide on a navy rail, hard dates as mono pills: 08/21/2026 · 03/11/2027 · 03/18/2027 · 03/31/2027 · 06/02/2027 · 06/22/2027. Above it, three cream cards with orange numbered badges: ① NON-RESPONSIVE PARTY ② DELAYED RECORD ③ SCHEDULING, each dropping an orange leader line to the date it threatens. Card ① is the largest, with a red danger callout beneath it: “$10,000 carrier · $40,000 frozen.” Right edge, behind a thin vertical rule, two stacked chips: MEDIATION — a gap costs leverage (navy) and ARBITRATION — a gap costs evidence (red). The argument: a bottleneck is measured by the hard date it threatens, not by how irritating it is.",
@@ -9264,7 +9264,7 @@ window.CM_CASE_FLOW = {
 
       {
         kind: "lesson", id: "d4m4-l2", brief: true,
-        retired: "Replaced by the Canva decks (Day 1 deck p48-49 (the Escalation Protocol and Ladder) and Day 4 deck p35 (Case Manager Operational Countermeasures)); its rules are a 💡 Tip on the activities that practise its topic (js/cm-lesson-tips.js)",
+        retired: "Replaced by the Canva decks (Day 1 deck p48-49 (the Escalation Protocol and Ladder) and Day 4 deck p35 (Case Manager Operational Countermeasures)); its rules are a 💡 Tip on the activities that practice its topic (js/cm-lesson-tips.js)",
         title: "Escalation Workflows & Supervisory Reporting Guidelines",
         topic: "The ladder decides who hears; the report decides whether they can act",
         visual: "Left third: a three-rung ladder drawn bottom-up, navy rungs with orange numbered badges — ① CLINICAL · SOURCE &amp; OFFICE MANAGER ② ADMINISTRATIVE · NOTICE OF DELAY TO THE ADJUSTER &amp; ATTY. THORNE ③ LEGAL · ATTY. THORNE — a 48 H mono pill on the rail between each pair. Under the ladder, a red danger strip: “Don't skip. Don't sit.” Right two-thirds: the bottleneck report as a white memo card with a navy header bar, five fields called out by orange badges — ① Blocker ② Started ③ Threatens ④ Tried ⑤ The ask — each filled in with Keystone's dates in mono type. The ask is boxed in orange and is the only field in bold. The argument: escalation is a sequence, and the report is what lets counsel act in one read.",
@@ -10174,7 +10174,7 @@ window.CM_CASE_FLOW = {
             "Audit John's signed interrogatory answers and public social media; route any inconsistency with the records to Atty. Thorne the same day. He decides whether an answer is corrected or supplemented; John testifies to the truth, never to match a document. Never tell John to delete or hide a post.",
             "Injury narrative alignment: John's truthful account matches his records because he has reviewed them with Atty. Thorne, never because he learned a script. Atty. Thorne chooses the review set: a document used to refresh memory may have to be produced (confirm the governing rule).",
             "Pillar 1, de-escalate: no judge, no jury, no shouting: questions and answers on a video call, under oath, before a court reporter. Calm him with the process, never a prediction.",
-            "Pillar 2, the essential guidelines: pause two seconds; tell the truth about prior treatment (that question tests honesty); stop talking once the question is answered. These testimony habits are Atty. Thorne's to practise with John; the Case Manager names them as his and never drills or coaches them.",
+            "Pillar 2, the essential guidelines: pause two seconds; tell the truth about prior treatment (that question tests honesty); stop talking once the question is answered. These testimony habits are Atty. Thorne's to practice with John; the Case Manager names them as his and never drills or coaches them.",
             "Pillar 3, dress and demeanor: business casual, as for a job interview; nothing flashy, no hats or slogans; polite; limitations told plainly, never minimized or exaggerated.",
             "Set-up: a computer, not a hand-held phone; camera at eye level, light in front, a quiet private room. Test it with John on 02/16/2027, on that device in that room.",
             "While he testifies: no one else in the room except Atty. Thorne if he attends in person (anyone present is identified on the record), not Margaret; no notes, phone away, no messages to anyone, you included. Exhibits come by screen-share; he may ask to see the whole page.",
@@ -10248,7 +10248,7 @@ window.CM_CASE_FLOW = {
             "Logistics stated exactly: 02/18/2027, 10:00 a.m., by videoconference, Riverton Court Reporting",
             "Test call set for 02/16/2027 on the device and in the room John will use on the day",
             "Pillar 1: the setting explained (not a courtroom; no judge or jury; under oath, with a court reporter); no outcome predicted",
-            "Pillar 2, the testimony habits (the two-second pause, the truth about prior treatment, stop talking), left to Atty. Thorne: named as his to practise with John, never drilled or coached by the CM (Day 5 deck p10–p11)",
+            "Pillar 2, the testimony habits (the two-second pause, the truth about prior treatment, stop talking), left to Atty. Thorne: named as his to practice with John, never drilled or coached by the CM (Day 5 deck p10–p11)",
             "Pillar 3: business casual; no flashy jewelry, hats, slogans or athletic wear; polite tone; raised as advice every client gets",
             "In-room rules: private room, no one else present, no notes, phone set aside, no messaging; exhibits shared on screen",
             "All five substantive questions (gap, missed April therapy, seatbelt, 2021 visits, MRI) recognised and met with a routing, not content",
@@ -10263,7 +10263,7 @@ window.CM_CASE_FLOW = {
           do: [
             "“That's exactly what Atty. Thorne will go through with you. I'm writing it down in your words now.”",
             "“The first rule is always the truth. How the 2021 questions will go is his to prepare with you.”",
-            "“How to answer their questions is what Atty. Thorne will practise with you, right after me.”"
+            "“How to answer their questions is what Atty. Thorne will practice with you, right after me.”"
           ],
           dont: [
             "“Just say you had no ride and thought it would pass.”",
@@ -11340,7 +11340,7 @@ window.CM_CASE_FLOW = {
   /* The order the course teaches. Every day is two parts: `blocks` lists ALL of the day's lessons first, in teaching
      order (their section headings in `headings`), then ALL of its Skill Activities, in the order their lessons were
      taught, then its Learning Checks (the day's Knowledge Check). `practises` names the lesson each Skill Activity
-     practises: the activity's own first slide says it ("Practises: 2.3 Liability Investigation"), so the link survives
+     practices: the activity's own first slide says it ("Practices: 2.3 Liability Investigation"), so the link survives
      the distance between a lesson and its practice.
      The day runs one loop (js/cm-day-loop.js): the lessons → 📇 the Case Profile (Day 1: 👋 Meet John Doe and his
      Intake) → `main`, the day's ONE Skill Building (AI graded; Day 5, a build day, has none: its Full Application

@@ -3,7 +3,7 @@
 
    A firm keeps a backup drive of every case document in one folder structure everybody knows by heart: a
    Case Manager covering someone else's file still finds the executed retainer, the demand package and the
-   lien correspondence where they always are. Trainees practise that on **their own Google Drive**, and
+   lien correspondence where they always are. Trainees practice that on **their own Google Drive**, and
    they build it **on Day 1** — file management is a habit, not a module, and a trainee who builds their
    drive on Day 4 has spent three days putting documents nowhere.
 

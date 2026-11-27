@@ -28,7 +28,7 @@
 
 ## This day's module
 
-The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then 📁 Backup File Maintenance, required every day (marked **Required: Backup File Maintenance** below); then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
+The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then 📁 Backup File Maintenance, required every day (marked **Required: Backup File Maintenance** below); then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practices. A lesson marked (condensed) is a short overview.
 
 **Module 3 — Lien Negotiation & Disbursement**
 
@@ -37,12 +37,12 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 3. *Lesson* — The Net Sheet: Two Recovery Streams & the Master Ledger
 4. *Lesson* — Disbursement: the Workflow & the Documentation
 5. *Lesson* — Final Case Reconciliation: the Net Sheet, the Closing Memo & Retention
-6. *Skill Activity* — Completing the Final Dual-Tab Net Sheet (practises: The Net Sheet: Two Recovery Streams & the Master Ledger) — **Skill Building**
-7. *Skill Activity* — Backup File Maintenance: the Pre-Demand Backup Audit (practises: Case Phase: Demand) — **Required: Backup File Maintenance**
-8. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab (practises: Lien Negotiations: Key Legal Doctrines & Prior-Attorney Liens) — *side*
-9. *Skill Activity* — Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold (practises: Lien Negotiations: Key Legal Doctrines & Prior-Attorney Liens) — *side*
-10. *Skill Activity* — Provider Balance Negotiation Exercises (practises: Increasing the Client's Net: Auditing the Billing) — *side*
-11. *Skill Activity* — The BI Settlement Net Sheet: Stream 1 at the Tender (practises: The Net Sheet: Two Recovery Streams & the Master Ledger) — *side*
+6. *Skill Activity* — Completing the Final Dual-Tab Net Sheet (practices: The Net Sheet: Two Recovery Streams & the Master Ledger) — **Skill Building**
+7. *Skill Activity* — Backup File Maintenance: the Pre-Demand Backup Audit (practices: Case Phase: Demand) — **Required: Backup File Maintenance**
+8. *Skill Activity* — Health Subrogation & Statutory Lien Reduction Lab (practices: Lien Negotiations: Key Legal Doctrines & Prior-Attorney Liens) — *side*
+9. *Skill Activity* — Prior-Attorney Charging Lien: Investigation, Escalation & Settlement Hold (practices: Lien Negotiations: Key Legal Doctrines & Prior-Attorney Liens) — *side*
+10. *Skill Activity* — Provider Balance Negotiation Exercises (practices: Increasing the Client's Net: Auditing the Billing) — *side*
+11. *Skill Activity* — The BI Settlement Net Sheet: Stream 1 at the Tender (practices: The Net Sheet: Two Recovery Streams & the Master Ledger) — *side*
 12. *Knowledge Check* — Demand Execution Audit
 13. *Knowledge Check* — Negotiation Mastery Check
 14. *Knowledge Check* — Lien Reduction Verification

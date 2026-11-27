@@ -1,12 +1,12 @@
-// @check node — Every Skill Activity practises what its deck lesson teaches: it uses that lesson's deck terms, names no method, order or step the Canva decks contradict, and dates no lesson to the wrong day
+// @check node — Every Skill Activity practices what its deck lesson teaches: it uses that lesson's deck terms, names no method, order or step the Canva decks contradict, and dates no lesson to the wrong day
 'use strict';
 // The lessons are the owner's Canva deck pages (js/cm-deck-slides.js; their words are build/case-flow/slides/deck-pages.json,
 // their narration each page's `notes`). A Skill Activity, its answer key (the slide's checks and its checkpoints), its rubric,
 // its 💡 Tip and the day's Knowledge Check must teach and grade the deck's own method. Checked:
 //   1. TERMS: for each deck lesson, the terms its pages teach (below). Each must still be on those pages (the table can't
-//      drift from the deck), and every activity that practises the lesson must use at least MIN of them in its own text
-//      (task, steps, checkpoints, rubric, slide copy): an activity that shares none of its lesson's words practises
-//      something else. An activity that practises a drawn lesson must practise one the course still teaches.
+//      drift from the deck), and every activity that practices the lesson must use at least MIN of them in its own text
+//      (task, steps, checkpoints, rubric, slide copy): an activity that shares none of its lesson's words practices
+//      something else. An activity that practices a drawn lesson must practice one the course still teaches.
 //   2. CONTRADICTIONS: a method, order or name the decks state one way, written another way anywhere the trainee or the
 //      grader reads it (activities, Knowledge Checks, the lessons and the 💡 Tips' rules, their slide copy and scripts).
 //      Each rule first proves the deck still says it, so a rule can't outlive the page it rests on. Eight rules, the
@@ -78,17 +78,17 @@ let deckActs = 0, drawnActs = 0;
 CF.sequence.forEach(sd => sd.phases.forEach(ph => ph.blocks.forEach(id => {
   const b = STORED[id]; if (!b || b.kind !== 'activity') return;
   const of = (ph.practises || {})[id], l = STORED[of];
-  if (!of || !l) return fail.push(`Day ${sd.n}: ${id} practises no lesson`);
+  if (!of || !l) return fail.push(`Day ${sd.n}: ${id} practices no lesson`);
   if (!DECK[of]) {
     drawnActs++;
-    if (l.retired || !DAY[of]) fail.push(`Day ${sd.n}: ${id} practises ${of}, a drawn lesson the course no longer teaches: point it at the deck lesson that teaches its skill`);
+    if (l.retired || !DAY[of]) fail.push(`Day ${sd.n}: ${id} practices ${of}, a drawn lesson the course no longer teaches: point it at the deck lesson that teaches its skill`);
     return;
   }
   deckActs++;
   const ts = TERMS[of];
-  if (!ts) return fail.push(`Day ${sd.n}: ${id} practises the deck lesson ${of}, which has no TERMS entry here: list the terms its pages teach`);
+  if (!ts) return fail.push(`Day ${sd.n}: ${id} practices the deck lesson ${of}, which has no TERMS entry here: list the terms its pages teach`);
   const t = actText(b), hit = ts.filter(x => reOf(x).test(t));
-  if (hit.length < MIN) fail.push(`Day ${sd.n}: ${id} practises ${of} (deck p${DECK[of].map(p => p.page).join(',')}) but uses ${hit.length ? 'only ' + hit.map(x => `"${x}"`).join(', ') : 'none'} of the terms those pages teach (needs ${MIN}): it practises something else. Re-point it to the deck lesson that teaches its skill, or rewrite it in this lesson's terms`);
+  if (hit.length < MIN) fail.push(`Day ${sd.n}: ${id} practices ${of} (deck p${DECK[of].map(p => p.page).join(',')}) but uses ${hit.length ? 'only ' + hit.map(x => `"${x}"`).join(', ') : 'none'} of the terms those pages teach (needs ${MIN}): it practices something else. Re-point it to the deck lesson that teaches its skill, or rewrite it in this lesson's terms`);
 })));
 
 // ── 2. What the trainee and the grader read: activities, Knowledge Checks (and their quiz), the lessons taught and the
@@ -154,4 +154,4 @@ AT.forEach(([re, id]) => {
 });
 
 if (fail.length) { console.log(`${fail.length} problem(s):`); fail.forEach((m, i) => console.log(`${i + 1}. ${m}`)); process.exit(1); }
-console.log(`Activities align with their decks: ${deckActs} practise a deck lesson in its own terms (at least ${MIN} each), ${drawnActs} a drawn lesson still taught; ${CONTRA.length} deck methods, orders and names contradicted nowhere; every day reference current.`);
+console.log(`Activities align with their decks: ${deckActs} practice a deck lesson in its own terms (at least ${MIN} each), ${drawnActs} a drawn lesson still taught; ${CONTRA.length} deck methods, orders and names contradicted nowhere; every day reference current.`);

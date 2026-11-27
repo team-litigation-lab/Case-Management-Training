@@ -1302,7 +1302,7 @@ function sopProgramFlow(){
   const days = DAYS.map(d=>{ const tl = relatedTools(d.id); return `<tr><td><b>Day ${cmDayN(d.id)}</b></td><td>${esc(d.title)}</td><td>${d.lessons.length}</td><td>${tl.length?tl.map(t=>esc(t.title)).join("<br>"):"—"}</td><td><button class="btn btn-ghost btn-sm" onclick="setSopDay(${d.id})">Run of show →</button></td></tr>`; }).join("");
   return `
     <section class="card sopf"><div class="sopx-kicker">Trainer reference · The whole program</div><h2 style="font-family:'Fraunces',Georgia,serif;color:var(--navy);font-size:26px;margin:4px 0 8px;">How to facilitate the LSH Case Management Training</h2>
-      <p style="font-size:14.5px;line-height:1.6;margin:0;max-width:85ch;">Five live sessions, one realistic case file (John Doe VS Robert Smith), one rhythm every day: <b>teach → check → practise → debrief → assess → follow up</b>. This page is the big picture; open any day for its minute-by-minute run of show.</p></section>
+      <p style="font-size:14.5px;line-height:1.6;margin:0;max-width:85ch;">Five live sessions, one realistic case file (John Doe VS Robert Smith), one rhythm every day: <b>teach → check → practice → debrief → assess → follow up</b>. This page is the big picture; open any day for its minute-by-minute run of show.</p></section>
     <div class="sopf-grid">
       <section class="card sopf-card"><h3>1 · Before the program</h3><ol>
         <li>Open <b>/version</b> on the portal: it should show the current build and <b>AI provider: Google Gemini</b>. If not, add <code>GEMINI_API_KEY</code> in Cloudflare.</li>
@@ -1318,7 +1318,7 @@ function sopProgramFlow(){
         <li><b>Before:</b> approvals, unlocks, open Presenter view (≈15 min early).</li>
         <li><b>Open:</b> recap + today's objectives (5 min).</li>
         <li><b>Teach:</b> topics in ~45-minute blocks with breaks; one random task mid-way (the process questions are in the Knowledge Check).</li>
-        <li><b>Practise:</b> the day's Skill Builders (with the CMS steps), then a live debrief.</li>
+        <li><b>Practice:</b> the day's Skill Builders (with the CMS steps), then a live debrief.</li>
         <li><b>Discuss:</b> the end-of-day question.</li>
         <li><b>Assess:</b> Knowledge Check (70% = day complete).</li>
         <li><b>Close:</b> feedback button, preview tomorrow.</li></ol></section>
