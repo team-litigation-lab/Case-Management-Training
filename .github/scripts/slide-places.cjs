@@ -146,7 +146,7 @@ const GONE6_DECK = { predemand: 1, demand: 1, negotiation: 1, bisettlement: 1 };
 // slide after Day 1's last lesson ('~meetJohnDoe') is new in layout 7.
 const GONE7 = { 1: { after: '~taskOverview', rows: ['d1m1-case theory frame rules model dodont', '~caseMap', '~coverageMap'] } };
 // Layout 8 took the lesson cards the trainers' decks replaced out of the course (their rules are 💡 Tips on the
-// activities that practised them, js/cm-lesson-tips.js): each sat right after the lesson named here in layouts 4 to 7
+// activities that practiced them, js/cm-lesson-tips.js): each sat right after the lesson named here in layouts 4 to 7
 // (several after one lesson, in this order), and is in OLD and OLD3 for layouts 1 to 3. Layout 8's deck is layout 7's
 // frozen record without their slides: an older place is moved into layout 7's deck (checked in 1), then by key into
 // layout 8's (cmSlidePlaces.to8, checked against __to8 here): a place on one of them lands on the slide before it.

@@ -100,7 +100,7 @@ SEQUENCE.forEach(seq => {
         fourPart: Object.assign(fp, {bestPractices: b.best || [], discussionCase: ""}),
         trainerCue: (b.notes || [])[0] || "",
         cf: {day, mod, block: b, k, phase, lane: (ph.lanes || {})[id] || phase.lane,   // day: where it is taught; mod: its unit of scoring; lane: its workstream
-             practises: b.kind === "activity" ? (ph.practises || {})[id] || "" : "",   // an activity: the id of the lesson it practises (cf.of: that lesson, set below)
+             practises: b.kind === "activity" ? (ph.practises || {})[id] || "" : "",   // an activity: the id of the lesson it practices (cf.of: that lesson, set below)
              heading: (ph.headings || {})[id] || (b.kind === "lesson" ? (phase.lead === "Case Phase" ? "" : phase.lead + ": ") : b.kind === "activity" ? "Skill Building: " : "Learning Check: ") + ph.title}
       }, layoutOf(b.show)));
       if(b.kind === "check") pools.push((mod.quiz || []).map(q => ({q, mod: mod.id})));
@@ -697,7 +697,7 @@ const NET_MODS = {d3m2: "recovery", d3m3: "liens", d3m4: "final", d5m5: "litigat
    ids are the Portal's (simulators/reply-packs/emails.json); a block listed here is also offered Email
    Replies among its tools (blockTools), and a block that isn't listed is unaffected.
    Which scenario belongs to which activity is a curriculum decision: this is the mapping by the need
-   each activity practises, and it is meant to be edited here as the Case Flow changes. A scenario is
+   each activity practices, and it is meant to be edited here as the Case Flow changes. A scenario is
    used for more than one activity where the need is the same skill (an adjuster is negotiated with more
    than once). */
 const EMAIL_NEED = {
@@ -955,7 +955,7 @@ function slideBody(view, l, d){
       // keeps its three buttons), not only under 🧰 Tools
       const vm = SIM.events[b.id], vmLink = vm && vm.channel === "voicemail" && vm.spoken && vm.listen ? ` <a class="cfx-vm-link" role="button" tabindex="0" data-vm-listen="${b.id}" onclick="cmCaseFlow.listen('${b.id}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}" title="Play the voicemail from ${E(vm.from || "the caller")}">🎧 Listen to the voicemail</a>` : "";
       const sit = c.situation || vmLink ? `<p class="cfx-yc"><b class="cfx-yc-k">📂 Your Case</b><span class="cfx-yc-t">${c.situation ? hl(c.situation) : ""}${vmLink}</span></p>` : "";
-      // (the lesson it practises, with its 💡 Tip (js/cm-lesson-tips.js), heads the menu: the bar keeps its three buttons)
+      // (the lesson it practices, with its 💡 Tip (js/cm-lesson-tips.js), heads the menu: the bar keeps its three buttons)
       const menu = (ofLine ? `<div class="cfx-call cfx-svb cfx-of-row">${ofLine}</div>` : "") + tools + plainBox(b);
       return `<div class="cfx-task cfx-task1">${sit}
         <ol class="cfx-points cfx-steps${c.steps.length > 4 ? " cfx-steps-long" : ""}">${c.steps.map(x => `<li><span>${hl(x)}</span></li>`).join("")}</ol>
@@ -1216,7 +1216,7 @@ if(typeof buildDaySlides === "function"){
 // js/cm-case-flow-schedule.js holds the numbers and the arithmetic (build/case-flow/curriculum.cjs checks with the same)
 function daySchedule(d){
   const items = d.lessons.filter(l => l.cf.block.kind !== "check").map(l => ({kind: l.cf.block.kind, brief: !!l.cf.block.brief, thorough: !!l.cf.block.thorough,
-    id: l.cf.block.id, of: l.cf.of ? l.cf.of.cf.block.id : "",   // an activity's Skill Building group is the section of the lesson it practises
+    id: l.cf.block.id, of: l.cf.of ? l.cf.of.cf.block.id : "",   // an activity's Skill Building group is the section of the lesson it practices
     slides: viewsOf(l.cf.block).length, heading: l.cf.heading, mod: l.cf.mod.id, modTitle: l.cf.mod.title, ref: l}));
   const sc = window.CM_CF_SCHEDULE.schedule(items, {build: d.cf.build, lessonMax: d.cf.lessonMax, main: (CF.sequence.find(s => s.n === d.cf.n) || {}).main, drive: (CF.sequence.find(s => s.n === d.cf.n) || {}).drive, day: d.cf.n});   // main: the daily loop's one Skill Building (js/cm-day-loop.js); drive: its required Backup File Maintenance
   // each lesson's own minutes (a refresher's share of the 30%, a thorough lesson's larger one), by the lesson
@@ -1228,7 +1228,7 @@ function lectureParts(d){ return daySchedule(d).parts; }   // the lessons' parts
 window.cmCaseFlow.plainOf = id => (plainFirst()[id] || []).map(t => ({t, d: (CF.plain || {})[t] || ""}));   // js/cm-day-loop.js: the terms a Skill Building's banner names
 window.cmCaseFlow.schedule = daySchedule;   // js/cm-day-loop.js: the side exercises' minutes
 /* "2.3 Liability Investigation": a lesson by its number and its title up to the first colon (the Practice Lab's list and
-   an activity's first slide name the lesson an activity practises this way) */
+   an activity's first slide name the lesson an activity practices this way) */
 // a title short enough for one line: up to its colon or dash, and a long one up to its first "&" or comma that leaves a name (the whole title is on the block's own slides)
 const shortTitle = (t, max) => { t = titleCase(String(t || "").split(/:\s| — /)[0]); if(t.length <= max) return t;
   const cut = [...t.matchAll(/\s&\s|,\s/g)].map(m => t.slice(0, m.index)).find(x => x.length >= 12); return cut || t; };
@@ -1704,7 +1704,7 @@ const EKIND = {loophole: "Loophole", gap: "Evidentiary gap", privilege: "Privile
 const auditOf = id => EX.audits[id] || null;
 const serviceOf = id => EX.emails[id] || null;
 /* The simulation's disclaimer. Lien amounts, insurer and provider replies and recovery records arrive here in minutes
-   so the work can be practised in a session; on a real file they take weeks. Shown wherever a simulated party answers:
+   so the work can be practiced in a session; on a real file they take weeks. Shown wherever a simulated party answers:
    the audit slide and workbench, the Service Confirmation and the live call. */
 const SIM_NOTE = "Training simulation: lien amounts, insurer and provider responses and recovery records are generated in real time, strictly for accelerated training. On a real file they take weeks of administrative back-and-forth.";
 const simNote = () => `<p class="cfx-simnote" role="note"><b>⏱ Real-time results</b> ${E(SIM_NOTE)}</p>`;
@@ -2664,7 +2664,7 @@ if(typeof window.renderOpenRoleplay === "function" || typeof renderOpenRoleplay 
 }
 /* ---------- the Practice Lab: one slide a day, after ALL of the day's lessons ----------
    Every Skill Activity of the day is behind this slide, in the order its lesson was taught. The slide lists them in
-   that order, each with the lesson it practises ("Practices: 2.3 Liability Investigation"), so nobody has to remember
+   that order, each with the lesson it practices ("Practices: 2.3 Liability Investigation"), so nobody has to remember
    which lesson a lab belongs to; each activity's own Your Task slide says it again (practisesLine).
    It is also where the day's tools open, once: the CMS and every other platform its Skill Activities use (the Net
    Sheet, LOR Drafting, ChartSwap, the Docket and E-Filing platforms, the Case Documents). The activity slides that
@@ -2764,7 +2764,7 @@ function companionBuild(d, page){
   return `<div class="topic-separator cfx-sepline">CASE FLOW DAY ${d.cf.n} &middot; FULL APPLICATION PRACTICE &middot; ${mins} MINUTES</div>
     <div class="card lesson-card cf-card cfx cfx-deck cfx-lab cfx-build">
       <div class="cfx-deck-head"><h2 class="cfx-deck-title">🏗 Full Application Practice${page === 1 ? ": Build Your Companion Case" : ": the Second Half"}</h2></div>
-      <div class="cfx-ribbon"><span>${page === 1 ? `${mins} minutes · everything you practised on John Doe's file, applied to a case of your own` : `Steps 5 to 7 · plan, decide, check`}</span></div>
+      <div class="cfx-ribbon"><span>${page === 1 ? `${mins} minutes · everything you practiced on John Doe's file, applied to a case of your own` : `Steps 5 to 7 · plan, decide, check`}</span></div>
       <div class="cfx-body"><div class="cfx-sheet"><div class="cfx-bd">${page === 1 ? mine : ""}<ol class="cfx-bd-steps cfx-bd-p${page}">${steps}</ol></div></div></div>
     </div>`;
 }
@@ -3101,8 +3101,8 @@ if(typeof window.sopRunOfShow === "function"){
       {
         const calls = p.acts.map(l => SIM.calls[l.cf.block.id]).filter(Boolean);
         add(p.skill, {title: sc.loop ? `🎯 Skill Building: ${n === 1 ? "the Intake, " : ""}${E(p.title)}` : `Practice Lab ${i + 1} of ${labs.length} · Skill Building: ${E(p.title)}`, do: [
-          (i === 0 && !sc.loop ? `Put the <b>🧪 Practice Lab</b> slide up first: everyone opens their tools from it, once, and it lists all ${sc.acts} activities with the lesson each one practises. ` : "")
-          + `${p.acts.length} Skill Activit${p.acts.length === 1 ? "y" : "ies"}: ` + p.acts.map(l => `<b>${E(l.cf.block.title)}</b> <span style="color:var(--ink-soft)">(${E(String(l.cf.block.act.tool || "").split("·")[0].trim())}${l.cf.of ? "; practises " + E(lessonRef(l.cf.of)) : ""})</span>`).join(" · "),
+          (i === 0 && !sc.loop ? `Put the <b>🧪 Practice Lab</b> slide up first: everyone opens their tools from it, once, and it lists all ${sc.acts} activities with the lesson each one practices. ` : "")
+          + `${p.acts.length} Skill Activit${p.acts.length === 1 ? "y" : "ies"}: ` + p.acts.map(l => `<b>${E(l.cf.block.title)}</b> <span style="color:var(--ink-soft)">(${E(String(l.cf.block.act.tool || "").split("·")[0].trim())}${l.cf.of ? "; practices " + E(lessonRef(l.cf.of)) : ""})</span>`).join(" · "),
           `About ${sc.act} minutes each (the 🧪 chip counts it down). Your Task first, then Your Case: trainees work it on John Doe's file in the CMS or the tool the step names, beside the slide (⧉ Side by side), then press Submit → and log the reference.`,
           calls.length ? `📞 Live call${calls.length > 1 ? "s" : ""}: ${andList(calls.map(c => E(c.who)))}. Each starts from “Take the call” on the Your Task slide; let one trainee take it while the room listens, or everyone takes it at their desk.` : "",
           p.acts.some(l => planAct(l.cf.block)) ? `The Action Plan drafts: <b>📝 Open the Action Plan Editor</b> is on the activity's Your Task slide; “← Back to Case Flow Day ${n}” there returns to the slide. Next on the slide is always the next slide.` : "",
@@ -3184,7 +3184,7 @@ if(typeof window.sopProgramFlow === "function"){
     return [
       [/every Skill Builder is graded against those documents/g, "every Skill Activity works from those documents"],
       [/<li><b>Teach:<\/b>[^<]*<\/li>/, "<li><b>Teach:</b> each day is one module and a refresher: lessons at most 30% (a minute and a half a slide, 66 of the 220 teaching minutes at most: the deck pages, and at most three drawn slides a topic; the mediation and arbitration deck pages in full), the rest practical (the Skill Building straight after each topic, the brainstorms and the Knowledge Check). Day 5's practical is the 150-minute companion-case build.</li>"],
-      [/<li><b>Practise:<\/b>[^<]*(<[^/][^>]*>[^<]*<\/[^>]+>[^<]*)*<\/li>/, "<li><b>Practise:</b> each topic's Skill Activities on John Doe's file in the CMS, straight after its lessons, with their live calls.</li>"],
+      [/<li><b>Practice:<\/b>[^<]*(<[^/][^>]*>[^<]*<\/[^>]+>[^<]*)*<\/li>/, "<li><b>Practice:</b> each topic's Skill Activities on John Doe's file in the CMS, straight after its lessons, with their live calls.</li>"],
       [/<li>Reset <b>Skill Builder attempts<\/b>[^<]*<\/li>/, ""],
       [/\(trainees log their Case ID in each Skill Builder\)/, "(trainees log their CMS Case ID once, and each activity's reference)"],
       [/<th>Skill Builders<\/th>/, "<th>Skill Activities</th>"]
@@ -4269,7 +4269,7 @@ if(typeof window.renderDayIntro === "function"){
     if(!d || !d.cf) return __intro.apply(this, arguments);
     const objs = objectivesOf(d.objective);
     // two cards, the day's two parts in order: Part 1, 📘 Lessons (every section of them); Part 2, the 🧪 Practice Lab
-    // (its Skill Building groups, each under the section of lessons it practises; on a build day the 🏗 build, then the
+    // (its Skill Building groups, each under the section of lessons it practices; on a build day the 🏗 build, then the
     // extra practice); then the 🎯 Knowledge Check
     const segs = daySegments(d), les = segs.filter(p => p.kind === "lesson"), pra = segs.filter(p => p.kind === "practice"), build = d.cf.build;
     const liL = p => `<li><span aria-hidden="true">📘</span> <strong>${E(p.title)}</strong> <small>${p.topics.length} lesson${p.topics.length === 1 ? "" : "s"}</small></li>`;
@@ -4778,7 +4778,7 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx-lab-list .n{flex:none;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font:800 12px/22px var(--font-ui);text-align:center;}
 .cfx-lab-list .t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .cfx-lab-list .ok{color:#1E8A4C;font-weight:800;}
-/* the Practice Lab's list: each activity with the lesson it practises under it, bold and at least 16px, at full size on a laptop
+/* the Practice Lab's list: each activity with the lesson it practices under it, bold and at least 16px, at full size on a laptop
    (two columns; three when a day has more than ten activities) */
 .cfx-lab .cfx-lab-tools{gap:6px;margin:0 0 10px;align-items:center;} .cfx-lab .cfx-lab-tools .btn{font:700 16px/1.25 var(--font-ui) !important;padding:6px 11px !important;min-height:0 !important;height:auto !important;}
 .cfx-lab-k{font:800 16px/1.25 var(--font-ui);color:#1E2340;margin-right:4px;}
@@ -4791,7 +4791,7 @@ main:has(.cf-kc-result){max-width:min(2200px, 98vw) !important;}
 .cfx-lab-of .of{display:block;font:700 16px/1.2 var(--font-ui);color:#A4470F;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .cfx-lab-of .c{flex:none;font-size:18px;}
 .cfx-do-now{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;background:#EEF4FF;border:1.5px solid #9DB6E8;border-left:6px solid #2457C5;border-radius:12px;padding:10px 16px;margin:0 0 12px;text-align:left;}
-.cfx-do-now b{font:800 16px var(--font-ui);color:#1C3F8F;} .cfx-do-now b.cfx-of{margin-left:auto;color:#A4470F;white-space:nowrap;} .cfx .cfx-of-row{margin:4px 0 0;text-align:left;} .cfx .cfx-of-row .cfx-of{font:800 16px/1.3 var(--font-ui);color:#A4470F;} .cfx .cfx-do-now .cfx-plan-go{font:700 16px/1.2 var(--font-ui) !important;padding:2px 12px !important;min-height:0 !important;height:auto !important;align-self:center;}   /* the lesson this activity practises, at the end of the Practice Lab line */ .cfx-do-now span{font:500 15.5px/1.45 var(--font-ui);color:var(--ink);}
+.cfx-do-now b{font:800 16px var(--font-ui);color:#1C3F8F;} .cfx-do-now b.cfx-of{margin-left:auto;color:#A4470F;white-space:nowrap;} .cfx .cfx-of-row{margin:4px 0 0;text-align:left;} .cfx .cfx-of-row .cfx-of{font:800 16px/1.3 var(--font-ui);color:#A4470F;} .cfx .cfx-do-now .cfx-plan-go{font:700 16px/1.2 var(--font-ui) !important;padding:2px 12px !important;min-height:0 !important;height:auto !important;align-self:center;}   /* the lesson this activity practices, at the end of the Practice Lab line */ .cfx-do-now span{font:500 15.5px/1.45 var(--font-ui);color:var(--ink);}
 .cfx-situation{font:500 25px/1.5 var(--font-ui);color:var(--ink);margin:0;}
 .cfx-art{display:flex;align-items:center;justify-content:center;animation:cfxIn .5s ease both;}
 .cfx-art{cursor:pointer;}

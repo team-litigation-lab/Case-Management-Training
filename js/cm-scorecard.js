@@ -229,7 +229,7 @@ const SOURCES = [
     items: c => Object.entries((c.callsim && c.callsim.best) || {}).filter(([, b]) => b && typeof b.score === "number").map(([k, b]) => {
       const n = (((c.fb || {}).activities) || {})["gc:" + k], p = num(b.score);
       return {name: b.line || k.replace(/^line:/, ""), pct: p, note: [`${b.calls || 1} call${(b.calls || 1) === 1 ? "" : "s"}, best counts`,
-        p != null && p < 80 ? "What you could have done better: read this line's debrief in the Call Sim, practise the one thing it says to change, then take the line again" : "",
+        p != null && p < 80 ? "What you could have done better: read this line's debrief in the Call Sim, practice the one thing it says to change, then take the line again" : "",
         n && n.comment ? `🧑‍🏫 Your trainer: "${String(n.comment).slice(0, 300)}"` : ""].filter(Boolean).join(" · ")}; })},
   {id: "cc", icon: "📞", label: "Case Calls", about: "Each graded call on John Doe's file (Live Calls and the calls the trainer rings in), its best score; an injected call that was missed counts 0.", dims: ["pc", "na", "cd"], how: "The call rubric: BLUF, Risk & Privilege, Composure, A-C-T (25 each); a missed injected call 0.",
     items: c => { const best = {}, cf = c.data["case-flow"] || {};
@@ -332,7 +332,7 @@ const MODEL = (function(){
   const PASS = 80;
   const CRIT = [
     {id: "upl", label: "UPL: no legal advice",
-     why: "Only a lawyer may give legal advice. Telling a client what the case is worth, or what a fact does to it, is practising law without a license: it can mislead the client and put the firm at risk.",
+     why: "Only a lawyer may give legal advice. Telling a client what the case is worth, or what a fact does to it, is practicing law without a license: it can mislead the client and put the firm at risk.",
      better: "Share facts and the process only. When the client asks about value or consequences, say Atty. Thorne will answer, log the question and route it to him the same day.", how: "The review of each day's takeaway (CM Self-Summary) scores Risk 0 when the trainee gives the client legal advice: a 0 is a breach."},
     {id: "priv", label: "Privilege",
      why: "Privileged papers (an attorney memo, the Master Case Summary, a claim-specific HIPAA authorization, a confidential mediation statement) must never reach the other side: sending one can waive the protection.",

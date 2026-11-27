@@ -29,7 +29,7 @@
 
 ## This day's module
 
-The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then 📁 Backup File Maintenance, required every day (marked **Required: Backup File Maintenance** below); then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
+The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then 📁 Backup File Maintenance, required every day (marked **Required: Backup File Maintenance** below); then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practices. A lesson marked (condensed) is a short overview.
 
 **Module 2 — Pre-Demand, the BI Demand & BI Settlement**
 
@@ -39,12 +39,12 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 4. *Lesson* — BI Settlement: the UM/UIM Safety Check & Key Laws
 5. *Lesson* — Interview Techniques & UPL Boundaries in Client Investigation
 6. *Lesson* — The Causation Letter: Proving the Collision Caused the Harm
-7. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package (practises: Case Phase: Demand) — **Skill Building**
-8. *Skill Activity* — Pre-Demand Strategy Session with Atty. Elijah Thorne (practises: Pre-Demand Case Auditing) — *side*
-9. *Skill Activity* — Backup File Maintenance: Records and Bills in Their Folders (practises: Pre-Demand Case Auditing) — **Required: Backup File Maintenance**
-10. *Skill Activity* — Negotiate with the Adjuster: MRI Findings vs. the 14-Day Gap (practises: Settlement Negotiations & the BI Settlement) — *side*
-11. *Skill Activity* — Settlement Release Clause Review & Attorney Approval (practises: BI Settlement: the UM/UIM Safety Check & Key Laws) — *side*
-12. *Skill Activity* — Probe the 14-Day Treatment Gap with John Doe (practises: Interview Techniques & UPL Boundaries in Client Investigation) — *side*
+7. *Skill Activity* — Serving the $10,000 BI Time-Limit Demand Package (practices: Case Phase: Demand) — **Skill Building**
+8. *Skill Activity* — Pre-Demand Strategy Session with Atty. Elijah Thorne (practices: Pre-Demand Case Auditing) — *side*
+9. *Skill Activity* — Backup File Maintenance: Records and Bills in Their Folders (practices: Pre-Demand Case Auditing) — **Required: Backup File Maintenance**
+10. *Skill Activity* — Negotiate with the Adjuster: MRI Findings vs. the 14-Day Gap (practices: Settlement Negotiations & the BI Settlement) — *side*
+11. *Skill Activity* — Settlement Release Clause Review & Attorney Approval (practices: BI Settlement: the UM/UIM Safety Check & Key Laws) — *side*
+12. *Skill Activity* — Probe the 14-Day Treatment Gap with John Doe (practices: Interview Techniques & UPL Boundaries in Client Investigation) — *side*
 13. *Knowledge Check* — Treatment Monitoring Review
 14. *Knowledge Check* — UPL & Investigation Review
 15. *Knowledge Check* — Pre-Demand Audit & Day 3 Gate

@@ -6,7 +6,7 @@
        node build/case-flow/curriculum.cjs --check   validates only; writes nothing
 
    Validation (exit 1 on any breach): every day runs all its Lessons → one Practice Lab (all its
-   Skill Activities, each naming the lesson it practises) → Knowledge Check; every block has all six components; every rubric is
+   Skill Activities, each naming the lesson it practices) → Knowledge Check; every block has all six components; every rubric is
    60 AI / 40 trainer; every quiz question is well formed; every block names its
    sources; every "D<day>#<topic>" source names a real topic in build/day<day>.js; and
    every one of the course's existing topics is either used by a block or planned for
@@ -95,7 +95,7 @@ CF.days.forEach(day => {
 /* The sequence: each day is one module, taught in two parts: ALL of its lessons, in teaching order, then ONE Practice
    Lab that holds all of its Skill Activities, in the order their lessons were taught, then its Knowledge Check.
    Every block exactly once, each module's Knowledge Check no earlier than the blocks it checks, and every Skill
-   Activity names the lesson it practises (the phase's `practises`: the Practice Lab's opening slide and the
+   Activity names the lesson it practices (the phase's `practises`: the Practice Lab's opening slide and the
    activity's first slide say it, so the link survives the distance between a lesson and its lab). */
 const STORED = {};
 CF.days.forEach(day => day.modules.forEach(mod => mod.blocks.forEach(b => { STORED[b.id] = {day, mod, b}; })));
@@ -118,12 +118,12 @@ else {
       if(last === 2 && x.b.kind !== "check") errors.push(`${at}: ${id} (${x.b.kind}) comes after a Learning Check; the Knowledge Check closes the day`);
       if(last === 1 && x.b.kind === "lesson") errors.push(`${at}: ${id} (lesson) comes after a Skill Activity; all of a day's lessons come before its one Practice Lab`);
       if(x.b.kind === "activity"){
-        // the lesson it practises: taught before it the same day, or on an earlier day (a deck's lessons are taught on
-        // the deck's own day, Day N's deck on Case Flow Day N; an activity practising one stays on its own day after it)
+        // the lesson it practices: taught before it the same day, or on an earlier day (a deck's lessons are taught on
+        // the deck's own day, Day N's deck on Case Flow Day N; an activity practicing one stays on its own day after it)
         const of = (ph.practises || {})[id], li = (ph.blocks || []).indexOf(of), earlier = of && TAUGHT[of] && TAUGHT[of][0] < sd.n;
         if(!of || !STORED[of] || STORED[of].b.kind !== "lesson" || STORED[of].b.retired || !((li >= 0 && li < k) || earlier)) errors.push(`${at}: ${id} (activity) needs practises: the id of a lesson taught before it, on the same day or an earlier one, never a later one (it has ${of || "none"}${of && TAUGHT[of] ? `, taught on Day ${TAUGHT[of][0]}` : ""})`);
       }
-      // (or, where the decks retired every drawn lesson of its topic, the lesson it practises, checked above)
+      // (or, where the decks retired every drawn lesson of its topic, the lesson it practices, checked above)
       if(x.b.kind === "activity" && !(ph.blocks || []).slice(0, k).some(p => STORED[p] && STORED[p].b.kind === "lesson" && STORED[p].mod.id === x.mod.id)
         && !Object.keys(TAUGHT).some(p => TAUGHT[p][0] < sd.n && STORED[p].b.kind === "lesson" && STORED[p].mod.id === x.mod.id)
         && !(TAUGHT[(ph.practises || {})[id]] && x.mod.blocks.every(b => b.kind !== "lesson" || b.retired))) errors.push(`${at}: ${id} (activity) comes before any lesson of its own topic (${x.mod.id}); a topic's Skill Building follows its lessons`);
@@ -131,12 +131,12 @@ else {
     });
     if(!(ph.blocks || []).some(id => STORED[id] && STORED[id].b.kind === "check")) errors.push(`${at}: ends without a Learning Check`);
     Object.keys(ph.practises || {}).forEach(id => { if(!(ph.blocks || []).includes(id) || !STORED[id] || STORED[id].b.kind !== "activity") errors.push(`${at}: practises names ${id}, which is not a Skill Activity of this day`); });
-    // the Practice Lab runs in the order the lessons were taught: its activities' sections (the heading each practised lesson is taught under) never go back
+    // the Practice Lab runs in the order the lessons were taught: its activities' sections (the heading each practiced lesson is taught under) never go back
     { const runOf = {}; let r = -1, prev = null;
       (ph.blocks || []).forEach(id => { if(!STORED[id] || STORED[id].b.kind !== "lesson") return; const h = (ph.headings || {})[id] || prev; if(h !== prev){ r++; prev = h; } runOf[id] = r; });
       // (a lesson of an earlier day has no section here; the day's one Skill Building, `main`, opens the practice wherever its lesson is)
       let far = -1; (ph.blocks || []).forEach(id => { const of = (ph.practises || {})[id]; if(!of || runOf[of] == null || id === sd.main) return;
-        if(runOf[of] < far) errors.push(`${at}: ${id} practises ${of}, taught before the lessons of the activity ahead of it; the Practice Lab follows the order of the lessons`);
+        if(runOf[of] < far) errors.push(`${at}: ${id} practices ${of}, taught before the lessons of the activity ahead of it; the Practice Lab follows the order of the lessons`);
         far = Math.max(far, runOf[of]); }); }
   }));
   Object.keys(STORED).forEach(id => { if(!TAUGHT[id] && !STORED[id].b.retired) errors.push(`sequence: ${id} is never taught`); });
@@ -249,7 +249,7 @@ if(Array.isArray(CF.sequence)){
       if(x.b.kind === "lesson"){ taught.add(x.mod); lessonsSeen.add(id); }
       if(x.b.kind === "activity"){
         const pre = [].concat(x.b.prereq || []);
-        // (a module every drawn lesson of which the decks retired: the lesson it practises, a deck lesson, taught before it)
+        // (a module every drawn lesson of which the decks retired: the lesson it practices, a deck lesson, taught before it)
         if(pre.length ? !pre.every(l => lessonsSeen.has(l)) : !taught.has(x.mod) && !lessonsSeen.has((ph.practises || {})[id]))
           errors.push(`Day ${sd.n}: activity ${id} has no lesson before it (${pre.length ? "prereq " + pre.join(", ") : "none of module " + x.mod})`);
       }
@@ -381,9 +381,9 @@ function dayMd(day){
     `| **Policy stack** | ${stack().map(l => `${money(l.limit)} ${l.tag}`).join(" / ")} = **${money(c.total)}** |`,
     `| **Health plan** | ${c.health.carrier} · ${c.health.memberId} · ${c.health.group} |`, `| **Critical fact** | ${c.critical} |`, "",
     "## This day's module", "",
-    "The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then 📁 Backup File Maintenance, required every day (marked **Required: Backup File Maintenance** below); then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.", ""];
+    "The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then 📁 Backup File Maintenance, required every day (marked **Required: Backup File Maintenance** below); then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practices. A lesson marked (condensed) is a short overview.", ""];
   const pract = Object.assign({}, ...CF.sequence.find(x => x.n === day.n).phases.map(ph => ph.practises || {}));
-  const practises = x => x.b.kind === "activity" && pract[x.b.id] && STORED[pract[x.b.id]] ? ` (practises: ${STORED[pract[x.b.id]].b.title})` : "";
+  const practises = x => x.b.kind === "activity" && pract[x.b.id] && STORED[pract[x.b.id]] ? ` (practices: ${STORED[pract[x.b.id]].b.title})` : "";
   const SEQ = CF.sequence.find(x => x.n === day.n), loopTag = x => x.b.kind !== "activity" ? "" : x.b.id === SEQ.main ? " — **Skill Building**" : x.b.id === SEQ.drive ? " — **Required: Backup File Maintenance**" : " — *side*";
   const phases = CF.sequence.find(x => x.n === day.n).phases.map((ph, i) => ({n: i + 1, title: ph.title, lead: ph.lead || `Case Phase ${i + 1}`, blocks: ph.blocks.map(id => STORED[id])}));
   phases.forEach(ph => {

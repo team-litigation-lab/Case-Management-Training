@@ -886,7 +886,7 @@ async function withoutBlocked(env, keys) {
 
    A firm keeps a backup drive of every case document, in one folder structure everybody knows by heart: a
    Case Manager covering someone else's file still finds the executed retainer, the demand package and the
-   lien correspondence where they always are. A trainee practises that here on their own Google Drive:
+   lien correspondence where they always are. A trainee practices that here on their own Google Drive:
    they link a folder of it once, lay the firm's structure out on Day 1 — graded, folder by folder — and every
    document they file in the CMS is kept in its folder on the drive as well.
 

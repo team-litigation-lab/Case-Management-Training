@@ -14,7 +14,7 @@
 "use strict";
 const THINK = [{
   id: "d2-think-valuation",
-  activity: "d3m2-a1",            // Day 2's Skill Building that practises the Valuation Baseline pages (d3m2-l2)
+  activity: "d3m2-a1",            // Day 2's Skill Building that practices the Valuation Baseline pages (d3m2-l2)
   deck: {day: 2, pages: [23, 24]},
   n: 2,
   title: "Think It Through: What John Doe's 48 Hours Did to His File",
@@ -128,7 +128,7 @@ if(typeof window.afterRender === "function"){
 }
 window.cmThink = {THINK, open, close, draft, submit, text: id => (W[id] || {}).text || ""};
 
-/* ---------- the button: beside the 💡 Tip on the activity that practises the pages (Your Task's 🧰 Tools menu) ---------- */
+/* ---------- the button: beside the 💡 Tip on the activity that practices the pages (Your Task's 🧰 Tools menu) ---------- */
 if(typeof renderDaySlideContent === "function"){
   const __content = renderDaySlideContent;
   renderDaySlideContent = function(d, slide){

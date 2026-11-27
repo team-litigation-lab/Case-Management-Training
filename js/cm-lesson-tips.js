@@ -11,11 +11,11 @@
      (d1m1-l2), the EMC Rule (d1m4-emc), the Treatment Phase Summary (d2m2-sum), A-C-T & Treatment Monitoring (d2m2-l2),
      Medical Excuse Notes (d2m3-l2), Strategy Briefing (d2m4-l2), Lien Negotiation Calls (d3m3-l3), Treatment to Demand
      (d4m3-tx), Non-Responsive Adjusters (d4m4-l1) and Escalation Workflows (d4m4-l2)
-   Their rules are not lost: each one is a 💡 Tip pop-up on the Skill Activity that practised it (or, where the owner cut
+   Their rules are not lost: each one is a 💡 Tip pop-up on the Skill Activity that practiced it (or, where the owner cut
    that activity as an extra task, on the kept activity that now does its work), on the activity's
    first slide, beside its "Practices:" line.
    The same goes for a lesson whose slides ARE the trainers' deck pages (js/cm-deck-slides.js, every day now): its own
-   drawn slides are not shown, so its rules are a 💡 Tip on each activity that practises it (DECK_TIPS, read from the
+   drawn slides are not shown, so its rules are a 💡 Tip on each activity that practices it (DECK_TIPS, read from the
    course's order, CF.sequence `practises`). The button opens a small panel (why it matters and the rules), and ✕ or Esc closes it.
    Checked by .github/scripts/lesson-tips.cjs. */
 (function(){

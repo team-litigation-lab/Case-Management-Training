@@ -1,4 +1,4 @@
-// @check node — Every 🧠 Think it through challenge (js/cm-think-through.js) sits on a Skill Activity, taught on its deck's day, that practises the deck pages it is about; it is graded (AI 60, trainer 40, an answer key that reasons past the slide), and its figures are the ones the case file and those pages agree on
+// @check node — Every 🧠 Think it through challenge (js/cm-think-through.js) sits on a Skill Activity, taught on its deck's day, that practices the deck pages it is about; it is graded (AI 60, trainer 40, an answer key that reasons past the slide), and its figures are the ones the case file and those pages agree on
 // Day 2's Valuation Baseline pages show a $10,000 PIP gone in 48 hours on ER and EMS bills, $41,400 of bills and
 // Dr. Sarah Spine's EMC, and the case file follows them; the narration leaves John's own figures to this challenge. The challenge is critical thinking: the
 // trainee reasons from those figures to their consequences on his file. Checked for each challenge in window.CM_THINK:
@@ -32,7 +32,7 @@ THINK.forEach((t) => {
   const spec = JSON.parse(fs.readFileSync(path.join(ROOT, `build/videoslide/day${t.deck.day}.json`), 'utf8'));
   const lesson = Object.keys(spec.lessons || {}).find((l) => t.deck.pages.every((p) => spec.lessons[l].includes(p)));
   if (!lesson) fails.push(`${at}: pages ${t.deck.pages.join(', ')} are not one lesson's slides on Day ${t.deck.day}`);
-  else if (prac[t.activity] !== lesson) fails.push(`${at}: the activity practises ${prac[t.activity]}, not ${lesson} (the lesson whose slides the pages are)`);
+  else if (prac[t.activity] !== lesson) fails.push(`${at}: the activity practices ${prac[t.activity]}, not ${lesson} (the lesson whose slides the pages are)`);
   const r = t.rubric || {};
   if (sum(r.ai) !== 60 || sum(r.trainer) !== 40) fails.push(`${at}: rubric AI ${sum(r.ai)} / trainer ${sum(r.trainer)}; the course's rule is 60 / 40`);
   if (!(t.steps || []).length || t.steps.length > 3) fails.push(`${at}: ${(t.steps || []).length} steps (2–3)`);
@@ -51,4 +51,4 @@ THINK.forEach((t) => {
   if (!notes.some((n) => /Think it through/i.test(n) && /John Doe/.test(n))) fails.push(`${at}: none of Day ${t.deck.day} pages ${t.deck.pages.join('–')}'s narration sends the trainee to the Think it through challenge on John Doe's file`);
 });
 if (fails.length) { console.log(`✗ Think it through (${fails.length}):\n  ` + fails.join('\n  ')); process.exit(1); }
-console.log(`🧠 Think it through: ${THINK.length} challenge(s) (${THINK.map((t) => `Day ${t.deck.day} pages ${t.deck.pages.join('–')} on ${t.activity}`).join('; ')}), each on the activity that practises its pages, graded 60/40, its key reasoning from the slides' figures (the case file's) to their consequences.`);
+console.log(`🧠 Think it through: ${THINK.length} challenge(s) (${THINK.map((t) => `Day ${t.deck.day} pages ${t.deck.pages.join('–')} on ${t.activity}`).join('; ')}), each on the activity that practices its pages, graded 60/40, its key reasoning from the slides' figures (the case file's) to their consequences.`);

@@ -152,7 +152,7 @@ lesson's existing slides, so no slide is added and no timing changes. Take every
 **Activity** (`kind: "activity"`): **one slide**, Your Task (the owner: practice slides as minimal as they can be):
 📂 Your Case (`situation`, in a line or two) at the top, the numbered `steps`, then three buttons: 🚀 Launch LSH CaseWorX & Google
 Drive, 🧰 Tools ▾ (the live call, the service confirmation, the Notes & Action Plan, the Action Plan Editor, 📁 Source
-Files, the lesson it practises with its 💡 Tip, a trainer's ⚡ Inject) and Submit →, which turns the slide into the 🤖 AI
+Files, the lesson it practices with its 💡 Tip, a trainer's ⚡ Inject) and Submit →, which turns the slide into the 🤖 AI
 Grader. Only the day's Skill Building keeps a second slide, its document audit, and Day 1's Backup File Maintenance its
 Your Case (the Backup Drive set-up); a side exercise's audit opens from 🧰 Tools on the same slide. What landed on the
 file, the Grade-A Standard (`grade`), the model (`show`) and the answer key are in 📖 Reference, the AI Grader and the

@@ -3,7 +3,7 @@
    read loud: an orange-edged Your Case strip with an orange tag, orange step numbers and highlights, a dashed footer
    line ("Practices: … · 💡 Tips, 📁 Source Files and this task's tools: 📖 Reference, top right") and an orange Submit.
    Now:
-   · the footer line is gone from the slide (the lesson it practises stays in the slide's hidden tools, which 📖 Reference
+   · the footer line is gone from the slide (the lesson it practices stays in the slide's hidden tools, which 📖 Reference
      shows under 🧰 This task's tools, and which the course's checks read: .cfx-of);
    · 📂 Your Case: a navy header with a quiet glass tag and sand highlights, no orange edge;
    · ✅ What to do: a small navy label over a hairline; the steps with room between them;

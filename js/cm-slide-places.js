@@ -49,7 +49,7 @@
    counts as seen for a trainee who was past it.
    Then the lesson cards the trainers' decks replaced left the course (layout 8): Day 1's UPL Line, Client Directions and
    Final Warning Letter, Day 2's PIP Strategy, Day 3's Demand Package, Adjuster Delay Tactics and UM Consent & Waiver
-   (GONE8: each with the lesson it followed). Their rules are 💡 Tips on the activities that practised them
+   (GONE8: each with the lesson it followed). Their rules are 💡 Tips on the activities that practiced them
    (js/cm-lesson-tips.js). A place saved on one of their slides lands on the slide before them; every other place keeps
    its slide.
    The layouts: 1, the deck with On the Job (no layout on the saved place); 2, without On the Job (the deck with the

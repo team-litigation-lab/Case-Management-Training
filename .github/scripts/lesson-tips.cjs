@@ -1,8 +1,8 @@
 // @check node — every 💡 Tip (js/cm-lesson-tips.js) sits on an activity still in the course and quotes a lesson that is not
 'use strict';
 // The lesson cards the trainers' decks replaced are out of CF.sequence; their rules are Tip pop-ups on the activity
-// that practised them. A lesson taught by the trainers' deck pages (js/cm-deck-slides.js) shows its rules nowhere else
-// either: every activity that practises it carries them as a Tip. Each tip must name an activity the course still teaches and a lesson the course no longer does
+// that practiced them. A lesson taught by the trainers' deck pages (js/cm-deck-slides.js) shows its rules nowhere else
+// either: every activity that practices it carries them as a Tip. Each tip must name an activity the course still teaches and a lesson the course no longer does
 // (a tip repeating a lesson that is still taught is noise), and that lesson must still have its rules to show.
 const path = require('path'), root = path.join(__dirname, '..', '..');
 global.window = global;
@@ -28,9 +28,9 @@ const GONE = ['d1m1-upl', 'd1m3-l1', 'd1m2-l2', 'd2m2-pip', 'd3m1-pkg', 'd3m2-l1
 // and every lesson retired since (each block's own `retired`): none leaves the course without a Tip
 CF.days.forEach(d => d.modules.forEach(m => m.blocks.forEach(b => { if (b.kind === 'lesson' && b.retired && !GONE.includes(b.id)) GONE.push(b.id); })));
 const tipped = new Set(Object.values(TIPS).flat());
-// a lesson whose slides are the trainers' deck pages shows none of its own rules: each activity that practises it carries them
+// a lesson whose slides are the trainers' deck pages shows none of its own rules: each activity that practices it carries them
 CF.sequence.forEach(sd => sd.phases.forEach(ph => Object.entries(ph.practises || {}).forEach(([a, l]) => {
-  if (DECK[l] && !(TIPS[a] || []).includes(l)) fails.push(`${a}: practises ${l}, whose slides are deck pages, with no Tip carrying ${l}'s rules`); })));
+  if (DECK[l] && !(TIPS[a] || []).includes(l)) fails.push(`${a}: practices ${l}, whose slides are deck pages, with no Tip carrying ${l}'s rules`); })));
 GONE.forEach(id => { if (!tipped.has(id)) fails.push(`${id}: taken out of the course with no Tip carrying its rules`); });
 if (fails.length) { console.error('lesson-tips: FAIL\n  ' + fails.join('\n  ')); process.exit(1); }
 console.log(`lesson-tips: ${Object.keys(TIPS).length} activities carry the rules of ${tipped.size} replaced lessons`);

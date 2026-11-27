@@ -2,7 +2,7 @@
    The owner cut and merged extra tasks so trainees focus on each day's Skill Building (js/cm-case-flow-data.js keeps the
    cut blocks, retired, so old grades still resolve). A Case Flow call in ROLEPLAY_CATEGORIES is "cf-<activity id>"; one
    whose activity is in no day's CM_CASE_FLOW.sequence is taken out of the hub's topics and out of
-   QUICK_PRACTICE_TOPIC_IDS (index.html), so no trainee practises, or is graded on, a call for work their days no longer
+   QUICK_PRACTICE_TOPIC_IDS (index.html), so no trainee practices, or is graded on, a call for work their days no longer
    have. Calls that are not a Case Flow activity's are left as they are; so are the categories and every saved result. */
 (function(){
 "use strict";

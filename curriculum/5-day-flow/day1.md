@@ -29,7 +29,7 @@
 
 ## This day's module
 
-The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then 📁 Backup File Maintenance, required every day (marked **Required: Backup File Maintenance** below); then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practises. A lesson marked (condensed) is a short overview.
+The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-day-loop.js`): first ALL of its lessons, in teaching order under their section headings; then the Case Profile (Day 1: Meet John Doe and his Intake; later days a check-in on what changed); then ONE Skill Building, AI graded (marked **Skill Building** below; on a build day, the Full Application Practice), with a short brainstorm after it; then 📁 Backup File Maintenance, required every day (marked **Required: Backup File Maintenance** below); then Update Your Action Plan (Day 1 step by step, lighter each day after); then the optional side exercises (marked *side*: an assumption and one entry to log in the CMS) in one short Practice Lab; the Knowledge Check closes the day. Each Skill Activity names the lesson it practices. A lesson marked (condensed) is a short overview.
 
 **Module 1 — Fundamentals, Intake, Claim Set Up & Treatment**
 
@@ -49,13 +49,13 @@ The day is one module, on John Doe's one file, and runs the daily loop (`js/cm-d
 14. *Lesson* — Rental & Reimbursement of Costs (condensed)
 15. *Lesson* — The No Contact Protocol — Steps 1 to 3
 16. *Lesson* — The Action Plan Editor & Attorney Review Routing (condensed)
-17. *Skill Activity* — Opening John Doe's File in the CMS (practises: Case Phase: Intake & the Intake Bottlenecks) — **Skill Building**
-18. *Skill Activity* — Backup File Maintenance: the Firm's Folders and Hierarchy (practises: Case Phase: Intake & the Intake Bottlenecks) — **Required: Backup File Maintenance**
-19. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet (practises: Case Phase: Intake & the Intake Bottlenecks) — *side*
-20. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers (practises: LOR Drafting Mechanics & Three-Carrier Notification) — *side*
-21. *Skill Activity* — Transmitting LOPs to Medical Providers (practises: LOP Issuance Guidelines, Provider Coordination & PIP Limits) — *side*
-22. *Skill Activity* — The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol (practises: The No Contact Protocol — Steps 1 to 3) — *side*
-23. *Skill Activity* — Live Case Plan Draft — John Doe VS Robert Smith (practises: The Action Plan Editor & Attorney Review Routing) — *side*
+17. *Skill Activity* — Opening John Doe's File in the CMS (practices: Case Phase: Intake & the Intake Bottlenecks) — **Skill Building**
+18. *Skill Activity* — Backup File Maintenance: the Firm's Folders and Hierarchy (practices: Case Phase: Intake & the Intake Bottlenecks) — **Required: Backup File Maintenance**
+19. *Skill Activity* — Voicemails & Recorded Statements: the Action Plan and Direction Packet (practices: Case Phase: Intake & the Intake Bottlenecks) — *side*
+20. *Skill Activity* — Generating Formal LORs to BI, Host UM, and Relative UM Carriers (practices: LOR Drafting Mechanics & Three-Carrier Notification) — *side*
+21. *Skill Activity* — Transmitting LOPs to Medical Providers (practices: LOP Issuance Guidelines, Provider Coordination & PIP Limits) — *side*
+22. *Skill Activity* — The Near-Drop: Re-engaging John Doe through A-C-T and the No Contact Protocol (practices: The No Contact Protocol — Steps 1 to 3) — *side*
+23. *Skill Activity* — Live Case Plan Draft — John Doe VS Robert Smith (practices: The Action Plan Editor & Attorney Review Routing) — *side*
 24. *Knowledge Check* — CM Fundamentals Knowledge Check
 25. *Knowledge Check* — Coverage Setup Verification Check
 26. *Knowledge Check* — Onboarding & Property Damage Check
