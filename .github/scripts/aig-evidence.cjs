@@ -1,7 +1,7 @@
 // @check browser — the AI Grader waits for the trainee's own evidence: a reference typed in 🧾 Log Your Work reaches the grade (never graded before it is logged, nor resubmitted before it can be corrected), and Day 5's companion build is graded on the trainee's account of it, against the companion case's own facts
 // js/cm-ai-grader.js and js/cm-companion-grade.js, in a real browser, as a trainee with a case open in the CMS (which puts
 // "My case in the CMS" on every activity's evidence, so the grader always has something to send):
-//   · Day 1's first activity (d1m1-open, the one with the 🧾 Log Your Work box under the grader): opening its Submit asks
+//   · Day 1's first activity (d1m1-open, the one with the 🧾 Log Your Work box under the grader), in the 🧪 Practice Lab: its Submit asks
 //     the AI nothing while no reference is logged; pressing Log it checks it by itself, with the reference in what is sent;
 //   · ↻ Check again opens the form with the box editable and sends nothing; a reference typed there (Log it not pressed)
 //     goes with Submit →;
@@ -32,10 +32,8 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 
   // ---- 1. the reference in 🧾 Log Your Work ----
   await page.evaluate(() => { const R = cmCaseFlow.record(); if (R.work) delete R.work['d1m1-open']; });
-  const go = () => page.evaluate(() => { const d = DAYS.find(d => d.cf && d.cf.n === 1); goto('day', d.id); state.dayViewMode = 'slides';
-    const ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === 'd1m1-open' && cmCaseFlow.viewsOf(d.lessons[s.lessonIndex].cf.block)[(s.part || 1) - 1] === 'task');
-    if (k < 0) return false; goToSlide(k); cmCaseFlow.mode('d1m1-open', 'check'); return true; });
-  if (!await go()) fail('Day 1 has no Submit slide for d1m1-open');
+  const go = () => page.evaluate(() => { if (!cmTaskLab.openView('d1m1-open', 'task')) return false; cmCaseFlow.mode('d1m1-open', 'check'); return true; });
+  if (!await go()) fail('d1m1-open\'s Your Task does not open in the 🧪 Practice Lab');
   await sleep(1200);
   const s1 = await page.evaluate(() => ({ cms: window.CMCase && CMCase.id(), box: !!document.getElementById('cflog_d1m1-open'), ev: [...document.querySelectorAll('#app .aig-ev li')].map(x => x.textContent).join(' | ') }));
   if (s1.cms !== 'CMS-OPEN-1' || !/My case in the CMS/.test(s1.ev)) fail(`the test needs a case open in the CMS on the evidence: ${JSON.stringify(s1)}`);

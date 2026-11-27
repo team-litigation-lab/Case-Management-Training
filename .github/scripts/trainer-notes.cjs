@@ -1,5 +1,5 @@
 // @check browser — 🧑‍🏫 a trainer's own feedback on a graded Practice Lab activity: written in the feedback composer, saved to the trainee's feedback record, shown to the trainee under the grade
-// js/cm-trainer-notes.js. As a trainee: an activity graded on the Submit slide shows no trainer note until one is in their
+// js/cm-trainer-notes.js. As a trainee: an activity graded on its Submit in the 🧪 Practice Lab shows no trainer note until one is in their
 // feedback record (activities[<blockId>]), then "🧑‍🏫 Your trainer's feedback" with its words, and the grade's sections
 // (the coach's note, what went well, what to work on, what could have been done better) have no "AI" label. As a trainer:
 // the feedback composer (renderFeedbackAdmin) lists the trainee's graded activity with a box; Save writes
@@ -27,12 +27,11 @@ const failures = []; const fail = (m) => failures.push(m);
       better: ['You could have checked each field against the Police Report before typing.'], growthSuggestions: ['Write the note in two lines.'] });
     const R = cmCaseFlow.record(); R.work = R.work || {}; R.work['d1m1-open'] = { ref: 'JD-24017', tool: 'cms', at: new Date().toISOString() };
   });
-  const go = () => page.evaluate(() => { const d = DAYS.find(d => d.cf && d.cf.n === 1); goto('day', d.id); state.dayViewMode = 'slides';
-    const ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === 'd1m1-open' && cmCaseFlow.viewsOf(d.lessons[s.lessonIndex].cf.block)[(s.part || 1) - 1] === 'task');
-    if (k < 0) return false; goToSlide(k); cmCaseFlow.mode('d1m1-open', 'check'); return true; });
-  if (!await go()) fail('Day 1 has no Submit slide for d1m1-open');
+  // the activity's Your Task is in the 🧪 Practice Lab (js/cm-task-lab.js); its Submit turns it into the grade
+  const go = () => page.evaluate(() => { if (!cmTaskLab.openView('d1m1-open', 'task')) return false; cmCaseFlow.mode('d1m1-open', 'check'); return !!document.querySelector('#app .ctl-page .cf-card.cfx-check'); });
+  if (!await go()) fail('d1m1-open\'s Submit does not open in the 🧪 Practice Lab');
   await page.waitForTimeout(1500);
-  const graded = await page.evaluate(() => { const c = document.querySelector('#app .cf-card.cfx-check'); return { text: c ? c.innerText : '', note: !!(c && c.querySelector('.tn-note')) }; });
+  const graded = await page.evaluate(() => { const c = document.querySelector('#app .ctl-page .cf-card.cfx-check'); return { text: c ? c.innerText : '', note: !!(c && c.querySelector('.tn-note')) }; });
   if (!/What you could have done better/.test(graded.text)) fail('the grade should have a "What you could have done better" section');
   if (!/Your coach's note/.test(graded.text)) fail('the grade should open with the coach\'s note');
   if (/\bAI\b/.test(graded.text)) fail(`the grade's feedback should carry no "AI" label: "${(graded.text.match(/.{0,40}\bAI\b.{0,40}/) || [''])[0]}"`);
@@ -41,7 +40,7 @@ const failures = []; const fail = (m) => failures.push(m);
   // the trainer's note in the trainee's record: it shows under the grade
   await page.evaluate(() => { state.myFeedbackRaw = { days: {}, activities: { 'd1m1-open': { comment: 'Good eye on the date of birth. Next time, name the source in the same line.', by: 'Coach Rivera', at: new Date().toISOString() } } }; render(); });
   await go(); await page.waitForTimeout(800);
-  const shown = await page.evaluate(() => { const n = document.querySelector('#app .cf-card.cfx-check .tn-note'); return n ? n.innerText : ''; });
+  const shown = await page.evaluate(() => { const n = document.querySelector('#app .ctl-page .cf-card.cfx-check .tn-note'); return n ? n.innerText : ''; });
   if (!/Your trainer's feedback/.test(shown) || !/name the source in the same line/.test(shown) || !/Coach Rivera/.test(shown)) fail(`the trainee should see the trainer's note under the grade: "${shown}"`);
 
   // the trainer: the composer lists the graded activity; Save writes activities[<blockId>] and keeps the days

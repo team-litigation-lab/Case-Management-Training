@@ -1,31 +1,35 @@
-// @check browser — Day 1's Backup File Maintenance slide is the Backup Drive task, the retired case folder stays gone, and the 🏷 naming convention box is where the drive is worked on without costing a slide its size
-// Day 1's case backup is the Backup Drive (js/cm-drive.js), and only the Backup Drive:
-// 1. the deck: Day 1's Backup File Maintenance "Your Case" slide shows the Backup Drive task's four steps and the
-//    firm's standard as the Worker keeps it;
+// @check browser — Day 1's Backup File Maintenance in the 🧪 Practice Lab is the Backup Drive task, the retired case folder stays gone, and the 🏷 naming convention box is where the drive is worked on without costing the deck or the lab its type size
+// Day 1's case backup is the Backup Drive (js/cm-drive.js), and only the Backup Drive. Since js/cm-task-lab.js an activity's
+// pages are in the 🧪 Practice Lab (cmTaskLab.openView(id, view)) and the deck keeps one card per activity, so what was
+// checked on the deck's slides is checked on the lab's pages, and the deck's cards are checked for fit:
+// 1. the lab: Day 1's Backup File Maintenance "Your Case" page (its second page) shows the Backup Drive task's four steps
+//    and the firm's standard as the Worker keeps it;
 // 2. the retired link-based case folder (a trainer's Drive Links tab, the trainee's My Case Folder card) stays gone,
 //    so a trainee is never given two different folder tasks.
-// 3. 🏷 the firm's naming convention is shown where the drive is worked on: Day 1's slide carries the box, and each later
-//    day's Backup File Maintenance task has it in 📖 Reference (the 📋 Rules & Naming Guide; off the slide itself: the Worker's
+// 3. 🏷 the firm's naming convention is shown where the drive is worked on: Day 1's Your Case carries the box, and each later
+//    day's Backup File Maintenance task has it in 📖 Reference (the 📋 Rules & Naming Guide; off the Your Task itself: the Worker's
 //    pattern, a filled example to copy, the labels from Day 3, what the names count for), and the Backup Drive panel lists each wrongly named file with its folder, the name it should have, the
 //    differing part marked and what the check can't see, in type no smaller than 14px bold. The box never stays on
 //    "Loading…": a trainee whose own status was refused gets the rule from the Worker's "standard", and is told when neither
 //    could be loaded. With names to fix (the Worker's report: files and folders counted apart, every differing piece
 //    listed, a copy the platform named itself marked as not counted) the panel says so beside the folders' verdict and in
-//    its head, with the report above the convention; the card and the slides carry ✗ N names to fix · 📂 Open My Backup
+//    its head, with the report above the convention; the card and the lab page carry ✗ N names to fix · 📂 Open My Backup
 //    Drive; one toast is shown when the list has changed; and the day's stored grade names the File names row first.
-// 5. 📐 The box costs the slides no size. At 1366x768, on Day 1's Your Case slide (a trainee not linked, after a sign-in that
-//    didn't finish, linked, linked and built, with names to fix; a trainer; the slides window) and on Days 2–5's Your Task
-//    slides (a trainer; a trainee; a trainee with names to fix): nothing under #lessonSlideWrap is scaled down (no zoom
-//    below 1), no text is under 16px, nothing is cut off, 🔗 Link my Google Drive and 📂 Build my folders are in plain view,
-//    and Day 1's 🏷 card covers none of the firm's standard.
-// 4. 🔗 Step 1 of Day 1's slide is where the drive is linked, the way Foundational links a trainee's Drive (no Google sign-in).
+// 5. 📐 The box costs nothing its size. At 1366x768, on Day 1's Your Case in the 🧪 Practice Lab (a trainee not linked, after a
+//    sign-in that didn't finish, linked, linked and built, with names to fix; a trainer) and on Days 2–5's Your Task in the lab
+//    (a trainer; a trainee; a trainee with names to fix): nothing under #lessonSlideWrap is scaled down (no zoom below 1), no
+//    text is under 16px, nothing is clipped, 🔗 Link my Google Drive and 📂 Build my folders are in plain view (scrolled to:
+//    a lab page may scroll, it is not fitted to one screen), and Day 1's 🏷 card covers none of the firm's standard. Each
+//    day's Backup File Maintenance card on the deck (a trainee, a trainer, the slides window) fits one screen: no zoom below 1,
+//    no text under 16px, nothing cut off or below the screen, ▶ Start in the Practice Lab in plain view.
+// 4. 🔗 Step 1 of Day 1's Your Case is where the drive is linked, the way Foundational links a trainee's Drive (no Google sign-in).
 //    A trainee has 🔗 Link my Google Drive there: the press opens 📂 My Backup Drive at its three steps (make the folder, share
 //    it with the platform's address as Editor, paste its link), and the link goes to /api/drive as "link". A link the Worker
 //    refuses is said in the panel and as a line in step 1, and the button works again. Linked, step 1 is ticked and shows the
-//    folder and Open my Drive ↗ (what the server sent is escaped), step 2 offers 📂 Build my folders, and the slide has redrawn
-//    itself in place: the page isn't rendered again and the deck doesn't move. A trainer, and the slides window a presenter
-//    shares, get the same button as a sample: pressing it opens nothing and writes nothing to /api/drive. With linking not
-//    switched on there is no button. Nothing on the slide is under 16px, and it is never cut off at 1366x768.
+//    folder and Open my Drive ↗ (what the server sent is escaped), step 2 offers 📂 Build my folders, and the page has redrawn
+//    itself in place: the lab page isn't rendered again and the deck's place doesn't move. A trainer gets the same button as a
+//    sample: pressing it opens nothing and writes nothing to /api/drive. (The slides window a presenter shares shows the deck,
+//    so the card, not the Your Case.) With linking not switched on there is no button. Nothing on it is under 16px.
 //    (/api/drive is answered by the test: the test server has no service account and no trainee tokens.)
 // Usage: node .github/scripts/drive-slide.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
@@ -49,46 +53,43 @@ const failures = []; const fail = (m) => failures.push(m);
     if (/Drive Links|drivelinks/.test(tabs)) fail('the admin page still has the retired Drive Links tab');
     if (await page.evaluate(() => !!window.cmDriveSop)) fail('the retired case folder script is still loaded');
 
-    // the deck: Day 1's Backup File Maintenance, Your Case
-    const slide = await page.evaluate(() => { const d = DAYS.find(d => d.cf && d.cf.n === 1); goto('day', d.id); state.dayViewMode = 'slides';
-        const ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === 'd1m1-drive' && cmCaseFlow.viewsOf(d.lessons[s.lessonIndex].cf.block)[(s.part || 1) - 1] === 'case');
-        if (k < 0) return null; goToSlide(k); return true; });
-    if (!slide) fail('Day 1 has no Your Case slide for Backup File Maintenance');
+    // the 🧪 Practice Lab: Day 1's Backup File Maintenance, Your Case (its second page)
+    const slide = await page.evaluate(() => cmTaskLab.openView('d1m1-drive', 'case') && !!document.querySelector('.ctl-page #lessonSlideWrap'));
+    if (!slide) fail('Day 1 has no Your Case page in the 🧪 Practice Lab for Backup File Maintenance');
     else {
         await page.waitForFunction(() => /09 Litigation & ADR/.test((document.querySelector('.drv-slide') || {}).innerText || ''), null, { timeout: 10000 }).catch(() => {});
         const t = await page.locator('.drv-slide').innerText().catch(() => '');
-        if (!/Link your Google Drive/.test(t) || !/Build the firm's folders/.test(t) || !/Check my drive/.test(t) || !/File in the CMS/.test(t)) fail(`the slide should carry the Backup Drive task's four steps: "${t.slice(0, 200)}"`);
-        if (!/LSH Case Backups/.test(t) || !/Doe-John/.test(t) || !/09 Litigation & ADR/.test(t) || !/04 Closed Files/.test(t)) fail(`the slide should show the firm's standard, from the Worker: "${t.slice(0, 300)}"`);
-        if (/\[Your Full Name\]|Your trainer sends your folder link/.test(t)) fail('the slide still teaches the link-based case folder instead of the Backup Drive');
-        // linking isn't switched on here (the test server has no Google keys): no button to press, and the slide says so
-        if (await page.locator('.drv-slide [data-drv-link]').count()) fail("with Google linking not switched on, the slide still shows 🔗 Link my Google Drive");
-        if (!/isn't switched on for this site yet/.test(t)) fail(`with Google linking not switched on, the slide should say so: "${t.slice(0, 300)}"`);
+        if (!/Link your Google Drive/.test(t) || !/Build the firm's folders/.test(t) || !/Check my drive/.test(t) || !/File in the CMS/.test(t)) fail(`the Your Case should carry the Backup Drive task's four steps: "${t.slice(0, 200)}"`);
+        if (!/LSH Case Backups/.test(t) || !/Doe-John/.test(t) || !/09 Litigation & ADR/.test(t) || !/04 Closed Files/.test(t)) fail(`the Your Case should show the firm's standard, from the Worker: "${t.slice(0, 300)}"`);
+        if (/\[Your Full Name\]|Your trainer sends your folder link/.test(t)) fail('the Your Case still teaches the link-based case folder instead of the Backup Drive');
+        // linking isn't switched on here (the test server has no Google keys): no button to press, and the page says so
+        if (await page.locator('.drv-slide [data-drv-link]').count()) fail("with Google linking not switched on, the Your Case still shows 🔗 Link my Google Drive");
+        if (!/isn't switched on for this site yet/.test(t)) fail(`with Google linking not switched on, the Your Case should say so: "${t.slice(0, 300)}"`);
     }
-    // 🏷 Day 1's slide carries the naming box: the pattern as the Worker has it and an example to copy
+    // 🏷 Day 1's Your Case carries the naming box: the pattern as the Worker has it and an example to copy
     const PATTERN = '<Case ID>_<Last-First>_<Type>_<YYYY-MM-DD>.<ext>', NAME = /^[A-Z0-9-]+_Doe-John_[A-Za-z-]+_\d{4}-\d{2}-\d{2}\.pdf$/;
     const boxOf = async (sel) => page.evaluate((sel) => { const b = document.querySelector(sel); if (!b) return null;
         const small = [...b.querySelectorAll('*')].filter(e => e.children.length === 0 && e.textContent.trim()).map(e => { const c = getComputedStyle(e); return { t: e.textContent.trim().slice(0, 30), px: parseFloat(c.fontSize), w: Number(c.fontWeight) }; }).filter(x => x.px < 14 || x.w < 700);
         return { text: b.innerText, pattern: (b.querySelector('.drv-nc-pat') || {}).textContent || '', copy: (b.querySelector('[data-copy]') || { dataset: {} }).dataset.copy || '', small }; }, sel);
     await page.waitForFunction(() => /Case ID/.test((document.querySelector('.drv-slide .drv-nc') || {}).innerText || ''), null, { timeout: 10000 }).catch(() => {});
     let box = await boxOf('.drv-slide .drv-nc');
-    if (!box) fail("Day 1's Backup Drive slide has no 🏷 naming convention box");
+    if (!box) fail("Day 1's Backup Drive page (Your Case, in the 🧪 Practice Lab) has no 🏷 naming convention box");
     else {
         if (box.pattern !== PATTERN) fail(`Day 1's 🏷 box should show the firm's pattern: "${box.pattern}"`);
         if (!NAME.test(box.copy)) fail(`Day 1's 🏷 box should carry a filled example of John Doe's file to copy: "${box.copy}"`);
         if (box.small.length) fail(`Day 1's 🏷 box has type under 14px bold: ${JSON.stringify(box.small.slice(0, 4))}`);
     }
-    // 🏷 each later day's Backup File Maintenance task (every day open, as a trainer presents it): the slide shows only what to
+    // 🏷 each later day's Backup File Maintenance task (every day open, as a trainer opens it, in the 🧪 Practice Lab): its Your Task shows only what to
     // do, and the box (pattern, example to copy, the labels from Day 3, what the names count for) is in 📖 Reference, its
     // 📋 Rules & Naming Guide (js/cm-sb-task.js)
     for (const n of [2, 3, 4, 5]) {
-        const shown = await page.evaluate((n) => { state.isAdmin = true; const d = DAYS.find(d => d.cf && d.cf.n === n); goto('day', d.id); state.dayViewMode = 'slides';
-            const ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === `d${n}-drive` && cmCaseFlow.viewsOf(d.lessons[s.lessonIndex].cf.block)[(s.part || 1) - 1] === 'task');
-            if (k < 0) return false; goToSlide(k); return true; }, n);
-        if (!shown) { fail(`Day ${n} has no Your Task slide for Backup File Maintenance`); continue; }
+        const shown = await page.evaluate((n) => { state.isAdmin = true; const d = DAYS.find(d => d.cf && d.cf.n === n);
+            return d.lessons.some(l => l.cf && l.cf.block.id === `d${n}-drive`) && cmTaskLab.openView(`d${n}-drive`, 'task'); }, n);
+        if (!shown) { fail(`Day ${n} has no Your Task in the 🧪 Practice Lab for Backup File Maintenance`); continue; }
         await page.waitForTimeout(300);
-        const onSlide = await page.evaluate(() => document.querySelectorAll('#lessonSlideWrap .cfx-task [data-drv-naming], #lessonSlideWrap .cfx-do-now .drv-nc-lb, #lessonSlideWrap .drv-nc-pts').length);
-        if (onSlide) fail(`Day ${n}'s Your Task slide still carries the 🏷 naming convention (bar, labels or points): it belongs in 📖 Reference`);
-        await page.evaluate(() => document.querySelector('#lessonSlideWrap .cfx-ref-open').click());
+        const onSlide = await page.evaluate(() => document.querySelectorAll('.ctl-page #lessonSlideWrap .cfx-task [data-drv-naming], .ctl-page #lessonSlideWrap .cfx-do-now .drv-nc-lb, .ctl-page #lessonSlideWrap .drv-nc-pts').length);
+        if (onSlide) fail(`Day ${n}'s Your Task in the 🧪 Practice Lab still carries the 🏷 naming convention (bar, labels or points): it belongs in 📖 Reference`);
+        await page.evaluate(() => document.querySelector('.ctl-page #lessonSlideWrap .cfx-ref-open').click());
         await page.waitForFunction(() => /Case ID/.test((document.querySelector('.cfx-ref .cfx-guide .drv-nc') || {}).innerText || ''), null, { timeout: 10000 }).catch(() => {});
         box = await boxOf('.cfx-ref .cfx-guide .drv-nc');
         if (!box) { fail(`Day ${n}'s Backup File Maintenance Reference has no 🏷 naming convention box`); await page.evaluate(() => cmCaseFlow.fullClose()); continue; }
@@ -271,18 +272,20 @@ const failures = []; const fail = (m) => failures.push(m);
         const p2 = await ctx.newPage();
         p2.on('pageerror', e => fail(`page error (linking): ${e.message}`));
         await p2.goto(BASE, { waitUntil: 'load' }); await p2.waitForTimeout(800);
-        await p2.addStyleTag({ content: '#ktLogin{display:none!important}' });   // a trainee's 🔔 open-your-tools prompt, never over the slide being measured
+        await p2.addStyleTag({ content: '#ktLogin{display:none!important}' });   // a trainee's 🔔 open-your-tools prompt, never over the page being measured
         await signIn(p2, 'Dana', last + 'x', 'B100926');
+        // Day 1's Your Case, in the 🧪 Practice Lab: the page, marked so a redraw of the whole page shows; its place in the deck
         const openSlide = (pg) => pg.evaluate(() => { const o = document.getElementById('ktLogin'); if (o) o.remove();
-            const d = DAYS.find(d => d.cf && d.cf.n === 1); goto('day', d.id); state.dayViewMode = 'slides';
-            const ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === 'd1m1-drive' && cmCaseFlow.viewsOf(d.lessons[s.lessonIndex].cf.block)[(s.part || 1) - 1] === 'case');
-            goToSlide(k); document.getElementById('lessonSlideWrap').__kept = true; return k; });
-        // step 1 as it stands: its text, the button, the line under it; whether the slide is the one first drawn (the page not
-        // rendered again, the deck not moved); type under 16px or lighter than bold; and how much of the slide is cut off
+            if (!cmTaskLab.openView('d1m1-drive', 'case')) return -1;
+            const w = document.querySelector('.ctl-page #lessonSlideWrap'); if (!w) return -1; w.__kept = true; return state.lessonSlide; });
+        // step 1 as it stands: its text, the button, the line under it; whether the page is the one first drawn (the page not
+        // rendered again, the deck's place not moved); type under 16px or lighter than bold; and how much of it is clipped
+        // (a lab page may scroll: what is below the screen is only counted on the deck)
         const look = (pg) => pg.evaluate(async () => {
             if (document.fonts && document.fonts.ready) await document.fonts.ready;
             await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
             const s = document.querySelector('.drv-slide'), wrap = document.getElementById('lessonSlideWrap'); if (!s) return null;
+            const lab = !!(wrap && wrap.closest('.ctl-page'));
             const li = [...s.querySelectorAll('.drv-s-steps > li')], one = li[0], btn = s.querySelector('[data-drv-link]'), open = s.querySelector('.drv-s-open'), build = s.querySelector('[data-drv-build]');
             const body = wrap && wrap.querySelector('.cfx-deck > .cfx-body'), box = body && (body.querySelector(':scope > .cfx-sheet') || body);
             const type = (min) => [...s.querySelectorAll('*')].filter(e => [...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())).map(e => { const c = getComputedStyle(e); return { t: e.textContent.trim().slice(0, 30), px: parseFloat(c.fontSize), w: Number(c.fontWeight), mine: !!e.closest('.drv-s-act, .drv-s-err') }; }).filter(x => x.px < 16 || x.w < (x.mine ? 700 : min));
@@ -293,53 +296,66 @@ const failures = []; const fail = (m) => failures.push(m);
                 build: build ? { text: build.innerText.trim(), inTwo: !!(li[1] && li[1].contains(build)) } : null, img: s.querySelectorAll('img').length, xss: !!window.__xss,
                 kept: !!(wrap && wrap.__kept), at: state.lessonSlide, panel: !!document.getElementById('cmDriveHost'),
                 small: type(600), cut: Math.max(wrap ? wrap.scrollHeight - wrap.clientHeight : 0, box ? box.scrollHeight - box.clientHeight : 0),
-                below: Math.round((document.getElementById('lessonStage') || wrap).getBoundingClientRect().bottom + window.scrollY - innerHeight) };
+                below: lab ? 0 : Math.round((document.getElementById('lessonStage') || wrap).getBoundingClientRect().bottom + window.scrollY - innerHeight) };
         });
         const sound = (v, what) => {   // (e) the type, and the fit at 1366x768
-            if (v.small.length) fail(`${what}: the slide has type under 16px bold: ${JSON.stringify(v.small.slice(0, 5))}`);
-            if (v.cut > 2) fail(`${what}: ${v.cut}px of the slide is cut off at 1366x768`);
+            if (v.small.length) fail(`${what}: the Backup Drive task has type under 16px bold: ${JSON.stringify(v.small.slice(0, 5))}`);
+            if (v.cut > 2) fail(`${what}: ${v.cut}px of the Backup Drive task is cut off at 1366x768`);
             if (v.below > 1) fail(`${what}: the slide ends ${v.below}px below the screen at 1366x768`);
         };
-        /* 5. 📐 the slide as it is sized at 1366x768: the smallest zoom under #lessonSlideWrap (1: nothing scaled down), text under
-           16px once the zoom is counted (what is shown: not the inside of a closed list), what is cut off, the buttons that are
-           not in plain view, the firm's folders Day 1's 🏷 card covers, and the lines the naming row takes */
+        /* 5. 📐 the deck's card or the lab page as it is sized at 1366x768: the smallest zoom under #lessonSlideWrap (1: nothing
+           scaled down), text under 16px once the zoom is counted (what is shown: not the inside of a closed list), what is cut
+           off (and, on the deck, below the screen), the buttons that are not in plain view (on the lab page, once scrolled to),
+           the firm's folders Day 1's 🏷 card covers, and the lines the naming row takes */
         const FIT = async () => {
             if (document.fonts && document.fonts.ready) await document.fonts.ready;
             await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
             const wrap = document.getElementById('lessonSlideWrap'); if (!wrap) return null;
+            const lab = !!wrap.closest('.ctl-page');
             const zoomOf = (e) => { let z = 1; for (let n = e; n && n !== wrap.parentNode; n = n.parentNode) { const v = parseFloat(n.style && n.style.zoom); if (v) z *= v; } return z; };
             const shown = (e) => e.getClientRects().length > 0 && (!e.checkVisibility || e.checkVisibility({ contentVisibilityAuto: true, visibilityProperty: true }));
             const zooms = [...wrap.querySelectorAll('*')].map(e => parseFloat(e.style.zoom)).filter(z => z > 0 && z < 1);
             const tiny = [...wrap.querySelectorAll('*')].filter(e => shown(e) && [...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()))
                 .map(e => ({ t: e.textContent.trim().slice(0, 30), px: Math.round(parseFloat(getComputedStyle(e).fontSize) * zoomOf(e) * 10) / 10 })).filter(x => x.px < 16);
             const body = wrap.querySelector('.cfx-deck > .cfx-body'), box = body && (body.querySelector(':scope > .cfx-sheet') || body), wr = wrap.getBoundingClientRect();
-            const plain = (b) => { const r = b.getBoundingClientRect(), top = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+            const plain = (b) => { if (lab) b.scrollIntoView({ block: 'center' }); const wr = wrap.getBoundingClientRect(), r = b.getBoundingClientRect(), top = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
                 return r.width > 0 && r.top >= wr.top && r.bottom <= wr.bottom && r.left >= wr.left && r.right <= wr.right && (top === b || b.contains(top)); };
             const card = wrap.querySelector('.drv-nc-side'), cr = card && card.getBoundingClientRect(), row = wrap.querySelector('.drv-nc-s:not(.drv-nc-side) .drv-nc-r');
-            return { zoom: zooms.length ? Math.min(...zooms) : 1, tiny, cut: Math.max(wrap.scrollHeight - wrap.clientHeight, box ? box.scrollHeight - box.clientHeight : 0),
-                below: Math.round((wrap.closest('.lesson-stage') || wrap).getBoundingClientRect().bottom + window.scrollY - innerHeight),
-                hidden: [...wrap.querySelectorAll('[data-drv-link], [data-drv-build]')].filter(b => !plain(b)).map(b => b.innerText.trim()),
-                over: cr ? [...wrap.querySelectorAll('.drv-s-tree li b, .drv-s-root b')].filter(b => { const r = b.getBoundingClientRect(); return r.right > cr.left && r.left < cr.right && r.bottom > cr.top && r.top < cr.bottom; }).map(b => b.textContent) : [],
+            const over = cr ? [...wrap.querySelectorAll('.drv-s-tree li b, .drv-s-root b')].filter(b => { const r = b.getBoundingClientRect(); return r.right > cr.left && r.left < cr.right && r.bottom > cr.top && r.top < cr.bottom; }).map(b => b.textContent) : [];
+            return { zoom: zooms.length ? Math.min(...zooms) : 1, tiny, lab, cut: Math.max(wrap.scrollHeight - wrap.clientHeight, box ? box.scrollHeight - box.clientHeight : 0),
+                below: lab ? 0 : Math.round((wrap.closest('.lesson-stage') || wrap).getBoundingClientRect().bottom + window.scrollY - innerHeight),
+                hidden: [...wrap.querySelectorAll('[data-drv-link], [data-drv-build], .ctl-go')].filter(b => !plain(b)).map(b => b.innerText.trim()),
+                over,
                 lines: row ? (() => {   // the lines the row's pieces take: two pieces are on one line when they overlap top to bottom (not by rounding their tops to a 16px grid: a row that straddled a grid line counted as two)
                     const rs = [...row.children].map(c => c.getBoundingClientRect()).filter(r => r.height > 0).sort((x, y) => x.top - y.top); let n = 0, bottom = -Infinity;
                     rs.forEach(r => { if (r.top >= bottom - 1) n++; bottom = Math.max(bottom, r.bottom); }); return n; })() : 0,
-                box: !!wrap.querySelector('.drv-nc'), fix: (wrap.querySelector('[data-drv-fix]') || {}).innerText || '' };
+                box: !!wrap.querySelector('.drv-nc'), fix: (wrap.querySelector('[data-drv-fix]') || {}).innerText || '', card: (wrap.querySelector('.ctl-card') || { dataset: {} }).dataset.ctl || '' };
         };
         const sized = async (pg, what, o) => {
             const f = await pg.evaluate(FIT); o = o || {};
-            if (!f) { fail(`${what}: no slide to measure`); return {}; }
+            if (!f) { fail(`${what}: nothing to measure`); return {}; }
             if (f.zoom < 1) fail(`${what}: the slide is scaled down at 1366x768 (zoom ${f.zoom} under #lessonSlideWrap): everything on it reads ${Math.round((1 - f.zoom) * 100)}% smaller`);
             if (!o.anyType && f.tiny.length) fail(`${what}: text under 16px at 1366x768: ${JSON.stringify(f.tiny.slice(0, 5))}`);
-            if (f.cut > 2) fail(`${what}: ${f.cut}px of the slide is cut off at 1366x768`);
+            if (f.cut > 2) fail(`${what}: ${f.cut}px of it is cut off at 1366x768`);
             if (f.below > 1) fail(`${what}: the slide ends ${f.below}px below the screen at 1366x768`);
-            if (f.hidden.length) fail(`${what}: not in plain view on the slide: ${f.hidden.join(', ')}`);
+            if (f.hidden.length) fail(`${what}: not in plain view: ${f.hidden.join(', ')}`);
             if (f.over.length) fail(`${what}: the 🏷 card covers part of the firm's standard: ${f.over.join(', ')}`);
-            if (f.lines > 1) fail(`${what}: the 🏷 naming row takes ${f.lines} lines (it is one row, so it costs the slide no size)`);
+            if (f.lines > 1) fail(`${what}: the 🏷 naming row takes ${f.lines} lines (it is one row, so it costs the page no size)`);
             return f;
         };
-        const openTask = (pg, n, view) => pg.evaluate(([n, view]) => { state.isAdmin = true; const d = DAYS.find(d => d.cf && d.cf.n === n); goto('day', d.id); state.dayViewMode = 'slides';
-            const id = n === 1 ? 'd1m1-drive' : `d${n}-drive`, ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === id && cmCaseFlow.viewsOf(d.lessons[s.lessonIndex].cf.block)[(s.part || 1) - 1] === view);
-            if (k < 0) return false; goToSlide(k); return true; }, [n, view]);
+        // a day's Backup File Maintenance page in the 🧪 Practice Lab (as a trainer opens it)
+        const openTask = (pg, n, view) => pg.evaluate(([n, view]) => { state.isAdmin = true; const id = n === 1 ? 'd1m1-drive' : `d${n}-drive`;
+            return cmTaskLab.openView(id, view); }, [n, view]);
+        // a day's Backup File Maintenance card on the deck: the activity's one slide
+        const openCard = (pg, n) => pg.evaluate((n) => { const d = DAYS.find(d => d.cf && d.cf.n === n), id = n === 1 ? 'd1m1-drive' : `d${n}-drive`; goto('day', d.id); state.dayViewMode = 'slides';
+            const ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === id);
+            if (k < 0) return false; goToSlide(k); return true; }, n);
+        const cardFits = async (pg, n, who) => {
+            if (!(await openCard(pg, n))) { fail(`Day ${n} has no Backup File Maintenance card on the deck`); return; }
+            await pg.waitForTimeout(400);
+            const f = await sized(pg, `Day ${n}'s Backup File Maintenance card on the deck, ${who}`);
+            if (f.card !== (n === 1 ? 'd1m1-drive' : `d${n}-drive`)) fail(`Day ${n}'s Backup File Maintenance slide on the deck, ${who}, should be the activity's card (▶ Start in the Practice Lab): "${f.card}"`);
+        };
         // the panel at its link steps: the address to share with, the link box, what it says went wrong
         const panel = (pg) => pg.evaluate(() => { const h = document.getElementById('cmDriveHost'); if (!h) return null; const i = h.querySelector('#drvLinkUrl');
             return { text: h.innerText, sa: (h.querySelector('.drv-sa') || {}).textContent || '', input: !!i, focused: !!i && document.activeElement === i, bad: (h.querySelector('.drv-bad') || {}).innerText || '' }; });
@@ -351,20 +367,20 @@ const failures = []; const fail = (m) => failures.push(m);
         await p2.waitForSelector('.drv-slide [data-drv-link]', { timeout: 10000 }).catch(() => {});
         await p2.waitForFunction(() => /09 Litigation & ADR/.test((document.querySelector('.drv-slide') || {}).innerText || '') && /Case ID/.test((document.querySelector('.drv-slide .drv-nc') || {}).innerText || ''), null, { timeout: 10000 }).catch(() => {});
         let v = await look(p2);
-        if (!v || !v.btn) fail(`a trainee should have 🔗 Link my Google Drive on Day 1's slide: "${v ? v.one : 'no slide'}"`);
+        if (!v || !v.btn) fail(`a trainee should have 🔗 Link my Google Drive on Day 1's Your Case: "${v ? v.one : 'no page'}"`);
         else {
             if (!v.btn.inOne || !/^🔗 Link my Google Drive$/.test(v.btn.text) || v.btn.disabled) fail(`the button should be in step 1, reading 🔗 Link my Google Drive, ready to press: ${JSON.stringify(v.btn)}`);
             if (!v.btn.logo) fail("the button should carry the Google Drive logo");
             if (!/Link your Google Drive/.test(v.one) || !/Share a Google Drive folder as Editor with/.test(v.one) || !/link in the box/.test(v.one) || !/that folder only/.test(v.one))
                 fail(`step 1 should say to share a folder as Editor with the platform's address, paste its link in the box, and that the platform works in that folder only: "${v.one}"`);
-            // the address to share with is on the slide itself, with a box for the folder's link
+            // the address to share with is on the page itself, with a box for the folder's link
             if (v.sa !== SHARE) fail(`step 1 should show the platform's address to share the folder with (${SHARE}): "${v.sa}"`);
             if (!v.box) fail("step 1 should have a box to paste the folder's link in");
             if (v.done || v.n !== '1') fail('step 1 should not be ticked before the drive is linked');
             if (v.build) fail('📂 Build my folders should wait until the drive is linked');
-            if (writes().length) fail(`drawing the slide should write nothing to /api/drive: ${writes()}`);
-            if (await p2.evaluate(() => !!document.querySelector('script[src*="accounts.google.com"]'))) fail("the slide still loads Google's sign-in script: the drive is linked by a shared folder now");
-            sound(v, 'a trainee, not linked'); await sized(p2, "Day 1's slide, a trainee not linked");
+            if (writes().length) fail(`drawing the page should write nothing to /api/drive: ${writes()}`);
+            if (await p2.evaluate(() => !!document.querySelector('script[src*="accounts.google.com"]'))) fail("the page still loads Google's sign-in script: the drive is linked by a shared folder now");
+            sound(v, 'a trainee, not linked'); await sized(p2, "Day 1's Your Case, a trainee not linked");
 
             // (b) the press opens 📂 My Backup Drive at its three steps: the address to share with, and the link box, ready to type in
             await p2.click('.drv-slide [data-drv-link]'); await p2.waitForTimeout(200);
@@ -373,7 +389,7 @@ const failures = []; const fail = (m) => failures.push(m);
             else {
                 if (P.sa !== SHARE) fail(`the panel should give the address to share the folder with: "${P.sa}"`);
                 if (!/as Editor/.test(P.text) || !/LSH Case Backups|New folder/.test(P.text)) fail(`the panel should say to make the folder and share it as Editor: "${P.text.slice(0, 300)}"`);
-                if (!P.focused) fail('the link box should take the keyboard when the panel opens from the slide');
+                if (!P.focused) fail('the link box should take the keyboard when the panel opens from the Your Case');
                 if (writes().length) fail(`opening the panel should write nothing to /api/drive: ${writes()}`);
                 // not a Drive link: said in the panel, nothing sent
                 await paste(p2, 'https://example.com/not-drive');
@@ -386,10 +402,10 @@ const failures = []; const fail = (m) => failures.push(m);
                 if (!P.bad.includes(SHARE)) fail(`a folder not shared yet should say, in the panel, to share it with the address: "${P.bad}"`);
                 await p2.evaluate(() => CMDrive.close());
                 v = await look(p2);
-                if (!v.errInOne || !v.err.includes(SHARE)) fail(`a link that was refused should be a line in step 1 of the slide: "${v.err}"`);
+                if (!v.errInOne || !v.err.includes(SHARE)) fail(`a link that was refused should be a line in step 1 of the Your Case: "${v.err}"`);
                 if (!v.btn || v.btn.disabled || !/Link my Google Drive/.test(v.btn.text)) fail(`after a link that was refused, the button should work again: ${JSON.stringify(v.btn)}`);
                 if (v.done) fail('a refused link should not tick step 1');
-                sound(v, 'a trainee, after a link that was refused'); await sized(p2, "Day 1's slide, after a link that was refused");
+                sound(v, 'a trainee, after a link that was refused'); await sized(p2, "Day 1's Your Case, after a link that was refused");
                 // and a shared folder: its link goes to the Worker as "link"
                 calls.length = 0;
                 await p2.click('.drv-slide [data-drv-link]'); await p2.waitForTimeout(200);
@@ -406,11 +422,11 @@ const failures = []; const fail = (m) => failures.push(m);
             if (v.btn) fail('once linked, 🔗 Link my Google Drive should be gone');
             if (v.err) fail(`once linked, the line about the earlier try should be gone: "${v.err}"`);
             if (!v.one.includes('Linked: ' + NAME)) fail(`once linked, step 1 should show the folder: "${v.one}"`);
-            if (v.img || v.xss) fail('the folder name is put on the slide unescaped');
+            if (v.img || v.xss) fail('the folder name is put on the page unescaped');
             if (!v.open || v.open.href !== ROOT || v.open.target !== '_blank' || !/noopener/.test(v.open.rel) || !/noreferrer/.test(v.open.rel) || !/Open my Drive/.test(v.open.text) || !v.open.inOne) fail(`once linked, step 1 should link to the drive's folder in a new tab: ${JSON.stringify(v.open)}`);
             if (!v.build || !v.build.inTwo || !/Build my folders/.test(v.build.text)) fail(`once linked, step 2 should offer 📂 Build my folders: ${JSON.stringify(v.build)}`);
-            if (!v.kept || v.at !== at) fail(`the slide should redraw itself in place: the page was rendered again or the deck moved (slide ${v.at}, was ${at})`);
-            sound(v, 'a trainee, linked'); await sized(p2, "Day 1's slide, a trainee linked");
+            if (!v.kept || v.at !== at) fail(`the Your Case should redraw itself in place: the lab page was rendered again or its place in the deck moved (slide ${v.at}, was ${at})`);
+            sound(v, 'a trainee, linked'); await sized(p2, "Day 1's Your Case, a trainee linked");
             if (v.build) {
                 await p2.click('.drv-slide [data-drv-build]');
                 if (!(await p2.locator('#cmDriveHost .drv-tree').count())) fail('📂 Build my folders should open the Backup Drive panel on the folders to build');
@@ -423,29 +439,31 @@ const failures = []; const fail = (m) => failures.push(m);
         linked = true; built = true; report = CLEAN;
         await asTrainee(p2); await openSlide(p2);
         await p2.waitForFunction(() => document.querySelectorAll('.drv-slide .drv-s-steps > li.is-done').length >= 3 && /Case ID/.test((document.querySelector('.drv-slide .drv-nc') || {}).innerText || ''), null, { timeout: 10000 }).catch(() => {});
-        let f = await sized(p2, "Day 1's slide, a trainee linked and built");
-        if (f.fix) fail(`with every name right, Day 1's slide should not say names are to fix: "${f.fix}"`);
+        let f = await sized(p2, "Day 1's Your Case, a trainee linked and built");
+        if (f.fix) fail(`with every name right, Day 1's Your Case should not say names are to fix: "${f.fix}"`);
         report = WRONG; await asTrainee(p2);
         await p2.waitForSelector('.drv-slide [data-drv-fix]', { timeout: 10000 }).catch(() => {});
-        f = await sized(p2, "Day 1's slide, a trainee with names to fix");
-        if (!/^✗ 4 names to fix · 📂 Open My Backup Drive$/.test((f.fix || '').trim())) fail(`with names wrong, Day 1's slide should carry "✗ 4 names to fix · 📂 Open My Backup Drive": "${f.fix}"`);
+        f = await sized(p2, "Day 1's Your Case, a trainee with names to fix");
+        if (!/^✗ 4 names to fix · 📂 Open My Backup Drive$/.test((f.fix || '').trim())) fail(`with names wrong, Day 1's Your Case should carry "✗ 4 names to fix · 📂 Open My Backup Drive": "${f.fix}"`);
         for (const n of [2, 3, 4, 5]) {
-            // a trainee (the day is opened as a trainer opens it, then drawn again as the trainee's own): the task slide fits
-            // whole, with the convention in 📖 Reference rather than on the slide, whether or not names are to fix
+            // a trainee (the day is opened as a trainer opens it, then drawn again as the trainee's own): the Your Task in the
+            // 🧪 Practice Lab, full size, with the convention in 📖 Reference rather than on it, whether or not names are to fix
             report = CLEAN;
-            if (!(await openTask(p2, n, 'task'))) { fail(`Day ${n} has no Your Task slide for Backup File Maintenance`); continue; }
+            if (!(await openTask(p2, n, 'task'))) { fail(`Day ${n} has no Your Task in the 🧪 Practice Lab for Backup File Maintenance`); continue; }
             await asTrainee(p2); await p2.waitForTimeout(300);
             f = await sized(p2, `Day ${n}'s task, a trainee`);
-            if (f.box) fail(`Day ${n}'s task still carries the 🏷 naming row on the slide: it belongs in 📖 Reference`);
+            if (f.box) fail(`Day ${n}'s task still carries the 🏷 naming row on its Your Task: it belongs in 📖 Reference`);
             report = WRONG; await asTrainee(p2); await p2.waitForTimeout(300);
             f = await sized(p2, `Day ${n}'s task, a trainee with names to fix`);
             // a trainer
             await openTask(p2, n, 'task'); await p2.waitForTimeout(300);
             f = await sized(p2, `Day ${n}'s task, a trainer`);
-            if (f.fix) fail(`a trainer's slide should not show a trainee's names to fix (Day ${n}): "${f.fix}"`);
+            if (f.fix) fail(`a trainer's Your Task should not show a trainee's names to fix (Day ${n}): "${f.fix}"`);
         }
-        // Day 1's own Your Task slide has no room for the row at full size: it is as it was (the convention is on Your Case), and not scaled down
-        if (await openTask(p2, 1, 'task')) await sized(p2, "Day 1's Your Task slide", { anyType: true });
+        // Day 1's own Your Task, in the lab: as it was (the convention is on Your Case), and not scaled down
+        if (await openTask(p2, 1, 'task')) await sized(p2, "Day 1's Your Task in the 🧪 Practice Lab", { anyType: true });
+        // each day's Backup File Maintenance card on the deck fits one screen, for a trainee and a trainer
+        for (const n of [1, 2, 3, 4, 5]) { await asTrainee(p2); await cardFits(p2, n, 'a trainee'); await p2.evaluate(() => { state.isAdmin = true; render(); }); await cardFits(p2, n, 'a trainer'); }
         report = null; built = false;
         await asTrainee(p2); await openSlide(p2);
 
@@ -460,34 +478,41 @@ const failures = []; const fail = (m) => failures.push(m);
             if (!w || !w.btn) { await wait(); w = await look(pg); }
             if (!w || !w.btn || !w.btn.inOne || !/^🔗 Link my Google Drive$/.test(w.btn.text) || w.btn.disabled || !w.btn.logo) { fail(`${who} should see the same 🔗 Link my Google Drive in step 1, as a sample: ${JSON.stringify(w && w.btn)}`); return; }
             if (w.done || /Linked:/.test(w.one) || w.build) fail(`${who} should not be shown a trainee's own link: "${w.one}"`);
-            sound(w, who); await sized(pg, `Day 1's slide, ${who}`);
+            sound(w, who); await sized(pg, `Day 1's Your Case, ${who}`);
             await pg.waitForTimeout(900);   // the page's own first reads (the standard, a status) are done: what follows is the press's
             calls.length = 0;
             await pg.click('.drv-slide [data-drv-link]'); await pg.waitForTimeout(400);
-            // said where it can be seen: the toast, or in the slides window (which shows nothing but the slide) that window's own hint
+            // said where it can be seen: the toast (or, in a slides window, which shows nothing but the slide, that window's own hint)
             const toast = await pg.evaluate(() => { const seen = (e) => !!e && e.getClientRects().length > 0 && getComputedStyle(e).visibility !== 'hidden';
                 const t = document.getElementById('toast'), a = document.querySelector('.drv-aud-say'); return seen(t) && t.classList.contains('show') ? t.textContent : seen(a) ? a.textContent : ''; });
             if (!/Trainees link their own Google Drive/.test(toast)) fail(`${who} pressing the sample should be told, where it can be seen, that trainees link their own drive: "${toast}"`);
             if (calls.length) fail(`${who} pressing the sample sent ${calls.length} /api/drive request(s): ${JSON.stringify(calls)}`);
             const after = await look(pg);
-            if (!after.btn || after.btn.disabled || after.panel) fail(`${who} pressing the sample should leave the slide as it was: ${JSON.stringify(after.btn)}`);
+            if (!after.btn || after.btn.disabled || after.panel) fail(`${who} pressing the sample should leave the Your Case as it was: ${JSON.stringify(after.btn)}`);
         };
         await p2.evaluate(() => { state.isAdmin = true; render(); });
         await sample(p2, 'a trainer');
-        // 🖥 Presenter view: the slides window the trainer shares carries the sample too
+        // 🖥 Presenter view: the slides window the trainer shares shows the deck, so Day 1's Backup File Maintenance card,
+        // fitted to the screen (the Your Case, and its sample button, are on the lab page, which the window doesn't show)
+        await p2.evaluate(() => cmTaskLab.back()); await p2.waitForTimeout(400);
         const popup = ctx.waitForEvent('page', { timeout: 10000 }).catch(() => null);
         await p2.evaluate(() => presenterStart());
         const aud = await popup;
         if (!aud) fail('🖥 Presenter view did not open its slides window');
-        else { aud.on('pageerror', e => fail(`page error (slides window): ${e.message}`)); await aud.waitForLoadState('load'); await sample(aud, 'the slides window'); }
+        else {
+            aud.on('pageerror', e => fail(`page error (slides window): ${e.message}`)); await aud.waitForLoadState('load');
+            const got = await aud.waitForSelector('#audienceRoot .ctl-card[data-ctl="d1m1-drive"] .ctl-go', { timeout: 30000 }).then(() => true).catch(() => false);
+            if (!got) fail(`the slides window should show Day 1's Backup File Maintenance card: "${await aud.evaluate(() => ((document.getElementById('audienceRoot') || {}).innerText || '').replace(/\s+/g, ' ').slice(0, 120)).catch(() => '')}"`);
+            else await sized(aud, "Day 1's Backup File Maintenance card, the slides window");
+        }
         await p2.evaluate(() => presenterEnd(true)).catch(() => {});
         await ctx.close();
     }
     await browser.close();
     if (failures.length) { console.log(`\n${failures.length} failure(s):`); failures.forEach((f, i) => console.log(`${i + 1}. ${f}`)); process.exit(1); }
-    console.log('Day 1\'s case backup is the Backup Drive: the slide carries its four steps and the firm\'s standard, and the retired case folder stays gone.');
-    console.log('🏷 The naming convention is on Day 1\'s slide, every Backup File Maintenance task and the Backup Drive panel, which lists each wrong name with the part that differs.');
-    console.log('🔗 Step 1 of Day 1\'s slide links the drive: a trainee\'s press opens the steps to share a folder and paste its link, which goes to the Worker; linked, it shows the folder; a trainer\'s button is a sample.');
-    console.log('📐 At 1366x768 none of the Backup File Maintenance slides is scaled down, in any state: no zoom under #lessonSlideWrap, no text under 16px, nothing cut off.');
+    console.log('Day 1\'s case backup is the Backup Drive: its Your Case in the 🧪 Practice Lab carries its four steps and the firm\'s standard, and the retired case folder stays gone.');
+    console.log('🏷 The naming convention is on Day 1\'s Your Case, every Backup File Maintenance task and the Backup Drive panel, which lists each wrong name with the part that differs.');
+    console.log('🔗 Step 1 of Day 1\'s Your Case links the drive: a trainee\'s press opens the steps to share a folder and paste its link, which goes to the Worker; linked, it shows the folder; a trainer\'s button is a sample.');
+    console.log('📐 At 1366x768 none of the Backup File Maintenance pages in the 🧪 Practice Lab is scaled down, in any state (no zoom under #lessonSlideWrap, no text under 16px, nothing clipped), and each day\'s card fits the deck\'s screen.');
     console.log('All good.');
 })().catch(e => { console.error(e); process.exit(1); });

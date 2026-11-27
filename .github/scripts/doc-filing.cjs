@@ -65,13 +65,12 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     // the block whose documents are filed
     const open = async () => await page.evaluate(async (block) => {
         const sleep = ms => new Promise(r => setTimeout(r, ms));
-        const d = DAYS.find(x => x.cf && x.cf.n === 1);
-        goto('day', d.id); state.dayViewMode = 'slides'; await sleep(60);
-        const slides = buildDaySlides(d);
-        for (let i = 0; i < slides.length; i++) {
-            state.lessonSlide = i; render(); await sleep(0);
-            const dfl = document.getElementById('dfl_' + block);
-            if (dfl) { const det = dfl.closest('details'); if (det) det.open = true; return { slide: i, rows: dfl.querySelectorAll('.dfl-row').length }; }
+        const d = DAYS.find(x => x.cf && x.cf.n === 1), l = d.lessons.find(x => x.cf && x.cf.block.id === block);
+        // (the block's Your Task, and its other pages, are in the 🧪 Practice Lab)
+        for (const v of l ? cmTaskLab.views(l.cf.block) : []) {
+            if (!cmTaskLab.openView(block, v)) continue; await sleep(0);
+            const dfl = document.querySelector('.ctl-page #dfl_' + block);
+            if (dfl) { const det = dfl.closest('details'); if (det) det.open = true; return { view: v, rows: dfl.querySelectorAll('.dfl-row').length }; }
         }
         return null;
     }, BLOCK);
@@ -105,7 +104,7 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     await page.evaluate(() => openTool('cms', 'split'));
     await page.waitForFunction((id) => window.CMCase && CMCase.id() === id, CASE_ID, { timeout: 15000 }).catch(() => {});
     check((await page.evaluate(() => window.CMCase && CMCase.id())) === CASE_ID, 'the case open in the CMS is read from it');
-    await open();   // redraw the slide: the panel now knows the case
+    await open();   // redraw the 🧪 Practice Lab page: the panel now knows the case
     check(/Filing into/.test(await page.textContent('#dfl_' + BLOCK)), 'and the panel says which case it is filing into');
     const frame = page.frames().find(f => /trainingcrm/.test(f.url()));
 

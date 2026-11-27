@@ -1,13 +1,13 @@
 // @check browser — Notes & Action Plan (the voicemail transcribed and graded, every attempt, and the plan graded with their answer keys; the plan worked in the Email Simulator)
 // 📝 Notes & Action Plan (js/cm-case-flow.js, build/case-flow/exhibits/d1.json "notes").
 //
-// Day 1's voicemail activity (John Doe: Keystone asked to record him) is worked, not read: its one slide, Your Task,
-// carries the Notes & Action Plan in its 🧰 Tools, and it opens on the voicemail. The trainee transcribes the message
+// Day 1's voicemail activity (John Doe: Keystone asked to record him) is worked, not read: its Your Task, in the 🧪 Practice
+// Lab (js/cm-task-lab.js; the deck keeps a card), carries the Notes & Action Plan in its 🧰 Tools, and it opens on the voicemail. The trainee transcribes the message
 // (checked against what was said, then the transcript and the facts are the answer key), writes an action plan
 // (graded against the steps it must hold, each with its answer key), then works the plan: the email to the
 // adjuster (no direct contact, statements through the firm, nothing about his injuries) and to the treatment
 // facility in the Email Simulator, and the check-in on the live call.
-// Checks, in a browser: the slide offers the Notes & Action Plan and no thumbnails; a transcript too short is
+// Checks, in a browser: the Your Task offers the Notes & Action Plan and no thumbnails; a transcript too short is
 // refused; a transcript is scored fact by fact and the answer key opens; a plan is graded step by step with its
 // key; an email that mentions his neck to the adverse carrier is refused, one that leaves out the statement rule is
 // refused with what is missing, a complete one is sent and answered; the work is on the trainee's record.
@@ -42,18 +42,16 @@ const UC_OK = "Hello,\n\nLSH Law Group represents John Doe, DOB 08/14/1991, inju
     await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800);
     await page.evaluate(() => { state.isAdmin = true; });
 
-    // 1. the activity's one slide, Your Task: the Notes & Action Plan in its 🧰 Tools, no document thumbnails, and it opens on the voicemail to transcribe
+    // 1. the activity's Your Task, in the 🧪 Practice Lab: the Notes & Action Plan in its 🧰 Tools, no document thumbnails, and it opens on the voicemail to transcribe
     const caseSlide = await page.evaluate(async (block) => {
-        const d = DAYS.find(x => x.cf && x.cf.n === 1); goto('day', d.id); state.dayViewMode = 'slides';
-        const slides = buildDaySlides(d), li = d.lessons.findIndex(l => l.cf && l.cf.block.id === block);
-        const i = slides.findIndex(s => s.type === 'topic' && s.lessonIndex === li); if (i < 0) return null;
-        state.lessonSlide = i; render(); const w = document.getElementById('lessonSlideWrap'), row = w && [...w.querySelectorAll('.cfx-tools-menu .cfx-call')].find(x => /Notes & Action Plan/.test(x.textContent));
+        const d = DAYS.find(x => x.cf && x.cf.n === 1); if (!d.lessons.some(l => l.cf && l.cf.block.id === block) || !cmTaskLab.openView(block, 'task')) return null;
+        const i = state.lessonSlide, w = document.querySelector('.ctl-page #lessonSlideWrap'), row = w && [...w.querySelectorAll('.cfx-tools-menu .cfx-call')].find(x => /Notes & Action Plan/.test(x.textContent));
         if (!row || !row.querySelector('button')) return null;
         row.querySelector('button').click(); await new Promise(r => setTimeout(r, 400));
         const np = document.getElementById('cf-np'); return { i, thumbs: w.querySelectorAll('.cfx-thumb').length, text: np ? np.innerText : '' };
     }, BLOCK);
     check(!!caseSlide, 'the voicemail activity\'s Your Task carries the Notes & Action Plan (in its 🧰 Tools)');
-    check(caseSlide && caseSlide.thumbs === 0, 'and no document thumbnails on the slide');
+    check(caseSlide && caseSlide.thumbs === 0, 'and no document thumbnails on the Your Task');
     check(caseSlide && /Transcri/.test(caseSlide.text), 'and the Notes & Action Plan opens on the voicemail to transcribe');
     await page.evaluate(() => { const x = document.querySelector('#cf-np .cfx-modal-h button, #cf-np [aria-label="Close"]'); if (x) x.click(); });
 

@@ -1,9 +1,9 @@
-// @check browser — 🤖 the AI Grader on every Skill Building activity: its Your Task's Submit takes the trainee's work (filled in from what the platform holds), grades it against the activity's rubric, shows the score with what went well and what to improve, keeps it, and puts it where trainers see activity scores; the old self-tick Check Your Work is gone
-// js/cm-ai-grader.js. Every Case Flow activity's Your Task ends in Submit →, which turns the slide into the AI Grader (view
-// "check", on the same slide; no slide of its own): no self-tick boxes, no blurred
-// answers, no box to write in. On Day 1's first activity (d1m1-open), as a trainee: the slide lists what the platform holds
+// @check browser — 🤖 the AI Grader on every Skill Building activity: its Your Task's Submit in the 🧪 Practice Lab takes the trainee's work (filled in from what the platform holds), grades it against the activity's rubric, shows the score with what went well and what to improve, keeps it, and puts it where trainers see activity scores; the old self-tick Check Your Work is gone
+// js/cm-ai-grader.js. Every Case Flow activity's Your Task (in the 🧪 Practice Lab) ends in Submit →, which turns it into the
+// AI Grader (view "check", on the same page; no page of its own): no self-tick boxes, no blurred
+// answers, no box to write in. On Day 1's first activity (d1m1-open), as a trainee, in the 🧪 Practice Lab: it lists what the platform holds
 // (the CMS Case ID they logged, the call) and checks it by itself as it opens, once; the AI not
-// answering says so, keeps the work and offers Try again; answering, the slide shows the score, what went well and what to
+// answering says so, keeps the work and offers Try again; answering, it shows the score, what went well and what to
 // work on next, the grade is saved under the personal key "cf-ai-grades", and the work log (the Scorecard's 🧪 Skill
 // Activities) has the attempt under the activity's name. The answer key stays shut while attempts are left (not beside
 // "Check again"), and opens on 🔑 I'm done. A long call on the record keeps Submit on the screen at 1366×768 (the
@@ -23,36 +23,34 @@ const failures = []; const fail = (m) => failures.push(m);
   const last = 'Grade' + String(Date.now()).slice(-6).replace(/\d/g, d => 'abcdefghij'[d]);
   await signIn(page, 'Dana', last, 'B100926');
 
-  // every activity's Your Task ends in Submit →, which turns the slide into the AI Grader (no slide of its own)
+  // every activity's Your Task ends in Submit →, which turns it into the AI Grader in the 🧪 Practice Lab (no page of its own)
   const views = await page.evaluate(() => { const out = []; (window.CM_CASE_FLOW.days || []).forEach(d => d.modules.forEach(m => m.blocks.forEach(b => {
-    if (b.kind !== 'activity') return; const vs = cmCaseFlow.viewsOf(b); if (vs[0] !== 'task' || vs.includes('check') || !(b.rubric && (b.rubric.ai || []).length)) out.push(b.id); }))); return out; });
-  if (views.length) fail(`activities whose Your Task doesn't open the AI Grader with an AI rubric (or that keep an AI Grader slide): ${views.join(', ')}`);
+    if (b.kind !== 'activity') return; const vs = cmTaskLab.views(b); if (vs[0] !== 'task' || vs.includes('check') || !(b.rubric && (b.rubric.ai || []).length)) out.push(b.id); }))); return out; });
+  if (views.length) fail(`activities whose Your Task doesn't open the AI Grader with an AI rubric (or that keep an AI Grader page): ${views.join(', ')}`);
   if (!await page.evaluate(() => typeof CMAIGrader === 'object' && PERSONAL_KEY_SET.has('cf-ai-grades'))) fail('the AI Grader should register its personal key "cf-ai-grades"');
 
-  // the AI not answering at first (the slide checks the work by itself as it opens)
+  // the AI not answering at first (the grader checks the work by itself as it opens)
   let asked = 0, sent = '';
   await page.exposeFunction('__asked', (t) => { asked++; sent = t || ''; });
   await page.evaluate(() => { window.callAIJson = async (...a) => { window.__asked(JSON.stringify(a).slice(0, 40000)); throw new Error('quota'); }; });
-  // a logged CMS Case ID, then the Submit slide of Day 1's first activity
+  // a logged CMS Case ID, then the Submit of Day 1's first activity, in the 🧪 Practice Lab
   await page.evaluate(() => { const R = cmCaseFlow.record(); R.work = R.work || {}; R.work['d1m1-open'] = { ref: 'JD-24017', tool: 'cms', at: new Date().toISOString() };
-    // a long live-call transcript on the record: the list of what is checked must not push Submit off the slide
+    // a long live-call transcript on the record: the list of what is checked must not push Submit off the screen
     CMAIGrader.all().calls['d1m1-open'] = { at: new Date().toISOString(), text: Array.from({ length: 40 }, (_, i) => (i % 2 ? 'John Doe: ' : 'Me: ') + 'This is line ' + (i + 1) + ' of a long call about the crash and the police report.').join('\n') }; });
-  const go = () => page.evaluate(() => { const d = DAYS.find(d => d.cf && d.cf.n === 1); goto('day', d.id); state.dayViewMode = 'slides';
-    const ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === 'd1m1-open' && cmCaseFlow.viewsOf(d.lessons[s.lessonIndex].cf.block)[(s.part || 1) - 1] === 'task');
-    if (k < 0) return false; goToSlide(k); cmCaseFlow.mode('d1m1-open', 'check'); return true; });   // Your Task, then its Submit →
-  if (!await go()) fail('Day 1 has no Submit slide for d1m1-open');
+  const go = () => page.evaluate(() => { if (!cmTaskLab.openView('d1m1-open', 'task')) return false; cmCaseFlow.mode('d1m1-open', 'check'); return true; });   // Your Task, then its Submit →
+  if (!await go()) fail('d1m1-open\'s Your Task does not open in the 🧪 Practice Lab');
   await page.waitForTimeout(900);
   const s = await page.evaluate(() => { const c = document.querySelector('#app .cf-card.cfx-check');
     return { card: !!c, label: c ? (c.querySelector('.cfx-what-v') || {}).textContent : '', legacy: c ? c.querySelectorAll('.cfx-tick, .cfx-reveal, .cfx-blank, input[type=checkbox]').length : -1,
       box: !!(c && c.querySelector('textarea')), ev: c ? [...c.querySelectorAll('.aig-ev li')].map(x => x.textContent).join(' | ') : '',
       go: !!(c && c.querySelector('.aig-go')), key: !!(c && c.querySelector('.aig-key')), pts: c ? /\bpoints\b/i.test(c.textContent) : true, said: c ? /AI Grader/.test(c.textContent + ' ' + ((document.querySelector('#app .cfx-ribbon, #app .cfx-what') || {}).textContent || '')) : false }; });
-  if (!s.card) fail('the Submit slide is not drawn');
-  if (!/^Submit$/.test(String(s.label || '').trim())) fail(`the activity's last slide should be labelled Submit (never "AI Grader"): "${s.label}"`);
-  if (s.said) fail('the slide says "AI Grader": trainees only ever see Submit');
-  if (s.legacy) fail(`the old self-tick Check Your Work is still on the slide (${s.legacy} ticks or blurred answers)`);
-  if (s.box) fail('the slide has a box for the trainee to write what they did: the work is checked automatically');
-  if (!/JD-24017/.test(s.ev) || !/Live call transcript/.test(s.ev)) fail(`the slide should list what is checked (the logged Case ID, the call): ${JSON.stringify(s.ev.slice(0, 300))}`);
-  if (!s.go) fail('the slide has no Submit → button');
+  if (!s.card) fail('the Submit is not drawn in the 🧪 Practice Lab');
+  if (!/^Submit$/.test(String(s.label || '').trim())) fail(`the activity's Submit should be labelled Submit (never "AI Grader"): "${s.label}"`);
+  if (s.said) fail('the 🧪 Practice Lab says "AI Grader": trainees only ever see Submit');
+  if (s.legacy) fail(`the old self-tick Check Your Work is still in the 🧪 Practice Lab (${s.legacy} ticks or blurred answers)`);
+  if (s.box) fail('the Submit has a box for the trainee to write what they did: the work is checked automatically');
+  if (!/JD-24017/.test(s.ev) || !/Live call transcript/.test(s.ev)) fail(`the Submit should list what is checked (the logged Case ID, the call): ${JSON.stringify(s.ev.slice(0, 300))}`);
+  if (!s.go) fail('the 🧪 Practice Lab has no Submit → button');
   if (s.key) fail('the answer key shows before the work is graded');
   if (s.pts) fail('a point counter shows before anything is submitted');
   const reach = await page.evaluate(() => { const b = document.querySelector('#app .aig-go'); if (!b) return null; const r = b.getBoundingClientRect();
@@ -61,7 +59,7 @@ const failures = []; const fail = (m) => failures.push(m);
 
   // checked by itself on arrival, from what the platform holds; the AI not answering
   const st = await page.locator('#app .aig-st').innerText();
-  if (asked !== 1) fail(`the slide should check the work by itself once as it opens: asked ${asked} time(s)`);
+  if (asked !== 1) fail(`the grader should check the work by itself once as it opens: asked ${asked} time(s)`);
   if (!/JD-24017/.test(sent)) fail('the work sent should be what the platform holds (the logged Case ID)');
   if (!/couldn't be graded just now/.test(st) || /AI Grader/.test(st) || !/Try again/.test(st)) fail(`the AI not answering should say so and offer Try again: "${st}"`);
 
@@ -72,8 +70,8 @@ const failures = []; const fail = (m) => failures.push(m);
   const r = await page.evaluate(() => { const c = document.querySelector('#app .cf-card.cfx-check');
     return { score: c && (c.querySelector('.aig-score b') || {}).textContent, text: c ? c.textContent : '', key: !!(c && c.querySelector('.aig-key li')),
       saved: CMAIGrader.result('d1m1-open'), log: (state.workLog || []).filter(e => e.kind === 'lab' && /Opening John Doe's File/.test(e.label || '')).map(e => e.score) }; });
-  if (r.score !== '81') fail(`the slide should show the score 81: "${r.score}"`);
-  if (!/What you did well/.test(r.text) || !/What to work on next/.test(r.text) || !/Conflict Check before anything else/.test(r.text)) fail('the slide should show what went well and what to work on next');
+  if (r.score !== '81') fail(`the grader should show the score 81: "${r.score}"`);
+  if (!/What you did well/.test(r.text) || !/What to work on next/.test(r.text) || !/Conflict Check before anything else/.test(r.text)) fail('the grader should show what went well and what to work on next');
   if (r.key) fail('the answer key should stay shut while graded attempts are left (it could be copied into a resubmission)');
   if (!r.saved || r.saved.score !== 81 || r.saved.tries !== 1) fail(`the grade should be saved: ${JSON.stringify(r.saved)}`);
   if (!r.log.includes(81)) fail(`the graded attempt should be in the work log (the Scorecard's Skill Activities): ${JSON.stringify(r.log)}`);
@@ -101,5 +99,5 @@ const failures = []; const fail = (m) => failures.push(m);
 
   await browser.close();
   if (failures.length) { console.log('✗ AI Grader:\n  ' + failures.join('\n  ')); process.exit(1); }
-  console.log('Submit: every activity\'s Your Task opens it on the slide; no box to write in, checked automatically from what the platform holds, graded against its rubric, the AI being down said plainly with Try again, the score and feedback shown, saved, and in the work log the Scorecard reads.');
+  console.log('Submit: every activity\'s Your Task opens it in the 🧪 Practice Lab; no box to write in, checked automatically from what the platform holds, graded against its rubric, the AI being down said plainly with Try again, the score and feedback shown, saved, and in the work log the Scorecard reads.');
 })().catch(e => { console.log('✗ ' + (e && e.stack || e)); process.exit(1); });

@@ -175,13 +175,14 @@ const st = document.createElement("style"); st.id = "cm-task-lab"; st.textConten
 .ctl-card .ctl-list li.done span{background:#16A34A;color:#fff;}
 @media (max-width:900px){ .ctl-card .ctl-sheet{grid-template-columns:1fr;} }
 /* the Practice Lab page */
-.ctl-page{max-width:1400px;margin:0 auto;padding:18px 16px 40px;}
-.ctl-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:14px;padding:14px 18px;border-radius:18px;background:linear-gradient(135deg,#1E2340 0%,#2B3266 100%);box-shadow:0 14px 30px -18px rgba(20,24,48,.7);}
+.ctl-page{max-width:1400px;margin:0 auto;padding:8px 16px 16px;}
+.ctl-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:8px;padding:6px 12px;border-radius:18px;background:linear-gradient(135deg,#1E2340 0%,#2B3266 100%);box-shadow:0 14px 30px -18px rgba(20,24,48,.7);}
 body:has(.ctl-page) #cf-return, body:has(.ctl-page) .nav-back-row{display:none !important;}
-.ctl-back{font:800 16px/1 'Inter',sans-serif !important;padding:12px 18px !important;border-radius:999px !important;background:#fff !important;color:#1E2340 !important;border:0 !important;}
-.ctl-h{display:flex;flex-direction:column;gap:2px;min-width:0;}
+.ctl-back{font:800 16px/1 'Inter',sans-serif !important;padding:9px 16px !important;border-radius:999px !important;background:#fff !important;color:#1E2340 !important;border:0 !important;}
+.ctl-h{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px;min-width:0;}
 .ctl-h small{font:800 14px/1.3 'Inter',sans-serif;color:#C9A27A;letter-spacing:.02em;text-transform:uppercase;}
-.ctl-h b{font:900 24px/1.25 'Poppins','Inter',sans-serif;color:#fff;}
+.ctl-h b{font:900 19px/1.25 'Poppins','Inter',sans-serif;color:#fff;}
+.ctl-page .aig-ev{max-height:22vh !important;}
 .ctl-grid{display:grid;grid-template-columns:280px minmax(0,1fr);gap:16px;align-items:start;}
 .ctl-side{position:sticky;top:12px;background:#fff;border-radius:16px;padding:12px;box-shadow:0 12px 30px -20px rgba(20,24,48,.6);}
 .ctl-side p{margin:0 0 8px;font:900 15px/1.3 'Inter',sans-serif;color:#1E2340;text-transform:uppercase;letter-spacing:.03em;}
