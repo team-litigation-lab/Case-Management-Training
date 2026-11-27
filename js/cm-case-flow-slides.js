@@ -355,7 +355,7 @@ window.CM_CF_SLIDES = {
   "image": "data-entry",
   "situation": "02/09/2026. The raw file is in and a colleague keyed **a draft intake record** into the CMS. Atty. Thorne wants the matter **active today**.",
   "steps": [
-   "Press 🚀 Launch LSH CaseWorX & Google Drive. In New Case, run the **Conflict Check** on every party's full legal name before you do anything else.",
+   "Open 🗂 LSH CaseWorX. In New Case, run the **Conflict Check** on every party's full legal name before you do anything else.",
    "Check each draft field against the documents: date of loss, names, roles, John Doe's seat, date of birth, report number.",
    "Fix each mistake you find. In Case Notes, say which document shows the right answer. Never change a field without a note.",
    "Put the SOL, **02/06/2028**, on the CMS Calendar with reminders. Then list all six people and their roles under Parties.",
@@ -383,7 +383,7 @@ window.CM_CF_SLIDES = {
   "image": "documents-audit",
   "situation": "02/09/2026, 4:30 p.m. John Doe's matter is **active in the CMS**, and nothing is on **the firm's backup drive** yet.",
   "steps": [
-   "Press 🚀 Launch LSH CaseWorX & Google Drive. If your Drive isn't linked yet, paste your folder's link in the **Backup Drive panel**.",
+   "Open 📁 Case Backup Files. If your Drive isn't linked yet, paste your folder's link in the **Backup Drive panel**.",
    "In Google Drive, make the folder 01 Clients. Inside it, make Doe-John, and inside Doe-John, make the nine numbered folders.",
    "Beside 01 Clients, add 02 Firm Administration with its two folders, then 03 Templates and 04 Closed Files. Copy every name exactly.",
    "In 📂 My Backup Drive, submit your folders, fix anything it flags, and run **✓ Check my drive** until nothing is missing.",

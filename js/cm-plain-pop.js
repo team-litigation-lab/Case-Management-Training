@@ -32,7 +32,7 @@ function fix(card){
   // the last part still showing takes the matching auto bottom margin, or the content sits low on a tall screen
   const sheet = card.querySelector(".cfx-sheet");
   if(sheet){
-    const shown = [...sheet.children].filter(n => !n.hidden && n.style.display !== "none");
+    const shown = [...sheet.children].filter(n => !n.hidden && getComputedStyle(n).display !== "none");
     sheet.querySelectorAll(":scope > [data-pp-last]").forEach(n => { n.removeAttribute("data-pp-last"); n.style.marginBottom = ""; });
     const last = shown[shown.length - 1];
     if(last && last !== sheet.lastElementChild){ last.setAttribute("data-pp-last", "1"); last.style.setProperty("margin-bottom", "auto", "important"); }

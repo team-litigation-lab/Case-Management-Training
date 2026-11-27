@@ -24,7 +24,7 @@ const failures = []; const fail = (m) => failures.push(m);
   if (!found) fail('Day 1 has no Your Task slide for d1m4-a2');
   else {
     await page.waitForTimeout(600);
-    await page.click('#app .cfx-launch'); await page.waitForTimeout(900);
+    await page.click('#app .cfx-launch-cms'); await page.waitForTimeout(600); await page.click('#app .cfx-launch-drive'); await page.waitForTimeout(600);   // 🗂 LSH CaseWorX, then 📁 Case Backup Files (js/cm-tool-split.js)
     const r = await page.evaluate(() => {
       const f = document.getElementById('cm-toolframe'), w = document.querySelector('#cmDriveHost .drv-wrap'), t = document.getElementById('toast');
       const top = (el) => { if (!el || !el.getClientRects().length) return 'not shown'; const b = el.getBoundingClientRect();

@@ -75,7 +75,7 @@ window.CM_CF_SCRIPTS = {
  },
  "d1m1-drive": {
   "task": {
-   "say": "• Required every day, straight after the Skill Building: today it builds John Doe's backup drive\n• Press Launch LSH CaseWorX & Google Drive; not linked yet, paste your shared folder's link in the Backup Drive panel\n• Build 01 Clients with Doe-John inside and its nine numbered folders, intake and retainer through litigation\n• Add the firm folders: administration, templates, closed files\n• Submit in My Backup Drive, fix what it returns, then run Check my drive until clean\n• In Case Notes, place the signed retainer, Police Report and HIPAA authorization, with reasons"
+   "say": "• Required every day, straight after the Skill Building: today it builds John Doe's backup drive\n• Press 📁 Case Backup Files; not linked yet, paste your shared folder's link in the Backup Drive panel\n• Build 01 Clients with Doe-John inside and its nine numbered folders, intake and retainer through litigation\n• Add the firm folders: administration, templates, closed files\n• Submit in My Backup Drive, fix what it returns, then run Check my drive until clean\n• In Case Notes, place the signed retainer, Police Report and HIPAA authorization, with reasons"
   },
   "case": {
    "say": "• 02/09/2026, 4:30 p.m.: John Doe's matter is active in the CMS, nothing on the backup drive yet\n• Every file is built to one standard so a covering colleague finds any document in seconds\n• Standard: 01 Clients, client folder last name first, nine numbered folders intake to litigation, then firm folders\n• It is graded twice: Submit grades their Case Notes, and the drive itself is checked folder by folder"
