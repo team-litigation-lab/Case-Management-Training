@@ -1,8 +1,7 @@
-/* 📖 IN PLAIN ENGLISH AS A BUTTON, AND THE UPL LINE UNDER THE CM RED FLAG (every Case Flow deck)
+/* 📖 IN PLAIN ENGLISH IN 💡 TIPS, AND THE UPL LINE UNDER THE CM RED FLAG (every Case Flow deck)
    · 📖 In plain English: a lesson slide drew its plain-English terms as a bar across the sheet (js/cm-case-flow.js
-     plainBox, a <details>). It is now a button on the slide's band, beside 📖 Reference: "📖 In plain English" opens
-     the terms and their meanings in a pop-up over the slide (✕, Esc or a click outside closes it). The bar itself is
-     hidden, so the sheet keeps its room. In the audience's view (no 📖 Reference on the band) the bar stays as it was.
+     plainBox, a <details>). The bar is hidden; its terms are a section of the 💡 Tips panel (js/cm-tips-button.js), so
+     the slide's band has one button for help. In the audience's view (no 💡 Tips on the band) the bar stays as it was.
    · ⚖ UPL Line: on a slide that draws a CM Red Flag, the UPL line is its last row (under You see · It costs · You do),
      as the flag's explanation, instead of a bar of its own. A slide without a drawn Red Flag keeps the UPL bar.
    Styles and a light pass over each drawn slide; the copy and js/cm-case-flow.js are unchanged. */
@@ -13,19 +12,11 @@ const E = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;
 
 function fix(card){
   const ref = card.querySelector(".cfx-ref-open");
-  // 📖 In plain English: the bar becomes a button beside 📖 Reference
+  // 📖 In plain English: the bar is hidden on the slide; its terms are a section of 💡 Tips (js/cm-tips-button.js reads them
+  // from this hidden <details>), so the band keeps one button for help
   const plain = card.querySelector("details.cfx-plain:not([data-pp])");
   if(plain && ref){
     plain.setAttribute("data-pp", "1"); plain.hidden = true; plain.style.setProperty("display", "none", "important"); plain.removeAttribute("open");
-    if(!card.querySelector(".cfx-plain-open")){
-      const terms = [...plain.querySelectorAll("dt")].map(dt => dt.textContent.trim());
-      const b = document.createElement("button");
-      b.type = "button"; b.className = "cfx-plain-open";
-      b.title = "What these words mean: " + terms.join(", ");
-      b.textContent = "📖 In plain English";
-      b.addEventListener("click", ev => { ev.stopPropagation(); open(plain); });
-      ref.insertAdjacentElement("beforebegin", b);
-    }
   }
   // ⚖ UPL Line: the CM Red Flag's last row, where the slide draws one
   const rf = card.querySelector(".cfx-rf dl"), upl = card.querySelector(".cfx-upl:not([data-pp])");
@@ -36,6 +27,15 @@ function fix(card){
     row.className = "cfx-rf-r cfx-rf-upl";
     row.innerHTML = `<dt>⚖ UPL Line</dt><dd>${t ? t.innerHTML : ""}</dd>`;
     rf.appendChild(row); upl.hidden = true; upl.style.setProperty("display", "none", "important");
+  }
+  // the sheet centres its content (its first part's top margin is auto); with the bar and the UPL line hidden at its end,
+  // the last part still showing takes the matching auto bottom margin, or the content sits low on a tall screen
+  const sheet = card.querySelector(".cfx-sheet");
+  if(sheet){
+    const shown = [...sheet.children].filter(n => !n.hidden && getComputedStyle(n).display !== "none");
+    sheet.querySelectorAll(":scope > [data-pp-last]").forEach(n => { n.removeAttribute("data-pp-last"); n.style.marginBottom = ""; });
+    const last = shown[shown.length - 1];
+    if(last && last !== sheet.lastElementChild){ last.setAttribute("data-pp-last", "1"); last.style.setProperty("margin-bottom", "auto", "important"); }
   }
 }
 function scan(){ document.querySelectorAll(".cfx.cfx-deck").forEach(fix); }

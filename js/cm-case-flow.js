@@ -1261,8 +1261,9 @@ function agendaSlide(d){
   const n1 = parts.length;
   // Part 2 is the daily loop (js/cm-day-loop.js): the Case Profile → the Skill Building → the Action Plan, then the Knowledge Check
   const loop = sc.loop && window.cmDayLoop ? window.cmDayLoop.agendaRows(d, sc) : null;
-  const rows = label("Part 1 · 📘 Lessons", `${nLessons} lessons, all together`) + parts.map((p, i) => row(i + 1, p.title)).join("")
-    + (loop ? label(loop.label, loop.side) + loop.rows.map((t, i) => row(n1 + i + 1, t, "lab")).join("") + row(n1 + loop.rows.length + 1, "Knowledge Check", "kc")
+  const f = loop && loop.first ? 1 : 0;   // the Case Profile first, before the lessons (js/cm-day-loop.js agendaRows: first)
+  const rows = label(f ? "Part 1 · 📇 Your Client, then 📘 Lessons" : "Part 1 · 📘 Lessons", `${nLessons} lessons, all together`) + (f ? row(1, loop.first, "profile") : "") + parts.map((p, i) => row(f + i + 1, p.title)).join("")
+    + (loop ? label(loop.label, loop.side) + loop.rows.map((t, i) => row(f + n1 + i + 1, t, "lab")).join("") + row(f + n1 + loop.rows.length + 1, "Knowledge Check", "kc")
     : label(sc.build ? "Part 2 · 🏗 Full Application Practice" : "Part 2 · 🧪 Practice Lab", sc.build ? "then extra practice on John Doe's file" : `all ${nActs} Skill Activities, in one place`)
     + (sc.build ? row(n1 + 1, "Build Your Companion Case", "lab") : row(n1 + 1, `Practice Lab: ${nActs} Skill Activities`, "lab"))
     + row(n1 + 2, "Knowledge Check", "kc"));

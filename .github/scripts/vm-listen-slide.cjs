@@ -1,9 +1,11 @@
-// @check browser — 🎧 Listen is on the slide of every activity worked from a voicemail (in 📂 Your Case, not only under 🧰 Tools), and it opens that voicemail's player
+// @check browser — 🎧 Transcription Activity is on the slide of every activity worked from a voicemail (one button, the Your Case link gone), and it opens that voicemail's player
 // After the one-slide activities (#304) a voicemail was only under 🧰 Tools → 🎧 Listen. Every activity whose event is a
 // voicemail (CM_CF_SIM.events[id].channel "voicemail", spoken, with a Listening Check) now carries "🎧 Listen to the
 // voicemail" in its Your Task's 📂 Your Case sentence (js/cm-case-flow.js), so the slide's bar keeps its three buttons
 // (🚀 Launch and its one button: slide-type.cjs). At 1366×768, as a trainee: the link is visible, bold and at least
 // 16px, reachable from the keyboard (tabindex 0, Enter), and opens the 🎧 Listening Check for that voicemail, with its player.
+// Since then (js/cm-vm-file.js) the slide has ONE way in: the bar's 🎧 Transcription Activity button; the 🎧 Listen link in
+// Your Case is gone (it opened the same check). So the button is what is checked, and the link's absence.
 // No speech engine is needed (CI's Chromium has no voices): only that the player opens is checked, not that it speaks.
 // Usage: node .github/scripts/vm-listen-slide.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
@@ -27,21 +29,23 @@ const failures = []; const fail = (m) => failures.push(m);
       if (k < 0) return null; goToSlide(k); return d.cf.n; }, id);
     if (!at) { fail(`${id}: no Your Task slide`); continue; }
     await page.waitForTimeout(400);
-    const s = await page.evaluate((id) => { const w = document.getElementById('lessonSlideWrap'), a = w && w.querySelector(`.cfx-yc [data-vm-listen="${id}"]`);
+    const s = await page.evaluate((id) => { const w = document.getElementById('lessonSlideWrap'), a = w && [...w.querySelectorAll('.cfx-task-foot .vmt-go')].find(b => /Transcription Activity/.test(b.textContent));
+      if (w && w.querySelector(`.cfx-yc [data-vm-listen="${id}"]`)) return { link: true };
       if (!a) return null; const cs = getComputedStyle(a), r = a.getBoundingClientRect();
       const zoom = (el) => { let z = 1; for (let n = el; n && n.style; n = n.parentElement) if (n.style.zoom) z *= Number(n.style.zoom) || 1; return z; };
       return { text: a.textContent.trim(), px: parseFloat(cs.fontSize) * zoom(a), w: parseInt(cs.fontWeight, 10), seen: r.width > 0 && r.height > 0 && r.bottom <= innerHeight && r.top >= 0, tab: a.tabIndex, href: a.getAttribute('href') }; }, id);
-    if (!s) { fail(`Day ${at} ${id}: its Your Task slide has no 🎧 Listen in 📂 Your Case`); continue; }
-    if (!/🎧 Listen/.test(s.text)) fail(`${id}: the link should say 🎧 Listen (${s.text})`);
-    if (!s.seen) fail(`${id}: 🎧 Listen is not in view on the slide at 1366×768`);
-    if (s.px < 15.95 || s.w < 600) fail(`${id}: 🎧 Listen is ${s.px.toFixed(1)}px, weight ${s.w} (want bold, at least 16px)`);
-    if (s.tab !== 0 || s.href === '#') fail(`${id}: 🎧 Listen should be reachable from the keyboard and not a "#" link (tabindex ${s.tab}, href ${s.href})`);
-    await page.focus(`#lessonSlideWrap .cfx-yc [data-vm-listen="${id}"]`); await page.keyboard.press('Enter'); await page.waitForTimeout(400);
+    if (!s) { fail(`Day ${at} ${id}: its Your Task slide has no 🎧 Transcription Activity button`); continue; }
+    if (s.link) { fail(`${id}: the 🎧 Listen link is still in 📂 Your Case: the slide has one way in, 🎧 Transcription Activity`); continue; }
+    if (!/🎧 Transcription Activity/.test(s.text)) fail(`${id}: the button should say 🎧 Transcription Activity (${s.text})`);
+    if (!s.seen) fail(`${id}: 🎧 Transcription Activity is not in view on the slide at 1366×768`);
+    if (s.px < 15.95 || s.w < 600) fail(`${id}: 🎧 Transcription Activity is ${s.px.toFixed(1)}px, weight ${s.w} (want bold, at least 16px)`);
+    await page.evaluate(() => { const b = [...document.querySelectorAll('#lessonSlideWrap .cfx-task-foot .vmt-go')].find(x => /Transcription Activity/.test(x.textContent)); b.setAttribute('data-vmt-test', '1'); });
+    await page.focus('#lessonSlideWrap [data-vmt-test]'); await page.keyboard.press('Enter'); await page.waitForTimeout(400);
     const o = await page.evaluate((id) => { const b = document.getElementById('cf-vm'); return { open: !!b && !b.hidden && !!b.getClientRects().length, mine: !!(b && b.querySelector(`[data-vm="${id}"]`)), player: !!(b && b.querySelector('.vmp[role="group"]')) }; }, id);
-    if (!o.open || !o.mine || !o.player) fail(`${id}: 🎧 Listen should open the Listening Check for this voicemail, with its player: ${JSON.stringify(o)}`);
+    if (!o.open || !o.mine || !o.player) fail(`${id}: 🎧 Transcription Activity should open the check for this voicemail, with its player: ${JSON.stringify(o)}`);
     await page.evaluate(() => { if (window.cmCaseFlow && cmCaseFlow.listenClose) cmCaseFlow.listenClose(); });
   }
   await browser.close();
-  if (failures.length) { console.log('✗ 🎧 Listen on the slide:\n  ' + failures.join('\n  ')); process.exit(1); }
-  console.log(`🎧 Listen is on the slide of every voicemail activity (${ids.join(', ')}): in Your Case, bold and 16px+, keyboard-reachable, and it opens the voicemail's Listening Check.`);
+  if (failures.length) { console.log('✗ 🎧 Transcription Activity on the slide:\n  ' + failures.join('\n  ')); process.exit(1); }
+  console.log(`🎧 Transcription Activity is on the slide of every voicemail activity (${ids.join(', ')}): one button, bold and 16px+, keyboard-reachable, and it opens the voicemail's check with its player.`);
 })().catch(e => { console.log('✗ ' + (e && e.stack || e)); process.exit(1); });

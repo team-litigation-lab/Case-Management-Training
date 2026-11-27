@@ -54,7 +54,7 @@ const D3 = [
     if (s.naming) fail(`${id}: the naming convention (bar, _DRAFT/_SUPERSEDED labels or points) is still on the slide`);
     if (s.deliver) fail(`${id}: the old 📤 Deliver box is still on the slide`);
     if (s.dock) fail(`${id}: the floating CMS · Drive card (#cm-sb-dock) is still on the page`);
-    if (s.launch !== 1 || !s.launchTop) fail(`${id}: want one 🚀 Launch LSH CaseWorX & Google Drive button in the foot bar, found ${s.launch}`);
+    if (s.launch !== 2 || !s.launchTop) fail(`${id}: want two tool buttons in the foot bar, 🗂 LSH CaseWorX and 📁 Case Backup Files (js/cm-tool-split.js), found ${s.launch}`);
     if (!s.tools) fail(`${id}: the task's other tools and its Source Files should be off the foot bar, kept for 📖 Reference (.cfx-tools-stash)`);
     if (!s.brief) fail(`${id}: 📂 Your Case and the steps should be one instruction card (.cfx-brief)`);
     if (s.pts) fail(`${id}: a point counter shows before anything is submitted`);
@@ -81,8 +81,8 @@ const D3 = [
       }
       await page.evaluate(() => cmCaseFlow.fullClose());
 
-      // 🚀 Launch, as a trainer: the CMS beside the slide and Google Drive in a new tab
-      await page.click('#app .cfx-launch'); await page.waitForTimeout(600);
+      // 🗂 LSH CaseWorX and 📁 Case Backup Files, as a trainer: the CMS beside the slide, and Google Drive in a new tab
+      await page.click('#app .cfx-launch-cms'); await page.waitForTimeout(600); await page.click('#app .cfx-launch-drive'); await page.waitForTimeout(300);
       const l = await page.evaluate(() => { const f = document.getElementById('cm-toolframe'); return { cms: !!f && !f.hidden, opened: window.__opened.slice() }; });
       if (!l.cms) fail('🚀 Launch did not open the CMS beside the slide');
       if (!l.opened.some(u => /^https:\/\/drive\.google\.com\//.test(u))) fail(`🚀 Launch did not open Google Drive in a new tab: ${JSON.stringify(l.opened)}`);
@@ -101,7 +101,7 @@ const D3 = [
     } else {
       // 🚀 Launch, as a trainee with no linked Drive: the CMS beside the slide and the Backup Drive panel to link it
       await page.evaluate(() => { window.__opened = []; });
-      await page.click('#app .cfx-launch'); await page.waitForTimeout(800);
+      await page.click('#app .cfx-launch-cms'); await page.waitForTimeout(600); await page.click('#app .cfx-launch-drive'); await page.waitForTimeout(500);
       const l = await page.evaluate(() => { const f = document.getElementById('cm-toolframe'), h = document.getElementById('cmDriveHost');
         return { cms: !!f && !f.hidden, panel: !!h && !!h.getClientRects().length && /Drive/.test(h.textContent || ''), opened: window.__opened.slice() }; });
       if (!l.cms) fail('🚀 Launch (a trainee) did not open the CMS beside the slide');

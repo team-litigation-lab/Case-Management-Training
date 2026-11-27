@@ -92,14 +92,15 @@ buildDaySlides = function(d){
   if(!main.length && !build.length) return s;   // a day without its Skill Building (not this course's data): as it was
   if(!step2.length) step2.push({type: PROFILE});
   const lab = sides.length ? (labHead.length ? labHead.slice(0, 1) : [{type: "practiceLab"}]).concat(sides) : [];
-  return head.concat(lessons, step2, main, build, drive, [{type: PLAN}], lab, ready, tail);
+  // the client first (the owner): the Case Profile opens the day, before the lessons
+  return head.concat(step2, lessons, main, build, drive, [{type: PLAN}], lab, ready, tail);
 };
 
 /* ---------- a place saved before the loop (js/cm-slide-keys.js: window.CM_SLIDE_KEY_RULES) ----------
    Keys saved since the loop carry RULE in their marks (m) and are left as they are. A place saved before it (keys
    without RULE, or no keys at all: a position in layout 8's deck) whose slide, in the deck before the loop (before(d),
    cmDayLoop.layout8), was the Practice Lab's opening slide or a side exercise ahead of the day's Skill Building, lands on
-   step 2 (Meet John Doe, or the Case Profile Check-In): the slide right before the Skill Building. For the place and
+   the slide right before the Skill Building (the day's last lesson: the Case Profile now opens the day). For the place and
    the furthest slide reached alike: nothing past the Skill Building and the Action Plan is unlocked by it. */
 const RULE = "dayLoop";
 function placeRule(d, r, to, keys){
@@ -111,8 +112,8 @@ function placeRule(d, r, to, keys){
   const seen = {}, old = before(d).map(sl => { const x = window.cmSlideKeys.keyOf(d, sl); seen[x] = (seen[x] || 0) + 1; return seen[x] > 1 ? x + "#" + seen[x] : x; });
   const o = old.indexOf(k), main8 = old.findIndex(x => id(x) === mid);
   if(!(o >= 0 && main8 >= 0 && o < main8)) return to;
-  const s2 = keys.findIndex(x => STEP2.has(String(x).slice(1)));
-  return s2 >= 0 && s2 < to ? s2 : to;
+  const s3 = keys.findIndex(x => id(x) === mid);   // the slide right before the Skill Building (the Case Profile now opens the day)
+  return s3 > 0 && s3 - 1 < to ? s3 - 1 : to;
 }
 (window.CM_SLIDE_KEY_RULES = window.CM_SLIDE_KEY_RULES || []).push({id: RULE, place: placeRule});
 
@@ -148,10 +149,12 @@ function agendaRows(d, sc){
   // (the Skill Building's own name only where the row has room for it: Day 1's Intake, Day 5's build; on Days 2–4 the
   // name made the row wrap and the whole agenda scale down, so it is on the Objectives page and the slides instead)
   const drv = !!driveId(d);   // 📁 Backup File Maintenance, required every day, between the Skill Building and the Action Plan
-  const chain = n === 1 ? `👋 Meet John Doe → 🎯 Skill Building: the Intake${drv ? " → 📁 Backup Files" : ""} → 📝 Action Plan`
-    : `📇 Case Profile → 🎯 Skill Building${sc && sc.build || d.cf.build ? ": Build Your Companion Case" : ""}${drv ? " → 📁 Backup Files" : ""} → 📝 ${n === 5 ? "Close Out " : ""}Action Plan`;
+  // (the Case Profile opens the day, before the lessons: "first", Part 1's first card)
+  const chain = n === 1 ? `🎯 Skill Building: the Intake${drv ? " → 📁 Backup Files" : ""} → 📝 Action Plan`
+    : `🎯 Skill Building${sc && sc.build || d.cf.build ? ": Build Your Companion Case" : ""}${drv ? " → 📁 Backup Files" : ""} → 📝 ${n === 5 ? "Close Out " : ""}Action Plan`;
   return {label: "Part 2 · 🔁 The Daily Loop", side, sides, main: mainName(d, sc), drive: drv,
-    sub: `${n === 1 ? "Meet John Doe" : "Case Profile"} → Skill Building${drv ? " → Backup File Maintenance (required)" : ""} → Action Plan${side ? ", " + side : ""}`,   // js/cm-flow-parts.js labels
+    sub: `Skill Building${drv ? " → Backup File Maintenance (required)" : ""} → Action Plan${side ? ", " + side : ""}`,   // js/cm-flow-parts.js labels
+    first: n === 1 ? "👋 Meet John Doe: his Case Profile" : "📇 Case Profile: what changed since yesterday",
     rows: [chain],
     // the loop's steps one by one (the day's Objectives page, the Speaker Notes)
     steps: [n === 1 ? "👋 Meet John Doe (his Case Profile)" : "📇 Case Profile Check-In",
@@ -171,8 +174,8 @@ function profileSlide(d){
   const c = CF.case, src = CF.days.find(x => x.n === d.cf.n) || {}, l = mainLesson(d);
   // where the file stands as the day opens: each line whole (cut short, a line dropped the open lien or the track's dates)
   const items = (src.fileState || []).slice(0, 3).map(x => String(x).replace(/\.$/, ""));
-  return frame(d, "STEP 2 &middot; CASE PROFILE CHECK-IN", "📇", "Case Profile Check-In", "Lessons done · Step 2: what changed on the file since yesterday", `
-    <p class="cpx-s-lead">Before today's Skill Building${l ? `, <b>${E(cut(l.cf.block.title, 60))}</b>` : ""}, open <b>${E(c.client.name)}</b>'s Case Profile and check where <b>${E(c.style)}</b> stands today.</p>
+  return frame(d, "FIRST &middot; CASE PROFILE CHECK-IN", "📇", "Case Profile Check-In", "First, before the lessons: what changed on the file since yesterday", `
+    <p class="cpx-s-lead">Before today's lessons${l ? ` and its Skill Building, <b>${E(cut(l.cf.block.title, 60))}</b>` : ""}, open <b>${E(c.client.name)}</b>'s Case Profile and check where <b>${E(c.style)}</b> stands today.</p>
     <ul class="cpx-s-list dl-state">${items.map(x => `<li><span aria-hidden="true">📌</span>${E(x)}</li>`).join("")}</ul>
     <div class="cpx-s-go"><button type="button" class="btn btn-primary cpx-s-btn" onclick="cmDayLoop.profile()">📇 Open the Case Profile: The Case So Far</button>
       <span>Then “← Back to Case Flow Day ${d.cf.n}” brings you back here.</span></div>`, "dl-profile");
@@ -310,7 +313,7 @@ if(typeof presenterCues === "function"){
   presenterCues = function(d, slide){
     if(!(slide && isCf(d))) return __cues.apply(this, arguments);
     const n = d.cf.n;
-    if(slide.type === PROFILE) return cue("Case Profile Check-In", said(n, "profile"), "Step 2 of the daily loop. Open 📇 Case Profile → 📅 The Case So Far on the shared screen for a minute or two: what changed on John Doe's file since yesterday. Then straight into today's Skill Building.");
+    if(slide.type === PROFILE) return cue("Case Profile Check-In", said(n, "profile"), "First, before the lessons. Open 📇 Case Profile → 📅 The Case So Far on the shared screen for a minute or two: what changed on John Doe's file since yesterday. Then into today's lessons.");
     if(slide.type === PLAN) return cue(n === 5 ? "Close Out Your Action Plan" : "Update Your Action Plan", said(n, "plan"), n === 1
       ? "Step 4, guided: walk the room through the template section by section on the shared screen (📝 Open my Action Plan), about 15 minutes. Every fact has its document; anything only Atty. Thorne decides is routed."
       : "Step 4, lighter each day: about 10 minutes, the trainees update the plan on their own. Spot-check two plans: every action item has an owner and a date.");
