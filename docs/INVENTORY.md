@@ -345,7 +345,7 @@ None.
 | `trainer-notes.cjs` | 🧑‍🏫 a trainer's own feedback on a graded Practice Lab activity: written in the feedback composer, saved to the trainee's feedback record, shown to the trainee under the grade |
 | `unlock-fresh.cjs` | 🔓 "Unlock up to Day N" writes onto the trainee's record as it is after the trainer confirms: work the trainee saved while the confirm box was open is kept |
 | `video-place.cjs` | 🎬 Video Presentation: a trainee plays any part at any time (⏪ 10s / 10s ⏩, ← / →, the Slide picker) and, going back to the video, it opens where they left off, never from the start |
-| `vm-listen-slide.cjs` | 🎧 Listen is on the slide of every activity worked from a voicemail (in 📂 Your Case, not only under 🧰 Tools), and it opens that voicemail's player |
+| `vm-listen-slide.cjs` | 🎧 Transcription Activity is on the slide of every activity worked from a voicemail (one button, the Your Case link gone), and it opens that voicemail's player |
 | `vm-seek.cjs` | The voicemail has a real player (play / pause, ⏪ 5s, ⏩ 5s, a seek bar, elapsed / total, ↺ Start over) in the Notes & Action Plan and the Listening Check, opened from the activity's one slide |
 
 ## Check helpers (not checks themselves)
