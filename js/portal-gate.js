@@ -110,6 +110,9 @@ window.portalGate = {
       if(j.code === "admin-password"){ wantAdmin = true; uncover(0); return; }   // administrators always type the admin password: straight to that prompt
       if(!r.ok || !j.token){ notice = j.error || "We couldn't sign you in from the LSH Training Portal. Open the program from the Portal again."; uncover(0); return; }
       if(j.admin){ setAdminToken(j.token); uncover(250); return; }                                        // an admin signed in on the Portal: no password here (boot picks up the token)
+      // RBAC: a trainee's ticket is never an admin session. The trainer's token now outlives the tab (localStorage: 8 hours
+      // without activity ends it), so one left in this browser (a trainer signed in here earlier) is dropped first
+      if(state.adminToken || state.isAdmin){ setAdminToken(""); state.isAdmin = false; state.adminPreview = false; try{ sessionStorage.removeItem("lsh_admin_preview"); }catch(e){} }
       if(state.traineeId && state.traineeId === j.id){ setTraineeToken(j.token); uncover(250); return; }   // already signed in as them
       if(state.traineeId){ try{ await logout({from: "portal"}); }catch(e){} }                               // someone else was signed in on this device
       setTraineeToken(j.token);
