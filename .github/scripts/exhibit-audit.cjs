@@ -7,7 +7,7 @@
 // email that serves the demand on the adjuster, the adjuster's written acknowledgment, the
 // follow-up that tests the UPL line, and the exchange converted into a memorandum, filed into the open case
 // in the CMS under the firm's convention and backed up to Drive.
-// Checks, in a browser: the audit slide is in the day's slides; the workbench lists every item with a call to
+// Checks, in a browser: the audit is one of the activity's pages in the 🧪 Practice Lab; the workbench lists every item with a call to
 // make; a hand-in with an item uncalled is refused and nothing is revealed; a complete hand-in scores, marks
 // the wrong call and reveals the completed set; an email that does not do the job is refused with what is
 // missing; a complete one brings the acknowledgment; the wrong answer to the follow-up blocks the conversion
@@ -95,21 +95,20 @@ const cmsPage = () => `<!doctype html><title>CMS (test)</title><body><p>CMS</p><
     await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800);
     await page.evaluate(() => { state.isAdmin = true; });
 
-    // 1. the audit is a slide of the activity, in the day the course teaches it
+    // 1. the audit is a page of the activity in the 🧪 Practice Lab, in the day the course teaches it
     const slide = await page.evaluate(async (block) => {
         const sleep = ms => new Promise(r => setTimeout(r, ms));
         const d = DAYS.find(x => x.cf && x.lessons.some(l => l.cf && l.cf.block.id === block));   // the day the course teaches it
-        goto('day', d.id); state.dayViewMode = 'slides'; await sleep(80);
-        const slides = buildDaySlides(d);
-        for (let i = 0; i < slides.length; i++) {
-            state.lessonSlide = i; render(); await sleep(0);
-            const aud = document.querySelector('.cfx-aud');
+        const b = d.lessons.find(l => l.cf && l.cf.block.id === block).cf.block, views = cmTaskLab.views(b);
+        for (const v of views) {
+            if (!cmTaskLab.openView(block, v)) continue; await sleep(0);
+            const aud = document.querySelector('.ctl-page .cfx-aud');
             // the day carries more than one audit (the wage worksheet comes before the demand): find this activity's
-            if (aud && aud.textContent.includes(CM_CF_EXHIBITS.audits[block].title)) return { slide: i, of: slides.length, text: aud.textContent.replace(/\s+/g, ' ').trim().slice(0, 200), sim: !!aud.querySelector('.cfx-simnote') && /generated in real time/.test(aud.textContent) };
+            if (aud && aud.textContent.includes(CM_CF_EXHIBITS.audits[block].title)) return { view: v, views: views.join(' · '), text: aud.textContent.replace(/\s+/g, ' ').trim().slice(0, 200), sim: !!aud.querySelector('.cfx-simnote') && /generated in real time/.test(aud.textContent) };
         }
         return null;
     }, BLOCK);
-    check(!!slide, `the audit is one of its day's slides: ${JSON.stringify(slide && slide.slide)} of ${slide && slide.of}`);
+    check(!!slide, `the audit is one of the activity's pages in the 🧪 Practice Lab: ${JSON.stringify(slide && slide.view)} of ${slide && slide.views}`);
     check(!!slide && /Exhibit Packet Audit/.test(slide.text), `and it names the set being audited: ${slide && slide.text.slice(0, 90)}`);
     check(!!slide && !/FINAL as served/.test(slide.text), 'and does not give the completed package away before the audit is handed in');
     check(!!slide && slide.sim, 'and says plainly that its results are generated in real time for accelerated training');

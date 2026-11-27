@@ -1,4 +1,4 @@
-// @check browser — The voicemail has a real player (play / pause, ⏪ 5s, ⏩ 5s, a seek bar, elapsed / total, ↺ Start over) in the Notes & Action Plan and the Listening Check, opened from the activity's one slide
+// @check browser — The voicemail has a real player (play / pause, ⏪ 5s, ⏩ 5s, a seek bar, elapsed / total, ↺ Start over) in the Notes & Action Plan and the Listening Check, opened from the activity's Your Task in the 🧪 Practice Lab
 // 📳 The voicemail player (js/cm-case-flow.js: vmPlan, vmPlayer, cmCaseFlow.vmPlay / vmSeek / vmSkip / vmOver).
 //
 // A voicemail is not a sound file: the browser's speech engine speaks it. The engine can't seek inside what it is
@@ -6,8 +6,9 @@
 // holds it. A trainee transcribing word for word goes back to one part of the message instead of the whole minute.
 // This test puts a speech engine and an audio context of its own in the page (they record what is spoken and whether
 // the line hiss is running, and fire the engine's start and end when the test says), then checks, at 1366x768:
-//  1. Day 1's voicemail activity is one slide, Your Task: its 🧰 Tools open the Notes & Action Plan, which shows the
-//     player: nothing in it under 16px or less than bold, and no words of the message on the slide or beside the player;
+//  1. Day 1's voicemail activity's Your Task (in the 🧪 Practice Lab, js/cm-task-lab.js: its deck slide is a card): its
+//     🧰 Tools open the Notes & Action Plan, which shows the player: nothing in it under 16px or less than bold, and no
+//     words of the message on the Your Task or beside the player;
 //  2. ▶ Play speaks the first phrase (the voicemail box's own voice), then the caller's first words;
 //  3. ⏸ Pause keeps the place and ▶ resumes at the same phrase; ↺ Start over goes back to 0:00;
 //  4. stopped, a seek to about half way speaks nothing; ▶ then speaks the phrase at that time, not the beginning;
@@ -17,8 +18,8 @@
 //     pause and resume; the count is what is kept on the trainee's record;
 //  8. the Listening Check shows the same player in the same state, and repaints with it;
 //  9. the hiss never runs twice and never after a pause or the end; a hidden tab pauses; the end of the message stops;
-// 10. The second voicemail (d2m2-a3, the redirected referral, on Day 1 with the treatment it belongs to): its one slide's
-//     🧰 Tools open its Listening Check, with the player, at full size.
+// 10. The second voicemail (d2m2-a3, the redirected referral, on Day 1 with the treatment it belongs to): its Your Task's
+//     🧰 Tools (in the 🧪 Practice Lab) open its Listening Check, with the player, at full size.
 // Usage: node .github/scripts/vm-seek.cjs [baseUrl]   (with .github/scripts/server.mjs running; needs Playwright)
 const { chromium } = require('playwright');
 const signIn = require('./sign-in.cjs');
@@ -60,14 +61,13 @@ const STUB = () => {
     await signIn(page, 'Seek', 'Vm' + String(Date.now()).slice(-7).replace(/\d/g, d => 'abcdefghij'[d]), 'B100926');
     await page.evaluate(() => { const kt = document.getElementById('ktLogin'); if (kt) kt.remove(); });
 
-    // the activity's one slide (Your Task), and from its 🧰 Tools the panel with the player: the Notes & Action Plan, or the Listening Check
-    const toCase = (n, block) => page.evaluate(async ([n, block]) => { const d = DAYS.find(d => d.cf && d.cf.n === n); goto('day', d.id); state.dayViewMode = 'slides';
-        const ss = buildDaySlides(d), k = ss.findIndex(s => s.type === 'topic' && d.lessons[s.lessonIndex].cf.block.id === block && cmCaseFlow.viewsOf(d.lessons[s.lessonIndex].cf.block)[(s.part || 1) - 1] === 'task');
-        if (k < 0) return false; goToSlide(k); await new Promise(r => setTimeout(r, 300));
-        const w = document.getElementById('lessonSlideWrap'), row = w && [...w.querySelectorAll('.cfx-tools-menu .cfx-call')].find(x => /Notes &(amp;)? Action Plan|Voicemail/.test(x.textContent));
+    // the activity's Your Task in the 🧪 Practice Lab, and from its 🧰 Tools the panel with the player: the Notes & Action Plan, or the Listening Check
+    const toCase = (n, block) => page.evaluate(async ([n, block]) => { const d = DAYS.find(d => d.cf && d.cf.n === n);
+        if (!d || !d.lessons.some(l => l.cf && l.cf.block.id === block) || !cmTaskLab.openView(block, 'task')) return false; await new Promise(r => setTimeout(r, 300));
+        const w = document.querySelector('.ctl-page #lessonSlideWrap'), row = w && [...w.querySelectorAll('.cfx-tools-menu .cfx-call')].find(x => /Notes &(amp;)? Action Plan|Voicemail/.test(x.textContent));
         window.__vmWords = w ? w.innerText.replace(/\s+/g, ' ') : '';
         if (!row || !row.querySelector('button')) return false; row.querySelector('button').click(); return true; }, [n, block]);
-    // the slide: its player, its type, its size
+    // the panel: its player, its type, its size
     const slideOf = (block) => page.evaluate((block) => {
         const w = document.querySelector('#cf-np, #cf-vm'), card = w && w.querySelector(`[data-vm="${block}"]`); if (!card) return null;
         const has = s => !!card.querySelector(s), vis = e => e.getClientRects().length > 0;
@@ -94,9 +94,9 @@ const STUB = () => {
     // where a spoken phrase sits in the message, 0 to 1 (-1: not the caller's words)
     const spoken = (await page.evaluate((b) => CM_CF_SIM.events[b].spoken, BLOCK)).replace(/\.\.\./g, ',');
     const placeOf = (phrase) => { const i = spoken.indexOf(phrase); return i < 0 ? -1 : i / spoken.length; };
-    const SLIDE = '#cf-np', wait = (ms) => page.waitForTimeout(ms);   // the player opened from the slide: the Notes & Action Plan's
+    const SLIDE = '#cf-np', wait = (ms) => page.waitForTimeout(ms);   // the player opened from the Your Task: the Notes & Action Plan's
 
-    // 1. the slide
+    // 1. the Your Task, in the 🧪 Practice Lab
     check(await toCase(1, BLOCK), "Day 1's voicemail activity's Your Task opens its Notes & Action Plan from 🧰 Tools"); await wait(900);
     const s1 = await slideOf(BLOCK);
     check(!!s1, 'the Notes & Action Plan carries the voicemail');
@@ -106,7 +106,7 @@ const STUB = () => {
     check(s1.parts.ticks > 8, `and a mark on the bar at each phrase (${s1.parts.ticks})`);
     check(/Northgate Distribution/.test(s1.head) && /02\/09\/2026/.test(s1.head) && /8:47/.test(s1.head) && /Not played yet/.test(s1.head), 'it says who the message is from, its date and time, and that it has not been played');
     check(!s1.small.length, `nothing in the player is under 16px or less than bold: ${JSON.stringify(s1.small.slice(0, 4))}`);
-    check(!s1.words.length, `no words of the message are on the slide or beside the player: ${JSON.stringify(s1.words.slice(0, 2))}`);
+    check(!s1.words.length, `no words of the message are on the Your Task or beside the player: ${JSON.stringify(s1.words.slice(0, 2))}`);
     const total = secs(s1.parts.time.split('/')[1].trim());
 
     // 2. play: the voicemail box, then the caller from his first words

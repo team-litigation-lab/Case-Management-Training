@@ -1,18 +1,20 @@
-// @check browser — Every Case Flow day runs the daily loop: lessons → Case Profile (Day 1: Meet John Doe & Intake) → ONE Skill Building → required Backup File Maintenance → Update Your Action Plan → side exercises (none of them optional) → Knowledge Check
+// @check browser — Every Case Flow day runs the daily loop (each activity one card slide, its Your Task in the 🧪 Practice Lab): lessons → Case Profile (Day 1: Meet John Doe & Intake) → ONE Skill Building → required Backup File Maintenance → Update Your Action Plan → side exercises (none of them optional) → Knowledge Check
 // The owner's standard flow (js/cm-day-loop.js, CF.sequence `main` in js/cm-case-flow-data.js), walked on all five days
 // in a real browser:
 //   · the deck runs the loop's steps in order and never goes back: the Training Agenda, ALL the lessons (Day 2's deck
 //     pages with them), ONE Case Profile slide (Day 1: 👋 Meet John Doe; Days 2–5: 📇 Case Profile Check-In), the ONE
-//     Skill Building (all of the day's `main` activity's slides, together, ending on Submit; Day 5: the Full
-//     Application Practice's two slides), then 📁 Backup File Maintenance (CF.sequence `drive`), REQUIRED every day: all
-//     of its slides together, a full activity (not "side", its full steps, ending on Submit, its top line
+//     Skill Building (the day's `main` activity's one card slide, ▶ Start in the Practice Lab; Day 5: the Full
+//     Application Practice's two slides), then 📁 Backup File Maintenance (CF.sequence `drive`), REQUIRED every day: its
+//     one card slide, a full activity (not "side", its full steps, its top line in the 🧪 Practice Lab
 //     REQUIRED · BACKUP FILE MAINTENANCE), ONE 📝 Update Your Action Plan slide, then the side exercises behind one
 //     Practice Lab slide, then 🎯 Ready for the Knowledge Check? as the last slide;
+//   · every activity is ONE card slide in the deck (its second page, the audit or Your Case, is not a slide): the card
+//     says Your Task and ▶ Start in the Practice Lab, which opens its Your Task in the 🧪 Practice Lab;
 //   · every activity that is not the day's Skill Building is a side exercise: "side": true in its copy, a situation that
-//     opens with its assumption ("Assuming …"), two or three steps; its slides say SKILL ACTIVITY on their top
-//     line, the Skill Building's say THE DAY'S SKILL BUILDING; the Practice Lab slide lists exactly the side exercises
+//     opens with its assumption ("Assuming …"), two or three steps; in the 🧪 Practice Lab its Your Task says SKILL
+//     ACTIVITY on its top line, the Skill Building's THE DAY'S SKILL BUILDING; the Practice Lab slide lists exactly the side exercises
 //     and its ⏭ goes to the Ready check;
-//   · the Skill Building's Your Task has 🚀 Launch LSH CaseWorX & Google Drive and its last slide is Submit;
+//   · the Skill Building's Your Task in the 🧪 Practice Lab has 🚀 Launch LSH CaseWorX & Google Drive and ends in Submit;
 //   · the Case Profile slide's button opens the Case Profile (Day 1 on 👋 Meet John Doe, later on 📅 The Case So Far) and
 //     the Action Plan slide's opens My Notes & Action Plan; "← Back to Case Flow Day N" returns to the slide;
 //   · progressive autonomy: Day 1's Action Plan slide is numbered, step by step (at least five steps); each later day
@@ -20,7 +22,7 @@
 //   · the Training Agenda shows the loop (Part 2 · 🔁 The Daily Loop: one row, Case Profile → Skill Building → Action
 //     Plan, then the Knowledge Check: Part 2 keeps its three grid rows) and the day fits its four hours
 //     (js/cm-case-flow-schedule.js);
-//   · the band under an activity's title says Skill Building on the day's main, Skill Activity on the others (Required: Backup File Maintenance on the drive step);
+//   · the band under an activity's title in the 🧪 Practice Lab says Skill Building on the day's main, Skill Activity on the others (Required: Backup File Maintenance on the drive step);
 //   · the day's other pages tell the same loop: the Objectives page's Part 2, the trainer's Run of Show (no "Practice Lab
 //     (all of the day's Skill Activities)"), the Trainer Speaker Notes in the deck's order (lessons → Case Profile →
 //     Skill Building → Action Plan → the side exercises), the Practice page's tiles (🎯 Skill Building, the
@@ -67,9 +69,10 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
         const li = d.lessons.findIndex(l => l.cf.block.id === main), b = li >= 0 && d.lessons[li].cf.block;
         if (!b || b.kind !== 'activity') out.push(`${L}: the sequence's main (${main}) is not an activity of the day`);
         else {
-          const vs = cmCaseFlow.viewsOf(b), got = sb.map(([sl]) => sl.type === 'topic' && sl.lessonIndex === li ? vs[sl.part - 1] : sl.type);
-          if (got.join(' ') !== vs.join(' ')) out.push(`${L}: the Skill Building should be all of ${main}'s slides, together (${got.join(' → ')}; its slides are ${vs.join(' → ')})`);
-          if (vs[0] !== 'task' || vs.includes('check')) out.push(`${L}: ${main} should open on Your Task, whose Submit opens the AI Grader on the slide (its slides are ${vs.join(' → ')})`);
+          // one card slide in the deck; its pages (Your Task, a second page) are in the 🧪 Practice Lab
+          const vs = cmCaseFlow.viewsOf(b), got = sb.map(([sl]) => sl.type === 'topic' && sl.lessonIndex === li ? vs[sl.part - 1] : sl.type), pages = cmTaskLab.views(b);
+          if (got.join(' ') !== 'task' || vs.join(' ') !== 'task') out.push(`${L}: the Skill Building should be ${main}'s one card slide (${got.join(' → ')}; its slides are ${vs.join(' → ')})`);
+          if (pages[0] !== 'task' || pages.includes('check')) out.push(`${L}: ${main} should open on Your Task in the 🧪 Practice Lab, whose Submit opens the AI Grader there (its pages are ${pages.join(' → ')})`);
           if (SL[main] && SL[main].side) out.push(`${L}: the Skill Building ${main} is marked a side exercise`);
         }
       }
@@ -78,7 +81,7 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
       if (!/-drive$/.test(drive) || dvI < 0) out.push(`${L}: the sequence should name the day's required Backup File Maintenance (drive: ${drive || 'none'})`);
       else {
         const vs = cmCaseFlow.viewsOf(d.lessons[dvI].cf.block), got = dv.map(([sl]) => sl.type === 'topic' && sl.lessonIndex === dvI ? vs[sl.part - 1] : sl.type);
-        if (got.join(' ') !== vs.join(' ')) out.push(`${L}: the Backup File Maintenance should be all of ${drive}'s slides, together (${got.join(' → ')}; its slides are ${vs.join(' → ')})`);
+        if (got.join(' ') !== 'task' || vs.join(' ') !== 'task') out.push(`${L}: the Backup File Maintenance should be ${drive}'s one card slide (${got.join(' → ')}; its slides are ${vs.join(' → ')})`);
         const lastSb = Math.max(...deck.map((sl, k) => steps[k] === 3 ? k : -1)), plan = deck.findIndex(sl => sl.type === 'actionPlan');
         if (!(dv.length && dv[0][1] === lastSb + 1 && dv[dv.length - 1][1] === plan - 1)) out.push(`${L}: the Backup File Maintenance should sit right after the Skill Building and right before Update Your Action Plan`);
         const c = SL[drive] || {};
@@ -94,6 +97,8 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
         if (!(c.steps || []).length || c.steps.length > (c.ownerSteps ? 5 : 3)) out.push(`${L}: side exercise ${l.cf.block.id} has ${(c.steps || []).length} steps (want 2–3; the owner's own, ownerSteps, up to 5)`); });
       const heads = deck.filter((sl, k) => steps[k] === 'side' && sl.type !== 'topic');
       if (sideActs.length && heads.length !== 1) out.push(`${L}: the side exercises should sit behind one Practice Lab slide (${heads.length})`);
+      d.lessons.forEach((l, li) => { if (l.cf.block.kind !== 'activity') return; const ks = deck.filter(sl => sl.type === 'topic' && sl.lessonIndex === li);
+        if (ks.length !== 1) out.push(`${L}: ${l.cf.block.id} should be one card slide in the deck, its pages in the 🧪 Practice Lab (${ks.length} slides)`); });
       const sideIds = [...new Set(deck.filter((sl, k) => steps[k] === 'side' && sl.type === 'topic').map(sl => d.lessons[sl.lessonIndex].cf.block.id))];
       if (sideIds.join(' ') !== sideActs.map(l => l.cf.block.id).join(' ')) out.push(`${L}: the side exercises' slides (${sideIds.join(', ')}) should be every other activity, in the sequence's order (${sideActs.map(l => l.cf.block.id).join(', ')})`);
       // the schedule
@@ -177,22 +182,33 @@ const BASE = process.argv[2] || 'http://localhost:8787/';
           goto('day', d.id); state.dayViewMode = 'slides';
         }
       }
-      // the Skill Building's top line, its Launch button and its Submit (the AI Grader, on Your Task); a side exercise's top line
+      // an activity's card slide (▶ Start in the Practice Lab), and its Your Task in the 🧪 Practice Lab: the Skill Building's
+      // top line, its Launch button and its Submit (the AI Grader, on Your Task); the Backup File Maintenance's; a side exercise's
+      const lab = async (k, what) => { w = await show(k);
+        const card = w.querySelector('.ctl-card'), go = card && card.querySelector('.ctl-go');
+        if (!card || !/Your Task/.test(norm((card.querySelector('.cfx-what-v') || {}).textContent)) || !go || !/Start in the Practice Lab/.test(go.textContent)) { out.push(`${L}: the ${what}'s slide should be its card, Your Task with ▶ Start in the Practice Lab`); return null; }
+        cmTaskLab.start(); await sleep(40);
+        const p = state.view === 'practice' && state.taskLab && document.querySelector('.ctl-page #lessonSlideWrap');
+        if (!p) out.push(`${L}: ▶ Start should open the ${what}'s Your Task in the 🧪 Practice Lab (${state.view})`);
+        return p || null; };
+      const home = () => { goto('day', d.id); state.dayViewMode = 'slides'; };
       const sbK = sb.length ? sb[0][1] : -1;
-      if (!d.cf.build && sbK >= 0) {
-        w = await show(sbK);
+      if (!d.cf.build && sbK >= 0 && (w = await lab(sbK, 'Skill Building'))) {
         if (!/THE DAY'S SKILL BUILDING/.test(norm((w.querySelector('.topic-separator') || {}).textContent))) out.push(`${L}: the Skill Building's top line should say THE DAY'S SKILL BUILDING`);
         if (norm((w.querySelector('.cfx-what-k') || {}).textContent) !== 'Skill Building') out.push(`${L}: the Skill Building's band should say Skill Building (${norm((w.querySelector('.cfx-what-k') || {}).textContent)})`);
         if (!w.querySelector('[data-launch]')) out.push(`${L}: the Skill Building's Your Task has no 🚀 Launch LSH CaseWorX & Google Drive`);
-        if (w.querySelector('.cfx-grade-go') || /AI Grader/.test(w.textContent)) out.push(`${L}: the Skill Building's Your Task should have no Submit on the slide (it is in CaseWorX's window: js/cm-cms-submit.js) and never say "AI Grader"`);
+        if (w.querySelector('.cfx-grade-go') || /AI Grader/.test(w.textContent)) out.push(`${L}: the Skill Building's Your Task should have no Submit in the 🧪 Practice Lab (it is in CaseWorX's window: js/cm-cms-submit.js) and never say "AI Grader"`);
       }
-      if (dv.length) { w = await show(dv[0][1]);
+      home();
+      if (dv.length && (w = await lab(dv[0][1], 'Backup File Maintenance'))) {
         if (!/REQUIRED · BACKUP FILE MAINTENANCE/.test(norm((w.querySelector('.topic-separator') || {}).textContent))) out.push(`${L}: the Backup File Maintenance's top line should say REQUIRED · BACKUP FILE MAINTENANCE`);
         if (norm((w.querySelector('.cfx-what-k') || {}).textContent) !== 'Required: Backup File Maintenance') out.push(`${L}: the Backup File Maintenance's band should say Required: Backup File Maintenance (${norm((w.querySelector('.cfx-what-k') || {}).textContent)})`);
-        if (w.querySelector('.cfx-grade-go') || /AI Grader/.test(w.textContent)) out.push(`${L}: the Backup File Maintenance's Your Task should have no Submit on the slide (CaseWorX's window has it) and never say "AI Grader"`); }
+        if (w.querySelector('.cfx-grade-go') || /AI Grader/.test(w.textContent)) out.push(`${L}: the Backup File Maintenance's Your Task should have no Submit in the 🧪 Practice Lab (CaseWorX's window has it) and never say "AI Grader"`); }
+      home();
       const sideK = deck.findIndex((sl, k) => steps[k] === 'side' && sl.type === 'topic');
-      if (sideK >= 0) { w = await show(sideK); if (!/SKILL ACTIVITY/.test(norm((w.querySelector('.topic-separator') || {}).textContent))) out.push(`${L}: a side exercise's top line should say SKILL ACTIVITY`);
+      if (sideK >= 0 && (w = await lab(sideK, 'side exercise'))) { if (!/SKILL ACTIVITY/.test(norm((w.querySelector('.topic-separator') || {}).textContent))) out.push(`${L}: a side exercise's top line should say SKILL ACTIVITY`);
         if (norm((w.querySelector('.cfx-what-k') || {}).textContent) !== 'Skill Activity') out.push(`${L}: a side exercise's band should say Skill Activity (${norm((w.querySelector('.cfx-what-k') || {}).textContent)})`); }
+      home();
       // the Practice Lab slide of side exercises, and its ⏭
       const kl = deck.findIndex((sl, k) => steps[k] === 'side' && sl.type !== 'topic');
       if (kl >= 0) {
