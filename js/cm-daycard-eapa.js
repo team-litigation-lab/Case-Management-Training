@@ -27,6 +27,8 @@ ${C} .mc-grid.mc-grid > button, ${C} .mc-grid.mc-grid > .btn, ${C} .mc-grid.mc-g
 ${C} .mc-grid.mc-grid > button.module-start-btn{background:#0F2148 !important;color:#FDBA74 !important;font:800 16px/1 'Inter',sans-serif !important;letter-spacing:.06em !important;text-transform:uppercase !important;padding:12px 10px !important;}
 ${C} .mc-grid.mc-grid > button.module-start-btn:not(:disabled):hover{background:#1E2F63 !important;color:#FFD3A1 !important;}
 ${C} .mc-grid.mc-grid > button:not(.module-start-btn), ${C} .mc-grid.mc-grid > *:not(button) > button{background:#F1F5F9 !important;color:#334155 !important;font:700 14px/1.2 'Inter',sans-serif !important;padding:9px 6px !important;}
+/* ▶ Video (and Day 5's 🎬 Case Debrief beside it): its own row, a size up from the small tiles, as in Day 1's format */
+${C} .mc-grid.mc-grid > button.cm-dcf-video{font:800 16px/1.2 'Inter',sans-serif !important;padding:12px 6px !important;color:#0F2148 !important;}
 ${C} .mc-grid.mc-grid > button:not(.module-start-btn) + button:not(.module-start-btn){box-shadow:inset 1px 0 0 #fff !important;}
 ${C} .mc-grid.mc-grid > button:not(.module-start-btn):not([aria-disabled="true"]):hover{background:#E2E8F0 !important;color:#0F2148 !important;}
 ${C} .mc-grid.mc-grid > button[aria-disabled="true"]:not(.module-start-btn){color:#64748B !important;}
