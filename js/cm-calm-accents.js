@@ -50,11 +50,7 @@ html body #lessonSlideWrap .cfx-agenda .cfx-ag-list.cfx-ag-two:has(> li:nth-chil
 html body #lessonSlideWrap .cfx-agenda .cfx-ag-list.cfx-ag-two > li:not(.cfx-ag-label){padding-top:2px !important;padding-bottom:2px !important;}
 html body #lessonSlideWrap .cfx-agenda .cfx-ag-list.cfx-ag-two > li.cfx-ag-profile{background:rgba(201,162,122,.22) !important;border-color:#C9A27A !important;}
 html body #lessonSlideWrap .cfx-agenda .cfx-ag-side p{line-height:1.3 !important;}
-/* the dashboard's day cards: the title bigger and thicker, navy on a warm pill (as the lien course's topic cards) */
-html body .dash-main .module-card.mc-clean.mc-clean .module-theme{font-family:'Inter','Poppins',sans-serif !important;font-size:21px !important;font-weight:900 !important;line-height:1.22 !important;letter-spacing:-.005em !important;color:#1E2340 !important;
-  background:linear-gradient(135deg,#FFF6EC 0%,#F9DDB8 55%,#F2C08A 100%) !important;border:2px solid #DB8437 !important;box-shadow:0 6px 14px -8px rgba(164,71,15,.55) !important;}
-@container (min-height:180px){ html body .dash-main .module-card.mc-clean.mc-clean .module-theme{font-size:23px !important;} }
-@container (max-width:280px){ html body .dash-main .module-card.mc-clean.mc-clean .module-theme{font-size:18px !important;} }
+/* (the dashboard's day cards: js/cm-daycard-eapa.js) */
 /* the Exception: a softer sand */
 html body .cfx .cfx-rx .cfx-rx-exc{background:#FAF5EE !important;}
 html body #lessonSlideWrap .cfx .cfx-split-rx > .cfx-rx .cfx-rx-exc{border-left-color:${SAND} !important;}

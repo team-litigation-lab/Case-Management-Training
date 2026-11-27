@@ -14,7 +14,8 @@ if(typeof document === "undefined" || window.cmScorecardTidy) return;
 const norm = s => String(s || "").replace(/\s+/g, " ").trim();
 
 function tidy(){
-  const scr = document.querySelector(".scx-page"); if(!scr) return;
+  // the page the 🏅 Scores table is on (Admin's section screen; a .scx-page where there is one)
+  const sc = document.getElementById("scx-scores"), scr = sc ? (sc.closest(".scx-page, .cmsh-screen, .cm-admin-screen") || sc.parentElement) : document.querySelector(".scx-page"); if(!scr) return;
   const sec = scr.querySelector("#scx-scores"), table = sec && sec.querySelector("table");
   // one batch picked: no Batch column, and the letters row closes up
   if(table && !table.dataset.tidy){
@@ -62,7 +63,7 @@ new MutationObserver(() => { if(queued) return; queued = true; Promise.resolve()
   .observe(document.documentElement, {childList: true, subtree: true});
 window.cmScorecardTidy = {tidy};
 
-const S = ".scx-page";
+const S = "html body";   // (Admin's 🏅 Scorecards has no .scx-page around it: the rules key on #scx-scores and the card's own classes)
 const css = document.createElement("style"); css.id = "cm-scorecard-tidy"; css.textContent = `
 /* 🏅 Scores: one number per day cell, the numeric columns one width and centred */
 ${S} #scx-scores td.bs-dc .bs-dc-t{display:none !important;}
