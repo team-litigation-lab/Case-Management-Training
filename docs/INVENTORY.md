@@ -256,7 +256,7 @@ None.
 | `vm-answer-keys.cjs` | voicemail answer keys grade a correct answer right: the number as heard, a "no" not taken for a "yes", audit kinds |
 | `worker-guards.cjs` | Worker guards (a renewal stays on the trainee's own record, a trainee's review is the auto-review, certificates are their own, a bad body is a 400) |
 
-## Browser checks (92)
+## Browser checks (93)
 
 | Check | What it covers |
 |---|---|
@@ -336,6 +336,7 @@ None.
 | `score-roster.cjs` | Every score table lists the same trainees (approved, not archived, not merged away), the duplicate marker pairs only same-batch accounts, a pending merge isn't "locked", and the Backup Drive is the Worker's nightly grade the day score counts |
 | `score-sources.cjs` | Each score is read where it is written: the nightly Drive grade, the AI Grader's Skill Activities and the Action Plan show with the same numbers (the takeaway, not scored, nowhere) on the Score Card, the trainee's feedback, 🏅 Scores and the trainee's own card; Random tasks are gone |
 | `scorecard-card.cjs` | The Scorecard as the trainee card (the 100-point model, its day multipliers, pass at 80% with the safety gate; the trainee's own card, one trainee's card at a time for the trainer, picked in the hero, the CSV) |
+| `scorecard-new-trainees.cjs` | 🏅 Scorecards picks up every new trainee and every new batch by itself: each approved trainee once, in their batch, while the page is open, whatever else is in the store |
 | `scorecard-one-page.cjs` | The 🏅 Scorecard is one page in two parts: one 🏅 Scores table (all five days, one Overall from cmScorecard, the Lessons, Knowledge Checks and Recent progress folded into its cells) and each trainee's card with their feedback on practical activities per day; ⬇ Download starts with that table |
 | `scoring-rubric.cjs` | 📐 The Feedback Rubric, the CMS Case File grade, graded transcription and every simulator on the scorecard (the composer's rubric counts once sent; the Scorecard's ⬇ Download carries every system) |
 | `send-progress.cjs` | 📤 Send progress: the trainer sends a trainee their progress with a note from the 🏅 Scorecard card (or the 📤 on their row), the trainee finds it new in 📒 My Progress Log and opens it, and the trainer's card then reads "Read <date>" |

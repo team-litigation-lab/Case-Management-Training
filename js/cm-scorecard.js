@@ -805,7 +805,11 @@ async function loadAll(){
     try{
       const keys = await inTime(sharedList("trainee:"), LOAD_MS, "list"), got = keys.length ? await inTime(sharedGetMany(keys), LOAD_MS, "records") : [];
       const recs = (got || []).filter(Boolean);
-      if(keys.length && recs.length === keys.length){ people = recs; state.adminData = recs; }
+      // a complete read: every 100-key request answered (a failed one answers null for each of its keys). A key the list
+      // names with no record behind it is not a failed read: KV's list runs up to a minute behind a delete (a merged account
+      // removed), so it is left out, and a trainee who registered meanwhile is still taken in.
+      const answered = Array.isArray(got) && got.length === keys.length && keys.every((k, i) => i % 100 || got.slice(i, i + 100).some(v => v != null));
+      if(keys.length && answered){ people = recs; state.adminData = recs; }
       else if(!bg && !keys.length && !(state.adminData || []).length) people = [];   // nobody yet
       else people = bg ? null : (recs.length ? recs : state.adminData);
     }catch(e){ people = bg ? null : state.adminData; }
